@@ -1,0 +1,43 @@
+site_name: Sepsis Tutorials
+site_description: Tutorials for analysing bacterial omics data
+site_author: Torsten Seemann, Anna Syme
+site_favicon: favicon.ico
+#theme: bootstrap
+pages:
+- Home: index.md
+- Genomics:
+    - The Data: dna/data.md
+    - Quality Control: dna/qc.md
+    - De novo assembly: 
+        - Spades: dna/denovo/spades.md
+        - Megahit: dna/denovo/megahit.md
+        - Velvet: dna/denovo/velvet.md
+        - VelvetOptimiser: dna/denovo/vopt.md
+        - Galaxy: dna/denovo/galaxy.md
+    - Annotation:
+        - Prokka: dna/anno/prokka.md
+        - RAST: dna/anno/rast.md
+        - GENIX: dna/anno/genix.md
+    - Variant finding:
+        - Snippy: dna/snps/snippy.md
+        - Galaxy: dna/snps/galaxy.md
+    - Pan genome:
+        - Roary: dna/pan/roary.md
+        - OrthoMCL: dna/pan/orthomcl.md
+- Transcriptomics:
+    - The Data: rna/data.md
+    - Quality Control: rna/qc.md
+    - De novo assembly:
+        - Oases: rna/denovo/oases.md
+        - Trinity: rna/denovo/trinity.md
+        - StringTie: rna/denovo/stringtie.md
+    - Differential gene expression:
+        - Galaxy: rna/dge/galaxy.md
+        - Degust: rna/dge/degust.md
+- Proteomics:
+    - The Data: pro/data.md
+    - Quality Control: pro/qc.md
+- Metabolomics:
+    - The Data: met/data.md
+    - Quality Control: met/qc.md
+- About: about.md
