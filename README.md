@@ -33,8 +33,7 @@ index.md about.md     # some pages
 dna/ prot/ rna/ met/  # some folders with more pages
 media/                # folder for images
 ```
-
-### To add a new page, say a page on the 'Minia' genome assembler, find the right location and create a page. 
+To add a new page, say a page on the 'Minia' genome assembler, find the right location and create a page. 
 In this case it would be `docs/dna/denovo/minia.md`. Write the tutorial in that file, and then add the file to the 
 master document `mkdocs.yml` in the correct section.
 
