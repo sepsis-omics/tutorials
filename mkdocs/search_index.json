@@ -2,33 +2,303 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "text": "Welcome!\n\n\n\n\nIntroduction\n\n\nThis site contains tutorials for analysing bacterial \"omics\" data.\n\n\nData sources\n\n\n\n\nGenomics\n\n\nTranscriptomics\n\n\nProteomics\n\n\nMetabolomics\n\n\n\n\nAnalysis platforms\n\n\n\n\nUnix command line\n\n\nGalaxy workflow system\n\n\n\n\nPlatform\n\n\n\n\nMicrobial Genomics Virtual Lab", 
             "title": "Home"
         }, 
         {
-            "location": "/#welcome-to-mkdocs", 
-            "text": "For full documentation visit  mkdocs.org .", 
-            "title": "Welcome to MkDocs"
+            "location": "/#welcome", 
+            "text": "", 
+            "title": "Welcome!"
         }, 
         {
-            "location": "/#commands", 
-            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
-            "title": "Commands"
+            "location": "/#introduction", 
+            "text": "This site contains tutorials for analysing bacterial \"omics\" data.", 
+            "title": "Introduction"
         }, 
         {
-            "location": "/#project-layout", 
-            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
-            "title": "Project layout"
+            "location": "/#data-sources", 
+            "text": "Genomics  Transcriptomics  Proteomics  Metabolomics", 
+            "title": "Data sources"
+        }, 
+        {
+            "location": "/#analysis-platforms", 
+            "text": "Unix command line  Galaxy workflow system", 
+            "title": "Analysis platforms"
+        }, 
+        {
+            "location": "/#platform", 
+            "text": "Microbial Genomics Virtual Lab", 
+            "title": "Platform"
+        }, 
+        {
+            "location": "/dna/data/", 
+            "text": "Genomics Data\n\n\nDNA-Seq\n\n\nFASTQ", 
+            "title": "The Data"
+        }, 
+        {
+            "location": "/dna/data/#genomics-data", 
+            "text": "DNA-Seq  FASTQ", 
+            "title": "Genomics Data"
+        }, 
+        {
+            "location": "/dna/qc/", 
+            "text": "Genomics QC\n\n\nPhred\n\n\nAdapters\n\n\nTrimming\n\n\nClipping\n\n\nDepth", 
+            "title": "Quality Control"
+        }, 
+        {
+            "location": "/dna/qc/#genomics-qc", 
+            "text": "Phred  Adapters  Trimming  Clipping  Depth", 
+            "title": "Genomics QC"
+        }, 
+        {
+            "location": "/dna/denovo/spades/", 
+            "text": "Spades\n\n\ncmdline", 
+            "title": "Spades"
+        }, 
+        {
+            "location": "/dna/denovo/spades/#spades", 
+            "text": "cmdline", 
+            "title": "Spades"
+        }, 
+        {
+            "location": "/dna/denovo/megahit/", 
+            "text": "Megahit\n\n\ncmdline", 
+            "title": "Megahit"
+        }, 
+        {
+            "location": "/dna/denovo/megahit/#megahit", 
+            "text": "cmdline", 
+            "title": "Megahit"
+        }, 
+        {
+            "location": "/dna/denovo/velvet/", 
+            "text": "Velvet\n\n\ncmdline", 
+            "title": "Velvet"
+        }, 
+        {
+            "location": "/dna/denovo/velvet/#velvet", 
+            "text": "cmdline", 
+            "title": "Velvet"
+        }, 
+        {
+            "location": "/dna/denovo/vopt/", 
+            "text": "Velvet\n\n\ncmdline", 
+            "title": "VelvetOptimiser"
+        }, 
+        {
+            "location": "/dna/denovo/vopt/#velvet", 
+            "text": "cmdline", 
+            "title": "Velvet"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy/", 
+            "text": "Galaxy\n\n\nspades i guess?", 
+            "title": "Galaxy"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy/#galaxy", 
+            "text": "spades i guess?", 
+            "title": "Galaxy"
+        }, 
+        {
+            "location": "/dna/anno/prokka/", 
+            "text": "Prokka\n\n\nCmdline and galaxy", 
+            "title": "Prokka"
+        }, 
+        {
+            "location": "/dna/anno/prokka/#prokka", 
+            "text": "Cmdline and galaxy", 
+            "title": "Prokka"
+        }, 
+        {
+            "location": "/dna/anno/rast/", 
+            "text": "RAST\n\n\nwebsite", 
+            "title": "RAST"
+        }, 
+        {
+            "location": "/dna/anno/rast/#rast", 
+            "text": "website", 
+            "title": "RAST"
+        }, 
+        {
+            "location": "/dna/anno/genix/", 
+            "text": "GENIX\n\n\nthis is a new website not galaxy", 
+            "title": "GENIX"
+        }, 
+        {
+            "location": "/dna/anno/genix/#genix", 
+            "text": "this is a new website not galaxy", 
+            "title": "GENIX"
+        }, 
+        {
+            "location": "/dna/snps/snippy/", 
+            "text": "Snippy\n\n\ncmdline", 
+            "title": "Snippy"
+        }, 
+        {
+            "location": "/dna/snps/snippy/#snippy", 
+            "text": "cmdline", 
+            "title": "Snippy"
+        }, 
+        {
+            "location": "/dna/snps/galaxy/", 
+            "text": "Galaxy\n\n\nneed to make a workflow \nBWA\nsamtools or varscan\nvcf filter?", 
+            "title": "Galaxy"
+        }, 
+        {
+            "location": "/dna/snps/galaxy/#galaxy", 
+            "text": "need to make a workflow \nBWA\nsamtools or varscan\nvcf filter?", 
+            "title": "Galaxy"
+        }, 
+        {
+            "location": "/dna/pan/roary/", 
+            "text": "Roary\n\n\ncmdline", 
+            "title": "Roary"
+        }, 
+        {
+            "location": "/dna/pan/roary/#roary", 
+            "text": "cmdline", 
+            "title": "Roary"
+        }, 
+        {
+            "location": "/dna/pan/orthomcl/", 
+            "text": "OrthoMCL\n\n\ncmdline - probably not worth bothering", 
+            "title": "OrthoMCL"
+        }, 
+        {
+            "location": "/dna/pan/orthomcl/#orthomcl", 
+            "text": "cmdline - probably not worth bothering", 
+            "title": "OrthoMCL"
+        }, 
+        {
+            "location": "/rna/data/", 
+            "text": "Transcriptomics Data\n\n\nRNA-Seq\n\n\nFASTQ", 
+            "title": "The Data"
+        }, 
+        {
+            "location": "/rna/data/#transcriptomics-data", 
+            "text": "RNA-Seq  FASTQ", 
+            "title": "Transcriptomics Data"
+        }, 
+        {
+            "location": "/rna/qc/", 
+            "text": "Transcriptomics QC\n\n\nAlign to ref?\nrRNA levels", 
+            "title": "Quality Control"
+        }, 
+        {
+            "location": "/rna/qc/#transcriptomics-qc", 
+            "text": "Align to ref?\nrRNA levels", 
+            "title": "Transcriptomics QC"
+        }, 
+        {
+            "location": "/rna/denovo/oases/", 
+            "text": "Oases\n\n\ncmdline\nmight be in galaxy?", 
+            "title": "Oases"
+        }, 
+        {
+            "location": "/rna/denovo/oases/#oases", 
+            "text": "cmdline\nmight be in galaxy?", 
+            "title": "Oases"
+        }, 
+        {
+            "location": "/rna/denovo/trinity/", 
+            "text": "Trinity\n\n\non cmdline\n\n\nIn Galaxy too?", 
+            "title": "Trinity"
+        }, 
+        {
+            "location": "/rna/denovo/trinity/#trinity", 
+            "text": "on cmdline  In Galaxy too?", 
+            "title": "Trinity"
+        }, 
+        {
+            "location": "/rna/denovo/stringtie/", 
+            "text": "StringTie\n\n\ncmd line", 
+            "title": "StringTie"
+        }, 
+        {
+            "location": "/rna/denovo/stringtie/#stringtie", 
+            "text": "cmd line", 
+            "title": "StringTie"
+        }, 
+        {
+            "location": "/rna/dge/galaxy/", 
+            "text": "DGE using Galaxy\n\n\nNo idea - i think there are some workflows but we dont need Cufflinks etc", 
+            "title": "Galaxy"
+        }, 
+        {
+            "location": "/rna/dge/galaxy/#dge-using-galaxy", 
+            "text": "No idea - i think there are some workflows but we dont need Cufflinks etc", 
+            "title": "DGE using Galaxy"
+        }, 
+        {
+            "location": "/rna/dge/degust/", 
+            "text": "Degust\n\n\nfor viz of DGE results", 
+            "title": "Degust"
+        }, 
+        {
+            "location": "/rna/dge/degust/#degust", 
+            "text": "for viz of DGE results", 
+            "title": "Degust"
+        }, 
+        {
+            "location": "/pro/data/", 
+            "text": "Proteomics Data\n\n\nNo idea!", 
+            "title": "The Data"
+        }, 
+        {
+            "location": "/pro/data/#proteomics-data", 
+            "text": "No idea!", 
+            "title": "Proteomics Data"
+        }, 
+        {
+            "location": "/pro/qc/", 
+            "text": "Proteomics QC\n\n\nNeed a good protein reference FASTA to match against.\n\n\nQuantitative?", 
+            "title": "Quality Control"
+        }, 
+        {
+            "location": "/pro/qc/#proteomics-qc", 
+            "text": "Need a good protein reference FASTA to match against.  Quantitative?", 
+            "title": "Proteomics QC"
+        }, 
+        {
+            "location": "/met/data/", 
+            "text": "Metabolomics Data\n\n\nEven less idea!", 
+            "title": "The Data"
+        }, 
+        {
+            "location": "/met/data/#metabolomics-data", 
+            "text": "Even less idea!", 
+            "title": "Metabolomics Data"
+        }, 
+        {
+            "location": "/met/qc/", 
+            "text": "Metabolomics QC", 
+            "title": "Quality Control"
+        }, 
+        {
+            "location": "/met/qc/#metabolomics-qc", 
+            "text": "", 
+            "title": "Metabolomics QC"
         }, 
         {
             "location": "/about/", 
-            "text": "About\n\n\nSepsis is ....", 
+            "text": "About\n\n\nThis site contains tutorials for using the \n\nMicrobial Genomics Virtual Lab\n to perform bioinformatics\ntasks on bacterial \"omics\" data, either on the Unix command line or using\nthe \nGalaxy\n system.\n\n\nAuthors\n\n\n\n\nAnna Syme\n\n\nTorsten Seemann\n\n\nMadison Flannery\n\n\nSimon Gladman\n\n\n\n\nFunding\n\n\n\n\nBioplatforms Australia\n\n\nResearch Data Services\n\n\nNectar", 
             "title": "About"
         }, 
         {
             "location": "/about/#about", 
-            "text": "Sepsis is ....", 
+            "text": "This site contains tutorials for using the  Microbial Genomics Virtual Lab  to perform bioinformatics\ntasks on bacterial \"omics\" data, either on the Unix command line or using\nthe  Galaxy  system.", 
             "title": "About"
+        }, 
+        {
+            "location": "/about/#authors", 
+            "text": "Anna Syme  Torsten Seemann  Madison Flannery  Simon Gladman", 
+            "title": "Authors"
+        }, 
+        {
+            "location": "/about/#funding", 
+            "text": "Bioplatforms Australia  Research Data Services  Nectar", 
+            "title": "Funding"
         }
     ]
 }
