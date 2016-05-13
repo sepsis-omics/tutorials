@@ -8,11 +8,12 @@ pages:
 - Genomics:
     - The Data: dna/data.md
     - Quality Control: dna/qc.md
-    - De novo assembly: 
+    - De novo assembly:
         - Spades: dna/denovo/spades.md
         - Megahit: dna/denovo/megahit.md
         - Velvet: dna/denovo/velvet.md
         - VelvetOptimiser: dna/denovo/vopt.md
+        - PacBio SMRT portal: dna/denovo/pacbio.md
         - Galaxy: dna/denovo/galaxy.md
     - Annotation:
         - Prokka: dna/anno/prokka.md
