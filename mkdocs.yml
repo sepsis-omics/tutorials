@@ -20,6 +20,7 @@ pages:
         - RAST: dna/anno/rast.md
         - GENIX: dna/anno/genix.md
         - EuGene: dna/anno/eugene.md
+        - MEGAnnotator: dna/anno/megannotator.md
     - Variant finding:
         - Snippy: dna/snps/snippy.md
         - Galaxy: dna/snps/galaxy.md
