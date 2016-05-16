@@ -14,7 +14,7 @@ pages:
         - Velvet: dna/denovo/velvet.md
         - VelvetOptimiser: dna/denovo/vopt.md
         - PacBio SMRT portal: dna/denovo/pacbio.md
-        - Galaxy: dna/denovo/galaxy.md
+        - Galaxy-Spades: dna/denovo/galaxy-spades.md
     - Annotation:
         - Prokka: dna/anno/prokka.md
         - RAST: dna/anno/rast.md
