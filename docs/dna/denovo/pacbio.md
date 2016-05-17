@@ -16,19 +16,20 @@ info: https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Large-G
 - mGVL
 - Galaxy
 
-- FIXME: add screenshots
-
 ## Start
 - Open your GVL dashboard.
-- Go to Admin. There is a list of packages. Find SMRT Analysis. On the right, click on "Install".  (Note: you will need 16 cores in your GVL).
+
+- Go to Admin. There is a list of packages. Find SMRT Analysis. On the right, click on "Install". (Note: you will need 16 cores in your GVL: FIXME: so will people be able to do this? Is this the plan?).
+
 - You should see SMRT Portal as one of the instance services on your GVL dashboard.
+
 - Open up the SMRT portal web link (to the right) and register/log on.
 
 ## Input data
 
-- Sepsis Data: e.g. https://downloads-qcif.bioplatforms.com/bpa/sepsis/pacbio/
+- Choose your data. (FIXME: e.g. on GenomeSpace?)
 
-- Get the data you want to use onto your mGVL. (FIXME: explain how?/ direct how to find some pacbio data for this tutorial)
+- Get the data you want to use onto your mGVL. (FIXME: explain how?)
 
 - In the SMRT Portal, go to **Design Job**, the top left tab.
 
@@ -68,15 +69,19 @@ info: https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Large-G
 
 - FIXME: how long will it take for this example data.
 
+- FIXME: are any reports important to look at /check during the run.
+
+- [information about report files and what they mean - FIXME: maybe expand on this](http://files.pacb.com/software/smrtanalysis/2.3.0/doc/smrtportal/help/Webhelp/SMRT_Portal.htm)
+
 ## Outputs
 
-- The current running jobs will be under the **Monitor Jobs** tab.
+- The current running jobs will be under the **Monitor Jobs** tab. Click on the job to see the reports and data.
 
 - The finished jobs will be under the **View Data** tab.
 
 - FIXME: which reports are important to look at.
 
-- FIXME: what are the files under **Data** for - further analyses later?
+- FIXME: what are the files under **Data** for - further analyses later? where would these be saved if we want to use later.
 
 - When the assembly finishes, look at the **View Data** tab for all the reports and ?data.
 
