@@ -30,7 +30,7 @@ info: https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Large-G
 
 - Get the data you want to use onto your mGVL. (FIXME: explain how?/ direct how to find some pacbio data for this tutorial)
 
-- - In the SMRT Portal, go to **Design Job**, the top left tab.
+- In the SMRT Portal, go to **Design Job**, the top left tab.
 
 - Go to **Import and Manage: Import SMRT cells: SMRT Cells**. Work out where you put the data on your GVL, and make sure the file path is showing. If not, click **Add** and list the file path to the data.
 
@@ -48,11 +48,15 @@ info: https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Large-G
 
 - Under **Protocols** choose **RS_HGAP_Assembly.3**.
 
-![smrt portal screenshot](https://github.com/sepsis-omics/tutorials/tree/aster/docs/media/screenshots/smrt1.png)
+![smrt portal screenshot](/media/screenshots/smrt1.png)
 
 - There is an ellipsis underneath **Protocols** - click on the ellipsis. This brings up the settings. Leave everything as is, except for: Click on **Assembly**. Change the **Genome Size** to an approximately correct size for the sample. Click **Ok**.  
 
-- In the **SMRT Cells Available** window, select files to be used. FIXME: what files. Click on the arrow to transfer these files to the **SMRT Celles in Job** window.
+![smrt portal screenshot](/media/screenshots/smrt2.png)
+
+- In the **SMRT Cells Available** window, select the file to be used. Click on the arrow to transfer these files to the **SMRT Celles in Job** window.
+
+![smrt portal screenshot](/media/screenshots/smrt3.png)
 
 - Click **Save**.
 
@@ -60,9 +64,15 @@ info: https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Large-G
 
 - The **Monitor Jobs** window should open. As each step proceeds, new items will appear under the **Reports** and **Data** tabs on the left.
 
+![smrt portal screenshot](/media/screenshots/smrt4.png)
+
 - FIXME: how long will it take for this example data.
 
 ## Outputs
+
+- The current running jobs will be under the **Monitor Jobs** tab.
+
+- The finished jobs will be under the **View Data** tab.
 
 - FIXME: which reports are important to look at.
 
