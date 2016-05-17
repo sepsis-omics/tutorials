@@ -16,28 +16,27 @@ info: https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Large-G
 - mGVL
 - Galaxy
 
+- FIXME: add screenshots
+
 ## Start
 - Open your GVL dashboard.
 - Go to Admin. There is a list of packages. Find SMRT Analysis. On the right, click on "Install".  (Note: you will need 16 cores in your GVL).
 - You should see SMRT Portal as one of the instance services on your GVL dashboard.
-- Open up the SMRT portal web link (to the right) and register/log on (FIXME: won't send email - can't register)
+- Open up the SMRT portal web link (to the right) and register/log on.
 
 ## Input data
 
 - Sepsis Data: e.g. https://downloads-qcif.bioplatforms.com/bpa/sepsis/pacbio/
 
-- FIXME: work this out:
-e.g. one sample, will be split into three h5 files?
-for each sample: need the 1 bas file? and the 1 xml; but not the subreads
+- Get the data you want to use onto your mGVL. (FIXME: explain how?/ direct how to find some pacbio data for this tutorial)
 
-- FIXME: put these onto the sepsis GVL and/or somewhere for use in tutorial
-
-## Run
-- FIXME: add screenshots
-
-- In the SMRT Portal, go to **Design Job**.
+- - In the SMRT Portal, go to **Design Job**, the top left tab.
 
 - Go to **Import and Manage: Import SMRT cells: SMRT Cells**. Work out where you put the data on your GVL, and make sure the file path is showing. If not, click **Add** and list the file path to the data.
+
+- Click on the file path and then **Scan** to check for new data.
+
+## Run
 
 - Go back to the top tab **Design Job**.
 
@@ -48,6 +47,8 @@ for each sample: need the 1 bas file? and the 1 xml; but not the subreads
 - Under **Job Name** enter a name.
 
 - Under **Protocols** choose **RS_HGAP_Assembly.3**.
+
+![smrt portal screenshot](https://github.com/sepsis-omics/tutorials/tree/aster/docs/media/screenshots/smrt1.png)
 
 - There is an ellipsis underneath **Protocols** - click on the ellipsis. This brings up the settings. Leave everything as is, except for: Click on **Assembly**. Change the **Genome Size** to an approximately correct size for the sample. Click **Ok**.  
 
