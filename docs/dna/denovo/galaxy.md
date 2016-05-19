@@ -1,3 +1,0 @@
-# Galaxy
-
-spades i guess?

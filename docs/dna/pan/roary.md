@@ -24,7 +24,7 @@ This tutorial demonstrates how to calculate the pan and core genomes of a set of
 
 - Roary takes .gff files produced by Prokka. A gff file has sequences and annotations.
 
-- FIXME: are gff3 files the same? do they always have the 3 on the end?
+[file formats](../dna/anno/prokka) FIXME: link to proper page
 
 - Get files into mGVL. (FIXME: explain how, wget etc or from GenomeSpace)
 
@@ -36,7 +36,9 @@ This tutorial demonstrates how to calculate the pan and core genomes of a set of
 
 - navigate into the place where the gff folder is.
 
-- ````roary -f ./results ./gff_files/*.gff````
+```bash
+roary -f ./results ./gff_files/*.gff
+```
 
 - "-f ./results" puts the output into a directory called results
 
@@ -56,7 +58,9 @@ This tutorial demonstrates how to calculate the pan and core genomes of a set of
 
 ### summary statistics:
 
-- ````more summary_statistics.txt````
+```
+more summary_statistics.txt
+```
 
 - you will see the number of core genes, shell genes, etc.
 
@@ -64,9 +68,9 @@ This tutorial demonstrates how to calculate the pan and core genomes of a set of
 
 ### gene presence/absence graphically:
 
--````roary2svg.pl gene_presence_absence.csv > pan_genome.svg````
+- ````roary2svg.pl gene_presence_absence.csv > pan_genome.svg````
 
-(if you have logged in with -X -Y)
+- (if you have logged in with -X -Y)
 
 - ````firefox pan_genome.svg &````
 
@@ -102,8 +106,6 @@ This tutorial demonstrates how to calculate the pan and core genomes of a set of
 
 ## Advanced options
 
-FIXME: install roary_plots.py on mGVL
-
 FIXME: update firefox on mGVL so can run phandango
 
 ### Run roary and create an alignment of core genes:
@@ -120,7 +122,9 @@ FIXME: update firefox on mGVL so can run phandango
 
 - navigate into the results folder that you want to use.
 
-- ````FastTree -nt -gtr core_gene_alignment.aln > my_tree.newick````
+```
+FastTree -nt -gtr core_gene_alignment.aln > my_tree.newick
+```
 
 - (By default, roary will also have created a (very quick) tree from the accessory genes.)
 
@@ -130,11 +134,13 @@ FIXME: update firefox on mGVL so can run phandango
 
 - navigate into the results folder that you want to use.
 
-- ````python roary_plots.py core_gene_alignment.nwk gene_presence_absence.csv````
+```
+python roary_plots.py core_gene_alignment.nwk gene_presence_absence.csv
+```
 
 - output: pangenome matrix, frequency plot, pie chart.
 
-- look at the these (FIXME: how)
+- view these by typing `firefox [filename]` and a firefox window will open to show the image. You need to close the window before you open the next image.
 
 ### View using Phandango:
 
