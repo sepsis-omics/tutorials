@@ -25,7 +25,7 @@ Bacterial DNA sequences:
 
 Get data files into Galaxy:
 
-1. In the history pane, click on the **History Options** button at the top right corner.
+1.  In the history pane, click on the **History Options** button at the top right corner.
 
 2. A list appears: at the bottom of the list, click on **Import from File**.
 
