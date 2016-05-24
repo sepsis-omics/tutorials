@@ -115,7 +115,7 @@ The k values need to be odd numbers, and shorter than the read lengths.  A good 
 
 <details> <summary>
 What can I do with my assembled genome?</summary>
-This tutorial used a subset of a real dataset, so is not a complete genome (is it?). You could re-try it with short reads from a whole genome, at NCBI SRA. You can [annotate](../annotation_viz/annotation_viz.md) (describe) the genomic features such as genes or [compare](../mauve/mauve.md) it to other genomes to see variation in structure.  </details>
+This tutorial used a subset of a real dataset, so is not a complete genome (is it?). You could re-try it with short reads from a whole genome, at NCBI SRA. You can [annotate] (describe) the genomic features such as genes or [compare] it to other genomes to see variation in structure.  </details>
 
 ## More information
 

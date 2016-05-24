@@ -43,8 +43,8 @@ gunzip ftp://ftp.ensemblgenomes.org/pub/bacteria/release-31/fasta/bacteria_104_c
 - The file will now end in .fa (which is fasta format, and Snippy can use).
 
 ## How it works
-- Reads are mapped to the reference genome using BWA
-- this makes a BAM file, sent to Freebayes
+- Reads are mapped to the reference genome using BWA: this makes a BAM file
+- BAM file and the ref genome sequence sent to Freebayes
 - Freebayes finds differences between the reads and the reference, and calls the variants.
 
 ## Run Snippy
@@ -71,17 +71,7 @@ head -10 mysnps/snps.tab
 - FIXME: screenshot with arrows
 - FIXME: filter for quality?
 - FIXME: load reference and the tabular vcf file into JBrowse/Artemis/IGV to view the genome and the snps.
-- FIXME: is there anything we are looking for in particular? e.g. number of variants, existing known variants, variants in particular genes, AMR variants? 
+- FIXME: is there anything we are looking for in particular? e.g. number of variants, existing known variants, variants in particular genes, AMR variants?
 
-## Advanced options
-- FIXME: add more
-- See if there are any unmapped reads
-- See what they are (e.g. a plasmid)
-```bash
-snippy --outdir out --unmapped  etc
-```
-- then how to view the output fastq.gz
 
 ## Next
-
-- ?

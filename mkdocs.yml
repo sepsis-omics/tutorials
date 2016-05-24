@@ -9,7 +9,9 @@ pages:
 - Home: index.md
 - Genomics:
     - The Data: dna/data.md
-    - Quality Control: dna/qc.md
+    - Quality Control:
+        - Overview: dna/qualitycontrol/qc.md
+        - FastQC: dna/qualitycontrol/fastqc.md
     - De novo assembly:
         - Spades: dna/denovo/spades.md
         - Megahit: dna/denovo/megahit.md
