@@ -1,23 +1,20 @@
 # PacBio SMRT Portal
 
-**Bacterial de novo assembly with PacBio data**
+This tutorial will show you how to assemble a bacterial genome de novo, using the PacBio SMRT Portal.
 
-PacBio is a company that uses a technology called single molecule real time (SMRT) sequencing. This produces very long sequencing reads. These raw sequencing reads can be assembled into genomes by using the software in the PacBio SMRT Portal.
+[Link to PacBio analysis software](http://www.pacb.com/products-and-services/analytical-software/smrt-analysis/)
 
-[PacBio link](http://www.pacb.com/products-and-services/analytical-software/smrt-analysis/)
-
-## Background:
-- de novo assembly
-- mGVL
-- Galaxy
+## Pre-requisites
+- mGVL instance with 16 cores (FIXME: will people have this - if not, note how they can request it)
+- knowledge: de novo assembly
 
 ## Start
-- Open your GVL dashboard.
-- Go to Admin. There is a list of packages. Find SMRT Analysis. On the right, click on <ss>Instal<ss>. (Note: you will need 16 cores in your GVL: FIXME: so will people be able to do this? Is this the plan?).
+- Open your mGVL dashboard.
+- Go to Admin. There is a list of packages. Find SMRT Analysis. On the right, click on <ss>Install</ss>.
 - You should see SMRT Portal as one of the instance services on your GVL dashboard.
 - Open up the SMRT portal web link (to the right) and register/log on.
 
-## Input data
+## Input
 - Choose your data. (FIXME: e.g. on GenomeSpace?)
 - Get the data you want to use onto your mGVL. (FIXME: explain how?)
 - In the SMRT Portal, go to <ss>Design Job</ss>, the top left tab.
@@ -30,23 +27,38 @@ PacBio is a company that uses a technology called single molecule real time (SMR
 - An <ss>Analysis</ss> window should appear. Check the box next to <ss>De novo assembly</ss>, then <ss>Next</ss>.
 - Under <ss>Job Name</ss> enter a name.
 - Under <ss>Protocols</ss> choose <ss>RS_HGAP_Assembly.3</ss>.
+
 ![smrt portal screenshot](/media/screenshots/smrt1.png)
+
 - There is an ellipsis underneath <ss>Protocols</ss> - click on the ellipsis. This brings up the settings. Leave everything as is, except for: Click on <ss>Assembly</ss>. Change the <ss>Genome Size</ss> to an approximately correct size for the sample. Click <ss>Ok</ss>.  
+
 ![smrt portal screenshot](/media/screenshots/smrt2.png)
+
 - In the <ss>SMRT Cells Available</ss> window, select the file to be used. Click on the arrow to transfer these files to the SMRT Celles in Job** window.
+
 ![smrt portal screenshot](/media/screenshots/smrt3.png)
+
 - Click <ss>Save</ss>.
 - Next to <ss>Save</ss>, click <ss>Start</ss>.
-- The <ss>Monitor Jobs</ss> window should open. As each step proceeds, new items will appear under the <ss>Reports</ss> and <ss>Data</ss> tabs on the left.
-![smrt portal screenshot](/media/screenshots/smrt4.png)
-- FIXME: how long will it take for this example data.
-- FIXME: are any reports important to look at /check during the run.
-- [information about report files and what they mean - FIXME: maybe expand on this](http://files.pacb.com/software/smrtanalysis/2.3.0/doc/smrtportal/help/Webhelp/SMRT_Portal.htm)
+- The <ss>Monitor Jobs</ss> window should open. As each step proceeds, new items will appear under the <ss>Reports</ss> and <ss>Data</ss> tabs on the left. Click on each of these items to see the details and graphs available, which will appear in the main pane. The default display in the main pane is "Overview".
 
-## Outputs
+![smrt portal screenshot](/media/screenshots/smrt4.png)
+
+- FIXME: how long will it take for this example data.
+- Filtering: Short and poor-quality reads are removed, based on input settings.
+
+
+## Output
 - The current running jobs will be under the <ss>Monitor Jobs</ss> tab. Click on the job to see the reports and data.
 - The finished jobs will be under the <ss>View Data</ss> tab.
-- FIXME: which reports are important to look at.
+- [A full ist of reports and terminology is here](http://files.pacb.com/software/smrtanalysis/2.3.0/doc/smrtportal/help/Webhelp/SMRT_Portal.htm)
+- <ss>Reports: General: Filtering</ss>: look at the table showing the pre-filter and post-filter information.
+
+![smrt portal screenshot](/media/screenshots/smrt5.png)
+
+
+
+
 - FIXME: what are the files under <ss>Data</ss> for - further analyses later? where would these be saved if we want to use later.
 - When the assembly finishes, look at the <ss>View Data</ss> tab for all the reports and ?data.
 
