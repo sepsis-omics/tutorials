@@ -49,4 +49,5 @@ pages:
 - Metabolomics:
     - The Data: met/data.md
     - Quality Control: met/qc.md
+- Visualization: viz.md
 - About: about.md
