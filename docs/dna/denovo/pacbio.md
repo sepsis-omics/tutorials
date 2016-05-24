@@ -14,6 +14,15 @@ This tutorial will show you how to assemble a bacterial genome de novo, using th
 - You should see SMRT Portal as one of the instance services on your GVL dashboard.
 - Open up the SMRT portal web link (to the right) and register/log on.
 
+## How it works
+- RS_HGAP_Assembly.3 Protocol
+- Filters short and poor-quality reads.
+- Large insert (fragment) sizes => single pass long reads (but these have lower quality)
+- and/or small insert (fragment) sizes => cut adapters and assemble subreads => Circular Consensus Sequence (CSS) reads (higher quality)
+- Pre-assembly e.g. with Canu
+- Polishes assembly e.g. with Quiver (joins contigs/scaffolds?)
+- Corrections
+
 ## Input
 - Choose your data. (FIXME: e.g. on GenomeSpace?)
 - Get the data you want to use onto your mGVL. (FIXME: explain how?)
@@ -42,11 +51,9 @@ This tutorial will show you how to assemble a bacterial genome de novo, using th
 - Next to <ss>Save</ss>, click <ss>Start</ss>.
 - The <ss>Monitor Jobs</ss> window should open. As each step proceeds, new items will appear under the <ss>Reports</ss> and <ss>Data</ss> tabs on the left. Click on each of these items to see the details and graphs available, which will appear in the main pane. The default display in the main pane is "Overview".
 
-![smrt portal screenshot](/media/screenshots/smrt4.png)
+![smrt portal screenshot](/media/screenshots/smrt6.png)
 
 - FIXME: how long will it take for this example data.
-- Filtering: Short and poor-quality reads are removed, based on input settings.
-
 
 ## Output
 - The current running jobs will be under the <ss>Monitor Jobs</ss> tab. Click on the job to see the reports and data.
@@ -56,11 +63,15 @@ This tutorial will show you how to assemble a bacterial genome de novo, using th
 
 ![smrt portal screenshot](/media/screenshots/smrt5.png)
 
-
-
+- FIXME: what are other graphs showing / why are there mapping/coverage graphs if a ref genome wasn't supplied?
 
 - FIXME: what are the files under <ss>Data</ss> for - further analyses later? where would these be saved if we want to use later.
-- When the assembly finishes, look at the <ss>View Data</ss> tab for all the reports and ?data.
+
+- BAM and BAI files: view reads aligned to assembly (IGV)
+
+## Next
+
+- Check assembly quality: for example, align to the same species in Mauve.
 
 ## Links to more information:
 - [Finishing bacterial genomes](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Finishing-Bacterial-Genomes)
