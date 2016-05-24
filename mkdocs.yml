@@ -32,6 +32,7 @@ pages:
     - Pan genome:
         - Roary: dna/pan/roary.md
         - OrthoMCL: dna/pan/orthomcl.md
+        - Mauve: dna/pan/mauve.md
 - Transcriptomics:
     - The Data: rna/data.md
     - Quality Control: rna/qc.md
