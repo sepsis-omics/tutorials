@@ -7,6 +7,12 @@ extra_css:
     - css/sepsis.css
 pages:
 - Home: index.md
+- Genomics Workshop:
+    - Intro to Galaxy: workshop/1a/index.md
+    - Intro to Artemis: workshop/1b/index.md
+    - Assembly with Spades: workshop/2a/index.md
+    - Annotation with Prokka: workshop/2b/index.md
+    - Comparative genomics: workshop/3/index.md
 - Genomics:
     - The Data: dna/data.md
     - Quality Control:
