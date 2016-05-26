@@ -1,3 +1,10 @@
+/*
+These style abbreviations are as follows:
+SS = program options
+FN = filename
+
+*/
+
 
 SS {
   font-family: sans-serif;
@@ -8,3 +15,17 @@ SS {
   padding: 0 0.5ex;
   border: dotted 1pt black;
 }
+
+
+
+
+
+FN {
+  font-family: sans-serif;
+  font-weight: bold;
+  color: SlateGrey;
+  background: WhiteSmoke;
+  text-align: center;
+  padding: 0 0.5ex;
+  border: dotted 1pt black;
+  }
