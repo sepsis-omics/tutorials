@@ -25,13 +25,13 @@ Bacterial DNA sequences:
 
 Get data files into Galaxy:
 
-1.  In the history pane, click on the **History Options** button at the top right corner.
+1.  In the history pane, click on the <ss>History Options</ss> button at the top right corner.
 
-2. A list appears: at the bottom of the list, click on **Import from File**.
+2. A list appears: at the bottom of the list, click on <ss>Import from File</ss>.
 
-3. In the centre pane, a text box appears called "Archived History URL:". Into this box, paste the web address of the stored data that we will use. This is: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Galaxy-History-adelaideworkshopstart.tar.gz  (FIXME: rename something simpler and only keep the fastq files) and then click **Submit**. Galaxy will download these files.
+3. In the centre pane, a text box appears called "Archived History URL:". Into this box, paste the web address of the stored data that we will use. This is: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Galaxy-History-adelaideworkshopstart.tar.gz  (FIXME: rename something simpler and only keep the fastq files) and then click <ss>Submit</ss>. Galaxy will download these files.
 
-4. In the history pane, click on the **View all Histories** button at the top right corner. The imported files will be a new history called "imported from archive: adelaide_workshop_start" (rename). Above this, click on the **Switch to** button to make this the current history. Then click **Done** in the top left corner.
+4. In the history pane, click on the <ss>View all Histories</ss> button at the top right corner. The imported files will be a new history called "imported from archive: adelaide_workshop_start" (rename). Above this, click on the <ss>Switch to</ss> button to make this the current history. Then click <ss>Done</ss> in the top left corner.
 
 5. In the history pane, we now have two files: aaaR1.fastq and aaaR2.fastq. (FIXME: to rename)
 
@@ -61,19 +61,19 @@ Get data files into Galaxy:
 
 ## Run Spades
 
-1. In the tools pane, click on **NGS Analysis -> NGS: Assembly -> spades**. Leave all settings as they are except these:
+1. In the tools pane, click on <ss>NGS Analysis -> NGS: Assembly -> spades</ss>. Leave all settings as they are except these:
 
-2. Under **Run only assembly?** click **Yes**.
+2. Under <ss>Run only assembly?</ss> click <ss>Yes</ss>.
 
-3. Under **K-mers to use, separated by commas**: enter in 33,55,91. Don't put any spaces after the commas.
+3. Under <ss>K-mers to use, separated by commas</ss>: enter in 33,55,91. Don't put any spaces after the commas.
 
-4. For **Coverage cutoff**, choose **Auto**.
+4. For <ss>Coverage cutoff**, choose <ss>Auto</ss>.
 
-5. For **Libraries -> Files -> 1:Files -> Select file format -> Forward reads** : R1.fastq.
+5. For <ss>Libraries -> Files -> 1:Files -> Select file format -> Forward reads</ss> : R1.fastq.
 
-6. For **Libraries -> Files -> 1:Files -> Select file format -> Reverse reads** : R2.fastq.
+6. For <ss>Libraries -> Files -> 1:Files -> Select file format -> Reverse reads</ss> : R2.fastq.
 
-7. Click **Execute**.
+7. Click <ss>Execute</ss>.
 
 FIXME: include screenshot
 
@@ -81,27 +81,27 @@ FIXME: include screenshot
 
 There are five output files that will appear in the history pane. Click on the eye icon to view each file. These are the assembled genome sequence, and various statistics/information on how the program ran.
 
-1. **contig stats**: There are x contigs. Look at the variation in length and coverage. A short contig with high coverage could be a result of contamination, a collapsed repeat, or a plasmid.
+1. <fn>contig stats</fn>: There are x contigs. Look at the variation in length and coverage. A short contig with high coverage could be a result of contamination, a collapsed repeat, or a plasmid.
 
-2. **contigs**: Each contig is listed, followed by its sequence in fasta format.
+2. <ss>contigs</ss>: Each contig is listed, followed by its sequence in fasta format.
 
-3. **scaffold stats**: There are x scaffolds.
+3. <ss>scaffold stats</ss>: There are x scaffolds.
 
-4. **scaffolds**: Each scaffold is listed, followed by its sequence in fasta format.
+4. <ss>scaffolds</ss>: Each scaffold is listed, followed by its sequence in fasta format.
 
-5. **log**: The specific actions performed in the analysis.
+5. <ss>log</ss>: The specific actions performed in the analysis.
 
 ## Filter output
 
-1. In the tools pane, click on **NGS Analysis -> NGS: Asssembly -> Filter SPAdes output**. This is a quick way to discard contigs that are too short (e.g., they might be contamination) or contigs that do not have enough coverage (e.g., they might be too unreliable).
+1. In the tools pane, click on <ss>NGS Analysis -> NGS: Asssembly -> Filter SPAdes output</ss>. This is a quick way to discard contigs that are too short (e.g., they might be contamination) or contigs that do not have enough coverage (e.g., they might be too unreliable).
 
-2. Under **Sequences**, choose the contigs fasta file.
+2. Under <ss>Sequences</ss>, choose the contigs fasta file.
 
-3. Under **Contig stats** choose the contigs stats file. Change the cut-off values for length and coverage or leave them as they are.
+3. Under <ss>Contig stats</ss> choose the contigs stats file. Change the cut-off values for length and coverage or leave them as they are.
 
-4. For **Save filtered-out sequences?** click **Yes**.
+4. For <ss>Save filtered-out sequences?</ss> click <ss>Yes</ss>.
 
-5. Click **Execute**. A new fasta file with only the filtered sequences will be saved in the right-side history pane.
+5. Click <ss>Execute</ss>. A new fasta file with only the filtered sequences will be saved in the right-side history pane.
 
 ##Questions
 

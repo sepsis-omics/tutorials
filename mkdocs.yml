@@ -56,4 +56,5 @@ pages:
     - The Data: met/data.md
     - Quality Control: met/qc.md
 - Visualization: viz.md
+- File formats: file_formats.md
 - About: about.md

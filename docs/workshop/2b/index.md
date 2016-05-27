@@ -1,27 +1,34 @@
-# Genome Annotation using Prokka
+# Genome annotation using Prokka
 
 ## Background
 
-In this section we will use a software tool called Prokka to annotate the draft genome sequence produced in Activity 2a. Prokka is a “wrapper”, it collects together several pieces of software (from various authors) - avoids “re-inventing the wheel”.
+In this section we will use a software tool called Prokka to annotate the draft genome sequence produced in Activity 2a. Prokka is a “wrapper”; it collects together several pieces of software (from various authors) - this avoids “re-inventing the wheel”.
 
-Prokka finds and annotates features (both protein coding regions and RNA genes i.e. tRNA, rRNA) present on on a sequence. Note: Prokka uses a two step process for the annotation of protein coding regions, first protein coding regions on the genome are identified using [Prodigal](http://prodigal.ornl.gov/) and the function of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found [here](https://github.com/tseemann/prokka).
+Prokka finds and annotates features (both protein coding regions and RNA genes i.e. tRNA, rRNA) present on on a sequence. Note, Prokka uses a two step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using [Prodigal](http://prodigal.ornl.gov/); second, the function of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found [here](https://github.com/tseemann/prokka).
+
+## Learning objectives
+
+At the end of this tutorial you should be able to :
+
+1. input file into Prokka
+2. change settings
+3. run Prokka, and
+4. examine the output: annotated genome.
 
 ## Run Prokka
 
-- Load the Prokka interface from the tool panel (**NGS: Annotation -> Prokka**)  
+- In Galaxy, load the Prokka interface from the tool panel (**NGS: Annotation -> Prokka**)  
 - Set the following parameters:
+    - **Contigs to annotate:** <fn>Spades contigs</fn>  
+    - **Force GenBank/ENA/DDJB compliance (--compliant): Yes**  
+    - **Genus Name:** *Staphylococcus*  
+    - **Strain Name:** *aureus*  
+    - **Use genus-specific BLAST database: No**  
+    - **Locus tag prefix: P**  
+    - **Sequencing Centre: V**  
+- Click **Execute**  
 
-**Contigs to annotate: SPAdes contigs**  
-**Force GenBank/ENA/DDJB compliance (--compliant): Yes**  
-**Genus Name:** *Staphylococcus*  
-**Strain Name:** *aureus*  
-**Use genus-specific BLAST database: No**  
-**Locus tag prefix: P**  
-**Sequencing Centre: V**  
-
-Click **Execute**  
-
-## Examine the output files
+## Examine the output
 
 Once Prokka has finished, examine each of its output files.
 
@@ -42,3 +49,6 @@ view the sequence in the Artemis genome viewer.
 - Open Artemis and load the downloaded .gff file.
 
 ## Discussion - a closer look at the annotated features
+FIXME: to add
+
+- Open Artemis and load the downloaded .gff file.
