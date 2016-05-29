@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Torsten Seemann, Anna Syme">
+        
+        <link rel="shortcut icon" href="../../../favicon.ico">
+        
+
+	<title>Intro to Galaxy - Sepsis Tutorials</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link href="../../../css/sepsis.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">Sepsis Tutorials</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Workshops <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Comparative Genomics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li class="active">
+    <a href="./">Intro to Galaxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../1b/">Intro to Artemis</a>
+</li>
+
+        
+            
+<li >
+    <a href="../2a/">Assembly with Spades</a>
+</li>
+
+        
+            
+<li >
+    <a href="../2b/">Annotation with Prokka</a>
+</li>
+
+        
+            
+<li >
+    <a href="../3/">Comparative genomics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    <a href="../../snps/">Variant calling</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../trees/">Phylogenetic trees</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../dge/">Differential gene expression</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../data/file_formats/">File formats</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../dna/data/">Genomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../rna/data/">Transcriptomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../pro/data/">Proteomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../met/data/">Metabolomics</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Genomics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Quality Control</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../dna/qualitycontrol/qc/">Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/qualitycontrol/fastqc/">FastQC</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">De novo assembly</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../dna/denovo/spades/">Spades</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/denovo/megahit/">Megahit</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/denovo/velvet/">Velvet</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/denovo/vopt/">VelvetOptimiser</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/denovo/pacbio/">PacBio SMRT portal</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/denovo/galaxy-spades/">Galaxy-Spades</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Annotation</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../dna/anno/prokka/">Prokka</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/anno/rast/">RAST</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/anno/genix/">GENIX</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/anno/eugene/">EuGene</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/anno/megannotator/">MEGAnnotator</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Variant finding</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../dna/snps/snippy/">Snippy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/snps/galaxy/">Galaxy</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Pan genome</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../dna/pan/roary/">Roary</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/pan/orthomcl/">OrthoMCL</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/pan/mauve/">Mauve</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Transcriptomics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../rna/qc/">Quality Control</a>
+</li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">De novo assembly</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../rna/denovo/oases/">Oases</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../rna/denovo/trinity/">Trinity</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../rna/denovo/stringtie/">StringTie</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Proteomics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../pro/data/">The Data</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../pro/qc/">Quality Control</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Metabolomics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../met/data/">The Data</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../met/qc/">Quality Control</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Viz <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../viz/bandage/">Bandage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/jbrowse/">JBrowse</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/phandango/">Phandango</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../../..">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../1b/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#introduction-to-galaxy">Introduction to Galaxy</a></li>
+        
+            <li><a href="#background">Background</a></li>
+        
+            <li><a href="#learning-objectives">Learning Objectives</a></li>
+        
+            <li><a href="#login-to-galaxy">Login to Galaxy</a></li>
+        
+            <li><a href="#put-data-onto-galaxy">Put data onto Galaxy</a></li>
+        
+            <li><a href="#galaxy-tools">Galaxy tools</a></li>
+        
+            <li><a href="#what-now">What now?</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="introduction-to-galaxy">Introduction to Galaxy</h1>
+<h2 id="background">Background</h2>
+<p>Galaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.</p>
+<p>Bioinformatics tools can be added from the Galaxy ‘tool shed’ or removed as necessary from your Galaxy instance.</p>
+<p>Galaxy is an open, web-based platform. Details about the project can be found <a href="https://galaxyproject.org/">here</a>.</p>
+<p>The Galaxy interface is separated into three parts. The <strong>tool</strong> list on the left, the <strong>viewing</strong> panel in the middle and the analysis and data <strong>history</strong> on the right. We will be looking at all three parts in this tutorial.</p>
+<p><img alt="galaxy overview screenshot" src="./images/image05.png" /></p>
+<p>This activity will familiarise you with the Galaxy interface. It will cover the following operations:</p>
+<ul>
+<li>Logging in to the server</li>
+<li>Putting data onto Galaxy</li>
+<li>Using some common tools</li>
+</ul>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>At the end of this tutorial you should be able to:</p>
+<ol>
+<li>Register and login to a Galaxy server.</li>
+<li>Upload data to a Galaxy server from:<ul>
+<li>A file on your local computer.</li>
+<li>A file on a remote datastore with an accessible URL.  </li>
+</ul>
+</li>
+<li>Use tools in Galaxy by:<ul>
+<li>Accessing the tool via the tool menu.</li>
+<li>Using the tool interface to run the particular tool.</li>
+<li>Viewing/accessing the tool output.</li>
+</ul>
+</li>
+</ol>
+<h2 id="login-to-galaxy">Login to Galaxy</h2>
+<ul>
+<li>Open a new tab or window on your web browser.</li>
+<li>Use Firefox or Chrome - Please don’t use Internet Explorer or Safari.</li>
+<li>Type in the following address: 43.240.98.1/galaxy (or your personal mGVL instance / sepsis mGVL)</li>
+</ul>
+<p>&nbsp;</p>
+<p><img alt="Galaxy URL" src="./images/image01.png" /></p>
+<p>&nbsp;</p>
+<p>Register/Login as a user (&ldquo;User&rdquo; button on the right):</p>
+<p>&nbsp;</p>
+<p><img alt="Register or Login screenshot" src="./images/image04.png" /></p>
+<p>&nbsp;</p>
+<p>If you haven&rsquo;t yet registered, <strong>Register:</strong></p>
+<ul>
+<li>Select: <strong>User -&gt; Register</strong></li>
+<li>Enter your email, choose a password, repeat it and add a (all lower case - FIXME:why?) one word name</li>
+<li>Click <strong>Submit</strong></li>
+</ul>
+<p>If you have already registered, <strong>Login:</strong></p>
+<ul>
+<li>Select: <strong>User -&gt; Login</strong></li>
+<li>Enter your username &amp; password</li>
+<li>Click <strong>Submit</strong></li>
+</ul>
+<h2 id="put-data-onto-galaxy">Put data onto Galaxy</h2>
+<p>There are 2 main ways to put your data onto Galaxy, this section will run through both ways. First, we need to make a new history.</p>
+<h3 id="make-a-new-history">Make a new history</h3>
+<p>Note: Make a new folder to store the work we are about to perform</p>
+<ul>
+<li>Click on the history menu button <img alt="history icon" src="./images/image02.png" /> at the top of the History panel.</li>
+<li>Select <strong>Create New</strong></li>
+<li>FIXME: name it?</li>
+</ul>
+<h3 id="datatypes">Datatypes</h3>
+<p>What sort of file is being uploaded?</p>
+<p>We need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, fasta, fastq, vcf, GFF, GenBank, tabular.</p>
+<h3 id="upload-a-file-from-your-own-computer">Upload a file from your own computer</h3>
+<p>With this method you can get most of the files on your own computer into Galaxy.</p>
+<p><strong>Download the following file to your computer</strong></p>
+<ul>
+<li>Copy this URL and paste it into the address bar in your web browser: <a href="https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/galaxy101/Contig_stats.txt.gz">https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/galaxy101/Contig_stats.txt.gz</a><br />
+This is a file stored on the cloud. Press Enter, and the file will download (FIXME: on Mac but others?). Note the download location.
+<img alt="Browser address bar" src="./images/image06.png" /></li>
+</ul>
+<p><strong>Upload the file to Galaxy</strong></p>
+<ul>
+<li>From the Galaxy tool panel, click on <strong>Get Data -&gt; Upload File</strong>  </li>
+<li>Click the <strong>Choose File</strong> button  </li>
+<li>Find and select the <em>Contig_stats.txt.gz</em> file you downloaded and click <strong>Open</strong>  </li>
+<li>Set the &ldquo;file format&rdquo; to <em>tabular</em>  </li>
+<li>Click the <strong>Start</strong> button  </li>
+<li>Once the progress bar reaches 100%, click the <strong>Close</strong> button  </li>
+</ul>
+<p>The file will now upload to your current history.</p>
+<h3 id="upload-a-file-from-a-url">Upload a file from a URL</h3>
+<p>If a file exists on a web resource somewhere and you know its URL (Unique Resource Location - a web address) you can directly load it into Galaxy.</p>
+<ul>
+<li>From the tool panel, click on <strong>Get Data -&gt; Upload File</strong></li>
+<li>Click on the <strong>Paste/Fetch Data</strong> button</li>
+<li>Copy and paste the following web address into the URL/Text box:
+<a href="https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq.gz">https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq.gz</a></li>
+<li>Set the file format to <em>fastqsanger</em> (CAREFUL: not fastq<strong>c</strong>sanger)</li>
+<li>Click <strong>Start</strong></li>
+<li>Once the progress bar has reached 100%, click <strong>Close</strong></li>
+<li>Note that Galaxy is smart enough to recognize that this is a compressed file and so it will uncompress it as it loads it.</li>
+</ul>
+<h3 id="upload-another-file-from-a-url">Upload another file from a URL</h3>
+<p>Now we are going to upload another file from the remote data source.</p>
+<ul>
+<li>Repeat the above for: <a href="https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna">https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna</a></li>
+<li>Note: this file is a <em>fasta</em> file.</li>
+<li>The DNA sequence of <em>Staphylococcus aureus MRSA252</em> will be loaded into your history as a fasta file.</li>
+<li>Your <strong>History</strong> should now look like this:</li>
+</ul>
+<p><img alt="History screenshot" src="./images/image03.png" /></p>
+<h3 id="the-data">The data</h3>
+<p>A brief description of each of the three files uploaded to Galaxy.  </p>
+<p><em>Contigs_stats.txt</em>  </p>
+<ul>
+<li>this file contains a table of summary data from a <em>de novo</em> genome assembly (the process of attempting to recover the full genome of an organism from the short read sequences produced by most DNA sequencing machines).</li>
+<li>The columns contain a lot of information but the ones we will be using indicate the amount of data (or coverage) that went into making up each piece of the final assembly.</li>
+</ul>
+<p><em>bacterial_std_err_1.fastq.gz</em>  </p>
+<ul>
+<li>This file contains sequence reads, in the format produced by Illumina sequencing machines. Read more about the
+<a href="https://en.wikipedia.org/wiki/FASTQ_format">fastq</a> format at Wikipedia.</li>
+</ul>
+<p><em>MRSA0252.fna</em>  </p>
+<ul>
+<li>This file contains the genome sequence of <em>Staphylococcus aureus MRSA252</em>. Read more about the <a href="https://en.wikipedia.org/wiki/FASTA_format">fasta</a> format at Wikipedia.</li>
+</ul>
+<h2 id="galaxy-tools">Galaxy tools</h2>
+<p>The purpose of this section is to help you become familiar with the way
+tools are run on Galaxy.</p>
+<p>We will see how to:</p>
+<ul>
+<li>rename files</li>
+<li>summarize assembly statistics</li>
+<li>convert file formats, and</li>
+<li>find features in a DNA sequence.</li>
+</ul>
+<h3 id="rename-files">Rename Files</h3>
+<p>Two of the files in the <strong>History</strong> have very long and confusing names. File names can be changed by taking the following steps:</p>
+<ul>
+<li>Click on the edit icon <img alt="edit icon" src="./images/image07.png" /> next to the file in the <strong>History</strong> called: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq</li>
+<li>In the &ldquo;Name&rdquo; text box, give it a new name. Rename it to: <em>typical.fastq</em></li>
+<li>Click the <strong>Save</strong> button.</li>
+</ul>
+<p>Repeat the process with another file:</p>
+<ul>
+<li>Find the file called: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna  </li>
+<li>Rename it to <em>MRSA252.fna</em></li>
+</ul>
+<p>Much better. There is other functionality hidden behind that edit icon <img alt="edit icon" src="./images/image07.png" /></p>
+<p>You can change a file’s datatype, convert its format and many other things. Feel free to play around with them at a later date.</p>
+<h3 id="summarize-assembly-statistics">Summarize assembly statistics</h3>
+<p>We are going to produce a histogram of contig read-coverage depths and calculate the summary statistics from the <em>Contig_stats.txt</em> file.</p>
+<p>To do this we need to make some changes to the <em>Contig_stats.txt</em> file:</p>
+<ul>
+<li>cut out a couple of columns from the file</li>
+<li>remove a line from the file</li>
+<li>produce a histogram</li>
+</ul>
+<p><strong>Cut out and keep two columns</strong></p>
+<ul>
+<li>Click on the eye icon <img alt="eye icon" src="./images/image00.png" /> of the <em>Contig_stats.txt</em> file to have a look at it.  </li>
+<li>Note that there are 18 columns in this file. We want column 1 and column 6.</li>
+<li>From the <strong>tool</strong> panel, click on <strong>Text Manipulation -&gt; Cut</strong> and set the following:</li>
+<li>Set &ldquo;Cut Columns&rdquo; to: <em>c1,c6</em></li>
+<li>&ldquo;Delimited by&rdquo;: <em>Tab</em></li>
+<li>&ldquo;Cut from&rdquo;: <em>Contig_stats.txt</em></li>
+<li>Click <strong>Execute</strong></li>
+<li>Examine the new file by clicking on its eye icon <img alt="eye icon" src="./images/image00.png" />. We now have 2 columns instead of the 18 in the original file.</li>
+</ul>
+<p><strong>Remove the Header lines of the new file</strong></p>
+<ul>
+<li>From the <strong>tool</strong> panel, click on <strong>Text Manipulation -&gt; Remove beginning</strong> and set the following:</li>
+<li>&ldquo;Remove First&rdquo;: <em>1</em></li>
+<li>&ldquo;from&rdquo;: <em>Cut on data1</em></li>
+<li>click <strong>Execute</strong></li>
+<li>Note the the new file is the same as the previous one without the header line.</li>
+</ul>
+<p><strong>Make a histogram</strong></p>
+<ul>
+<li>From the <strong>tool</strong> panel, click on <strong>Graph/Display Data -&gt; Histogram</strong> and set the following:</li>
+<li>&ldquo;Dataset&rdquo;: <em>Remove beginning on Data X</em></li>
+<li>&ldquo;Numerical column for X axis&rdquo;: <em>c2</em></li>
+<li>&ldquo;Number of breaks&rdquo;: <em>25</em></li>
+<li>&ldquo;Plot title&rdquo;: <em>Histogram of Contig Coverage</em></li>
+<li>&ldquo;Label for X axis&rdquo;: <em>Coverage depth</em></li>
+<li>Click <strong>Execute</strong></li>
+<li>Click on the eye icon <img alt="eye icon" src="./images/image00.png" /> of the histogram to have a look at it. Note there are a few peaks. Maybe these correspond to single, double and triple copy number of these contigs.</li>
+</ul>
+<p><strong>Calculate summary statistics for contig coverage depth</strong></p>
+<ul>
+<li>From the tool panel, click on <strong>Statistics -&gt; Summary Statisitics</strong> and set the following:</li>
+<li>&ldquo;Summary statistics on&rdquo;: <em>Remove beginning on Data X</em></li>
+<li>&ldquo;Column or expression&rdquo;: <em>c2</em></li>
+<li>Click <strong>Execute</strong></li>
+<li>You’ll note that the summary statistics tool failed (red background in the <strong>History</strong>). There was an error!</li>
+<li>If you click on the filename, and then the bug symbol <img alt="bug icon" src="./images/image08.png" />, it will tell you what went wrong. (There is a missing python library).</li>
+<li>At this point, you would normally contact your Galaxy server administrator.</li>
+</ul>
+<h3 id="convert-file-formats">Convert file formats</h3>
+<p>This shows how to convert a fastq file to a fasta file. The tool creates a new file with the converted data.</p>
+<ul>
+<li>From the <strong>tool</strong> panel, click on <strong>Convert Formats -&gt; FASTQ to FASTA</strong> and set the following:</li>
+<li>&ldquo;FASTQ file to convert&rdquo;: <em>typical.fastq</em></li>
+<li>Click <strong>Execute</strong></li>
+<li>The output is a new Fasta file called <em>FASTQ to FASTA on data 2</em>.</li>
+</ul>
+<h3 id="find-features">Find features</h3>
+<p>This example shows how to use a tool called “barrnap” to search for rRNAs in a DNA sequence.</p>
+<p><strong>Find all of the ribosomal RNAs in a sequence</strong></p>
+<ul>
+<li>From the tool panel, click on <strong>Annotation -&gt; barrnap</strong> and set the following:</li>
+<li>&ldquo;Fasta file&rdquo;: MRSA252.fna</li>
+<li>Click <strong>Execute</strong></li>
+<li>The output is <em>barrnap on data 3</em>. It is a format gff3 file. (general feature format version 3). Each line in the file describes a feature in the DNA sequence.</li>
+</ul>
+<p><strong>Filter the annotations to get the 23S RNAs</strong></p>
+<ul>
+<li>Make a file with only the 23S rRNA features</li>
+<li>From the tool panel, click on <strong>Filter and Sort -&gt; Select</strong> and set the following:</li>
+<li>&ldquo;Select lines from&rdquo;: (whatever you called the barrnap gff3 output)</li>
+<li>&ldquo;the pattern&rdquo;: <em>23S</em> (this will look for all the lines in the file that contain “23S”)</li>
+<li>Click <strong>Execute</strong></li>
+<li>Now you have a gff3 file with just the 23S annotations!</li>
+</ul>
+<h2 id="what-now">What now?</h2>
+<p>Remember how we started a new <strong>History</strong> at the beginning? If you want to see any of your old histories, click on the <strong>History</strong> menu button <img alt="history button" src="./images/image02.png" /> at the top of the <strong>History</strong> panel and then select “Saved Histories.” This will give you a list of all the histories you have worked on in this Galaxy server.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+        <script src="../../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

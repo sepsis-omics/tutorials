@@ -1,0 +1,59 @@
+/*
+These style abbreviations are as follows:
+SS = "screen shot" for menu items etc.
+FN = filename
+*/
+
+SS {
+  font-family: sans-serif;
+  font-weight: bold;
+  color: RebeccaPurple;
+  background: WhiteSmoke;
+  text-align: center;
+  padding: 0 0.5ex;
+  border: dotted 1pt black;
+}
+
+FN {
+  font-family: sans-serif;
+  font-weight: bold;
+  color: SlateGrey;
+  background: WhiteSmoke;
+  text-align: center;
+  padding: 0 0.5ex;
+}
+
+/* put images in centre */
+P + IMG {
+  display: flex;
+  justify-content: center;
+}
+
+/*
+These are for "info boxes" in mkdocs
+
+ !!! note
+     This is a note.
+*/
+
+.admonition {
+  border: solid black medium;
+  margin: 1ex 0;
+  padding: 1ex;
+}
+
+.admonition-title {
+  font-size: larger;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.hint {
+  border-color: green;
+}
+.note {
+  border-color: orange;
+}
+.warning {
+  border-color: red;
+}

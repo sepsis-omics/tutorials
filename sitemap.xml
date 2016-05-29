@@ -4,90 +4,68 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-05-07</lastmod>
+     <lastmod>2016-05-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
+        
+    <url>
+     <loc>None</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/workshop/snps/</loc>
+     <lastmod>2016-05-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/workshop/trees/</loc>
+     <lastmod>2016-05-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/workshop/dge/</loc>
+     <lastmod>2016-05-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/data/file_formats/</loc>
+     <lastmod>2016-05-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
         
     <url>
      <loc>None/dna/data/</loc>
-     <lastmod>2016-05-07</lastmod>
+     <lastmod>2016-05-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    <url>
-     <loc>None/dna/qc/</loc>
-     <lastmod>2016-05-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
         
     <url>
      <loc>None/rna/data/</loc>
-     <lastmod>2016-05-07</lastmod>
+     <lastmod>2016-05-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    <url>
-     <loc>None/rna/qc/</loc>
-     <lastmod>2016-05-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
         
     <url>
      <loc>None/pro/data/</loc>
-     <lastmod>2016-05-07</lastmod>
+     <lastmod>2016-05-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/pro/qc/</loc>
-     <lastmod>2016-05-07</lastmod>
+     <loc>None/met/data/</loc>
+     <lastmod>2016-05-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -96,14 +74,54 @@
     
         
     <url>
-     <loc>None/met/data/</loc>
-     <lastmod>2016-05-07</lastmod>
+     <loc>None</loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/met/qc/</loc>
-     <lastmod>2016-05-07</lastmod>
+     <loc>None</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/viz/bandage/</loc>
+     <lastmod>2016-05-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/viz/jbrowse/</loc>
+     <lastmod>2016-05-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/viz/phandango/</loc>
+     <lastmod>2016-05-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/viz/degust/</loc>
+     <lastmod>2016-05-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -112,7 +130,7 @@
     
     <url>
      <loc>None/about/</loc>
-     <lastmod>2016-05-07</lastmod>
+     <lastmod>2016-05-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

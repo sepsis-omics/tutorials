@@ -7,15 +7,16 @@
         
         <meta name="author" content="Torsten Seemann, Anna Syme">
         
-        <link rel="shortcut icon" href="../../../../../../favicon.ico">
+        <link rel="shortcut icon" href="../../../favicon.ico">
         
 
 	<title>Spades - Sepsis Tutorials</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
-        <link href="../../../css/base.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link href="../../../css/sepsis.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -33,7 +34,6 @@
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
-            
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -41,7 +41,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
 
             <!-- Main title -->
             <a class="navbar-brand" href="../../..">Sepsis Tutorials</a>
@@ -49,34 +48,152 @@
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
             
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="../../..">Home</a>
-                    </li>
-                
-                
-                
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Workshops <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
                         
-                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Comparative Genomics</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
-    <a href="../../data/">The Data</a>
+    <a href="../../../workshop/genomics/1a/">Intro to Galaxy</a>
 </li>
 
-                        
-                            
+        
+            
 <li >
-    <a href="../../qc/">Quality Control</a>
+    <a href="../../../workshop/genomics/1b/">Intro to Artemis</a>
 </li>
 
+        
+            
+<li >
+    <a href="../../../workshop/genomics/2a/">Assembly with Spades</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../workshop/genomics/2b/">Annotation with Prokka</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../workshop/genomics/3/">Comparative genomics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
                         
-                            
+<li >
+    <a href="../../../workshop/snps/">Variant calling</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../workshop/trees/">Phylogenetic trees</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../workshop/dge/">Differential gene expression</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../data/file_formats/">File formats</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data/">Genomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../rna/data/">Transcriptomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../pro/data/">Proteomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../met/data/">Metabolomics</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Genomics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Quality Control</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../qualitycontrol/qc/">Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../qualitycontrol/fastqc/">FastQC</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">De novo assembly</a>
     <ul class="dropdown-menu">
@@ -107,15 +224,21 @@
         
             
 <li >
-    <a href="../galaxy/">Galaxy</a>
+    <a href="../pacbio/">PacBio SMRT portal</a>
+</li>
+
+        
+            
+<li >
+    <a href="../galaxy-spades/">Galaxy-Spades</a>
 </li>
 
         
     </ul>
   </li>
 
-                        
-                            
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Annotation</a>
     <ul class="dropdown-menu">
@@ -138,11 +261,23 @@
 </li>
 
         
+            
+<li >
+    <a href="../../anno/eugene/">EuGene</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../anno/megannotator/">MEGAnnotator</a>
+</li>
+
+        
     </ul>
   </li>
 
-                        
-                            
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Variant finding</a>
     <ul class="dropdown-menu">
@@ -162,8 +297,8 @@
     </ul>
   </li>
 
-                        
-                            
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Pan genome</a>
     <ul class="dropdown-menu">
@@ -180,32 +315,32 @@
 </li>
 
         
+            
+<li >
+    <a href="../../pan/mauve/">Mauve</a>
+</li>
+
+        
     </ul>
   </li>
 
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transcriptomics <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../../rna/data/">The Data</a>
-</li>
+        
+    </ul>
+  </li>
 
+                    
                         
-                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Transcriptomics</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
     <a href="../../../rna/qc/">Quality Control</a>
 </li>
 
-                        
-                            
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">De novo assembly</a>
     <ul class="dropdown-menu">
@@ -231,101 +366,115 @@
     </ul>
   </li>
 
+        
+    </ul>
+  </li>
+
+                    
                         
-                            
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Differential gene expression</a>
+    <a tabindex="-1" href="">Proteomics</a>
     <ul class="dropdown-menu">
         
             
 <li >
-    <a href="../../../rna/dge/galaxy/">Galaxy</a>
+    <a href="../../../pro/data/">The Data</a>
 </li>
 
         
             
 <li >
-    <a href="../../../rna/dge/degust/">Degust</a>
+    <a href="../../../pro/qc/">Quality Control</a>
 </li>
 
         
     </ul>
   </li>
 
+                    
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proteomics <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../../pro/data/">The Data</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../../pro/qc/">Quality Control</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Metabolomics <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Metabolomics</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
     <a href="../../../met/data/">The Data</a>
 </li>
 
-                        
-                            
+        
+            
 <li >
     <a href="../../../met/qc/">Quality Control</a>
 </li>
 
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../../../about/">About</a>
-                    </li>
-                
-                
-                </ul>
-            
+        
+    </ul>
+  </li>
 
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Viz <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../viz/bandage/">Bandage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/jbrowse/">JBrowse</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/phandango/">Phandango</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
-                
-                    <li >
-                        <a rel="next" href="../../qc/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../megahit/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-                
+                <li >
+                    <a rel="next" href="../../qualitycontrol/fastqc/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../megahit/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
                 
             </ul>
         </div>
@@ -333,8 +482,7 @@
 </div>
 
         <div class="container">
-            
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#spades">Spades</a></li>
@@ -342,17 +490,16 @@
     
     </ul>
 </div></div>
-                <div class="col-md-9" role="main">
+            <div class="col-md-9" role="main">
 
 <h1 id="spades">Spades</h1>
 <p>cmdline</p></div>
-            
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
         </footer>
 
         <script src="../../../js/jquery-1.10.2.min.js"></script>
@@ -386,6 +533,5 @@
                 </div>
             </div>
         </div>
-
     </body>
 </html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Torsten Seemann, Anna Syme">
+        
+        <link rel="shortcut icon" href="../../../favicon.ico">
+        
+
+	<title>Galaxy-Spades - Sepsis Tutorials</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link href="../../../css/sepsis.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">Sepsis Tutorials</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Workshops <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Comparative Genomics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../workshop/genomics/1a/">Intro to Galaxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../workshop/genomics/1b/">Intro to Artemis</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../workshop/genomics/2a/">Assembly with Spades</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../workshop/genomics/2b/">Annotation with Prokka</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../workshop/genomics/3/">Comparative genomics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+<li >
+    <a href="../../../workshop/snps/">Variant calling</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../workshop/trees/">Phylogenetic trees</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../workshop/dge/">Differential gene expression</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../data/file_formats/">File formats</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data/">Genomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../rna/data/">Transcriptomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../pro/data/">Proteomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../met/data/">Metabolomics</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Genomics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Quality Control</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../qualitycontrol/qc/">Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../qualitycontrol/fastqc/">FastQC</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">De novo assembly</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../spades/">Spades</a>
+</li>
+
+        
+            
+<li >
+    <a href="../megahit/">Megahit</a>
+</li>
+
+        
+            
+<li >
+    <a href="../velvet/">Velvet</a>
+</li>
+
+        
+            
+<li >
+    <a href="../vopt/">VelvetOptimiser</a>
+</li>
+
+        
+            
+<li >
+    <a href="../pacbio/">PacBio SMRT portal</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">Galaxy-Spades</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Annotation</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../anno/prokka/">Prokka</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../anno/rast/">RAST</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../anno/genix/">GENIX</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../anno/eugene/">EuGene</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../anno/megannotator/">MEGAnnotator</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Variant finding</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../snps/snippy/">Snippy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../snps/galaxy/">Galaxy</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Pan genome</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../pan/roary/">Roary</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../pan/orthomcl/">OrthoMCL</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../pan/mauve/">Mauve</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Transcriptomics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../rna/qc/">Quality Control</a>
+</li>
+
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">De novo assembly</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../rna/denovo/oases/">Oases</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../rna/denovo/trinity/">Trinity</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../rna/denovo/stringtie/">StringTie</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Proteomics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../pro/data/">The Data</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../pro/qc/">Quality Control</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Metabolomics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../met/data/">The Data</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../met/qc/">Quality Control</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Viz <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../viz/bandage/">Bandage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/jbrowse/">JBrowse</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/phandango/">Phandango</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../pacbio/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../anno/prokka/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#galaxy-spades">Galaxy - Spades</a></li>
+        
+            <li><a href="#pre-requisites">Pre-requisites</a></li>
+        
+            <li><a href="#start">Start</a></li>
+        
+            <li><a href="#input-data">Input data</a></li>
+        
+            <li><a href="#how-does-spades-work">How does Spades work?</a></li>
+        
+            <li><a href="#run-spades">Run Spades</a></li>
+        
+            <li><a href="#output">Output</a></li>
+        
+            <li><a href="#filter-output">Filter output</a></li>
+        
+            <li><a href="#questions">Questions</a></li>
+        
+            <li><a href="#more-information">More information</a></li>
+        
+            <li><a href="#next">Next</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="galaxy-spades">Galaxy - Spades</h1>
+<p>This tutorial will demonstrate how to assemble a bacterial genome de novo using the program Spades in the mGVL.</p>
+<p>The Spades webpage is <a href="http://bioinf.spbau.ru/spades">here</a>.</p>
+<h2 id="pre-requisites">Pre-requisites</h2>
+<ul>
+<li>Galaxy</li>
+<li>de novo assembly</li>
+<li>QC</li>
+<li>Trimming</li>
+</ul>
+<h2 id="start">Start</h2>
+<ul>
+<li>open your mGVL galaxy</li>
+</ul>
+<h2 id="input-data">Input data</h2>
+<p>FIXME: get different data that shows how contigs are joined into larger scaffolds.</p>
+<p>Bacterial DNA sequences:</p>
+<ul>
+<li>Illumina paired-end reads of approximately 150 base pairs, from <em>Staphylococcus aureus</em>. Subset of a real dataset.</li>
+</ul>
+<p>Get data files into Galaxy:</p>
+<ol>
+<li>
+<p>In the history pane, click on the <ss>History Options</ss> button at the top right corner.</p>
+</li>
+<li>
+<p>A list appears: at the bottom of the list, click on <ss>Import from File</ss>.</p>
+</li>
+<li>
+<p>In the centre pane, a text box appears called &ldquo;Archived History URL:&rdquo;. Into this box, paste the web address of the stored data that we will use. This is: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Galaxy-History-adelaideworkshopstart.tar.gz  (FIXME: rename something simpler and only keep the fastq files) and then click <ss>Submit</ss>. Galaxy will download these files.</p>
+</li>
+<li>
+<p>In the history pane, click on the <ss>View all Histories</ss> button at the top right corner. The imported files will be a new history called &ldquo;imported from archive: adelaide_workshop_start&rdquo; (rename). Above this, click on the <ss>Switch to</ss> button to make this the current history. Then click <ss>Done</ss> in the top left corner.</p>
+</li>
+<li>
+<p>In the history pane, we now have two files: aaaR1.fastq and aaaR2.fastq. (FIXME: to rename)</p>
+</li>
+<li>
+<p>Click on the eye icon in the history panel to view the contents of each file. This sequencing produced paired-end reads, which means each input DNA fragment was sequenced at both the start and the end (and not sequenced in the middle). All the start sequences are grouped into one file (aaaR1.fastq), as are all the end sequences (aaaR2.fastq). Underneath each sequence is a string of letters/symbols, which correspond to estimates of the quality of each nucleotide call. For more information on fastq file format, click <a href="https://en.wikipedia.org/wiki/FASTQ_format">here</a>.</p>
+</li>
+</ol>
+<h2 id="how-does-spades-work">How does Spades work?</h2>
+<ol>
+<li>
+<p>As with several other de novo assembly programs (e.g.Velvet) Spades uses an algorithm based on <a href="http://www.nature.com/nbt/journal/v29/n11/full/nbt.2023.html">de Bruijn graphs.</a> Such graphs use sub-lengths of sequence reads to build an overall genome assembly. The span of the sub-length is called a k-mer, where &ldquo;k&rdquo; is the number of nucleotides (e.g. k=21). The user chooses three values of k and Spades makes three assemblies based on these.</p>
+</li>
+<li>
+<p>For the first value of k, each read is broken into as many fragments as possible. For example, if the input read is 22 nucleotides long, and the chosen value of k is 21, then there are two possible fragments (positions 1-21 and 2-22).</p>
+</li>
+<li>
+<p>One randomly-chosen fragment becomes the first node on the de Bruijn graph.</p>
+</li>
+<li>
+<p>A second fragment is connected to this node if it overlaps.</p>
+</li>
+<li>
+<p>Repeat until all fragments are connected. Output: de Bruijn graph.</p>
+</li>
+<li>
+<p>Find a connected pathway through this graph. Output: a pathway (sequence) known as a contig. Because of poor or incorrect sequencing, not all the fragments can be joined together. There will be several de Bruijn graphs and so several contigs, usually of different sizes.</p>
+</li>
+<li>
+<p>Repeat these steps for a further two values of k (e.g. k = 33, k = 55). Output: Three (sets of) contigs.</p>
+</li>
+<li>
+<p>Merge the three (sets of) contigs to get one. Output: one set of contigs.</p>
+</li>
+<li>
+<p>For paired-end reads (as in this tutorial), the two reads are sequenced from each end of a longer DNA fragment. The middle part of the fragment is not sequenced, but information about the distance between the reads can be used by Spades to join contigs into larger sequences, called scaffolds. Output: one set of scaffolds.</p>
+</li>
+<li>
+<p>To fix any errors map the original sequence reads onto the scaffolds with the program BWA. Output: assembled genome.</p>
+</li>
+</ol>
+<h2 id="run-spades">Run Spades</h2>
+<ol>
+<li>
+<p>In the tools pane, click on <ss>NGS Analysis -&gt; NGS: Assembly -&gt; spades</ss>. Leave all settings as they are except these:</p>
+</li>
+<li>
+<p>Under <ss>Run only assembly?</ss> click <ss>Yes</ss>.</p>
+</li>
+<li>
+<p>Under <ss>K-mers to use, separated by commas</ss>: enter in 33,55,91. Don&rsquo;t put any spaces after the commas.</p>
+</li>
+<li>
+<p>For <ss>Coverage cutoff**, choose <ss>Auto</ss>.</p>
+</li>
+<li>
+<p>For <ss>Libraries -&gt; Files -&gt; 1:Files -&gt; Select file format -&gt; Forward reads</ss> : R1.fastq.</p>
+</li>
+<li>
+<p>For <ss>Libraries -&gt; Files -&gt; 1:Files -&gt; Select file format -&gt; Reverse reads</ss> : R2.fastq.</p>
+</li>
+<li>
+<p>Click <ss>Execute</ss>.</p>
+</li>
+</ol>
+<p>FIXME: include screenshot</p>
+<h2 id="output">Output</h2>
+<p>There are five output files that will appear in the history pane. Click on the eye icon to view each file. These are the assembled genome sequence, and various statistics/information on how the program ran.</p>
+<ol>
+<li>
+<p><fn>contig stats</fn>: There are x contigs. Look at the variation in length and coverage. A short contig with high coverage could be a result of contamination, a collapsed repeat, or a plasmid.</p>
+</li>
+<li>
+<p><ss>contigs</ss>: Each contig is listed, followed by its sequence in fasta format.</p>
+</li>
+<li>
+<p><ss>scaffold stats</ss>: There are x scaffolds.</p>
+</li>
+<li>
+<p><ss>scaffolds</ss>: Each scaffold is listed, followed by its sequence in fasta format.</p>
+</li>
+<li>
+<p><ss>log</ss>: The specific actions performed in the analysis.</p>
+</li>
+</ol>
+<h2 id="filter-output">Filter output</h2>
+<ol>
+<li>
+<p>In the tools pane, click on <ss>NGS Analysis -&gt; NGS: Asssembly -&gt; Filter SPAdes output</ss>. This is a quick way to discard contigs that are too short (e.g., they might be contamination) or contigs that do not have enough coverage (e.g., they might be too unreliable).</p>
+</li>
+<li>
+<p>Under <ss>Sequences</ss>, choose the contigs fasta file.</p>
+</li>
+<li>
+<p>Under <ss>Contig stats</ss> choose the contigs stats file. Change the cut-off values for length and coverage or leave them as they are.</p>
+</li>
+<li>
+<p>For <ss>Save filtered-out sequences?</ss> click <ss>Yes</ss>.</p>
+</li>
+<li>
+<p>Click <ss>Execute</ss>. A new fasta file with only the filtered sequences will be saved in the right-side history pane.</p>
+</li>
+</ol>
+<h2 id="questions">Questions</h2>
+<p><details> <summary>
+How does SPAdes differ from other genome assembly programs?</summary>
+It uses multiple values of k in de Bruijn graphs. Larger fragment sizes will more accurately position sections of duplicated DNA (repeats), but these larger fragments will only overlap well in densely-sequenced (high-coverage) areas of the genome. Because bacterial genomes may have low-coverage regions, using smaller fragments can increase the potential for overlaps (joins) in these low-coverage regions. Using a range of fragment sizes will therefore get the benefit from both approaches.</details></p>
+<p><details> <summary>
+How do I choose values of k?  </summary>
+The k values need to be odd numbers, and shorter than the read lengths.  A good strategy could be to choose some that are small, medium and large. e.g. if the read is 150 nucleotides, k values could be 33, 55, 91. There is no absolute rule; rather, the aim is to get a good spread of k values across the read length. </details></p>
+<p><details> <summary>
+What can I do with my assembled genome?</summary>
+This tutorial used a subset of a real dataset, so is not a complete genome (is it?). You could re-try it with short reads from a whole genome, at NCBI SRA. You can [annotate] (describe) the genomic features such as genes or [compare] it to other genomes to see variation in structure.  </details></p>
+<h2 id="more-information">More information</h2>
+<p>http://thegenomefactory.blogspot.com.au/2013/08/how-spades-differs-from-velvet.html</p>
+<h2 id="next">Next</h2>
+<ul>
+<li>Annotation</li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+        <script src="../../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

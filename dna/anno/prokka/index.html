@@ -7,15 +7,16 @@
         
         <meta name="author" content="Torsten Seemann, Anna Syme">
         
-        <link rel="shortcut icon" href="../../../../../../favicon.ico">
+        <link rel="shortcut icon" href="../../../favicon.ico">
         
 
 	<title>Prokka - Sepsis Tutorials</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
-        <link href="../../../css/base.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link href="../../../css/sepsis.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -33,7 +34,6 @@
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
-            
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -41,7 +41,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
 
             <!-- Main title -->
             <a class="navbar-brand" href="../../..">Sepsis Tutorials</a>
@@ -49,34 +48,152 @@
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
             
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="../../..">Home</a>
-                    </li>
-                
-                
-                
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Workshops <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
                         
-                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Comparative Genomics</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
-    <a href="../../data/">The Data</a>
+    <a href="../../../workshop/genomics/1a/">Intro to Galaxy</a>
 </li>
 
-                        
-                            
+        
+            
 <li >
-    <a href="../../qc/">Quality Control</a>
+    <a href="../../../workshop/genomics/1b/">Intro to Artemis</a>
 </li>
 
+        
+            
+<li >
+    <a href="../../../workshop/genomics/2a/">Assembly with Spades</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../workshop/genomics/2b/">Annotation with Prokka</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../workshop/genomics/3/">Comparative genomics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
                         
-                            
+<li >
+    <a href="../../../workshop/snps/">Variant calling</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../workshop/trees/">Phylogenetic trees</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../workshop/dge/">Differential gene expression</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../data/file_formats/">File formats</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data/">Genomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../rna/data/">Transcriptomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../pro/data/">Proteomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../met/data/">Metabolomics</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Genomics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Quality Control</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../qualitycontrol/qc/">Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../qualitycontrol/fastqc/">FastQC</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">De novo assembly</a>
     <ul class="dropdown-menu">
@@ -107,15 +224,21 @@
         
             
 <li >
-    <a href="../../denovo/galaxy/">Galaxy</a>
+    <a href="../../denovo/pacbio/">PacBio SMRT portal</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../denovo/galaxy-spades/">Galaxy-Spades</a>
 </li>
 
         
     </ul>
   </li>
 
-                        
-                            
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Annotation</a>
     <ul class="dropdown-menu">
@@ -138,11 +261,23 @@
 </li>
 
         
+            
+<li >
+    <a href="../eugene/">EuGene</a>
+</li>
+
+        
+            
+<li >
+    <a href="../megannotator/">MEGAnnotator</a>
+</li>
+
+        
     </ul>
   </li>
 
-                        
-                            
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Variant finding</a>
     <ul class="dropdown-menu">
@@ -162,8 +297,8 @@
     </ul>
   </li>
 
-                        
-                            
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Pan genome</a>
     <ul class="dropdown-menu">
@@ -180,32 +315,32 @@
 </li>
 
         
+            
+<li >
+    <a href="../../pan/mauve/">Mauve</a>
+</li>
+
+        
     </ul>
   </li>
 
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transcriptomics <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../../rna/data/">The Data</a>
-</li>
+        
+    </ul>
+  </li>
 
+                    
                         
-                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Transcriptomics</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
     <a href="../../../rna/qc/">Quality Control</a>
 </li>
 
-                        
-                            
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">De novo assembly</a>
     <ul class="dropdown-menu">
@@ -231,101 +366,115 @@
     </ul>
   </li>
 
+        
+    </ul>
+  </li>
+
+                    
                         
-                            
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Differential gene expression</a>
+    <a tabindex="-1" href="">Proteomics</a>
     <ul class="dropdown-menu">
         
             
 <li >
-    <a href="../../../rna/dge/galaxy/">Galaxy</a>
+    <a href="../../../pro/data/">The Data</a>
 </li>
 
         
             
 <li >
-    <a href="../../../rna/dge/degust/">Degust</a>
+    <a href="../../../pro/qc/">Quality Control</a>
 </li>
 
         
     </ul>
   </li>
 
+                    
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proteomics <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../../pro/data/">The Data</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../../pro/qc/">Quality Control</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Metabolomics <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Metabolomics</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
     <a href="../../../met/data/">The Data</a>
 </li>
 
-                        
-                            
+        
+            
 <li >
     <a href="../../../met/qc/">Quality Control</a>
 </li>
 
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../../../about/">About</a>
-                    </li>
-                
-                
-                </ul>
-            
+        
+    </ul>
+  </li>
 
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Viz <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../viz/bandage/">Bandage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/jbrowse/">JBrowse</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/phandango/">Phandango</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
-                
-                    <li >
-                        <a rel="next" href="../../denovo/galaxy/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../rast/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-                
+                <li >
+                    <a rel="next" href="../../denovo/galaxy-spades/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../rast/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
                 
             </ul>
         </div>
@@ -333,26 +482,105 @@
 </div>
 
         <div class="container">
-            
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#prokka">Prokka</a></li>
         
+            <li><a href="#using-prokka-in-galaxy">Using Prokka in Galaxy</a></li>
+        
+            <li><a href="#pre-requisites">Pre-requisites</a></li>
+        
+            <li><a href="#start">Start</a></li>
+        
+            <li><a href="#input-data">Input data</a></li>
+        
+            <li><a href="#how-it-works">How it works</a></li>
+        
+            <li><a href="#run-prokka">Run Prokka</a></li>
+        
+            <li><a href="#output">Output</a></li>
+        
+            <li><a href="#using-prokka-in-commandline">Using Prokka in commandline</a></li>
+        
+            <li><a href="#next">Next</a></li>
+        
+            <li><a href="#more-information">More information</a></li>
+        
     
     </ul>
 </div></div>
-                <div class="col-md-9" role="main">
+            <div class="col-md-9" role="main">
 
 <h1 id="prokka">Prokka</h1>
-<p>Cmdline and galaxy</p></div>
-            
+<p>Cmdline and galaxy</p>
+<p>Genome annotation involves finding and describing particular features, such as genes, tRNAs and rRNAs. This tutorial will demonstrate how to annotate an assembled bacterial genome using the tool Prokka.</p>
+<p><a href="https://github.com/tseemann/prokka#prokka-rapid-prokaryotic-genome-annotation">Prokka on github</a></p>
+<p><a href="http://bioinformatics.oxfordjournals.org/content/30/14/2068.full">Prokka citation</a></p>
+<h2 id="using-prokka-in-galaxy">Using Prokka in Galaxy</h2>
+<h2 id="pre-requisites">Pre-requisites</h2>
+<ul>
+<li>a mGVL and galaxy instance</li>
+</ul>
+<h2 id="start">Start</h2>
+<ul>
+<li>open your galaxy instance in your mGVL</li>
+</ul>
+<h2 id="input-data">Input data</h2>
+<ul>
+<li>one FASTA file containing the scaffolds in nucleotide format, e.g. the fasta output from Spades. e.g. in this tutorial: FIXME: data</li>
+<li>Go to galaxy - start a history - get his file into the history</li>
+</ul>
+<h2 id="how-it-works">How it works</h2>
+<ul>
+<li>Prokka compares the input contigs with various databases to identify coding sequences, rRNA genes, tRNA genes, non-coding RNA, and signal leader peptides.</li>
+<li>These databases are maintained by different organisations, and include information about known genomic features and their locations. Prokka includes a local copy.</li>
+</ul>
+<h2 id="run-prokka">Run Prokka</h2>
+<ul>
+<li>In Galaxy, go to <ss>NGS Analysis: NGS Annotation: Prokka</ss>.</li>
+<li>Under Contigs to <ss>annotate</ss> click on the single dataset icon (underneath the word &ldquo;Contigs&rdquo;) and then select the file in the drop down menu (this will be your input .fna file that is in your history).</li>
+<li>Under <ss>Locus tag prefix (&ndash;locustag)</ss> type in &ldquo;L&rdquo;. FIXME: actually we want to have a different locus tag for each sample for later use in Roary. Is there some problem here with the length of the locus tag that can be used?</li>
+<li>Under <ss>Sequencing centre ID (&ndash;centre)</ss> type in &ldquo;C&rdquo;. FIXME: or something else?</li>
+<li>Leave the other settings as they are.</li>
+<li>Click <ss>Execute</ss>. This may take 10 minutes.</li>
+</ul>
+<h2 id="output">Output</h2>
+<ul>
+<li>There are 11 output files. Look at the output files by clicking on the eye icon under each file. For more information about output files, see <a href="http://bioinformatics.oxfordjournals.org/content/30/14/2068.full">Table 2</a>.</li>
+<li><code>summary.gff</code>: a list of all the features found, listed in order of their location (starting at the start of contig number 1). Each row is a genomic feature and its location. Column 2 is the source - the database used to find the feature. Column 3 is the feature - e.g. CDS, tRNA.</li>
+<li><code>summary.gbk</code>: the contigs listed in order. For each contig, the features are listed (e.g. CDS name and translation), followed by the sequence of the whole contig.</li>
+<li>FIXME: best way to view / look at features</li>
+</ul>
+<h2 id="using-prokka-in-commandline">Using Prokka in commandline</h2>
+<ul>
+<li>ssh to your mGVL</li>
+<li>wget data - scaffolds of .fna for several species</li>
+<li>(alternatively - have already put data on your mGVL)</li>
+<li>type in:</li>
+</ul>
+<pre><code>prokka --outdir [name of output folder for 1 sample] --locustag [tag eg sample number] [fna filename]
+</code></pre>
+
+<ul>
+<li>make a new directory for the gff files e.g. &ldquo;gff_files&rdquo;</li>
+<li>mv -v <em>/</em>.gff gff_files/  (means move any .gff files into that folder)
+-FIXME: prokka options see manual</li>
+</ul>
+<h2 id="next">Next</h2>
+<ul>
+<li>Determine core and pan genomes using Roary.</li>
+</ul>
+<h2 id="more-information">More information</h2>
+<ul>
+<li>stuff</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
         </footer>
 
         <script src="../../../js/jquery-1.10.2.min.js"></script>
@@ -386,6 +614,5 @@
                 </div>
             </div>
         </div>
-
     </body>
 </html>

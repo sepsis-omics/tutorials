@@ -2,18 +2,13 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome!\n\n\n\n\nIntroduction\n\n\nThis site contains tutorials for analysing bacterial \"omics\" data.\n\n\nData sources\n\n\n\n\nGenomics\n\n\nTranscriptomics\n\n\nProteomics\n\n\nMetabolomics\n\n\n\n\nAnalysis platforms\n\n\n\n\nUnix command line\n\n\nGalaxy workflow system\n\n\n\n\nPlatform\n\n\n\n\nMicrobial Genomics Virtual Lab", 
+            "text": "Welcome!\n\n\nThis site contains tutorials for analysing bacterial \nomics\n data.\n\n\nData sources\n\n\n\n\nGenomics\n\n\nTranscriptomics\n\n\nProteomics\n\n\nMetabolomics\n\n\n\n\nAnalysis platforms\n\n\n\n\nUnix command line\n\n\nGalaxy workflow system\n\n\n\n\nPlatform\n\n\n\n\nMicrobial Genomics Virtual Lab", 
             "title": "Home"
         }, 
         {
             "location": "/#welcome", 
-            "text": "", 
+            "text": "This site contains tutorials for analysing bacterial  omics  data.", 
             "title": "Welcome!"
-        }, 
-        {
-            "location": "/#introduction", 
-            "text": "This site contains tutorials for analysing bacterial \"omics\" data.", 
-            "title": "Introduction"
         }, 
         {
             "location": "/#data-sources", 
@@ -31,9 +26,419 @@
             "title": "Platform"
         }, 
         {
+            "location": "/workshop/genomics/1a/", 
+            "text": "Introduction to Galaxy\n\n\nBackground\n\n\nGalaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.\n\n\nBioinformatics tools can be added from the Galaxy \u2018tool shed\u2019 or removed as necessary from your Galaxy instance.\n\n\nGalaxy is an open, web-based platform. Details about the project can be found \nhere\n.\n\n\nThe Galaxy interface is separated into three parts. The \ntool\n list on the left, the \nviewing\n panel in the middle and the analysis and data \nhistory\n on the right. We will be looking at all three parts in this tutorial.\n\n\n\n\nThis activity will familiarise you with the Galaxy interface. It will cover the following operations:\n\n\n\n\nLogging in to the server\n\n\nPutting data onto Galaxy\n\n\nUsing some common tools\n\n\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nRegister and login to a Galaxy server.\n\n\nUpload data to a Galaxy server from:\n\n\nA file on your local computer.\n\n\nA file on a remote datastore with an accessible URL.  \n\n\n\n\n\n\nUse tools in Galaxy by:\n\n\nAccessing the tool via the tool menu.\n\n\nUsing the tool interface to run the particular tool.\n\n\nViewing/accessing the tool output.\n\n\n\n\n\n\n\n\nLogin to Galaxy\n\n\n\n\nOpen a new tab or window on your web browser.\n\n\nUse Firefox or Chrome - Please don\u2019t use Internet Explorer or Safari.\n\n\nType in the following address: 43.240.98.1/galaxy (or your personal mGVL instance / sepsis mGVL)\n\n\n\n\n\n\n\n\n\n\nRegister/Login as a user (\nUser\n button on the right):\n\n\n\n\n\n\n\n\nIf you haven\nt yet registered, \nRegister:\n\n\n\n\nSelect: \nUser -\n Register\n\n\nEnter your email, choose a password, repeat it and add a (all lower case - FIXME:why?) one word name\n\n\nClick \nSubmit\n\n\n\n\nIf you have already registered, \nLogin:\n\n\n\n\nSelect: \nUser -\n Login\n\n\nEnter your username \n password\n\n\nClick \nSubmit\n\n\n\n\nPut data onto Galaxy\n\n\nThere are 2 main ways to put your data onto Galaxy, this section will run through both ways. First, we need to make a new history.\n\n\nMake a new history\n\n\nNote: Make a new folder to store the work we are about to perform\n\n\n\n\nClick on the history menu button \n at the top of the History panel.\n\n\nSelect \nCreate New\n\n\nFIXME: name it?\n\n\n\n\nDatatypes\n\n\nWhat sort of file is being uploaded?\n\n\nWe need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, fasta, fastq, vcf, GFF, GenBank, tabular.\n\n\nUpload a file from your own computer\n\n\nWith this method you can get most of the files on your own computer into Galaxy.\n\n\nDownload the following file to your computer\n\n\n\n\nCopy this URL and paste it into the address bar in your web browser: \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/galaxy101/Contig_stats.txt.gz\n\nThis is a file stored on the cloud. Press Enter, and the file will download (FIXME: on Mac but others?). Note the download location.\n\n\n\n\n\nUpload the file to Galaxy\n\n\n\n\nFrom the Galaxy tool panel, click on \nGet Data -\n Upload File\n  \n\n\nClick the \nChoose File\n button  \n\n\nFind and select the \nContig_stats.txt.gz\n file you downloaded and click \nOpen\n  \n\n\nSet the \nfile format\n to \ntabular\n  \n\n\nClick the \nStart\n button  \n\n\nOnce the progress bar reaches 100%, click the \nClose\n button  \n\n\n\n\nThe file will now upload to your current history.\n\n\nUpload a file from a URL\n\n\nIf a file exists on a web resource somewhere and you know its URL (Unique Resource Location - a web address) you can directly load it into Galaxy.\n\n\n\n\nFrom the tool panel, click on \nGet Data -\n Upload File\n\n\nClick on the \nPaste/Fetch Data\n button\n\n\nCopy and paste the following web address into the URL/Text box:\n\nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq.gz\n\n\nSet the file format to \nfastqsanger\n (CAREFUL: not fastq\nc\nsanger)\n\n\nClick \nStart\n\n\nOnce the progress bar has reached 100%, click \nClose\n\n\nNote that Galaxy is smart enough to recognize that this is a compressed file and so it will uncompress it as it loads it.\n\n\n\n\nUpload another file from a URL\n\n\nNow we are going to upload another file from the remote data source.\n\n\n\n\nRepeat the above for: \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna\n\n\nNote: this file is a \nfasta\n file.\n\n\nThe DNA sequence of \nStaphylococcus aureus MRSA252\n will be loaded into your history as a fasta file.\n\n\nYour \nHistory\n should now look like this:\n\n\n\n\n\n\nThe data\n\n\nA brief description of each of the three files uploaded to Galaxy.  \n\n\nContigs_stats.txt\n  \n\n\n\n\nthis file contains a table of summary data from a \nde novo\n genome assembly (the process of attempting to recover the full genome of an organism from the short read sequences produced by most DNA sequencing machines).\n\n\nThe columns contain a lot of information but the ones we will be using indicate the amount of data (or coverage) that went into making up each piece of the final assembly.\n\n\n\n\nbacterial_std_err_1.fastq.gz\n  \n\n\n\n\nThis file contains sequence reads, in the format produced by Illumina sequencing machines. Read more about the\n\nfastq\n format at Wikipedia.\n\n\n\n\nMRSA0252.fna\n  \n\n\n\n\nThis file contains the genome sequence of \nStaphylococcus aureus MRSA252\n. Read more about the \nfasta\n format at Wikipedia.\n\n\n\n\nGalaxy tools\n\n\nThe purpose of this section is to help you become familiar with the way\ntools are run on Galaxy.\n\n\nWe will see how to:\n\n\n\n\nrename files\n\n\nsummarize assembly statistics\n\n\nconvert file formats, and\n\n\nfind features in a DNA sequence.\n\n\n\n\nRename Files\n\n\nTwo of the files in the \nHistory\n have very long and confusing names. File names can be changed by taking the following steps:\n\n\n\n\nClick on the edit icon \n next to the file in the \nHistory\n called: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq\n\n\nIn the \nName\n text box, give it a new name. Rename it to: \ntypical.fastq\n\n\nClick the \nSave\n button.\n\n\n\n\nRepeat the process with another file:\n\n\n\n\nFind the file called: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna  \n\n\nRename it to \nMRSA252.fna\n\n\n\n\nMuch better. There is other functionality hidden behind that edit icon \n\n\nYou can change a file\u2019s datatype, convert its format and many other things. Feel free to play around with them at a later date.\n\n\nSummarize assembly statistics\n\n\nWe are going to produce a histogram of contig read-coverage depths and calculate the summary statistics from the \nContig_stats.txt\n file.\n\n\nTo do this we need to make some changes to the \nContig_stats.txt\n file:\n\n\n\n\ncut out a couple of columns from the file\n\n\nremove a line from the file\n\n\nproduce a histogram\n\n\n\n\nCut out and keep two columns\n\n\n\n\nClick on the eye icon \n of the \nContig_stats.txt\n file to have a look at it.  \n\n\nNote that there are 18 columns in this file. We want column 1 and column 6.\n\n\nFrom the \ntool\n panel, click on \nText Manipulation -\n Cut\n and set the following:\n\n\nSet \nCut Columns\n to: \nc1,c6\n\n\nDelimited by\n: \nTab\n\n\nCut from\n: \nContig_stats.txt\n\n\nClick \nExecute\n\n\nExamine the new file by clicking on its eye icon \n. We now have 2 columns instead of the 18 in the original file.\n\n\n\n\nRemove the Header lines of the new file\n\n\n\n\nFrom the \ntool\n panel, click on \nText Manipulation -\n Remove beginning\n and set the following:\n\n\nRemove First\n: \n1\n\n\nfrom\n: \nCut on data1\n\n\nclick \nExecute\n\n\nNote the the new file is the same as the previous one without the header line.\n\n\n\n\nMake a histogram\n\n\n\n\nFrom the \ntool\n panel, click on \nGraph/Display Data -\n Histogram\n and set the following:\n\n\nDataset\n: \nRemove beginning on Data X\n\n\nNumerical column for X axis\n: \nc2\n\n\nNumber of breaks\n: \n25\n\n\nPlot title\n: \nHistogram of Contig Coverage\n\n\nLabel for X axis\n: \nCoverage depth\n\n\nClick \nExecute\n\n\nClick on the eye icon \n of the histogram to have a look at it. Note there are a few peaks. Maybe these correspond to single, double and triple copy number of these contigs.\n\n\n\n\nCalculate summary statistics for contig coverage depth\n\n\n\n\nFrom the tool panel, click on \nStatistics -\n Summary Statisitics\n and set the following:\n\n\nSummary statistics on\n: \nRemove beginning on Data X\n\n\nColumn or expression\n: \nc2\n\n\nClick \nExecute\n\n\nYou\u2019ll note that the summary statistics tool failed (red background in the \nHistory\n). There was an error!\n\n\nIf you click on the filename, and then the bug symbol \n, it will tell you what went wrong. (There is a missing python library).\n\n\nAt this point, you would normally contact your Galaxy server administrator.\n\n\n\n\nConvert file formats\n\n\nThis shows how to convert a fastq file to a fasta file. The tool creates a new file with the converted data.\n\n\n\n\nFrom the \ntool\n panel, click on \nConvert Formats -\n FASTQ to FASTA\n and set the following:\n\n\nFASTQ file to convert\n: \ntypical.fastq\n\n\nClick \nExecute\n\n\nThe output is a new Fasta file called \nFASTQ to FASTA on data 2\n.\n\n\n\n\nFind features\n\n\nThis example shows how to use a tool called \u201cbarrnap\u201d to search for rRNAs in a DNA sequence.\n\n\nFind all of the ribosomal RNAs in a sequence\n\n\n\n\nFrom the tool panel, click on \nAnnotation -\n barrnap\n and set the following:\n\n\nFasta file\n: MRSA252.fna\n\n\nClick \nExecute\n\n\nThe output is \nbarrnap on data 3\n. It is a format gff3 file. (general feature format version 3). Each line in the file describes a feature in the DNA sequence.\n\n\n\n\nFilter the annotations to get the 23S RNAs\n\n\n\n\nMake a file with only the 23S rRNA features\n\n\nFrom the tool panel, click on \nFilter and Sort -\n Select\n and set the following:\n\n\nSelect lines from\n: (whatever you called the barrnap gff3 output)\n\n\nthe pattern\n: \n23S\n (this will look for all the lines in the file that contain \u201c23S\u201d)\n\n\nClick \nExecute\n\n\nNow you have a gff3 file with just the 23S annotations!\n\n\n\n\nWhat now?\n\n\nRemember how we started a new \nHistory\n at the beginning? If you want to see any of your old histories, click on the \nHistory\n menu button \n at the top of the \nHistory\n panel and then select \u201cSaved Histories.\u201d This will give you a list of all the histories you have worked on in this Galaxy server.", 
+            "title": "Intro to Galaxy"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#introduction-to-galaxy", 
+            "text": "", 
+            "title": "Introduction to Galaxy"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#background", 
+            "text": "Galaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.  Bioinformatics tools can be added from the Galaxy \u2018tool shed\u2019 or removed as necessary from your Galaxy instance.  Galaxy is an open, web-based platform. Details about the project can be found  here .  The Galaxy interface is separated into three parts. The  tool  list on the left, the  viewing  panel in the middle and the analysis and data  history  on the right. We will be looking at all three parts in this tutorial.   This activity will familiarise you with the Galaxy interface. It will cover the following operations:   Logging in to the server  Putting data onto Galaxy  Using some common tools", 
+            "title": "Background"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#learning-objectives", 
+            "text": "At the end of this tutorial you should be able to:   Register and login to a Galaxy server.  Upload data to a Galaxy server from:  A file on your local computer.  A file on a remote datastore with an accessible URL.      Use tools in Galaxy by:  Accessing the tool via the tool menu.  Using the tool interface to run the particular tool.  Viewing/accessing the tool output.", 
+            "title": "Learning Objectives"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#login-to-galaxy", 
+            "text": "Open a new tab or window on your web browser.  Use Firefox or Chrome - Please don\u2019t use Internet Explorer or Safari.  Type in the following address: 43.240.98.1/galaxy (or your personal mGVL instance / sepsis mGVL)      Register/Login as a user ( User  button on the right):     If you haven t yet registered,  Register:   Select:  User -  Register  Enter your email, choose a password, repeat it and add a (all lower case - FIXME:why?) one word name  Click  Submit   If you have already registered,  Login:   Select:  User -  Login  Enter your username   password  Click  Submit", 
+            "title": "Login to Galaxy"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#put-data-onto-galaxy", 
+            "text": "There are 2 main ways to put your data onto Galaxy, this section will run through both ways. First, we need to make a new history.", 
+            "title": "Put data onto Galaxy"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#make-a-new-history", 
+            "text": "Note: Make a new folder to store the work we are about to perform   Click on the history menu button   at the top of the History panel.  Select  Create New  FIXME: name it?", 
+            "title": "Make a new history"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#datatypes", 
+            "text": "What sort of file is being uploaded?  We need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, fasta, fastq, vcf, GFF, GenBank, tabular.", 
+            "title": "Datatypes"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#upload-a-file-from-your-own-computer", 
+            "text": "With this method you can get most of the files on your own computer into Galaxy.  Download the following file to your computer   Copy this URL and paste it into the address bar in your web browser:  https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/galaxy101/Contig_stats.txt.gz \nThis is a file stored on the cloud. Press Enter, and the file will download (FIXME: on Mac but others?). Note the download location.   Upload the file to Galaxy   From the Galaxy tool panel, click on  Get Data -  Upload File     Click the  Choose File  button    Find and select the  Contig_stats.txt.gz  file you downloaded and click  Open     Set the  file format  to  tabular     Click the  Start  button    Once the progress bar reaches 100%, click the  Close  button     The file will now upload to your current history.", 
+            "title": "Upload a file from your own computer"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#upload-a-file-from-a-url", 
+            "text": "If a file exists on a web resource somewhere and you know its URL (Unique Resource Location - a web address) you can directly load it into Galaxy.   From the tool panel, click on  Get Data -  Upload File  Click on the  Paste/Fetch Data  button  Copy and paste the following web address into the URL/Text box: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq.gz  Set the file format to  fastqsanger  (CAREFUL: not fastq c sanger)  Click  Start  Once the progress bar has reached 100%, click  Close  Note that Galaxy is smart enough to recognize that this is a compressed file and so it will uncompress it as it loads it.", 
+            "title": "Upload a file from a URL"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#upload-another-file-from-a-url", 
+            "text": "Now we are going to upload another file from the remote data source.   Repeat the above for:  https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna  Note: this file is a  fasta  file.  The DNA sequence of  Staphylococcus aureus MRSA252  will be loaded into your history as a fasta file.  Your  History  should now look like this:", 
+            "title": "Upload another file from a URL"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#the-data", 
+            "text": "A brief description of each of the three files uploaded to Galaxy.    Contigs_stats.txt      this file contains a table of summary data from a  de novo  genome assembly (the process of attempting to recover the full genome of an organism from the short read sequences produced by most DNA sequencing machines).  The columns contain a lot of information but the ones we will be using indicate the amount of data (or coverage) that went into making up each piece of the final assembly.   bacterial_std_err_1.fastq.gz      This file contains sequence reads, in the format produced by Illumina sequencing machines. Read more about the fastq  format at Wikipedia.   MRSA0252.fna      This file contains the genome sequence of  Staphylococcus aureus MRSA252 . Read more about the  fasta  format at Wikipedia.", 
+            "title": "The data"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#galaxy-tools", 
+            "text": "The purpose of this section is to help you become familiar with the way\ntools are run on Galaxy.  We will see how to:   rename files  summarize assembly statistics  convert file formats, and  find features in a DNA sequence.", 
+            "title": "Galaxy tools"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#rename-files", 
+            "text": "Two of the files in the  History  have very long and confusing names. File names can be changed by taking the following steps:   Click on the edit icon   next to the file in the  History  called: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq  In the  Name  text box, give it a new name. Rename it to:  typical.fastq  Click the  Save  button.   Repeat the process with another file:   Find the file called: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna    Rename it to  MRSA252.fna   Much better. There is other functionality hidden behind that edit icon   You can change a file\u2019s datatype, convert its format and many other things. Feel free to play around with them at a later date.", 
+            "title": "Rename Files"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#summarize-assembly-statistics", 
+            "text": "We are going to produce a histogram of contig read-coverage depths and calculate the summary statistics from the  Contig_stats.txt  file.  To do this we need to make some changes to the  Contig_stats.txt  file:   cut out a couple of columns from the file  remove a line from the file  produce a histogram   Cut out and keep two columns   Click on the eye icon   of the  Contig_stats.txt  file to have a look at it.    Note that there are 18 columns in this file. We want column 1 and column 6.  From the  tool  panel, click on  Text Manipulation -  Cut  and set the following:  Set  Cut Columns  to:  c1,c6  Delimited by :  Tab  Cut from :  Contig_stats.txt  Click  Execute  Examine the new file by clicking on its eye icon  . We now have 2 columns instead of the 18 in the original file.   Remove the Header lines of the new file   From the  tool  panel, click on  Text Manipulation -  Remove beginning  and set the following:  Remove First :  1  from :  Cut on data1  click  Execute  Note the the new file is the same as the previous one without the header line.   Make a histogram   From the  tool  panel, click on  Graph/Display Data -  Histogram  and set the following:  Dataset :  Remove beginning on Data X  Numerical column for X axis :  c2  Number of breaks :  25  Plot title :  Histogram of Contig Coverage  Label for X axis :  Coverage depth  Click  Execute  Click on the eye icon   of the histogram to have a look at it. Note there are a few peaks. Maybe these correspond to single, double and triple copy number of these contigs.   Calculate summary statistics for contig coverage depth   From the tool panel, click on  Statistics -  Summary Statisitics  and set the following:  Summary statistics on :  Remove beginning on Data X  Column or expression :  c2  Click  Execute  You\u2019ll note that the summary statistics tool failed (red background in the  History ). There was an error!  If you click on the filename, and then the bug symbol  , it will tell you what went wrong. (There is a missing python library).  At this point, you would normally contact your Galaxy server administrator.", 
+            "title": "Summarize assembly statistics"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#convert-file-formats", 
+            "text": "This shows how to convert a fastq file to a fasta file. The tool creates a new file with the converted data.   From the  tool  panel, click on  Convert Formats -  FASTQ to FASTA  and set the following:  FASTQ file to convert :  typical.fastq  Click  Execute  The output is a new Fasta file called  FASTQ to FASTA on data 2 .", 
+            "title": "Convert file formats"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#find-features", 
+            "text": "This example shows how to use a tool called \u201cbarrnap\u201d to search for rRNAs in a DNA sequence.  Find all of the ribosomal RNAs in a sequence   From the tool panel, click on  Annotation -  barrnap  and set the following:  Fasta file : MRSA252.fna  Click  Execute  The output is  barrnap on data 3 . It is a format gff3 file. (general feature format version 3). Each line in the file describes a feature in the DNA sequence.   Filter the annotations to get the 23S RNAs   Make a file with only the 23S rRNA features  From the tool panel, click on  Filter and Sort -  Select  and set the following:  Select lines from : (whatever you called the barrnap gff3 output)  the pattern :  23S  (this will look for all the lines in the file that contain \u201c23S\u201d)  Click  Execute  Now you have a gff3 file with just the 23S annotations!", 
+            "title": "Find features"
+        }, 
+        {
+            "location": "/workshop/genomics/1a/#what-now", 
+            "text": "Remember how we started a new  History  at the beginning? If you want to see any of your old histories, click on the  History  menu button   at the top of the  History  panel and then select \u201cSaved Histories.\u201d This will give you a list of all the histories you have worked on in this Galaxy server.", 
+            "title": "What now?"
+        }, 
+        {
+            "location": "/workshop/genomics/1b/", 
+            "text": "Getting Started with Artemis\n\n\nBackground\n\n\nArtemis is a genome browser and annotation tool. Artemis is written in Java and can be used on Mac, Linux or Windows. While it can be used to view any genomic data, it is specifically designed for viewing bacterial or viral genomes. A variety of file types can be loaded and viewed using Artemis; these include fasta, multifasta, EMBL, GenBank and GFF format files.\n\n\nLearning objectives\n\n\nAt the end of this tutorial, you should be able to:\n\n\n\n\ninstall Artemis on your laptop\n\n\ndownload a bacterial genome sequence\n\n\nopen the genome sequence in Artemis and navigate the sequence (?features).\n\n\n\n\nInstall Artemis\n\n\n\n\nArtemis is available at no cost from the Sanger Institute Website.\n\n\nInstructions for downloading and installing Artemis can be found at: \nhttp://www.sanger.ac.uk/science/tools/artemis\n\n\nDownload and run.\n\n\nNot working? The most common problem: Java is either not installed or too old.\n\n\nArtemis needs a recent version of Java v1.6 or higher. Go to java.com and update.\n\n\nStill not working? Seek help!\n\n\n\n\nDownload a bacterial genome\n\n\n\n\nDownload the sequence of \nLeptospira borgpetersenii\n serovar Hardjobovis Chromosome II from the NCBI website in GenBank format.  \n\n\nOpen URL: \nhttp://www.ncbi.nlm.nih.gov\n\n\nSelect the \u201cTaxonomy\u201d database from the list on the left hand side.\n\n\nEnter \u201cLeptospira borgpetersenii\u201d in the search box and \nSearch\n\n\n\n\n\n\n\n\nClick on species name:\n\n\n\n\n\n\n\n\n\n\nClick on species name again (at the top of the list):\n\n\n\n\n\n\n\n\n\n\nClick on the far right number 1 next to \nGenome\n:\n\n\n\n\n\n\n\n\n\n\nClick on \nGenome Assembly and Annotation report\n:\n\n\n\n\n\n\n\n\n\n\n\n\nThen, for the first species listed, scroll to the far right of the table, see chromosome 2, and click the link to the annotated assembly number NC_008509.1 (not CP0003):\n\n\n\n\n\n\n\n\n\n\nThen, click \nSend\n and choose \nComplete Record\n, \nDestination = File\n, \nFormat = GenBank (full)\n, \nCreate File\n.\n\n\nNote the download location (e.g. Downloads folder).\n\n\n\n\n\n\n\n\nOpen the GenBank file in Artemis\n\n\n\n\nOpen Artemis\n\n\n\n\n\n\n\n\nMenu: \nFile\n \u2192 \nOpen\n\n\nSelect file from dialog box \u2192 \nOPEN\n\n\n\n\n\n\nDemonstration/Discussion of the Artemis interface\n\n\nFIXME: put more here", 
+            "title": "Intro to Artemis"
+        }, 
+        {
+            "location": "/workshop/genomics/1b/#getting-started-with-artemis", 
+            "text": "", 
+            "title": "Getting Started with Artemis"
+        }, 
+        {
+            "location": "/workshop/genomics/1b/#background", 
+            "text": "Artemis is a genome browser and annotation tool. Artemis is written in Java and can be used on Mac, Linux or Windows. While it can be used to view any genomic data, it is specifically designed for viewing bacterial or viral genomes. A variety of file types can be loaded and viewed using Artemis; these include fasta, multifasta, EMBL, GenBank and GFF format files.", 
+            "title": "Background"
+        }, 
+        {
+            "location": "/workshop/genomics/1b/#learning-objectives", 
+            "text": "At the end of this tutorial, you should be able to:   install Artemis on your laptop  download a bacterial genome sequence  open the genome sequence in Artemis and navigate the sequence (?features).", 
+            "title": "Learning objectives"
+        }, 
+        {
+            "location": "/workshop/genomics/1b/#install-artemis", 
+            "text": "Artemis is available at no cost from the Sanger Institute Website.  Instructions for downloading and installing Artemis can be found at:  http://www.sanger.ac.uk/science/tools/artemis  Download and run.  Not working? The most common problem: Java is either not installed or too old.  Artemis needs a recent version of Java v1.6 or higher. Go to java.com and update.  Still not working? Seek help!", 
+            "title": "Install Artemis"
+        }, 
+        {
+            "location": "/workshop/genomics/1b/#download-a-bacterial-genome", 
+            "text": "Download the sequence of  Leptospira borgpetersenii  serovar Hardjobovis Chromosome II from the NCBI website in GenBank format.    Open URL:  http://www.ncbi.nlm.nih.gov  Select the \u201cTaxonomy\u201d database from the list on the left hand side.  Enter \u201cLeptospira borgpetersenii\u201d in the search box and  Search     Click on species name:      Click on species name again (at the top of the list):      Click on the far right number 1 next to  Genome :      Click on  Genome Assembly and Annotation report :       Then, for the first species listed, scroll to the far right of the table, see chromosome 2, and click the link to the annotated assembly number NC_008509.1 (not CP0003):      Then, click  Send  and choose  Complete Record ,  Destination = File ,  Format = GenBank (full) ,  Create File .  Note the download location (e.g. Downloads folder).", 
+            "title": "Download a bacterial genome"
+        }, 
+        {
+            "location": "/workshop/genomics/1b/#open-the-genbank-file-in-artemis", 
+            "text": "Open Artemis     Menu:  File  \u2192  Open  Select file from dialog box \u2192  OPEN    Demonstration/Discussion of the Artemis interface  FIXME: put more here", 
+            "title": "Open the GenBank file in Artemis"
+        }, 
+        {
+            "location": "/workshop/genomics/2a/", 
+            "text": "Assembly using Spades\n\n\nBackground\n\n\nSpades is one of a number of \nde novo\n assemblers that use short read sets (Illumina Reads) as an input and the method for assembly is based on de Bruijn graphs. For information about Spades see this \nlink\n. A protocol for assembling with Velvet (another \nde novo\n assembler) is available \nhere\n.\n\n\nIn this activity, we will perform a \nde novo\n assembly of a short read set (from an Illumina sequencer) using the Spades assembler. The output from Spades that we are interested in is a multifasta file that contains the draft genome sequence.\n\n\nThe read set for today is from an imaginary \nStaphylococcus aureus\n bacterium with a miniature genome.\n\n\nWe have a closed, annotated genome sequence for a closely related \nwildtype\n strain.\n\n\nThe whole genome shotgun method used to sequence our mutant strain The read set was produced on an Illumina DNA sequencing instrument.\n\n\n\n\nThe reads are paired-end\n\n\nEach read is 150 bases (before trimming)\n\n\nThe number of bases sequenced is equivalent to 19x the genome sequence of the wildtype strain. (Read coverage 19x - rather low!)\n\n\n\n\nLearning objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nimport data into Galaxy  \n\n\nview the files\n\n\nevaluate the read quality\n\n\nassemble the reads using Spades, and\n\n\nexamine the output assembly.\n\n\n\n\nLogin to Galaxy\n\n\n\n\nGo to the Galaxy Page\n: Web address: \nhttp://43.240.98.1/galaxy\n  (FIXME: this one?)\n\n\nRemind me how to logon\n\n\n\n\nImport data\n\n\n\n\nClick on the \nAnalyze Data\n menu at the top of the page.    \n\n\nClick on the History menu button the \n on the top right of the history pane.\n\n\nClick \nImport from File\n (at the bottom of the list).  \n\n\nA new page will appear with a text box for the URL of the history to import.  \n\n\nCopy the following URL into the text box: \nhttp://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz\n  \n\n\nClick \nSubmit\n.  \n\n\nGalaxy will download the data files from the internet and will be available as an additional history (takes about one minute).  \n\n\nTo make the newly imported history appear as the current history\n    \n\n\nClick on the View all Histories button \n (the on the top right of the history pane).  \n\n\nIf the history has finished downloading it will appear as \nimported from archive: Colombia_workshop_start\n\n\nClick on the \n button above the \nimported from archive:Colombia_workshop_start\n then the \nbutton.\n\n\nYou should now have four files in the history pane as follows:\n\n\n\n\n\n\nView files\n\n\nAll the files are are text files.\n\n\n\n\nmutant_R1.fastq\n and \nmutant_R2.fastq\n: a paired-end read set  \n\n\nwildtype.fna\n: a file that contains the genome sequence of the wildtype strain in fasta format (a header line, then the nucleotide sequence of the genome)\n\n\nwildtype.gff\n: a file that contains the genome sequence of the wildtype strain in general feature format. (a list of features - one feature per line, then the nucleotide sequence of the genome)\n\n\n\n\nLook at the contents of these files\n\n\n\n\nClick on the View Data button (the \n) next to each of the files in turn.\n\n\nBrief Discussion about the GFF format (FIXME: add)\n\n\n\n\n\n\nEvaluate the input reads\n\n\nQuestions you might ask about your input reads include:\n\n\n\n\nHow good is my read set?\n\n\nDo I need to ask for a new sequencing run?  \n\n\nIs it suitable for the analysis I need to do?\n\n\n\n\nWe will evaluate the input reads using the FastQC tool. \nFastQC website link\n\n\n\n\nThis runs a standard series of tests on your read set and returns a relatively easy to interpret report.\n\n\nWe will use the FASTQC tool in Galaxy to evaluate the quality of one of our fastq files.\n\n\nOpen the FASTQC tool interface (on the tool pane - \nNGS: QC and Manipulation -\n FastQC: Comprehensive QC)\n\n\nSelect mutant_R1.fastq\n\n\nExecute\n\n\nOnce finished, examine the output (Hint:\n). It has a summary at the top of the page and a number of graphs.\n\n\n\n\nSome of the important outputs of FastQC for our purposes are:\n\n\n\n\nRead length: will be important in setting maximum k-mer size value for assembly\n\n\nQuality encoding type: important for quality trimming software\n\n\n% GC: high GC organisms don\u2019t tend to assemble well and may have an uneven read coverage distribution.\n\n\nTotal number of reads: gives you an idea of coverage.\n\n\nDips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.\n\n\nPresence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc.\n\n\nPresence of large numbers of Ns in reads: may point to poor quality sequencing run. You need to trim these reads to remove Ns.\n\n\n\n\nWe won\u2019t be doing anything to these data to clean it up as there isn\u2019t much need. Therefore we will get on with the assembly!\n\n\nAssemble reads with Spades\n\n\n\n\n\n\nWe will perform a \nde novo\n assembly of the mutant fastq reads into long contiguous sequences (in fasta format.)\n\n\n\n\n\n\nSpades produces both contigs and scaffolds. Ask your demonstrator if you would like to know the difference between contigs and scaffolds.\n\n\n\n\n\n\nOpen the Spades assembler tool interface (on the tool pane - \nNGS: Assembly -\n spades\n)\n\n\n\n\n\n\nSet the following parameters:\n\n\n\n\nRun only Assembly\n: \nYes\n  \n\n\nKmers to use separated by commas:\n \n33,55,91\n  no spaces  \n\n\nCoverage cutoff:\n \nauto\n  \n\n\nForward reads:\n \nmutant_R1.fastq\n  \n\n\nReverse reads:\n \nmutant_R2.fastq\n  \n\n\n\n\n\n\n\n\nYour tool interface should look like this:\n\n\n\n\n\n\n\n\n\n\nClick \nExecute\n\n\n\n\nExamine the output\n\n\n\n\nGalaxy is now running Spades on the reads for you.\n\n\nWhen it is finished, you will have 5 new files in your history.\n\n\nFasta files of the resulting contigs and scaffolds, some statistics on each and the SPAdes logfile.\n\n\nClick on the View Data button \n on each of the files.\n\n\nNote that the short reads have been assembled into much longer contigs.\n\n\nThe stats files will give you the length of each of the contigs.", 
+            "title": "Assembly with Spades"
+        }, 
+        {
+            "location": "/workshop/genomics/2a/#assembly-using-spades", 
+            "text": "", 
+            "title": "Assembly using Spades"
+        }, 
+        {
+            "location": "/workshop/genomics/2a/#background", 
+            "text": "Spades is one of a number of  de novo  assemblers that use short read sets (Illumina Reads) as an input and the method for assembly is based on de Bruijn graphs. For information about Spades see this  link . A protocol for assembling with Velvet (another  de novo  assembler) is available  here .  In this activity, we will perform a  de novo  assembly of a short read set (from an Illumina sequencer) using the Spades assembler. The output from Spades that we are interested in is a multifasta file that contains the draft genome sequence.  The read set for today is from an imaginary  Staphylococcus aureus  bacterium with a miniature genome.  We have a closed, annotated genome sequence for a closely related  wildtype  strain.  The whole genome shotgun method used to sequence our mutant strain The read set was produced on an Illumina DNA sequencing instrument.   The reads are paired-end  Each read is 150 bases (before trimming)  The number of bases sequenced is equivalent to 19x the genome sequence of the wildtype strain. (Read coverage 19x - rather low!)", 
+            "title": "Background"
+        }, 
+        {
+            "location": "/workshop/genomics/2a/#learning-objectives", 
+            "text": "At the end of this tutorial you should be able to:   import data into Galaxy    view the files  evaluate the read quality  assemble the reads using Spades, and  examine the output assembly.", 
+            "title": "Learning objectives"
+        }, 
+        {
+            "location": "/workshop/genomics/2a/#login-to-galaxy", 
+            "text": "Go to the Galaxy Page : Web address:  http://43.240.98.1/galaxy   (FIXME: this one?)  Remind me how to logon", 
+            "title": "Login to Galaxy"
+        }, 
+        {
+            "location": "/workshop/genomics/2a/#import-data", 
+            "text": "Click on the  Analyze Data  menu at the top of the page.      Click on the History menu button the   on the top right of the history pane.  Click  Import from File  (at the bottom of the list).    A new page will appear with a text box for the URL of the history to import.    Copy the following URL into the text box:  http://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz     Click  Submit .    Galaxy will download the data files from the internet and will be available as an additional history (takes about one minute).    To make the newly imported history appear as the current history       Click on the View all Histories button   (the on the top right of the history pane).    If the history has finished downloading it will appear as  imported from archive: Colombia_workshop_start  Click on the   button above the  imported from archive:Colombia_workshop_start  then the  button.  You should now have four files in the history pane as follows:", 
+            "title": "Import data"
+        }, 
+        {
+            "location": "/workshop/genomics/2a/#view-files", 
+            "text": "All the files are are text files.   mutant_R1.fastq  and  mutant_R2.fastq : a paired-end read set    wildtype.fna : a file that contains the genome sequence of the wildtype strain in fasta format (a header line, then the nucleotide sequence of the genome)  wildtype.gff : a file that contains the genome sequence of the wildtype strain in general feature format. (a list of features - one feature per line, then the nucleotide sequence of the genome)   Look at the contents of these files   Click on the View Data button (the  ) next to each of the files in turn.  Brief Discussion about the GFF format (FIXME: add)", 
+            "title": "View files"
+        }, 
+        {
+            "location": "/workshop/genomics/2a/#evaluate-the-input-reads", 
+            "text": "Questions you might ask about your input reads include:   How good is my read set?  Do I need to ask for a new sequencing run?    Is it suitable for the analysis I need to do?   We will evaluate the input reads using the FastQC tool.  FastQC website link   This runs a standard series of tests on your read set and returns a relatively easy to interpret report.  We will use the FASTQC tool in Galaxy to evaluate the quality of one of our fastq files.  Open the FASTQC tool interface (on the tool pane -  NGS: QC and Manipulation -  FastQC: Comprehensive QC)  Select mutant_R1.fastq  Execute  Once finished, examine the output (Hint: ). It has a summary at the top of the page and a number of graphs.   Some of the important outputs of FastQC for our purposes are:   Read length: will be important in setting maximum k-mer size value for assembly  Quality encoding type: important for quality trimming software  % GC: high GC organisms don\u2019t tend to assemble well and may have an uneven read coverage distribution.  Total number of reads: gives you an idea of coverage.  Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.  Presence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc.  Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You need to trim these reads to remove Ns.   We won\u2019t be doing anything to these data to clean it up as there isn\u2019t much need. Therefore we will get on with the assembly!", 
+            "title": "Evaluate the input reads"
+        }, 
+        {
+            "location": "/workshop/genomics/2a/#assemble-reads-with-spades", 
+            "text": "We will perform a  de novo  assembly of the mutant fastq reads into long contiguous sequences (in fasta format.)    Spades produces both contigs and scaffolds. Ask your demonstrator if you would like to know the difference between contigs and scaffolds.    Open the Spades assembler tool interface (on the tool pane -  NGS: Assembly -  spades )    Set the following parameters:   Run only Assembly :  Yes     Kmers to use separated by commas:   33,55,91   no spaces    Coverage cutoff:   auto     Forward reads:   mutant_R1.fastq     Reverse reads:   mutant_R2.fastq        Your tool interface should look like this:      Click  Execute", 
+            "title": "Assemble reads with Spades"
+        }, 
+        {
+            "location": "/workshop/genomics/2a/#examine-the-output", 
+            "text": "Galaxy is now running Spades on the reads for you.  When it is finished, you will have 5 new files in your history.  Fasta files of the resulting contigs and scaffolds, some statistics on each and the SPAdes logfile.  Click on the View Data button   on each of the files.  Note that the short reads have been assembled into much longer contigs.  The stats files will give you the length of each of the contigs.", 
+            "title": "Examine the output"
+        }, 
+        {
+            "location": "/workshop/genomics/2b/", 
+            "text": "Genome annotation using Prokka\n\n\nBackground\n\n\nIn this section we will use a software tool called Prokka to annotate the draft genome sequence produced in Activity 2a. Prokka is a \u201cwrapper\u201d; it collects together several pieces of software (from various authors) - this avoids \u201cre-inventing the wheel\u201d.\n\n\nProkka finds and annotates features (both protein coding regions and RNA genes i.e. tRNA, rRNA) present on on a sequence. Note, Prokka uses a two step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using \nProdigal\n; second, the function of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found \nhere\n.\n\n\nLearning objectives\n\n\nAt the end of this tutorial you should be able to :\n\n\n\n\ninput file into Prokka\n\n\nchange settings\n\n\nrun Prokka, and\n\n\nexamine the output: annotated genome.\n\n\n\n\nRun Prokka\n\n\n\n\nIn Galaxy, load the Prokka interface from the tool panel (\nNGS: Annotation -\n Prokka\n)  \n\n\nSet the following parameters:\n\n\nContigs to annotate:\n \nSpades contigs\n  \n\n\nForce GenBank/ENA/DDJB compliance (\ncompliant): Yes\n  \n\n\nGenus Name:\n \nStaphylococcus\n  \n\n\nStrain Name:\n \naureus\n  \n\n\nUse genus-specific BLAST database: No\n  \n\n\nLocus tag prefix: P\n  \n\n\nSequencing Centre: V\n  \n\n\n\n\n\n\nClick \nExecute\n  \n\n\n\n\nExamine the output\n\n\nOnce Prokka has finished, examine each of its output files.\n\n\n\n\nThe gff and gbk files contains all of the information about all of the features annotated (in different formats.)\n\n\nThe txt file contains a summary of the number of features annotated.\n\n\nThe faa file contains the protein sequences of the genes annotated.\n\n\n\n\nThe ffn file contains the nucleotide sequences of the genes annotated.\n\n\n\n\n\n\nDownload the gff file to your local computer\n\n\n\n\n\n\nNow that we have annotated the draft genome sequence, we would like to\nview the sequence in the Artemis genome viewer.\n\n\n\n\nThe file is downloaded from the history panel. Identify the file with the .gff extension, expand file header to reveal the expanded file header and download the file using the disk icon \n.\n\n\n\n\n\n\n\n\nOpen Artemis and load the downloaded .gff file.\n\n\n\n\nDiscussion - a closer look at the annotated features\n\n\nFIXME: to add\n\n\n\n\nOpen Artemis and load the downloaded .gff file.", 
+            "title": "Annotation with Prokka"
+        }, 
+        {
+            "location": "/workshop/genomics/2b/#genome-annotation-using-prokka", 
+            "text": "", 
+            "title": "Genome annotation using Prokka"
+        }, 
+        {
+            "location": "/workshop/genomics/2b/#background", 
+            "text": "In this section we will use a software tool called Prokka to annotate the draft genome sequence produced in Activity 2a. Prokka is a \u201cwrapper\u201d; it collects together several pieces of software (from various authors) - this avoids \u201cre-inventing the wheel\u201d.  Prokka finds and annotates features (both protein coding regions and RNA genes i.e. tRNA, rRNA) present on on a sequence. Note, Prokka uses a two step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using  Prodigal ; second, the function of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found  here .", 
+            "title": "Background"
+        }, 
+        {
+            "location": "/workshop/genomics/2b/#learning-objectives", 
+            "text": "At the end of this tutorial you should be able to :   input file into Prokka  change settings  run Prokka, and  examine the output: annotated genome.", 
+            "title": "Learning objectives"
+        }, 
+        {
+            "location": "/workshop/genomics/2b/#run-prokka", 
+            "text": "In Galaxy, load the Prokka interface from the tool panel ( NGS: Annotation -  Prokka )    Set the following parameters:  Contigs to annotate:   Spades contigs     Force GenBank/ENA/DDJB compliance ( compliant): Yes     Genus Name:   Staphylococcus     Strain Name:   aureus     Use genus-specific BLAST database: No     Locus tag prefix: P     Sequencing Centre: V       Click  Execute", 
+            "title": "Run Prokka"
+        }, 
+        {
+            "location": "/workshop/genomics/2b/#examine-the-output", 
+            "text": "Once Prokka has finished, examine each of its output files.   The gff and gbk files contains all of the information about all of the features annotated (in different formats.)  The txt file contains a summary of the number of features annotated.  The faa file contains the protein sequences of the genes annotated.   The ffn file contains the nucleotide sequences of the genes annotated.    Download the gff file to your local computer    Now that we have annotated the draft genome sequence, we would like to\nview the sequence in the Artemis genome viewer.   The file is downloaded from the history panel. Identify the file with the .gff extension, expand file header to reveal the expanded file header and download the file using the disk icon  .     Open Artemis and load the downloaded .gff file.", 
+            "title": "Examine the output"
+        }, 
+        {
+            "location": "/workshop/genomics/2b/#discussion-a-closer-look-at-the-annotated-features", 
+            "text": "FIXME: to add   Open Artemis and load the downloaded .gff file.", 
+            "title": "Discussion - a closer look at the annotated features"
+        }, 
+        {
+            "location": "/workshop/genomics/3/", 
+            "text": "Comparative Genomics\n\n\nBackground\n\n\nIn this activity we will use the BWA short read mapper and Freebayes\nvariant caller to identify \u2018micro\u2019 differences between genome\nsequences.\n\n\nThe genome sequences being compared are those of the \u2018wildtype\u2019 and\n\u2018mutant\u2019 strains.\n\n\nThe relevant files should already be available on Galaxy.\n\n\nJust for a recap:\n\n\nWe have a closed, annotated genome sequence for the wildtype strain.\n\n\n\n\nFiles: wildtype.fna and wildtype.gff\n\n\n\n\nFor the mutant strain we have whole genome shotgun short sequence reads\nfrom an Illumina DNA sequencing instrument\n\n\n\n\n\n\nFiles: mutant_R1.fastq and mutant_R2.fastq (fastq format)\n\n\n\n\n\n\nThe reads are paired-end\n\n\n\n\nEach read is 150 bases  \n\n\nThe reads coverage depth is estimated at 19x.\n\n\n\n\nAfter investigating the \u2018micro\u2019 differences (SNPs / INDELS), we will\nattempt to detect larger \u2018macro\u2019 differences using Mauve.\n\n\nMap Reads to Reference\n\n\n\n\nMap the reads on to the reference sequence\n\n\n\n\nSeveral programs could be used for this but we will use BWA-MEM.\n\n\n\n\n\n\nOpen the BWA-MEM tool interface (from the tool panel \nNGS: Mapping -\n Map with BWA-MEM\n.\n\n\n\n\n\n\nSet the following parameters:\n\n\n\n\n\n\n*\nWill you select a reference genome from your history or use a built-in index?: Use a genome from history and build index\n\n\nUse the following dataset as the reference sequence: wildtype.fna\n\n\nSelect first set of reads:\n mutant_R1.fastq\n\n\nSelect second set of reads:\n mutant_R2.fastq\n\n\nClick \nExecute\n\n\nExamine the mapped reads\n\n\nLook at the contents of the BAM file\n\n\nNOTE: The BAM file is a Binary Compressed Datafile and cannot be viewed directly. If you attempt to view it using the view data button it will be downloaded to your local computer. Instead we must convert it to a non-compressed text format (SAM) first.\n\n\n\n\nFirst we have to convert the BAM file to a SAM file.\n\n\nOpen the BAM-to-SAM tool interface: (on the tool panel \nNGS: SAM tools -\n BAM-to-SAM\n.\n\n\nView the resultant SAM file by clicking on the View Data button.\n\n\nHave a look at the fields in the file.\n\n\nThe demonstrator will now point out what all the fields are.\n\n\n\n\nViewing the BAM file using Artemis\n\n\nIn this section we will view the BAM file produced we produced above in\nArtemis.\n\n\nDownload the BAM file to your local computer\n\n- Click on the name of the BAM file that you created in Section 1.\n\n- Click on the download button \n, you need to download both the BAM file and the bam_index.\n\n\n\n\nStart Artemis and load the wildtype.gff\n\n- From the Artemis menu, Click \nFile -\n Open \n\n- Load \nwildtype.gff\n\n\nYou should now have the wildtype\u2019s annotated sequence loaded into the Artemis genome browser.\n\n\nLoad the BAM file into Artemis\n \n\n- Click \nFile -\n Read BAM / VCF\n\n- Select: \nGalaxy \u2026 .bam\n\n- Click \nOk\n   \n\n\nYou should see something like this:\n\n\n\n\nCan you find a SNP?\n\n\nDemonstration of the ways that the view of the BAM file can be enhanced!\n\n\nImagine finding each SNP manually - Luckily this can be automated using a tool available on Galaxy.\n\n\nVariant Calling\n\n\nWe will now search through our alignment file (BAM) for statistically\nvalid SNPs using the Freebayes variant calling tool.\n\n\nRun Freebayes\n\n\n\n\nLoad the Freebayes tool interface (on the tool panel: \nNGS: Variant Detection -\n Freebayes\n.\n\n\nSet the following parameters:\n\n\n\n\nLoad reference genome from:\n \nHistory\n\n\nSample BAM file: Map with BWA-MEM on data \u2026 BAM format)\n\n\nUse the following dataset as the reference sequence: wildtype.fna\n  \n\n\nClick \nExecute\n\n\nExamine the Freebayes output\n\n\n\n\nFreebayes will create a VCF file. This stands for Variant Calling Format.\n\n\nClick on its View Data button and have a look at the file. There is a lot of header information, the variants appear lower down.\n\n\nCan you spot a SNP?\n\n\nWhat about an insertion? A deletion?\n\n\n\n\nInvestigation of Variants\n\n\nWhat is the impact of the differences we have observed?\n\n\nIn this section we will use some simple investigation strategies to\npredict the impact of the difference on the function of the gene and\nperhaps even the strain itself.\n\n\nArtemis\n - the annotated draft genome sequence of the mutant strain -\nwhat is the impact the protein coding region? what is the predicted\nfunction?\n\n\nblastp\n - \nhttp://blast.ncbi.nlm.nih.gov/Blast.cgi\n the protein domain display - are any major protein domains truncated by the difference?\n\n\nLipoP/SignalP/TmHMM\n \nhttp://www.cbs.dtu.dk/services/\n membrane location prediction - has the change had an impact on the membrane location of the protein?\n\n\nLiterature?\n\n\nCan you suggest a type of nucleotide sequence that might have no impact on the function of the encoded protein?\n\n\nIn this section we will investigate a few variants together as a demonstration\n\n\nperhaps a few individually too??\n\n\nDetection of \u2018macro\u2019 INDELS and rearrangement using Mauve\n\n\nWe will now examine our earlier assembly and compare it with the reference on a genome wide basis using Mauve.\n\n\nDownload and install Mauve. More information on Mauve and its use can be found \nhere\n.\n\n\nYou will then need to load both the reference \nwildtype.gff\n file and the \nmutant.gff\n file that you downloaded earlier.", 
+            "title": "Comparative genomics"
+        }, 
+        {
+            "location": "/workshop/genomics/3/#comparative-genomics", 
+            "text": "", 
+            "title": "Comparative Genomics"
+        }, 
+        {
+            "location": "/workshop/genomics/3/#background", 
+            "text": "In this activity we will use the BWA short read mapper and Freebayes\nvariant caller to identify \u2018micro\u2019 differences between genome\nsequences.  The genome sequences being compared are those of the \u2018wildtype\u2019 and\n\u2018mutant\u2019 strains.  The relevant files should already be available on Galaxy.  Just for a recap:  We have a closed, annotated genome sequence for the wildtype strain.   Files: wildtype.fna and wildtype.gff   For the mutant strain we have whole genome shotgun short sequence reads\nfrom an Illumina DNA sequencing instrument    Files: mutant_R1.fastq and mutant_R2.fastq (fastq format)    The reads are paired-end   Each read is 150 bases    The reads coverage depth is estimated at 19x.   After investigating the \u2018micro\u2019 differences (SNPs / INDELS), we will\nattempt to detect larger \u2018macro\u2019 differences using Mauve.", 
+            "title": "Background"
+        }, 
+        {
+            "location": "/workshop/genomics/3/#map-reads-to-reference", 
+            "text": "Map the reads on to the reference sequence   Several programs could be used for this but we will use BWA-MEM.    Open the BWA-MEM tool interface (from the tool panel  NGS: Mapping -  Map with BWA-MEM .    Set the following parameters:    * Will you select a reference genome from your history or use a built-in index?: Use a genome from history and build index  Use the following dataset as the reference sequence: wildtype.fna  Select first set of reads:  mutant_R1.fastq  Select second set of reads:  mutant_R2.fastq  Click  Execute", 
+            "title": "Map Reads to Reference"
+        }, 
+        {
+            "location": "/workshop/genomics/3/#examine-the-mapped-reads", 
+            "text": "Look at the contents of the BAM file  NOTE: The BAM file is a Binary Compressed Datafile and cannot be viewed directly. If you attempt to view it using the view data button it will be downloaded to your local computer. Instead we must convert it to a non-compressed text format (SAM) first.   First we have to convert the BAM file to a SAM file.  Open the BAM-to-SAM tool interface: (on the tool panel  NGS: SAM tools -  BAM-to-SAM .  View the resultant SAM file by clicking on the View Data button.  Have a look at the fields in the file.  The demonstrator will now point out what all the fields are.", 
+            "title": "Examine the mapped reads"
+        }, 
+        {
+            "location": "/workshop/genomics/3/#viewing-the-bam-file-using-artemis", 
+            "text": "In this section we will view the BAM file produced we produced above in\nArtemis.  Download the BAM file to your local computer \n- Click on the name of the BAM file that you created in Section 1. \n- Click on the download button  , you need to download both the BAM file and the bam_index.   Start Artemis and load the wildtype.gff \n- From the Artemis menu, Click  File -  Open  \n- Load  wildtype.gff  You should now have the wildtype\u2019s annotated sequence loaded into the Artemis genome browser.  Load the BAM file into Artemis   \n- Click  File -  Read BAM / VCF \n- Select:  Galaxy \u2026 .bam \n- Click  Ok      You should see something like this:   Can you find a SNP?  Demonstration of the ways that the view of the BAM file can be enhanced!  Imagine finding each SNP manually - Luckily this can be automated using a tool available on Galaxy.", 
+            "title": "Viewing the BAM file using Artemis"
+        }, 
+        {
+            "location": "/workshop/genomics/3/#variant-calling", 
+            "text": "We will now search through our alignment file (BAM) for statistically\nvalid SNPs using the Freebayes variant calling tool.  Run Freebayes   Load the Freebayes tool interface (on the tool panel:  NGS: Variant Detection -  Freebayes .  Set the following parameters:   Load reference genome from:   History  Sample BAM file: Map with BWA-MEM on data \u2026 BAM format)  Use the following dataset as the reference sequence: wildtype.fna     Click  Execute  Examine the Freebayes output   Freebayes will create a VCF file. This stands for Variant Calling Format.  Click on its View Data button and have a look at the file. There is a lot of header information, the variants appear lower down.  Can you spot a SNP?  What about an insertion? A deletion?", 
+            "title": "Variant Calling"
+        }, 
+        {
+            "location": "/workshop/genomics/3/#investigation-of-variants", 
+            "text": "What is the impact of the differences we have observed?  In this section we will use some simple investigation strategies to\npredict the impact of the difference on the function of the gene and\nperhaps even the strain itself.  Artemis  - the annotated draft genome sequence of the mutant strain -\nwhat is the impact the protein coding region? what is the predicted\nfunction?  blastp  -  http://blast.ncbi.nlm.nih.gov/Blast.cgi  the protein domain display - are any major protein domains truncated by the difference?  LipoP/SignalP/TmHMM   http://www.cbs.dtu.dk/services/  membrane location prediction - has the change had an impact on the membrane location of the protein?  Literature?  Can you suggest a type of nucleotide sequence that might have no impact on the function of the encoded protein?  In this section we will investigate a few variants together as a demonstration  perhaps a few individually too??", 
+            "title": "Investigation of Variants"
+        }, 
+        {
+            "location": "/workshop/genomics/3/#detection-of-macro-indels-and-rearrangement-using-mauve", 
+            "text": "We will now examine our earlier assembly and compare it with the reference on a genome wide basis using Mauve.  Download and install Mauve. More information on Mauve and its use can be found  here .  You will then need to load both the reference  wildtype.gff  file and the  mutant.gff  file that you downloaded earlier.", 
+            "title": "Detection of \u2018macro\u2019 INDELS and rearrangement using Mauve"
+        }, 
+        {
+            "location": "/workshop/snps/", 
+            "text": "Variant calling\n\n\nBackground\n\n\nVariant calling is the process of identifying differences between to genome samples.\nUsually differences are limited to single nucleotide polymorphisms (SNPs) and small insertions and deletions (indels). Larger structural variation such as inversions, duplications and large deletions are not typically covered by \nvariant calling\n.\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nFind variants between a reference genome and a set of reads\n\n\nDetermine the effect of those variants on genomic features\n\n\nUnderstand if the SNP is potentially affecting the phenotype\n\n\n\n\nExperiment\n\n\nFIXME: You are working on a bug and you notice one of them is forming smaller colonies than normal. You want to find out why this msall colony vairant (SCV) is doing at the DNA level.\n\n\nPrepare reference\n\n\nFIXME: need FASTA or prefer an \nannotated\n genome eg. GBK or GFF3 of the original strain you used\n\n\n\n\nNote\n\n\nPlease make sure your reference genome includes all chromosomes and plasmids\n\n\n\n\nAlign reads\n\n\nFIXME: BWA MEM align the SCV reads\n\n\nCall variants\n\n\nFIXME: freebayes?  varscan2 ?\nFIXME: talk about multimapping reads?\n\n\nFilter variants\n\n\nFIXME:  vcffilter? something else?  mindepth, homozygous?\n\n\nAnnotate consequencs\n\n\nFIXME: snpEff - but it is hard to add a genome\n\n\n\n\nHint\n\n\nJust use Snippy and all this will happen magically?\n\n\n\n\nWhat next?\n\n\n\n\nSNPs can be used to build \nphylogentic trees\n.", 
+            "title": "Variant calling"
+        }, 
+        {
+            "location": "/workshop/snps/#variant-calling", 
+            "text": "", 
+            "title": "Variant calling"
+        }, 
+        {
+            "location": "/workshop/snps/#background", 
+            "text": "Variant calling is the process of identifying differences between to genome samples.\nUsually differences are limited to single nucleotide polymorphisms (SNPs) and small insertions and deletions (indels). Larger structural variation such as inversions, duplications and large deletions are not typically covered by  variant calling .", 
+            "title": "Background"
+        }, 
+        {
+            "location": "/workshop/snps/#learning-objectives", 
+            "text": "At the end of this tutorial you should be able to:   Find variants between a reference genome and a set of reads  Determine the effect of those variants on genomic features  Understand if the SNP is potentially affecting the phenotype", 
+            "title": "Learning Objectives"
+        }, 
+        {
+            "location": "/workshop/snps/#experiment", 
+            "text": "FIXME: You are working on a bug and you notice one of them is forming smaller colonies than normal. You want to find out why this msall colony vairant (SCV) is doing at the DNA level.", 
+            "title": "Experiment"
+        }, 
+        {
+            "location": "/workshop/snps/#prepare-reference", 
+            "text": "FIXME: need FASTA or prefer an  annotated  genome eg. GBK or GFF3 of the original strain you used   Note  Please make sure your reference genome includes all chromosomes and plasmids", 
+            "title": "Prepare reference"
+        }, 
+        {
+            "location": "/workshop/snps/#align-reads", 
+            "text": "FIXME: BWA MEM align the SCV reads", 
+            "title": "Align reads"
+        }, 
+        {
+            "location": "/workshop/snps/#call-variants", 
+            "text": "FIXME: freebayes?  varscan2 ?\nFIXME: talk about multimapping reads?", 
+            "title": "Call variants"
+        }, 
+        {
+            "location": "/workshop/snps/#filter-variants", 
+            "text": "FIXME:  vcffilter? something else?  mindepth, homozygous?", 
+            "title": "Filter variants"
+        }, 
+        {
+            "location": "/workshop/snps/#annotate-consequencs", 
+            "text": "FIXME: snpEff - but it is hard to add a genome   Hint  Just use Snippy and all this will happen magically?", 
+            "title": "Annotate consequencs"
+        }, 
+        {
+            "location": "/workshop/snps/#what-next", 
+            "text": "SNPs can be used to build  phylogentic trees .", 
+            "title": "What next?"
+        }, 
+        {
+            "location": "/workshop/trees/", 
+            "text": "Phylogenomics\n\n\nIntroduction\n\n\nFIXME\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nFIXME\n\n\nFIXME\n\n\nFIXME\n\n\n\n\nMain Tutorial\n\n\nFIXME\n\n\n\n\nNote\n\n\nPlease take note of this because we care about you.\n\n\n\n\n\n\nHint\n\n\nThis is a useful tip for you because we like you.\n\n\n\n\n\n\nWarning\n\n\nPlease be careful here, you could really mess things up.\n\n\n\n\nWhat next?\n\n\nFIXME", 
+            "title": "Phylogenetic trees"
+        }, 
+        {
+            "location": "/workshop/trees/#phylogenomics", 
+            "text": "", 
+            "title": "Phylogenomics"
+        }, 
+        {
+            "location": "/workshop/trees/#introduction", 
+            "text": "FIXME", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/workshop/trees/#learning-objectives", 
+            "text": "At the end of this tutorial you should be able to:   FIXME  FIXME  FIXME", 
+            "title": "Learning Objectives"
+        }, 
+        {
+            "location": "/workshop/trees/#main-tutorial", 
+            "text": "FIXME   Note  Please take note of this because we care about you.    Hint  This is a useful tip for you because we like you.    Warning  Please be careful here, you could really mess things up.", 
+            "title": "Main Tutorial"
+        }, 
+        {
+            "location": "/workshop/trees/#what-next", 
+            "text": "FIXME", 
+            "title": "What next?"
+        }, 
+        {
+            "location": "/workshop/dge/", 
+            "text": "Differential Gene Expression\n\n\nBackground\n\n\nDifferential Gene Expression (DGE) is the process of determining whether any genes were expressed at a different level between two conditions. For example, the conditions could be wildtype versus mutant, or two growth conditions. Usually multiple biological replicates are done for each condition - these are needed to separate variation within the condition from that between the conditions.\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nAlign RNA-Seq data to a reference genome\n\n\nCount transcripts for each sample\n\n\nPerform statistical analysis to obtain a list of differentially expressed genes\n\n\nInterpret the DGE list\n\n\nVisualize the results in Degust\n\n\n\n\nInput data\n\n\nA typical experiment will have 2 conditions each with 3 replicates, for a total of 6 samples. Each sample will be \nRNA-Seq data\n, either as one file per sample (single-end reads / SE) or two files (paired-end reads / PE).\n\n\n\n\n\n\n\n\n\n\nCondition 1\n\n\nCondition 2\n\n\n\n\n\n\n\n\n\n\nReplicate 1\n\n\n1\n\n\n4\n\n\n\n\n\n\nReplicate 2\n\n\n2\n\n\n5\n\n\n\n\n\n\nReplicate 3\n\n\n3\n\n\n6\n\n\n\n\n\n\n\n\nFIXME:  load reads\n\n\nPrepare reference\n\n\nFIXME: tricky need it in correct format for htseq-count GFF2 ?\n\n\nAlign reads\n\n\nFIXME: use BWA MEM with defaults? for each sample, should be able to use the \n6 at once\n feature of Galaxy?  \n\n\nCount reads\n\n\nFIXME: htseq-count, use the CDS and RNA features to align to, get count table\n\n\nDGE Analysis\n\n\nWithin Galaxy\n\n\nFIXME: Need to use Voom/Limma here\n\n\nWithin Degust\n\n\nFIXME: need to combine each of the results in count-reads section into a single table (using galaxy table tools?) but need to munge in the annotation as well, so i or simon will need to add new tools to toolshed to do this\n\n\nWhat next?\n\n\nFIXME", 
+            "title": "Differential gene expression"
+        }, 
+        {
+            "location": "/workshop/dge/#differential-gene-expression", 
+            "text": "", 
+            "title": "Differential Gene Expression"
+        }, 
+        {
+            "location": "/workshop/dge/#background", 
+            "text": "Differential Gene Expression (DGE) is the process of determining whether any genes were expressed at a different level between two conditions. For example, the conditions could be wildtype versus mutant, or two growth conditions. Usually multiple biological replicates are done for each condition - these are needed to separate variation within the condition from that between the conditions.", 
+            "title": "Background"
+        }, 
+        {
+            "location": "/workshop/dge/#learning-objectives", 
+            "text": "At the end of this tutorial you should be able to:   Align RNA-Seq data to a reference genome  Count transcripts for each sample  Perform statistical analysis to obtain a list of differentially expressed genes  Interpret the DGE list  Visualize the results in Degust", 
+            "title": "Learning Objectives"
+        }, 
+        {
+            "location": "/workshop/dge/#input-data", 
+            "text": "A typical experiment will have 2 conditions each with 3 replicates, for a total of 6 samples. Each sample will be  RNA-Seq data , either as one file per sample (single-end reads / SE) or two files (paired-end reads / PE).      Condition 1  Condition 2      Replicate 1  1  4    Replicate 2  2  5    Replicate 3  3  6     FIXME:  load reads", 
+            "title": "Input data"
+        }, 
+        {
+            "location": "/workshop/dge/#prepare-reference", 
+            "text": "FIXME: tricky need it in correct format for htseq-count GFF2 ?", 
+            "title": "Prepare reference"
+        }, 
+        {
+            "location": "/workshop/dge/#align-reads", 
+            "text": "FIXME: use BWA MEM with defaults? for each sample, should be able to use the  6 at once  feature of Galaxy?", 
+            "title": "Align reads"
+        }, 
+        {
+            "location": "/workshop/dge/#count-reads", 
+            "text": "FIXME: htseq-count, use the CDS and RNA features to align to, get count table", 
+            "title": "Count reads"
+        }, 
+        {
+            "location": "/workshop/dge/#dge-analysis", 
+            "text": "", 
+            "title": "DGE Analysis"
+        }, 
+        {
+            "location": "/workshop/dge/#within-galaxy", 
+            "text": "FIXME: Need to use Voom/Limma here", 
+            "title": "Within Galaxy"
+        }, 
+        {
+            "location": "/workshop/dge/#within-degust", 
+            "text": "FIXME: need to combine each of the results in count-reads section into a single table (using galaxy table tools?) but need to munge in the annotation as well, so i or simon will need to add new tools to toolshed to do this", 
+            "title": "Within Degust"
+        }, 
+        {
+            "location": "/workshop/dge/#what-next", 
+            "text": "FIXME", 
+            "title": "What next?"
+        }, 
+        {
+            "location": "/data/file_formats/", 
+            "text": "File formats\n\n\n\n\n\n\n\n\nFile type\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nFASTA\n\n\ndesc.\n\n\n\n\n\n\nMULTIFASTA\n\n\ndesc.\n\n\n\n\n\n\nFASTQ\n\n\ndesc.\n\n\n\n\n\n\nBAM\n\n\n\n\n\n\n\n\nSAM\n\n\n\n\n\n\n\n\nEMBL\n\n\n\n\n\n\n\n\nGenBank (= GBK?)\n\n\n\n\n\n\n\n\nGFF (GFF3)", 
+            "title": "File formats"
+        }, 
+        {
+            "location": "/data/file_formats/#file-formats", 
+            "text": "File type  Description      FASTA  desc.    MULTIFASTA  desc.    FASTQ  desc.    BAM     SAM     EMBL     GenBank (= GBK?)     GFF (GFF3)", 
+            "title": "File formats"
+        }, 
+        {
             "location": "/dna/data/", 
             "text": "Genomics Data\n\n\nDNA-Seq\n\n\nFASTQ", 
-            "title": "The Data"
+            "title": "Genomics"
         }, 
         {
             "location": "/dna/data/#genomics-data", 
@@ -41,14 +446,119 @@
             "title": "Genomics Data"
         }, 
         {
-            "location": "/dna/qc/", 
-            "text": "Genomics QC\n\n\nPhred\n\n\nAdapters\n\n\nTrimming\n\n\nClipping\n\n\nDepth", 
-            "title": "Quality Control"
+            "location": "/rna/data/", 
+            "text": "Transcriptomics Data\n\n\nRNA-Seq\n\n\nFASTQ", 
+            "title": "Transcriptomics"
         }, 
         {
-            "location": "/dna/qc/#genomics-qc", 
+            "location": "/rna/data/#transcriptomics-data", 
+            "text": "RNA-Seq  FASTQ", 
+            "title": "Transcriptomics Data"
+        }, 
+        {
+            "location": "/pro/data/", 
+            "text": "Proteomics Data\n\n\nNo idea!", 
+            "title": "Proteomics"
+        }, 
+        {
+            "location": "/pro/data/#proteomics-data", 
+            "text": "No idea!", 
+            "title": "Proteomics Data"
+        }, 
+        {
+            "location": "/met/data/", 
+            "text": "Metabolomics Data\n\n\nEven less idea!", 
+            "title": "Metabolomics"
+        }, 
+        {
+            "location": "/met/data/#metabolomics-data", 
+            "text": "Even less idea!", 
+            "title": "Metabolomics Data"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/qc/", 
+            "text": "Genomics QC\n\n\nPhred\n\n\nAdapters\n\n\nTrimming\n\n\nClipping\n\n\nDepth", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/qc/#genomics-qc", 
             "text": "Phred  Adapters  Trimming  Clipping  Depth", 
             "title": "Genomics QC"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/", 
+            "text": "FastQC\n\n\nAfter sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end sequence reads from Illumina.\n\n\nFastQC website link\n\n\nPre-requisites\n\n\n\n\nmGVL instance\n\n\nknowledge: de novo assembly\n\n\nknowledge: galaxy or cmdline\n\n\n\n\n\n\nFastQC on Galaxy\n\n\nFIXME: include screenshots\n\n\nStart\n\n\n\n\nopen your mGVL galaxy instance\n\n\n\n\nInput\n\n\n\n\nrequired input data: R1 and R2 reads\n\n\nGo to: history: import from file [public URL of a history file]\n\n\n[FIXME: how to transfer a history to that spot ?]\n\n\n[FIXME: At present I am using Pasteurella multocida but would be good to have a data set with contaminants, adapters - how to find?]\n\n\n\n\nRun\n\n\n\n\nTools pane: \nNGS Analysis: NGS QC and manipulation: FastQC\n.\n\n\nUnder \nShort read data from your current history\n: click the multiple files button: select R1 and R2 files. [FIXME: is this correct? you would want to view both?]\n\n\nLeave the other settings as they are.\n\n\nExecute\n.\n\n\n\n\nOutput\n\n\n\n\nFor each of the inputs (R1 and R2), there will two output files at the top of the history pane (right).\n\n\nWe will look at the \nwebpage\n output (which is the output displayed graphically).\nClick on the eye icon next to the file called \nFastQC on data1: Webpage\n.\n\n\nLook at the following information:  \n\n\nBasic Statistics: total sequences - to understand coverage.\n\n\nBasic Statistics: sequence length - to know how to set k values later.\n\n\nBasic Statistics: %GC - if high, assembly may be more difficult.  \n\n\nPer base sequence quality: might be low at the start and the end, which may support some trimming of reads\n\n\nPer base N content: if high, may indicate poor quality and a need for trimming the Ns.\n\n\nKmer content: should be no spikes\n\n\n\n\n\n\nLook at the same information for the R2 file.\n\n\nExample of good illumina data\n\n\nExample of bad illumina data\n\n\n\n\n\n\nFastQC on cmdline\n\n\nStart\n\n\n\n\non your local machine, make sure XQuartz is installed (but it doesn\nt have to be open - it will open automatically later).\n\n\nin terminal, ssh to your virtual machine with -X and -Y, e.g. \nssh -X -Y ubuntu@111.111.111.111\n (the -X and -Y means it will use your local XQuartz to display some files).\n\n\nmodule load fastqc_dist_0_10_1\n [FIXME: will this have a different name? eg just fastqc?]\n\n\nnavigate to where you want to make a FastQC analysis folder.\n\n\nMake a folder: \nmkdir fastqc_analyses\n\n\nMove to that folder: \ncd fastqc_analyses\n\n\n\n\nInput\n\n\n\n\n[FIXME: get the data into this folder]\n\n\n\n\nRun\n\n\n\n\nfastqc R1reads.fastq\n [runs fastqc]\n\n\ntype \nfastqc --help\n to see settings that you can change, and defaults\n\n\nFIXME: any to change\n\n\nFIXME: repeat for R2reads?\n\n\n\n\nOutput\n\n\n\n\nR1reads_fastqc: folder containing the output e.g. fastqc_report.html\n\n\nto view this, type: firefox fastqc_report.html - firefox should open and display the report\n(you may get an error message in terminal but ignore this)\n\n\n\n\n\n\nMore information\n\n\nFIXME: include these?\n\n\n\n\n\n\nlink to a fastqc protocol:\nhttp://vlsci.github.io/lscc_docs/tutorials/assembly/assembly-protocol/#section-1-read-quality-control\n\n\n\n\n\n\nmore detailed information:\nhttps://docs.google.com/document/pub?id=16GwPmwYW7o_r-ZUgCu8-oSBBY1gC97TfTTinGDk98Ws\n\n\n\n\n\n\nNext\n\n\n\n\nTrim reads: Trimmomatic (link)", 
+            "title": "FastQC"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#fastqc", 
+            "text": "After sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end sequence reads from Illumina.  FastQC website link", 
+            "title": "FastQC"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#pre-requisites", 
+            "text": "mGVL instance  knowledge: de novo assembly  knowledge: galaxy or cmdline", 
+            "title": "Pre-requisites"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#fastqc-on-galaxy", 
+            "text": "FIXME: include screenshots", 
+            "title": "FastQC on Galaxy"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#start", 
+            "text": "open your mGVL galaxy instance", 
+            "title": "Start"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#input", 
+            "text": "required input data: R1 and R2 reads  Go to: history: import from file [public URL of a history file]  [FIXME: how to transfer a history to that spot ?]  [FIXME: At present I am using Pasteurella multocida but would be good to have a data set with contaminants, adapters - how to find?]", 
+            "title": "Input"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#run", 
+            "text": "Tools pane:  NGS Analysis: NGS QC and manipulation: FastQC .  Under  Short read data from your current history : click the multiple files button: select R1 and R2 files. [FIXME: is this correct? you would want to view both?]  Leave the other settings as they are.  Execute .", 
+            "title": "Run"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#output", 
+            "text": "For each of the inputs (R1 and R2), there will two output files at the top of the history pane (right).  We will look at the  webpage  output (which is the output displayed graphically).\nClick on the eye icon next to the file called  FastQC on data1: Webpage .  Look at the following information:    Basic Statistics: total sequences - to understand coverage.  Basic Statistics: sequence length - to know how to set k values later.  Basic Statistics: %GC - if high, assembly may be more difficult.    Per base sequence quality: might be low at the start and the end, which may support some trimming of reads  Per base N content: if high, may indicate poor quality and a need for trimming the Ns.  Kmer content: should be no spikes    Look at the same information for the R2 file.  Example of good illumina data  Example of bad illumina data", 
+            "title": "Output"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#fastqc-on-cmdline", 
+            "text": "", 
+            "title": "FastQC on cmdline"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#start_1", 
+            "text": "on your local machine, make sure XQuartz is installed (but it doesn t have to be open - it will open automatically later).  in terminal, ssh to your virtual machine with -X and -Y, e.g.  ssh -X -Y ubuntu@111.111.111.111  (the -X and -Y means it will use your local XQuartz to display some files).  module load fastqc_dist_0_10_1  [FIXME: will this have a different name? eg just fastqc?]  navigate to where you want to make a FastQC analysis folder.  Make a folder:  mkdir fastqc_analyses  Move to that folder:  cd fastqc_analyses", 
+            "title": "Start"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#input_1", 
+            "text": "[FIXME: get the data into this folder]", 
+            "title": "Input"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#run_1", 
+            "text": "fastqc R1reads.fastq  [runs fastqc]  type  fastqc --help  to see settings that you can change, and defaults  FIXME: any to change  FIXME: repeat for R2reads?", 
+            "title": "Run"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#output_1", 
+            "text": "R1reads_fastqc: folder containing the output e.g. fastqc_report.html  to view this, type: firefox fastqc_report.html - firefox should open and display the report\n(you may get an error message in terminal but ignore this)", 
+            "title": "Output"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#more-information", 
+            "text": "FIXME: include these?    link to a fastqc protocol:\nhttp://vlsci.github.io/lscc_docs/tutorials/assembly/assembly-protocol/#section-1-read-quality-control    more detailed information:\nhttps://docs.google.com/document/pub?id=16GwPmwYW7o_r-ZUgCu8-oSBBY1gC97TfTTinGDk98Ws", 
+            "title": "More information"
+        }, 
+        {
+            "location": "/dna/qualitycontrol/fastqc/#next", 
+            "text": "Trim reads: Trimmomatic (link)", 
+            "title": "Next"
         }, 
         {
             "location": "/dna/denovo/spades/", 
@@ -62,13 +572,48 @@
         }, 
         {
             "location": "/dna/denovo/megahit/", 
-            "text": "Megahit\n\n\ncmdline", 
+            "text": "Megahit\n\n\ncmdline\n\n\nThis tutorial demonstrates how to assemble genomic reads from bacteria found in environmental samples. [FIXME: is that correct?]\n\n\nMegahit on Github\n\n\nPre-requisites\n\n\n\n\nmGVL instance\n\n\nknowledge: cmdline\n\n\nknowledge: metagenomics\n\n\n\n\nStart\n\n\n\n\nopen your mGVL in terminal\n\n\nmake a folder for the Megahit analsyses: \nmkdir Megahit\n\n\nmove into this folder: \ncd Megahit\n\n\n\n\nInput data\n\n\n\n\nWe will use Illumina paired-end reads from several species [FIXME?]\n\n\n\n\nRun Megahit\n\n\nmegahit [options] R1reads.fastq R2reads.fastq\n\n\n\n\nOutput\n\n\nNext\n\n\nMore information", 
             "title": "Megahit"
         }, 
         {
             "location": "/dna/denovo/megahit/#megahit", 
-            "text": "cmdline", 
+            "text": "cmdline  This tutorial demonstrates how to assemble genomic reads from bacteria found in environmental samples. [FIXME: is that correct?]  Megahit on Github", 
             "title": "Megahit"
+        }, 
+        {
+            "location": "/dna/denovo/megahit/#pre-requisites", 
+            "text": "mGVL instance  knowledge: cmdline  knowledge: metagenomics", 
+            "title": "Pre-requisites"
+        }, 
+        {
+            "location": "/dna/denovo/megahit/#start", 
+            "text": "open your mGVL in terminal  make a folder for the Megahit analsyses:  mkdir Megahit  move into this folder:  cd Megahit", 
+            "title": "Start"
+        }, 
+        {
+            "location": "/dna/denovo/megahit/#input-data", 
+            "text": "We will use Illumina paired-end reads from several species [FIXME?]", 
+            "title": "Input data"
+        }, 
+        {
+            "location": "/dna/denovo/megahit/#run-megahit", 
+            "text": "megahit [options] R1reads.fastq R2reads.fastq", 
+            "title": "Run Megahit"
+        }, 
+        {
+            "location": "/dna/denovo/megahit/#output", 
+            "text": "", 
+            "title": "Output"
+        }, 
+        {
+            "location": "/dna/denovo/megahit/#next", 
+            "text": "", 
+            "title": "Next"
+        }, 
+        {
+            "location": "/dna/denovo/megahit/#more-information", 
+            "text": "", 
+            "title": "More information"
         }, 
         {
             "location": "/dna/denovo/velvet/", 
@@ -91,24 +636,174 @@
             "title": "Velvet"
         }, 
         {
-            "location": "/dna/denovo/galaxy/", 
-            "text": "Galaxy\n\n\nspades i guess?", 
-            "title": "Galaxy"
+            "location": "/dna/denovo/pacbio/", 
+            "text": "PacBio SMRT Portal\n\n\nThis tutorial will show you how to assemble a bacterial genome de novo, using the PacBio SMRT Portal.\n\n\nLink to PacBio analysis software\n\n\nPre-requisites\n\n\n\n\nmGVL instance with 16 cores (FIXME: will people have this - if not, note how they can request it)\n\n\nknowledge: de novo assembly\n\n\n\n\nStart\n\n\n\n\nOpen your mGVL dashboard.\n\n\nGo to Admin. There is a list of packages. Find SMRT Analysis. On the right, click on \nInstall\n.\n\n\nYou should see SMRT Portal as one of the instance services on your GVL dashboard.\n\n\nOpen up the SMRT portal web link (to the right) and register/log on.\n\n\n\n\nHow it works\n\n\n\n\nRS_HGAP_Assembly.3 Protocol\n\n\nFilters short and poor-quality reads.\n\n\nLarge insert (fragment) sizes =\n single pass long reads (but these have lower quality)\n\n\nand/or small insert (fragment) sizes =\n cut adapters and assemble subreads =\n Circular Consensus Sequence (CSS) reads (higher quality)\n\n\nPre-assembly e.g. with Canu\n\n\nPolishes assembly e.g. with Quiver (joins contigs/scaffolds?)\n\n\nCorrections\n\n\n\n\nInput\n\n\n\n\nChoose your data. (FIXME: e.g. on GenomeSpace?)\n\n\nGet the data you want to use onto your mGVL. (FIXME: explain how?)\n\n\nIn the SMRT Portal, go to \nDesign Job\n, the top left tab.\n\n\nGo to \nImport and Manage: Import SMRT cells: SMRT Cells\n. Work out where you put the data on your GVL, and make sure the file path is showing. If not, click \nAdd\n and list the file path to the data.\n\n\nClick on the file path and then \nScan\n to check for new data.\n\n\n\n\nRun\n\n\n\n\nGo back to the top tab \nDesign Job\n.\n\n\nGo to \nCreate New\n.\n\n\nAn \nAnalysis\n window should appear. Check the box next to \nDe novo assembly\n, then \nNext\n.\n\n\nUnder \nJob Name\n enter a name.\n\n\nUnder \nProtocols\n choose \nRS_HGAP_Assembly.3\n.\n\n\n\n\n\n\n\n\nThere is an ellipsis underneath \nProtocols\n - click on the ellipsis. This brings up the settings. Leave everything as is, except for: Click on \nAssembly\n. Change the \nGenome Size\n to an approximately correct size for the sample. Click \nOk\n.  \n\n\n\n\n\n\n\n\nIn the \nSMRT Cells Available\n window, select the file to be used. Click on the arrow to transfer these files to the SMRT Celles in Job** window.\n\n\n\n\n\n\n\n\nClick \nSave\n.\n\n\nNext to \nSave\n, click \nStart\n.\n\n\nThe \nMonitor Jobs\n window should open. As each step proceeds, new items will appear under the \nReports\n and \nData\n tabs on the left. Click on each of these items to see the details and graphs available, which will appear in the main pane. The default display in the main pane is \nOverview\n.\n\n\n\n\n\n\n\n\nFIXME: how long will it take for this example data.\n\n\n\n\nOutput\n\n\n\n\nThe current running jobs will be under the \nMonitor Jobs\n tab. Click on the job to see the reports and data.\n\n\nThe finished jobs will be under the \nView Data\n tab.\n\n\nA full ist of reports and terminology is here\n\n\nReports: General: Filtering\n: look at the table showing the pre-filter and post-filter information.\n\n\n\n\n\n\n\n\n\n\nFIXME: what are other graphs showing / why are there mapping/coverage graphs if a ref genome wasn\nt supplied?\n\n\n\n\n\n\nFIXME: what are the files under \nData\n for - further analyses later? where would these be saved if we want to use later.\n\n\n\n\n\n\nBAM and BAI files: view reads aligned to assembly (IGV)\n\n\n\n\n\n\nNext\n\n\n\n\nCheck assembly quality: for example, align to the same species in Mauve.\n\n\n\n\nLinks to more information:\n\n\n\n\nFinishing bacterial genomes", 
+            "title": "PacBio SMRT portal"
         }, 
         {
-            "location": "/dna/denovo/galaxy/#galaxy", 
-            "text": "spades i guess?", 
-            "title": "Galaxy"
+            "location": "/dna/denovo/pacbio/#pacbio-smrt-portal", 
+            "text": "This tutorial will show you how to assemble a bacterial genome de novo, using the PacBio SMRT Portal.  Link to PacBio analysis software", 
+            "title": "PacBio SMRT Portal"
+        }, 
+        {
+            "location": "/dna/denovo/pacbio/#pre-requisites", 
+            "text": "mGVL instance with 16 cores (FIXME: will people have this - if not, note how they can request it)  knowledge: de novo assembly", 
+            "title": "Pre-requisites"
+        }, 
+        {
+            "location": "/dna/denovo/pacbio/#start", 
+            "text": "Open your mGVL dashboard.  Go to Admin. There is a list of packages. Find SMRT Analysis. On the right, click on  Install .  You should see SMRT Portal as one of the instance services on your GVL dashboard.  Open up the SMRT portal web link (to the right) and register/log on.", 
+            "title": "Start"
+        }, 
+        {
+            "location": "/dna/denovo/pacbio/#how-it-works", 
+            "text": "RS_HGAP_Assembly.3 Protocol  Filters short and poor-quality reads.  Large insert (fragment) sizes =  single pass long reads (but these have lower quality)  and/or small insert (fragment) sizes =  cut adapters and assemble subreads =  Circular Consensus Sequence (CSS) reads (higher quality)  Pre-assembly e.g. with Canu  Polishes assembly e.g. with Quiver (joins contigs/scaffolds?)  Corrections", 
+            "title": "How it works"
+        }, 
+        {
+            "location": "/dna/denovo/pacbio/#input", 
+            "text": "Choose your data. (FIXME: e.g. on GenomeSpace?)  Get the data you want to use onto your mGVL. (FIXME: explain how?)  In the SMRT Portal, go to  Design Job , the top left tab.  Go to  Import and Manage: Import SMRT cells: SMRT Cells . Work out where you put the data on your GVL, and make sure the file path is showing. If not, click  Add  and list the file path to the data.  Click on the file path and then  Scan  to check for new data.", 
+            "title": "Input"
+        }, 
+        {
+            "location": "/dna/denovo/pacbio/#run", 
+            "text": "Go back to the top tab  Design Job .  Go to  Create New .  An  Analysis  window should appear. Check the box next to  De novo assembly , then  Next .  Under  Job Name  enter a name.  Under  Protocols  choose  RS_HGAP_Assembly.3 .     There is an ellipsis underneath  Protocols  - click on the ellipsis. This brings up the settings. Leave everything as is, except for: Click on  Assembly . Change the  Genome Size  to an approximately correct size for the sample. Click  Ok .       In the  SMRT Cells Available  window, select the file to be used. Click on the arrow to transfer these files to the SMRT Celles in Job** window.     Click  Save .  Next to  Save , click  Start .  The  Monitor Jobs  window should open. As each step proceeds, new items will appear under the  Reports  and  Data  tabs on the left. Click on each of these items to see the details and graphs available, which will appear in the main pane. The default display in the main pane is  Overview .     FIXME: how long will it take for this example data.", 
+            "title": "Run"
+        }, 
+        {
+            "location": "/dna/denovo/pacbio/#output", 
+            "text": "The current running jobs will be under the  Monitor Jobs  tab. Click on the job to see the reports and data.  The finished jobs will be under the  View Data  tab.  A full ist of reports and terminology is here  Reports: General: Filtering : look at the table showing the pre-filter and post-filter information.      FIXME: what are other graphs showing / why are there mapping/coverage graphs if a ref genome wasn t supplied?    FIXME: what are the files under  Data  for - further analyses later? where would these be saved if we want to use later.    BAM and BAI files: view reads aligned to assembly (IGV)", 
+            "title": "Output"
+        }, 
+        {
+            "location": "/dna/denovo/pacbio/#next", 
+            "text": "Check assembly quality: for example, align to the same species in Mauve.", 
+            "title": "Next"
+        }, 
+        {
+            "location": "/dna/denovo/pacbio/#links-to-more-information", 
+            "text": "Finishing bacterial genomes", 
+            "title": "Links to more information:"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy-spades/", 
+            "text": "Galaxy - Spades\n\n\nThis tutorial will demonstrate how to assemble a bacterial genome de novo using the program Spades in the mGVL.\n\n\nThe Spades webpage is \nhere\n.\n\n\nPre-requisites\n\n\n\n\nGalaxy\n\n\nde novo assembly\n\n\nQC\n\n\nTrimming\n\n\n\n\nStart\n\n\n\n\nopen your mGVL galaxy\n\n\n\n\nInput data\n\n\nFIXME: get different data that shows how contigs are joined into larger scaffolds.\n\n\nBacterial DNA sequences:\n\n\n\n\nIllumina paired-end reads of approximately 150 base pairs, from \nStaphylococcus aureus\n. Subset of a real dataset.\n\n\n\n\nGet data files into Galaxy:\n\n\n\n\n\n\nIn the history pane, click on the \nHistory Options\n button at the top right corner.\n\n\n\n\n\n\nA list appears: at the bottom of the list, click on \nImport from File\n.\n\n\n\n\n\n\nIn the centre pane, a text box appears called \nArchived History URL:\n. Into this box, paste the web address of the stored data that we will use. This is: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Galaxy-History-adelaideworkshopstart.tar.gz  (FIXME: rename something simpler and only keep the fastq files) and then click \nSubmit\n. Galaxy will download these files.\n\n\n\n\n\n\nIn the history pane, click on the \nView all Histories\n button at the top right corner. The imported files will be a new history called \nimported from archive: adelaide_workshop_start\n (rename). Above this, click on the \nSwitch to\n button to make this the current history. Then click \nDone\n in the top left corner.\n\n\n\n\n\n\nIn the history pane, we now have two files: aaaR1.fastq and aaaR2.fastq. (FIXME: to rename)\n\n\n\n\n\n\nClick on the eye icon in the history panel to view the contents of each file. This sequencing produced paired-end reads, which means each input DNA fragment was sequenced at both the start and the end (and not sequenced in the middle). All the start sequences are grouped into one file (aaaR1.fastq), as are all the end sequences (aaaR2.fastq). Underneath each sequence is a string of letters/symbols, which correspond to estimates of the quality of each nucleotide call. For more information on fastq file format, click \nhere\n.\n\n\n\n\n\n\nHow does Spades work?\n\n\n\n\n\n\nAs with several other de novo assembly programs (e.g.Velvet) Spades uses an algorithm based on \nde Bruijn graphs.\n Such graphs use sub-lengths of sequence reads to build an overall genome assembly. The span of the sub-length is called a k-mer, where \nk\n is the number of nucleotides (e.g. k=21). The user chooses three values of k and Spades makes three assemblies based on these.\n\n\n\n\n\n\nFor the first value of k, each read is broken into as many fragments as possible. For example, if the input read is 22 nucleotides long, and the chosen value of k is 21, then there are two possible fragments (positions 1-21 and 2-22).\n\n\n\n\n\n\nOne randomly-chosen fragment becomes the first node on the de Bruijn graph.\n\n\n\n\n\n\nA second fragment is connected to this node if it overlaps.\n\n\n\n\n\n\nRepeat until all fragments are connected. Output: de Bruijn graph.\n\n\n\n\n\n\nFind a connected pathway through this graph. Output: a pathway (sequence) known as a contig. Because of poor or incorrect sequencing, not all the fragments can be joined together. There will be several de Bruijn graphs and so several contigs, usually of different sizes.\n\n\n\n\n\n\nRepeat these steps for a further two values of k (e.g. k = 33, k = 55). Output: Three (sets of) contigs.\n\n\n\n\n\n\nMerge the three (sets of) contigs to get one. Output: one set of contigs.\n\n\n\n\n\n\nFor paired-end reads (as in this tutorial), the two reads are sequenced from each end of a longer DNA fragment. The middle part of the fragment is not sequenced, but information about the distance between the reads can be used by Spades to join contigs into larger sequences, called scaffolds. Output: one set of scaffolds.\n\n\n\n\n\n\nTo fix any errors map the original sequence reads onto the scaffolds with the program BWA. Output: assembled genome.\n\n\n\n\n\n\nRun Spades\n\n\n\n\n\n\nIn the tools pane, click on \nNGS Analysis -\n NGS: Assembly -\n spades\n. Leave all settings as they are except these:\n\n\n\n\n\n\nUnder \nRun only assembly?\n click \nYes\n.\n\n\n\n\n\n\nUnder \nK-mers to use, separated by commas\n: enter in 33,55,91. Don\nt put any spaces after the commas.\n\n\n\n\n\n\nFor \nCoverage cutoff**, choose \nAuto\n.\n\n\n\n\n\n\nFor \nLibraries -\n Files -\n 1:Files -\n Select file format -\n Forward reads\n : R1.fastq.\n\n\n\n\n\n\nFor \nLibraries -\n Files -\n 1:Files -\n Select file format -\n Reverse reads\n : R2.fastq.\n\n\n\n\n\n\nClick \nExecute\n.\n\n\n\n\n\n\nFIXME: include screenshot\n\n\nOutput\n\n\nThere are five output files that will appear in the history pane. Click on the eye icon to view each file. These are the assembled genome sequence, and various statistics/information on how the program ran.\n\n\n\n\n\n\ncontig stats\n: There are x contigs. Look at the variation in length and coverage. A short contig with high coverage could be a result of contamination, a collapsed repeat, or a plasmid.\n\n\n\n\n\n\ncontigs\n: Each contig is listed, followed by its sequence in fasta format.\n\n\n\n\n\n\nscaffold stats\n: There are x scaffolds.\n\n\n\n\n\n\nscaffolds\n: Each scaffold is listed, followed by its sequence in fasta format.\n\n\n\n\n\n\nlog\n: The specific actions performed in the analysis.\n\n\n\n\n\n\nFilter output\n\n\n\n\n\n\nIn the tools pane, click on \nNGS Analysis -\n NGS: Asssembly -\n Filter SPAdes output\n. This is a quick way to discard contigs that are too short (e.g., they might be contamination) or contigs that do not have enough coverage (e.g., they might be too unreliable).\n\n\n\n\n\n\nUnder \nSequences\n, choose the contigs fasta file.\n\n\n\n\n\n\nUnder \nContig stats\n choose the contigs stats file. Change the cut-off values for length and coverage or leave them as they are.\n\n\n\n\n\n\nFor \nSave filtered-out sequences?\n click \nYes\n.\n\n\n\n\n\n\nClick \nExecute\n. A new fasta file with only the filtered sequences will be saved in the right-side history pane.\n\n\n\n\n\n\nQuestions\n\n\n \n\nHow does SPAdes differ from other genome assembly programs?\n\nIt uses multiple values of k in de Bruijn graphs. Larger fragment sizes will more accurately position sections of duplicated DNA (repeats), but these larger fragments will only overlap well in densely-sequenced (high-coverage) areas of the genome. Because bacterial genomes may have low-coverage regions, using smaller fragments can increase the potential for overlaps (joins) in these low-coverage regions. Using a range of fragment sizes will therefore get the benefit from both approaches.\n\n\n \n\nHow do I choose values of k?  \n\nThe k values need to be odd numbers, and shorter than the read lengths.  A good strategy could be to choose some that are small, medium and large. e.g. if the read is 150 nucleotides, k values could be 33, 55, 91. There is no absolute rule; rather, the aim is to get a good spread of k values across the read length. \n\n\n \n\nWhat can I do with my assembled genome?\n\nThis tutorial used a subset of a real dataset, so is not a complete genome (is it?). You could re-try it with short reads from a whole genome, at NCBI SRA. You can [annotate] (describe) the genomic features such as genes or [compare] it to other genomes to see variation in structure.  \n\n\nMore information\n\n\nhttp://thegenomefactory.blogspot.com.au/2013/08/how-spades-differs-from-velvet.html\n\n\nNext\n\n\n\n\nAnnotation", 
+            "title": "Galaxy-Spades"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy-spades/#galaxy-spades", 
+            "text": "This tutorial will demonstrate how to assemble a bacterial genome de novo using the program Spades in the mGVL.  The Spades webpage is  here .", 
+            "title": "Galaxy - Spades"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy-spades/#pre-requisites", 
+            "text": "Galaxy  de novo assembly  QC  Trimming", 
+            "title": "Pre-requisites"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy-spades/#start", 
+            "text": "open your mGVL galaxy", 
+            "title": "Start"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy-spades/#input-data", 
+            "text": "FIXME: get different data that shows how contigs are joined into larger scaffolds.  Bacterial DNA sequences:   Illumina paired-end reads of approximately 150 base pairs, from  Staphylococcus aureus . Subset of a real dataset.   Get data files into Galaxy:    In the history pane, click on the  History Options  button at the top right corner.    A list appears: at the bottom of the list, click on  Import from File .    In the centre pane, a text box appears called  Archived History URL: . Into this box, paste the web address of the stored data that we will use. This is: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Galaxy-History-adelaideworkshopstart.tar.gz  (FIXME: rename something simpler and only keep the fastq files) and then click  Submit . Galaxy will download these files.    In the history pane, click on the  View all Histories  button at the top right corner. The imported files will be a new history called  imported from archive: adelaide_workshop_start  (rename). Above this, click on the  Switch to  button to make this the current history. Then click  Done  in the top left corner.    In the history pane, we now have two files: aaaR1.fastq and aaaR2.fastq. (FIXME: to rename)    Click on the eye icon in the history panel to view the contents of each file. This sequencing produced paired-end reads, which means each input DNA fragment was sequenced at both the start and the end (and not sequenced in the middle). All the start sequences are grouped into one file (aaaR1.fastq), as are all the end sequences (aaaR2.fastq). Underneath each sequence is a string of letters/symbols, which correspond to estimates of the quality of each nucleotide call. For more information on fastq file format, click  here .", 
+            "title": "Input data"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy-spades/#how-does-spades-work", 
+            "text": "As with several other de novo assembly programs (e.g.Velvet) Spades uses an algorithm based on  de Bruijn graphs.  Such graphs use sub-lengths of sequence reads to build an overall genome assembly. The span of the sub-length is called a k-mer, where  k  is the number of nucleotides (e.g. k=21). The user chooses three values of k and Spades makes three assemblies based on these.    For the first value of k, each read is broken into as many fragments as possible. For example, if the input read is 22 nucleotides long, and the chosen value of k is 21, then there are two possible fragments (positions 1-21 and 2-22).    One randomly-chosen fragment becomes the first node on the de Bruijn graph.    A second fragment is connected to this node if it overlaps.    Repeat until all fragments are connected. Output: de Bruijn graph.    Find a connected pathway through this graph. Output: a pathway (sequence) known as a contig. Because of poor or incorrect sequencing, not all the fragments can be joined together. There will be several de Bruijn graphs and so several contigs, usually of different sizes.    Repeat these steps for a further two values of k (e.g. k = 33, k = 55). Output: Three (sets of) contigs.    Merge the three (sets of) contigs to get one. Output: one set of contigs.    For paired-end reads (as in this tutorial), the two reads are sequenced from each end of a longer DNA fragment. The middle part of the fragment is not sequenced, but information about the distance between the reads can be used by Spades to join contigs into larger sequences, called scaffolds. Output: one set of scaffolds.    To fix any errors map the original sequence reads onto the scaffolds with the program BWA. Output: assembled genome.", 
+            "title": "How does Spades work?"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy-spades/#run-spades", 
+            "text": "In the tools pane, click on  NGS Analysis -  NGS: Assembly -  spades . Leave all settings as they are except these:    Under  Run only assembly?  click  Yes .    Under  K-mers to use, separated by commas : enter in 33,55,91. Don t put any spaces after the commas.    For  Coverage cutoff**, choose  Auto .    For  Libraries -  Files -  1:Files -  Select file format -  Forward reads  : R1.fastq.    For  Libraries -  Files -  1:Files -  Select file format -  Reverse reads  : R2.fastq.    Click  Execute .    FIXME: include screenshot", 
+            "title": "Run Spades"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy-spades/#output", 
+            "text": "There are five output files that will appear in the history pane. Click on the eye icon to view each file. These are the assembled genome sequence, and various statistics/information on how the program ran.    contig stats : There are x contigs. Look at the variation in length and coverage. A short contig with high coverage could be a result of contamination, a collapsed repeat, or a plasmid.    contigs : Each contig is listed, followed by its sequence in fasta format.    scaffold stats : There are x scaffolds.    scaffolds : Each scaffold is listed, followed by its sequence in fasta format.    log : The specific actions performed in the analysis.", 
+            "title": "Output"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy-spades/#filter-output", 
+            "text": "In the tools pane, click on  NGS Analysis -  NGS: Asssembly -  Filter SPAdes output . This is a quick way to discard contigs that are too short (e.g., they might be contamination) or contigs that do not have enough coverage (e.g., they might be too unreliable).    Under  Sequences , choose the contigs fasta file.    Under  Contig stats  choose the contigs stats file. Change the cut-off values for length and coverage or leave them as they are.    For  Save filtered-out sequences?  click  Yes .    Click  Execute . A new fasta file with only the filtered sequences will be saved in the right-side history pane.", 
+            "title": "Filter output"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy-spades/#questions", 
+            "text": "How does SPAdes differ from other genome assembly programs? \nIt uses multiple values of k in de Bruijn graphs. Larger fragment sizes will more accurately position sections of duplicated DNA (repeats), but these larger fragments will only overlap well in densely-sequenced (high-coverage) areas of the genome. Because bacterial genomes may have low-coverage regions, using smaller fragments can increase the potential for overlaps (joins) in these low-coverage regions. Using a range of fragment sizes will therefore get the benefit from both approaches.    \nHow do I choose values of k?   \nThe k values need to be odd numbers, and shorter than the read lengths.  A good strategy could be to choose some that are small, medium and large. e.g. if the read is 150 nucleotides, k values could be 33, 55, 91. There is no absolute rule; rather, the aim is to get a good spread of k values across the read length.     \nWhat can I do with my assembled genome? \nThis tutorial used a subset of a real dataset, so is not a complete genome (is it?). You could re-try it with short reads from a whole genome, at NCBI SRA. You can [annotate] (describe) the genomic features such as genes or [compare] it to other genomes to see variation in structure.", 
+            "title": "Questions"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy-spades/#more-information", 
+            "text": "http://thegenomefactory.blogspot.com.au/2013/08/how-spades-differs-from-velvet.html", 
+            "title": "More information"
+        }, 
+        {
+            "location": "/dna/denovo/galaxy-spades/#next", 
+            "text": "Annotation", 
+            "title": "Next"
         }, 
         {
             "location": "/dna/anno/prokka/", 
-            "text": "Prokka\n\n\nCmdline and galaxy", 
+            "text": "Prokka\n\n\nCmdline and galaxy\n\n\nGenome annotation involves finding and describing particular features, such as genes, tRNAs and rRNAs. This tutorial will demonstrate how to annotate an assembled bacterial genome using the tool Prokka.\n\n\nProkka on github\n\n\nProkka citation\n\n\nUsing Prokka in Galaxy\n\n\nPre-requisites\n\n\n\n\na mGVL and galaxy instance\n\n\n\n\nStart\n\n\n\n\nopen your galaxy instance in your mGVL\n\n\n\n\nInput data\n\n\n\n\none FASTA file containing the scaffolds in nucleotide format, e.g. the fasta output from Spades. e.g. in this tutorial: FIXME: data\n\n\nGo to galaxy - start a history - get his file into the history\n\n\n\n\nHow it works\n\n\n\n\nProkka compares the input contigs with various databases to identify coding sequences, rRNA genes, tRNA genes, non-coding RNA, and signal leader peptides.\n\n\nThese databases are maintained by different organisations, and include information about known genomic features and their locations. Prokka includes a local copy.\n\n\n\n\nRun Prokka\n\n\n\n\nIn Galaxy, go to \nNGS Analysis: NGS Annotation: Prokka\n.\n\n\nUnder Contigs to \nannotate\n click on the single dataset icon (underneath the word \nContigs\n) and then select the file in the drop down menu (this will be your input .fna file that is in your history).\n\n\nUnder \nLocus tag prefix (\nlocustag)\n type in \nL\n. FIXME: actually we want to have a different locus tag for each sample for later use in Roary. Is there some problem here with the length of the locus tag that can be used?\n\n\nUnder \nSequencing centre ID (\ncentre)\n type in \nC\n. FIXME: or something else?\n\n\nLeave the other settings as they are.\n\n\nClick \nExecute\n. This may take 10 minutes.\n\n\n\n\nOutput\n\n\n\n\nThere are 11 output files. Look at the output files by clicking on the eye icon under each file. For more information about output files, see \nTable 2\n.\n\n\nsummary.gff\n: a list of all the features found, listed in order of their location (starting at the start of contig number 1). Each row is a genomic feature and its location. Column 2 is the source - the database used to find the feature. Column 3 is the feature - e.g. CDS, tRNA.\n\n\nsummary.gbk\n: the contigs listed in order. For each contig, the features are listed (e.g. CDS name and translation), followed by the sequence of the whole contig.\n\n\nFIXME: best way to view / look at features\n\n\n\n\nUsing Prokka in commandline\n\n\n\n\nssh to your mGVL\n\n\nwget data - scaffolds of .fna for several species\n\n\n(alternatively - have already put data on your mGVL)\n\n\ntype in:\n\n\n\n\nprokka --outdir [name of output folder for 1 sample] --locustag [tag eg sample number] [fna filename]\n\n\n\n\n\n\nmake a new directory for the gff files e.g. \ngff_files\n\n\nmv -v \n/\n.gff gff_files/  (means move any .gff files into that folder)\n-FIXME: prokka options see manual\n\n\n\n\nNext\n\n\n\n\nDetermine core and pan genomes using Roary.\n\n\n\n\nMore information\n\n\n\n\nstuff", 
             "title": "Prokka"
         }, 
         {
             "location": "/dna/anno/prokka/#prokka", 
-            "text": "Cmdline and galaxy", 
+            "text": "Cmdline and galaxy  Genome annotation involves finding and describing particular features, such as genes, tRNAs and rRNAs. This tutorial will demonstrate how to annotate an assembled bacterial genome using the tool Prokka.  Prokka on github  Prokka citation", 
             "title": "Prokka"
+        }, 
+        {
+            "location": "/dna/anno/prokka/#using-prokka-in-galaxy", 
+            "text": "", 
+            "title": "Using Prokka in Galaxy"
+        }, 
+        {
+            "location": "/dna/anno/prokka/#pre-requisites", 
+            "text": "a mGVL and galaxy instance", 
+            "title": "Pre-requisites"
+        }, 
+        {
+            "location": "/dna/anno/prokka/#start", 
+            "text": "open your galaxy instance in your mGVL", 
+            "title": "Start"
+        }, 
+        {
+            "location": "/dna/anno/prokka/#input-data", 
+            "text": "one FASTA file containing the scaffolds in nucleotide format, e.g. the fasta output from Spades. e.g. in this tutorial: FIXME: data  Go to galaxy - start a history - get his file into the history", 
+            "title": "Input data"
+        }, 
+        {
+            "location": "/dna/anno/prokka/#how-it-works", 
+            "text": "Prokka compares the input contigs with various databases to identify coding sequences, rRNA genes, tRNA genes, non-coding RNA, and signal leader peptides.  These databases are maintained by different organisations, and include information about known genomic features and their locations. Prokka includes a local copy.", 
+            "title": "How it works"
+        }, 
+        {
+            "location": "/dna/anno/prokka/#run-prokka", 
+            "text": "In Galaxy, go to  NGS Analysis: NGS Annotation: Prokka .  Under Contigs to  annotate  click on the single dataset icon (underneath the word  Contigs ) and then select the file in the drop down menu (this will be your input .fna file that is in your history).  Under  Locus tag prefix ( locustag)  type in  L . FIXME: actually we want to have a different locus tag for each sample for later use in Roary. Is there some problem here with the length of the locus tag that can be used?  Under  Sequencing centre ID ( centre)  type in  C . FIXME: or something else?  Leave the other settings as they are.  Click  Execute . This may take 10 minutes.", 
+            "title": "Run Prokka"
+        }, 
+        {
+            "location": "/dna/anno/prokka/#output", 
+            "text": "There are 11 output files. Look at the output files by clicking on the eye icon under each file. For more information about output files, see  Table 2 .  summary.gff : a list of all the features found, listed in order of their location (starting at the start of contig number 1). Each row is a genomic feature and its location. Column 2 is the source - the database used to find the feature. Column 3 is the feature - e.g. CDS, tRNA.  summary.gbk : the contigs listed in order. For each contig, the features are listed (e.g. CDS name and translation), followed by the sequence of the whole contig.  FIXME: best way to view / look at features", 
+            "title": "Output"
+        }, 
+        {
+            "location": "/dna/anno/prokka/#using-prokka-in-commandline", 
+            "text": "ssh to your mGVL  wget data - scaffolds of .fna for several species  (alternatively - have already put data on your mGVL)  type in:   prokka --outdir [name of output folder for 1 sample] --locustag [tag eg sample number] [fna filename]   make a new directory for the gff files e.g.  gff_files  mv -v  / .gff gff_files/  (means move any .gff files into that folder)\n-FIXME: prokka options see manual", 
+            "title": "Using Prokka in commandline"
+        }, 
+        {
+            "location": "/dna/anno/prokka/#next", 
+            "text": "Determine core and pan genomes using Roary.", 
+            "title": "Next"
+        }, 
+        {
+            "location": "/dna/anno/prokka/#more-information", 
+            "text": "stuff", 
+            "title": "More information"
         }, 
         {
             "location": "/dna/anno/rast/", 
@@ -131,14 +826,99 @@
             "title": "GENIX"
         }, 
         {
+            "location": "/dna/anno/eugene/", 
+            "text": "EuGene-PP\n\n\nlink: http://bioinformatics.oxfordjournals.org/content/30/18/2659.full\n\n\ncan annotate using oriented RNA-seq data, so that the resulting annotation may include non-coding regions, including antisense ones.\n\n\nPre-requisites\n\n\n\n\nmGVL\n\n\n\n\nStart\n\n\nInput data\n\n\n\n\nassembled genome\n\n\noriented RNA-seq\n\n\n\n\nHow it works\n\n\n-", 
+            "title": "EuGene"
+        }, 
+        {
+            "location": "/dna/anno/eugene/#eugene-pp", 
+            "text": "link: http://bioinformatics.oxfordjournals.org/content/30/18/2659.full  can annotate using oriented RNA-seq data, so that the resulting annotation may include non-coding regions, including antisense ones.", 
+            "title": "EuGene-PP"
+        }, 
+        {
+            "location": "/dna/anno/eugene/#pre-requisites", 
+            "text": "mGVL", 
+            "title": "Pre-requisites"
+        }, 
+        {
+            "location": "/dna/anno/eugene/#start", 
+            "text": "", 
+            "title": "Start"
+        }, 
+        {
+            "location": "/dna/anno/eugene/#input-data", 
+            "text": "assembled genome  oriented RNA-seq", 
+            "title": "Input data"
+        }, 
+        {
+            "location": "/dna/anno/eugene/#how-it-works", 
+            "text": "-", 
+            "title": "How it works"
+        }, 
+        {
+            "location": "/dna/anno/megannotator/", 
+            "text": "MEGAnnotator\n\n\nhttp://femsle.oxfordjournals.org/content/363/7/fnw049", 
+            "title": "MEGAnnotator"
+        }, 
+        {
+            "location": "/dna/anno/megannotator/#megannotator", 
+            "text": "http://femsle.oxfordjournals.org/content/363/7/fnw049", 
+            "title": "MEGAnnotator"
+        }, 
+        {
             "location": "/dna/snps/snippy/", 
-            "text": "Snippy\n\n\ncmdline", 
+            "text": "Snippy\n\n\ncmdline\n\n\nThis tutorial will demonstrate how to find variants in a bacterial genome using Snippy. Variants are found by comparing to a reference genome of the same species.\n\n\nGithub link to Snippy\n\n\nPre-requisites\n\n\n\n\nconnect to your GVL - cmdline\n\n\nbackground knowledge: variant calling\n\n\n\n\nStart\n\n\n\n\nlog in to your virtual machine via terminal\n\n\nnavigate to the place where you want Snippy to run.\n\n\nmake a folder called snippy - \nmkdir snippy\n\n\nmove into that folder - \ncd snippy\n\n\n\n\nInput\n\n\nRaw sequence reads\n\n\n\n\nIllumina paired-end reads from a bacteria in FASTQ format.\n\n\nThese reads are from \nPasteurella multocida\n, from EMBL-EBI ENA. We will use \nwget\n to download them via FTP.\n\n\nin the snippy folder,\n\n\n\n\nwget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR125/003/SRR1257473/SRR1257473_1.fastq.gz\n\n\n\n\nwget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR125/003/SRR1257473/SRR1257473_2.fastq.gz\n\n\n\n\n\n\nThese files are compressed and so end in .gz. Snippy can use these .gz read files directly without unzipping.\n\n\n\n\nReference genome\n\n\n\n\nReference genome from the same species, \nPasteurella multocida\n, from EMBL-EBI Ensembl genomes, in FASTA format.\n\n\nin the snippy folder,\n\n\n\n\nwget ftp://ftp.ensemblgenomes.org/pub/bacteria/release-31/fasta/bacteria_104_collection/pasteurella_multocida_subsp_multocida_gca_001027695/dna/Pasteurella_multocida_subsp_multocida_gca_001027695.ASM102769v1.31.dna.genome.fa.gz\n\n\n\n\n\n\nThis file is also compressed into .gz format. This needs to be unzipped:\n\n\n\n\ngunzip ftp://ftp.ensemblgenomes.org/pub/bacteria/release-31/fasta/bacteria_104_collection/pasteurella_multocida_subsp_multocida_gca_001027695/dna/Pasteurella_multocida_subsp_multocida_gca_001027695.ASM102769v1.31.dna.genome.fa.gz\n\n\n\n\n\n\nThe file will now end in .fa (which is fasta format, and Snippy can use).\n\n\n\n\nHow it works\n\n\n\n\nReads are mapped to the reference genome using BWA: this makes a BAM file\n\n\nBAM file and the ref genome sequence sent to Freebayes\n\n\nFreebayes finds differences between the reads and the reference, and calls the variants.\n\n\n\n\nRun Snippy\n\n\n\n\ncpus: choose number of cpus to use [or it uses a default] - here we will use 16\n\n\noutdir: choose a name for the output directory, where results will go - here we will use \nmysnps\n\n\nref: the input reference genome filename\n\n\nR1: the input R1 reads filename\n\n\nR2: the input R2 reads filename\n\n\nto run snippy:\n\n\n\n\nsnippy --cpus 16 --outdir mysnps --ref [filename.fa] --R1 [R1.fastq.gz] --R2 [R2.fastq.gz]\n\n\n\n\nOutput\n\n\n\n\n17 output files\n\n\nlist all the output files (that were put into the \nmysnps\n folder):\n\n\n\n\nls mysnps\n\n\n\n\n\n\nlook at the first 10 lines of the snps.tab file\n\n\n\n\nhead -10 mysnps/snps.tab\n\n\n\n\n\n\nlook at these columns: chromosome (CHROM), genomic position (POS), variant type (TYPE), nucleotide state in the ref (REF), nucleotide state in the input sample (ALT), and the frequency counts of REF and ALT (EVIDENCE).\n\n\nFIXME: screenshot with arrows\n\n\nFIXME: filter for quality?\n\n\nFIXME: load reference and the tabular vcf file into JBrowse/Artemis/IGV to view the genome and the snps.\n\n\nFIXME: is there anything we are looking for in particular? e.g. number of variants, existing known variants, variants in particular genes, AMR variants?\n\n\n\n\nNext", 
             "title": "Snippy"
         }, 
         {
             "location": "/dna/snps/snippy/#snippy", 
-            "text": "cmdline", 
+            "text": "cmdline  This tutorial will demonstrate how to find variants in a bacterial genome using Snippy. Variants are found by comparing to a reference genome of the same species.  Github link to Snippy", 
             "title": "Snippy"
+        }, 
+        {
+            "location": "/dna/snps/snippy/#pre-requisites", 
+            "text": "connect to your GVL - cmdline  background knowledge: variant calling", 
+            "title": "Pre-requisites"
+        }, 
+        {
+            "location": "/dna/snps/snippy/#start", 
+            "text": "log in to your virtual machine via terminal  navigate to the place where you want Snippy to run.  make a folder called snippy -  mkdir snippy  move into that folder -  cd snippy", 
+            "title": "Start"
+        }, 
+        {
+            "location": "/dna/snps/snippy/#input", 
+            "text": "", 
+            "title": "Input"
+        }, 
+        {
+            "location": "/dna/snps/snippy/#raw-sequence-reads", 
+            "text": "Illumina paired-end reads from a bacteria in FASTQ format.  These reads are from  Pasteurella multocida , from EMBL-EBI ENA. We will use  wget  to download them via FTP.  in the snippy folder,   wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR125/003/SRR1257473/SRR1257473_1.fastq.gz  wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR125/003/SRR1257473/SRR1257473_2.fastq.gz   These files are compressed and so end in .gz. Snippy can use these .gz read files directly without unzipping.", 
+            "title": "Raw sequence reads"
+        }, 
+        {
+            "location": "/dna/snps/snippy/#reference-genome", 
+            "text": "Reference genome from the same species,  Pasteurella multocida , from EMBL-EBI Ensembl genomes, in FASTA format.  in the snippy folder,   wget ftp://ftp.ensemblgenomes.org/pub/bacteria/release-31/fasta/bacteria_104_collection/pasteurella_multocida_subsp_multocida_gca_001027695/dna/Pasteurella_multocida_subsp_multocida_gca_001027695.ASM102769v1.31.dna.genome.fa.gz   This file is also compressed into .gz format. This needs to be unzipped:   gunzip ftp://ftp.ensemblgenomes.org/pub/bacteria/release-31/fasta/bacteria_104_collection/pasteurella_multocida_subsp_multocida_gca_001027695/dna/Pasteurella_multocida_subsp_multocida_gca_001027695.ASM102769v1.31.dna.genome.fa.gz   The file will now end in .fa (which is fasta format, and Snippy can use).", 
+            "title": "Reference genome"
+        }, 
+        {
+            "location": "/dna/snps/snippy/#how-it-works", 
+            "text": "Reads are mapped to the reference genome using BWA: this makes a BAM file  BAM file and the ref genome sequence sent to Freebayes  Freebayes finds differences between the reads and the reference, and calls the variants.", 
+            "title": "How it works"
+        }, 
+        {
+            "location": "/dna/snps/snippy/#run-snippy", 
+            "text": "cpus: choose number of cpus to use [or it uses a default] - here we will use 16  outdir: choose a name for the output directory, where results will go - here we will use  mysnps  ref: the input reference genome filename  R1: the input R1 reads filename  R2: the input R2 reads filename  to run snippy:   snippy --cpus 16 --outdir mysnps --ref [filename.fa] --R1 [R1.fastq.gz] --R2 [R2.fastq.gz]", 
+            "title": "Run Snippy"
+        }, 
+        {
+            "location": "/dna/snps/snippy/#output", 
+            "text": "17 output files  list all the output files (that were put into the  mysnps  folder):   ls mysnps   look at the first 10 lines of the snps.tab file   head -10 mysnps/snps.tab   look at these columns: chromosome (CHROM), genomic position (POS), variant type (TYPE), nucleotide state in the ref (REF), nucleotide state in the input sample (ALT), and the frequency counts of REF and ALT (EVIDENCE).  FIXME: screenshot with arrows  FIXME: filter for quality?  FIXME: load reference and the tabular vcf file into JBrowse/Artemis/IGV to view the genome and the snps.  FIXME: is there anything we are looking for in particular? e.g. number of variants, existing known variants, variants in particular genes, AMR variants?", 
+            "title": "Output"
+        }, 
+        {
+            "location": "/dna/snps/snippy/#next", 
+            "text": "", 
+            "title": "Next"
         }, 
         {
             "location": "/dna/snps/galaxy/", 
@@ -152,13 +932,93 @@
         }, 
         {
             "location": "/dna/pan/roary/", 
-            "text": "Roary\n\n\ncmdline", 
+            "text": "Roary\n\n\ncmdline\n\n\nThis tutorial demonstrates how to calculate the pan and core genomes of a set of input bacterial species, using Roary.\n\n\nRoary code and manual on github\n\n\nRoary paper\n\n\nPre-requisites\n\n\n\n\nbackground: pan genomes\n\n\na mGVL instance\n\n\n\n\nStart\n\n\n\n\nvia local Terminal\n: in your terminal, ssh into your mGVL, but make sure you put in -X -Y after ssh so that xquartz can view files later. (FIXME: word better)\n\n\nor via virtual desktop\n: Go to your mGVL dashboard. Click on the link to the Lubuntu desktop. A virtual desktop will open in a new browser window. Enter username: ubunutu; and your GVL password. Click on terminal in the top left corner.\n\n\n\n\nInput data\n\n\n\n\nRoary takes .gff files produced by Prokka. A gff file has sequences and annotations.\n\n\nfile formats\n FIXME: link to proper page\n\n\nGet files into mGVL. (FIXME: explain how, wget etc or from GenomeSpace)\n\n\nput all gff files into a folder\n\n\nFIXME: choose a good sample set - ideally something that usefully shows how AMR genes can be present/absence in a group? for a draft can use the Listeria tutorial at https://github.com/microgenomics/tutorials/blob/master/pangenome.md\n\n\n\n\nRun\n\n\n\n\nnavigate into the place where the gff folder is.\n\n\n\n\nroary -f ./results ./gff_files/*.gff\n\n\n\n\n\n\n-f ./results\n puts the output into a directory called results\n\n\n\n\nHow it works\n\n\n\n\nBased on the input genomes, Roary works out which genes are shared between all (core) and which are not (accessory).\n\n\nIt uses the protein-coding genes from each of the input genomes.\n\n\nconverts to protein seqs\n\n\nsimilar protein seqs are clustered progressively.\n\n\neach sample: will be labelled with presence/absence of orthologous genes.\n\n\n\n\nOutput\n\n\nsummary statistics:\n\n\nmore summary_statistics.txt\n\n\n\n\n\n\nyou will see the number of core genes, shell genes, etc.\n\n\nq\n to exit viewing\n\n\n\n\ngene presence/absence graphically:\n\n\nroary2svg.pl gene_presence_absence.csv \n pan_genome.svg\n\n\n\n\n\n\n(if you have logged in with -X -Y)\n\n\n\n\nfirefox pan_genome.svg \n\n\n\n\n\n\n\nthen \nenter\n\n\nthe \n makes it run in the background\n\n\na firefox window should open with the svg image\n\n\n(later: close the firefox window to stop this job running in the background)\n\n\n\n\nlist of genes that are present/absent:\n\n\n\n\nview the gene_presence_absence.csv by (FIXME)\n\n\nlots of information about this file in the roary website (FIXME summarize?)\n\n\n\n\nquery the pan genome:\n\n\n\n\ncopy the input .gff files into the results folder (FIXME: do this earlier)\n\n\ncd into this folder\n\n\n\n\nquery_pan_genome -a intersection *.gff\n\n\n\n\n\n\nthis finds the core genes\n\n\n\n\nmore pan_genome_results\n\n\n\n\n\n\nshows the list of genes found in the core genome.\n\n\nq\n to exit viewing\n\n\n\n\nAdvanced options\n\n\nFIXME: update firefox on mGVL so can run phandango\n\n\nRun roary and create an alignment of core genes:\n\n\nroary -f ./results -e -n -p 8 ./gff_files/*.gff\n\n\n\n\n\n\n-f ./results\n puts the output into a directory called results\n\n\n-e -n\n creates an alignment of core genes using mafft\n\n\n-p 8\n gives 8 threads - optional, if you know how many you have\n\n\n\n\nGenerate a tree based on the presence/absence of core genes:\n\n\n\n\nnavigate into the results folder that you want to use.\n\n\n\n\nFastTree -nt -gtr core_gene_alignment.aln \n my_tree.newick\n\n\n\n\n\n\n(By default, roary will also have created a (very quick) tree from the accessory genes.)\n\n\nFastTree information and options\n.\n\n\n\n\nUse roary_plots.py to generate plots:\n\n\n\n\nnavigate into the results folder that you want to use.\n\n\n\n\npython roary_plots.py core_gene_alignment.nwk gene_presence_absence.csv\n\n\n\n\n\n\noutput: pangenome matrix, frequency plot, pie chart.\n\n\nview these by typing \nfirefox [filename]\n and a firefox window will open to show the image. You need to close the window before you open the next image.\n\n\n\n\nView using Phandango:\n\n\n\n\nPhandango link\n\n\nFIXME: current Firefox on mGVL Lubuntu desktop is too old to use Phandango\n\n\nCopy and move these files to your mGVL public_html folder: gene_presence_absence.csv and my_tree.newick.\n\n\nopen your public_html folder (e.g. http://mgvl_IP/public/username  or similar), download to your local computer, and drag and drop onto the phandango web page.\n\n\nFIXME: what to look at. e.g. clade x has AMR genes?\n\n\n\n\nMore information\n\n\n\n\nanother Roary tutorial", 
             "title": "Roary"
         }, 
         {
             "location": "/dna/pan/roary/#roary", 
-            "text": "cmdline", 
+            "text": "cmdline  This tutorial demonstrates how to calculate the pan and core genomes of a set of input bacterial species, using Roary.  Roary code and manual on github  Roary paper", 
             "title": "Roary"
+        }, 
+        {
+            "location": "/dna/pan/roary/#pre-requisites", 
+            "text": "background: pan genomes  a mGVL instance", 
+            "title": "Pre-requisites"
+        }, 
+        {
+            "location": "/dna/pan/roary/#start", 
+            "text": "via local Terminal : in your terminal, ssh into your mGVL, but make sure you put in -X -Y after ssh so that xquartz can view files later. (FIXME: word better)  or via virtual desktop : Go to your mGVL dashboard. Click on the link to the Lubuntu desktop. A virtual desktop will open in a new browser window. Enter username: ubunutu; and your GVL password. Click on terminal in the top left corner.", 
+            "title": "Start"
+        }, 
+        {
+            "location": "/dna/pan/roary/#input-data", 
+            "text": "Roary takes .gff files produced by Prokka. A gff file has sequences and annotations.  file formats  FIXME: link to proper page  Get files into mGVL. (FIXME: explain how, wget etc or from GenomeSpace)  put all gff files into a folder  FIXME: choose a good sample set - ideally something that usefully shows how AMR genes can be present/absence in a group? for a draft can use the Listeria tutorial at https://github.com/microgenomics/tutorials/blob/master/pangenome.md", 
+            "title": "Input data"
+        }, 
+        {
+            "location": "/dna/pan/roary/#run", 
+            "text": "navigate into the place where the gff folder is.   roary -f ./results ./gff_files/*.gff   -f ./results  puts the output into a directory called results", 
+            "title": "Run"
+        }, 
+        {
+            "location": "/dna/pan/roary/#how-it-works", 
+            "text": "Based on the input genomes, Roary works out which genes are shared between all (core) and which are not (accessory).  It uses the protein-coding genes from each of the input genomes.  converts to protein seqs  similar protein seqs are clustered progressively.  each sample: will be labelled with presence/absence of orthologous genes.", 
+            "title": "How it works"
+        }, 
+        {
+            "location": "/dna/pan/roary/#output", 
+            "text": "", 
+            "title": "Output"
+        }, 
+        {
+            "location": "/dna/pan/roary/#summary-statistics", 
+            "text": "more summary_statistics.txt   you will see the number of core genes, shell genes, etc.  q  to exit viewing", 
+            "title": "summary statistics:"
+        }, 
+        {
+            "location": "/dna/pan/roary/#gene-presenceabsence-graphically", 
+            "text": "roary2svg.pl gene_presence_absence.csv   pan_genome.svg   (if you have logged in with -X -Y)   firefox pan_genome.svg     then  enter  the   makes it run in the background  a firefox window should open with the svg image  (later: close the firefox window to stop this job running in the background)", 
+            "title": "gene presence/absence graphically:"
+        }, 
+        {
+            "location": "/dna/pan/roary/#list-of-genes-that-are-presentabsent", 
+            "text": "view the gene_presence_absence.csv by (FIXME)  lots of information about this file in the roary website (FIXME summarize?)", 
+            "title": "list of genes that are present/absent:"
+        }, 
+        {
+            "location": "/dna/pan/roary/#query-the-pan-genome", 
+            "text": "copy the input .gff files into the results folder (FIXME: do this earlier)  cd into this folder   query_pan_genome -a intersection *.gff   this finds the core genes   more pan_genome_results   shows the list of genes found in the core genome.  q  to exit viewing", 
+            "title": "query the pan genome:"
+        }, 
+        {
+            "location": "/dna/pan/roary/#advanced-options", 
+            "text": "FIXME: update firefox on mGVL so can run phandango", 
+            "title": "Advanced options"
+        }, 
+        {
+            "location": "/dna/pan/roary/#run-roary-and-create-an-alignment-of-core-genes", 
+            "text": "roary -f ./results -e -n -p 8 ./gff_files/*.gff   -f ./results  puts the output into a directory called results  -e -n  creates an alignment of core genes using mafft  -p 8  gives 8 threads - optional, if you know how many you have", 
+            "title": "Run roary and create an alignment of core genes:"
+        }, 
+        {
+            "location": "/dna/pan/roary/#generate-a-tree-based-on-the-presenceabsence-of-core-genes", 
+            "text": "navigate into the results folder that you want to use.   FastTree -nt -gtr core_gene_alignment.aln   my_tree.newick   (By default, roary will also have created a (very quick) tree from the accessory genes.)  FastTree information and options .", 
+            "title": "Generate a tree based on the presence/absence of core genes:"
+        }, 
+        {
+            "location": "/dna/pan/roary/#use-roary_plotspy-to-generate-plots", 
+            "text": "navigate into the results folder that you want to use.   python roary_plots.py core_gene_alignment.nwk gene_presence_absence.csv   output: pangenome matrix, frequency plot, pie chart.  view these by typing  firefox [filename]  and a firefox window will open to show the image. You need to close the window before you open the next image.", 
+            "title": "Use roary_plots.py to generate plots:"
+        }, 
+        {
+            "location": "/dna/pan/roary/#view-using-phandango", 
+            "text": "Phandango link  FIXME: current Firefox on mGVL Lubuntu desktop is too old to use Phandango  Copy and move these files to your mGVL public_html folder: gene_presence_absence.csv and my_tree.newick.  open your public_html folder (e.g. http://mgvl_IP/public/username  or similar), download to your local computer, and drag and drop onto the phandango web page.  FIXME: what to look at. e.g. clade x has AMR genes?", 
+            "title": "View using Phandango:"
+        }, 
+        {
+            "location": "/dna/pan/roary/#more-information", 
+            "text": "another Roary tutorial", 
+            "title": "More information"
         }, 
         {
             "location": "/dna/pan/orthomcl/", 
@@ -171,14 +1031,49 @@
             "title": "OrthoMCL"
         }, 
         {
-            "location": "/rna/data/", 
-            "text": "Transcriptomics Data\n\n\nRNA-Seq\n\n\nFASTQ", 
-            "title": "The Data"
+            "location": "/dna/pan/mauve/", 
+            "text": "Mauve\n\n\nThis tutorial demonstrates how to use the Mauve software to align genomes. For example, a de novo assembly can be compared against a reference genome to check the assembly. Or, changes between two or more genomes can be examined.\n\n\nLink to Mauve\n\n\nPre-requisites\n\n\n\n\nmGVL instance if using Lubuntu desktop\n\n\n\n\nStart\n\n\n\n\nFIXME: use linux version in Lubuntu desktop, or local version e.g. Mac ?\n\n\nor you can use in the cmd line\n\n\n\n\nInput\n\n\n\n\n2+ genomes in FASTA(.fasta or .fna)/gbk format\n\n\nFIXME: choose data\n\n\n\n\nHow it works\n\n\n\n\nMauve finds structural variants in genomes.\n\n\nIt aligns genoms and finds homologous regions, either from a common ancestor (orthologs) or lateral transfer (xenologs).\n\n\n\n\nRun\n\n\n\n\nFile: Align with progressiveMauve\n\n\nAdd sequences\n: select 2+ genome FASTA files\n\n\nOutput\n: provide a name for the output folder\n\n\nAlign\n\n\nthe Mauve Console will appear while Mauve is running, showing the job status.\n\n\n\n\nOutput\n\n\n\n\nFIXME: screenshots\n\n\none genome per line\n\n\ngenomic regions are coloured blocks: locally co-linear blocks (LCB): a block of genome that is unchanged inside, but as a block might have moved/inverted etc.\n\n\nyou can export a list of annotated homologous features\n\n\n\n\nNext", 
+            "title": "Mauve"
         }, 
         {
-            "location": "/rna/data/#transcriptomics-data", 
-            "text": "RNA-Seq  FASTQ", 
-            "title": "Transcriptomics Data"
+            "location": "/dna/pan/mauve/#mauve", 
+            "text": "This tutorial demonstrates how to use the Mauve software to align genomes. For example, a de novo assembly can be compared against a reference genome to check the assembly. Or, changes between two or more genomes can be examined.  Link to Mauve", 
+            "title": "Mauve"
+        }, 
+        {
+            "location": "/dna/pan/mauve/#pre-requisites", 
+            "text": "mGVL instance if using Lubuntu desktop", 
+            "title": "Pre-requisites"
+        }, 
+        {
+            "location": "/dna/pan/mauve/#start", 
+            "text": "FIXME: use linux version in Lubuntu desktop, or local version e.g. Mac ?  or you can use in the cmd line", 
+            "title": "Start"
+        }, 
+        {
+            "location": "/dna/pan/mauve/#input", 
+            "text": "2+ genomes in FASTA(.fasta or .fna)/gbk format  FIXME: choose data", 
+            "title": "Input"
+        }, 
+        {
+            "location": "/dna/pan/mauve/#how-it-works", 
+            "text": "Mauve finds structural variants in genomes.  It aligns genoms and finds homologous regions, either from a common ancestor (orthologs) or lateral transfer (xenologs).", 
+            "title": "How it works"
+        }, 
+        {
+            "location": "/dna/pan/mauve/#run", 
+            "text": "File: Align with progressiveMauve  Add sequences : select 2+ genome FASTA files  Output : provide a name for the output folder  Align  the Mauve Console will appear while Mauve is running, showing the job status.", 
+            "title": "Run"
+        }, 
+        {
+            "location": "/dna/pan/mauve/#output", 
+            "text": "FIXME: screenshots  one genome per line  genomic regions are coloured blocks: locally co-linear blocks (LCB): a block of genome that is unchanged inside, but as a block might have moved/inverted etc.  you can export a list of annotated homologous features", 
+            "title": "Output"
+        }, 
+        {
+            "location": "/dna/pan/mauve/#next", 
+            "text": "", 
+            "title": "Next"
         }, 
         {
             "location": "/rna/qc/", 
@@ -221,26 +1116,6 @@
             "title": "StringTie"
         }, 
         {
-            "location": "/rna/dge/galaxy/", 
-            "text": "DGE using Galaxy\n\n\nNo idea - i think there are some workflows but we dont need Cufflinks etc", 
-            "title": "Galaxy"
-        }, 
-        {
-            "location": "/rna/dge/galaxy/#dge-using-galaxy", 
-            "text": "No idea - i think there are some workflows but we dont need Cufflinks etc", 
-            "title": "DGE using Galaxy"
-        }, 
-        {
-            "location": "/rna/dge/degust/", 
-            "text": "Degust\n\n\nfor viz of DGE results", 
-            "title": "Degust"
-        }, 
-        {
-            "location": "/rna/dge/degust/#degust", 
-            "text": "for viz of DGE results", 
-            "title": "Degust"
-        }, 
-        {
             "location": "/pro/data/", 
             "text": "Proteomics Data\n\n\nNo idea!", 
             "title": "The Data"
@@ -281,13 +1156,68 @@
             "title": "Metabolomics QC"
         }, 
         {
+            "location": "/viz/bandage/", 
+            "text": "Bandage\n\n\nBandage is a program to visualize a genome assembly.\n\n\nLink to code on github\n\n\nStart\n\n\n\n\nOpen your mGVL dashboard and click on the link to the Lubuntu desktop.\n\n\nA web window should appear called \nnoVNC\n. This shows the virtual desktop.\n\n\nOpen the Terminal in this VNC. type in:\n\n\n\n\n/mnt/gvl/apps/bandage/Bandage\n\n\n\n\nThe Bandage window will appear.\n\n\nInput data\n\n\n\n\nClick on \nFile: Load graph\n. Select a graph to upload.\n\n\nFIXME: put in example bacterial genome graph with a feature that bandage reveals.  E.g. a FASTG output file from Spades.\n\n\n\n\nRun Bandage\n\n\n\n\nUnder \nGraph drawing\n, click on \nDraw graph\n. A map graph of the contigs and their connections will appear.\n\n\nFIXME: add a series of steps that can be done that will show some important feature.\nE.g.\n\n\nGraph display: Colour by read depth\n\n\nNode labels\n, check box next to \nRead depth\n.\n\n\nselect some nodes\n\n\nOutput\n: \nWeb BLAST selected nodes\n\netc.\n\n\n\n\nOutput\n\n\n\n\nOutput\n: \nSave entire graph to GFA\n. (FIXME: where does this save; what can you use it for next).\n\n\n\n\nNext\n\n\nMore information", 
+            "title": "Bandage"
+        }, 
+        {
+            "location": "/viz/bandage/#bandage", 
+            "text": "Bandage is a program to visualize a genome assembly.  Link to code on github", 
+            "title": "Bandage"
+        }, 
+        {
+            "location": "/viz/bandage/#start", 
+            "text": "Open your mGVL dashboard and click on the link to the Lubuntu desktop.  A web window should appear called  noVNC . This shows the virtual desktop.  Open the Terminal in this VNC. type in:   /mnt/gvl/apps/bandage/Bandage  The Bandage window will appear.", 
+            "title": "Start"
+        }, 
+        {
+            "location": "/viz/bandage/#input-data", 
+            "text": "Click on  File: Load graph . Select a graph to upload.  FIXME: put in example bacterial genome graph with a feature that bandage reveals.  E.g. a FASTG output file from Spades.", 
+            "title": "Input data"
+        }, 
+        {
+            "location": "/viz/bandage/#run-bandage", 
+            "text": "Under  Graph drawing , click on  Draw graph . A map graph of the contigs and their connections will appear.  FIXME: add a series of steps that can be done that will show some important feature.\nE.g.  Graph display: Colour by read depth  Node labels , check box next to  Read depth .  select some nodes  Output :  Web BLAST selected nodes \netc.", 
+            "title": "Run Bandage"
+        }, 
+        {
+            "location": "/viz/bandage/#output", 
+            "text": "Output :  Save entire graph to GFA . (FIXME: where does this save; what can you use it for next).", 
+            "title": "Output"
+        }, 
+        {
+            "location": "/viz/bandage/#next", 
+            "text": "", 
+            "title": "Next"
+        }, 
+        {
+            "location": "/viz/bandage/#more-information", 
+            "text": "", 
+            "title": "More information"
+        }, 
+        {
+            "location": "/viz/jbrowse/", 
+            "text": "", 
+            "title": "JBrowse"
+        }, 
+        {
+            "location": "/viz/phandango/", 
+            "text": "", 
+            "title": "Phandango"
+        }, 
+        {
+            "location": "/viz/degust/", 
+            "text": "", 
+            "title": "Degust"
+        }, 
+        {
             "location": "/about/", 
-            "text": "About\n\n\nThis site contains tutorials for using the \n\nMicrobial Genomics Virtual Lab\n to perform bioinformatics\ntasks on bacterial \"omics\" data, either on the Unix command line or using\nthe \nGalaxy\n system.\n\n\nAuthors\n\n\n\n\nAnna Syme\n\n\nTorsten Seemann\n\n\nMadison Flannery\n\n\nSimon Gladman\n\n\n\n\nFunding\n\n\n\n\nBioplatforms Australia\n\n\nResearch Data Services\n\n\nNectar", 
+            "text": "About\n\n\nThis site contains tutorials for using the \n\nMicrobial Genomics Virtual Lab\n to perform bioinformatics\ntasks on bacterial \nomics\n data, either on the Unix command line or using\nthe \nGalaxy\n system.\n\n\nAuthors\n\n\n\n\nAnna Syme\n\n\nTorsten Seemann\n\n\nMadison Flannery\n\n\nSimon Gladman\n\n\n\n\nFunding\n\n\n\n\nBioplatforms Australia\n\n\nResearch Data Services\n\n\nNectar", 
             "title": "About"
         }, 
         {
             "location": "/about/#about", 
-            "text": "This site contains tutorials for using the  Microbial Genomics Virtual Lab  to perform bioinformatics\ntasks on bacterial \"omics\" data, either on the Unix command line or using\nthe  Galaxy  system.", 
+            "text": "This site contains tutorials for using the  Microbial Genomics Virtual Lab  to perform bioinformatics\ntasks on bacterial  omics  data, either on the Unix command line or using\nthe  Galaxy  system.", 
             "title": "About"
         }, 
         {

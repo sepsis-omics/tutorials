@@ -7,15 +7,16 @@
         
         <meta name="author" content="Torsten Seemann, Anna Syme">
         
-        <link rel="shortcut icon" href="../../../../../../favicon.ico">
+        <link rel="shortcut icon" href="../../../favicon.ico">
         
 
 	<title>Roary - Sepsis Tutorials</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
-        <link href="../../../css/base.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
         <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link href="../../../css/sepsis.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -33,7 +34,6 @@
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
-            
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -41,7 +41,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
 
             <!-- Main title -->
             <a class="navbar-brand" href="../../..">Sepsis Tutorials</a>
@@ -49,34 +48,152 @@
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
             
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="../../..">Home</a>
-                    </li>
-                
-                
-                
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Workshops <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
                         
-                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Comparative Genomics</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
-    <a href="../../data/">The Data</a>
+    <a href="../../../workshop/genomics/1a/">Intro to Galaxy</a>
 </li>
 
-                        
-                            
+        
+            
 <li >
-    <a href="../../qc/">Quality Control</a>
+    <a href="../../../workshop/genomics/1b/">Intro to Artemis</a>
 </li>
 
+        
+            
+<li >
+    <a href="../../../workshop/genomics/2a/">Assembly with Spades</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../workshop/genomics/2b/">Annotation with Prokka</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../workshop/genomics/3/">Comparative genomics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                    
                         
-                            
+<li >
+    <a href="../../../workshop/snps/">Variant calling</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../workshop/trees/">Phylogenetic trees</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../workshop/dge/">Differential gene expression</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../data/file_formats/">File formats</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data/">Genomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../rna/data/">Transcriptomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../pro/data/">Proteomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../met/data/">Metabolomics</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Genomics</a>
+    <ul class="dropdown-menu">
+        
+            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Quality Control</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../qualitycontrol/qc/">Overview</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../qualitycontrol/fastqc/">FastQC</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">De novo assembly</a>
     <ul class="dropdown-menu">
@@ -107,15 +224,21 @@
         
             
 <li >
-    <a href="../../denovo/galaxy/">Galaxy</a>
+    <a href="../../denovo/pacbio/">PacBio SMRT portal</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../denovo/galaxy-spades/">Galaxy-Spades</a>
 </li>
 
         
     </ul>
   </li>
 
-                        
-                            
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Annotation</a>
     <ul class="dropdown-menu">
@@ -138,11 +261,23 @@
 </li>
 
         
+            
+<li >
+    <a href="../../anno/eugene/">EuGene</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../anno/megannotator/">MEGAnnotator</a>
+</li>
+
+        
     </ul>
   </li>
 
-                        
-                            
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Variant finding</a>
     <ul class="dropdown-menu">
@@ -162,8 +297,8 @@
     </ul>
   </li>
 
-                        
-                            
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">Pan genome</a>
     <ul class="dropdown-menu">
@@ -180,32 +315,32 @@
 </li>
 
         
+            
+<li >
+    <a href="../mauve/">Mauve</a>
+</li>
+
+        
     </ul>
   </li>
 
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transcriptomics <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../../rna/data/">The Data</a>
-</li>
+        
+    </ul>
+  </li>
 
+                    
                         
-                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Transcriptomics</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
     <a href="../../../rna/qc/">Quality Control</a>
 </li>
 
-                        
-                            
+        
+            
   <li class="dropdown-submenu">
     <a tabindex="-1" href="">De novo assembly</a>
     <ul class="dropdown-menu">
@@ -231,101 +366,115 @@
     </ul>
   </li>
 
+        
+    </ul>
+  </li>
+
+                    
                         
-                            
   <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Differential gene expression</a>
+    <a tabindex="-1" href="">Proteomics</a>
     <ul class="dropdown-menu">
         
             
 <li >
-    <a href="../../../rna/dge/galaxy/">Galaxy</a>
+    <a href="../../../pro/data/">The Data</a>
 </li>
 
         
             
 <li >
-    <a href="../../../rna/dge/degust/">Degust</a>
+    <a href="../../../pro/qc/">Quality Control</a>
 </li>
 
         
     </ul>
   </li>
 
+                    
                         
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proteomics <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../../../pro/data/">The Data</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../../pro/qc/">Quality Control</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Metabolomics <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Metabolomics</a>
+    <ul class="dropdown-menu">
+        
+            
 <li >
     <a href="../../../met/data/">The Data</a>
 </li>
 
-                        
-                            
+        
+            
 <li >
     <a href="../../../met/qc/">Quality Control</a>
 </li>
 
-                        
-                        </ul>
-                    </li>
-                
-                
-                
-                    <li >
-                        <a href="../../../about/">About</a>
-                    </li>
-                
-                
-                </ul>
-            
+        
+    </ul>
+  </li>
 
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Viz <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../viz/bandage/">Bandage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/jbrowse/">JBrowse</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/phandango/">Phandango</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../viz/degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
-                
-                    <li >
-                        <a rel="next" href="../../snps/galaxy/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../orthomcl/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-                
+                <li >
+                    <a rel="next" href="../../snps/galaxy/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../orthomcl/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
                 
             </ul>
         </div>
@@ -333,26 +482,172 @@
 </div>
 
         <div class="container">
-            
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#roary">Roary</a></li>
         
+            <li><a href="#pre-requisites">Pre-requisites</a></li>
+        
+            <li><a href="#start">Start</a></li>
+        
+            <li><a href="#input-data">Input data</a></li>
+        
+            <li><a href="#run">Run</a></li>
+        
+            <li><a href="#how-it-works">How it works</a></li>
+        
+            <li><a href="#output">Output</a></li>
+        
+            <li><a href="#advanced-options">Advanced options</a></li>
+        
+            <li><a href="#more-information">More information</a></li>
+        
     
     </ul>
 </div></div>
-                <div class="col-md-9" role="main">
+            <div class="col-md-9" role="main">
 
 <h1 id="roary">Roary</h1>
-<p>cmdline</p></div>
-            
+<p>cmdline</p>
+<p>This tutorial demonstrates how to calculate the pan and core genomes of a set of input bacterial species, using Roary.</p>
+<p><a href="https://sanger-pathogens.github.io/Roary/">Roary code and manual on github</a></p>
+<p><a href="http://bioinformatics.oxfordjournals.org/content/31/22/3691">Roary paper</a></p>
+<h2 id="pre-requisites">Pre-requisites</h2>
+<ul>
+<li>background: pan genomes</li>
+<li>a mGVL instance</li>
+</ul>
+<h2 id="start">Start</h2>
+<ul>
+<li><strong>via local Terminal</strong>: in your terminal, ssh into your mGVL, but make sure you put in -X -Y after ssh so that xquartz can view files later. (FIXME: word better)</li>
+<li><strong>or via virtual desktop</strong>: Go to your mGVL dashboard. Click on the link to the Lubuntu desktop. A virtual desktop will open in a new browser window. Enter username: ubunutu; and your GVL password. Click on terminal in the top left corner.</li>
+</ul>
+<h2 id="input-data">Input data</h2>
+<ul>
+<li>Roary takes .gff files produced by Prokka. A gff file has sequences and annotations.</li>
+<li><a href="../../dna/anno/prokka">file formats</a> FIXME: link to proper page</li>
+<li>Get files into mGVL. (FIXME: explain how, wget etc or from GenomeSpace)</li>
+<li>put all gff files into a folder</li>
+<li>FIXME: choose a good sample set - ideally something that usefully shows how AMR genes can be present/absence in a group? for a draft can use the Listeria tutorial at https://github.com/microgenomics/tutorials/blob/master/pangenome.md</li>
+</ul>
+<h2 id="run">Run</h2>
+<ul>
+<li>navigate into the place where the gff folder is.</li>
+</ul>
+<pre><code class="bash">roary -f ./results ./gff_files/*.gff
+</code></pre>
+
+<ul>
+<li>&ldquo;-f ./results&rdquo; puts the output into a directory called results</li>
+</ul>
+<h2 id="how-it-works">How it works</h2>
+<ul>
+<li>Based on the input genomes, Roary works out which genes are shared between all (core) and which are not (accessory).</li>
+<li>It uses the protein-coding genes from each of the input genomes.</li>
+<li>converts to protein seqs</li>
+<li>similar protein seqs are clustered progressively.</li>
+<li>each sample: will be labelled with presence/absence of orthologous genes.</li>
+</ul>
+<h2 id="output">Output</h2>
+<h3 id="summary-statistics">summary statistics:</h3>
+<pre><code>more summary_statistics.txt
+</code></pre>
+
+<ul>
+<li>you will see the number of core genes, shell genes, etc.</li>
+<li><code>q</code> to exit viewing</li>
+</ul>
+<h3 id="gene-presenceabsence-graphically">gene presence/absence graphically:</h3>
+<pre><code>roary2svg.pl gene_presence_absence.csv &gt; pan_genome.svg
+</code></pre>
+
+<ul>
+<li>(if you have logged in with -X -Y)</li>
+</ul>
+<pre><code>firefox pan_genome.svg &amp;
+</code></pre>
+
+<ul>
+<li>then <code>enter</code></li>
+<li>the &amp; makes it run in the background</li>
+<li>a firefox window should open with the svg image</li>
+<li>(later: close the firefox window to stop this job running in the background)</li>
+</ul>
+<h3 id="list-of-genes-that-are-presentabsent">list of genes that are present/absent:</h3>
+<ul>
+<li>view the gene_presence_absence.csv by (FIXME)</li>
+<li>lots of information about this file in the roary website (FIXME summarize?)</li>
+</ul>
+<h3 id="query-the-pan-genome">query the pan genome:</h3>
+<ul>
+<li>copy the input .gff files into the results folder (FIXME: do this earlier)</li>
+<li>cd into this folder</li>
+</ul>
+<pre><code>query_pan_genome -a intersection *.gff
+</code></pre>
+
+<ul>
+<li>this finds the core genes</li>
+</ul>
+<pre><code>more pan_genome_results
+</code></pre>
+
+<ul>
+<li>shows the list of genes found in the core genome.</li>
+<li><code>q</code> to exit viewing</li>
+</ul>
+<h2 id="advanced-options">Advanced options</h2>
+<p>FIXME: update firefox on mGVL so can run phandango</p>
+<h3 id="run-roary-and-create-an-alignment-of-core-genes">Run roary and create an alignment of core genes:</h3>
+<pre><code class="bash">roary -f ./results -e -n -p 8 ./gff_files/*.gff
+</code></pre>
+
+<ul>
+<li>&ldquo;-f ./results&rdquo; puts the output into a directory called results</li>
+<li>&ldquo;-e -n&rdquo; creates an alignment of core genes using mafft</li>
+<li>&ldquo;-p 8&rdquo; gives 8 threads - optional, if you know how many you have</li>
+</ul>
+<h3 id="generate-a-tree-based-on-the-presenceabsence-of-core-genes">Generate a tree based on the presence/absence of core genes:</h3>
+<ul>
+<li>navigate into the results folder that you want to use.</li>
+</ul>
+<pre><code class="bash">FastTree -nt -gtr core_gene_alignment.aln &gt; my_tree.newick
+</code></pre>
+
+<ul>
+<li>(By default, roary will also have created a (very quick) tree from the accessory genes.)</li>
+<li><a href="http://meta.microbesonline.org/fasttree/">FastTree information and options</a>.</li>
+</ul>
+<h3 id="use-roary_plotspy-to-generate-plots">Use roary_plots.py to generate plots:</h3>
+<ul>
+<li>navigate into the results folder that you want to use.</li>
+</ul>
+<pre><code>python roary_plots.py core_gene_alignment.nwk gene_presence_absence.csv
+</code></pre>
+
+<ul>
+<li>output: pangenome matrix, frequency plot, pie chart.</li>
+<li>view these by typing <code>firefox [filename]</code> and a firefox window will open to show the image. You need to close the window before you open the next image.</li>
+</ul>
+<h3 id="view-using-phandango">View using Phandango:</h3>
+<ul>
+<li><a href="http://jameshadfield.github.io/phandango/">Phandango link</a></li>
+<li>FIXME: current Firefox on mGVL Lubuntu desktop is too old to use Phandango</li>
+<li>Copy and move these files to your mGVL public_html folder: gene_presence_absence.csv and my_tree.newick.</li>
+<li>open your public_html folder (e.g. http://mgvl_IP/public/username  or similar), download to your local computer, and drag and drop onto the phandango web page.</li>
+<li>FIXME: what to look at. e.g. clade x has AMR genes?</li>
+</ul>
+<h2 id="more-information">More information</h2>
+<ul>
+<li><a href="https://github.com/microgenomics/tutorials/blob/master/pangenome.md">another Roary tutorial</a></li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
         </footer>
 
         <script src="../../../js/jquery-1.10.2.min.js"></script>
@@ -386,6 +681,5 @@
                 </div>
             </div>
         </div>
-
     </body>
 </html>
