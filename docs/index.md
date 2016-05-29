@@ -1,9 +1,5 @@
 # Welcome!
 
-![Logo](media/logos/sepsis-omics.png)
-
-## Introduction
-
 This site contains tutorials for analysing bacterial "omics" data.
 
 ## Data sources
@@ -20,4 +16,6 @@ This site contains tutorials for analysing bacterial "omics" data.
 
 ## Platform
 
-* [Microbial Genomics Virtual Lab](http:/genome.edu.au/)
+* [Microbial Genomics Virtual Lab](http://genome.edu.au/)
+
+![Logo](media/logos/sepsis-omics.png)
