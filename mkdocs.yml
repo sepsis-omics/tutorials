@@ -22,6 +22,7 @@ pages:
     - Phylogenetic trees: workshop/trees/index.md
     - Differential gene expression: workshop/dge/index.md
 - Data:
+    - Getting and moving data: data/data_access.md
     - File formats: data/file_formats.md
     - Genomics: dna/data.md
     - Transcriptomics: rna/data.md
@@ -69,4 +70,9 @@ pages:
     - JBrowse: viz/jbrowse/index.md
     - Phandango: viz/phandango/index.md
     - Degust: viz/degust/index.md
+- Workflows:
+  - De novo assembly: workflows/assembly.md
+  - Genome annotation: workflows/annotation.md
+  - Finding variants: workflows/variants.md
+  - Differential gene expression: workflows/dge.md
 - About: about.md
