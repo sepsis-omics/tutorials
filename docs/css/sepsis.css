@@ -1,3 +1,18 @@
+BODY {
+  line-height: 1.5;
+}
+
+LI {
+  margin-top: 1ex;
+}
+
+H2 {
+  font-weight: bold;
+}
+
+H4 {
+  text-decoration: underline;
+}
 /*
 These style abbreviations are as follows:
 SS = "screen shot" for menu items etc.

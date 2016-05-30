@@ -70,9 +70,9 @@ pages:
     - JBrowse: viz/jbrowse/index.md
     - Phandango: viz/phandango/index.md
     - Degust: viz/degust/index.md
-- Workflows:
-  - De novo assembly: workflows/assembly.md
-  - Genome annotation: workflows/annotation.md
-  - Finding variants: workflows/variants.md
-  - Differential gene expression: workflows/dge.md
+- Protocols:
+  - De novo assembly: protocols/assembly.md
+  - Genome annotation: protocols/annotation.md
+  - Finding variants: protocols/variants.md
+  - Differential gene expression: protocols/dge.md
 - About: about.md

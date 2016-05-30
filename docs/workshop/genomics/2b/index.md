@@ -10,23 +10,23 @@ Prokka finds and annotates features (both protein coding regions and RNA genes i
 
 At the end of this tutorial you should be able to :
 
-1. input file into Prokka
+1. input files into Prokka
 2. change settings
 3. run Prokka, and
 4. examine the output: annotated genome.
 
 ## Run Prokka
 
-- In Galaxy, load the Prokka interface from the tool panel (**NGS: Annotation -> Prokka**)  
+- In Galaxy, go to <ss>Tools &rarr; NGS: Annotation &rarr; Prokka</ss>  
 - Set the following parameters:
-    - **Contigs to annotate:** <fn>Spades contigs</fn>  
-    - **Force GenBank/ENA/DDJB compliance (--compliant): Yes**  
-    - **Genus Name:** *Staphylococcus*  
-    - **Strain Name:** *aureus*  
-    - **Use genus-specific BLAST database: No**  
-    - **Locus tag prefix: P**  
-    - **Sequencing Centre: V**  
-- Click **Execute**  
+    - <ss>Contigs to annotate</ss> <fn>Spades contigs</fn>  
+    - <ss>Force GenBank/ENA/DDJB compliance (--compliant)</ss> *Yes*
+    - <ss>Genus Name</ss> *Staphylococcus*  
+    - <ss>Strain Name</ss> *aureus*  
+    - <ss>Use genus-specific BLAST database</ss> *No*  
+    - <ss>Locus tag prefix</ss>: P  
+    - <ss>Sequencing Centre</ss>: V  
+    - Click <ss>Execute</ss>  
 
 ## Examine the output
 

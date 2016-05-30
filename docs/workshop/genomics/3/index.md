@@ -35,7 +35,7 @@ attempt to detect larger ‘macro’ differences using Mauve.
 
 Several programs could be used for this but we will use BWA-MEM.
 
-- Open the BWA-MEM tool interface (from the tool panel **NGS: Mapping -> Map with BWA-MEM**.
+- Open the BWA-MEM tool interface (from the tool panel **NGS: Mapping &rarr; Map with BWA-MEM**.
 
 - Set the following parameters:
 
@@ -56,7 +56,7 @@ Click **Execute**
 NOTE: The BAM file is a Binary Compressed Datafile and cannot be viewed directly. If you attempt to view it using the view data button it will be downloaded to your local computer. Instead we must convert it to a non-compressed text format (SAM) first.
 
 - First we have to convert the BAM file to a SAM file.
-- Open the BAM-to-SAM tool interface: (on the tool panel **NGS: SAM tools -> BAM-to-SAM**.
+- Open the BAM-to-SAM tool interface: (on the tool panel **NGS: SAM tools &rarr; BAM-to-SAM**.
 - View the resultant SAM file by clicking on the View Data button.
 - Have a look at the fields in the file.
 - The demonstrator will now point out what all the fields are.
@@ -73,13 +73,13 @@ Artemis.
 ![screenshot of file download](./images/image03.png)
 
 **Start Artemis and load the wildtype.gff**  
-- From the Artemis menu, Click **File -> Open ...**  
+- From the Artemis menu, Click **File &rarr; Open ...**  
 - Load *wildtype.gff*
 
 You should now have the wildtype’s annotated sequence loaded into the Artemis genome browser.
 
 **Load the BAM file into Artemis**   
-- Click **File -> Read BAM / VCF**  
+- Click **File &rarr; Read BAM / VCF**  
 - Select: *Galaxy … .bam*  
 - Click **Ok**   
 
@@ -100,7 +100,7 @@ valid SNPs using the Freebayes variant calling tool.
 
 **Run Freebayes**
 
-- Load the Freebayes tool interface (on the tool panel: **NGS: Variant Detection -> Freebayes**.
+- Load the Freebayes tool interface (on the tool panel: **NGS: Variant Detection &rarr; Freebayes**.
 - Set the following parameters:
 
 **Load reference genome from:** *History*  

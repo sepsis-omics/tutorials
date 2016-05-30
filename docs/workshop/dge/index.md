@@ -8,7 +8,7 @@ Differential Gene Expression (DGE) is the process of determining whether any gen
 
 At the end of this tutorial you should be able to:
 
-1. Align RNA-Seq data to a reference genome
+1. Align RNA-Seq data to a reference genome  
 2. Count transcripts for each sample
 3. Perform statistical analysis to obtain a list of differentially expressed genes
 4. Interpret the DGE list

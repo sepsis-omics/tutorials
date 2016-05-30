@@ -1,7 +1,7 @@
 # Assembly using Spades
 
 ## Background
-Spades is one of a number of *de novo* assemblers that use short read sets (Illumina Reads) as an input and the method for assembly is based on de Bruijn graphs. For information about Spades see this [link](http://bioinf.spbau.ru/spades). A protocol for assembling with Velvet (another *de novo* assembler) is available [here](https://docs.google.com/document/d/1xs-TI5MejQARqo0pcocGlymsXldwJbJII890gnmjI0o/pub).
+Spades is one of a number of *de novo* assemblers that use short read sets (Illumina Reads) as input and the method for assembly is based on de Bruijn graphs. For information about Spades see this [link](http://bioinf.spbau.ru/spades). A protocol for assembling with Velvet (another *de novo* assembler) is available [here](https://docs.google.com/document/d/1xs-TI5MejQARqo0pcocGlymsXldwJbJII890gnmjI0o/pub).
 
 In this activity, we will perform a *de novo* assembly of a short read set (from an Illumina sequencer) using the Spades assembler. The output from Spades that we are interested in is a multifasta file that contains the draft genome sequence.
 
@@ -25,21 +25,21 @@ At the end of this tutorial you should be able to:
 5. examine the output assembly.
 
 ## Login to Galaxy
--  **Go to the Galaxy Page**: Web address: <http://43.240.98.1/galaxy>  (FIXME: this one?)
+-  Go to the Galaxy Page: Web address: <http://43.240.98.1/galaxy>  (FIXME: this one?)
 - [Remind me how to logon](https://docs.google.com/document/d/1LAQvhIG8s-vv6T14bb8lGRkmoNha7E3bHf9kAgUwMs0/pub)
 
 ## Import data
-- Click on the **Analyze Data** menu at the top of the page.    
-- Click on the History menu button the ![history button](./images/image02.png) on the top right of the history pane.
-- Click **Import from File** (at the bottom of the list).  
+- Click on the <ss>Analyze Data</ss> menu at the top of the page.    
+- Click on the <ss>History menu</ss> button the ![history button](./images/image02.png) on the top right of the history pane.
+- Click <ss>Import from File</ss> (at the bottom of the list).  
 - A new page will appear with a text box for the URL of the history to import.  
 - Copy the following URL into the text box: <http://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz>  
-- Click **Submit**.  
+- Click <ss>Submit</ss>.  
 - Galaxy will download the data files from the internet and will be available as an additional history (takes about one minute).  
-- **To make the newly imported history appear as the current history**    
+- <ss>To make the newly imported history appear as the current history</ss>    
   - Click on the View all Histories button ![Histories button](./images/image01.png) (the on the top right of the history pane).  
-  - If the history has finished downloading it will appear as **imported from archive: Colombia_workshop_start**
-- Click on the ![Switch button](./images/image06.png) button above the **imported from archive:Colombia_workshop_start** then the ![Done button](./images/image05.png)button.
+  - If the history has finished downloading it will appear as <fn>imported from archive: Colombia_workshop_start</fn>
+- Click on the ![Switch button](./images/image06.png) button above the <fn>imported from archive:Colombia_workshop_start</fn> then the ![Done button](./images/image05.png)button.
 - You should now have four files in the history pane as follows:
 
 ![Files in history](./images/image07.png)
@@ -70,9 +70,9 @@ We will evaluate the input reads using the FastQC tool. [FastQC website link](ht
 
 - This runs a standard series of tests on your read set and returns a relatively easy to interpret report.
 - We will use the FASTQC tool in Galaxy to evaluate the quality of one of our fastq files.
-- Open the FASTQC tool interface (on the tool pane - **NGS: QC and Manipulation -> FastQC: Comprehensive QC)**
-- Select mutant_R1.fastq
-- **Execute**
+- Go to <ss>Tools &rarr; NGS: QC and Manipulation &rarr; FastQC: Comprehensive QC</ss>
+- Select <fn>mutant_R1.fastq</fn>
+- <ss>Execute</ss>
 - Once finished, examine the output (Hint:![Eye icon](./images/image04.png)). It has a summary at the top of the page and a number of graphs.
 
 Some of the important outputs of FastQC for our purposes are:
@@ -93,26 +93,26 @@ We won’t be doing anything to these data to clean it up as there isn’t much 
 
 - Spades produces both contigs and scaffolds. Ask your demonstrator if you would like to know the difference between contigs and scaffolds.
 
-- Open the Spades assembler tool interface (on the tool pane - **NGS: Assembly -> spades**)
+- Go to <ss>Tools &rarr; NGS: Assembly &rarr; spades</ss>
 - Set the following parameters:
 
-    - **Run only Assembly**: *Yes*  
-    - **Kmers to use separated by commas:** *33,55,91*  no spaces  
-    - **Coverage cutoff:** *auto*  
-    - **Forward reads:** <fn>mutant_R1.fastq</fn>  
-    - **Reverse reads:** <fn>mutant_R2.fastq</fn>  
+    - <ss>Run only Assembly</ss>: *Yes*  
+    - <ss>Kmers to use separated by commas:</ss> *33,55,91*  no spaces  
+    - <ss>Coverage cutoff:</ss> *auto*  
+    - <ss>Forward reads:</ss> <fn>mutant_R1.fastq</fn>  
+    - <ss>Reverse reads:</ss> <fn>mutant_R2.fastq</fn>  
 
 - Your tool interface should look like this:
 
 ![Spades interface](./images/image03.png)
 
--  Click **Execute**
+-  Click <ss>Execute</ss>
 
 ## Examine the output
 
 - Galaxy is now running Spades on the reads for you.
-- When it is finished, you will have 5 new files in your history.
-- Fasta files of the resulting contigs and scaffolds, some statistics on each and the SPAdes logfile.
+- When it is finished, you will have five new files in your history.
+- Fasta files of the resulting contigs and scaffolds, some statistics on each and the Spades logfile.
 - Click on the View Data button ![Eye icon](./images/image04.png) on each of the files.
 - Note that the short reads have been assembled into much longer contigs.
 - The stats files will give you the length of each of the contigs.
