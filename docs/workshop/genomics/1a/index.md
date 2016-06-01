@@ -209,19 +209,19 @@ To do this we need to make some changes to the <fn>Contig_stats.txt</fn> file:
 #### Make a histogram
 
 - Go to <ss>Tools &rarr; Graph/Display Data &rarr; Histogram</ss> and set the following:
-- <ss>Dataset</ss> <fn>Remove beginning on Data 4</fn>
+- <ss>Dataset</ss>: <fn>Remove beginning on Data 4</fn>
 - <ss>Numerical column for X axis</ss> Column: 2
-- <ss>Number of breaks</ss> *25*
-- <ss>Plot title</ss> *Histogram of Contig Coverage*
-- <ss>Label for X axis</ss> *Coverage depth*
+- <ss>Number of breaks</ss>: *25*
+- <ss>Plot title</ss>: *Histogram of Contig Coverage*
+- <ss>Label for X axis</ss>: *Coverage depth*
 - Click <ss>Execute</ss>
 - Click on the eye icon ![eye icon](./images/image00.png) of the histogram to have a look at it. Note there are a few peaks. Maybe these correspond to single, double and triple copy number of these contigs.
 
 #### Calculate summary statistics for contig coverage depth
 
 - Go to <ss>Tools &rarr; Statistics and Visualisation &rarr; Statistics &rarr; Summary Statisitics</ss> and set the following:  
-- <ss>Summary statistics on</ss> <fn>Remove beginning on Data 4</fn>
-- <ss>Column or expression</ss> *c2*
+- <ss>Summary statistics on</ss>: <fn>Remove beginning on Data 4</fn>
+- <ss>Column or expression</ss>: *c2*
 - Click <ss>Execute</ss>
 - You’ll note that the summary statistics tool failed (red background in the <ss>History</ss>). There was an error!
 - If you click on the filename, and then the bug symbol ![bug icon](./images/image08.png), it will tell you what went wrong. (There is a missing python library).
