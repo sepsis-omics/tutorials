@@ -1,4 +1,4 @@
-# Getting Started with Artemis
+# Introduction to Artemis
 
 ## Background
 
@@ -9,46 +9,47 @@ Artemis is a genome browser and annotation tool. Artemis is written in Java and 
 At the end of this tutorial, you should be able to:
 
 1.  install Artemis on your laptop
-2.  download a bacterial genome sequence
-3.  open the genome sequence in Artemis and navigate the sequence (?features).
+2.  download a bacterial genome sequence, and
+3.  open the genome sequence in Artemis and look at the sequence features.
 
 ## Install Artemis
 
 - Artemis is available at no cost from the Sanger Institute Website.
 - Instructions for downloading and installing Artemis can be found at: <http://www.sanger.ac.uk/science/tools/artemis>
 - Download and run.
-- Not working? The most common problem: Java is either not installed or too old.
-- Artemis needs a recent version of Java v1.6 or higher. Go to java.com and update.
+ - Not working? The most common problem: Java is either not installed or too old.
+- Artemis needs a recent version of Java v1.6 or higher. Go to <http://java.com> and update.
 - Still not working? Seek help!
 
 ## Download a bacterial genome
 
-- Download the sequence of *Leptospira borgpetersenii* serovar Hardjobovis Chromosome II from the NCBI website in GenBank format.  
-- Open URL: <http://www.ncbi.nlm.nih.gov>
+We will download the sequence of *Leptospira borgpetersenii* serovar Hardjobovis Chromosome II from the NCBI website in GenBank format.  
+
+- Go to <http://www.ncbi.nlm.nih.gov>
 - Select the “Taxonomy” database from the list on the left hand side.
-- Enter “Leptospira borgpetersenii” in the search box and **Search**
+- Enter “Leptospira borgpetersenii” in the search box and click <ss>Search</ss>.
 
 ![NCBI search box](./images/image00.png)
 
-- Click on species name:
+- Click on the species name:
 
 ![Species name link](./images/image08.png)
 
 &nbsp;
 
-- Click on species name again (at the top of the list):
+- Click on the species name again (at the top of the list):
 
 ![Species name link](./images/image06.png)
 
 &nbsp;
 
-- Click on the far right number 1 next to "Genome":
+- Next to <ss>Genome</ss>, click on the far right number <ss>1</ss>. FIXME: add arrow to point to it.  
 
 ![link to genome](./images/image02.png)
 
 &nbsp;
 
-- Click on "Genome Assembly and Annotation report":
+- Click on <ss>Genome Assembly and Annotation report</ss>:
 
 &nbsp;
 
@@ -56,13 +57,15 @@ At the end of this tutorial, you should be able to:
 
 &nbsp;
 
-- Then, for the first species listed, scroll to the far right of the table, see chromosome 2, and click the link to the annotated assembly number NC_008509.1 (not CP0003):
+- Then, for the first species listed, scroll to the far right of the table, see chromosome 2, and click the link to the annotated assembly number <ss>NC_008509.1</ss> (not CP0003):
 
 ![link to report](./images/image01.png)
 
 &nbsp;
 
-- Then, click "Send" and choose "Complete Record", "Destination = File", "Format = GenBank (full)"", "Create File".
+- Then, click <ss>Send</ss>
+- choose <ss>Complete Record</ss>, <ss>Destination &rarr; File</ss>, <ss>Format &rarr; GenBank (full)</ss>
+- click <ss>Create File</ss>.
 - Note the download location (e.g. Downloads folder).
 
 ![Send button](./images/image05.png)
@@ -76,11 +79,49 @@ At the end of this tutorial, you should be able to:
 ![Artemis window](./images/image07.png)
 
 
-- Menu: **File** → **Open**
-- Select file from dialog box → **OPEN**
+- <ss>Menu &rarr; File &rarr; Open</ss>
+- Select file from dialog box, and <ss>OPEN</ss>
 
 ![Send button](./images/image03.png)
 
-**Demonstration/Discussion of the Artemis interface**
+## Demonstration/Discussion of the Artemis interface
 
-FIXME: put more here
+There are three main panes:
+
+1. The overview
+2. The DNA view
+3. Text summary of features
+
+![Artemis screenshot](./images/image09.png)
+
+Overview:  
+
+- 6-frame annotation
+- annotated genome features are highlighted
+- black lines are stop codons
+
+DNA view:
+
+- 6-frame translation
+- DNA sequence in the middle
+- amino acid translations above and below
+
+Text summary:
+
+- text summary of features
+
+Navigation:
+
+- Go to the overview pane
+- click on one annotated feature (highlighted in blue)
+- it will be summarized on the top line ("selected feature")
+- the corresponding sequence will be highlighted in the DNA view pane
+- the corresponding feature will be higlighted in the text summary pane
+- now double click on the same annotated feature
+- all three panes will be centred for this feature
+- to move left or right, use the horizontal scroll bars under each pane
+- to zoom, use the vertical scroll bars on the right
+
+## What next  
+
+Links to more information: [Artemis manual](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf)
