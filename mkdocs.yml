@@ -33,6 +33,8 @@ pages:
         - Quality Control:
             - Overview: dna/qualitycontrol/qc.md
             - FastQC: dna/qualitycontrol/fastqc.md
+            - FastQC commandline: dna/qualitycontrol/fastqc_cmdline.md
+            - Trimmomatic: dna/qualitycontrol/trimmomatic.md
         - De novo assembly:
             - Spades: dna/denovo/spades.md
             - Megahit: dna/denovo/megahit.md
@@ -46,6 +48,7 @@ pages:
             - GENIX: dna/anno/genix.md
             - EuGene: dna/anno/eugene.md
             - MEGAnnotator: dna/anno/megannotator.md
+            - Prokka on cmdline: dna/anno/prokka_cmdline.md
         - Variant finding:
             - Snippy: dna/snps/snippy.md
             - Galaxy: dna/snps/galaxy.md
