@@ -1,79 +1,60 @@
-# FastQC
-
-After sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end sequence reads from Illumina.
-
-[FastQC website link](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
-
-## Pre-requisites
-- mGVL instance
-- knowledge: de novo assembly
-- knowledge: galaxy or cmdline
-
-****
-
-# FastQC on Galaxy
+# FastQC in Galaxy
 
 FIXME: include screenshots
 
-## Start
-- open your mGVL galaxy instance
+FIXME: include file location and/or choose different input.
 
-## Input
-- required input data: R1 and R2 reads
-- Go to: history: import from file [public URL of a history file]
-- [FIXME: how to transfer a history to that spot ?]
-- [FIXME: At present I am using Pasteurella multocida but would be good to have a data set with contaminants, adapters - how to find?]
+## Introduction
 
-## Run
-- Tools pane: <ss>NGS Analysis: NGS QC and manipulation: FastQC</ss>.
-- Under <ss>Short read data from your current history</ss>: click the multiple files button: select R1 and R2 files. [FIXME: is this correct? you would want to view both?]
-- Leave the other settings as they are.
-- <ss>Execute</ss>.
+After sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end sequence reads from Illumina. The FastQC website is [here.](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
-## Output
-- For each of the inputs (R1 and R2), there will two output files at the top of the history pane (right).
-- We will look at the "webpage" output (which is the output displayed graphically).
-Click on the eye icon next to the file called <ss>FastQC on data1: Webpage</ss>.
-- Look at the following information:  
-    - Basic Statistics: total sequences - to understand coverage.
-    - Basic Statistics: sequence length - to know how to set k values later.
-    - Basic Statistics: %GC - if high, assembly may be more difficult.  
-    - Per base sequence quality: might be low at the start and the end, which may support some trimming of reads
-    - Per base N content: if high, may indicate poor quality and a need for trimming the Ns.
-    - Kmer content: should be no spikes
-- Look at the same information for the R2 file.
-- [Example of good illumina data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html)
-- [Example of bad illumina data](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html)
+## Learning Objectives
 
-****
+At the end of this tutorial you should be able to:
 
-# FastQC on cmdline
+1. run FastQC on input sequence reads, and
+2. examine the FastQC output.
 
-## Start
-- on your local machine, make sure XQuartz is installed (but it doesn't have to be open - it will open automatically later).
-- in terminal, ssh to your virtual machine with -X and -Y, e.g. `ssh -X -Y ubuntu@111.111.111.111` (the -X and -Y means it will use your local XQuartz to display some files).
-- `module load fastqc_dist_0_10_1` [FIXME: will this have a different name? eg just fastqc?]
-- navigate to where you want to make a FastQC analysis folder.
-- Make a folder: `mkdir fastqc_analyses`
-- Move to that folder: `cd fastqc_analyses`
+## Input files
 
-## Input
-- [FIXME: get the data into this folder]
+e.g. <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>: a paired-end read set  
+FIXME: or alternative. Ideally with contaminants/etc. ?
 
-## Run
-- `fastqc R1reads.fastq` [runs fastqc]
-- type `fastqc --help` to see settings that you can change, and defaults
-- FIXME: any to change
-- FIXME: repeat for R2reads?
+We will evaluate the R1 input reads using the FastQC tool.
 
-## Output
-- R1reads_fastqc: folder containing the output e.g. fastqc_report.html
-- to view this, type: firefox fastqc_report.html - firefox should open and display the report
-(you may get an error message in terminal but ignore this)
+## Run FastQC
 
-****
+- Go to <ss>Tools &rarr; NGS:Analysis &rarr; NGS: QC and Manipulation &rarr; FastQC</ss>
+- for <ss>Short read data from your current history</ss>: <fn>mutant_R1.fastq</fn>
+- Click <ss>Execute</ss>
 
-## More information
+## Examine output files
+Once finished, examine the output called <fn>FastQC on data1:webpage</fn> (Hint: click the eye icon). It has a summary at the top of the page and a number of graphs.
+
+Look at:
+
+-   <ss>Basic Statistics: Sequence length</ss>: will be important in setting maximum k-mer size value for assembly
+-   <ss>Basic Statistics: Encoding</ss>: Quality encoding type: important for quality trimming software
+-   <ss>Basic Statistics: % GC</ss>: high GC organisms don’t tend to assemble well and may have an uneven read coverage distribution.
+-   <ss>Basic Statistics: Total sequences</ss>: Total number of reads: gives you an idea of coverage.
+-   <ss>Per base sequence quality</ss>: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.
+-   <ss>Per base N content</ss>: Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.
+-   <ss>Kmer content</ss>: Presence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc.
+
+We have warnings for two outputs (per base sequence content; Kmer content). This would warrant more investigation.
+
+General questions you might ask about your input reads include:
+
+- How good is my read set?
+- Do I need to ask for a new sequencing run?  
+- Is it suitable for the analysis I need to do?
+
+For a fuller discussion of FastQC outputs and warnings, see the [FastQC website link](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/), including the section on each of the output [reports](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/), and examples of ["good"](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and ["bad"](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) Illumina data.
+
+
+
+## What Next?
+- Trim reads with [Trimmomatic.](trimmomatic.md)
 
 FIXME: include these?
 
@@ -82,6 +63,3 @@ http://vlsci.github.io/lscc_docs/tutorials/assembly/assembly-protocol/#section-1
 
 - more detailed information:
 https://docs.google.com/document/pub?id=16GwPmwYW7o_r-ZUgCu8-oSBBY1gC97TfTTinGDk98Ws
-
-## Next
-- Trim reads: Trimmomatic (link)
