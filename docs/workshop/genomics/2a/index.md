@@ -78,7 +78,7 @@ We will evaluate the input reads using the FastQC tool.
 Some of the important outputs of FastQC for our purposes are:
 
 -   <ss>Basic Statistics: Sequence length</ss>: will be important in setting maximum k-mer size value for assembly
--   <Basic Statistics: Encoding</ss>: Quality encoding type: important for quality trimming software
+-   <ss>Basic Statistics: Encoding</ss>: Quality encoding type: important for quality trimming software
 -   <ss>Basic Statistics: % GC</ss>: high GC organisms don’t tend to assemble well and may have an uneven read coverage distribution.
 -   <ss>Basic Statistics: Total sequences</ss>: Total number of reads: gives you an idea of coverage.
 -   <ss>Per base sequence quality</ss>: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.

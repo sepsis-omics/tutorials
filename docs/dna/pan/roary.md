@@ -106,12 +106,8 @@ python roary_plots.py core_gene_alignment.nwk gene_presence_absence.csv
 - output: pangenome matrix, frequency plot, pie chart.
 - view these by typing `firefox [filename]` and a firefox window will open to show the image. You need to close the window before you open the next image.
 
-### View using Phandango:
-- [Phandango link](http://jameshadfield.github.io/phandango/)
-- FIXME: current Firefox on mGVL Lubuntu desktop is too old to use Phandango
-- Copy and move these files to your mGVL public_html folder: gene_presence_absence.csv and my_tree.newick.
-- open your public_html folder (e.g. http://mgvl_IP/public/username  or similar), download to your local computer, and drag and drop onto the phandango web page.
-- FIXME: what to look at. e.g. clade x has AMR genes?
+## What next?
+View using Phandango; [tutorial here.](../../viz/phandango/index.md)
 
 ## More information
 - [another Roary tutorial](https://github.com/microgenomics/tutorials/blob/master/pangenome.md)

@@ -79,7 +79,7 @@ Note: Make a new folder to store the work we are about to perform.
 
 What sort of file is being uploaded?
 
-We need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, fasta, fastq, vcf, GFF, GenBank, tabular. (FIXME: determine correct format (e.g. capitals) and link to file formats page)
+We need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, FASTA, FASTQ, VCF, GFF, GBK, tabular. [More on file formats.](../../../data/file_formats.md)
 
 ### Upload a file from your own computer
 
@@ -100,7 +100,7 @@ This is a file stored on the cloud. Press <ss>Enter</ss>, and the file will down
 
 -  From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  
 -  Click the <ss>Choose local file</ss> button  
--  Find and select the <fn>Contig_stats.txt.g</fn> file you downloaded and click <ss>Open</ss>  
+-  Find and select the <fn>Contig_stats.txt.gz</fn> file you downloaded and click <ss>Open</ss>  
 -  Set the <ss>Type</ss> to *tabular*  
 -  Click the <ss>Start</ss> button  
 -  Once the progress bar reaches 100%, click the <ss>Close</ss> button  

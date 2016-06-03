@@ -23,7 +23,7 @@ pages:
     - Differential gene expression: workshop/dge/index.md
 - Data:
     - Getting and moving data: data/data_access.md
-    - File formats: data/file_formats.md
+    - File formats: data/formats/file_formats.md
     - Genomics: dna/data.md
     - Transcriptomics: rna/data.md
     - Proteomics: pro/data.md
@@ -50,8 +50,10 @@ pages:
             - MEGAnnotator: dna/anno/megannotator.md
             - Prokka on cmdline: dna/anno/prokka_cmdline.md
         - Variant finding:
+            - Background: dna/snps/background/background.md
             - Snippy: dna/snps/snippy.md
             - Galaxy: dna/snps/galaxy.md
+            - BWA-MEM: dna/snps/bwa_mem.md
         - Pan genome:
             - Roary: dna/pan/roary.md
             - OrthoMCL: dna/pan/orthomcl.md
@@ -71,9 +73,11 @@ pages:
 - Viz:
     - Bandage: viz/bandage/index.md
     - JBrowse: viz/jbrowse/index.md
+    - Artemis: viz/artemis/index.md
     - Phandango: viz/phandango/index.md
     - Degust: viz/degust/index.md
 - Protocols:
+  - Overview: protocols/overview.md
   - De novo assembly: protocols/assembly.md
   - Genome annotation: protocols/annotation.md
   - Finding variants: protocols/variants.md
