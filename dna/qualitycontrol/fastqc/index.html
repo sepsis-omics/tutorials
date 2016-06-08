@@ -130,7 +130,13 @@
                     
                         
 <li >
-    <a href="../../../data/file_formats/">File formats</a>
+    <a href="../../../data/data_access/">Getting and moving data</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../data/formats/file_formats/">File formats</a>
 </li>
 
                     
@@ -186,6 +192,18 @@
             
 <li class="active">
     <a href="./">FastQC</a>
+</li>
+
+        
+            
+<li >
+    <a href="../fastqc_cmdline/">FastQC commandline</a>
+</li>
+
+        
+            
+<li >
+    <a href="../trimmomatic/">Trimmomatic</a>
 </li>
 
         
@@ -273,6 +291,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../../anno/prokka_cmdline/">Prokka on cmdline</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -284,6 +308,12 @@
         
             
 <li >
+    <a href="../../snps/background/background/">Background</a>
+</li>
+
+        
+            
+<li >
     <a href="../../snps/snippy/">Snippy</a>
 </li>
 
@@ -291,6 +321,12 @@
             
 <li >
     <a href="../../snps/galaxy/">Galaxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../snps/bwa_mem/">BWA-MEM</a>
 </li>
 
         
@@ -436,6 +472,12 @@
                     
                         
 <li >
+    <a href="../../../viz/artemis/">Artemis</a>
+</li>
+
+                    
+                        
+<li >
     <a href="../../../viz/phandango/">Phandango</a>
 </li>
 
@@ -443,6 +485,45 @@
                         
 <li >
     <a href="../../../viz/degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Protocols <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../protocols/overview/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/assembly/">De novo assembly</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/annotation/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/variants/">Finding variants</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/dge/">Differential gene expression</a>
 </li>
 
                     
@@ -471,7 +552,7 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../../denovo/spades/">
+                    <a rel="prev" href="../fastqc_cmdline/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -485,119 +566,70 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#fastqc">FastQC</a></li>
+        <li class="main active"><a href="#fastqc-in-galaxy">FastQC in Galaxy</a></li>
         
-            <li><a href="#pre-requisites">Pre-requisites</a></li>
+            <li><a href="#introduction">Introduction</a></li>
         
-    
-        <li class="main "><a href="#fastqc-on-galaxy">FastQC on Galaxy</a></li>
+            <li><a href="#learning-objectives">Learning Objectives</a></li>
         
-            <li><a href="#start">Start</a></li>
+            <li><a href="#input-files">Input files</a></li>
         
-            <li><a href="#input">Input</a></li>
+            <li><a href="#run-fastqc">Run FastQC</a></li>
         
-            <li><a href="#run">Run</a></li>
+            <li><a href="#examine-output-files">Examine output files</a></li>
         
-            <li><a href="#output">Output</a></li>
-        
-    
-        <li class="main "><a href="#fastqc-on-cmdline">FastQC on cmdline</a></li>
-        
-            <li><a href="#start_1">Start</a></li>
-        
-            <li><a href="#input_1">Input</a></li>
-        
-            <li><a href="#run_1">Run</a></li>
-        
-            <li><a href="#output_1">Output</a></li>
-        
-            <li><a href="#more-information">More information</a></li>
-        
-            <li><a href="#next">Next</a></li>
+            <li><a href="#what-next">What Next?</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="fastqc">FastQC</h1>
-<p>After sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end sequence reads from Illumina.</p>
-<p><a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC website link</a></p>
-<h2 id="pre-requisites">Pre-requisites</h2>
-<ul>
-<li>mGVL instance</li>
-<li>knowledge: de novo assembly</li>
-<li>knowledge: galaxy or cmdline</li>
-</ul>
-<hr />
-<h1 id="fastqc-on-galaxy">FastQC on Galaxy</h1>
+<h1 id="fastqc-in-galaxy">FastQC in Galaxy</h1>
 <p>FIXME: include screenshots</p>
-<h2 id="start">Start</h2>
+<p>FIXME: include file location and/or choose different input.</p>
+<h2 id="introduction">Introduction</h2>
+<p>After sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end sequence reads from Illumina. The FastQC website is <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">here.</a></p>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>At the end of this tutorial you should be able to:</p>
+<ol>
+<li>run FastQC on input sequence reads, and</li>
+<li>examine the FastQC output.</li>
+</ol>
+<h2 id="input-files">Input files</h2>
+<p>e.g. <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>: a paired-end read set<br />
+FIXME: or alternative. Ideally with contaminants/etc. ?</p>
+<p>We will evaluate the R1 input reads using the FastQC tool.</p>
+<h2 id="run-fastqc">Run FastQC</h2>
 <ul>
-<li>open your mGVL galaxy instance</li>
+<li>Go to <ss>Tools &rarr; NGS:Analysis &rarr; NGS: QC and Manipulation &rarr; FastQC</ss></li>
+<li>for <ss>Short read data from your current history</ss>: <fn>mutant_R1.fastq</fn></li>
+<li>Click <ss>Execute</ss></li>
 </ul>
-<h2 id="input">Input</h2>
+<h2 id="examine-output-files">Examine output files</h2>
+<p>Once finished, examine the output called <fn>FastQC on data1:webpage</fn> (Hint: click the eye icon). It has a summary at the top of the page and a number of graphs.</p>
+<p>Look at:</p>
 <ul>
-<li>required input data: R1 and R2 reads</li>
-<li>Go to: history: import from file [public URL of a history file]</li>
-<li>[FIXME: how to transfer a history to that spot ?]</li>
-<li>[FIXME: At present I am using Pasteurella multocida but would be good to have a data set with contaminants, adapters - how to find?]</li>
+<li><ss>Basic Statistics: Sequence length</ss>: will be important in setting maximum k-mer size value for assembly</li>
+<li><ss>Basic Statistics: Encoding</ss>: Quality encoding type: important for quality trimming software</li>
+<li><ss>Basic Statistics: % GC</ss>: high GC organisms don’t tend to assemble well and may have an uneven read coverage distribution.</li>
+<li><ss>Basic Statistics: Total sequences</ss>: Total number of reads: gives you an idea of coverage.</li>
+<li><ss>Per base sequence quality</ss>: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.</li>
+<li><ss>Per base N content</ss>: Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.</li>
+<li><ss>Kmer content</ss>: Presence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc.</li>
 </ul>
-<h2 id="run">Run</h2>
+<p>We have warnings for two outputs (per base sequence content; Kmer content). This would warrant more investigation.</p>
+<p>General questions you might ask about your input reads include:</p>
 <ul>
-<li>Tools pane: <ss>NGS Analysis: NGS QC and manipulation: FastQC</ss>.</li>
-<li>Under <ss>Short read data from your current history</ss>: click the multiple files button: select R1 and R2 files. [FIXME: is this correct? you would want to view both?]</li>
-<li>Leave the other settings as they are.</li>
-<li><ss>Execute</ss>.</li>
+<li>How good is my read set?</li>
+<li>Do I need to ask for a new sequencing run?  </li>
+<li>Is it suitable for the analysis I need to do?</li>
 </ul>
-<h2 id="output">Output</h2>
+<p>For a fuller discussion of FastQC outputs and warnings, see the <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC website link</a>, including the section on each of the output <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/">reports</a>, and examples of <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html">&ldquo;good&rdquo;</a> and <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html">&ldquo;bad&rdquo;</a> Illumina data.</p>
+<h2 id="what-next">What Next?</h2>
 <ul>
-<li>For each of the inputs (R1 and R2), there will two output files at the top of the history pane (right).</li>
-<li>We will look at the &ldquo;webpage&rdquo; output (which is the output displayed graphically).
-Click on the eye icon next to the file called <ss>FastQC on data1: Webpage</ss>.</li>
-<li>Look at the following information:  <ul>
-<li>Basic Statistics: total sequences - to understand coverage.</li>
-<li>Basic Statistics: sequence length - to know how to set k values later.</li>
-<li>Basic Statistics: %GC - if high, assembly may be more difficult.  </li>
-<li>Per base sequence quality: might be low at the start and the end, which may support some trimming of reads</li>
-<li>Per base N content: if high, may indicate poor quality and a need for trimming the Ns.</li>
-<li>Kmer content: should be no spikes</li>
+<li>Trim reads with <a href="../trimmomatic/">Trimmomatic.</a></li>
 </ul>
-</li>
-<li>Look at the same information for the R2 file.</li>
-<li><a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html">Example of good illumina data</a></li>
-<li><a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html">Example of bad illumina data</a></li>
-</ul>
-<hr />
-<h1 id="fastqc-on-cmdline">FastQC on cmdline</h1>
-<h2 id="start_1">Start</h2>
-<ul>
-<li>on your local machine, make sure XQuartz is installed (but it doesn&rsquo;t have to be open - it will open automatically later).</li>
-<li>in terminal, ssh to your virtual machine with -X and -Y, e.g. <code>ssh -X -Y ubuntu@111.111.111.111</code> (the -X and -Y means it will use your local XQuartz to display some files).</li>
-<li><code>module load fastqc_dist_0_10_1</code> [FIXME: will this have a different name? eg just fastqc?]</li>
-<li>navigate to where you want to make a FastQC analysis folder.</li>
-<li>Make a folder: <code>mkdir fastqc_analyses</code></li>
-<li>Move to that folder: <code>cd fastqc_analyses</code></li>
-</ul>
-<h2 id="input_1">Input</h2>
-<ul>
-<li>[FIXME: get the data into this folder]</li>
-</ul>
-<h2 id="run_1">Run</h2>
-<ul>
-<li><code>fastqc R1reads.fastq</code> [runs fastqc]</li>
-<li>type <code>fastqc --help</code> to see settings that you can change, and defaults</li>
-<li>FIXME: any to change</li>
-<li>FIXME: repeat for R2reads?</li>
-</ul>
-<h2 id="output_1">Output</h2>
-<ul>
-<li>R1reads_fastqc: folder containing the output e.g. fastqc_report.html</li>
-<li>to view this, type: firefox fastqc_report.html - firefox should open and display the report
-(you may get an error message in terminal but ignore this)</li>
-</ul>
-<hr />
-<h2 id="more-information">More information</h2>
 <p>FIXME: include these?</p>
 <ul>
 <li>
@@ -608,10 +640,6 @@ http://vlsci.github.io/lscc_docs/tutorials/assembly/assembly-protocol/#section-1
 <p>more detailed information:
 https://docs.google.com/document/pub?id=16GwPmwYW7o_r-ZUgCu8-oSBBY1gC97TfTTinGDk98Ws</p>
 </li>
-</ul>
-<h2 id="next">Next</h2>
-<ul>
-<li>Trim reads: Trimmomatic (link)</li>
 </ul></div>
         </div>
 

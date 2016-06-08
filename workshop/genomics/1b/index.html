@@ -130,7 +130,13 @@
                     
                         
 <li >
-    <a href="../../../data/file_formats/">File formats</a>
+    <a href="../../../data/data_access/">Getting and moving data</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../data/formats/file_formats/">File formats</a>
 </li>
 
                     
@@ -186,6 +192,18 @@
             
 <li >
     <a href="../../../dna/qualitycontrol/fastqc/">FastQC</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/qualitycontrol/fastqc_cmdline/">FastQC commandline</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/qualitycontrol/trimmomatic/">Trimmomatic</a>
 </li>
 
         
@@ -273,6 +291,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../../../dna/anno/prokka_cmdline/">Prokka on cmdline</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -284,6 +308,12 @@
         
             
 <li >
+    <a href="../../../dna/snps/background/background/">Background</a>
+</li>
+
+        
+            
+<li >
     <a href="../../../dna/snps/snippy/">Snippy</a>
 </li>
 
@@ -291,6 +321,12 @@
             
 <li >
     <a href="../../../dna/snps/galaxy/">Galaxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/snps/bwa_mem/">BWA-MEM</a>
 </li>
 
         
@@ -436,6 +472,12 @@
                     
                         
 <li >
+    <a href="../../../viz/artemis/">Artemis</a>
+</li>
+
+                    
+                        
+<li >
     <a href="../../../viz/phandango/">Phandango</a>
 </li>
 
@@ -443,6 +485,45 @@
                         
 <li >
     <a href="../../../viz/degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Protocols <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../protocols/overview/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/assembly/">De novo assembly</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/annotation/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/variants/">Finding variants</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/dge/">Differential gene expression</a>
 </li>
 
                     
@@ -485,7 +566,7 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#getting-started-with-artemis">Getting Started with Artemis</a></li>
+        <li class="main active"><a href="#introduction-to-artemis">Introduction to Artemis</a></li>
         
             <li><a href="#background">Background</a></li>
         
@@ -497,20 +578,24 @@
         
             <li><a href="#open-the-genbank-file-in-artemis">Open the GenBank file in Artemis</a></li>
         
+            <li><a href="#demonstrationdiscussion-of-the-artemis-interface">Demonstration/Discussion of the Artemis interface</a></li>
+        
+            <li><a href="#what-next">What next</a></li>
+        
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="getting-started-with-artemis">Getting Started with Artemis</h1>
+<h1 id="introduction-to-artemis">Introduction to Artemis</h1>
 <h2 id="background">Background</h2>
 <p>Artemis is a genome browser and annotation tool. Artemis is written in Java and can be used on Mac, Linux or Windows. While it can be used to view any genomic data, it is specifically designed for viewing bacterial or viral genomes. A variety of file types can be loaded and viewed using Artemis; these include fasta, multifasta, EMBL, GenBank and GFF format files.</p>
 <h2 id="learning-objectives">Learning objectives</h2>
 <p>At the end of this tutorial, you should be able to:</p>
 <ol>
 <li>install Artemis on your laptop</li>
-<li>download a bacterial genome sequence</li>
-<li>open the genome sequence in Artemis and navigate the sequence (?features).</li>
+<li>download a bacterial genome sequence, and</li>
+<li>open the genome sequence in Artemis and look at the sequence features.</li>
 </ol>
 <h2 id="install-artemis">Install Artemis</h2>
 <ul>
@@ -518,45 +603,47 @@
 <li>Instructions for downloading and installing Artemis can be found at: <a href="http://www.sanger.ac.uk/science/tools/artemis">http://www.sanger.ac.uk/science/tools/artemis</a></li>
 <li>Download and run.</li>
 <li>Not working? The most common problem: Java is either not installed or too old.</li>
-<li>Artemis needs a recent version of Java v1.6 or higher. Go to java.com and update.</li>
+<li>Artemis needs a recent version of Java v1.6 or higher. Go to <a href="http://java.com">http://java.com</a> and update.</li>
 <li>Still not working? Seek help!</li>
 </ul>
 <h2 id="download-a-bacterial-genome">Download a bacterial genome</h2>
+<p>We will download the sequence of <em>Leptospira borgpetersenii</em> serovar Hardjobovis Chromosome II from the NCBI website in GenBank format.  </p>
 <ul>
-<li>Download the sequence of <em>Leptospira borgpetersenii</em> serovar Hardjobovis Chromosome II from the NCBI website in GenBank format.  </li>
-<li>Open URL: <a href="http://www.ncbi.nlm.nih.gov">http://www.ncbi.nlm.nih.gov</a></li>
+<li>Go to <a href="http://www.ncbi.nlm.nih.gov">http://www.ncbi.nlm.nih.gov</a></li>
 <li>Select the “Taxonomy” database from the list on the left hand side.</li>
-<li>Enter “Leptospira borgpetersenii” in the search box and <strong>Search</strong></li>
+<li>Enter “Leptospira borgpetersenii” in the search box and click <ss>Search</ss>.</li>
 </ul>
 <p><img alt="NCBI search box" src="./images/image00.png" /></p>
 <ul>
-<li>Click on species name:</li>
+<li>Click on the species name:</li>
 </ul>
 <p><img alt="Species name link" src="./images/image08.png" /></p>
 <p>&nbsp;</p>
 <ul>
-<li>Click on species name again (at the top of the list):</li>
+<li>Click on the species name again (at the top of the list):</li>
 </ul>
 <p><img alt="Species name link" src="./images/image06.png" /></p>
 <p>&nbsp;</p>
 <ul>
-<li>Click on the far right number 1 next to &ldquo;Genome&rdquo;:</li>
+<li>Next to <ss>Genome</ss>, click on the far right number <ss>1</ss>. FIXME: add arrow to point to it.  </li>
 </ul>
 <p><img alt="link to genome" src="./images/image02.png" /></p>
 <p>&nbsp;</p>
 <ul>
-<li>Click on &ldquo;Genome Assembly and Annotation report&rdquo;:</li>
+<li>Click on <ss>Genome Assembly and Annotation report</ss>:</li>
 </ul>
 <p>&nbsp;</p>
 <p><img alt="link to report" src="./images/image04.png" /></p>
 <p>&nbsp;</p>
 <ul>
-<li>Then, for the first species listed, scroll to the far right of the table, see chromosome 2, and click the link to the annotated assembly number NC_008509.1 (not CP0003):</li>
+<li>Then, for the first species listed, scroll to the far right of the table, see chromosome 2, and click the link to the annotated assembly number <ss>NC_008509.1</ss> (not CP0003):</li>
 </ul>
 <p><img alt="link to report" src="./images/image01.png" /></p>
 <p>&nbsp;</p>
 <ul>
-<li>Then, click &ldquo;Send&rdquo; and choose &ldquo;Complete Record&rdquo;, &ldquo;Destination = File&rdquo;, &ldquo;Format = GenBank (full)&rdquo;&ldquo;, &ldquo;Create File&rdquo;.</li>
+<li>Then, click <ss>Send</ss></li>
+<li>choose <ss>Complete Record</ss>, <ss>Destination &rarr; File</ss>, <ss>Format &rarr; GenBank (full)</ss></li>
+<li>click <ss>Create File</ss>.</li>
 <li>Note the download location (e.g. Downloads folder).</li>
 </ul>
 <p><img alt="Send button" src="./images/image05.png" /></p>
@@ -567,12 +654,48 @@
 </ul>
 <p><img alt="Artemis window" src="./images/image07.png" /></p>
 <ul>
-<li>Menu: <strong>File</strong> → <strong>Open</strong></li>
-<li>Select file from dialog box → <strong>OPEN</strong></li>
+<li><ss>Menu &rarr; File &rarr; Open</ss></li>
+<li>Select file from dialog box, and <ss>OPEN</ss></li>
 </ul>
 <p><img alt="Send button" src="./images/image03.png" /></p>
-<p><strong>Demonstration/Discussion of the Artemis interface</strong></p>
-<p>FIXME: put more here</p></div>
+<h2 id="demonstrationdiscussion-of-the-artemis-interface">Demonstration/Discussion of the Artemis interface</h2>
+<p>There are three main panes:</p>
+<ol>
+<li>The overview</li>
+<li>The DNA view</li>
+<li>Text summary of features</li>
+</ol>
+<p><img alt="Artemis screenshot" src="./images/image09.png" /></p>
+<p>Overview:  </p>
+<ul>
+<li>6-frame annotation</li>
+<li>annotated genome features are highlighted</li>
+<li>black lines are stop codons</li>
+</ul>
+<p>DNA view:</p>
+<ul>
+<li>6-frame translation</li>
+<li>DNA sequence in the middle</li>
+<li>amino acid translations above and below</li>
+</ul>
+<p>Text summary:</p>
+<ul>
+<li>text summary of features</li>
+</ul>
+<p>Navigation:</p>
+<ul>
+<li>Go to the overview pane</li>
+<li>click on one annotated feature (highlighted in blue)</li>
+<li>it will be summarized on the top line (&ldquo;selected feature&rdquo;)</li>
+<li>the corresponding sequence will be highlighted in the DNA view pane</li>
+<li>the corresponding feature will be higlighted in the text summary pane</li>
+<li>now double click on the same annotated feature</li>
+<li>all three panes will be centred for this feature</li>
+<li>to move left or right, use the horizontal scroll bars under each pane</li>
+<li>to zoom, use the vertical scroll bars on the right</li>
+</ul>
+<h2 id="what-next">What next</h2>
+<p>Links to more information: <a href="ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf">Artemis manual</a></p></div>
         </div>
 
         <footer class="col-md-12">

@@ -130,7 +130,13 @@
                     
                         
 <li >
-    <a href="../../data/file_formats/">File formats</a>
+    <a href="../../data/data_access/">Getting and moving data</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data/formats/file_formats/">File formats</a>
 </li>
 
                     
@@ -186,6 +192,18 @@
             
 <li >
     <a href="../../dna/qualitycontrol/fastqc/">FastQC</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../dna/qualitycontrol/fastqc_cmdline/">FastQC commandline</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../dna/qualitycontrol/trimmomatic/">Trimmomatic</a>
 </li>
 
         
@@ -273,6 +291,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../../dna/anno/prokka_cmdline/">Prokka on cmdline</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -284,6 +308,12 @@
         
             
 <li >
+    <a href="../../dna/snps/background/background/">Background</a>
+</li>
+
+        
+            
+<li >
     <a href="../../dna/snps/snippy/">Snippy</a>
 </li>
 
@@ -291,6 +321,12 @@
             
 <li >
     <a href="../../dna/snps/galaxy/">Galaxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../dna/snps/bwa_mem/">BWA-MEM</a>
 </li>
 
         
@@ -435,6 +471,12 @@
 
                     
                         
+<li >
+    <a href="../artemis/">Artemis</a>
+</li>
+
+                    
+                        
 <li class="active">
     <a href="./">Phandango</a>
 </li>
@@ -443,6 +485,45 @@
                         
 <li >
     <a href="../degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Protocols <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../protocols/overview/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../protocols/assembly/">De novo assembly</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../protocols/annotation/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../protocols/variants/">Finding variants</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../protocols/dge/">Differential gene expression</a>
 </li>
 
                     
@@ -466,7 +547,7 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../jbrowse/">
+                    <a rel="next" href="../artemis/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
@@ -485,11 +566,67 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
+        <li class="main active"><a href="#phandango">Phandango</a></li>
+        
+            <li><a href="#start">Start</a></li>
+        
+            <li><a href="#run">Run</a></li>
+        
+            <li><a href="#save-output-image">Save output image</a></li>
+        
+            <li><a href="#what-next">What next</a></li>
+        
+    
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-</div>
+<h1 id="phandango">Phandango</h1>
+<p>FIXME: current Firefox on mGVL Lubuntu desktop is too old to use Phandango</p>
+<p>FIXME: ideally: sepsis related: would be good to see clade x has AMR genes? e.g. this example shows a subclade which is ceftriaxone susceptable but azithromycin resistant https://github.com/jameshadfield/phandango/wiki/Panel%20Layout#metadata</p>
+<p>Phandango is a tool to vizualize genome phylogenies.</p>
+<h2 id="start">Start</h2>
+<ul>
+<li>
+<p>prepare input files (e.g. from Roary output):</p>
+<ul>
+<li><fn>gene_presence_absence.csv</fn>: gene name, various information, then a column for each sample - if the gene is present in that sample, it is listed here with an appended gene ID.</li>
+<li><fn>tree.newick</fn>: a phylogenetic tree based on an alignment of core genes. (Note: this is not a default Roary output and must be specified by creating an alignment of core genes, and then building a phylogenetic tree).</li>
+</ul>
+</li>
+<li>
+<p>navigate to these files in your mGVL (e.g. ssh in terminal) and move them to your public_html folder.</p>
+</li>
+<li>open your public_html folder (e.g. http://mgvl_IP/public/username  or similar), and download to your local computer.</li>
+</ul>
+<h2 id="run">Run</h2>
+<ul>
+<li>
+<p>open the Phandango <a href="http://jameshadfield.github.io/phandango/">webpage.</a></p>
+</li>
+<li>
+<p>drag and drop these files onto the webpage.</p>
+</li>
+<li>
+<p>now we can see the tree on the left, and the core and accessory genome aligned to each sample.</p>
+</li>
+</ul>
+<p><img alt="Phandango screenshot" src="./images/image00.png" /></p>
+<ul>
+<li>
+<p>things to look at:</p>
+<ul>
+<li>top tabs: settings - change the displayed labels</li>
+<li>change panel sizes - drag grey circles at the edges of each panel</li>
+<li>line graph?</li>
+</ul>
+</li>
+</ul>
+<h2 id="save-output-image">Save output image</h2>
+<ul>
+<li>press p to save the displayed data as a vector SVG file.</li>
+</ul>
+<h2 id="what-next">What next</h2></div>
         </div>
 
         <footer class="col-md-12">

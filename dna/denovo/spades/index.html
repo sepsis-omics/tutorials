@@ -130,7 +130,13 @@
                     
                         
 <li >
-    <a href="../../../data/file_formats/">File formats</a>
+    <a href="../../../data/data_access/">Getting and moving data</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../data/formats/file_formats/">File formats</a>
 </li>
 
                     
@@ -186,6 +192,18 @@
             
 <li >
     <a href="../../qualitycontrol/fastqc/">FastQC</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../qualitycontrol/fastqc_cmdline/">FastQC commandline</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../qualitycontrol/trimmomatic/">Trimmomatic</a>
 </li>
 
         
@@ -273,6 +291,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../../anno/prokka_cmdline/">Prokka on cmdline</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -284,6 +308,12 @@
         
             
 <li >
+    <a href="../../snps/background/background/">Background</a>
+</li>
+
+        
+            
+<li >
     <a href="../../snps/snippy/">Snippy</a>
 </li>
 
@@ -291,6 +321,12 @@
             
 <li >
     <a href="../../snps/galaxy/">Galaxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../snps/bwa_mem/">BWA-MEM</a>
 </li>
 
         
@@ -436,6 +472,12 @@
                     
                         
 <li >
+    <a href="../../../viz/artemis/">Artemis</a>
+</li>
+
+                    
+                        
+<li >
     <a href="../../../viz/phandango/">Phandango</a>
 </li>
 
@@ -443,6 +485,45 @@
                         
 <li >
     <a href="../../../viz/degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Protocols <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../protocols/overview/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/assembly/">De novo assembly</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/annotation/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/variants/">Finding variants</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/dge/">Differential gene expression</a>
 </li>
 
                     
@@ -466,7 +547,7 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../../qualitycontrol/fastqc/">
+                    <a rel="next" href="../../qualitycontrol/trimmomatic/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
@@ -485,15 +566,64 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#spades">Spades</a></li>
+        <li class="main active"><a href="#spades-command-line">Spades - command line</a></li>
+        
+            <li><a href="#start">Start</a></li>
+        
+            <li><a href="#run-spades">Run spades</a></li>
+        
+            <li><a href="#output">Output</a></li>
+        
+            <li><a href="#what-next">What next?</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="spades">Spades</h1>
-<p>cmdline</p></div>
+<h1 id="spades-command-line">Spades - command line</h1>
+<p>FIXME: add general info about spades (copy from galaxy-spades)</p>
+<h2 id="start">Start</h2>
+<ul>
+<li>open your mGVL (e.g. via ssh in terminal)</li>
+<li>check spades is installed: <code>which spades</code></li>
+<li>the path to spades should appear</li>
+<li>FIXME: it&rsquo;s already loaded? seems to work</li>
+<li>
+<p>make a new directory for these analyses: <code>mkdir spades</code></p>
+</li>
+<li>
+<p>copy the read files into your mGVL</p>
+<ul>
+<li>e.g. R1.fastq and R2.fastq (e.g. download from the galaxy workshops)</li>
+<li>in terminal, navigate to the folder containing these files</li>
+<li><code>scp &lt;file names&gt; &lt;user@mGVL:/path to put data&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="run-spades">Run spades</h2>
+<pre><code class="bash">spades.py -1 R1.fastq -2 R2.fastq -k 33,55,77 -o output
+</code></pre>
+
+<h2 id="output">Output</h2>
+<ul>
+<li>Go to the folder called output<ul>
+<li>contigs.fasta</li>
+<li>scaffolds.fasta</li>
+<li>assembly_graph.fastg</li>
+<li>subfolder: corrected reads [FIXME explain]</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-next">What next?</h2>
+<ul>
+<li>
+<p>view assembly_graph.fasta in Bandage</p>
+</li>
+<li>
+<p>generate summary statistics with Quast</p>
+</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">

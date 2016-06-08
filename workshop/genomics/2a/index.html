@@ -130,7 +130,13 @@
                     
                         
 <li >
-    <a href="../../../data/file_formats/">File formats</a>
+    <a href="../../../data/data_access/">Getting and moving data</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../data/formats/file_formats/">File formats</a>
 </li>
 
                     
@@ -186,6 +192,18 @@
             
 <li >
     <a href="../../../dna/qualitycontrol/fastqc/">FastQC</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/qualitycontrol/fastqc_cmdline/">FastQC commandline</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/qualitycontrol/trimmomatic/">Trimmomatic</a>
 </li>
 
         
@@ -273,6 +291,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../../../dna/anno/prokka_cmdline/">Prokka on cmdline</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -284,6 +308,12 @@
         
             
 <li >
+    <a href="../../../dna/snps/background/background/">Background</a>
+</li>
+
+        
+            
+<li >
     <a href="../../../dna/snps/snippy/">Snippy</a>
 </li>
 
@@ -291,6 +321,12 @@
             
 <li >
     <a href="../../../dna/snps/galaxy/">Galaxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/snps/bwa_mem/">BWA-MEM</a>
 </li>
 
         
@@ -436,6 +472,12 @@
                     
                         
 <li >
+    <a href="../../../viz/artemis/">Artemis</a>
+</li>
+
+                    
+                        
+<li >
     <a href="../../../viz/phandango/">Phandango</a>
 </li>
 
@@ -443,6 +485,45 @@
                         
 <li >
     <a href="../../../viz/degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Protocols <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../protocols/overview/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/assembly/">De novo assembly</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/annotation/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/variants/">Finding variants</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/dge/">Differential gene expression</a>
 </li>
 
                     
@@ -510,15 +591,15 @@
 
 <h1 id="assembly-using-spades">Assembly using Spades</h1>
 <h2 id="background">Background</h2>
-<p>Spades is one of a number of <em>de novo</em> assemblers that use short read sets (Illumina Reads) as an input and the method for assembly is based on de Bruijn graphs. For information about Spades see this <a href="http://bioinf.spbau.ru/spades">link</a>. A protocol for assembling with Velvet (another <em>de novo</em> assembler) is available <a href="https://docs.google.com/document/d/1xs-TI5MejQARqo0pcocGlymsXldwJbJII890gnmjI0o/pub">here</a>.</p>
+<p>Spades is one of a number of <em>de novo</em> assemblers that use short read sets as input (e.g. Illumina Reads), and the assembly method is based on de Bruijn graphs. For information about Spades see this <a href="http://bioinf.spbau.ru/spades">link</a>. A protocol for assembling with Velvet (another <em>de novo</em> assembler) is available <a href="https://docs.google.com/document/d/1xs-TI5MejQARqo0pcocGlymsXldwJbJII890gnmjI0o/pub">here</a>.</p>
 <p>In this activity, we will perform a <em>de novo</em> assembly of a short read set (from an Illumina sequencer) using the Spades assembler. The output from Spades that we are interested in is a multifasta file that contains the draft genome sequence.</p>
 <p>The read set for today is from an imaginary <em>Staphylococcus aureus</em> bacterium with a miniature genome.</p>
 <p>We have a closed, annotated genome sequence for a closely related <em>wildtype</em> strain.</p>
-<p>The whole genome shotgun method used to sequence our mutant strain The read set was produced on an Illumina DNA sequencing instrument.</p>
+<p>The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.</p>
 <ul>
 <li>The reads are paired-end</li>
 <li>Each read is 150 bases (before trimming)</li>
-<li>The number of bases sequenced is equivalent to 19x the genome sequence of the wildtype strain. (Read coverage 19x - rather low!)</li>
+<li>The number of bases sequenced is equivalent to 19x the genome sequence of the wildtype strain. (Read coverage 19x - rather low!).</li>
 </ul>
 <h2 id="learning-objectives">Learning objectives</h2>
 <p>At the end of this tutorial you should be able to:</p>
@@ -531,27 +612,27 @@
 </ol>
 <h2 id="login-to-galaxy">Login to Galaxy</h2>
 <ul>
-<li><strong>Go to the Galaxy Page</strong>: Web address: <a href="http://43.240.98.1/galaxy">http://43.240.98.1/galaxy</a>  (FIXME: this one?)</li>
-<li><a href="https://docs.google.com/document/d/1LAQvhIG8s-vv6T14bb8lGRkmoNha7E3bHf9kAgUwMs0/pub">Remind me how to logon</a></li>
+<li>Go to this Galaxy address: <a href="http://43.240.98.1/galaxy">http://43.240.98.1/galaxy</a>  (FIXME: or alternative)</li>
+<li><a href="https://docs.google.com/document/d/1LAQvhIG8s-vv6T14bb8lGRkmoNha7E3bHf9kAgUwMs0/pub">Remind me how to logon.</a>
+FIXME: note this contains the same galaxy address as above - change?</li>
 </ul>
 <h2 id="import-data">Import data</h2>
 <ul>
-<li>Click on the <strong>Analyze Data</strong> menu at the top of the page.    </li>
-<li>Click on the History menu button the <img alt="history button" src="./images/image02.png" /> on the top right of the history pane.</li>
-<li>Click <strong>Import from File</strong> (at the bottom of the list).  </li>
+<li>Click on the <ss>Analyze Data</ss> menu at the top of the page.    </li>
+<li>Click on the <ss>History options</ss> button the <img alt="history button" src="./images/image02.png" /> on the top right of the history pane.</li>
+<li>Click <ss>Import from File</ss> (at the bottom of the list).  </li>
 <li>A new page will appear with a text box for the URL of the history to import.  </li>
 <li>Copy the following URL into the text box: <a href="http://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz">http://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz</a>  </li>
-<li>Click <strong>Submit</strong>.  </li>
+<li>Click <ss>Submit</ss>.  </li>
 <li>Galaxy will download the data files from the internet and will be available as an additional history (takes about one minute).  </li>
-<li><strong>To make the newly imported history appear as the current history</strong>    </li>
-<li>Click on the View all Histories button <img alt="Histories button" src="./images/image01.png" /> (the on the top right of the history pane).  </li>
-<li>If the history has finished downloading it will appear as <strong>imported from archive: Colombia_workshop_start</strong></li>
-<li>Click on the <img alt="Switch button" src="./images/image06.png" /> button above the <strong>imported from archive:Colombia_workshop_start</strong> then the <img alt="Done button" src="./images/image05.png" />button.</li>
+<li>To view this new history, click the <ss>View all histories</ss> button<img alt="Histories button" src="./images/image01.png" /> (top right of the history pane).  </li>
+<li>If the history has finished downloading it will appear as <fn>imported from archive: Colombia_workshop_start</fn></li>
+<li>Click on the <img alt="Switch button" src="./images/image06.png" /> button above the <fn>imported from archive:Colombia_workshop_start</fn> then the <img alt="Done button" src="./images/image05.png" /> button.</li>
 <li>You should now have four files in the history pane as follows:</li>
 </ul>
 <p><img alt="Files in history" src="./images/image07.png" /></p>
 <h2 id="view-files">View files</h2>
-<p>All the files are are text files.</p>
+<p>All the files are text files.</p>
 <ul>
 <li><fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>: a paired-end read set  </li>
 <li><fn>wildtype.fna</fn>: a file that contains the genome sequence of the wildtype strain in fasta format (a header line, then the nucleotide sequence of the genome)</li>
@@ -570,26 +651,26 @@
 <li>Do I need to ask for a new sequencing run?  </li>
 <li>Is it suitable for the analysis I need to do?</li>
 </ul>
-<p>We will evaluate the input reads using the FastQC tool. <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC website link</a></p>
+<p>We will evaluate the input reads using the FastQC tool.</p>
 <ul>
 <li>This runs a standard series of tests on your read set and returns a relatively easy to interpret report.</li>
 <li>We will use the FASTQC tool in Galaxy to evaluate the quality of one of our fastq files.</li>
-<li>Open the FASTQC tool interface (on the tool pane - <strong>NGS: QC and Manipulation -&gt; FastQC: Comprehensive QC)</strong></li>
-<li>Select mutant_R1.fastq</li>
-<li><strong>Execute</strong></li>
-<li>Once finished, examine the output (Hint:<img alt="Eye icon" src="./images/image04.png" />). It has a summary at the top of the page and a number of graphs.</li>
+<li>Go to <ss>Tools &rarr; NGS:Analysis &rarr; NGS: QC and Manipulation &rarr; FastQC</ss></li>
+<li>Select <fn>mutant_R1.fastq</fn></li>
+<li><ss>Execute</ss></li>
+<li>Once finished, examine the output called <fn>FastQC on data1:webpage</fn> (Hint:<img alt="Eye icon" src="./images/image04.png" />). It has a summary at the top of the page and a number of graphs.</li>
 </ul>
 <p>Some of the important outputs of FastQC for our purposes are:</p>
 <ul>
-<li>Read length: will be important in setting maximum k-mer size value for assembly</li>
-<li>Quality encoding type: important for quality trimming software</li>
-<li>% GC: high GC organisms don’t tend to assemble well and may have an uneven read coverage distribution.</li>
-<li>Total number of reads: gives you an idea of coverage.</li>
-<li>Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.</li>
-<li>Presence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc.</li>
-<li>Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You need to trim these reads to remove Ns.</li>
+<li><ss>Basic Statistics: Sequence length</ss>: will be important in setting maximum k-mer size value for assembly</li>
+<li><ss>Basic Statistics: Encoding</ss>: Quality encoding type: important for quality trimming software</li>
+<li><ss>Basic Statistics: % GC</ss>: high GC organisms don’t tend to assemble well and may have an uneven read coverage distribution.</li>
+<li><ss>Basic Statistics: Total sequences</ss>: Total number of reads: gives you an idea of coverage.</li>
+<li><ss>Per base sequence quality</ss>: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.</li>
+<li><ss>Per base N content</ss>: Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.</li>
+<li><ss>Kmer content</ss>: Presence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc.</li>
 </ul>
-<p>We won’t be doing anything to these data to clean it up as there isn’t much need. Therefore we will get on with the assembly!</p>
+<p>Although we have warnings for two outputs (per base sequence content; Kmer content), we can ignore these for now. For a fuller discussion of FastQC outputs and warnings, see the <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC website link</a>, including the section on each of the output <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/">reports</a>, and examples of <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html">&ldquo;good&rdquo;</a> and <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html">&ldquo;bad&rdquo;</a> Illumina data. We won’t be doing anything to these data to clean it up as there isn’t much need. Therefore we will get on with the assembly!</p>
 <h2 id="assemble-reads-with-spades">Assemble reads with Spades</h2>
 <ul>
 <li>
@@ -599,16 +680,16 @@
 <p>Spades produces both contigs and scaffolds. Ask your demonstrator if you would like to know the difference between contigs and scaffolds.</p>
 </li>
 <li>
-<p>Open the Spades assembler tool interface (on the tool pane - <strong>NGS: Assembly -&gt; spades</strong>)</p>
+<p>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; spades</ss></p>
 </li>
 <li>
 <p>Set the following parameters:</p>
 <ul>
-<li><strong>Run only Assembly</strong>: <em>Yes</em>  </li>
-<li><strong>Kmers to use separated by commas:</strong> <em>33,55,91</em>  no spaces  </li>
-<li><strong>Coverage cutoff:</strong> <em>auto</em>  </li>
-<li><strong>Forward reads:</strong> <fn>mutant_R1.fastq</fn>  </li>
-<li><strong>Reverse reads:</strong> <fn>mutant_R2.fastq</fn>  </li>
+<li><ss>Run only Assembly</ss>: <em>Yes</em>  </li>
+<li><ss>Kmers to use separated by commas:</ss> <em>33,55,91</em>  no spaces  </li>
+<li><ss>Coverage cutoff:</ss> <em>auto</em>  </li>
+<li><ss>Files &rarr; Forward reads:</ss> <fn>mutant_R1.fastq</fn>  </li>
+<li><ss>Files &rarr; Reverse reads:</ss> <fn>mutant_R2.fastq</fn>  </li>
 </ul>
 </li>
 <li>
@@ -617,15 +698,24 @@
 </ul>
 <p><img alt="Spades interface" src="./images/image03.png" /></p>
 <ul>
-<li>Click <strong>Execute</strong></li>
+<li>Click <ss>Execute</ss></li>
 </ul>
 <h2 id="examine-the-output">Examine the output</h2>
 <ul>
 <li>Galaxy is now running Spades on the reads for you.</li>
-<li>When it is finished, you will have 5 new files in your history.</li>
-<li>Fasta files of the resulting contigs and scaffolds, some statistics on each and the SPAdes logfile.</li>
-<li>Click on the View Data button <img alt="Eye icon" src="./images/image04.png" /> on each of the files.</li>
+<li>
+<p>When it is finished, you will have five new files in your history.  </p>
+<ul>
+<li>two fasta files of the resulting contigs and scaffolds</li>
+<li>two files for statistics about these</li>
+<li>the Spades logfile</li>
+</ul>
+</li>
+<li>
+<p>Click on the View Data button <img alt="Eye icon" src="./images/image04.png" /> on each of the files.</p>
+</li>
 <li>Note that the short reads have been assembled into much longer contigs.</li>
+<li>(However, in this case, the contigs have not been assembled into larger scaffolds.)</li>
 <li>The stats files will give you the length of each of the contigs.</li>
 </ul></div>
         </div>

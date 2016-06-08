@@ -130,7 +130,13 @@
                     
                         
 <li >
-    <a href="../../../data/file_formats/">File formats</a>
+    <a href="../../../data/data_access/">Getting and moving data</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../data/formats/file_formats/">File formats</a>
 </li>
 
                     
@@ -186,6 +192,18 @@
             
 <li >
     <a href="../../../dna/qualitycontrol/fastqc/">FastQC</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/qualitycontrol/fastqc_cmdline/">FastQC commandline</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/qualitycontrol/trimmomatic/">Trimmomatic</a>
 </li>
 
         
@@ -273,6 +291,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../../../dna/anno/prokka_cmdline/">Prokka on cmdline</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -284,6 +308,12 @@
         
             
 <li >
+    <a href="../../../dna/snps/background/background/">Background</a>
+</li>
+
+        
+            
+<li >
     <a href="../../../dna/snps/snippy/">Snippy</a>
 </li>
 
@@ -291,6 +321,12 @@
             
 <li >
     <a href="../../../dna/snps/galaxy/">Galaxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../dna/snps/bwa_mem/">BWA-MEM</a>
 </li>
 
         
@@ -436,6 +472,12 @@
                     
                         
 <li >
+    <a href="../../../viz/artemis/">Artemis</a>
+</li>
+
+                    
+                        
+<li >
     <a href="../../../viz/phandango/">Phandango</a>
 </li>
 
@@ -443,6 +485,45 @@
                         
 <li >
     <a href="../../../viz/degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Protocols <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../protocols/overview/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/assembly/">De novo assembly</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/annotation/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/variants/">Finding variants</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/dge/">Differential gene expression</a>
 </li>
 
                     
@@ -491,11 +572,13 @@
         
             <li><a href="#learning-objectives">Learning objectives</a></li>
         
+            <li><a href="#input-data">Input data</a></li>
+        
             <li><a href="#run-prokka">Run Prokka</a></li>
         
             <li><a href="#examine-the-output">Examine the output</a></li>
         
-            <li><a href="#discussion-a-closer-look-at-the-annotated-features">Discussion - a closer look at the annotated features</a></li>
+            <li><a href="#annotated-features">Annotated features</a></li>
         
     
     </ul>
@@ -505,29 +588,34 @@
 <h1 id="genome-annotation-using-prokka">Genome annotation using Prokka</h1>
 <h2 id="background">Background</h2>
 <p>In this section we will use a software tool called Prokka to annotate the draft genome sequence produced in Activity 2a. Prokka is a “wrapper”; it collects together several pieces of software (from various authors) - this avoids “re-inventing the wheel”.</p>
-<p>Prokka finds and annotates features (both protein coding regions and RNA genes i.e. tRNA, rRNA) present on on a sequence. Note, Prokka uses a two step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using <a href="http://prodigal.ornl.gov/">Prodigal</a>; second, the function of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found <a href="https://github.com/tseemann/prokka">here</a>.</p>
+<p>Prokka finds and annotates features (both protein coding regions and RNA genes, i.e. tRNA, rRNA) present on on a sequence. Note, Prokka uses a two-step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using <a href="http://prodigal.ornl.gov/">Prodigal</a>; second, the <em>function</em> of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found <a href="https://github.com/tseemann/prokka">here</a>.</p>
 <h2 id="learning-objectives">Learning objectives</h2>
 <p>At the end of this tutorial you should be able to :</p>
 <ol>
-<li>input file into Prokka</li>
+<li>input files into Prokka</li>
 <li>change settings</li>
 <li>run Prokka, and</li>
 <li>examine the output: annotated genome.</li>
 </ol>
+<h2 id="input-data">Input data</h2>
+<ul>
+<li>You will need the assembled contigs from the previous workshop (Assembly with Spades): <fn>SPAdes_contigs.fasta</fn></li>
+<li>If you are continuing on from that tutorial, this file will be in your current history and there is no need to find/import it.</li>
+</ul>
 <h2 id="run-prokka">Run Prokka</h2>
 <ul>
-<li>In Galaxy, load the Prokka interface from the tool panel (<strong>NGS: Annotation -&gt; Prokka</strong>)  </li>
-<li>Set the following parameters:<ul>
-<li><strong>Contigs to annotate:</strong> <fn>Spades contigs</fn>  </li>
-<li><strong>Force GenBank/ENA/DDJB compliance (&ndash;compliant): Yes</strong>  </li>
-<li><strong>Genus Name:</strong> <em>Staphylococcus</em>  </li>
-<li><strong>Strain Name:</strong> <em>aureus</em>  </li>
-<li><strong>Use genus-specific BLAST database: No</strong>  </li>
-<li><strong>Locus tag prefix: P</strong>  </li>
-<li><strong>Sequencing Centre: V</strong>  </li>
+<li>In Galaxy, go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Annotation &rarr; Prokka</ss>  </li>
+<li>Set the following parameters (leave everything else unchanged):<ul>
+<li><ss>Contigs to annotate</ss>: <fn>SPAdes contigs (fasta)</fn>  </li>
+<li><ss>Locus tag prefix (&ndash;locustag)</ss>: P</li>
+<li><ss>Force GenBank/ENA/DDJB compliance (&ndash;compliant)</ss>: <em>Yes</em></li>
+<li><ss>Sequencing Centre ID (&ndash;centre)</ss>: V</li>
+<li><ss>Genus Name</ss>: <em>Staphylococcus</em>  </li>
+<li><ss>Species Name</ss>: <em>aureus</em>  </li>
+<li><ss>Use genus-specific BLAST database</ss> <em>No</em>  </li>
+<li>Click <ss>Execute</ss>  </li>
 </ul>
 </li>
-<li>Click <strong>Execute</strong>  </li>
 </ul>
 <h2 id="examine-the-output">Examine the output</h2>
 <p>Once Prokka has finished, examine each of its output files.</p>
@@ -539,23 +627,21 @@
 <p>The ffn file contains the nucleotide sequences of the genes annotated.</p>
 </li>
 <li>
-<p>Download the gff file to your local computer</p>
+<p>Download the gff file to your local computer: click on the file name with the .gff extension, and then click on the disk icon <img alt="disk icon" src="./images/image00.png" />.</p>
 </li>
 </ul>
-<p>Now that we have annotated the draft genome sequence, we would like to
-view the sequence in the Artemis genome viewer.</p>
-<ul>
-<li>The file is downloaded from the history panel. Identify the file with the .gff extension, expand file header to reveal the expanded file header and download the file using the disk icon <img alt="disk icon" src="./images/image00.png" />.</li>
-</ul>
 <p><img alt="galaxy file" src="./images/image01.png" /></p>
+<h2 id="annotated-features">Annotated features</h2>
+<p>Now that we have annotated the draft genome sequence, we would like to view the sequence in the Artemis genome viewer.</p>
 <ul>
 <li>Open Artemis and load the downloaded .gff file.</li>
+<li>The top panel shows an overview - here we can see annotated genes and other features.</li>
+<li>The middle panel shows the DNA sequence and amino acid translations in 6 frames.</li>
+<li>The bottom panel shows a text summary of the features.</li>
+<li>Scroll left and right with the horizontal bars under each panel.</li>
+<li>Zoom with the vertical bars to the right.</li>
 </ul>
-<h2 id="discussion-a-closer-look-at-the-annotated-features">Discussion - a closer look at the annotated features</h2>
-<p>FIXME: to add</p>
-<ul>
-<li>Open Artemis and load the downloaded .gff file.</li>
-</ul></div>
+<p><img alt="Artemis screenshot" src="./images/image02.png" /></p></div>
         </div>
 
         <footer class="col-md-12">

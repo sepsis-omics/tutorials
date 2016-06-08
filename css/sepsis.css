@@ -1,13 +1,22 @@
+BODY {
+  line-height: 1.5;
+}
+
+LI {
+  margin-top: 1ex;
+}
+
 /*
 These style abbreviations are as follows:
 SS = "screen shot" for menu items etc.
 FN = filename
+TX = text
 */
 
 SS {
   font-family: sans-serif;
   font-weight: bold;
-  color: RebeccaPurple;
+  color: black;
   background: WhiteSmoke;
   text-align: center;
   padding: 0 0.5ex;
@@ -15,12 +24,17 @@ SS {
 }
 
 FN {
-  font-family: sans-serif;
-  font-weight: bold;
-  color: SlateGrey;
-  background: WhiteSmoke;
+  font-family: Monaco;
+  font-weight: bolder;
+  color: black;
   text-align: center;
   padding: 0 0.5ex;
+  border: dotted 1pt black;
+}
+
+TX {
+  font-family: monospace;
+  font-weight: bolder;
 }
 
 /* put images in centre */

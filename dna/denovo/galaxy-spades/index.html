@@ -130,7 +130,13 @@
                     
                         
 <li >
-    <a href="../../../data/file_formats/">File formats</a>
+    <a href="../../../data/data_access/">Getting and moving data</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../data/formats/file_formats/">File formats</a>
 </li>
 
                     
@@ -186,6 +192,18 @@
             
 <li >
     <a href="../../qualitycontrol/fastqc/">FastQC</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../qualitycontrol/fastqc_cmdline/">FastQC commandline</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../qualitycontrol/trimmomatic/">Trimmomatic</a>
 </li>
 
         
@@ -273,6 +291,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../../anno/prokka_cmdline/">Prokka on cmdline</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -284,6 +308,12 @@
         
             
 <li >
+    <a href="../../snps/background/background/">Background</a>
+</li>
+
+        
+            
+<li >
     <a href="../../snps/snippy/">Snippy</a>
 </li>
 
@@ -291,6 +321,12 @@
             
 <li >
     <a href="../../snps/galaxy/">Galaxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../snps/bwa_mem/">BWA-MEM</a>
 </li>
 
         
@@ -436,6 +472,12 @@
                     
                         
 <li >
+    <a href="../../../viz/artemis/">Artemis</a>
+</li>
+
+                    
+                        
+<li >
     <a href="../../../viz/phandango/">Phandango</a>
 </li>
 
@@ -443,6 +485,45 @@
                         
 <li >
     <a href="../../../viz/degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Protocols <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../../protocols/overview/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/assembly/">De novo assembly</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/annotation/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/variants/">Finding variants</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../../protocols/dge/">Differential gene expression</a>
 </li>
 
                     
@@ -485,36 +566,68 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#galaxy-spades">Galaxy - Spades</a></li>
+        <li class="main active"><a href="#assembly-with-spades-in-galaxy">Assembly with Spades in Galaxy</a></li>
+        
+            <li><a href="#background">Background</a></li>
+        
+            <li><a href="#learning-objectives">Learning objectives</a></li>
         
             <li><a href="#pre-requisites">Pre-requisites</a></li>
         
-            <li><a href="#start">Start</a></li>
+            <li><a href="#login-to-galaxy">Login to Galaxy</a></li>
         
-            <li><a href="#input-data">Input data</a></li>
+            <li><a href="#import-data">Import data</a></li>
+        
+            <li><a href="#view-files">View files</a></li>
+        
+            <li><a href="#evaluate-the-input-reads">Evaluate the input reads</a></li>
         
             <li><a href="#how-does-spades-work">How does Spades work?</a></li>
         
-            <li><a href="#run-spades">Run Spades</a></li>
+            <li><a href="#assemble-reads-with-spades">Assemble reads with Spades</a></li>
         
-            <li><a href="#output">Output</a></li>
+            <li><a href="#examine-the-output">Examine the output</a></li>
         
             <li><a href="#filter-output">Filter output</a></li>
         
             <li><a href="#questions">Questions</a></li>
         
-            <li><a href="#more-information">More information</a></li>
-        
-            <li><a href="#next">Next</a></li>
+            <li><a href="#what-next">What Next?</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="galaxy-spades">Galaxy - Spades</h1>
-<p>This tutorial will demonstrate how to assemble a bacterial genome de novo using the program Spades in the mGVL.</p>
-<p>The Spades webpage is <a href="http://bioinf.spbau.ru/spades">here</a>.</p>
+<h1 id="assembly-with-spades-in-galaxy">Assembly with Spades in Galaxy</h1>
+<p>FIXME: This tutorial includes the Workshop 2a &ldquo;Assembly with Spades&rdquo; but also some extra info:</p>
+<ul>
+<li>section: Pre-requisites</li>
+<li>section: How does Spades work  </li>
+<li>more detail on output files</li>
+<li>section: Filter output</li>
+<li>section: questions  </li>
+</ul>
+<h2 id="background">Background</h2>
+<p>Spades is one of a number of <em>de novo</em> assemblers that use short read sets as input (e.g. Illumina Reads), and the assembly method is based on de Bruijn graphs. For information about Spades see this <a href="http://bioinf.spbau.ru/spades">link</a>. A protocol for assembling with Velvet (another <em>de novo</em> assembler) is available <a href="https://docs.google.com/document/d/1xs-TI5MejQARqo0pcocGlymsXldwJbJII890gnmjI0o/pub">here</a>.</p>
+<p>In this activity, we will perform a <em>de novo</em> assembly of a short read set (from an Illumina sequencer) using the Spades assembler. The output from Spades that we are interested in is a multifasta file that contains the draft genome sequence.</p>
+<p>The read set for today is from an imaginary <em>Staphylococcus aureus</em> bacterium with a miniature genome.</p>
+<p>We have a closed, annotated genome sequence for a closely related <em>wildtype</em> strain.</p>
+<p>The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.</p>
+<ul>
+<li>The reads are paired-end</li>
+<li>Each read is 150 bases (before trimming)</li>
+<li>The number of bases sequenced is equivalent to 19x the genome sequence of the wildtype strain. (Read coverage 19x - rather low!).</li>
+</ul>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>At the end of this tutorial you should be able to:</p>
+<ol>
+<li>import data into Galaxy  </li>
+<li>view the files</li>
+<li>evaluate the read quality</li>
+<li>assemble the reads using Spades, and</li>
+<li>examine the output assembly.</li>
+</ol>
 <h2 id="pre-requisites">Pre-requisites</h2>
 <ul>
 <li>Galaxy</li>
@@ -522,41 +635,71 @@
 <li>QC</li>
 <li>Trimming</li>
 </ul>
-<h2 id="start">Start</h2>
+<h2 id="login-to-galaxy">Login to Galaxy</h2>
 <ul>
-<li>open your mGVL galaxy</li>
+<li>Go to this Galaxy address: <a href="http://43.240.98.1/galaxy">http://43.240.98.1/galaxy</a>  (FIXME: or alternative)</li>
+<li><a href="https://docs.google.com/document/d/1LAQvhIG8s-vv6T14bb8lGRkmoNha7E3bHf9kAgUwMs0/pub">Remind me how to logon.</a>
+FIXME: note this contains the same galaxy address as above - change?</li>
 </ul>
-<h2 id="input-data">Input data</h2>
-<p>FIXME: get different data that shows how contigs are joined into larger scaffolds.</p>
-<p>Bacterial DNA sequences:</p>
+<h2 id="import-data">Import data</h2>
 <ul>
-<li>Illumina paired-end reads of approximately 150 base pairs, from <em>Staphylococcus aureus</em>. Subset of a real dataset.</li>
+<li>Click on the <ss>Analyze Data</ss> menu at the top of the page.    </li>
+<li>Click on the <ss>History options</ss> button the <img alt="history button" src="../images/image02.png" /> on the top right of the history pane.</li>
+<li>Click <ss>Import from File</ss> (at the bottom of the list).  </li>
+<li>A new page will appear with a text box for the URL of the history to import.  </li>
+<li>Copy the following URL into the text box: <a href="http://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz">http://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz</a>  </li>
+<li>Click <ss>Submit</ss>.  </li>
+<li>Galaxy will download the data files from the internet and will be available as an additional history (takes about one minute).  </li>
+<li>To view this new history, click the <ss>View all histories</ss> button<img alt="Histories button" src="../images/image01.png" /> (top right of the history pane).  </li>
+<li>If the history has finished downloading it will appear as <fn>imported from archive: Colombia_workshop_start</fn></li>
+<li>Click on the <img alt="Switch button" src="../images/image06.png" /> button above the <fn>imported from archive:Colombia_workshop_start</fn> then the <img alt="Done button" src="../images/image05.png" /> button.</li>
+<li>You should now have four files in the history pane as follows:</li>
 </ul>
-<p>Get data files into Galaxy:</p>
-<ol>
-<li>
-<p>In the history pane, click on the <ss>History Options</ss> button at the top right corner.</p>
-</li>
-<li>
-<p>A list appears: at the bottom of the list, click on <ss>Import from File</ss>.</p>
-</li>
-<li>
-<p>In the centre pane, a text box appears called &ldquo;Archived History URL:&rdquo;. Into this box, paste the web address of the stored data that we will use. This is: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Galaxy-History-adelaideworkshopstart.tar.gz  (FIXME: rename something simpler and only keep the fastq files) and then click <ss>Submit</ss>. Galaxy will download these files.</p>
-</li>
-<li>
-<p>In the history pane, click on the <ss>View all Histories</ss> button at the top right corner. The imported files will be a new history called &ldquo;imported from archive: adelaide_workshop_start&rdquo; (rename). Above this, click on the <ss>Switch to</ss> button to make this the current history. Then click <ss>Done</ss> in the top left corner.</p>
-</li>
-<li>
-<p>In the history pane, we now have two files: aaaR1.fastq and aaaR2.fastq. (FIXME: to rename)</p>
-</li>
-<li>
-<p>Click on the eye icon in the history panel to view the contents of each file. This sequencing produced paired-end reads, which means each input DNA fragment was sequenced at both the start and the end (and not sequenced in the middle). All the start sequences are grouped into one file (aaaR1.fastq), as are all the end sequences (aaaR2.fastq). Underneath each sequence is a string of letters/symbols, which correspond to estimates of the quality of each nucleotide call. For more information on fastq file format, click <a href="https://en.wikipedia.org/wiki/FASTQ_format">here</a>.</p>
-</li>
-</ol>
+<p><img alt="Files in history" src="../images/image07.png" /></p>
+<h2 id="view-files">View files</h2>
+<p>All the files are text files.</p>
+<ul>
+<li><fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>: a paired-end read set  </li>
+<li><fn>wildtype.fna</fn>: a file that contains the genome sequence of the wildtype strain in fasta format (a header line, then the nucleotide sequence of the genome)</li>
+<li><fn>wildtype.gff</fn>: a file that contains the genome sequence of the wildtype strain in general feature format. (a list of features - one feature per line, then the nucleotide sequence of the genome)</li>
+</ul>
+<p>Look at the contents of these files</p>
+<ul>
+<li>Click on the View Data button (the <img alt="Eye icon" src="../images/image04.png" />) next to each of the files in turn.</li>
+<li>Brief Discussion about the GFF format (FIXME: add?)</li>
+</ul>
+<p><img alt="GFF format" src="../images/image08.png" /></p>
+<h2 id="evaluate-the-input-reads">Evaluate the input reads</h2>
+<p>Questions you might ask about your input reads include:</p>
+<ul>
+<li>How good is my read set?</li>
+<li>Do I need to ask for a new sequencing run?  </li>
+<li>Is it suitable for the analysis I need to do?</li>
+</ul>
+<p>We will evaluate the input reads using the FastQC tool.</p>
+<ul>
+<li>This runs a standard series of tests on your read set and returns a relatively easy to interpret report.</li>
+<li>We will use the FASTQC tool in Galaxy to evaluate the quality of one of our fastq files.</li>
+<li>Go to <ss>Tools &rarr; NGS:Analysis &rarr; NGS: QC and Manipulation &rarr; FastQC</ss></li>
+<li>Select <fn>mutant_R1.fastq</fn></li>
+<li><ss>Execute</ss></li>
+<li>Once finished, examine the output called <fn>FastQC on data1:webpage</fn> (Hint:<img alt="Eye icon" src="../images/image04.png" />). It has a summary at the top of the page and a number of graphs.</li>
+</ul>
+<p>Some of the important outputs of FastQC for our purposes are:</p>
+<ul>
+<li><ss>Basic Statistics: Sequence length</ss>: will be important in setting maximum k-mer size value for assembly</li>
+<li><ss>Basic Statistics: Encoding</ss>: Quality encoding type: important for quality trimming software</li>
+<li><ss>Basic Statistics: % GC</ss>: high GC organisms don’t tend to assemble well and may have an uneven read coverage distribution.</li>
+<li><ss>Basic Statistics: Total sequences</ss>: Total number of reads: gives you an idea of coverage.</li>
+<li><ss>Per base sequence quality</ss>: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.</li>
+<li><ss>Per base N content</ss>: Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.</li>
+<li><ss>Kmer content</ss>: Presence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc.</li>
+</ul>
+<p>Although we have warnings for two outputs (per base sequence content; Kmer content), we can ignore these for now. For a fuller discussion of FastQC outputs and warnings, see the <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC website link</a>, including the section on each of the output <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/">reports</a>, and examples of <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html">&ldquo;good&rdquo;</a> and <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html">&ldquo;bad&rdquo;</a> Illumina data. We won’t be doing anything to these data to clean it up as there isn’t much need. Therefore we will get on with the assembly!</p>
 <h2 id="how-does-spades-work">How does Spades work?</h2>
 <ol>
 <li>
-<p>As with several other de novo assembly programs (e.g.Velvet) Spades uses an algorithm based on <a href="http://www.nature.com/nbt/journal/v29/n11/full/nbt.2023.html">de Bruijn graphs.</a> Such graphs use sub-lengths of sequence reads to build an overall genome assembly. The span of the sub-length is called a k-mer, where &ldquo;k&rdquo; is the number of nucleotides (e.g. k=21). The user chooses three values of k and Spades makes three assemblies based on these.</p>
+<p>As with several other de novo assembly programs (e.g. Velvet) Spades uses an algorithm based on <a href="http://www.nature.com/nbt/journal/v29/n11/full/nbt.2023.html">de Bruijn graphs.</a> Such graphs use sub-lengths of sequence reads to build an overall genome assembly. The span of the sub-length is called a k-mer, where &ldquo;k&rdquo; is the number of nucleotides (e.g. k=21). The user chooses three values of k and Spades makes three assemblies based on these.</p>
 </li>
 <li>
 <p>For the first value of k, each read is broken into as many fragments as possible. For example, if the input read is 22 nucleotides long, and the chosen value of k is 21, then there are two possible fragments (positions 1-21 and 2-22).</p>
@@ -568,102 +711,88 @@
 <p>A second fragment is connected to this node if it overlaps.</p>
 </li>
 <li>
-<p>Repeat until all fragments are connected. Output: de Bruijn graph.</p>
+<p>Repeat until all fragments are connected. Output &rarr; de Bruijn graph.</p>
 </li>
 <li>
-<p>Find a connected pathway through this graph. Output: a pathway (sequence) known as a contig. Because of poor or incorrect sequencing, not all the fragments can be joined together. There will be several de Bruijn graphs and so several contigs, usually of different sizes.</p>
+<p>Find a connected pathway through this graph. Output &rarr; a pathway (sequence) known as a contig. Because of poor or incorrect sequencing, not all the fragments can be joined together. There will be several de Bruijn graphs and so several contigs, usually of different sizes.</p>
 </li>
 <li>
-<p>Repeat these steps for a further two values of k (e.g. k = 33, k = 55). Output: Three (sets of) contigs.</p>
+<p>Repeat these steps for a further two values of k (e.g. k = 33, k = 55). Output &rarr; Three (sets of) contigs.</p>
 </li>
 <li>
-<p>Merge the three (sets of) contigs to get one. Output: one set of contigs.</p>
+<p>Merge the three (sets of) contigs to get one. Output &rarr; one set of contigs.</p>
 </li>
 <li>
-<p>For paired-end reads (as in this tutorial), the two reads are sequenced from each end of a longer DNA fragment. The middle part of the fragment is not sequenced, but information about the distance between the reads can be used by Spades to join contigs into larger sequences, called scaffolds. Output: one set of scaffolds.</p>
+<p>For paired-end reads (as in this tutorial), the two reads are sequenced from each end of a longer DNA fragment. The middle part of the fragment is not sequenced, but information about the distance between the reads can be used by Spades to join contigs into larger sequences, called scaffolds. Output &rarr; one set of scaffolds.</p>
 </li>
 <li>
-<p>To fix any errors map the original sequence reads onto the scaffolds with the program BWA. Output: assembled genome.</p>
+<p>To fix any errors map the original sequence reads onto the scaffolds with the program BWA. Output &rarr; assembled genome.</p>
 </li>
 </ol>
-<h2 id="run-spades">Run Spades</h2>
-<ol>
+<h2 id="assemble-reads-with-spades">Assemble reads with Spades</h2>
+<ul>
 <li>
-<p>In the tools pane, click on <ss>NGS Analysis -&gt; NGS: Assembly -&gt; spades</ss>. Leave all settings as they are except these:</p>
+<p>We will perform a <em>de novo</em> assembly of the mutant fastq reads into long contiguous sequences (in fasta format.)</p>
 </li>
 <li>
-<p>Under <ss>Run only assembly?</ss> click <ss>Yes</ss>.</p>
+<p>Spades produces both contigs and scaffolds. Ask your demonstrator if you would like to know the difference between contigs and scaffolds.</p>
 </li>
 <li>
-<p>Under <ss>K-mers to use, separated by commas</ss>: enter in 33,55,91. Don&rsquo;t put any spaces after the commas.</p>
+<p>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; spades</ss></p>
 </li>
 <li>
-<p>For <ss>Coverage cutoff**, choose <ss>Auto</ss>.</p>
+<p>Set the following parameters:</p>
+<ul>
+<li><ss>Run only Assembly</ss>: <em>Yes</em>  </li>
+<li><ss>Kmers to use separated by commas:</ss> <em>33,55,91</em>  no spaces  </li>
+<li><ss>Coverage cutoff:</ss> <em>auto</em>  </li>
+<li><ss>Files &rarr; Forward reads:</ss> <fn>mutant_R1.fastq</fn>  </li>
+<li><ss>Files &rarr; Reverse reads:</ss> <fn>mutant_R2.fastq</fn>  </li>
+</ul>
 </li>
 <li>
-<p>For <ss>Libraries -&gt; Files -&gt; 1:Files -&gt; Select file format -&gt; Forward reads</ss> : R1.fastq.</p>
+<p>Your tool interface should look like this:</p>
 </li>
-<li>
-<p>For <ss>Libraries -&gt; Files -&gt; 1:Files -&gt; Select file format -&gt; Reverse reads</ss> : R2.fastq.</p>
-</li>
-<li>
-<p>Click <ss>Execute</ss>.</p>
-</li>
-</ol>
-<p>FIXME: include screenshot</p>
-<h2 id="output">Output</h2>
-<p>There are five output files that will appear in the history pane. Click on the eye icon to view each file. These are the assembled genome sequence, and various statistics/information on how the program ran.</p>
-<ol>
-<li>
-<p><fn>contig stats</fn>: There are x contigs. Look at the variation in length and coverage. A short contig with high coverage could be a result of contamination, a collapsed repeat, or a plasmid.</p>
-</li>
-<li>
-<p><ss>contigs</ss>: Each contig is listed, followed by its sequence in fasta format.</p>
-</li>
-<li>
-<p><ss>scaffold stats</ss>: There are x scaffolds.</p>
-</li>
-<li>
-<p><ss>scaffolds</ss>: Each scaffold is listed, followed by its sequence in fasta format.</p>
-</li>
-<li>
-<p><ss>log</ss>: The specific actions performed in the analysis.</p>
-</li>
-</ol>
+</ul>
+<p><img alt="Spades interface" src="../images/image03.png" /></p>
+<ul>
+<li>Click <ss>Execute</ss></li>
+</ul>
+<h2 id="examine-the-output">Examine the output</h2>
+<ul>
+<li>Galaxy is now running Spades on the reads for you.</li>
+<li>When it is finished, you will have five new files in your history.  </li>
+<li><fn>contig stats</fn>: There are x contigs. Look at the variation in length and coverage. A short contig with high coverage could be a result of contamination, a collapsed repeat, or a plasmid.</li>
+<li><ss>contigs</ss>: Each contig is listed, followed by its sequence in fasta format.</li>
+<li><ss>scaffold stats</ss>: There are x scaffolds.</li>
+<li><ss>scaffolds</ss>: Each scaffold is listed, followed by its sequence in fasta format.</li>
+<li><ss>log</ss>: The specific actions performed in the analysis.</li>
+<li>Click on the View Data button <img alt="Eye icon" src="../images/image04.png" /> on each of the files.</li>
+<li>Note that the short reads have been assembled into much longer contigs.</li>
+<li>(However, in this case, the contigs have not been assembled into larger scaffolds.)</li>
+<li>The stats files will give you the length of each of the contigs.</li>
+</ul>
 <h2 id="filter-output">Filter output</h2>
-<ol>
-<li>
-<p>In the tools pane, click on <ss>NGS Analysis -&gt; NGS: Asssembly -&gt; Filter SPAdes output</ss>. This is a quick way to discard contigs that are too short (e.g., they might be contamination) or contigs that do not have enough coverage (e.g., they might be too unreliable).</p>
-</li>
-<li>
-<p>Under <ss>Sequences</ss>, choose the contigs fasta file.</p>
-</li>
-<li>
-<p>Under <ss>Contig stats</ss> choose the contigs stats file. Change the cut-off values for length and coverage or leave them as they are.</p>
-</li>
-<li>
-<p>For <ss>Save filtered-out sequences?</ss> click <ss>Yes</ss>.</p>
-</li>
-<li>
-<p>Click <ss>Execute</ss>. A new fasta file with only the filtered sequences will be saved in the right-side history pane.</p>
-</li>
-</ol>
+<p>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; Filter SPAdes output</ss>.</p>
+<p>This is a quick way to discard contigs that are too short (e.g., they might be contamination) or contigs that do not have enough coverage (e.g., they might be too unreliable).</p>
+<ul>
+<li>Under <ss>Sequences</ss>, choose the contigs fasta file.</li>
+<li>Under <ss>Contig stats</ss> choose the contigs stats file. Change the cut-off values for length and coverage or leave them as they are.</li>
+<li>For <ss>Save filtered-out sequences?</ss> click <ss>Yes</ss>.</li>
+<li>Click <ss>Execute</ss>. A new fasta file with only the filtered sequences will be saved in the right-side history pane.</li>
+</ul>
 <h2 id="questions">Questions</h2>
 <p><details> <summary>
 How does SPAdes differ from other genome assembly programs?</summary>
-It uses multiple values of k in de Bruijn graphs. Larger fragment sizes will more accurately position sections of duplicated DNA (repeats), but these larger fragments will only overlap well in densely-sequenced (high-coverage) areas of the genome. Because bacterial genomes may have low-coverage regions, using smaller fragments can increase the potential for overlaps (joins) in these low-coverage regions. Using a range of fragment sizes will therefore get the benefit from both approaches.</details></p>
+It uses multiple values of k in de Bruijn graphs. Larger fragment sizes will more accurately position sections of duplicated DNA (repeats), but these larger fragments will only overlap well in densely-sequenced (high-coverage) areas of the genome. Because bacterial genomes may have low-coverage regions, using smaller fragments can increase the potential for overlaps (joins) in these low-coverage regions. Using a range of fragment sizes will therefore get the benefit from both approaches. More information <a href="http://thegenomefactory.blogspot.com.au/2013/08/how-spades-differs-from-velvet.html&gt;">here</a>.</details></p>
 <p><details> <summary>
 How do I choose values of k?  </summary>
 The k values need to be odd numbers, and shorter than the read lengths.  A good strategy could be to choose some that are small, medium and large. e.g. if the read is 150 nucleotides, k values could be 33, 55, 91. There is no absolute rule; rather, the aim is to get a good spread of k values across the read length. </details></p>
 <p><details> <summary>
 What can I do with my assembled genome?</summary>
 This tutorial used a subset of a real dataset, so is not a complete genome (is it?). You could re-try it with short reads from a whole genome, at NCBI SRA. You can [annotate] (describe) the genomic features such as genes or [compare] it to other genomes to see variation in structure.  </details></p>
-<h2 id="more-information">More information</h2>
-<p>http://thegenomefactory.blogspot.com.au/2013/08/how-spades-differs-from-velvet.html</p>
-<h2 id="next">Next</h2>
-<ul>
-<li>Annotation</li>
-</ul></div>
+<h2 id="what-next">What Next?</h2>
+<p>Annotate the genome, e.g. with <a href="../../anno/prokka/">Prokka</a>.</p></div>
         </div>
 
         <footer class="col-md-12">

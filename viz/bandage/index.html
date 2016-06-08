@@ -130,7 +130,13 @@
                     
                         
 <li >
-    <a href="../../data/file_formats/">File formats</a>
+    <a href="../../data/data_access/">Getting and moving data</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data/formats/file_formats/">File formats</a>
 </li>
 
                     
@@ -186,6 +192,18 @@
             
 <li >
     <a href="../../dna/qualitycontrol/fastqc/">FastQC</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../dna/qualitycontrol/fastqc_cmdline/">FastQC commandline</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../dna/qualitycontrol/trimmomatic/">Trimmomatic</a>
 </li>
 
         
@@ -273,6 +291,12 @@
 </li>
 
         
+            
+<li >
+    <a href="../../dna/anno/prokka_cmdline/">Prokka on cmdline</a>
+</li>
+
+        
     </ul>
   </li>
 
@@ -284,6 +308,12 @@
         
             
 <li >
+    <a href="../../dna/snps/background/background/">Background</a>
+</li>
+
+        
+            
+<li >
     <a href="../../dna/snps/snippy/">Snippy</a>
 </li>
 
@@ -291,6 +321,12 @@
             
 <li >
     <a href="../../dna/snps/galaxy/">Galaxy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../dna/snps/bwa_mem/">BWA-MEM</a>
 </li>
 
         
@@ -436,6 +472,12 @@
                     
                         
 <li >
+    <a href="../artemis/">Artemis</a>
+</li>
+
+                    
+                        
+<li >
     <a href="../phandango/">Phandango</a>
 </li>
 
@@ -443,6 +485,45 @@
                         
 <li >
     <a href="../degust/">Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Protocols <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../protocols/overview/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../protocols/assembly/">De novo assembly</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../protocols/annotation/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../protocols/variants/">Finding variants</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../protocols/dge/">Differential gene expression</a>
 </li>
 
                     
@@ -505,18 +586,18 @@
             <div class="col-md-9" role="main">
 
 <h1 id="bandage">Bandage</h1>
-<p>Bandage is a program to visualize a genome assembly.</p>
-<p><a href="http://rrwick.github.io/Bandage/">Link to code on github</a></p>
+<p>Bandage is a program to visualize a genome assembly. Link to <a href="http://rrwick.github.io/Bandage/">code on github.</a></p>
 <h2 id="start">Start</h2>
 <ul>
 <li>Open your mGVL dashboard and click on the link to the Lubuntu desktop.</li>
 <li>A web window should appear called &ldquo;noVNC&rdquo;. This shows the virtual desktop.</li>
-<li>Open the Terminal in this VNC. type in:</li>
-</ul>
-<pre><code class="bash">/mnt/gvl/apps/bandage/Bandage
-</code></pre>
-
+<li>
+<p>Open the Terminal in this VNC. type in: <code>/mnt/gvl/apps/bandage/Bandage</code></p>
+</li>
+<li>
 <p>The Bandage window will appear.</p>
+</li>
+</ul>
 <h2 id="input-data">Input data</h2>
 <ul>
 <li>Click on <ss>File: Load graph</ss>. Select a graph to upload.</li>
@@ -524,19 +605,23 @@
 </ul>
 <h2 id="run-bandage">Run Bandage</h2>
 <ul>
-<li>Under <ss>Graph drawing<ss>, click on <ss>Draw graph<ss>. A map graph of the contigs and their connections will appear.</li>
-<li>FIXME: add a series of steps that can be done that will show some important feature.
-E.g.</li>
-<li><ss>Graph display: Colour by read depth</ss></li>
+<li>Under <ss>Graph drawing</ss>, click on <ss>Draw graph</ss>.</li>
+<li>A graph of the contigs and their connections will appear.</li>
+</ul>
+<p>FIXME: add a series of steps that can be done that will show some important feature.
+e.g.</p>
+<ul>
+<li><ss>Graph display</ss>: <em>Colour by read depth</em></li>
 <li><ss>Node labels</ss>, check box next to <ss>Read depth</ss>.</li>
 <li>select some nodes</li>
-<li><ss>Output</ss>: <ss>Web BLAST selected nodes</ss>
+<li><ss>Output</ss>: <em>Web BLAST selected nodes</em>
 etc.</li>
 </ul>
 <h2 id="output">Output</h2>
 <ul>
-<li><ss>Output</ss>: <ss>Save entire graph to GFA</ss>. (FIXME: where does this save; what can you use it for next).</li>
+<li><ss>Output</ss>: <em>Save entire graph to GFA</em></li>
 </ul>
+<p>(FIXME: where does this save; what can you use it for next).</p>
 <h2 id="next">Next</h2>
 <h2 id="more-information">More information</h2></div>
         </div>
