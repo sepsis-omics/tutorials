@@ -113,24 +113,6 @@
 </li>
 
                     
-                        
-<li >
-    <a href="../../../how_to/assembly/assembly_galaxy/">Genome assembly in Galaxy</a>
-</li>
-
-                    
-                        
-<li >
-    <a href="../../../how_to/annotation/anno_galaxy/">Genome annotation in Galaxy</a>
-</li>
-
-                    
-                        
-<li >
-    <a href="../../../how_to/pan/roary/">Pan genomes</a>
-</li>
-
-                    
                     </ul>
                 </li>
             
@@ -171,84 +153,6 @@
             
 <li >
     <a href="../trimmomatic/">Trimmomatic in Galaxy</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">De novo assembly</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../denovo/pacbio/">PacBio SMRT portal</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../denovo/galaxy-spades/">Galaxy-Spades</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../denovo/galaxy-velvet/galaxy-velvet/">Galaxy-Velvet</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Annotation</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../anno/prokka/">Prokka in Galaxy</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../anno/prokka_cmdline/">Prokka on commandline</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Variant finding</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../snps/snippy/">Snippy on commandline</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Pan genome</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../pan/roary/">Roary</a>
 </li>
 
         
@@ -301,8 +205,6 @@
     
         <li class="main active"><a href="#fastqc-in-galaxy">FastQC in Galaxy</a></li>
         
-            <li><a href="#introduction">Introduction</a></li>
-        
             <li><a href="#learning-objectives">Learning Objectives</a></li>
         
             <li><a href="#input-files">Input files</a></li>
@@ -319,9 +221,11 @@
             <div class="col-md-9" role="main">
 
 <h1 id="fastqc-in-galaxy">FastQC in Galaxy</h1>
-<p>FIXME: include screenshots</p>
-<p>FIXME: include file location and/or choose different input.</p>
-<h2 id="introduction">Introduction</h2>
+<!---
+FIXME: include screenshots
+FIXME: include file location and/or choose different input.
+--->
+
 <p>After sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end sequence reads from Illumina. The FastQC website is <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">here.</a></p>
 <h2 id="learning-objectives">Learning Objectives</h2>
 <p>At the end of this tutorial you should be able to:</p>
@@ -330,8 +234,7 @@
 <li>examine the FastQC output.</li>
 </ol>
 <h2 id="input-files">Input files</h2>
-<p>e.g. <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>: a paired-end read set<br />
-FIXME: or alternative. Ideally with contaminants/etc. ?</p>
+<p>e.g. <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>: a paired-end read set  </p>
 <p>We will evaluate the R1 input reads using the FastQC tool.</p>
 <h2 id="run-fastqc">Run FastQC</h2>
 <ul>
@@ -363,17 +266,15 @@ FIXME: or alternative. Ideally with contaminants/etc. ?</p>
 <ul>
 <li>Trim reads with <a href="../trimmomatic/">Trimmomatic.</a></li>
 </ul>
-<p>FIXME: include these?</p>
-<ul>
-<li>
-<p>link to a fastqc protocol:
-http://vlsci.github.io/lscc_docs/tutorials/assembly/assembly-protocol/#section-1-read-quality-control</p>
-</li>
-<li>
-<p>more detailed information:
-https://docs.google.com/document/pub?id=16GwPmwYW7o_r-ZUgCu8-oSBBY1gC97TfTTinGDk98Ws</p>
-</li>
-</ul></div>
+<!---
+FIXME: include these?
+
+- link to a fastqc protocol:
+http://vlsci.github.io/lscc_docs/tutorials/assembly/assembly-protocol/#section-1-read-quality-control
+
+- more detailed information:
+https://docs.google.com/document/pub?id=16GwPmwYW7o_r-ZUgCu8-oSBBY1gC97TfTTinGDk98Ws
+---></div>
         </div>
 
         <footer class="col-md-12">

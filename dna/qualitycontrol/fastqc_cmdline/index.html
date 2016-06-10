@@ -113,24 +113,6 @@
 </li>
 
                     
-                        
-<li >
-    <a href="../../../how_to/assembly/assembly_galaxy/">Genome assembly in Galaxy</a>
-</li>
-
-                    
-                        
-<li >
-    <a href="../../../how_to/annotation/anno_galaxy/">Genome annotation in Galaxy</a>
-</li>
-
-                    
-                        
-<li >
-    <a href="../../../how_to/pan/roary/">Pan genomes</a>
-</li>
-
-                    
                     </ul>
                 </li>
             
@@ -171,84 +153,6 @@
             
 <li >
     <a href="../trimmomatic/">Trimmomatic in Galaxy</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">De novo assembly</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../denovo/pacbio/">PacBio SMRT portal</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../denovo/galaxy-spades/">Galaxy-Spades</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../denovo/galaxy-velvet/galaxy-velvet/">Galaxy-Velvet</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Annotation</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../anno/prokka/">Prokka in Galaxy</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../anno/prokka_cmdline/">Prokka on commandline</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Variant finding</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../snps/snippy/">Snippy on commandline</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Pan genome</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../pan/roary/">Roary</a>
 </li>
 
         
@@ -317,29 +221,33 @@
 <h1 id="fastqc-commandline">FastQC - commandline</h1>
 <h2 id="start">Start</h2>
 <ul>
-<li>on your local machine, make sure XQuartz is installed (but it doesn&rsquo;t have to be open - it will open automatically later).</li>
+<li>on your local machine, make sure XQuartz is installed. This doesn&rsquo;t have to be open - it will open automatically later.</li>
 <li>in terminal, ssh to your virtual machine with -X and -Y, e.g. <code>ssh -X -Y ubuntu@111.111.111.111</code> (the -X and -Y means it will use your local XQuartz to display some files).</li>
-<li><code>module load fastqc_dist_0_10_1</code> [FIXME: this may have a different name/ or be already loaded)</li>
+<li><code>module load fastqc_dist_0_10_1</code>
+<!---
+or check current name; or maybe it's arleady loaded---></li>
 <li>navigate to where you want to make a FastQC analysis folder.</li>
 <li>Make a folder: <code>mkdir fastqc_analyses</code></li>
 <li>Move to that folder: <code>cd fastqc_analyses</code></li>
 </ul>
 <h2 id="input">Input</h2>
 <ul>
-<li>[FIXME: get the data into this folder]</li>
+<li>move your input reads into this folder.</li>
 </ul>
 <h2 id="run">Run</h2>
 <ul>
-<li><code>fastqc R1reads.fastq</code> [runs fastqc]</li>
-<li>type <code>fastqc --help</code> to see settings that you can change, and defaults</li>
+<li><code>fastqc R1reads.fastq</code> [this runs fastqc]</li>
+<li>type <code>fastqc --help</code> to see settings that you can change, and defaults
+&lt;!&mdash;</li>
 <li>FIXME: any to change</li>
-<li>FIXME: repeat for R2reads?</li>
+<li>FIXME: repeat for R2reads?
+&mdash;&gt;</li>
 </ul>
 <h2 id="output">Output</h2>
 <ul>
 <li>R1reads_fastqc: folder containing the output, e.g. <fn>fastqc_report.html</fn></li>
-<li>to view this, type: <code>firefox fastqc_report.html</code> - firefox should open and display the report
-(you may get an error message in terminal but ignore this)</li>
+<li>to view this, type: <code>firefox fastqc_report.html</code></li>
+<li>firefox should open and display the report (you may get an error message in terminal but ignore this).</li>
 </ul></div>
         </div>
 

@@ -113,24 +113,6 @@
 </li>
 
                     
-                        
-<li >
-    <a href="../../../how_to/assembly/assembly_galaxy/">Genome assembly in Galaxy</a>
-</li>
-
-                    
-                        
-<li >
-    <a href="../../../how_to/annotation/anno_galaxy/">Genome annotation in Galaxy</a>
-</li>
-
-                    
-                        
-<li >
-    <a href="../../../how_to/pan/roary/">Pan genomes</a>
-</li>
-
-                    
                     </ul>
                 </li>
             
@@ -178,84 +160,6 @@
   </li>
 
         
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">De novo assembly</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../denovo/pacbio/">PacBio SMRT portal</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../denovo/galaxy-spades/">Galaxy-Spades</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../denovo/galaxy-velvet/galaxy-velvet/">Galaxy-Velvet</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Annotation</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../anno/prokka/">Prokka in Galaxy</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../anno/prokka_cmdline/">Prokka on commandline</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Variant finding</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../snps/snippy/">Snippy on commandline</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Pan genome</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../pan/roary/">Roary</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
     </ul>
   </li>
 
@@ -285,7 +189,7 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../../denovo/pacbio/">
+                    <a rel="prev" href="../../../about/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -336,8 +240,7 @@
 <li>find your quality-checked Illumina sequence reads</li>
 <li>e.g. <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn></li>
 <li>We want to trim the parts of the reads that are of low quality</li>
-<li>based on the FastQC results, say we want to trim the reads like this:
-(FIXME: expand detail)<ul>
+<li>based on the FastQC results, we might want to trim the reads like this:<ul>
 <li>trim Illumina adapters</li>
 <li>leading and trailing bases - trim if quality is below 15</li>
 <li>sliding window - trim once average quality is below 20</li>
@@ -345,13 +248,12 @@
 </li>
 </ul>
 <h2 id="trimmomatic-functions">Trimmomatic functions</h2>
-<p>[from LSCC docs]</p>
 <ul>
 <li>
 <p>Adapter trimming</p>
 <ul>
 <li>This function trims adapters, barcodes and other contaminants from the reads.</li>
-<li>You need to supply a fasta file of possible adapter sequences, barcodes etc to trim. See Trimmomatic website for detailed instructions.</li>
+<li>You need to supply a FASTA file of possible adapter sequences, barcodes etc to trim. See Trimmomatic website for detailed instructions.</li>
 <li>The default quality settings are sensible.</li>
 <li>This should always be the first trimming step if it is used.</li>
 </ul>
@@ -389,13 +291,18 @@
 </li>
 </ul>
 <h2 id="run-trimmomatic">Run Trimmomatic</h2>
-<p>FIXME: change these settings if required (examine FastQC reports)</p>
+<!---
+FIXME: change these settings if required (examine FastQC reports)
+--->
+
 <ul>
 <li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: QC and manipulation &rarr; Trimmomatic</ss>.</li>
 <li><ss>Input FASTQ file (R1/first of pair)</ss>: <fn>mutant_R1.fastq</fn></li>
 <li><ss>Input FASTQ file (R2/second of pair)</ss>: <fn>mutant_R2.fastq</fn></li>
-<li><ss>Perform initial ILLUMINACLIP step </ss>: <em>Yes</em></li>
-<li><ss>Adapter sequences to use</ss>: FIXME</li>
+<li><ss>Perform initial ILLUMINACLIP step </ss>: <em>Yes</em>
+&lt;!&mdash;</li>
+<li><ss>Adapter sequences to use</ss>: FIXME
+&mdash;&gt;</li>
 <li><ss>How accurate the match between the two &lsquo;adapter ligated&rsquo; reads must be for PE palindrome read alignment</ss>: 40</li>
 <li><ss>How accurate the match between any adapter etc. sequence must be against a read</ss>: 15</li>
 <li>leave the first <ss>Trimmomatic Operation</ss> as is</li>
@@ -407,7 +314,10 @@
 <li><ss>Minimum quality required to keep a base</ss>: 15</li>
 <li>click <ss>Execute</ss></li>
 </ul>
-<p>FIXME: screenshot of these trimmomatic options selected</p>
+<!---
+FIXME: screenshot of these trimmomatic options selected
+--->
+
 <h2 id="examine-output">Examine output</h2>
 <p>Trimmomatic should produce 2 pairs files (1 left and 1 right hand end) and 1 or 2 single “orphaned reads” files.</p>
 <p>The output files are the ones you should use for assembly.</p>
@@ -424,7 +334,7 @@
 <li>Number of pairs lost totally.</li>
 </ul>
 <h2 id="what-next">What next?</h2>
-<p>Next: use the output FASTQ files for Assembly, e.g. with <a href="../../denovo/galaxy-spades/">Spades</a></p></div>
+<p>Next: use the output FASTQ files for Assembly, e.g. with <a href="../denovo/galaxy-spades.md">Spades</a></p></div>
         </div>
 
         <footer class="col-md-12">
