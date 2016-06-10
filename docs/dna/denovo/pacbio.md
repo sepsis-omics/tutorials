@@ -1,6 +1,6 @@
 # PacBio SMRT Portal
 
-This tutorial will show you how to assemble a bacterial genome de novo, using the PacBio SMRT Portal.
+This tutorial will show you how to assemble a bacterial genome de novo, using the PacBio SMRT Portal. 
 
 [Link to PacBio analysis software](http://www.pacb.com/products-and-services/analytical-software/smrt-analysis/)
 

@@ -1,10 +1,9 @@
 # FastQC in Galaxy
 
+<!---
 FIXME: include screenshots
-
 FIXME: include file location and/or choose different input.
-
-## Introduction
+--->
 
 After sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end sequence reads from Illumina. The FastQC website is [here.](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
@@ -18,7 +17,6 @@ At the end of this tutorial you should be able to:
 ## Input files
 
 e.g. <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>: a paired-end read set  
-FIXME: or alternative. Ideally with contaminants/etc. ?
 
 We will evaluate the R1 input reads using the FastQC tool.
 
@@ -56,6 +54,7 @@ For a fuller discussion of FastQC outputs and warnings, see the [FastQC website 
 ## What Next?
 - Trim reads with [Trimmomatic.](trimmomatic.md)
 
+<!---
 FIXME: include these?
 
 - link to a fastqc protocol:
@@ -63,3 +62,4 @@ http://vlsci.github.io/lscc_docs/tutorials/assembly/assembly-protocol/#section-1
 
 - more detailed information:
 https://docs.google.com/document/pub?id=16GwPmwYW7o_r-ZUgCu8-oSBBY1gC97TfTTinGDk98Ws
+--->

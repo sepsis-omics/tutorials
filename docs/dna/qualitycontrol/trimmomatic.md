@@ -18,19 +18,16 @@ At the end of this tutorial you should be able to:
 - find your quality-checked Illumina sequence reads
 - e.g. <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>
 - We want to trim the parts of the reads that are of low quality
-- based on the FastQC results, say we want to trim the reads like this:
-(FIXME: expand detail)
+- based on the FastQC results, we might want to trim the reads like this:
     - trim Illumina adapters
     - leading and trailing bases - trim if quality is below 15
     - sliding window - trim once average quality is below 20
 
 ## Trimmomatic functions
 
-[from LSCC docs]
-
 - Adapter trimming
     - This function trims adapters, barcodes and other contaminants from the reads.
-    - You need to supply a fasta file of possible adapter sequences, barcodes etc to trim. See Trimmomatic website for detailed instructions.
+    - You need to supply a FASTA file of possible adapter sequences, barcodes etc to trim. See Trimmomatic website for detailed instructions.
     - The default quality settings are sensible.
     - This should always be the first trimming step if it is used.
 
@@ -54,13 +51,17 @@ At the end of this tutorial you should be able to:
 
 ## Run Trimmomatic
 
+<!---
 FIXME: change these settings if required (examine FastQC reports)
+--->
 
 - Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: QC and manipulation &rarr; Trimmomatic</ss>.
 - <ss>Input FASTQ file (R1/first of pair)</ss>: <fn>mutant_R1.fastq</fn>
 - <ss>Input FASTQ file (R2/second of pair)</ss>: <fn>mutant_R2.fastq</fn>
 - <ss>Perform initial ILLUMINACLIP step </ss>: *Yes*
+<!---
 - <ss>Adapter sequences to use</ss>: FIXME
+--->
 - <ss>How accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment</ss>: 40
 - <ss>How accurate the match between any adapter etc. sequence must be against a read</ss>: 15
 - leave the first <ss>Trimmomatic Operation</ss> as is
@@ -72,7 +73,9 @@ FIXME: change these settings if required (examine FastQC reports)
 - <ss>Minimum quality required to keep a base</ss>: 15
 - click <ss>Execute</ss>
 
+<!---
 FIXME: screenshot of these trimmomatic options selected
+--->
 
 ## Examine output
 
