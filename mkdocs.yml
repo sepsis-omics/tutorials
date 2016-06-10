@@ -33,11 +33,11 @@ pages:
 #    - Metabolomics: met/data.md
 - Advanced training:
       - Overview: how_to/overview.md
-      - Genome assembly in Galaxy: how_to/assembly/assembly_galaxy.md
+      #- Genome assembly in Galaxy: how_to/assembly/assembly_galaxy.md
       #- Genome assembly on the commandline:
-      - Genome annotation in Galaxy:  how_to/annotation/anno_galaxy.md
+      #- Genome annotation in Galaxy:  how_to/annotation/anno_galaxy.md
       #- Genome annotation on the commandline:
-      - Pan genomes: how_to/pan/roary.md
+      #- Pan genomes: how_to/pan/roary.md
       #- Differential gene expression:
 
 - Tools:
@@ -48,30 +48,30 @@ pages:
             - FastQC in Galaxy: dna/qualitycontrol/fastqc.md
             - FastQC on commandline: dna/qualitycontrol/fastqc_cmdline.md
             - Trimmomatic in Galaxy: dna/qualitycontrol/trimmomatic.md
-        - De novo assembly:
+        #- De novo assembly:
             #  Background
             #- Spades: dna/denovo/spades.md
             #- Megahit: dna/denovo/megahit.md
             #- Velvet: dna/denovo/velvet.md
             #- VelvetOptimiser: dna/denovo/vopt.md
-            - PacBio SMRT portal: dna/denovo/pacbio.md
-            - Galaxy-Spades: dna/denovo/galaxy-spades.md
-            - Galaxy-Velvet: dna/denovo/galaxy-velvet/galaxy-velvet.md
-        - Annotation:
+            # - PacBio SMRT portal: dna/denovo/pacbio.md
+            #- Galaxy-Spades: dna/denovo/galaxy-spades.md
+            #- Galaxy-Velvet: dna/denovo/galaxy-velvet/galaxy-velvet.md
+        #- Annotation:
             #- Background
-            - Prokka in Galaxy: dna/anno/prokka.md
+            #- Prokka in Galaxy: dna/anno/prokka.md
             #- RAST: dna/anno/rast.md
             #- GENIX: dna/anno/genix.md
             #- EuGene: dna/anno/eugene.md
             #- MEGAnnotator: dna/anno/megannotator.md
-            - Prokka on commandline: dna/anno/prokka_cmdline.md
-        - Variant finding:
+            #- Prokka on commandline: dna/anno/prokka_cmdline.md
+        #- Variant finding:
             #- Background: dna/snps/background/background.md
-            - Snippy on commandline: dna/snps/snippy.md
+            #- Snippy on commandline: dna/snps/snippy.md
             #- Galaxy: dna/snps/galaxy.md
             #- BWA-MEM: dna/snps/bwa_mem.md
-        - Pan genome:
-            - Roary: dna/pan/roary.md
+        #- Pan genome:
+            #- Roary: dna/pan/roary.md
             #- OrthoMCL: dna/pan/orthomcl.md
             #- Mauve: dna/pan/mauve.md
     #- Transcriptomics:
