@@ -2,7 +2,7 @@ site_name: Sepsis Tutorials
 site_description: Tutorials for analysing bacterial omics data
 site_author: Torsten Seemann, Anna Syme
 site_favicon: favicon.ico
-theme: united
+theme: yeti
 markdown_extensions:
     - admonition
     - smarty
@@ -11,75 +11,91 @@ extra_css:
     - css/sepsis.css
 pages:
 - Home: index.md
-- Workshops:
-    - Comparative Genomics:
-        - Intro to Galaxy: workshop/genomics/1a/index.md
-        - Intro to Artemis: workshop/genomics/1b/index.md
-        - Assembly with Spades: workshop/genomics/2a/index.md
-        - Annotation with Prokka: workshop/genomics/2b/index.md
-        - Comparative genomics: workshop/genomics/3/index.md
-    - Variant calling: workshop/snps/index.md
-    - Phylogenetic trees: workshop/trees/index.md
-    - Differential gene expression: workshop/dge/index.md
-- Data:
-    - Getting and moving data: data/data_access.md
-    - File formats: data/formats/file_formats.md
-    - Genomics: dna/data.md
-    - Transcriptomics: rna/data.md
-    - Proteomics: pro/data.md
-    - Metabolomics: met/data.md
+- Introductory training:
+#    - Comparative Genomics:
+        - workshop/overview.md
+        - Use Galaxy: workshop/genomics/1a/index.md
+#       - Intro to Artemis: workshop/genomics/1b/index.md
+        - View with JBroswe: workshop/genomics/1c/index.md
+        - Assemble with Spades: workshop/genomics/2a/index.md
+        - Annotate with Prokka: workshop/genomics/2b/index.md
+#       - Comparative Genomics: workshop/genomics/3/index.md
+        - Find variants with Snippy: workshop/genomics/3b/index.md
+#    - Variant calling: workshop/snps/index.md
+#    - Phylogenetic trees: workshop/trees/index.md
+#    - Differential gene expression: workshop/dge/index.md
+#- Data:
+#    - Getting and moving data: data/data_access.md
+#    - File formats: data/formats/file_formats.md
+#    - Genomics: dna/data.md
+#    - Transcriptomics: rna/data.md
+#    - Proteomics: pro/data.md
+#    - Metabolomics: met/data.md
+- Advanced training:
+      - Overview: how_to/overview.md
+      - Genome assembly in Galaxy: how_to/assembly/assembly_galaxy.md
+      #- Genome assembly on the commandline:
+      - Genome annotation in Galaxy:  how_to/annotation/anno_galaxy.md
+      #- Genome annotation on the commandline:
+      - Pan genomes: how_to/pan/roary.md
+      #- Differential gene expression:
+
 - Tools:
+    - Oveview: tools.md
     - Genomics:
         - Quality Control:
-            - Overview: dna/qualitycontrol/qc.md
-            - FastQC: dna/qualitycontrol/fastqc.md
-            - FastQC commandline: dna/qualitycontrol/fastqc_cmdline.md
-            - Trimmomatic: dna/qualitycontrol/trimmomatic.md
+            # - Overview: dna/qualitycontrol/qc.md
+            - FastQC in Galaxy: dna/qualitycontrol/fastqc.md
+            - FastQC on commandline: dna/qualitycontrol/fastqc_cmdline.md
+            - Trimmomatic in Galaxy: dna/qualitycontrol/trimmomatic.md
         - De novo assembly:
-            - Spades: dna/denovo/spades.md
-            - Megahit: dna/denovo/megahit.md
-            - Velvet: dna/denovo/velvet.md
-            - VelvetOptimiser: dna/denovo/vopt.md
+            #  Background
+            #- Spades: dna/denovo/spades.md
+            #- Megahit: dna/denovo/megahit.md
+            #- Velvet: dna/denovo/velvet.md
+            #- VelvetOptimiser: dna/denovo/vopt.md
             - PacBio SMRT portal: dna/denovo/pacbio.md
             - Galaxy-Spades: dna/denovo/galaxy-spades.md
+            - Galaxy-Velvet: dna/denovo/galaxy-velvet/galaxy-velvet.md
         - Annotation:
-            - Prokka: dna/anno/prokka.md
-            - RAST: dna/anno/rast.md
-            - GENIX: dna/anno/genix.md
-            - EuGene: dna/anno/eugene.md
-            - MEGAnnotator: dna/anno/megannotator.md
-            - Prokka on cmdline: dna/anno/prokka_cmdline.md
+            #- Background
+            - Prokka in Galaxy: dna/anno/prokka.md
+            #- RAST: dna/anno/rast.md
+            #- GENIX: dna/anno/genix.md
+            #- EuGene: dna/anno/eugene.md
+            #- MEGAnnotator: dna/anno/megannotator.md
+            - Prokka on commandline: dna/anno/prokka_cmdline.md
         - Variant finding:
-            - Background: dna/snps/background/background.md
-            - Snippy: dna/snps/snippy.md
-            - Galaxy: dna/snps/galaxy.md
-            - BWA-MEM: dna/snps/bwa_mem.md
+            #- Background: dna/snps/background/background.md
+            - Snippy on commandline: dna/snps/snippy.md
+            #- Galaxy: dna/snps/galaxy.md
+            #- BWA-MEM: dna/snps/bwa_mem.md
         - Pan genome:
             - Roary: dna/pan/roary.md
-            - OrthoMCL: dna/pan/orthomcl.md
-            - Mauve: dna/pan/mauve.md
-    - Transcriptomics:
-        - Quality Control: rna/qc.md
-        - De novo assembly:
-            - Oases: rna/denovo/oases.md
-            - Trinity: rna/denovo/trinity.md
-            - StringTie: rna/denovo/stringtie.md
-    - Proteomics:
-        - The Data: pro/data.md
-        - Quality Control: pro/qc.md
-    - Metabolomics:
-        - The Data: met/data.md
-        - Quality Control: met/qc.md
-- Viz:
-    - Bandage: viz/bandage/index.md
-    - JBrowse: viz/jbrowse/index.md
-    - Artemis: viz/artemis/index.md
-    - Phandango: viz/phandango/index.md
-    - Degust: viz/degust/index.md
-- Protocols:
-  - Overview: protocols/overview.md
-  - De novo assembly: protocols/assembly.md
-  - Genome annotation: protocols/annotation.md
-  - Finding variants: protocols/variants.md
-  - Differential gene expression: protocols/dge.md
+            #- OrthoMCL: dna/pan/orthomcl.md
+            #- Mauve: dna/pan/mauve.md
+    #- Transcriptomics:
+        #- Quality Control: rna/qc.md
+        #- De novo assembly:
+            #- Oases: rna/denovo/oases.md
+            #- Trinity: rna/denovo/trinity.md
+            #- StringTie: rna/denovo/stringtie.md
+    #- Proteomics:
+    #    - The Data: pro/data.md
+    #    - Quality Control: pro/qc.md
+    #- Metabolomics:
+    #    - The Data: met/data.md
+    #    - Quality Control: met/qc.md
+#- Viz:
+#    - Bandage: viz/bandage/index.md
+#    - JBrowse: viz/jbrowse/index.md
+#    - Artemis: viz/artemis/index.md
+#    - Phandango: viz/phandango/index.md
+#    - Degust: viz/degust/index.md
+#- Protocols:
+#  - Overview: protocols/overview.md
+#  - De novo assembly: protocols/assembly.md
+#  - Genome annotation: protocols/annotation.md
+#  - Finding variants: protocols/variants.md
+#  - Differential gene expression: protocols/dge.md
 - About: about.md
