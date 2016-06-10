@@ -5,6 +5,14 @@ BODY {
 LI {
   margin-top: 1ex;
 }
+h1 {
+  font-size: 38pt;
+  }
+
+h2 {
+  border-bottom: 1px solid grey;
+}
+
 
 /*
 These style abbreviations are as follows:
@@ -14,22 +22,23 @@ TX = text
 */
 
 SS {
-  font-family: sans-serif;
-  font-weight: bold;
+  font-family: Geneva;
+  font-weight: normal;
   color: black;
-  background: WhiteSmoke;
   text-align: center;
-  padding: 0 0.5ex;
-  border: dotted 1pt black;
-}
+  border-radius: 5px;
+  background: lightsteelblue;
+  padding: 3px;
+
+  }
 
 FN {
   font-family: Monaco;
   font-weight: bolder;
-  color: black;
+  color: royalblue;
   text-align: center;
   padding: 0 0.5ex;
-  border: dotted 1pt black;
+  border: dotted 0pt black;
 }
 
 TX {

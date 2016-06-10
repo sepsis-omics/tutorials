@@ -12,65 +12,37 @@
     
         
     <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/workshop/snps/</loc>
+     <loc>None/workshop/overview/</loc>
      <lastmod>2016-06-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/workshop/trees/</loc>
+     <loc>None/workshop/genomics/1a/</loc>
      <lastmod>2016-06-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/workshop/dge/</loc>
-     <lastmod>2016-06-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/data/data_access/</loc>
+     <loc>None/workshop/genomics/1c/</loc>
      <lastmod>2016-06-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/data/formats/file_formats/</loc>
+     <loc>None/workshop/genomics/2a/</loc>
      <lastmod>2016-06-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/dna/data/</loc>
+     <loc>None/workshop/genomics/2b/</loc>
      <lastmod>2016-06-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/rna/data/</loc>
-     <lastmod>2016-06-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/pro/data/</loc>
-     <lastmod>2016-06-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/met/data/</loc>
+     <loc>None/workshop/genomics/3b/</loc>
      <lastmod>2016-06-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -80,59 +52,25 @@
     
         
     <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/viz/bandage/</loc>
+     <loc>None/how_to/overview/</loc>
      <lastmod>2016-06-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/viz/jbrowse/</loc>
+     <loc>None/how_to/assembly/assembly_galaxy/</loc>
      <lastmod>2016-06-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/viz/artemis/</loc>
+     <loc>None/how_to/annotation/anno_galaxy/</loc>
      <lastmod>2016-06-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/viz/phandango/</loc>
-     <lastmod>2016-06-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/viz/degust/</loc>
+     <loc>None/how_to/pan/roary/</loc>
      <lastmod>2016-06-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -142,32 +80,14 @@
     
         
     <url>
-     <loc>None/protocols/overview/</loc>
+     <loc>None/tools/</loc>
      <lastmod>2016-06-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/protocols/assembly/</loc>
-     <lastmod>2016-06-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/protocols/annotation/</loc>
-     <lastmod>2016-06-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/protocols/variants/</loc>
-     <lastmod>2016-06-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/protocols/dge/</loc>
-     <lastmod>2016-06-10</lastmod>
+     <loc>None</loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         

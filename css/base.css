@@ -73,11 +73,11 @@ pre code {
 }
 
 a > code {
-    color: #dd4814;
+    color: #008cba;
 }
 
 a > code:hover, a > code:focus {
-    color: #97310e;
+    color: #00526e;
 }
 
 /*
@@ -187,9 +187,6 @@ h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .head
     left: 100%;
     margin-top: 0px;
     margin-left: -1px;
-    -webkit-border-radius: 0 4px 4px 4px;
-    -moz-border-radius: 0 4px 4px;
-    border-radius: 0 4px 4px 4px;
 }
 
 /* display sub menu on hover*/
@@ -214,5 +211,5 @@ h1:hover .headerlink, h2:hover .headerlink, h3:hover .headerlink, h4:hover .head
 
 /* little arrow of parent menu */
 .dropdown-submenu:hover>a:after {
-    border-left-color: #404040;
+    border-left-color: #fff;
 }
