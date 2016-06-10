@@ -43,7 +43,7 @@ This tutorial will show you how to assemble a bacterial genome de novo, using th
 
 ![smrt portal screenshot](/media/screenshots/smrt2.png)
 
-- In the <ss>SMRT Cells Available</ss> window, select the file to be used. Click on the arrow to transfer these files to the SMRT Celles in Job** window.
+- In the <ss>SMRT Cells Available</ss> window, select the file to be used. Click on the arrow to transfer these files to the SMRT Cells in Job window.
 
 ![smrt portal screenshot](/media/screenshots/smrt3.png)
 

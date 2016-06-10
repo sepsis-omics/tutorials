@@ -2,7 +2,7 @@
 
 ## Background
 
-Artemis is a genome browser and annotation tool. Artemis is written in Java and can be used on Mac, Linux or Windows. While it can be used to view any genomic data, it is specifically designed for viewing bacterial or viral genomes. A variety of file types can be loaded and viewed using Artemis; these include fasta, multifasta, EMBL, GenBank and GFF format files.
+Artemis is a genome browser and annotation tool. Artemis is written in Java and can be used on Mac, Linux or Windows. While it can be used to view any genomic data, it is specifically designed for viewing bacterial or viral genomes. A variety of file types can be loaded and viewed using Artemis; these include FASTA, multiFASTA, EMBL, GenBank and GFF format files.
 
 ## Learning objectives
 
@@ -43,7 +43,10 @@ We will download the sequence of *Leptospira borgpetersenii* serovar Hardjobovis
 
 &nbsp;
 
-- Next to <ss>Genome</ss>, click on the far right number <ss>1</ss>. FIXME: add arrow to point to it.  
+- Next to <ss>Genome</ss>, click on the far right number <ss>1</ss>.
+
+<!---FIXME: add arrow to point to it.  
+--->
 
 ![link to genome](./images/image02.png)
 
@@ -84,7 +87,7 @@ We will download the sequence of *Leptospira borgpetersenii* serovar Hardjobovis
 
 ![Send button](./images/image03.png)
 
-## Demonstration/Discussion of the Artemis interface
+## The Artemis interface
 
 There are three main panes:
 
@@ -124,4 +127,6 @@ Navigation:
 
 ## What next  
 
-Links to more information: [Artemis manual](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf)
+- Links to more information: [the Artemis manual.](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf)
+
+- [Assemble a bacterial genome using Spades.](../2a/index.md)

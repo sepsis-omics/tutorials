@@ -1,0 +1,1 @@
+# Variant calling with Snippy

@@ -34,12 +34,12 @@ At the end of this tutorial you should be able to:
 ## Login to Galaxy
 
 - Open a new tab or window on your web browser.
-- Use Firefox or Chrome - Please don’t use Internet Explorer or Safari.
-- Type in the following address: 43.240.98.1/galaxy (FIXME or your personal mGVL instance / sepsis mGVL / TBA - if this changes, change screenshot too)
+- Use Firefox or Chrome - please don’t use Internet Explorer or Safari.
+- In the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.
 
 &nbsp;
 
-![Galaxy URL](images/image01.png)
+![Galaxy URL](images/image09.png)
 
 &nbsp;
 
@@ -54,13 +54,13 @@ Click on <ss>User</ss> button on the right and either register or login.
 If you haven't yet registered, <ss>Register:</ss>
 
 - Select: <ss>User &rarr; Register</ss>
-- Enter your email, choose a password, repeat it and add a (all lower case - FIXME:why?) one word name
+- Enter your email, choose a password, and choose a user name.
 - Click <ss>Submit</ss>
 
 If you have already registered, <ss>Login:</ss>
 
 - Select: <ss>User &rarr; Login</ss>
-- Enter your username & password
+- Enter your username & password.
 - Click <ss>Submit</ss>
 
 ## Put data onto Galaxy
@@ -69,26 +69,28 @@ There are two main ways to put your data onto Galaxy; this section will run thro
 
 ### Make a new history
 
-Note: Make a new folder to store the work we are about to perform.
+First, make a new folder to store the work we are about to perform.
 
 - Click on the history menu button ![history icon](images/image02.png) at the top of the <ss>History</ss> panel.
 - Select <ss>Create New</ss>
-- Click on <ss>Unnamed history</ss> to rename.
+- Click on <ss>Unnamed history</ss> to rename. Type in a new name.
 
 ### Datatypes
 
 What sort of file is being uploaded?
 
-We need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, FASTA, FASTQ, VCF, GFF, GBK, tabular. [More on file formats.](../../../data/file_formats.md)
+We need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, FASTA, FASTQ, VCF, GFF, GBK, and tabular.
+<!---[More on file formats.](../../../data/file_formats.md)
+--->
 
 ### Upload a file from your own computer
 
 With this method you can get most of the files on your own computer into Galaxy.
 
-#### Download the following file to your computer:
+#### First, download the following file to your computer:
 
 - Copy this URL and paste it into the address bar in your web browser: <https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/galaxy101/Contig_stats.txt.gz>  
-This is a file stored on the cloud. Press <ss>Enter</ss>, and the file will download (FIXME: on Mac but others?). Note the download location.
+This is a file stored on the cloud. Press <ss>Enter</ss>, and the file will download. Note the download location.
 
 &nbsp;
 
@@ -96,7 +98,7 @@ This is a file stored on the cloud. Press <ss>Enter</ss>, and the file will down
 
 &nbsp;
 
-#### Upload the file to Galaxy
+#### Next, upload that file to Galaxy
 
 -  From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  
 -  Click the <ss>Choose local file</ss> button  
@@ -124,15 +126,15 @@ If a file exists on a web resource somewhere and you know its URL (Unique Resour
 Now we are going to upload another file from the remote data source.
 
 - Repeat the above for: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna
-- Note: this file <ss>Type</ss> is *fasta*.
-- The DNA sequence of *Staphylococcus aureus MRSA252* will be loaded into your history as a fasta file.
+- Note: this file <ss>Type</ss> is *FASTA*.
+- The DNA sequence of *Staphylococcus aureus MRSA252* will be loaded into your history as a FASTA file.
 - Your <ss>History</ss> should now look like this:
 
 ![History screenshot](./images/image03.png)
 
 ### The data
 
-A brief description of each of the three files uploaded to Galaxy.  
+A brief description of each of the three files uploaded to Galaxy:  
 
 <fn>Contigs_stats.txt</fn>  
 
@@ -142,11 +144,11 @@ A brief description of each of the three files uploaded to Galaxy.
 <fn>bacterial_std_err_1.fastq.gz</fn>  
 
 - This file contains sequence reads, in the format produced by Illumina sequencing machines. Read more about the
-[fastq](https://en.wikipedia.org/wiki/FASTQ_format) format at Wikipedia.
+[FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) format at Wikipedia.
 
 <fn>MRSA0252.fna</fn>
 
-  - This file contains the genome sequence of *Staphylococcus aureus MRSA252*. Read more about the [fasta](https://en.wikipedia.org/wiki/FASTA_format) format at Wikipedia.
+  - This file contains the genome sequence of *Staphylococcus aureus MRSA252*. Read more about the [FASTA](https://en.wikipedia.org/wiki/FASTA_format) format at Wikipedia.
 
 ## Galaxy tools
 
@@ -229,7 +231,7 @@ To do this we need to make some changes to the <fn>Contig_stats.txt</fn> file:
 
 ### Convert file formats
 
-This shows how to convert a fastq file to a fasta file. The tool creates a new file with the converted data.
+This shows how to convert a FASTQ file to a FASTA file. The tool creates a new file with the converted data.
 
 - Go to <ss>Tools &rarr; Basic Tools &rarr; Convert Formats &rarr; FASTQ to FASTA</ss> and set the following:
 - <ss>FASTQ file to convert</ss>: <fn>typical.fastq</fn>
@@ -245,7 +247,7 @@ This example shows how to use a tool called “barrnap” to search for rRNAs in
 - Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Annotation &rarr; barrnap</ss> and set the following:
 - <ss>Fasta file</ss>: <fn>MRSA252.fna</fn>
 - Click <ss>Execute</ss>
-- The output is <fn>barrnap on data 3</fn> It is a gff3 format file. (general feature format version 3). Each line in the file describes a feature in the DNA sequence.
+- The output is <fn>barrnap on data 3</fn> It is a gff3 format file (general feature format version 3). Each line in the file describes a feature in the DNA sequence.
 
 #### Filter the annotations to get the 23S RNAs
 
@@ -256,6 +258,8 @@ This example shows how to use a tool called “barrnap” to search for rRNAs in
 - Click <ss>Execute</ss>
 - Now you have a gff3 file with just the 23S annotations!
 
-## What now?
+## What next?
 
-Remember how we started a new <ss>History</ss> at the beginning? If you want to see any of your old histories, click on the History menu button ![history button](./images/image02.png) at the top of the <ss>History</ss> panel and then select “Saved Histories.” This will give you a list of all the histories you have worked on in this Galaxy server.
+- Remember how we started a new <ss>History</ss> at the beginning? If you want to see any of your old histories, click on the History menu button ![history button](./images/image02.png) at the top of the <ss>History</ss> panel and then select “Saved Histories.” This will give you a list of all the histories you have worked on in this Galaxy server.
+
+- Next: [Learn about JBrowse.](../1c/index.md)
