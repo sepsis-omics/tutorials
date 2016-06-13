@@ -13,6 +13,7 @@ pages:
 - Home: index.md
 - Introductory:
     - Overview: modules/overview.md
+    - Dataset: modules/data/index.md
     - Using Galaxy: modules/galaxy/index.md
     - Qaulity control: modules/fastqc/index.md
     - Read trimming: modules/trimmomatic/index.md
