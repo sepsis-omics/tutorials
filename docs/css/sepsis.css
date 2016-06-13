@@ -68,6 +68,7 @@ These are for "info boxes" in mkdocs
   border: solid black thin;
   margin: 1ex 0;
   padding: 1ex;
+  margin: 2ex;
 }
 
 .admonition-title {
