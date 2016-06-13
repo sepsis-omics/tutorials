@@ -1,4 +1,4 @@
-# Introduction to Galaxy
+# Using Galaxy
 
 ## Background
 
@@ -191,14 +191,14 @@ To do this we need to make some changes to the <fn>Contig_stats.txt</fn> file:
 
 #### Cut out and keep two columns
 
-- Click on the eye icon ![eye icon](./images/image00.png) of the <fn>Contig_stats.txt</fn> file to have a look at it.  
+- Click on the eye icon ![eye icon](images/image00.png) of the <fn>Contig_stats.txt</fn> file to have a look at it.  
 - Note that there are 18 columns in this file. We want column 1 and column 6.
 - Go to <ss>Tools &rarr; Text Manipulation &rarr; Cut</ss> and set the following:
 - Set <ss>Cut Columns</ss> to: *c1,c6*
 - <ss>Delimited by</ss>: *Tab*
 - <ss>From</ss>: <fn>Contig_stats.txt</fn>
 - Click <ss>Execute</ss>
-- Examine the new file by clicking on its eye icon ![eye icon](./images/image00.png). We now have 2 columns instead of the 18 in the original file.
+- Examine the new file by clicking on its eye icon ![eye icon](images/image00.png). We now have 2 columns instead of the 18 in the original file.
 
 #### Remove the Header lines of the new file
 
@@ -217,7 +217,7 @@ To do this we need to make some changes to the <fn>Contig_stats.txt</fn> file:
 - <ss>Plot title</ss>: *Histogram of Contig Coverage*
 - <ss>Label for X axis</ss>: *Coverage depth*
 - Click <ss>Execute</ss>
-- Click on the eye icon ![eye icon](./images/image00.png) of the histogram to have a look at it. Note there are a few peaks. Maybe these correspond to single, double and triple copy number of these contigs.
+- Click on the eye icon ![eye icon](images/image00.png) of the histogram to have a look at it. Note there are a few peaks. Maybe these correspond to single, double and triple copy number of these contigs.
 
 #### Calculate summary statistics for contig coverage depth
 
@@ -226,7 +226,7 @@ To do this we need to make some changes to the <fn>Contig_stats.txt</fn> file:
 - <ss>Column or expression</ss>: *c2*
 - Click <ss>Execute</ss>
 - You’ll note that the summary statistics tool failed (red background in the <ss>History</ss>). There was an error!
-- If you click on the filename, and then the bug symbol ![bug icon](./images/image08.png), it will tell you what went wrong. (There is a missing python library).
+- If you click on the filename, and then the bug symbol ![bug icon](images/image08.png), it will tell you what went wrong. (There is a missing python library).
 - At this point, you would normally contact your Galaxy server administrator.
 
 ### Convert file formats
@@ -262,4 +262,4 @@ This example shows how to use a tool called “barrnap” to search for rRNAs in
 
 - Remember how we started a new <ss>History</ss> at the beginning? If you want to see any of your old histories, click on the History menu button ![history button](./images/image02.png) at the top of the <ss>History</ss> panel and then select “Saved Histories.” This will give you a list of all the histories you have worked on in this Galaxy server.
 
-- Next: [Learn about JBrowse.](../1c/index.md)
+- Next: [Learn about quality control](../fastqc/index.md)

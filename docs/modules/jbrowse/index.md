@@ -1,6 +1,7 @@
 # JBrowse
 
 ## Background
+
 JBrowse is a genome browser available through the Galaxy interface or as a stand-alone tool.
 
 http://jbrowse.org/
@@ -128,4 +129,4 @@ Navigation:
 - to zoom, use the vertical scroll bars on the right
 
 ## What next  
-- [Assemble a bacterial genome using Spades.](../2a/index.md)
+- [Assemble a bacterial genome using Spades.](../spades/index.md)

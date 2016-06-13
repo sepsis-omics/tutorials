@@ -37,18 +37,18 @@ FIXME: note this contains the same galaxy address as above - change?
 --->
 
 - Click on the <ss>Analyze Data</ss> menu at the top of the page.    
-- Click on the <ss>History options</ss> button the ![history button](./images/image02.png) on the top right of the history pane.
+- Click on the <ss>History options</ss> button the ![history button](images/image02.png) on the top right of the history pane.
 - Click <ss>Import from File</ss> (at the bottom of the list).  
 - A new page will appear with a text box for the URL of the history to import.  
 - Copy the following URL into the text box: <http://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz>  
 - Click <ss>Submit</ss>.  
 - Galaxy will download the data files from the internet and will be available as an additional history (takes about one minute).  
-- To view this new history, click the <ss>View all histories</ss> button![Histories button](./images/image01.png) (top right of the history pane).  
+- To view this new history, click the <ss>View all histories</ss> button![Histories button](images/image01.png) (top right of the history pane).  
   - If the history has finished downloading it will appear as <fn>imported from archive: Colombia_workshop_start</fn>
-- Click on the ![Switch button](./images/image06.png) button above the <fn>imported from archive:Colombia_workshop_start</fn> then the ![Done button](./images/image05.png) button.
+- Click on the ![Switch button](images/image06.png) button above the <fn>imported from archive:Colombia_workshop_start</fn> then the ![Done button](images/image05.png) button.
 - You should now have four files in the history pane as follows:
 
-![Files in history](./images/image07.png)
+![Files in history](images/image07.png)
 
 ## View files
 All the files are text files.
@@ -59,14 +59,14 @@ All the files are text files.
 
 Look at the contents of these files.
 
-- Click on the View Data button (the ![Eye icon](./images/image04.png)) next to each of the files in turn.
+- Click on the View Data button (the ![Eye icon](images/image04.png)) next to each of the files in turn.
 - The gff file should look like this:
 
 <!---
 - Brief Discussion about the GFF format (FIXME: add)
 --->
 
-![GFF format](./images/image08.png)
+![GFF format](images/image08.png)
 
 ## Evaluate the input reads
 
@@ -118,7 +118,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
 
 - Your tool interface should look like this:
 
-![Spades interface](./images/image03.png)
+![Spades interface](images/image03.png)
 
 -  Click <ss>Execute</ss>
 
@@ -131,11 +131,11 @@ Ask your demonstrator if you would like to know the difference between contigs a
     - two files for statistics about these
     - the Spades logfile
 
-- Click on the View Data button ![Eye icon](./images/image04.png) on each of the files.
+- Click on the View Data button ![Eye icon](images/image04.png) on each of the files.
 - Note that the short reads have been assembled into much longer contigs.
 - (However, in this case, the contigs have not been assembled into larger scaffolds.)
 - The stats files will give you the length of each of the contigs.
 
 ## What next?
 
-- [Annotate the genome using Prokka.](../2b/index.md)
+- [Annotate the genome using Prokka.](../prokka/index.md)

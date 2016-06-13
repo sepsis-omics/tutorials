@@ -1,4 +1,4 @@
-# Trimmomatic on Galaxy
+# Trimming reads
 
 ## Introduction
 
@@ -97,4 +97,4 @@ Examine each file with the eye icon. Look for:
 
 ## What next?
 
-Next: use the output FASTQ files for Assembly, e.g. with [Spades](../denovo/galaxy-spades.md)
+Next: use the output FASTQ files for Assembly, e.g. with [Spades](../spades/index.md)

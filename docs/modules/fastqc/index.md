@@ -5,7 +5,7 @@ FIXME: include screenshots
 FIXME: include file location and/or choose different input.
 --->
 
-After sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end sequence reads from Illumina. The FastQC website is [here.](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+After sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end Illumina sequence reads. The FastQC website is [here.](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
 ## Learning Objectives
 
@@ -50,9 +50,8 @@ General questions you might ask about your input reads include:
 For a fuller discussion of FastQC outputs and warnings, see the [FastQC website link](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/), including the section on each of the output [reports](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/), and examples of ["good"](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and ["bad"](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) Illumina data.
 
 
-
 ## What Next?
-- Trim reads with [Trimmomatic.](trimmomatic.md)
+- Trim reads with [Trimmomatic.](../trimmomatic/index.md)
 
 <!---
 FIXME: include these?

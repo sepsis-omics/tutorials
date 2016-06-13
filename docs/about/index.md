@@ -6,8 +6,9 @@ genomic, transcriptomic, proteomic and metabolomic data.
 
 ## Authors
 
-* ![Anna](anna.jpg) Anna Syme
-* ![Torsten](torsten.jpg) Torsten Seemann
+![Anna](anna.jpg) Anna Syme
+
+![Torsten](torsten.jpg) Torsten Seemann
 
 ## Support
 

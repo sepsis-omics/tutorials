@@ -21,7 +21,7 @@ FIXME: You are working on a bug and you notice one of them is forming smaller co
 
 ## Prepare reference
 
-We will use the same data that we used in the [Assembly with Spades tutorial.](../1c/index.md) This should still be in your current galaxy history. If not, re-import the data into a new history using the instructions in that tutorial.
+We will use the same data that we used in the [Assembly with Spades tutorial.](../spades/index.md) This should still be in your current galaxy history. If not, re-import the data into a new history using the instructions in that tutorial.
 
 For variant calling, we need a reference genome that is of the same strain as the input sequence reads. This can be the plain nucelotide sequence in FASTA format, or annotated in GBK or GFF3 format.
 

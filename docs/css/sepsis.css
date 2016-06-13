@@ -14,7 +14,7 @@ H2 {
   border-bottom: 1px solid grey;
 }
 
-P, LI {
+P {
   text-align: justify;
   text-justify: inter-word;
 }

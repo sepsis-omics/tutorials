@@ -2,7 +2,7 @@
 
 ## Background
 
-Artemis is a genome browser and annotation tool. Artemis is written in Java and can be used on Mac, Linux or Windows. While it can be used to view any genomic data, it is specifically designed for viewing bacterial or viral genomes. A variety of file types can be loaded and viewed using Artemis; these include FASTA, multiFASTA, EMBL, GenBank and GFF format files.
+Artemis is a genome browser and annotation tool. Artemis is written in Java and can be used on Mac, Linux or Windows. While it can be used to view any genomic data, it is specifically designed for viewing bacterial or viral genomes. A variety of file types can be loaded and viewed using Artemis; these include FASTA, EMBL, GenBank and GFF3 format files.
 
 ## Learning objectives
 
@@ -29,17 +29,17 @@ We will download the sequence of *Leptospira borgpetersenii* serovar Hardjobovis
 - Select the “Taxonomy” database from the list on the left hand side.
 - Enter “Leptospira borgpetersenii” in the search box and click <ss>Search</ss>.
 
-![NCBI search box](./images/image00.png)
+![NCBI search box](images/image00.png)
 
 - Click on the species name:
 
-![Species name link](./images/image08.png)
+![Species name link](images/image08.png)
 
 &nbsp;
 
 - Click on the species name again (at the top of the list):
 
-![Species name link](./images/image06.png)
+![Species name link](images/image06.png)
 
 &nbsp;
 
@@ -48,7 +48,7 @@ We will download the sequence of *Leptospira borgpetersenii* serovar Hardjobovis
 <!---FIXME: add arrow to point to it.  
 --->
 
-![link to genome](./images/image02.png)
+![link to genome](images/image02.png)
 
 &nbsp;
 
@@ -56,13 +56,13 @@ We will download the sequence of *Leptospira borgpetersenii* serovar Hardjobovis
 
 &nbsp;
 
-![link to report](./images/image04.png)
+![link to report](images/image04.png)
 
 &nbsp;
 
 - Then, for the first species listed, scroll to the far right of the table, see chromosome 2, and click the link to the annotated assembly number <ss>NC_008509.1</ss> (not CP0003):
 
-![link to report](./images/image01.png)
+![link to report](images/image01.png)
 
 &nbsp;
 
@@ -71,7 +71,7 @@ We will download the sequence of *Leptospira borgpetersenii* serovar Hardjobovis
 - click <ss>Create File</ss>.
 - Note the download location (e.g. Downloads folder).
 
-![Send button](./images/image05.png)
+![Send button](images/image05.png)
 
 &nbsp;
 
@@ -79,13 +79,13 @@ We will download the sequence of *Leptospira borgpetersenii* serovar Hardjobovis
 
 - Open Artemis
 
-![Artemis window](./images/image07.png)
+![Artemis window](images/image07.png)
 
 
 - <ss>Menu &rarr; File &rarr; Open</ss>
 - Select file from dialog box, and <ss>OPEN</ss>
 
-![Send button](./images/image03.png)
+![Send button](images/image03.png)
 
 ## The Artemis interface
 
@@ -95,7 +95,7 @@ There are three main panes:
 2. The DNA view
 3. Text summary of features
 
-![Artemis screenshot](./images/image09.png)
+![Artemis screenshot](images/image09.png)
 
 Overview:  
 
@@ -129,4 +129,4 @@ Navigation:
 
 - Links to more information: [the Artemis manual.](ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/artemis.pdf)
 
-- [Assemble a bacterial genome using Spades.](../2a/index.md)
+- [Assemble a bacterial genome using Spades.](../spades/index.md)
