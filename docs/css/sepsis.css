@@ -5,14 +5,19 @@ BODY {
 LI {
   margin-top: 1ex;
 }
-h1 {
-  font-size: 38pt;
-  }
 
-h2 {
+H1 {
+  font-size: 3em;
+}
+
+H2 {
   border-bottom: 1px solid grey;
 }
 
+P, LI {
+  text-align: justify;
+  text-justify: inter-word;
+}
 
 /*
 These style abbreviations are as follows:
@@ -28,9 +33,9 @@ SS {
   text-align: center;
   border-radius: 5px;
   background: lightsteelblue;
-  padding: 3px;
-
-  }
+  padding: 0.3ex 1ex;
+  font-size: 90%;
+}
 
 FN {
   font-family: Monaco;
