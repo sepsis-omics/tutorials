@@ -18,6 +18,12 @@
     </url>
         
     <url>
+     <loc>None/modules/data/</loc>
+     <lastmod>2016-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>None/modules/galaxy/</loc>
      <lastmod>2016-06-13</lastmod>
      <changefreq>daily</changefreq>

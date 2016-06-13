@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../favicon.ico">
         
 
-	<title>Variant finding - Sepsis Tutorials</title>
+	<title>Dataset - Sepsis Tutorials</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -69,8 +69,8 @@
 
                     
                         
-<li >
-    <a href="../data/">Dataset</a>
+<li class="active">
+    <a href="./">Dataset</a>
 </li>
 
                     
@@ -105,8 +105,8 @@
 
                     
                         
-<li class="active">
-    <a href="./">Variant finding</a>
+<li >
+    <a href="../snippy/">Variant finding</a>
 </li>
 
                     
@@ -130,12 +130,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../prokka/">
+                    <a rel="next" href="../overview/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../../about/">
+                    <a rel="prev" href="../galaxy/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -149,107 +149,29 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#variant-calling-with-snippy">Variant calling with Snippy</a></li>
+        <li class="main active"><a href="#tutorial-data">Tutorial data</a></li>
         
-            <li><a href="#background">Background</a></li>
+            <li><a href="#wildtype-reference">Wildtype reference</a></li>
         
-            <li><a href="#learning-objectives">Learning Objectives</a></li>
-        
-            <li><a href="#prepare-reference">Prepare reference</a></li>
-        
-            <li><a href="#call-variants-with-snippy">Call variants with Snippy</a></li>
-        
-            <li><a href="#what-next">What next?</a></li>
+            <li><a href="#mutant-illumina-sequence">Mutant Illumina sequence</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="variant-calling-with-snippy">Variant calling with Snippy</h1>
-<h2 id="background">Background</h2>
-<p>Variant calling is the process of identifying differences between to genome samples.
-Usually differences are limited to single nucleotide polymorphisms (SNPs) and small insertions and deletions (indels). Larger structural variation such as inversions, duplications and large deletions are not typically covered by &ldquo;variant calling&rdquo;.</p>
-<h2 id="learning-objectives">Learning Objectives</h2>
-<p>At the end of this tutorial you should be able to:</p>
-<ol>
-<li>Find variants between a reference genome and a set of reads</li>
-<li>Determine the effect of those variants on genomic features</li>
-<li>Understand if the SNP is potentially affecting the phenotype</li>
-</ol>
-<!---
-## Experiment
-
-FIXME: You are working on a bug and you notice one of them is forming smaller colonies than normal. You want to find out why this small colony variant (SCV) is doing at the DNA level.
---->
-
-<h2 id="prepare-reference">Prepare reference</h2>
-<p>We will use the same data that we used in the <a href="../spades/">Assembly with Spades tutorial.</a> This should still be in your current galaxy history. If not, re-import the data into a new history using the instructions in that tutorial.</p>
-<p>For variant calling, we need a reference genome that is of the same strain as the input sequence reads. This can be the plain nucelotide sequence in FASTA format, or annotated in GBK or GFF3 format.</p>
+<h1 id="tutorial-data">Tutorial data</h1>
+<h2 id="wildtype-reference">Wildtype reference</h2>
 <ul>
-<li>upload <fn>wildtpe.gbk</fn> file</li>
+<li><a href="./wildtype.fna">wildtype.fna</a></li>
+<li><a href="./wildtype.gbk">wildtype.gbk</a></li>
+<li><a href="./wildtype.gff">wildtype.gff</a></li>
 </ul>
-<p>Our reference is the <fn>wildtype.gbk</fn> file and our reads are <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.</p>
+<h2 id="mutant-illumina-sequence">Mutant Illumina sequence</h2>
 <ul>
-<li>screenshot of files</li>
-</ul>
-<!--
-!!! note
-    Please make sure your reference genome includes all chromosomes and plasmids
--->
-
-<h2 id="call-variants-with-snippy">Call variants with Snippy</h2>
-<ul>
-<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Variant Analysis &rarr; snippy</ss></li>
-<li>For <ss>Reference type</ss> select <em>Genbank</em>.</li>
-<li>Then for <ss>Reference Genbank</ss> choose the <fn>wildtype.gbk</fn> file.</li>
-<li>For <ss>Single or Paired-end reads</ss> choose <em>Paired</em>.</li>
-<li>Then choose the first set of reads, <fn>mutant_R1.fastq</fn> and second set of reads, <fn>mutant_R2.fastq</fn>.</li>
-<li>For <ss>Cleanup the non-snp output files</ss> select <em>No</em>.</li>
-<li>Click <ss>Execute</ss>.</li>
-</ul>
-<p>to do:</p>
-<ul>
-<li>look in the output tab file to see list of SNPs</li>
-<li>what types, what do they mean, snpeff predictions</li>
-<li>
-<p>any other snippy output to look at?</p>
-</li>
-<li>
-<p>go to Graph/Display data</p>
-</li>
-<li>JBrowse</li>
-<li>Fasta seq: choose wildtype.fna</li>
-<li>Produce standalone- yes</li>
-<li>genetic code - 11</li>
-<li>insert track group - name it</li>
-<li>insert annotation track</li>
-<li>for snps gff, vcf, bam  (autogenerate snp track - yes)</li>
-<li>this makes a file - click on eye to view</li>
-<li>select tracks from the left</li>
-<li>go to position x to see a snp</li>
-<li>go back to snippy tab output to see the snpeff result for this snp</li>
-</ul>
-<!---
-FIXME: talk about multimapping reads?
-
-## Filter variants
-FIXME:  vcffilter? something else?  mindepth, homozygous?
-
-## Annotate consequencs
-
--- how to get ref genome in?
-
-FIXME: snpEff - but it is hard to add a genome
-
-!!! hint
-    Just use Snippy and all this will happen magically?
---->
-
-<h2 id="what-next">What next?</h2>
-<!--
-* SNPs can be used to build [phylogentic trees](/trees/index.md).
---></div>
+<li><a href="./mutant_R1.fastq.gz">mutant_R1.fastq.gz</a></li>
+<li><a href="./mutant_R2.fastq.gz">mutant_R2.fastq.gz</a></li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
