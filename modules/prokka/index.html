@@ -5,18 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <meta name="author" content="Torsten Seemann, Anna Syme">
+        <meta name="author" content="Anna Syme, Torsten Seemann">
         
-        <link rel="shortcut icon" href="../../../favicon.ico">
+        <link rel="shortcut icon" href="../../favicon.ico">
         
 
-	<title>Annotate with Prokka - Sepsis Tutorials</title>
+	<title>Genome annotation - Sepsis Tutorials</title>
 
-        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../../css/highlight.css">
-        <link href="../../../css/base.css" rel="stylesheet">
-        <link href="../../../css/sepsis.css" rel="stylesheet">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/sepsis.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -43,7 +43,7 @@
             </button>
 
             <!-- Main title -->
-            <a class="navbar-brand" href="../../..">Sepsis Tutorials</a>
+            <a class="navbar-brand" href="../..">Sepsis Tutorials</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -53,115 +53,55 @@
             
             
                 <li >
-                    <a href="../../..">Home</a>
+                    <a href="../..">Home</a>
                 </li>
             
             
             
                 <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Introductory training <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Introductory <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../../overview/">Overview</a>
+    <a href="../overview/">Overview</a>
 </li>
 
                     
                         
 <li >
-    <a href="../1a/">Use Galaxy</a>
+    <a href="../galaxy/">Using Galaxy</a>
 </li>
 
                     
                         
 <li >
-    <a href="../1c/">View with JBroswe</a>
+    <a href="../fastqc/">Qaulity control</a>
 </li>
 
                     
                         
 <li >
-    <a href="../2a/">Assemble with Spades</a>
+    <a href="../trimmomatic/">Read trimming</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../spades/">Genome assembly</a>
 </li>
 
                     
                         
 <li class="active">
-    <a href="./">Annotate with Prokka</a>
+    <a href="./">Genome annotation</a>
 </li>
 
                     
                         
 <li >
-    <a href="../3b/">Find variants with Snippy</a>
+    <a href="../snippy/">Variant finding</a>
 </li>
-
-                    
-                    </ul>
-                </li>
-            
-            
-            
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced training <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
-                        
-<li >
-    <a href="../../../how_to/overview/">Overview</a>
-</li>
-
-                    
-                    </ul>
-                </li>
-            
-            
-            
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
-                        
-<li >
-    <a href="../../../tools/">Oveview</a>
-</li>
-
-                    
-                        
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Genomics</a>
-    <ul class="dropdown-menu">
-        
-            
-  <li class="dropdown-submenu">
-    <a tabindex="-1" href="">Quality Control</a>
-    <ul class="dropdown-menu">
-        
-            
-<li >
-    <a href="../../../dna/qualitycontrol/fastqc/">FastQC in Galaxy</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../../dna/qualitycontrol/fastqc_cmdline/">FastQC on commandline</a>
-</li>
-
-        
-            
-<li >
-    <a href="../../../dna/qualitycontrol/trimmomatic/">Trimmomatic in Galaxy</a>
-</li>
-
-        
-    </ul>
-  </li>
-
-        
-    </ul>
-  </li>
 
                     
                     </ul>
@@ -170,7 +110,7 @@
             
             
                 <li >
-                    <a href="../../../about/">About</a>
+                    <a href="../../about/">About</a>
                 </li>
             
             
@@ -184,12 +124,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../2a/">
+                    <a rel="next" href="../spades/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../3b/">
+                    <a rel="prev" href="../snippy/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -226,7 +166,7 @@
 
 <h1 id="genome-annotation-using-prokka">Genome annotation using Prokka</h1>
 <h2 id="background">Background</h2>
-<p>In this section we will use a software tool called Prokka to annotate the draft genome sequence produced in the previous <a href="../2a/">tutorial</a>. Prokka is a “wrapper”; it collects together several pieces of software (from various authors), and so avoids “re-inventing the wheel”.</p>
+<p>In this section we will use a software tool called Prokka to annotate the draft genome sequence produced in the previous <a href="../spades/">tutorial</a>. Prokka is a “wrapper”; it collects together several pieces of software (from various authors), and so avoids “re-inventing the wheel”.</p>
 <p>Prokka finds and annotates features (both protein coding regions and RNA genes, i.e. tRNA, rRNA) present on on a sequence. Note, Prokka uses a two-step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using <a href="http://prodigal.ornl.gov/">Prodigal</a>; second, the <em>function</em> of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found <a href="https://github.com/tseemann/prokka">here</a>.</p>
 <h2 id="learning-objectives">Learning objectives</h2>
 <p>At the end of this tutorial you should be able to:</p>
@@ -238,7 +178,7 @@
 </ol>
 <h2 id="input-data">Input data</h2>
 <ul>
-<li>You will need the assembled contigs from the previous workshop (<a href="../2a/">Assembly with Spades</a>): <fn>SPAdes_contigs.fasta</fn></li>
+<li>You will need the assembled contigs from the previous workshop (<a href="../spades/">Assembly with Spades</a>): <fn>SPAdes_contigs.fasta</fn></li>
 <li>If you are continuing on from that tutorial, this file will be in your current history and there is no need to find/import it.</li>
 </ul>
 <h2 id="run-prokka">Run Prokka</h2>
@@ -293,12 +233,12 @@
             <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
         </footer>
 
-        <script src="../../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../../js/highlight.pack.js"></script>
-        <script>var base_url = '../../..';</script>
-        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
-        <script src="../../../js/base.js"></script>
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
             <div class="modal-dialog">

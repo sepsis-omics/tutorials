@@ -2,433 +2,383 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome!\n\n\nThis site contains tutorials for analysing bacterial \nomics\n data.\n\n\nThe site is in draft mode. Training modules are being developed and added progressively. Please send issues or suggestions to \nAnna Syme\n at VLSCI.\n\n\nData sources\n\n\n\n\nGenomics\n\n\nTranscriptomics\n\n\nProteomics\n\n\nMetabolomics\n\n\n\n\nAnalysis platforms\n\n\n\n\nUnix command line\n\n\nGalaxy workflow system\n\n\n\n\nPlatform\n\n\n\n\nMicrobial Genomics Virtual Lab", 
+            "text": "Welcome!\n\n\nThis site contains tutorials for using the\n\nMicrobial Genomics Virtual Lab\n to perform bioinformatics\ntasks on bacterial \nomics\n data, either on the Unix command line or using\nthe \nGalaxy\n system.\n\n\n\n\nNote\n\n\nThe site is under active development. Training modules are being developed\nand added progressively. Please send issues or suggestions\nto \nAnna Syme\n at VLSCI.", 
             "title": "Home"
         }, 
         {
             "location": "/#welcome", 
-            "text": "This site contains tutorials for analysing bacterial  omics  data.  The site is in draft mode. Training modules are being developed and added progressively. Please send issues or suggestions to  Anna Syme  at VLSCI.", 
+            "text": "This site contains tutorials for using the Microbial Genomics Virtual Lab  to perform bioinformatics\ntasks on bacterial  omics  data, either on the Unix command line or using\nthe  Galaxy  system.   Note  The site is under active development. Training modules are being developed\nand added progressively. Please send issues or suggestions\nto  Anna Syme  at VLSCI.", 
             "title": "Welcome!"
         }, 
         {
-            "location": "/#data-sources", 
-            "text": "Genomics  Transcriptomics  Proteomics  Metabolomics", 
-            "title": "Data sources"
-        }, 
-        {
-            "location": "/#analysis-platforms", 
-            "text": "Unix command line  Galaxy workflow system", 
-            "title": "Analysis platforms"
-        }, 
-        {
-            "location": "/#platform", 
-            "text": "Microbial Genomics Virtual Lab", 
-            "title": "Platform"
-        }, 
-        {
-            "location": "/workshop/overview/", 
-            "text": "Overview\n\n\nIn this section there are five short tutorials covering basic microbial genomics analyses in Galaxy. These have been designed to run sequentially.\n\n\n\n\nUse the Galaxy Platform\n: a web-based interface for bioinformatic analyses.\n\n\nView genomes with JBrowse\n: view bacterial genomes with JBrowse.\n\n\nAssemble genomes with Spades\n: assemble raw sequence reads into a draft bacterial genome sequence using the tool \nSpades\n.\n\n\nAnnotate genomes with Prokka\n: describe the type and location of proteins and other features on the draft bacterial genome sequence using the tool \nProkka\n.\n\n\nFind variants with Snippy\n: identify differences (such as nucleotide mutations) between genomes using the tool \nSnippy\n.", 
+            "location": "/modules/overview/", 
+            "text": "Overview\n\n\nThis section contains tutorials for basic microbial genomics analyses in Galaxy. These have been designed to be done sequentially.\n\n\n\n\n\n\nUse the Galaxy Platform\n:\na web-based interface for bioinformatic analyses.\n\n\n\n\n\n\nQuality control of Illumina data\n:\nassess raw Illumina data for quality issues\n\n\n\n\n\n\nRead cleaning\n:\ntrim and clip your reads of sequencing artifacts\n\n\n\n\n\n\nAssemble genomes with Spades\n:\nassemble raw Illumina sequence reads into a draft bacterial genome sequence using the tool \nSpades\n.\n\n\n\n\n\n\nAnnotate genomes with Prokka\n:\ndescribe the type and location of proteins and other features on the draft bacterial genome sequence using the tool \nProkka\n.\n\n\n\n\n\n\nFind variants with Snippy\n: identify differences (such as nucleotide mutations) between genomes using the tool \nSnippy\n.", 
             "title": "Overview"
         }, 
         {
-            "location": "/workshop/overview/#overview", 
-            "text": "In this section there are five short tutorials covering basic microbial genomics analyses in Galaxy. These have been designed to run sequentially.   Use the Galaxy Platform : a web-based interface for bioinformatic analyses.  View genomes with JBrowse : view bacterial genomes with JBrowse.  Assemble genomes with Spades : assemble raw sequence reads into a draft bacterial genome sequence using the tool  Spades .  Annotate genomes with Prokka : describe the type and location of proteins and other features on the draft bacterial genome sequence using the tool  Prokka .  Find variants with Snippy : identify differences (such as nucleotide mutations) between genomes using the tool  Snippy .", 
+            "location": "/modules/overview/#overview", 
+            "text": "This section contains tutorials for basic microbial genomics analyses in Galaxy. These have been designed to be done sequentially.    Use the Galaxy Platform :\na web-based interface for bioinformatic analyses.    Quality control of Illumina data :\nassess raw Illumina data for quality issues    Read cleaning :\ntrim and clip your reads of sequencing artifacts    Assemble genomes with Spades :\nassemble raw Illumina sequence reads into a draft bacterial genome sequence using the tool  Spades .    Annotate genomes with Prokka :\ndescribe the type and location of proteins and other features on the draft bacterial genome sequence using the tool  Prokka .    Find variants with Snippy : identify differences (such as nucleotide mutations) between genomes using the tool  Snippy .", 
             "title": "Overview"
         }, 
         {
-            "location": "/workshop/genomics/1a/", 
-            "text": "Introduction to Galaxy\n\n\nBackground\n\n\nGalaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety of bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.\n\n\nBioinformatics tools can be added from the Galaxy \u2018tool shed\u2019 or removed as necessary from your Galaxy instance.\n\n\nGalaxy is an open, web-based platform. Details about the project can be found \nhere\n.\n\n\nThe Galaxy interface is separated into three parts. The \nTools\n list on the left, the \nViewing\n panel in the middle and the analysis and data \nHistory\n on the right. We will be looking at all three parts in this tutorial.\n\n\n\n\nThis activity will familiarise you with the Galaxy interface. It will cover the following operations:\n\n\n\n\nLogging in to the server\n\n\nPutting data onto Galaxy\n\n\nUsing some common tools\n\n\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nRegister and login to a Galaxy server.\n\n\nUpload data to a Galaxy server from:\n\n\nA file on your local computer.\n\n\nA file on a remote datastore with an accessible URL.  \n\n\n\n\n\n\nUse tools in Galaxy by:\n\n\nAccessing the tool via the tool menu.\n\n\nUsing the tool interface to run the particular tool.\n\n\nViewing/accessing the tool output.\n\n\n\n\n\n\n\n\nLogin to Galaxy\n\n\n\n\nOpen a new tab or window on your web browser.\n\n\nUse Firefox or Chrome - please don\u2019t use Internet Explorer or Safari.\n\n\nIn the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.\n\n\n\n\n\n\n\n\n\n\nClick on \nUser\n button on the right and either register or login.\n\n\n\n\n\n\n\n\nIf you haven\nt yet registered, \nRegister:\n\n\n\n\nSelect: \nUser \n Register\n\n\nEnter your email, choose a password, and choose a user name.\n\n\nClick \nSubmit\n\n\n\n\nIf you have already registered, \nLogin:\n\n\n\n\nSelect: \nUser \n Login\n\n\nEnter your username \n password.\n\n\nClick \nSubmit\n\n\n\n\nPut data onto Galaxy\n\n\nThere are two main ways to put your data onto Galaxy; this section will run through both ways. First, we need to make a new history.\n\n\nMake a new history\n\n\nFirst, make a new folder to store the work we are about to perform.\n\n\n\n\nClick on the history menu button \n at the top of the \nHistory\n panel.\n\n\nSelect \nCreate New\n\n\nClick on \nUnnamed history\n to rename. Type in a new name.\n\n\n\n\nDatatypes\n\n\nWhat sort of file is being uploaded?\n\n\nWe need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, FASTA, FASTQ, VCF, GFF, GBK, and tabular.\n\n\n\nUpload a file from your own computer\n\n\nWith this method you can get most of the files on your own computer into Galaxy.\n\n\nFirst, download the following file to your computer:\n\n\n\n\nCopy this URL and paste it into the address bar in your web browser: \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/galaxy101/Contig_stats.txt.gz\n\nThis is a file stored on the cloud. Press \nEnter\n, and the file will download. Note the download location.\n\n\n\n\n\n\n\n\n\n\nNext, upload that file to Galaxy\n\n\n\n\nFrom the Galaxy tool panel, click on \nGet Data \n Upload File\n  \n\n\nClick the \nChoose local file\n button  \n\n\nFind and select the \nContig_stats.txt.gz\n file you downloaded and click \nOpen\n  \n\n\nSet the \nType\n to \ntabular\n  \n\n\nClick the \nStart\n button  \n\n\nOnce the progress bar reaches 100%, click the \nClose\n button  \n\n\nThe file will now upload to your current history.\n\n\n\n\nUpload a file from a URL\n\n\nIf a file exists on a web resource somewhere and you know its URL (Unique Resource Location - a web address) you can directly load it into Galaxy.\n\n\n\n\nFrom the tool panel, click on \nGet Data \n Upload File\n\n\nClick on the \nPaste/Fetch Data\n button\n\n\nCopy and paste the following web address into the URL/Text box:\n\nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq.gz\n\n\nSet the \nType\n to \nfastqsanger\n (CAREFUL: not fastqCsanger)\n\n\nClick \nStart\n\n\nOnce the progress bar has reached 100%, click \nClose\n.\n\n\nNote that Galaxy is smart enough to recognize that this is a compressed file and so it will uncompress it as it loads it.\n\n\n\n\nUpload another file from a URL\n\n\nNow we are going to upload another file from the remote data source.\n\n\n\n\nRepeat the above for: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna\n\n\nNote: this file \nType\n is \nFASTA\n.\n\n\nThe DNA sequence of \nStaphylococcus aureus MRSA252\n will be loaded into your history as a FASTA file.\n\n\nYour \nHistory\n should now look like this:\n\n\n\n\n\n\nThe data\n\n\nA brief description of each of the three files uploaded to Galaxy:  \n\n\nContigs_stats.txt\n  \n\n\n\n\nthis file contains a table of summary data from a \nde novo\n genome assembly (the process of attempting to recover the full genome of an organism from the short read sequences produced by most DNA sequencing machines).\n\n\nThe columns contain a lot of information but the ones we will be using indicate the amount of data (or coverage) that went into making up each piece of the final assembly.\n\n\n\n\nbacterial_std_err_1.fastq.gz\n  \n\n\n\n\nThis file contains sequence reads, in the format produced by Illumina sequencing machines. Read more about the\n\nFASTQ\n format at Wikipedia.\n\n\n\n\nMRSA0252.fna\n\n\n\n\nThis file contains the genome sequence of \nStaphylococcus aureus MRSA252\n. Read more about the \nFASTA\n format at Wikipedia.\n\n\n\n\nGalaxy tools\n\n\nThe purpose of this section is to help you become familiar with the way\ntools are run on Galaxy.\n\n\nWe will see how to:\n\n\n\n\nrename files\n\n\nsummarize assembly statistics\n\n\nconvert file formats, and\n\n\nfind features in a DNA sequence.\n\n\n\n\nRename files\n\n\nTwo of the files in the \nHistory\n have very long and confusing names. File names can be changed by taking the following steps:\n\n\n\n\nClick on the edit icon \n next to the file in the \nHistory\n called: \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq\n\n\nIn the \nName\n text box, give it a new name. Rename it to: \ntypical.fastq\n\n\nClick the \nSave\n button.\n\n\n\n\nRepeat the process with another file:\n\n\n\n\nFind the file called: \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna\n  \n\n\nRename it to \nMRSA252.fna\n\n\n\n\nMuch better. There is other functionality hidden behind that edit icon \n\n\nYou can change a file\u2019s datatype, convert its format and many other things. Feel free to play around with them at a later date.\n\n\nSummarize assembly statistics\n\n\nWe are going to produce a histogram of contig read-coverage depths and calculate the summary statistics from the \nContig_stats.txt\n file.\n\n\nTo do this we need to make some changes to the \nContig_stats.txt\n file:\n\n\n\n\ncut out a couple of columns from the file\n\n\nremove a line from the file\n\n\nproduce a histogram\n\n\n\n\nCut out and keep two columns\n\n\n\n\nClick on the eye icon \n of the \nContig_stats.txt\n file to have a look at it.  \n\n\nNote that there are 18 columns in this file. We want column 1 and column 6.\n\n\nGo to \nTools \n Text Manipulation \n Cut\n and set the following:\n\n\nSet \nCut Columns\n to: \nc1,c6\n\n\nDelimited by\n: \nTab\n\n\nFrom\n: \nContig_stats.txt\n\n\nClick \nExecute\n\n\nExamine the new file by clicking on its eye icon \n. We now have 2 columns instead of the 18 in the original file.\n\n\n\n\nRemove the Header lines of the new file\n\n\n\n\nGo to \nTools \n Text Manipulation \n Remove beginning\n and set the following:\n\n\nRemove First\n: \n1\n\n\nfrom\n: \nCut on data1\n\n\nclick \nExecute\n\n\nNote the the new file is the same as the previous one without the header line.\n\n\n\n\nMake a histogram\n\n\n\n\nGo to \nTools \n Graph/Display Data \n Histogram\n and set the following:\n\n\nDataset\n: \nRemove beginning on Data 4\n\n\nNumerical column for X axis\n Column: 2\n\n\nNumber of breaks\n: \n25\n\n\nPlot title\n: \nHistogram of Contig Coverage\n\n\nLabel for X axis\n: \nCoverage depth\n\n\nClick \nExecute\n\n\nClick on the eye icon \n of the histogram to have a look at it. Note there are a few peaks. Maybe these correspond to single, double and triple copy number of these contigs.\n\n\n\n\nCalculate summary statistics for contig coverage depth\n\n\n\n\nGo to \nTools \n Statistics and Visualisation \n Statistics \n Summary Statisitics\n and set the following:  \n\n\nSummary statistics on\n: \nRemove beginning on Data 4\n\n\nColumn or expression\n: \nc2\n\n\nClick \nExecute\n\n\nYou\u2019ll note that the summary statistics tool failed (red background in the \nHistory\n). There was an error!\n\n\nIf you click on the filename, and then the bug symbol \n, it will tell you what went wrong. (There is a missing python library).\n\n\nAt this point, you would normally contact your Galaxy server administrator.\n\n\n\n\nConvert file formats\n\n\nThis shows how to convert a FASTQ file to a FASTA file. The tool creates a new file with the converted data.\n\n\n\n\nGo to \nTools \n Basic Tools \n Convert Formats \n FASTQ to FASTA\n and set the following:\n\n\nFASTQ file to convert\n: \ntypical.fastq\n\n\nClick \nExecute\n\n\nThe output is a new Fasta file called \nFASTQ to FASTA on data 2\n.\n\n\n\n\nFind features\n\n\nThis example shows how to use a tool called \u201cbarrnap\u201d to search for rRNAs in a DNA sequence.\n\n\nFind all of the ribosomal RNAs in a sequence\n\n\n\n\nGo to \nTools \n NGS Analysis \n NGS: Annotation \n barrnap\n and set the following:\n\n\nFasta file\n: \nMRSA252.fna\n\n\nClick \nExecute\n\n\nThe output is \nbarrnap on data 3\n It is a gff3 format file (general feature format version 3). Each line in the file describes a feature in the DNA sequence.\n\n\n\n\nFilter the annotations to get the 23S RNAs\n\n\n\n\nMake a file with only the 23S rRNA features\n\n\nGo to \nTools \n Basic Tools \n Filter and Sort \n Select\n and set the following:\n\n\nSelect lines from\n: (whatever you called the barrnap gff3 output)\n\n\nthe pattern\n: \n23S\n (this will look for all the lines in the file that contain \u201c23S\u201d)\n\n\nClick \nExecute\n\n\nNow you have a gff3 file with just the 23S annotations!\n\n\n\n\nWhat next?\n\n\n\n\n\n\nRemember how we started a new \nHistory\n at the beginning? If you want to see any of your old histories, click on the History menu button \n at the top of the \nHistory\n panel and then select \u201cSaved Histories.\u201d This will give you a list of all the histories you have worked on in this Galaxy server.\n\n\n\n\n\n\nNext: \nLearn about JBrowse.", 
-            "title": "Use Galaxy"
+            "location": "/modules/galaxy/", 
+            "text": "Using Galaxy\n\n\nBackground\n\n\nGalaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety of bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.\n\n\nBioinformatics tools can be added from the Galaxy \u2018tool shed\u2019 or removed as necessary from your Galaxy instance.\n\n\nGalaxy is an open, web-based platform. Details about the project can be found \nhere\n.\n\n\nThe Galaxy interface is separated into three parts. The \nTools\n list on the left, the \nViewing\n panel in the middle and the analysis and data \nHistory\n on the right. We will be looking at all three parts in this tutorial.\n\n\n\n\nThis activity will familiarise you with the Galaxy interface. It will cover the following operations:\n\n\n\n\nLogging in to the server\n\n\nPutting data onto Galaxy\n\n\nUsing some common tools\n\n\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nRegister and login to a Galaxy server.\n\n\nUpload data to a Galaxy server from:\n\n\nA file on your local computer.\n\n\nA file on a remote datastore with an accessible URL.  \n\n\n\n\n\n\nUse tools in Galaxy by:\n\n\nAccessing the tool via the tool menu.\n\n\nUsing the tool interface to run the particular tool.\n\n\nViewing/accessing the tool output.\n\n\n\n\n\n\n\n\nLogin to Galaxy\n\n\n\n\nOpen a new tab or window on your web browser.\n\n\nUse Firefox or Chrome - please don\u2019t use Internet Explorer or Safari.\n\n\nIn the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.\n\n\n\n\n\n\n\n\n\n\nClick on \nUser\n button on the right and either register or login.\n\n\n\n\n\n\n\n\nIf you haven\nt yet registered, \nRegister:\n\n\n\n\nSelect: \nUser \n Register\n\n\nEnter your email, choose a password, and choose a user name.\n\n\nClick \nSubmit\n\n\n\n\nIf you have already registered, \nLogin:\n\n\n\n\nSelect: \nUser \n Login\n\n\nEnter your username \n password.\n\n\nClick \nSubmit\n\n\n\n\nPut data onto Galaxy\n\n\nThere are two main ways to put your data onto Galaxy; this section will run through both ways. First, we need to make a new history.\n\n\nMake a new history\n\n\nFirst, make a new folder to store the work we are about to perform.\n\n\n\n\nClick on the history menu button \n at the top of the \nHistory\n panel.\n\n\nSelect \nCreate New\n\n\nClick on \nUnnamed history\n to rename. Type in a new name.\n\n\n\n\nDatatypes\n\n\nWhat sort of file is being uploaded?\n\n\nWe need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, FASTA, FASTQ, VCF, GFF, GBK, and tabular.\n\n\n\nUpload a file from your own computer\n\n\nWith this method you can get most of the files on your own computer into Galaxy.\n\n\nFirst, download the following file to your computer:\n\n\n\n\nCopy this URL and paste it into the address bar in your web browser: \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/galaxy101/Contig_stats.txt.gz\n\nThis is a file stored on the cloud. Press \nEnter\n, and the file will download. Note the download location.\n\n\n\n\n\n\n\n\n\n\nNext, upload that file to Galaxy\n\n\n\n\nFrom the Galaxy tool panel, click on \nGet Data \n Upload File\n  \n\n\nClick the \nChoose local file\n button  \n\n\nFind and select the \nContig_stats.txt.gz\n file you downloaded and click \nOpen\n  \n\n\nSet the \nType\n to \ntabular\n  \n\n\nClick the \nStart\n button  \n\n\nOnce the progress bar reaches 100%, click the \nClose\n button  \n\n\nThe file will now upload to your current history.\n\n\n\n\nUpload a file from a URL\n\n\nIf a file exists on a web resource somewhere and you know its URL (Unique Resource Location - a web address) you can directly load it into Galaxy.\n\n\n\n\nFrom the tool panel, click on \nGet Data \n Upload File\n\n\nClick on the \nPaste/Fetch Data\n button\n\n\nCopy and paste the following web address into the URL/Text box:\n\nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq.gz\n\n\nSet the \nType\n to \nfastqsanger\n (CAREFUL: not fastqCsanger)\n\n\nClick \nStart\n\n\nOnce the progress bar has reached 100%, click \nClose\n.\n\n\nNote that Galaxy is smart enough to recognize that this is a compressed file and so it will uncompress it as it loads it.\n\n\n\n\nUpload another file from a URL\n\n\nNow we are going to upload another file from the remote data source.\n\n\n\n\nRepeat the above for: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna\n\n\nNote: this file \nType\n is \nFASTA\n.\n\n\nThe DNA sequence of \nStaphylococcus aureus MRSA252\n will be loaded into your history as a FASTA file.\n\n\nYour \nHistory\n should now look like this:\n\n\n\n\n\n\nThe data\n\n\nA brief description of each of the three files uploaded to Galaxy:  \n\n\nContigs_stats.txt\n  \n\n\n\n\nthis file contains a table of summary data from a \nde novo\n genome assembly (the process of attempting to recover the full genome of an organism from the short read sequences produced by most DNA sequencing machines).\n\n\nThe columns contain a lot of information but the ones we will be using indicate the amount of data (or coverage) that went into making up each piece of the final assembly.\n\n\n\n\nbacterial_std_err_1.fastq.gz\n  \n\n\n\n\nThis file contains sequence reads, in the format produced by Illumina sequencing machines. Read more about the\n\nFASTQ\n format at Wikipedia.\n\n\n\n\nMRSA0252.fna\n\n\n\n\nThis file contains the genome sequence of \nStaphylococcus aureus MRSA252\n. Read more about the \nFASTA\n format at Wikipedia.\n\n\n\n\nGalaxy tools\n\n\nThe purpose of this section is to help you become familiar with the way\ntools are run on Galaxy.\n\n\nWe will see how to:\n\n\n\n\nrename files\n\n\nsummarize assembly statistics\n\n\nconvert file formats, and\n\n\nfind features in a DNA sequence.\n\n\n\n\nRename files\n\n\nTwo of the files in the \nHistory\n have very long and confusing names. File names can be changed by taking the following steps:\n\n\n\n\nClick on the edit icon \n next to the file in the \nHistory\n called: \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq\n\n\nIn the \nName\n text box, give it a new name. Rename it to: \ntypical.fastq\n\n\nClick the \nSave\n button.\n\n\n\n\nRepeat the process with another file:\n\n\n\n\nFind the file called: \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna\n  \n\n\nRename it to \nMRSA252.fna\n\n\n\n\nMuch better. There is other functionality hidden behind that edit icon \n\n\nYou can change a file\u2019s datatype, convert its format and many other things. Feel free to play around with them at a later date.\n\n\nSummarize assembly statistics\n\n\nWe are going to produce a histogram of contig read-coverage depths and calculate the summary statistics from the \nContig_stats.txt\n file.\n\n\nTo do this we need to make some changes to the \nContig_stats.txt\n file:\n\n\n\n\ncut out a couple of columns from the file\n\n\nremove a line from the file\n\n\nproduce a histogram\n\n\n\n\nCut out and keep two columns\n\n\n\n\nClick on the eye icon \n of the \nContig_stats.txt\n file to have a look at it.  \n\n\nNote that there are 18 columns in this file. We want column 1 and column 6.\n\n\nGo to \nTools \n Text Manipulation \n Cut\n and set the following:\n\n\nSet \nCut Columns\n to: \nc1,c6\n\n\nDelimited by\n: \nTab\n\n\nFrom\n: \nContig_stats.txt\n\n\nClick \nExecute\n\n\nExamine the new file by clicking on its eye icon \n. We now have 2 columns instead of the 18 in the original file.\n\n\n\n\nRemove the Header lines of the new file\n\n\n\n\nGo to \nTools \n Text Manipulation \n Remove beginning\n and set the following:\n\n\nRemove First\n: \n1\n\n\nfrom\n: \nCut on data1\n\n\nclick \nExecute\n\n\nNote the the new file is the same as the previous one without the header line.\n\n\n\n\nMake a histogram\n\n\n\n\nGo to \nTools \n Graph/Display Data \n Histogram\n and set the following:\n\n\nDataset\n: \nRemove beginning on Data 4\n\n\nNumerical column for X axis\n Column: 2\n\n\nNumber of breaks\n: \n25\n\n\nPlot title\n: \nHistogram of Contig Coverage\n\n\nLabel for X axis\n: \nCoverage depth\n\n\nClick \nExecute\n\n\nClick on the eye icon \n of the histogram to have a look at it. Note there are a few peaks. Maybe these correspond to single, double and triple copy number of these contigs.\n\n\n\n\nCalculate summary statistics for contig coverage depth\n\n\n\n\nGo to \nTools \n Statistics and Visualisation \n Statistics \n Summary Statisitics\n and set the following:  \n\n\nSummary statistics on\n: \nRemove beginning on Data 4\n\n\nColumn or expression\n: \nc2\n\n\nClick \nExecute\n\n\nYou\u2019ll note that the summary statistics tool failed (red background in the \nHistory\n). There was an error!\n\n\nIf you click on the filename, and then the bug symbol \n, it will tell you what went wrong. (There is a missing python library).\n\n\nAt this point, you would normally contact your Galaxy server administrator.\n\n\n\n\nConvert file formats\n\n\nThis shows how to convert a FASTQ file to a FASTA file. The tool creates a new file with the converted data.\n\n\n\n\nGo to \nTools \n Basic Tools \n Convert Formats \n FASTQ to FASTA\n and set the following:\n\n\nFASTQ file to convert\n: \ntypical.fastq\n\n\nClick \nExecute\n\n\nThe output is a new Fasta file called \nFASTQ to FASTA on data 2\n.\n\n\n\n\nFind features\n\n\nThis example shows how to use a tool called \u201cbarrnap\u201d to search for rRNAs in a DNA sequence.\n\n\nFind all of the ribosomal RNAs in a sequence\n\n\n\n\nGo to \nTools \n NGS Analysis \n NGS: Annotation \n barrnap\n and set the following:\n\n\nFasta file\n: \nMRSA252.fna\n\n\nClick \nExecute\n\n\nThe output is \nbarrnap on data 3\n It is a gff3 format file (general feature format version 3). Each line in the file describes a feature in the DNA sequence.\n\n\n\n\nFilter the annotations to get the 23S RNAs\n\n\n\n\nMake a file with only the 23S rRNA features\n\n\nGo to \nTools \n Basic Tools \n Filter and Sort \n Select\n and set the following:\n\n\nSelect lines from\n: (whatever you called the barrnap gff3 output)\n\n\nthe pattern\n: \n23S\n (this will look for all the lines in the file that contain \u201c23S\u201d)\n\n\nClick \nExecute\n\n\nNow you have a gff3 file with just the 23S annotations!\n\n\n\n\nWhat next?\n\n\n\n\n\n\nRemember how we started a new \nHistory\n at the beginning? If you want to see any of your old histories, click on the History menu button \n at the top of the \nHistory\n panel and then select \u201cSaved Histories.\u201d This will give you a list of all the histories you have worked on in this Galaxy server.\n\n\n\n\n\n\nNext: \nLearn about quality control", 
+            "title": "Using Galaxy"
         }, 
         {
-            "location": "/workshop/genomics/1a/#introduction-to-galaxy", 
+            "location": "/modules/galaxy/#using-galaxy", 
             "text": "", 
-            "title": "Introduction to Galaxy"
+            "title": "Using Galaxy"
         }, 
         {
-            "location": "/workshop/genomics/1a/#background", 
+            "location": "/modules/galaxy/#background", 
             "text": "Galaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety of bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.  Bioinformatics tools can be added from the Galaxy \u2018tool shed\u2019 or removed as necessary from your Galaxy instance.  Galaxy is an open, web-based platform. Details about the project can be found  here .  The Galaxy interface is separated into three parts. The  Tools  list on the left, the  Viewing  panel in the middle and the analysis and data  History  on the right. We will be looking at all three parts in this tutorial.   This activity will familiarise you with the Galaxy interface. It will cover the following operations:   Logging in to the server  Putting data onto Galaxy  Using some common tools", 
             "title": "Background"
         }, 
         {
-            "location": "/workshop/genomics/1a/#learning-objectives", 
+            "location": "/modules/galaxy/#learning-objectives", 
             "text": "At the end of this tutorial you should be able to:   Register and login to a Galaxy server.  Upload data to a Galaxy server from:  A file on your local computer.  A file on a remote datastore with an accessible URL.      Use tools in Galaxy by:  Accessing the tool via the tool menu.  Using the tool interface to run the particular tool.  Viewing/accessing the tool output.", 
             "title": "Learning Objectives"
         }, 
         {
-            "location": "/workshop/genomics/1a/#login-to-galaxy", 
+            "location": "/modules/galaxy/#login-to-galaxy", 
             "text": "Open a new tab or window on your web browser.  Use Firefox or Chrome - please don\u2019t use Internet Explorer or Safari.  In the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.      Click on  User  button on the right and either register or login.     If you haven t yet registered,  Register:   Select:  User   Register  Enter your email, choose a password, and choose a user name.  Click  Submit   If you have already registered,  Login:   Select:  User   Login  Enter your username   password.  Click  Submit", 
             "title": "Login to Galaxy"
         }, 
         {
-            "location": "/workshop/genomics/1a/#put-data-onto-galaxy", 
+            "location": "/modules/galaxy/#put-data-onto-galaxy", 
             "text": "There are two main ways to put your data onto Galaxy; this section will run through both ways. First, we need to make a new history.", 
             "title": "Put data onto Galaxy"
         }, 
         {
-            "location": "/workshop/genomics/1a/#make-a-new-history", 
+            "location": "/modules/galaxy/#make-a-new-history", 
             "text": "First, make a new folder to store the work we are about to perform.   Click on the history menu button   at the top of the  History  panel.  Select  Create New  Click on  Unnamed history  to rename. Type in a new name.", 
             "title": "Make a new history"
         }, 
         {
-            "location": "/workshop/genomics/1a/#datatypes", 
+            "location": "/modules/galaxy/#datatypes", 
             "text": "What sort of file is being uploaded?  We need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, FASTA, FASTQ, VCF, GFF, GBK, and tabular.", 
             "title": "Datatypes"
         }, 
         {
-            "location": "/workshop/genomics/1a/#upload-a-file-from-your-own-computer", 
+            "location": "/modules/galaxy/#upload-a-file-from-your-own-computer", 
             "text": "With this method you can get most of the files on your own computer into Galaxy.", 
             "title": "Upload a file from your own computer"
         }, 
         {
-            "location": "/workshop/genomics/1a/#first-download-the-following-file-to-your-computer", 
+            "location": "/modules/galaxy/#first-download-the-following-file-to-your-computer", 
             "text": "Copy this URL and paste it into the address bar in your web browser:  https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/galaxy101/Contig_stats.txt.gz \nThis is a file stored on the cloud. Press  Enter , and the file will download. Note the download location.", 
             "title": "First, download the following file to your computer:"
         }, 
         {
-            "location": "/workshop/genomics/1a/#next-upload-that-file-to-galaxy", 
+            "location": "/modules/galaxy/#next-upload-that-file-to-galaxy", 
             "text": "From the Galaxy tool panel, click on  Get Data   Upload File     Click the  Choose local file  button    Find and select the  Contig_stats.txt.gz  file you downloaded and click  Open     Set the  Type  to  tabular     Click the  Start  button    Once the progress bar reaches 100%, click the  Close  button    The file will now upload to your current history.", 
             "title": "Next, upload that file to Galaxy"
         }, 
         {
-            "location": "/workshop/genomics/1a/#upload-a-file-from-a-url", 
+            "location": "/modules/galaxy/#upload-a-file-from-a-url", 
             "text": "If a file exists on a web resource somewhere and you know its URL (Unique Resource Location - a web address) you can directly load it into Galaxy.   From the tool panel, click on  Get Data   Upload File  Click on the  Paste/Fetch Data  button  Copy and paste the following web address into the URL/Text box: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq.gz  Set the  Type  to  fastqsanger  (CAREFUL: not fastqCsanger)  Click  Start  Once the progress bar has reached 100%, click  Close .  Note that Galaxy is smart enough to recognize that this is a compressed file and so it will uncompress it as it loads it.", 
             "title": "Upload a file from a URL"
         }, 
         {
-            "location": "/workshop/genomics/1a/#upload-another-file-from-a-url", 
+            "location": "/modules/galaxy/#upload-another-file-from-a-url", 
             "text": "Now we are going to upload another file from the remote data source.   Repeat the above for: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna  Note: this file  Type  is  FASTA .  The DNA sequence of  Staphylococcus aureus MRSA252  will be loaded into your history as a FASTA file.  Your  History  should now look like this:", 
             "title": "Upload another file from a URL"
         }, 
         {
-            "location": "/workshop/genomics/1a/#the-data", 
+            "location": "/modules/galaxy/#the-data", 
             "text": "A brief description of each of the three files uploaded to Galaxy:    Contigs_stats.txt      this file contains a table of summary data from a  de novo  genome assembly (the process of attempting to recover the full genome of an organism from the short read sequences produced by most DNA sequencing machines).  The columns contain a lot of information but the ones we will be using indicate the amount of data (or coverage) that went into making up each piece of the final assembly.   bacterial_std_err_1.fastq.gz      This file contains sequence reads, in the format produced by Illumina sequencing machines. Read more about the FASTQ  format at Wikipedia.   MRSA0252.fna   This file contains the genome sequence of  Staphylococcus aureus MRSA252 . Read more about the  FASTA  format at Wikipedia.", 
             "title": "The data"
         }, 
         {
-            "location": "/workshop/genomics/1a/#galaxy-tools", 
+            "location": "/modules/galaxy/#galaxy-tools", 
             "text": "The purpose of this section is to help you become familiar with the way\ntools are run on Galaxy.  We will see how to:   rename files  summarize assembly statistics  convert file formats, and  find features in a DNA sequence.", 
             "title": "Galaxy tools"
         }, 
         {
-            "location": "/workshop/genomics/1a/#rename-files", 
+            "location": "/modules/galaxy/#rename-files", 
             "text": "Two of the files in the  History  have very long and confusing names. File names can be changed by taking the following steps:   Click on the edit icon   next to the file in the  History  called:  https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq  In the  Name  text box, give it a new name. Rename it to:  typical.fastq  Click the  Save  button.   Repeat the process with another file:   Find the file called:  https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna     Rename it to  MRSA252.fna   Much better. There is other functionality hidden behind that edit icon   You can change a file\u2019s datatype, convert its format and many other things. Feel free to play around with them at a later date.", 
             "title": "Rename files"
         }, 
         {
-            "location": "/workshop/genomics/1a/#summarize-assembly-statistics", 
+            "location": "/modules/galaxy/#summarize-assembly-statistics", 
             "text": "We are going to produce a histogram of contig read-coverage depths and calculate the summary statistics from the  Contig_stats.txt  file.  To do this we need to make some changes to the  Contig_stats.txt  file:   cut out a couple of columns from the file  remove a line from the file  produce a histogram", 
             "title": "Summarize assembly statistics"
         }, 
         {
-            "location": "/workshop/genomics/1a/#cut-out-and-keep-two-columns", 
+            "location": "/modules/galaxy/#cut-out-and-keep-two-columns", 
             "text": "Click on the eye icon   of the  Contig_stats.txt  file to have a look at it.    Note that there are 18 columns in this file. We want column 1 and column 6.  Go to  Tools   Text Manipulation   Cut  and set the following:  Set  Cut Columns  to:  c1,c6  Delimited by :  Tab  From :  Contig_stats.txt  Click  Execute  Examine the new file by clicking on its eye icon  . We now have 2 columns instead of the 18 in the original file.", 
             "title": "Cut out and keep two columns"
         }, 
         {
-            "location": "/workshop/genomics/1a/#remove-the-header-lines-of-the-new-file", 
+            "location": "/modules/galaxy/#remove-the-header-lines-of-the-new-file", 
             "text": "Go to  Tools   Text Manipulation   Remove beginning  and set the following:  Remove First :  1  from :  Cut on data1  click  Execute  Note the the new file is the same as the previous one without the header line.", 
             "title": "Remove the Header lines of the new file"
         }, 
         {
-            "location": "/workshop/genomics/1a/#make-a-histogram", 
+            "location": "/modules/galaxy/#make-a-histogram", 
             "text": "Go to  Tools   Graph/Display Data   Histogram  and set the following:  Dataset :  Remove beginning on Data 4  Numerical column for X axis  Column: 2  Number of breaks :  25  Plot title :  Histogram of Contig Coverage  Label for X axis :  Coverage depth  Click  Execute  Click on the eye icon   of the histogram to have a look at it. Note there are a few peaks. Maybe these correspond to single, double and triple copy number of these contigs.", 
             "title": "Make a histogram"
         }, 
         {
-            "location": "/workshop/genomics/1a/#calculate-summary-statistics-for-contig-coverage-depth", 
+            "location": "/modules/galaxy/#calculate-summary-statistics-for-contig-coverage-depth", 
             "text": "Go to  Tools   Statistics and Visualisation   Statistics   Summary Statisitics  and set the following:    Summary statistics on :  Remove beginning on Data 4  Column or expression :  c2  Click  Execute  You\u2019ll note that the summary statistics tool failed (red background in the  History ). There was an error!  If you click on the filename, and then the bug symbol  , it will tell you what went wrong. (There is a missing python library).  At this point, you would normally contact your Galaxy server administrator.", 
             "title": "Calculate summary statistics for contig coverage depth"
         }, 
         {
-            "location": "/workshop/genomics/1a/#convert-file-formats", 
+            "location": "/modules/galaxy/#convert-file-formats", 
             "text": "This shows how to convert a FASTQ file to a FASTA file. The tool creates a new file with the converted data.   Go to  Tools   Basic Tools   Convert Formats   FASTQ to FASTA  and set the following:  FASTQ file to convert :  typical.fastq  Click  Execute  The output is a new Fasta file called  FASTQ to FASTA on data 2 .", 
             "title": "Convert file formats"
         }, 
         {
-            "location": "/workshop/genomics/1a/#find-features", 
+            "location": "/modules/galaxy/#find-features", 
             "text": "This example shows how to use a tool called \u201cbarrnap\u201d to search for rRNAs in a DNA sequence.", 
             "title": "Find features"
         }, 
         {
-            "location": "/workshop/genomics/1a/#find-all-of-the-ribosomal-rnas-in-a-sequence", 
+            "location": "/modules/galaxy/#find-all-of-the-ribosomal-rnas-in-a-sequence", 
             "text": "Go to  Tools   NGS Analysis   NGS: Annotation   barrnap  and set the following:  Fasta file :  MRSA252.fna  Click  Execute  The output is  barrnap on data 3  It is a gff3 format file (general feature format version 3). Each line in the file describes a feature in the DNA sequence.", 
             "title": "Find all of the ribosomal RNAs in a sequence"
         }, 
         {
-            "location": "/workshop/genomics/1a/#filter-the-annotations-to-get-the-23s-rnas", 
+            "location": "/modules/galaxy/#filter-the-annotations-to-get-the-23s-rnas", 
             "text": "Make a file with only the 23S rRNA features  Go to  Tools   Basic Tools   Filter and Sort   Select  and set the following:  Select lines from : (whatever you called the barrnap gff3 output)  the pattern :  23S  (this will look for all the lines in the file that contain \u201c23S\u201d)  Click  Execute  Now you have a gff3 file with just the 23S annotations!", 
             "title": "Filter the annotations to get the 23S RNAs"
         }, 
         {
-            "location": "/workshop/genomics/1a/#what-next", 
-            "text": "Remember how we started a new  History  at the beginning? If you want to see any of your old histories, click on the History menu button   at the top of the  History  panel and then select \u201cSaved Histories.\u201d This will give you a list of all the histories you have worked on in this Galaxy server.    Next:  Learn about JBrowse.", 
+            "location": "/modules/galaxy/#what-next", 
+            "text": "Remember how we started a new  History  at the beginning? If you want to see any of your old histories, click on the History menu button   at the top of the  History  panel and then select \u201cSaved Histories.\u201d This will give you a list of all the histories you have worked on in this Galaxy server.    Next:  Learn about quality control", 
             "title": "What next?"
         }, 
         {
-            "location": "/workshop/genomics/1c/", 
-            "text": "JBrowse", 
-            "title": "View with JBroswe"
+            "location": "/modules/fastqc/", 
+            "text": "FastQC in Galaxy\n\n\n\n\n\nAfter sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end Illumina sequence reads. The FastQC website is \nhere.\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nrun FastQC on input sequence reads, and\n\n\nexamine the FastQC output.\n\n\n\n\nInput files\n\n\ne.g. \nmutant_R1.fastq\n and \nmutant_R2.fastq\n: a paired-end read set  \n\n\nWe will evaluate the R1 input reads using the FastQC tool.\n\n\nRun FastQC\n\n\n\n\nGo to \nTools \n NGS:Analysis \n NGS: QC and Manipulation \n FastQC\n\n\nfor \nShort read data from your current history\n: \nmutant_R1.fastq\n\n\nClick \nExecute\n\n\n\n\nExamine output files\n\n\nOnce finished, examine the output called \nFastQC on data1:webpage\n (Hint: click the eye icon). It has a summary at the top of the page and a number of graphs.\n\n\nLook at:\n\n\n\n\nBasic Statistics: Sequence length\n: will be important in setting maximum k-mer size value for assembly\n\n\nBasic Statistics: Encoding\n: Quality encoding type: important for quality trimming software\n\n\nBasic Statistics: % GC\n: high GC organisms don\u2019t tend to assemble well and may have an uneven read coverage distribution.\n\n\nBasic Statistics: Total sequences\n: Total number of reads: gives you an idea of coverage.\n\n\nPer base sequence quality\n: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.\n\n\nPer base N content\n: Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.\n\n\nKmer content\n: Presence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc.\n\n\n\n\nWe have warnings for two outputs (per base sequence content; Kmer content). This would warrant more investigation.\n\n\nGeneral questions you might ask about your input reads include:\n\n\n\n\nHow good is my read set?\n\n\nDo I need to ask for a new sequencing run?  \n\n\nIs it suitable for the analysis I need to do?\n\n\n\n\nFor a fuller discussion of FastQC outputs and warnings, see the \nFastQC website link\n, including the section on each of the output \nreports\n, and examples of \ngood\n and \nbad\n Illumina data.\n\n\nWhat Next?\n\n\n\n\nTrim reads with \nTrimmomatic.", 
+            "title": "Qaulity control"
         }, 
         {
-            "location": "/workshop/genomics/1c/#jbrowse", 
-            "text": "", 
-            "title": "JBrowse"
-        }, 
-        {
-            "location": "/workshop/genomics/2a/", 
-            "text": "Assembly using Spades\n\n\nBackground\n\n\nSpades is one of a number of \nde novo\n assemblers that use short read sets as input (e.g. Illumina Reads), and the assembly method is based on de Bruijn graphs. For information about Spades see this \nlink\n.\n\n\n\n\n\nIn this activity, we will perform a \nde novo\n assembly of a short read set using the Spades assembler. The output from Spades that we are interested in is a multifasta file that contains the draft genome sequence.\n\n\nThe read set for today is from an imaginary \nStaphylococcus aureus\n bacterium with a miniature genome.\n\n\nWe have a closed, annotated genome sequence for a closely related \nwildtype\n strain.\n\n\nThe whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.\n\n\n\n\nThe reads are paired-end\n\n\nEach read is 150 bases (before trimming)\n\n\nThe number of bases sequenced is equivalent to 19x the genome sequence of the wildtype strain. (Read coverage 19x - rather low!).\n\n\n\n\nLearning objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nimport data into Galaxy  \n\n\nview the files\n\n\nevaluate the read quality\n\n\nassemble the reads using Spades, and\n\n\nexamine the output assembly.\n\n\n\n\nImport data into Galaxy\n\n\n\n\nGo to the address of your galaxy server.\n\n\n\n\n\n\n\n\n\nClick on the \nAnalyze Data\n menu at the top of the page.    \n\n\nClick on the \nHistory options\n button the \n on the top right of the history pane.\n\n\nClick \nImport from File\n (at the bottom of the list).  \n\n\nA new page will appear with a text box for the URL of the history to import.  \n\n\nCopy the following URL into the text box: \nhttp://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz\n  \n\n\nClick \nSubmit\n.  \n\n\nGalaxy will download the data files from the internet and will be available as an additional history (takes about one minute).  \n\n\nTo view this new history, click the \nView all histories\n button\n (top right of the history pane).  \n\n\nIf the history has finished downloading it will appear as \nimported from archive: Colombia_workshop_start\n\n\nClick on the \n button above the \nimported from archive:Colombia_workshop_start\n then the \n button.\n\n\nYou should now have four files in the history pane as follows:\n\n\n\n\n\n\nView files\n\n\nAll the files are text files.\n\n\n\n\nmutant_R1.fastq\n and \nmutant_R2.fastq\n: a paired-end read set  \n\n\nwildtype.fna\n: a file that contains the genome sequence of the wildtype strain in fasta format (a header line, then the nucleotide sequence of the genome)\n\n\nwildtype.gff\n: a file that contains the genome sequence of the wildtype strain in general feature format. (a list of features - one feature per line, then the nucleotide sequence of the genome)\n\n\n\n\nLook at the contents of these files.\n\n\n\n\nClick on the View Data button (the \n) next to each of the files in turn.\n\n\nThe gff file should look like this:\n\n\n\n\n\n\n\n\n\nEvaluate the input reads\n\n\nQuestions you might ask about your input reads include:\n\n\n\n\nHow good is my read set?\n\n\nDo I need to ask for a new sequencing run?  \n\n\nIs it suitable for the analysis I need to do?\n\n\n\n\nWe will evaluate the input reads using the FastQC tool.\n\n\n\n\nThis runs a standard series of tests on your read set and returns a relatively easy-to-interpret report.\n\n\nWe will use the FastQC tool in Galaxy to evaluate the quality of one of our FASTQ files.\n\n\nGo to \nTools \n NGS:Analysis \n NGS: QC and Manipulation \n FastQC\n\n\nSelect \nmutant_R1.fastq\n\n\nExecute\n\n\nOnce finished, examine the output called \nFastQC on data1:webpage\n (Hint:\n). It has a summary at the top of\nthe page and a number of graphs.\n\n\n\n\nSome of the important outputs of FastQC for our purposes are:\n\n\n\n\nBasic Statistics: Sequence length\n: will be important in setting maximum k-mer size value for assembly\n\n\nBasic Statistics: Encoding\n: Quality encoding type: important for quality trimming software\n\n\nBasic Statistics: % GC\n: high GC organisms don\u2019t tend to assemble well and may have an uneven read coverage distribution.\n\n\nBasic Statistics: Total sequences\n: Total number of reads: gives you an idea of coverage.\n\n\nPer base sequence quality\n: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.\n\n\nPer base N content\n: Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.\n\n\nKmer content\n: Presence of highly recurring k-mers: may point to contamination of reads with barcodes or adapter sequences.\n\n\n\n\nAlthough we have warnings for two outputs (per base sequence content; Kmer content), we can ignore these for now. For a fuller discussion of FastQC outputs and warnings, see the \nFastQC website link\n, including the section on each of the output \nreports\n, and examples of \ngood\n and \nbad\n Illumina data. We won\u2019t be doing anything to these data to clean it up as there isn\u2019t much need. Therefore we will get on with the assembly!\n\n\nAssemble reads with Spades\n\n\n\n\nWe will perform a \nde novo\n assembly of the mutant FASTQ reads into long contiguous sequences (in FASTA format.)\n\n\n\n\n\n\n\n\n\nGo to \nTools \n NGS Analysis \n NGS: Assembly \n spades\n\n\n\n\nSet the following parameters:\n\n\n\n\nRun only Assembly\n: \nYes\n  \n\n\nKmers to use separated by commas:\n \n33,55,91\n  [no spaces]  \n\n\nCoverage cutoff:\n \nauto\n  \n\n\nFiles \n Forward reads:\n \nmutant_R1.fastq\n  \n\n\nFiles \n Reverse reads:\n \nmutant_R2.fastq\n  \n\n\n\n\n\n\n\n\nYour tool interface should look like this:\n\n\n\n\n\n\n\n\n\n\nClick \nExecute\n\n\n\n\nExamine the output\n\n\n\n\nGalaxy is now running Spades on the reads for you.\n\n\n\n\nWhen it is finished, you will have five new files in your history.  \n\n\n\n\ntwo FASTA files of the resulting contigs and scaffolds\n\n\ntwo files for statistics about these\n\n\nthe Spades logfile\n\n\n\n\n\n\n\n\nClick on the View Data button \n on each of the files.\n\n\n\n\nNote that the short reads have been assembled into much longer contigs.\n\n\n(However, in this case, the contigs have not been assembled into larger scaffolds.)\n\n\nThe stats files will give you the length of each of the contigs.\n\n\n\n\nWhat next?\n\n\n\n\nAnnotate the genome using Prokka.", 
-            "title": "Assemble with Spades"
-        }, 
-        {
-            "location": "/workshop/genomics/2a/#assembly-using-spades", 
-            "text": "", 
-            "title": "Assembly using Spades"
-        }, 
-        {
-            "location": "/workshop/genomics/2a/#background", 
-            "text": "Spades is one of a number of  de novo  assemblers that use short read sets as input (e.g. Illumina Reads), and the assembly method is based on de Bruijn graphs. For information about Spades see this  link .   In this activity, we will perform a  de novo  assembly of a short read set using the Spades assembler. The output from Spades that we are interested in is a multifasta file that contains the draft genome sequence.  The read set for today is from an imaginary  Staphylococcus aureus  bacterium with a miniature genome.  We have a closed, annotated genome sequence for a closely related  wildtype  strain.  The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.   The reads are paired-end  Each read is 150 bases (before trimming)  The number of bases sequenced is equivalent to 19x the genome sequence of the wildtype strain. (Read coverage 19x - rather low!).", 
-            "title": "Background"
-        }, 
-        {
-            "location": "/workshop/genomics/2a/#learning-objectives", 
-            "text": "At the end of this tutorial you should be able to:   import data into Galaxy    view the files  evaluate the read quality  assemble the reads using Spades, and  examine the output assembly.", 
-            "title": "Learning objectives"
-        }, 
-        {
-            "location": "/workshop/genomics/2a/#import-data-into-galaxy", 
-            "text": "Go to the address of your galaxy server.     Click on the  Analyze Data  menu at the top of the page.      Click on the  History options  button the   on the top right of the history pane.  Click  Import from File  (at the bottom of the list).    A new page will appear with a text box for the URL of the history to import.    Copy the following URL into the text box:  http://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz     Click  Submit .    Galaxy will download the data files from the internet and will be available as an additional history (takes about one minute).    To view this new history, click the  View all histories  button  (top right of the history pane).    If the history has finished downloading it will appear as  imported from archive: Colombia_workshop_start  Click on the   button above the  imported from archive:Colombia_workshop_start  then the   button.  You should now have four files in the history pane as follows:", 
-            "title": "Import data into Galaxy"
-        }, 
-        {
-            "location": "/workshop/genomics/2a/#view-files", 
-            "text": "All the files are text files.   mutant_R1.fastq  and  mutant_R2.fastq : a paired-end read set    wildtype.fna : a file that contains the genome sequence of the wildtype strain in fasta format (a header line, then the nucleotide sequence of the genome)  wildtype.gff : a file that contains the genome sequence of the wildtype strain in general feature format. (a list of features - one feature per line, then the nucleotide sequence of the genome)   Look at the contents of these files.   Click on the View Data button (the  ) next to each of the files in turn.  The gff file should look like this:", 
-            "title": "View files"
-        }, 
-        {
-            "location": "/workshop/genomics/2a/#evaluate-the-input-reads", 
-            "text": "Questions you might ask about your input reads include:   How good is my read set?  Do I need to ask for a new sequencing run?    Is it suitable for the analysis I need to do?   We will evaluate the input reads using the FastQC tool.   This runs a standard series of tests on your read set and returns a relatively easy-to-interpret report.  We will use the FastQC tool in Galaxy to evaluate the quality of one of our FASTQ files.  Go to  Tools   NGS:Analysis   NGS: QC and Manipulation   FastQC  Select  mutant_R1.fastq  Execute  Once finished, examine the output called  FastQC on data1:webpage  (Hint: ). It has a summary at the top of\nthe page and a number of graphs.   Some of the important outputs of FastQC for our purposes are:   Basic Statistics: Sequence length : will be important in setting maximum k-mer size value for assembly  Basic Statistics: Encoding : Quality encoding type: important for quality trimming software  Basic Statistics: % GC : high GC organisms don\u2019t tend to assemble well and may have an uneven read coverage distribution.  Basic Statistics: Total sequences : Total number of reads: gives you an idea of coverage.  Per base sequence quality : Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.  Per base N content : Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.  Kmer content : Presence of highly recurring k-mers: may point to contamination of reads with barcodes or adapter sequences.   Although we have warnings for two outputs (per base sequence content; Kmer content), we can ignore these for now. For a fuller discussion of FastQC outputs and warnings, see the  FastQC website link , including the section on each of the output  reports , and examples of  good  and  bad  Illumina data. We won\u2019t be doing anything to these data to clean it up as there isn\u2019t much need. Therefore we will get on with the assembly!", 
-            "title": "Evaluate the input reads"
-        }, 
-        {
-            "location": "/workshop/genomics/2a/#assemble-reads-with-spades", 
-            "text": "We will perform a  de novo  assembly of the mutant FASTQ reads into long contiguous sequences (in FASTA format.)     Go to  Tools   NGS Analysis   NGS: Assembly   spades   Set the following parameters:   Run only Assembly :  Yes     Kmers to use separated by commas:   33,55,91   [no spaces]    Coverage cutoff:   auto     Files   Forward reads:   mutant_R1.fastq     Files   Reverse reads:   mutant_R2.fastq        Your tool interface should look like this:      Click  Execute", 
-            "title": "Assemble reads with Spades"
-        }, 
-        {
-            "location": "/workshop/genomics/2a/#examine-the-output", 
-            "text": "Galaxy is now running Spades on the reads for you.   When it is finished, you will have five new files in your history.     two FASTA files of the resulting contigs and scaffolds  two files for statistics about these  the Spades logfile     Click on the View Data button   on each of the files.   Note that the short reads have been assembled into much longer contigs.  (However, in this case, the contigs have not been assembled into larger scaffolds.)  The stats files will give you the length of each of the contigs.", 
-            "title": "Examine the output"
-        }, 
-        {
-            "location": "/workshop/genomics/2a/#what-next", 
-            "text": "Annotate the genome using Prokka.", 
-            "title": "What next?"
-        }, 
-        {
-            "location": "/workshop/genomics/2b/", 
-            "text": "Genome annotation using Prokka\n\n\nBackground\n\n\nIn this section we will use a software tool called Prokka to annotate the draft genome sequence produced in the previous \ntutorial\n. Prokka is a \u201cwrapper\u201d; it collects together several pieces of software (from various authors), and so avoids \u201cre-inventing the wheel\u201d.\n\n\nProkka finds and annotates features (both protein coding regions and RNA genes, i.e. tRNA, rRNA) present on on a sequence. Note, Prokka uses a two-step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using \nProdigal\n; second, the \nfunction\n of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found \nhere\n.\n\n\nLearning objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\ninput files into Prokka\n\n\nchange settings\n\n\nrun Prokka, and\n\n\nexamine the output: annotated genome.\n\n\n\n\nInput data\n\n\n\n\nYou will need the assembled contigs from the previous workshop (\nAssembly with Spades\n): \nSPAdes_contigs.fasta\n\n\nIf you are continuing on from that tutorial, this file will be in your current history and there is no need to find/import it.\n\n\n\n\nRun Prokka\n\n\n\n\nIn Galaxy, go to \nTools \n NGS Analysis \n NGS: Annotation \n Prokka\n  \n\n\nSet the following parameters (leave everything else unchanged):\n\n\nContigs to annotate\n: \nSPAdes contigs (fasta)\n  \n\n\nLocus tag prefix (\nlocustag)\n: P\n\n\nForce GenBank/ENA/DDJB compliance (\ncompliant)\n: \nYes\n\n\nSequencing Centre ID (\ncentre)\n: V\n\n\nGenus Name\n: \nStaphylococcus\n  \n\n\nSpecies Name\n: \naureus\n  \n\n\nUse genus-specific BLAST database\n \nNo\n  \n\n\nClick \nExecute\n  \n\n\n\n\n\n\n\n\nExamine the output\n\n\nOnce Prokka has finished, examine each of its output files.\n\n\n\n\nThe gff and gbk files contains all of the information about all of the features annotated (in different formats.)\n\n\nThe txt file contains a summary of the number of features annotated.\n\n\nThe faa file contains the protein sequences of the genes annotated.\n\n\n\n\nThe ffn file contains the nucleotide sequences of the genes annotated.\n\n\n\n\n\n\nDownload the gff file to your local computer: click on the file name with the .gff extension, and then click on the disk icon \n.\n\n\n\n\n\n\n\n\nAnnotated features\n\n\nNow that we have annotated the draft genome sequence, we would like to view the sequence in the Artemis genome viewer.\n\n\n\n\nOpen Artemis and load the downloaded .gff file.\n\n\nThe top panel shows an overview - here we can see annotated genes and other features.\n\n\nThe middle panel shows the DNA sequence and amino acid translations in 6 frames.\n\n\nThe bottom panel shows a text summary of the features.\n\n\nScroll left and right with the horizontal bars under each panel.\n\n\nZoom with the vertical bars to the right.\n\n\n\n\n\n\nWhat next?\n\n\n\n\nIdentify genome variants (nucletotide changes) using Snippy.", 
-            "title": "Annotate with Prokka"
-        }, 
-        {
-            "location": "/workshop/genomics/2b/#genome-annotation-using-prokka", 
-            "text": "", 
-            "title": "Genome annotation using Prokka"
-        }, 
-        {
-            "location": "/workshop/genomics/2b/#background", 
-            "text": "In this section we will use a software tool called Prokka to annotate the draft genome sequence produced in the previous  tutorial . Prokka is a \u201cwrapper\u201d; it collects together several pieces of software (from various authors), and so avoids \u201cre-inventing the wheel\u201d.  Prokka finds and annotates features (both protein coding regions and RNA genes, i.e. tRNA, rRNA) present on on a sequence. Note, Prokka uses a two-step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using  Prodigal ; second, the  function  of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found  here .", 
-            "title": "Background"
-        }, 
-        {
-            "location": "/workshop/genomics/2b/#learning-objectives", 
-            "text": "At the end of this tutorial you should be able to:   input files into Prokka  change settings  run Prokka, and  examine the output: annotated genome.", 
-            "title": "Learning objectives"
-        }, 
-        {
-            "location": "/workshop/genomics/2b/#input-data", 
-            "text": "You will need the assembled contigs from the previous workshop ( Assembly with Spades ):  SPAdes_contigs.fasta  If you are continuing on from that tutorial, this file will be in your current history and there is no need to find/import it.", 
-            "title": "Input data"
-        }, 
-        {
-            "location": "/workshop/genomics/2b/#run-prokka", 
-            "text": "In Galaxy, go to  Tools   NGS Analysis   NGS: Annotation   Prokka     Set the following parameters (leave everything else unchanged):  Contigs to annotate :  SPAdes contigs (fasta)     Locus tag prefix ( locustag) : P  Force GenBank/ENA/DDJB compliance ( compliant) :  Yes  Sequencing Centre ID ( centre) : V  Genus Name :  Staphylococcus     Species Name :  aureus     Use genus-specific BLAST database   No     Click  Execute", 
-            "title": "Run Prokka"
-        }, 
-        {
-            "location": "/workshop/genomics/2b/#examine-the-output", 
-            "text": "Once Prokka has finished, examine each of its output files.   The gff and gbk files contains all of the information about all of the features annotated (in different formats.)  The txt file contains a summary of the number of features annotated.  The faa file contains the protein sequences of the genes annotated.   The ffn file contains the nucleotide sequences of the genes annotated.    Download the gff file to your local computer: click on the file name with the .gff extension, and then click on the disk icon  .", 
-            "title": "Examine the output"
-        }, 
-        {
-            "location": "/workshop/genomics/2b/#annotated-features", 
-            "text": "Now that we have annotated the draft genome sequence, we would like to view the sequence in the Artemis genome viewer.   Open Artemis and load the downloaded .gff file.  The top panel shows an overview - here we can see annotated genes and other features.  The middle panel shows the DNA sequence and amino acid translations in 6 frames.  The bottom panel shows a text summary of the features.  Scroll left and right with the horizontal bars under each panel.  Zoom with the vertical bars to the right.", 
-            "title": "Annotated features"
-        }, 
-        {
-            "location": "/workshop/genomics/2b/#what-next", 
-            "text": "Identify genome variants (nucletotide changes) using Snippy.", 
-            "title": "What next?"
-        }, 
-        {
-            "location": "/workshop/genomics/3b/", 
-            "text": "Variant calling with Snippy", 
-            "title": "Find variants with Snippy"
-        }, 
-        {
-            "location": "/workshop/genomics/3b/#variant-calling-with-snippy", 
-            "text": "", 
-            "title": "Variant calling with Snippy"
-        }, 
-        {
-            "location": "/how_to/overview/", 
-            "text": "Overview - Advanced Training\n\n\nThis section contains training modules for microbial genomics analyses. All analyses are performed using the microbial GVL (and occasionally, additional web-based tools), via the Galaxy interface or using the commandline.\n\n\n\n\n\n\nGenome assembly: from raw DNA sequence reads to assembled genome.\n\n\n\n\nin Galaxy\n - using Illumina data\n\n\non the commandline - using Illumina data\n\n\nin the mGVL SMRTPortal - using PacBio data\n\n\non the commandline - using both PacBio data and Illumina data\n\n\n\n\n\n\n\n\nGenome annotation: from assembled genome to annotated genome.\n\n\n\n\nin Galaxy\n\n\non the commandline\n\n\n\n\n\n\n\n\nCore and pan genomes: from assembled genomes to lists of shared genes and accessory genes.\n\n\n\n\non the commandline\n\n\n\n\n\n\n\n\nDifferential gene expression: from raw RNA sequence reads from two conditions to a list of differentially expressed genes.\n\n\n\n\nin Galaxy\n\n\n\n\n\n\n\n\nFor more information about using the GVL see \nhttp://genome.edu.au", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/how_to/overview/#overview-advanced-training", 
-            "text": "This section contains training modules for microbial genomics analyses. All analyses are performed using the microbial GVL (and occasionally, additional web-based tools), via the Galaxy interface or using the commandline.    Genome assembly: from raw DNA sequence reads to assembled genome.   in Galaxy  - using Illumina data  on the commandline - using Illumina data  in the mGVL SMRTPortal - using PacBio data  on the commandline - using both PacBio data and Illumina data     Genome annotation: from assembled genome to annotated genome.   in Galaxy  on the commandline     Core and pan genomes: from assembled genomes to lists of shared genes and accessory genes.   on the commandline     Differential gene expression: from raw RNA sequence reads from two conditions to a list of differentially expressed genes.   in Galaxy     For more information about using the GVL see  http://genome.edu.au", 
-            "title": "Overview - Advanced Training"
-        }, 
-        {
-            "location": "/tools/", 
-            "text": "Tools\n\n\nThis section includes short training modules about the various tools in the microbial GVL, either within the Galaxy interface or via the commandline. Additional relevant tools and software are also included, particularly for visualization.", 
-            "title": "Oveview"
-        }, 
-        {
-            "location": "/tools/#tools", 
-            "text": "This section includes short training modules about the various tools in the microbial GVL, either within the Galaxy interface or via the commandline. Additional relevant tools and software are also included, particularly for visualization.", 
-            "title": "Tools"
-        }, 
-        {
-            "location": "/dna/qualitycontrol/fastqc/", 
-            "text": "FastQC in Galaxy\n\n\n\n\n\nAfter sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end sequence reads from Illumina. The FastQC website is \nhere.\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nrun FastQC on input sequence reads, and\n\n\nexamine the FastQC output.\n\n\n\n\nInput files\n\n\ne.g. \nmutant_R1.fastq\n and \nmutant_R2.fastq\n: a paired-end read set  \n\n\nWe will evaluate the R1 input reads using the FastQC tool.\n\n\nRun FastQC\n\n\n\n\nGo to \nTools \n NGS:Analysis \n NGS: QC and Manipulation \n FastQC\n\n\nfor \nShort read data from your current history\n: \nmutant_R1.fastq\n\n\nClick \nExecute\n\n\n\n\nExamine output files\n\n\nOnce finished, examine the output called \nFastQC on data1:webpage\n (Hint: click the eye icon). It has a summary at the top of the page and a number of graphs.\n\n\nLook at:\n\n\n\n\nBasic Statistics: Sequence length\n: will be important in setting maximum k-mer size value for assembly\n\n\nBasic Statistics: Encoding\n: Quality encoding type: important for quality trimming software\n\n\nBasic Statistics: % GC\n: high GC organisms don\u2019t tend to assemble well and may have an uneven read coverage distribution.\n\n\nBasic Statistics: Total sequences\n: Total number of reads: gives you an idea of coverage.\n\n\nPer base sequence quality\n: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.\n\n\nPer base N content\n: Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.\n\n\nKmer content\n: Presence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc.\n\n\n\n\nWe have warnings for two outputs (per base sequence content; Kmer content). This would warrant more investigation.\n\n\nGeneral questions you might ask about your input reads include:\n\n\n\n\nHow good is my read set?\n\n\nDo I need to ask for a new sequencing run?  \n\n\nIs it suitable for the analysis I need to do?\n\n\n\n\nFor a fuller discussion of FastQC outputs and warnings, see the \nFastQC website link\n, including the section on each of the output \nreports\n, and examples of \ngood\n and \nbad\n Illumina data.\n\n\nWhat Next?\n\n\n\n\nTrim reads with \nTrimmomatic.", 
+            "location": "/modules/fastqc/#fastqc-in-galaxy", 
+            "text": "After sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end Illumina sequence reads. The FastQC website is  here.", 
             "title": "FastQC in Galaxy"
         }, 
         {
-            "location": "/dna/qualitycontrol/fastqc/#fastqc-in-galaxy", 
-            "text": "After sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end sequence reads from Illumina. The FastQC website is  here.", 
-            "title": "FastQC in Galaxy"
-        }, 
-        {
-            "location": "/dna/qualitycontrol/fastqc/#learning-objectives", 
+            "location": "/modules/fastqc/#learning-objectives", 
             "text": "At the end of this tutorial you should be able to:   run FastQC on input sequence reads, and  examine the FastQC output.", 
             "title": "Learning Objectives"
         }, 
         {
-            "location": "/dna/qualitycontrol/fastqc/#input-files", 
+            "location": "/modules/fastqc/#input-files", 
             "text": "e.g.  mutant_R1.fastq  and  mutant_R2.fastq : a paired-end read set    We will evaluate the R1 input reads using the FastQC tool.", 
             "title": "Input files"
         }, 
         {
-            "location": "/dna/qualitycontrol/fastqc/#run-fastqc", 
+            "location": "/modules/fastqc/#run-fastqc", 
             "text": "Go to  Tools   NGS:Analysis   NGS: QC and Manipulation   FastQC  for  Short read data from your current history :  mutant_R1.fastq  Click  Execute", 
             "title": "Run FastQC"
         }, 
         {
-            "location": "/dna/qualitycontrol/fastqc/#examine-output-files", 
+            "location": "/modules/fastqc/#examine-output-files", 
             "text": "Once finished, examine the output called  FastQC on data1:webpage  (Hint: click the eye icon). It has a summary at the top of the page and a number of graphs.  Look at:   Basic Statistics: Sequence length : will be important in setting maximum k-mer size value for assembly  Basic Statistics: Encoding : Quality encoding type: important for quality trimming software  Basic Statistics: % GC : high GC organisms don\u2019t tend to assemble well and may have an uneven read coverage distribution.  Basic Statistics: Total sequences : Total number of reads: gives you an idea of coverage.  Per base sequence quality : Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.  Per base N content : Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.  Kmer content : Presence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc.   We have warnings for two outputs (per base sequence content; Kmer content). This would warrant more investigation.  General questions you might ask about your input reads include:   How good is my read set?  Do I need to ask for a new sequencing run?    Is it suitable for the analysis I need to do?   For a fuller discussion of FastQC outputs and warnings, see the  FastQC website link , including the section on each of the output  reports , and examples of  good  and  bad  Illumina data.", 
             "title": "Examine output files"
         }, 
         {
-            "location": "/dna/qualitycontrol/fastqc/#what-next", 
+            "location": "/modules/fastqc/#what-next", 
             "text": "Trim reads with  Trimmomatic.", 
             "title": "What Next?"
         }, 
         {
-            "location": "/dna/qualitycontrol/fastqc_cmdline/", 
-            "text": "FastQC - commandline\n\n\nStart\n\n\n\n\non your local machine, make sure XQuartz is installed. This doesn\nt have to be open - it will open automatically later.\n\n\nin terminal, ssh to your virtual machine with -X and -Y, e.g. \nssh -X -Y ubuntu@111.111.111.111\n (the -X and -Y means it will use your local XQuartz to display some files).\n\n\nmodule load fastqc_dist_0_10_1\n\n\n\n\nnavigate to where you want to make a FastQC analysis folder.\n\n\nMake a folder: \nmkdir fastqc_analyses\n\n\nMove to that folder: \ncd fastqc_analyses\n\n\n\n\nInput\n\n\n\n\nmove your input reads into this folder.\n\n\n\n\nRun\n\n\n\n\nfastqc R1reads.fastq\n [this runs fastqc]\n\n\ntype \nfastqc --help\n to see settings that you can change, and defaults\n\n!\n\n\nFIXME: any to change\n\n\nFIXME: repeat for R2reads?\n\n\n\n\n\nOutput\n\n\n\n\nR1reads_fastqc: folder containing the output, e.g. \nfastqc_report.html\n\n\nto view this, type: \nfirefox fastqc_report.html\n\n\nfirefox should open and display the report (you may get an error message in terminal but ignore this).", 
-            "title": "FastQC on commandline"
+            "location": "/modules/trimmomatic/", 
+            "text": "Trimming reads\n\n\nIntroduction\n\n\nAfter checking your input sequence reads for quality (e.g. using FastQC) it might be necessary to trim the reads. Here we will use the Trimmomatic tool. For more inforamtion, see the Trimmomatic \nwebpage\n and the \nmanual.\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\ninput sequence reads to Trimmomatic\n\n\ntrim using appropriate parameters, and\n\n\nexamine the output trimmed reads.\n\n\n\n\nStart\n\n\n\n\nopen your Galaxy instance\n\n\nfind your quality-checked Illumina sequence reads\n\n\ne.g. \nmutant_R1.fastq\n and \nmutant_R2.fastq\n\n\nWe want to trim the parts of the reads that are of low quality\n\n\nbased on the FastQC results, we might want to trim the reads like this:\n\n\ntrim Illumina adapters\n\n\nleading and trailing bases - trim if quality is below 15\n\n\nsliding window - trim once average quality is below 20\n\n\n\n\n\n\n\n\nTrimmomatic functions\n\n\n\n\n\n\nAdapter trimming\n\n\n\n\nThis function trims adapters, barcodes and other contaminants from the reads.\n\n\nYou need to supply a FASTA file of possible adapter sequences, barcodes etc to trim. See Trimmomatic website for detailed instructions.\n\n\nThe default quality settings are sensible.\n\n\nThis should always be the first trimming step if it is used.\n\n\n\n\n\n\n\n\nSliding window trimming\n\n\n\n\nThis function uses a sliding window to measure average quality and trims accordingly.\n\n\nThe default quality parameters are sensible for this step.\n\n\n\n\n\n\n\n\nTrailing bases quality trimming\n\n\n\n\nThis function trims bases from the end of a read if they drop below a quality threshold. e.g. If base 69 of 75 drops below the threshold, the read is cut to 68 bases.\n\n\nUse FastQC report to decide whether this step is warranted and what quality value to use. A quality threshold value of 10-15 is a good starting point.\n\n\n\n\n\n\n\n\nLeading bases quality trimming\n\n\n\n\nThis function works in a similar fashion to trailing bases trimming except it performs it at the start of the reads.\n\n\nUse FastQC report to determine if this step is warranted. If the quality of bases is poor at the beginning of reads it might be necessary.\n\n\n\n\n\n\n\n\nMinimum read length\n\n\n\n\nOnce all trimming steps are complete, this function makes sure that the reads are still longer than this value. If not, the read is removed from the file and its pair is put into the orphan file.\n\n\nThe most appropriate value for this parameter will depend on the FastQC report, specifically the length of the high quality section of the Per Base Sequence Quality graph.\n\n\n\n\n\n\n\n\nEach read library should be trimmed separately with parameters dependent on their own FastQC reports.\n\n\n\n\n\n\nRun Trimmomatic\n\n\n\n\n\n\n\nGo to \nTools \n NGS Analysis \n NGS: QC and manipulation \n Trimmomatic\n.\n\n\nInput FASTQ file (R1/first of pair)\n: \nmutant_R1.fastq\n\n\nInput FASTQ file (R2/second of pair)\n: \nmutant_R2.fastq\n\n\nPerform initial ILLUMINACLIP step \n: \nYes\n\n\n!\n\n\nAdapter sequences to use\n: FIXME\n\n\n\nHow accurate the match between the two \nadapter ligated\n reads must be for PE palindrome read alignment\n: 40\n\n\nHow accurate the match between any adapter etc. sequence must be against a read\n: 15\n\n\nleave the first \nTrimmomatic Operation\n as is\n\n\nclick on \n+ Insert Trimmomatic Operation\n\n\nSelect Trimmomatic operation to perform\n: \nCut bases off the start of a read, if below a threshold quality (LEADING)\n\n\nMinimum quality required to keep a base\n: 15\n\n\nclick on \n+ Insert Trimmomatic Operation\n\n\nSelect Trimmomatic operation to perform\n: \nCut bases off the end of a read, if below a threshold quality (TRAILING)\n\n\nMinimum quality required to keep a base\n: 15\n\n\nclick \nExecute\n\n\n\n\n\n\n\nExamine output\n\n\nTrimmomatic should produce 2 pairs files (1 left and 1 right hand end) and 1 or 2 single \u201corphaned reads\u201d files.\n\n\nThe output files are the ones you should use for assembly.\n\n\nThere are four output files, still in FASTQ format:\n\n\n\n\nR1 reads that have a pair in the R2 file\n\n\nR2 reads that have a pair in the R1 file\n\n\nR1 reads with no pair (R2 match was low quality: deleted)\n\n\nR2 reads with no pair (R1 match was low quality: deleted)\n\n\n\n\nExamine each file with the eye icon. Look for:\n\n\n\n\nNumber of reads orphaned by the trimming / cleanup process.\n\n\nNumber of pairs lost totally.\n\n\n\n\nWhat next?\n\n\nNext: use the output FASTQ files for Assembly, e.g. with \nSpades", 
+            "title": "Read trimming"
         }, 
         {
-            "location": "/dna/qualitycontrol/fastqc_cmdline/#fastqc-commandline", 
+            "location": "/modules/trimmomatic/#trimming-reads", 
             "text": "", 
-            "title": "FastQC - commandline"
+            "title": "Trimming reads"
         }, 
         {
-            "location": "/dna/qualitycontrol/fastqc_cmdline/#start", 
-            "text": "on your local machine, make sure XQuartz is installed. This doesn t have to be open - it will open automatically later.  in terminal, ssh to your virtual machine with -X and -Y, e.g.  ssh -X -Y ubuntu@111.111.111.111  (the -X and -Y means it will use your local XQuartz to display some files).  module load fastqc_dist_0_10_1   navigate to where you want to make a FastQC analysis folder.  Make a folder:  mkdir fastqc_analyses  Move to that folder:  cd fastqc_analyses", 
-            "title": "Start"
-        }, 
-        {
-            "location": "/dna/qualitycontrol/fastqc_cmdline/#input", 
-            "text": "move your input reads into this folder.", 
-            "title": "Input"
-        }, 
-        {
-            "location": "/dna/qualitycontrol/fastqc_cmdline/#run", 
-            "text": "fastqc R1reads.fastq  [this runs fastqc]  type  fastqc --help  to see settings that you can change, and defaults !  FIXME: any to change  FIXME: repeat for R2reads?", 
-            "title": "Run"
-        }, 
-        {
-            "location": "/dna/qualitycontrol/fastqc_cmdline/#output", 
-            "text": "R1reads_fastqc: folder containing the output, e.g.  fastqc_report.html  to view this, type:  firefox fastqc_report.html  firefox should open and display the report (you may get an error message in terminal but ignore this).", 
-            "title": "Output"
-        }, 
-        {
-            "location": "/dna/qualitycontrol/trimmomatic/", 
-            "text": "Trimmomatic on Galaxy\n\n\nIntroduction\n\n\nAfter checking your input sequence reads for quality (e.g. using FastQC) it might be necessary to trim the reads. Here we will use the Trimmomatic tool. For more inforamtion, see the Trimmomatic \nwebpage\n and the \nmanual.\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\ninput sequence reads to Trimmomatic\n\n\ntrim using appropriate parameters, and\n\n\nexamine the output trimmed reads.\n\n\n\n\nStart\n\n\n\n\nopen your Galaxy instance\n\n\nfind your quality-checked Illumina sequence reads\n\n\ne.g. \nmutant_R1.fastq\n and \nmutant_R2.fastq\n\n\nWe want to trim the parts of the reads that are of low quality\n\n\nbased on the FastQC results, we might want to trim the reads like this:\n\n\ntrim Illumina adapters\n\n\nleading and trailing bases - trim if quality is below 15\n\n\nsliding window - trim once average quality is below 20\n\n\n\n\n\n\n\n\nTrimmomatic functions\n\n\n\n\n\n\nAdapter trimming\n\n\n\n\nThis function trims adapters, barcodes and other contaminants from the reads.\n\n\nYou need to supply a FASTA file of possible adapter sequences, barcodes etc to trim. See Trimmomatic website for detailed instructions.\n\n\nThe default quality settings are sensible.\n\n\nThis should always be the first trimming step if it is used.\n\n\n\n\n\n\n\n\nSliding window trimming\n\n\n\n\nThis function uses a sliding window to measure average quality and trims accordingly.\n\n\nThe default quality parameters are sensible for this step.\n\n\n\n\n\n\n\n\nTrailing bases quality trimming\n\n\n\n\nThis function trims bases from the end of a read if they drop below a quality threshold. e.g. If base 69 of 75 drops below the threshold, the read is cut to 68 bases.\n\n\nUse FastQC report to decide whether this step is warranted and what quality value to use. A quality threshold value of 10-15 is a good starting point.\n\n\n\n\n\n\n\n\nLeading bases quality trimming\n\n\n\n\nThis function works in a similar fashion to trailing bases trimming except it performs it at the start of the reads.\n\n\nUse FastQC report to determine if this step is warranted. If the quality of bases is poor at the beginning of reads it might be necessary.\n\n\n\n\n\n\n\n\nMinimum read length\n\n\n\n\nOnce all trimming steps are complete, this function makes sure that the reads are still longer than this value. If not, the read is removed from the file and its pair is put into the orphan file.\n\n\nThe most appropriate value for this parameter will depend on the FastQC report, specifically the length of the high quality section of the Per Base Sequence Quality graph.\n\n\n\n\n\n\n\n\nEach read library should be trimmed separately with parameters dependent on their own FastQC reports.\n\n\n\n\n\n\nRun Trimmomatic\n\n\n\n\n\n\n\nGo to \nTools \n NGS Analysis \n NGS: QC and manipulation \n Trimmomatic\n.\n\n\nInput FASTQ file (R1/first of pair)\n: \nmutant_R1.fastq\n\n\nInput FASTQ file (R2/second of pair)\n: \nmutant_R2.fastq\n\n\nPerform initial ILLUMINACLIP step \n: \nYes\n\n\n!\n\n\nAdapter sequences to use\n: FIXME\n\n\n\nHow accurate the match between the two \nadapter ligated\n reads must be for PE palindrome read alignment\n: 40\n\n\nHow accurate the match between any adapter etc. sequence must be against a read\n: 15\n\n\nleave the first \nTrimmomatic Operation\n as is\n\n\nclick on \n+ Insert Trimmomatic Operation\n\n\nSelect Trimmomatic operation to perform\n: \nCut bases off the start of a read, if below a threshold quality (LEADING)\n\n\nMinimum quality required to keep a base\n: 15\n\n\nclick on \n+ Insert Trimmomatic Operation\n\n\nSelect Trimmomatic operation to perform\n: \nCut bases off the end of a read, if below a threshold quality (TRAILING)\n\n\nMinimum quality required to keep a base\n: 15\n\n\nclick \nExecute\n\n\n\n\n\n\n\nExamine output\n\n\nTrimmomatic should produce 2 pairs files (1 left and 1 right hand end) and 1 or 2 single \u201corphaned reads\u201d files.\n\n\nThe output files are the ones you should use for assembly.\n\n\nThere are four output files, still in FASTQ format:\n\n\n\n\nR1 reads that have a pair in the R2 file\n\n\nR2 reads that have a pair in the R1 file\n\n\nR1 reads with no pair (R2 match was low quality: deleted)\n\n\nR2 reads with no pair (R1 match was low quality: deleted)\n\n\n\n\nExamine each file with the eye icon. Look for:\n\n\n\n\nNumber of reads orphaned by the trimming / cleanup process.\n\n\nNumber of pairs lost totally.\n\n\n\n\nWhat next?\n\n\nNext: use the output FASTQ files for Assembly, e.g. with \nSpades", 
-            "title": "Trimmomatic in Galaxy"
-        }, 
-        {
-            "location": "/dna/qualitycontrol/trimmomatic/#trimmomatic-on-galaxy", 
-            "text": "", 
-            "title": "Trimmomatic on Galaxy"
-        }, 
-        {
-            "location": "/dna/qualitycontrol/trimmomatic/#introduction", 
+            "location": "/modules/trimmomatic/#introduction", 
             "text": "After checking your input sequence reads for quality (e.g. using FastQC) it might be necessary to trim the reads. Here we will use the Trimmomatic tool. For more inforamtion, see the Trimmomatic  webpage  and the  manual.", 
             "title": "Introduction"
         }, 
         {
-            "location": "/dna/qualitycontrol/trimmomatic/#learning-objectives", 
+            "location": "/modules/trimmomatic/#learning-objectives", 
             "text": "At the end of this tutorial you should be able to:   input sequence reads to Trimmomatic  trim using appropriate parameters, and  examine the output trimmed reads.", 
             "title": "Learning Objectives"
         }, 
         {
-            "location": "/dna/qualitycontrol/trimmomatic/#start", 
+            "location": "/modules/trimmomatic/#start", 
             "text": "open your Galaxy instance  find your quality-checked Illumina sequence reads  e.g.  mutant_R1.fastq  and  mutant_R2.fastq  We want to trim the parts of the reads that are of low quality  based on the FastQC results, we might want to trim the reads like this:  trim Illumina adapters  leading and trailing bases - trim if quality is below 15  sliding window - trim once average quality is below 20", 
             "title": "Start"
         }, 
         {
-            "location": "/dna/qualitycontrol/trimmomatic/#trimmomatic-functions", 
+            "location": "/modules/trimmomatic/#trimmomatic-functions", 
             "text": "Adapter trimming   This function trims adapters, barcodes and other contaminants from the reads.  You need to supply a FASTA file of possible adapter sequences, barcodes etc to trim. See Trimmomatic website for detailed instructions.  The default quality settings are sensible.  This should always be the first trimming step if it is used.     Sliding window trimming   This function uses a sliding window to measure average quality and trims accordingly.  The default quality parameters are sensible for this step.     Trailing bases quality trimming   This function trims bases from the end of a read if they drop below a quality threshold. e.g. If base 69 of 75 drops below the threshold, the read is cut to 68 bases.  Use FastQC report to decide whether this step is warranted and what quality value to use. A quality threshold value of 10-15 is a good starting point.     Leading bases quality trimming   This function works in a similar fashion to trailing bases trimming except it performs it at the start of the reads.  Use FastQC report to determine if this step is warranted. If the quality of bases is poor at the beginning of reads it might be necessary.     Minimum read length   Once all trimming steps are complete, this function makes sure that the reads are still longer than this value. If not, the read is removed from the file and its pair is put into the orphan file.  The most appropriate value for this parameter will depend on the FastQC report, specifically the length of the high quality section of the Per Base Sequence Quality graph.     Each read library should be trimmed separately with parameters dependent on their own FastQC reports.", 
             "title": "Trimmomatic functions"
         }, 
         {
-            "location": "/dna/qualitycontrol/trimmomatic/#run-trimmomatic", 
+            "location": "/modules/trimmomatic/#run-trimmomatic", 
             "text": "Go to  Tools   NGS Analysis   NGS: QC and manipulation   Trimmomatic .  Input FASTQ file (R1/first of pair) :  mutant_R1.fastq  Input FASTQ file (R2/second of pair) :  mutant_R2.fastq  Perform initial ILLUMINACLIP step  :  Yes  !  Adapter sequences to use : FIXME  How accurate the match between the two  adapter ligated  reads must be for PE palindrome read alignment : 40  How accurate the match between any adapter etc. sequence must be against a read : 15  leave the first  Trimmomatic Operation  as is  click on  + Insert Trimmomatic Operation  Select Trimmomatic operation to perform :  Cut bases off the start of a read, if below a threshold quality (LEADING)  Minimum quality required to keep a base : 15  click on  + Insert Trimmomatic Operation  Select Trimmomatic operation to perform :  Cut bases off the end of a read, if below a threshold quality (TRAILING)  Minimum quality required to keep a base : 15  click  Execute", 
             "title": "Run Trimmomatic"
         }, 
         {
-            "location": "/dna/qualitycontrol/trimmomatic/#examine-output", 
+            "location": "/modules/trimmomatic/#examine-output", 
             "text": "Trimmomatic should produce 2 pairs files (1 left and 1 right hand end) and 1 or 2 single \u201corphaned reads\u201d files.  The output files are the ones you should use for assembly.  There are four output files, still in FASTQ format:   R1 reads that have a pair in the R2 file  R2 reads that have a pair in the R1 file  R1 reads with no pair (R2 match was low quality: deleted)  R2 reads with no pair (R1 match was low quality: deleted)   Examine each file with the eye icon. Look for:   Number of reads orphaned by the trimming / cleanup process.  Number of pairs lost totally.", 
             "title": "Examine output"
         }, 
         {
-            "location": "/dna/qualitycontrol/trimmomatic/#what-next", 
+            "location": "/modules/trimmomatic/#what-next", 
             "text": "Next: use the output FASTQ files for Assembly, e.g. with  Spades", 
             "title": "What next?"
         }, 
         {
+            "location": "/modules/spades/", 
+            "text": "Assembly using Spades\n\n\nBackground\n\n\nSpades is one of a number of \nde novo\n assemblers that use short read sets as input (e.g. Illumina Reads), and the assembly method is based on de Bruijn graphs. For information about Spades see this \nlink\n.\n\n\n\n\n\nIn this activity, we will perform a \nde novo\n assembly of a short read set using the Spades assembler. The output from Spades that we are interested in is a multifasta file that contains the draft genome sequence.\n\n\nThe read set for today is from an imaginary \nStaphylococcus aureus\n bacterium with a miniature genome.\n\n\nWe have a closed, annotated genome sequence for a closely related \nwildtype\n strain.\n\n\nThe whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.\n\n\n\n\nThe reads are paired-end\n\n\nEach read is 150 bases (before trimming)\n\n\nThe number of bases sequenced is equivalent to 19x the genome sequence of the wildtype strain. (Read coverage 19x - rather low!).\n\n\n\n\nLearning objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nimport data into Galaxy  \n\n\nview the files\n\n\nevaluate the read quality\n\n\nassemble the reads using Spades, and\n\n\nexamine the output assembly.\n\n\n\n\nImport data into Galaxy\n\n\n\n\nGo to the address of your galaxy server.\n\n\n\n\n\n\n\n\n\nClick on the \nAnalyze Data\n menu at the top of the page.    \n\n\nClick on the \nHistory options\n button the \n on the top right of the history pane.\n\n\nClick \nImport from File\n (at the bottom of the list).  \n\n\nA new page will appear with a text box for the URL of the history to import.  \n\n\nCopy the following URL into the text box: \nhttp://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz\n  \n\n\nClick \nSubmit\n.  \n\n\nGalaxy will download the data files from the internet and will be available as an additional history (takes about one minute).  \n\n\nTo view this new history, click the \nView all histories\n button\n (top right of the history pane).  \n\n\nIf the history has finished downloading it will appear as \nimported from archive: Colombia_workshop_start\n\n\nClick on the \n button above the \nimported from archive:Colombia_workshop_start\n then the \n button.\n\n\nYou should now have four files in the history pane as follows:\n\n\n\n\n\n\nView files\n\n\nAll the files are text files.\n\n\n\n\nmutant_R1.fastq\n and \nmutant_R2.fastq\n: a paired-end read set  \n\n\nwildtype.fna\n: a file that contains the genome sequence of the wildtype strain in fasta format (a header line, then the nucleotide sequence of the genome)\n\n\nwildtype.gff\n: a file that contains the genome sequence of the wildtype strain in general feature format. (a list of features - one feature per line, then the nucleotide sequence of the genome)\n\n\n\n\nLook at the contents of these files.\n\n\n\n\nClick on the View Data button (the \n) next to each of the files in turn.\n\n\nThe gff file should look like this:\n\n\n\n\n\n\n\n\n\nEvaluate the input reads\n\n\nQuestions you might ask about your input reads include:\n\n\n\n\nHow good is my read set?\n\n\nDo I need to ask for a new sequencing run?  \n\n\nIs it suitable for the analysis I need to do?\n\n\n\n\nWe will evaluate the input reads using the FastQC tool.\n\n\n\n\nThis runs a standard series of tests on your read set and returns a relatively easy-to-interpret report.\n\n\nWe will use the FastQC tool in Galaxy to evaluate the quality of one of our FASTQ files.\n\n\nGo to \nTools \n NGS:Analysis \n NGS: QC and Manipulation \n FastQC\n\n\nSelect \nmutant_R1.fastq\n\n\nExecute\n\n\nOnce finished, examine the output called \nFastQC on data1:webpage\n (Hint:\n). It has a summary at the top of\nthe page and a number of graphs.\n\n\n\n\nSome of the important outputs of FastQC for our purposes are:\n\n\n\n\nBasic Statistics: Sequence length\n: will be important in setting maximum k-mer size value for assembly\n\n\nBasic Statistics: Encoding\n: Quality encoding type: important for quality trimming software\n\n\nBasic Statistics: % GC\n: high GC organisms don\u2019t tend to assemble well and may have an uneven read coverage distribution.\n\n\nBasic Statistics: Total sequences\n: Total number of reads: gives you an idea of coverage.\n\n\nPer base sequence quality\n: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.\n\n\nPer base N content\n: Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.\n\n\nKmer content\n: Presence of highly recurring k-mers: may point to contamination of reads with barcodes or adapter sequences.\n\n\n\n\nAlthough we have warnings for two outputs (per base sequence content; Kmer content), we can ignore these for now. For a fuller discussion of FastQC outputs and warnings, see the \nFastQC website link\n, including the section on each of the output \nreports\n, and examples of \ngood\n and \nbad\n Illumina data. We won\u2019t be doing anything to these data to clean it up as there isn\u2019t much need. Therefore we will get on with the assembly!\n\n\nAssemble reads with Spades\n\n\n\n\nWe will perform a \nde novo\n assembly of the mutant FASTQ reads into long contiguous sequences (in FASTA format.)\n\n\n\n\n\n\n\n\n\nGo to \nTools \n NGS Analysis \n NGS: Assembly \n spades\n\n\n\n\nSet the following parameters:\n\n\n\n\nRun only Assembly\n: \nYes\n  \n\n\nKmers to use separated by commas:\n \n33,55,91\n  [no spaces]  \n\n\nCoverage cutoff:\n \nauto\n  \n\n\nFiles \n Forward reads:\n \nmutant_R1.fastq\n  \n\n\nFiles \n Reverse reads:\n \nmutant_R2.fastq\n  \n\n\n\n\n\n\n\n\nYour tool interface should look like this:\n\n\n\n\n\n\n\n\n\n\nClick \nExecute\n\n\n\n\nExamine the output\n\n\n\n\nGalaxy is now running Spades on the reads for you.\n\n\n\n\nWhen it is finished, you will have five new files in your history.  \n\n\n\n\ntwo FASTA files of the resulting contigs and scaffolds\n\n\ntwo files for statistics about these\n\n\nthe Spades logfile\n\n\n\n\n\n\n\n\nClick on the View Data button \n on each of the files.\n\n\n\n\nNote that the short reads have been assembled into much longer contigs.\n\n\n(However, in this case, the contigs have not been assembled into larger scaffolds.)\n\n\nThe stats files will give you the length of each of the contigs.\n\n\n\n\nWhat next?\n\n\n\n\nAnnotate the genome using Prokka.", 
+            "title": "Genome assembly"
+        }, 
+        {
+            "location": "/modules/spades/#assembly-using-spades", 
+            "text": "", 
+            "title": "Assembly using Spades"
+        }, 
+        {
+            "location": "/modules/spades/#background", 
+            "text": "Spades is one of a number of  de novo  assemblers that use short read sets as input (e.g. Illumina Reads), and the assembly method is based on de Bruijn graphs. For information about Spades see this  link .   In this activity, we will perform a  de novo  assembly of a short read set using the Spades assembler. The output from Spades that we are interested in is a multifasta file that contains the draft genome sequence.  The read set for today is from an imaginary  Staphylococcus aureus  bacterium with a miniature genome.  We have a closed, annotated genome sequence for a closely related  wildtype  strain.  The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.   The reads are paired-end  Each read is 150 bases (before trimming)  The number of bases sequenced is equivalent to 19x the genome sequence of the wildtype strain. (Read coverage 19x - rather low!).", 
+            "title": "Background"
+        }, 
+        {
+            "location": "/modules/spades/#learning-objectives", 
+            "text": "At the end of this tutorial you should be able to:   import data into Galaxy    view the files  evaluate the read quality  assemble the reads using Spades, and  examine the output assembly.", 
+            "title": "Learning objectives"
+        }, 
+        {
+            "location": "/modules/spades/#import-data-into-galaxy", 
+            "text": "Go to the address of your galaxy server.     Click on the  Analyze Data  menu at the top of the page.      Click on the  History options  button the   on the top right of the history pane.  Click  Import from File  (at the bottom of the list).    A new page will appear with a text box for the URL of the history to import.    Copy the following URL into the text box:  http://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz     Click  Submit .    Galaxy will download the data files from the internet and will be available as an additional history (takes about one minute).    To view this new history, click the  View all histories  button  (top right of the history pane).    If the history has finished downloading it will appear as  imported from archive: Colombia_workshop_start  Click on the   button above the  imported from archive:Colombia_workshop_start  then the   button.  You should now have four files in the history pane as follows:", 
+            "title": "Import data into Galaxy"
+        }, 
+        {
+            "location": "/modules/spades/#view-files", 
+            "text": "All the files are text files.   mutant_R1.fastq  and  mutant_R2.fastq : a paired-end read set    wildtype.fna : a file that contains the genome sequence of the wildtype strain in fasta format (a header line, then the nucleotide sequence of the genome)  wildtype.gff : a file that contains the genome sequence of the wildtype strain in general feature format. (a list of features - one feature per line, then the nucleotide sequence of the genome)   Look at the contents of these files.   Click on the View Data button (the  ) next to each of the files in turn.  The gff file should look like this:", 
+            "title": "View files"
+        }, 
+        {
+            "location": "/modules/spades/#evaluate-the-input-reads", 
+            "text": "Questions you might ask about your input reads include:   How good is my read set?  Do I need to ask for a new sequencing run?    Is it suitable for the analysis I need to do?   We will evaluate the input reads using the FastQC tool.   This runs a standard series of tests on your read set and returns a relatively easy-to-interpret report.  We will use the FastQC tool in Galaxy to evaluate the quality of one of our FASTQ files.  Go to  Tools   NGS:Analysis   NGS: QC and Manipulation   FastQC  Select  mutant_R1.fastq  Execute  Once finished, examine the output called  FastQC on data1:webpage  (Hint: ). It has a summary at the top of\nthe page and a number of graphs.   Some of the important outputs of FastQC for our purposes are:   Basic Statistics: Sequence length : will be important in setting maximum k-mer size value for assembly  Basic Statistics: Encoding : Quality encoding type: important for quality trimming software  Basic Statistics: % GC : high GC organisms don\u2019t tend to assemble well and may have an uneven read coverage distribution.  Basic Statistics: Total sequences : Total number of reads: gives you an idea of coverage.  Per base sequence quality : Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.  Per base N content : Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.  Kmer content : Presence of highly recurring k-mers: may point to contamination of reads with barcodes or adapter sequences.   Although we have warnings for two outputs (per base sequence content; Kmer content), we can ignore these for now. For a fuller discussion of FastQC outputs and warnings, see the  FastQC website link , including the section on each of the output  reports , and examples of  good  and  bad  Illumina data. We won\u2019t be doing anything to these data to clean it up as there isn\u2019t much need. Therefore we will get on with the assembly!", 
+            "title": "Evaluate the input reads"
+        }, 
+        {
+            "location": "/modules/spades/#assemble-reads-with-spades", 
+            "text": "We will perform a  de novo  assembly of the mutant FASTQ reads into long contiguous sequences (in FASTA format.)     Go to  Tools   NGS Analysis   NGS: Assembly   spades   Set the following parameters:   Run only Assembly :  Yes     Kmers to use separated by commas:   33,55,91   [no spaces]    Coverage cutoff:   auto     Files   Forward reads:   mutant_R1.fastq     Files   Reverse reads:   mutant_R2.fastq        Your tool interface should look like this:      Click  Execute", 
+            "title": "Assemble reads with Spades"
+        }, 
+        {
+            "location": "/modules/spades/#examine-the-output", 
+            "text": "Galaxy is now running Spades on the reads for you.   When it is finished, you will have five new files in your history.     two FASTA files of the resulting contigs and scaffolds  two files for statistics about these  the Spades logfile     Click on the View Data button   on each of the files.   Note that the short reads have been assembled into much longer contigs.  (However, in this case, the contigs have not been assembled into larger scaffolds.)  The stats files will give you the length of each of the contigs.", 
+            "title": "Examine the output"
+        }, 
+        {
+            "location": "/modules/spades/#what-next", 
+            "text": "Annotate the genome using Prokka.", 
+            "title": "What next?"
+        }, 
+        {
+            "location": "/modules/prokka/", 
+            "text": "Genome annotation using Prokka\n\n\nBackground\n\n\nIn this section we will use a software tool called Prokka to annotate the draft genome sequence produced in the previous \ntutorial\n. Prokka is a \u201cwrapper\u201d; it collects together several pieces of software (from various authors), and so avoids \u201cre-inventing the wheel\u201d.\n\n\nProkka finds and annotates features (both protein coding regions and RNA genes, i.e. tRNA, rRNA) present on on a sequence. Note, Prokka uses a two-step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using \nProdigal\n; second, the \nfunction\n of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found \nhere\n.\n\n\nLearning objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\ninput files into Prokka\n\n\nchange settings\n\n\nrun Prokka, and\n\n\nexamine the output: annotated genome.\n\n\n\n\nInput data\n\n\n\n\nYou will need the assembled contigs from the previous workshop (\nAssembly with Spades\n): \nSPAdes_contigs.fasta\n\n\nIf you are continuing on from that tutorial, this file will be in your current history and there is no need to find/import it.\n\n\n\n\nRun Prokka\n\n\n\n\nIn Galaxy, go to \nTools \n NGS Analysis \n NGS: Annotation \n Prokka\n  \n\n\nSet the following parameters (leave everything else unchanged):\n\n\nContigs to annotate\n: \nSPAdes contigs (fasta)\n  \n\n\nLocus tag prefix (\nlocustag)\n: P\n\n\nForce GenBank/ENA/DDJB compliance (\ncompliant)\n: \nYes\n\n\nSequencing Centre ID (\ncentre)\n: V\n\n\nGenus Name\n: \nStaphylococcus\n  \n\n\nSpecies Name\n: \naureus\n  \n\n\nUse genus-specific BLAST database\n \nNo\n  \n\n\nClick \nExecute\n  \n\n\n\n\n\n\n\n\nExamine the output\n\n\nOnce Prokka has finished, examine each of its output files.\n\n\n\n\nThe gff and gbk files contains all of the information about all of the features annotated (in different formats.)\n\n\nThe txt file contains a summary of the number of features annotated.\n\n\nThe faa file contains the protein sequences of the genes annotated.\n\n\n\n\nThe ffn file contains the nucleotide sequences of the genes annotated.\n\n\n\n\n\n\nDownload the gff file to your local computer: click on the file name with the .gff extension, and then click on the disk icon \n.\n\n\n\n\n\n\n\n\nAnnotated features\n\n\nNow that we have annotated the draft genome sequence, we would like to view the sequence in the Artemis genome viewer.\n\n\n\n\nOpen Artemis and load the downloaded .gff file.\n\n\nThe top panel shows an overview - here we can see annotated genes and other features.\n\n\nThe middle panel shows the DNA sequence and amino acid translations in 6 frames.\n\n\nThe bottom panel shows a text summary of the features.\n\n\nScroll left and right with the horizontal bars under each panel.\n\n\nZoom with the vertical bars to the right.\n\n\n\n\n\n\nWhat next?\n\n\n\n\nIdentify genome variants (nucletotide changes) using Snippy.", 
+            "title": "Genome annotation"
+        }, 
+        {
+            "location": "/modules/prokka/#genome-annotation-using-prokka", 
+            "text": "", 
+            "title": "Genome annotation using Prokka"
+        }, 
+        {
+            "location": "/modules/prokka/#background", 
+            "text": "In this section we will use a software tool called Prokka to annotate the draft genome sequence produced in the previous  tutorial . Prokka is a \u201cwrapper\u201d; it collects together several pieces of software (from various authors), and so avoids \u201cre-inventing the wheel\u201d.  Prokka finds and annotates features (both protein coding regions and RNA genes, i.e. tRNA, rRNA) present on on a sequence. Note, Prokka uses a two-step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using  Prodigal ; second, the  function  of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found  here .", 
+            "title": "Background"
+        }, 
+        {
+            "location": "/modules/prokka/#learning-objectives", 
+            "text": "At the end of this tutorial you should be able to:   input files into Prokka  change settings  run Prokka, and  examine the output: annotated genome.", 
+            "title": "Learning objectives"
+        }, 
+        {
+            "location": "/modules/prokka/#input-data", 
+            "text": "You will need the assembled contigs from the previous workshop ( Assembly with Spades ):  SPAdes_contigs.fasta  If you are continuing on from that tutorial, this file will be in your current history and there is no need to find/import it.", 
+            "title": "Input data"
+        }, 
+        {
+            "location": "/modules/prokka/#run-prokka", 
+            "text": "In Galaxy, go to  Tools   NGS Analysis   NGS: Annotation   Prokka     Set the following parameters (leave everything else unchanged):  Contigs to annotate :  SPAdes contigs (fasta)     Locus tag prefix ( locustag) : P  Force GenBank/ENA/DDJB compliance ( compliant) :  Yes  Sequencing Centre ID ( centre) : V  Genus Name :  Staphylococcus     Species Name :  aureus     Use genus-specific BLAST database   No     Click  Execute", 
+            "title": "Run Prokka"
+        }, 
+        {
+            "location": "/modules/prokka/#examine-the-output", 
+            "text": "Once Prokka has finished, examine each of its output files.   The gff and gbk files contains all of the information about all of the features annotated (in different formats.)  The txt file contains a summary of the number of features annotated.  The faa file contains the protein sequences of the genes annotated.   The ffn file contains the nucleotide sequences of the genes annotated.    Download the gff file to your local computer: click on the file name with the .gff extension, and then click on the disk icon  .", 
+            "title": "Examine the output"
+        }, 
+        {
+            "location": "/modules/prokka/#annotated-features", 
+            "text": "Now that we have annotated the draft genome sequence, we would like to view the sequence in the Artemis genome viewer.   Open Artemis and load the downloaded .gff file.  The top panel shows an overview - here we can see annotated genes and other features.  The middle panel shows the DNA sequence and amino acid translations in 6 frames.  The bottom panel shows a text summary of the features.  Scroll left and right with the horizontal bars under each panel.  Zoom with the vertical bars to the right.", 
+            "title": "Annotated features"
+        }, 
+        {
+            "location": "/modules/prokka/#what-next", 
+            "text": "Identify genome variants (nucletotide changes) using Snippy.", 
+            "title": "What next?"
+        }, 
+        {
+            "location": "/modules/snippy/", 
+            "text": "Variant calling with Snippy\n\n\nBackground\n\n\nVariant calling is the process of identifying differences between to genome samples.\nUsually differences are limited to single nucleotide polymorphisms (SNPs) and small insertions and deletions (indels). Larger structural variation such as inversions, duplications and large deletions are not typically covered by \nvariant calling\n.\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nFind variants between a reference genome and a set of reads\n\n\nDetermine the effect of those variants on genomic features\n\n\nUnderstand if the SNP is potentially affecting the phenotype\n\n\n\n\n\n\n\nPrepare reference\n\n\nWe will use the same data that we used in the \nAssembly with Spades tutorial.\n This should still be in your current galaxy history. If not, re-import the data into a new history using the instructions in that tutorial.\n\n\nFor variant calling, we need a reference genome that is of the same strain as the input sequence reads. This can be the plain nucelotide sequence in FASTA format, or annotated in GBK or GFF3 format.\n\n\n\n\nupload \nwildtpe.gbk\n file\n\n\n\n\nOur reference is the \nwildtype.gbk\n file and our reads are \nmutant_R1.fastq\n and \nmutant_R2.fastq\n.\n\n\n\n\nscreenshot of files\n\n\n\n\n\n\n\nCall variants with Snippy\n\n\n\n\nGo to \nTools \n NGS Analysis \n NGS: Variant Analysis \n snippy\n\n\nFor \nReference type\n select \nGenbank\n.\n\n\nThen for \nReference Genbank\n choose the \nwildtype.gbk\n file.\n\n\nFor \nSingle or Paired-end reads\n choose \nPaired\n.\n\n\nThen choose the first set of reads, \nmutant_R1.fastq\n and second set of reads, \nmutant_R2.fastq\n.\n\n\nFor \nCleanup the non-snp output files\n select \nNo\n.\n\n\nClick \nExecute\n.\n\n\n\n\nto do:\n\n\n\n\nlook in the output tab file to see list of SNPs\n\n\nwhat types, what do they mean, snpeff predictions\n\n\n\n\nany other snippy output to look at?\n\n\n\n\n\n\ngo to Graph/Display data\n\n\n\n\nJBrowse\n\n\nFasta seq: choose wildtype.fna\n\n\nProduce standalone- yes\n\n\ngenetic code - 11\n\n\ninsert track group - name it\n\n\ninsert annotation track\n\n\nfor snps gff, vcf, bam  (autogenerate snp track - yes)\n\n\nthis makes a file - click on eye to view\n\n\nselect tracks from the left\n\n\ngo to position x to see a snp\n\n\ngo back to snippy tab output to see the snpeff result for this snp\n\n\n\n\n\n\n\nWhat next?", 
+            "title": "Variant finding"
+        }, 
+        {
+            "location": "/modules/snippy/#variant-calling-with-snippy", 
+            "text": "", 
+            "title": "Variant calling with Snippy"
+        }, 
+        {
+            "location": "/modules/snippy/#background", 
+            "text": "Variant calling is the process of identifying differences between to genome samples.\nUsually differences are limited to single nucleotide polymorphisms (SNPs) and small insertions and deletions (indels). Larger structural variation such as inversions, duplications and large deletions are not typically covered by  variant calling .", 
+            "title": "Background"
+        }, 
+        {
+            "location": "/modules/snippy/#learning-objectives", 
+            "text": "At the end of this tutorial you should be able to:   Find variants between a reference genome and a set of reads  Determine the effect of those variants on genomic features  Understand if the SNP is potentially affecting the phenotype", 
+            "title": "Learning Objectives"
+        }, 
+        {
+            "location": "/modules/snippy/#prepare-reference", 
+            "text": "We will use the same data that we used in the  Assembly with Spades tutorial.  This should still be in your current galaxy history. If not, re-import the data into a new history using the instructions in that tutorial.  For variant calling, we need a reference genome that is of the same strain as the input sequence reads. This can be the plain nucelotide sequence in FASTA format, or annotated in GBK or GFF3 format.   upload  wildtpe.gbk  file   Our reference is the  wildtype.gbk  file and our reads are  mutant_R1.fastq  and  mutant_R2.fastq .   screenshot of files", 
+            "title": "Prepare reference"
+        }, 
+        {
+            "location": "/modules/snippy/#call-variants-with-snippy", 
+            "text": "Go to  Tools   NGS Analysis   NGS: Variant Analysis   snippy  For  Reference type  select  Genbank .  Then for  Reference Genbank  choose the  wildtype.gbk  file.  For  Single or Paired-end reads  choose  Paired .  Then choose the first set of reads,  mutant_R1.fastq  and second set of reads,  mutant_R2.fastq .  For  Cleanup the non-snp output files  select  No .  Click  Execute .   to do:   look in the output tab file to see list of SNPs  what types, what do they mean, snpeff predictions   any other snippy output to look at?    go to Graph/Display data   JBrowse  Fasta seq: choose wildtype.fna  Produce standalone- yes  genetic code - 11  insert track group - name it  insert annotation track  for snps gff, vcf, bam  (autogenerate snp track - yes)  this makes a file - click on eye to view  select tracks from the left  go to position x to see a snp  go back to snippy tab output to see the snpeff result for this snp", 
+            "title": "Call variants with Snippy"
+        }, 
+        {
+            "location": "/modules/snippy/#what-next", 
+            "text": "", 
+            "title": "What next?"
+        }, 
+        {
             "location": "/about/", 
-            "text": "About\n\n\nThis site contains tutorials for using the\n\nMicrobial Genomics Virtual Lab\n to perform bioinformatics\ntasks on bacterial \nomics\n data, either on the Unix command line or using\nthe \nGalaxy\n system.\n\n\nAuthors\n\n\n\n\nAnna Syme\n\n\nTorsten Seemann\n\n\nMadison Flannery\n\n\nSimon Gladman\n\n\n\n\nFunding\n\n\n\n\nBioplatforms Australia\n\n\nResearch Data Services\n\n\nNectar", 
+            "text": "About\n\n\nSEPSIS-Omics is An RDS-funded flagship project to provide cloud-based data services and tools\nfor Australian Life Science Researchers to combine, analyse and interpret\ngenomic, transcriptomic, proteomic and metabolomic data.\n\n\nAuthors\n\n\n Anna Syme\n\n\n Torsten Seemann\n\n\nSupport\n\n\n\n\nResearch Data Services\n\n\nBioplatforms Australia\n\n\nNectar", 
             "title": "About"
         }, 
         {
             "location": "/about/#about", 
-            "text": "This site contains tutorials for using the Microbial Genomics Virtual Lab  to perform bioinformatics\ntasks on bacterial  omics  data, either on the Unix command line or using\nthe  Galaxy  system.", 
+            "text": "SEPSIS-Omics is An RDS-funded flagship project to provide cloud-based data services and tools\nfor Australian Life Science Researchers to combine, analyse and interpret\ngenomic, transcriptomic, proteomic and metabolomic data.", 
             "title": "About"
         }, 
         {
             "location": "/about/#authors", 
-            "text": "Anna Syme  Torsten Seemann  Madison Flannery  Simon Gladman", 
+            "text": "Anna Syme   Torsten Seemann", 
             "title": "Authors"
         }, 
         {
-            "location": "/about/#funding", 
-            "text": "Bioplatforms Australia  Research Data Services  Nectar", 
-            "title": "Funding"
+            "location": "/about/#support", 
+            "text": "Research Data Services  Bioplatforms Australia  Nectar", 
+            "title": "Support"
         }
     ]
 }

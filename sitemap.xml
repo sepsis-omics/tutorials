@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-06-10</lastmod>
+     <lastmod>2016-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,64 +12,44 @@
     
         
     <url>
-     <loc>None/workshop/overview/</loc>
-     <lastmod>2016-06-10</lastmod>
+     <loc>None/modules/overview/</loc>
+     <lastmod>2016-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/workshop/genomics/1a/</loc>
-     <lastmod>2016-06-10</lastmod>
+     <loc>None/modules/galaxy/</loc>
+     <lastmod>2016-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/workshop/genomics/1c/</loc>
-     <lastmod>2016-06-10</lastmod>
+     <loc>None/modules/fastqc/</loc>
+     <lastmod>2016-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/workshop/genomics/2a/</loc>
-     <lastmod>2016-06-10</lastmod>
+     <loc>None/modules/trimmomatic/</loc>
+     <lastmod>2016-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/workshop/genomics/2b/</loc>
-     <lastmod>2016-06-10</lastmod>
+     <loc>None/modules/spades/</loc>
+     <lastmod>2016-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/workshop/genomics/3b/</loc>
-     <lastmod>2016-06-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/how_to/overview/</loc>
-     <lastmod>2016-06-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/tools/</loc>
-     <lastmod>2016-06-10</lastmod>
+     <loc>None/modules/prokka/</loc>
+     <lastmod>2016-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
+     <loc>None/modules/snippy/</loc>
+     <lastmod>2016-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -78,7 +58,7 @@
     
     <url>
      <loc>None/about/</loc>
-     <lastmod>2016-06-10</lastmod>
+     <lastmod>2016-06-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
