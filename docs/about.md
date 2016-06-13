@@ -7,10 +7,8 @@ the [Galaxy](http://galaxyproject.org/) system.
 
 ## Authors
 
-* Anna Syme
-* Torsten Seemann
-* Madison Flannery
-* Simon Gladman
+* ![Anna](/media/people/anna.jpg) Anna Syme
+* ![Torsten](/media/people/torsten.jpg) Torsten Seemann
 
 ## Funding
 
