@@ -13,9 +13,9 @@ pages:
 - Home: index.md
 - Introductory training:
 #    - Comparative Genomics:
-        - workshop/overview.md
+        - Overview: workshop/overview.md
         - Use Galaxy: workshop/genomics/1a/index.md
-#       - Intro to Artemis: workshop/genomics/1b/index.md
+        - Intro to Artemis: workshop/genomics/1b/index.md
         - View with JBroswe: workshop/genomics/1c/index.md
         - Assemble with Spades: workshop/genomics/2a/index.md
         - Annotate with Prokka: workshop/genomics/2b/index.md
@@ -31,8 +31,8 @@ pages:
 #    - Transcriptomics: rna/data.md
 #    - Proteomics: pro/data.md
 #    - Metabolomics: met/data.md
-- Advanced training:
-      - Overview: how_to/overview.md
+#- Advanced training:
+      #- Overview: how_to/overview.md
       #- Genome assembly in Galaxy: how_to/assembly/assembly_galaxy.md
       #- Genome assembly on the commandline:
       #- Genome annotation in Galaxy:  how_to/annotation/anno_galaxy.md
@@ -40,14 +40,14 @@ pages:
       #- Pan genomes: how_to/pan/roary.md
       #- Differential gene expression:
 
-- Tools:
-    - Oveview: tools.md
-    - Genomics:
-        - Quality Control:
-            # - Overview: dna/qualitycontrol/qc.md
-            - FastQC in Galaxy: dna/qualitycontrol/fastqc.md
-            - FastQC on commandline: dna/qualitycontrol/fastqc_cmdline.md
-            - Trimmomatic in Galaxy: dna/qualitycontrol/trimmomatic.md
+#- Tools:
+#     - Oveview: tools.md
+#     - Genomics:
+#         - Quality Control:
+#             # - Overview: dna/qualitycontrol/qc.md
+#             - FastQC in Galaxy: dna/qualitycontrol/fastqc.md
+#             - FastQC on commandline: dna/qualitycontrol/fastqc_cmdline.md
+#             - Trimmomatic in Galaxy: dna/qualitycontrol/trimmomatic.md
         #- De novo assembly:
             #  Background
             #- Spades: dna/denovo/spades.md
@@ -98,4 +98,4 @@ pages:
 #  - Genome annotation: protocols/annotation.md
 #  - Finding variants: protocols/variants.md
 #  - Differential gene expression: protocols/dge.md
-- About: about.md
+- About: about/index.md

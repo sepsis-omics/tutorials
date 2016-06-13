@@ -65,7 +65,7 @@ These are for "info boxes" in mkdocs
 */
 
 .admonition {
-  border: solid black medium;
+  border: solid black thin;
   margin: 1ex 0;
   padding: 1ex;
 }
@@ -73,15 +73,15 @@ These are for "info boxes" in mkdocs
 .admonition-title {
   font-size: larger;
   font-weight: bold;
-  font-style: italic;
+  //font-style: italic;
 }
 
 .hint {
-  border-color: green;
+  background-color: green;
 }
 .note {
-  border-color: orange;
+  background-color: orange;
 }
 .warning {
-  border-color: red;
+  background-color: red;
 }
