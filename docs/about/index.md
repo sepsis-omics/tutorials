@@ -10,6 +10,8 @@ genomic, transcriptomic, proteomic and metabolomic data.
 
 ![Torsten](torsten.jpg) Torsten Seemann
 
+![Simon](simon.jpg) Simon Gladman
+
 ## Support
 
 * [Research Data Services](http://omics.data.edu.au/)
