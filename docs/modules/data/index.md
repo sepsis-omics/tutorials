@@ -4,7 +4,7 @@
 
 Right-click on this link and select "copy link address":
 
-* [Galaxy history](Galaxy-History-Workshop-start.tar.gz)
+* [Galaxy history](Data.tar.gz)
 
 ## Wildtype reference
 
