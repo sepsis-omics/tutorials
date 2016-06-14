@@ -27,14 +27,15 @@ TX = text
 */
 
 SS {
-  font-family: Geneva;
-  font-weight: normal;
+  font-family: "Lucida Grande", sans-serif;
+  font-size: 80%;
+  font-weight: bolder;
   color: black;
   text-align: center;
   border-radius: 5px;
   background: lightsteelblue;
   padding: 0.3ex 1ex;
-  font-size: 90%;
+
 }
 
 FN {

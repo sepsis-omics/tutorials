@@ -82,7 +82,7 @@
                     
                         
 <li >
-    <a href="../fastqc/">Qaulity control</a>
+    <a href="../fastqc/">Quality control</a>
 </li>
 
                     
@@ -193,7 +193,7 @@
 <li>Set the following parameters (leave everything else unchanged):<ul>
 <li><ss>Contigs to annotate</ss>: <fn>SPAdes contigs (fasta)</fn>  </li>
 <li><ss>Locus tag prefix (&ndash;locustag)</ss>: P</li>
-<li><ss>Force GenBank/ENA/DDJB compliance (&ndash;compliant)</ss>: <em>Yes</em></li>
+<li><ss>Force GenBank/ENA/DDJB compliance (&ndash;compliant)</ss>: <em>No</em></li>
 <li><ss>Sequencing Centre ID (&ndash;centre)</ss>: V</li>
 <li><ss>Genus Name</ss>: <em>Staphylococcus</em>  </li>
 <li><ss>Species Name</ss>: <em>aureus</em>  </li>
@@ -212,24 +212,62 @@
 <p>The ffn file contains the nucleotide sequences of the genes annotated.</p>
 </li>
 <li>
-<p>Download the gff file to your local computer: click on the file name with the .gff extension, and then click on the disk icon <img alt="disk icon" src="./images/image00.png" />.</p>
+<p>look at any of these files?</p>
+</li>
+<li>
+<p>Enable Scratchbook in Galaxy so you can view several windows at once. Go to - show screenshot - click.</p>
 </li>
 </ul>
-<p><img alt="galaxy file" src="./images/image01.png" /></p>
 <h2 id="annotated-features">Annotated features</h2>
-<p>Now that we have annotated the draft genome sequence, we would like to view the sequence in the Artemis genome viewer.</p>
+<p>Now that we have annotated the draft genome sequence, we would like to view the sequence in the JBrowse genome viewer.</p>
 <ul>
-<li>Open Artemis and load the downloaded .gff file.</li>
-<li>The top panel shows an overview - here we can see annotated genes and other features.</li>
-<li>The middle panel shows the DNA sequence and amino acid translations in 6 frames.</li>
-<li>The bottom panel shows a text summary of the features.</li>
-<li>Scroll left and right with the horizontal bars under each panel.</li>
-<li>Zoom with the vertical bars to the right.</li>
+<li>
+<p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss></p>
+</li>
+<li>
+<p>need to choose the prokka contigs - the prokka fna file
+and then the prokka output - the prokka gff file</p>
+</li>
 </ul>
-<p><img alt="Artemis screenshot" src="./images/image02.png" /></p>
+<p>this is bc prokka re-orders the spades contigs and renames them and may also reverse some.
+so spades contigs will not match to prokka gff file</p>
+<ul>
+<li>click on the new file - eye icon</li>
+<li>
+<p>the JBrowse window will appear in the centre galaxy panel</p>
+</li>
+<li>
+<p>screenshot image showing how to select stuff - arrows to prokka gff, to contig choice, to ref sez, to genes</p>
+</li>
+<li>
+<p>under Available Tracks on the left, tick box for prokka gff file so it shows as a track</p>
+</li>
+<li>
+<p>Select contig 6 in drop down box
+(can change bn contigs but only see one at at time)</p>
+</li>
+<li>
+<p>see reference seq across top</p>
+</li>
+<li>
+<p>zoom in and out</p>
+</li>
+<li>
+<p>scroll left and right</p>
+</li>
+<li>
+<p>click on a gene to see info.</p>
+<ul>
+<li>see name, gene, product, can download fasta seq (click on disk icon)</li>
+</ul>
+</li>
+<li>
+<p>go to coordinate [something] to see something</p>
+</li>
+</ul>
 <h2 id="what-next">What next?</h2>
 <ul>
-<li>Identify genome variants (nucletotide changes) using Snippy.</li>
+<li>Identify genome variants (nucletotide changes) using <a href="../snippy/">Snippy</a>.</li>
 </ul></div>
         </div>
 
