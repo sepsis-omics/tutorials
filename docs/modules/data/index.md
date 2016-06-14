@@ -1,5 +1,11 @@
 # Tutorial data
 
+## Galaxy history
+
+Right-click on this link and select "copy link address":
+
+* [Galaxy history](Galaxy-History-Workshop-start.tar.gz)
+
 ## Wildtype reference
 
 * [wildtype.fna](wildtype.fna)
