@@ -12,6 +12,8 @@ genomic, transcriptomic, proteomic and metabolomic data.
 
 ![Simon](simon.jpg) Simon Gladman
 
+![Dieter](dieter.jpg) Dieter Bulach
+
 ## Support
 
 * [Research Data Services](http://omics.data.edu.au/)
