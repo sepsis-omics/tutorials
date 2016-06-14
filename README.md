@@ -8,6 +8,11 @@ The tutorials have been deployed here: http://sepsis-omics.github.io/tutorials/
 
 ## How to work on them locally
 
+### Install the mkdocs tools
+```
+% pip install mkdocs markdown-include mkdocs-alabaster mkdocs-bootstrap
+```
+
 ### Clone the repo
 ```
 % git clone https://github.com/sepsis-omics/tutorials.git sepsis-tutorials
@@ -57,5 +62,6 @@ http://sepsis-omics.github.io/tutorials/
 
 * Torsten Seemann
 * Anna Syme
-* Madison Flannery
 * Simon Gladman
+* Dieter Bulach
+
