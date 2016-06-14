@@ -16,9 +16,12 @@ At the end of this tutorial you should be able to:
 
 ## Input files
 
-e.g. <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>: a paired-end read set  
+- We will use the paired-end read set from our Galaxy history.
+- These are the files <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.
+- If you don't have these FASTQ files in your current Galaxy history see how to get them [here](../data/index.md).
+- FASTQ is a file format for sequence reads that displays quality scores for each of the sequenced nucleotides. For more information about FASTQ format see this [link](https://en.wikipedia.org/wiki/FASTQ_format).
+- We will evaluate the <fn>mutant_R1.fastq</fn> reads using the FastQC tool.
 
-We will evaluate the R1 input reads using the FastQC tool.
 
 ## Run FastQC
 
@@ -31,13 +34,23 @@ Once finished, examine the output called <fn>FastQC on data1:webpage</fn> (Hint:
 
 Look at:
 
--   <ss>Basic Statistics: Sequence length</ss>: will be important in setting maximum k-mer size value for assembly
--   <ss>Basic Statistics: Encoding</ss>: Quality encoding type: important for quality trimming software
--   <ss>Basic Statistics: % GC</ss>: high GC organisms don’t tend to assemble well and may have an uneven read coverage distribution.
--   <ss>Basic Statistics: Total sequences</ss>: Total number of reads: gives you an idea of coverage.
--   <ss>Per base sequence quality</ss>: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.
--   <ss>Per base N content</ss>: Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.
--   <ss>Kmer content</ss>: Presence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc.
+-   <ss>Basic Statistics</ss>
+
+    - <ss>Sequence length</ss>: will be important in setting maximum k-mer size value for assembly.
+    - <ss>Encoding</ss>: The quality encoding type is important for quality trimming software.
+    - <ss>% GC</ss>: high GC organisms don’t tend to assemble well and may have an uneven read coverage distribution.
+    - <ss>Total sequences</ss>: Total number of reads: gives you an idea of coverage.
+
+-   <ss>Per base sequence quality</ss>: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run. In this case, all the reads are of relatively high quality across their length (150 bp).
+
+![sequence quality graph](images/seq_quality.png)
+
+-   <ss>Per base N content</ss>: Presence of large numbers of Ns in reads may point to a poor quality sequencing run. You would need to trim these reads to remove Ns.
+
+-   <ss>Kmer content</ss>: Presence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc. In this case, we have spikes in two types of kmers. <!-- explain why?
+-->
+
+![kmer content graph](images/kmer_content.png)
 
 We have warnings for two outputs (per base sequence content; Kmer content). This would warrant more investigation.
 
@@ -51,7 +64,13 @@ For a fuller discussion of FastQC outputs and warnings, see the [FastQC website 
 
 
 ## What Next?
+[Assemble the reads into a draft genome sequence](../spades/index.md).
+
+
+
+<!--
 - Trim reads with [Trimmomatic.](../trimmomatic/index.md)
+-->
 
 <!---
 FIXME: include these?

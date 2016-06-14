@@ -10,10 +10,9 @@ Prokka finds and annotates features (both protein coding regions and RNA genes, 
 
 At the end of this tutorial you should be able to:
 
-1. input files into Prokka
-2. change settings
-3. run Prokka, and
-4. examine the output: annotated genome.
+1. input files into Prokka,
+2. run Prokka, and
+3. examine the annotated genome using JBrowse.
 
 ## Input data
 
@@ -26,38 +25,82 @@ At the end of this tutorial you should be able to:
 - Set the following parameters (leave everything else unchanged):
     - <ss>Contigs to annotate</ss>: <fn>SPAdes contigs (fasta)</fn>  
     - <ss>Locus tag prefix (--locustag)</ss>: P
-    - <ss>Force GenBank/ENA/DDJB compliance (--compliant)</ss>: *Yes*
+    - <ss>Force GenBank/ENA/DDJB compliance (--compliant)</ss>: *No*
     - <ss>Sequencing Centre ID (--centre)</ss>: V
     - <ss>Genus Name</ss>: *Staphylococcus*  
     - <ss>Species Name</ss>: *aureus*  
     - <ss>Use genus-specific BLAST database</ss> *No*  
-    - Click <ss>Execute</ss>  
+
+Your tool interface should look like this:
+
+![prokka interface](images/interface.png)
+
+- Click <ss>Execute</ss>  
 
 ## Examine the output
 
+First, enable "Scratchbook" in Galaxy - this allows you to view several windows simultaneously. Click on the squares:
+
+![scratchbook icon](images/scratchbook.png)
+
+
 Once Prokka has finished, examine each of its output files.
 
-- The gff and gbk files contains all of the information about all of the features annotated (in different formats.)
+- The GFF and GBK files contain all of the information about the features annotated (in different formats.)
 - The txt file contains a summary of the number of features annotated.
 - The faa file contains the protein sequences of the genes annotated.
 - The ffn file contains the nucleotide sequences of the genes annotated.
 
-- Download the gff file to your local computer: click on the file name with the .gff extension, and then click on the disk icon ![disk icon](./images/image00.png).
+## View annotated features in JBrowse
+Now that we have annotated the draft genome sequence, we would like to view the sequence in the JBrowse genome viewer.
 
-![galaxy file](./images/image01.png)
+- Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss>
 
-## Annotated features
-Now that we have annotated the draft genome sequence, we would like to view the sequence in the Artemis genome viewer.
+- Under <ss>Fasta Sequence(s)</ss> choose <fn>Prokka on data XX:fna</fn>. This sequence will be the reference against which annotations are displayed.
 
-- Open Artemis and load the downloaded .gff file.
-- The top panel shows an overview - here we can see annotated genes and other features.
-- The middle panel shows the DNA sequence and amino acid translations in 6 frames.
-- The bottom panel shows a text summary of the features.
-- Scroll left and right with the horizontal bars under each panel.
-- Zoom with the vertical bars to the right.
+- For <ss>Produce a Standalone Instance</ss> select *Yes*.
 
-![Artemis screenshot](./images/image02.png)
+- For <ss>Genetic Code</ss> choose *11: The Bacterial, Archaeal and Plant Plastid Code*.
+
+- Click <ss>Insert Track Group</ss>
+
+- Click <ss>Insert Annotation Track</ss>
+
+- For <ss>Track Type</ss> choose *GFF/GFF3/BED/GBK Features*
+
+- For <ss>GFF/GFF3/BED Track Data</ss> select <fn>Prokka on data XX:gff</fn>  [Note: not wildtype.gff]
+
+Your tool interface should look like this:
+
+![JBrowse interface](images/jbrowse.png)
+
+- Click <ss>Execute</ss>
+
+- A new file will be created, called <fn>JBrowse on data XX and data XX - Complete</fn>. Click on the eye icon next to the file name. The JBrowse window will appear in the centre Galaxy panel.
+
+- Under <ss>Available Tracks</ss> on the left, tick the box for <fn>Prokka on data XX:gff</fn>.
+
+- Select contig 6 in the drop down box. You can only see one contig displayed at a time.
+
+![JBrowse](images/jbrowse2.png)
+
+- Use the plus and minus buttons to zoom in and out, and the arrows to move left or right (or click and drag within the window to move left or right).
+
+Zoomed out view:
+
+![JBrowse](images/jbrowse3.png)
+
+Zoom in to see the reference sequence at the top. JBrowse displays the sequence and a 6-frame amino acid translation.
+
+Zoomed in view:
+
+![JBrowse](images/jbrowse4.png)
+
+- Click on a gene/feature annotation (the bars on the annotation track) to see more information.
+    - gene name
+    - product name
+    - you can download the FASTA sequence by clicking on the disk icon.
 
 ## What next?
 
-- Identify genome variants (nucletotide changes) using Snippy.
+- Identify genome variants (nucletotide changes) using [Snippy](../snippy/index.md).

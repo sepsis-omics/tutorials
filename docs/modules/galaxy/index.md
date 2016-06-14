@@ -262,4 +262,4 @@ This example shows how to use a tool called “barrnap” to search for rRNAs in
 
 - Remember how we started a new <ss>History</ss> at the beginning? If you want to see any of your old histories, click on the History menu button ![history button](./images/image02.png) at the top of the <ss>History</ss> panel and then select “Saved Histories.” This will give you a list of all the histories you have worked on in this Galaxy server.
 
-- Next: [Learn about quality control](../fastqc/index.md)
+- [Upload a saved Galaxy history (a set of files) to use in these tutorials](../data/index.md).
