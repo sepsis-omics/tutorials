@@ -3,10 +3,12 @@ site_description: Tutorials for analysing bacterial omics data
 site_author: Anna Syme, Torsten Seemann
 site_favicon: favicon.ico
 theme: yeti
+#theme: alabaster
 markdown_extensions:
     - admonition
     - smarty
     - tables
+#    - markdown_include.include
 extra_css:
     - css/sepsis.css
 pages:
@@ -15,7 +17,7 @@ pages:
     - Overview: modules/overview.md
     - Dataset: modules/data/index.md
     - Using Galaxy: modules/galaxy/index.md
-    - Qaulity control: modules/fastqc/index.md
+    - Quality control: modules/fastqc/index.md
     - Read trimming: modules/trimmomatic/index.md
     - Genome assembly: modules/spades/index.md
     - Genome annotation: modules/prokka/index.md
