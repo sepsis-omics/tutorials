@@ -71,64 +71,53 @@ From snippy, there are 10 output files in various formats.
 
 - For <ss>Genetic Code</ss> choose *11: The Bacterial, Archaeal and Plant Plastid Code*.
 
-- We will now set up three different tracks - these are datasets displayed underneath the reference sequence. We will choose to display
+- We will now set up three different tracks - these are datasets displayed underneath the reference sequence (which is displayed as nucleotides in FASTA format). We will choose to display the sequence reads (the .bam file), the variants found by snippy (the .gff file) and the annotated reference genome (the wildtype.gff)
 
-
-
- the sequence reads (the .bam file), the variants (the .gff file).
+*Track 1 - sequence reads*
 
 - Click <ss>Insert Track Group</ss>
-
 - name it "sequence reads"
-
 - Click <ss>Insert Annotation Track</ss>
-
 - For <ss>Track Type</ss> choose *BAM Pileups*
-
 - For <ss>BAM Track Data</ss> select <fn>the snippy bam file</fn>
-
 - For <ss>Autogenerate SNP Track</ss> select *Yes*
 
+*Track 2 - variants*
+
 - Click <ss>Insert Track Group</ss> again
-
 - name it "variants"
-
 - Click <ss>Insert Annotation Track</ss>
-
 - For <ss>Track Type</ss> choose *GFF/GFF3/BED/GBK Features*
-
 - For <ss>SNP Track Data</ss> select <fn>the snippy snps gff file</fn>
+
+*Track 3 - annotated reference*
+
+- Click <ss>Insert Track Group</ss> again
+- name it "annotated reference"
+- Click <ss>Insert Annotation Track</ss>
+- For <ss>Track Type</ss> choose *GFF/GFF3/BED/GBK Features*
+- For <ss>SNP Track Data</ss> select <fn>wildtype.gff</fn>
+- Under <ss>JBrowse Styling Options &rarr; JBrowse style. description</ss> type in *product,note,description*
 
 - Click <ss>Execute</ss>
 
 - A new file will be created, called <fn>JBrowse on data XX and data XX - Complete</fn>. Click on the eye icon next to the file name. The JBrowse window will appear in the centre Galaxy panel.
 
 
-- select tracks from the left - tick the boxes to display
+- On the left, tick boxes display the tracks
 
-- zoom out to see:
+- Use the minus button to zoom out to see:
     - sequence reads and their coverage (the grey graph)
-- zoom in to see:
+
+- Use the plus button to zoom in to see:
     - probable real variants (a whole column of snps)
     - probable errors (single one here and there)
 
-- go to position 47299 - type it in the coordinates box- to see the  snp discussed above -
-
-- the ref seq codes for cysteine at this position (the middle row of the top aa translation)
-- the mutation - makes this triplet into a stop codon
-
+- In the coordinates box, type in *47299*, the position of the SNP discussed above.
+    - the ref seq codes for cysteine at this position (the middle row of the top aa translation)
+    - the mutation - makes this triplet into a stop codon
 
 
-the new stop codon in the methicillin-resistant protein.
-
-
-
-other things in jbrowse:
-highlight with the highlight button
-
-drop down arrow next to ref seq - can just show some aas, one strand etc
-
-lots of options with bam drop down menu
 
 
 
