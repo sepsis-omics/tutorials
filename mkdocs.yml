@@ -3,10 +3,12 @@ site_description: Tutorials for analysing bacterial omics data
 site_author: Anna Syme, Torsten Seemann
 site_favicon: favicon.ico
 theme: yeti
+#theme: alabaster
 markdown_extensions:
     - admonition
     - smarty
     - tables
+#    - markdown_include.include
 extra_css:
     - css/sepsis.css
 pages:
