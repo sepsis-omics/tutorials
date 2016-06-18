@@ -28,6 +28,9 @@ To get the saved tutorial history (a set of files) into Galaxy:
 - Go to your Galaxy instance. Make sure you are registered and logged in. Refresh the page.
 - Click on the <ss>History</ss> cog ![cog icon](images/image02.png)
 - Select <ss>Import from File</ss>
+
+![history options](images/image03.png)
+
 - In the box called <ss>Archived History URL</ss>, paste in the link address to the Galaxy history.
 - Click <ss>Submit</ss>
 - Wait a few seconds.
