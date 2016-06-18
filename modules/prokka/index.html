@@ -70,25 +70,19 @@
                     
                         
 <li >
-    <a href="../data/">Dataset</a>
-</li>
-
-                    
-                        
-<li >
     <a href="../galaxy/">Using Galaxy</a>
 </li>
 
                     
                         
 <li >
-    <a href="../fastqc/">Quality control</a>
+    <a href="../data/">Dataset</a>
 </li>
 
                     
                         
 <li >
-    <a href="../trimmomatic/">Read trimming</a>
+    <a href="../fastqc/">Quality control</a>
 </li>
 
                     
@@ -161,7 +155,7 @@
         
             <li><a href="#examine-the-output">Examine the output</a></li>
         
-            <li><a href="#annotated-features">Annotated features</a></li>
+            <li><a href="#view-annotated-features-in-jbrowse">View annotated features in JBrowse</a></li>
         
             <li><a href="#what-next">What next?</a></li>
         
@@ -177,10 +171,9 @@
 <h2 id="learning-objectives">Learning objectives</h2>
 <p>At the end of this tutorial you should be able to:</p>
 <ol>
-<li>input files into Prokka</li>
-<li>change settings</li>
+<li>input files into Prokka,</li>
 <li>run Prokka, and</li>
-<li>examine the output: annotated genome.</li>
+<li>examine the annotated genome using JBrowse.</li>
 </ol>
 <h2 id="input-data">Input data</h2>
 <ul>
@@ -198,71 +191,83 @@
 <li><ss>Genus Name</ss>: <em>Staphylococcus</em>  </li>
 <li><ss>Species Name</ss>: <em>aureus</em>  </li>
 <li><ss>Use genus-specific BLAST database</ss> <em>No</em>  </li>
+</ul>
+</li>
+</ul>
+<p>Your tool interface should look like this:</p>
+<p><img alt="prokka interface" src="./images/interface.png" /></p>
+<ul>
 <li>Click <ss>Execute</ss>  </li>
 </ul>
-</li>
-</ul>
 <h2 id="examine-the-output">Examine the output</h2>
+<p>First, enable &ldquo;Scratchbook&rdquo; in Galaxy - this allows you to view several windows simultaneously. Click on the squares:</p>
+<p><img alt="scratchbook icon" src="./images/scratchbook.png" /></p>
 <p>Once Prokka has finished, examine each of its output files.</p>
 <ul>
-<li>The gff and gbk files contains all of the information about all of the features annotated (in different formats.)</li>
+<li>The GFF and GBK files contain all of the information about the features annotated (in different formats.)</li>
 <li>The txt file contains a summary of the number of features annotated.</li>
 <li>The faa file contains the protein sequences of the genes annotated.</li>
-<li>
-<p>The ffn file contains the nucleotide sequences of the genes annotated.</p>
-</li>
-<li>
-<p>look at any of these files?</p>
-</li>
-<li>
-<p>Enable Scratchbook in Galaxy so you can view several windows at once. Go to - show screenshot - click.</p>
-</li>
+<li>The ffn file contains the nucleotide sequences of the genes annotated.</li>
 </ul>
-<h2 id="annotated-features">Annotated features</h2>
+<h2 id="view-annotated-features-in-jbrowse">View annotated features in JBrowse</h2>
 <p>Now that we have annotated the draft genome sequence, we would like to view the sequence in the JBrowse genome viewer.</p>
 <ul>
 <li>
 <p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss></p>
 </li>
 <li>
-<p>need to choose the prokka contigs - the prokka fna file
-and then the prokka output - the prokka gff file</p>
+<p>Under <ss>Fasta Sequence(s)</ss> choose <fn>Prokka on data XX:fna</fn>. This sequence will be the reference against which annotations are displayed.</p>
+</li>
+<li>
+<p>For <ss>Produce a Standalone Instance</ss> select <em>Yes</em>.</p>
+</li>
+<li>
+<p>For <ss>Genetic Code</ss> choose <em>11: The Bacterial, Archaeal and Plant Plastid Code</em>.</p>
+</li>
+<li>
+<p>Click <ss>Insert Track Group</ss></p>
+</li>
+<li>
+<p>Click <ss>Insert Annotation Track</ss></p>
+</li>
+<li>
+<p>For <ss>Track Type</ss> choose <em>GFF/GFF3/BED/GBK Features</em></p>
+</li>
+<li>
+<p>For <ss>GFF/GFF3/BED Track Data</ss> select <fn>Prokka on data XX:gff</fn>  [Note: not wildtype.gff]</p>
 </li>
 </ul>
-<p>this is bc prokka re-orders the spades contigs and renames them and may also reverse some.
-so spades contigs will not match to prokka gff file</p>
+<p>Your tool interface should look like this:</p>
+<p><img alt="JBrowse interface" src="./images/jbrowse.png" /></p>
 <ul>
-<li>click on the new file - eye icon</li>
 <li>
-<p>the JBrowse window will appear in the centre galaxy panel</p>
+<p>Click <ss>Execute</ss></p>
 </li>
 <li>
-<p>screenshot image showing how to select stuff - arrows to prokka gff, to contig choice, to ref sez, to genes</p>
+<p>A new file will be created, called <fn>JBrowse on data XX and data XX - Complete</fn>. Click on the eye icon next to the file name. The JBrowse window will appear in the centre Galaxy panel.</p>
 </li>
 <li>
-<p>under Available Tracks on the left, tick box for prokka gff file so it shows as a track</p>
+<p>Under <ss>Available Tracks</ss> on the left, tick the box for <fn>Prokka on data XX:gff</fn>.</p>
 </li>
 <li>
-<p>Select contig 6 in drop down box
-(can change bn contigs but only see one at at time)</p>
+<p>Select contig 6 in the drop down box. You can only see one contig displayed at a time.</p>
 </li>
-<li>
-<p>see reference seq across top</p>
-</li>
-<li>
-<p>zoom in and out</p>
-</li>
-<li>
-<p>scroll left and right</p>
-</li>
-<li>
-<p>click on a gene to see info.</p>
-<ul>
-<li>see name, gene, product, can download fasta seq (click on disk icon)</li>
 </ul>
-</li>
-<li>
-<p>go to coordinate [something] to see something</p>
+<p><img alt="JBrowse" src="./images/jbrowse2.png" /></p>
+<ul>
+<li>Use the plus and minus buttons to zoom in and out, and the arrows to move left or right (or click and drag within the window to move left or right).</li>
+</ul>
+<p>Zoomed out view:</p>
+<p><img alt="JBrowse" src="./images/jbrowse3.png" /></p>
+<p>Zoom in to see the reference sequence at the top. JBrowse displays the sequence and a 6-frame amino acid translation.</p>
+<p>Zoomed in view:</p>
+<p><img alt="JBrowse" src="./images/jbrowse4.png" /></p>
+<ul>
+<li>Click on a gene/feature annotation (the bars on the annotation track) to see more information.<ul>
+<li>gene name</li>
+<li>product name</li>
+<li>you can download the FASTA sequence by clicking on the disk icon.</li>
+</ul>
 </li>
 </ul>
 <h2 id="what-next">What next?</h2>

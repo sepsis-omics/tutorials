@@ -70,25 +70,19 @@
                     
                         
 <li >
-    <a href="../data/">Dataset</a>
-</li>
-
-                    
-                        
-<li >
     <a href="../galaxy/">Using Galaxy</a>
 </li>
 
                     
                         
 <li >
-    <a href="../fastqc/">Quality control</a>
+    <a href="../data/">Dataset</a>
 </li>
 
                     
                         
 <li >
-    <a href="../trimmomatic/">Read trimming</a>
+    <a href="../fastqc/">Quality control</a>
 </li>
 
                     
@@ -159,7 +153,9 @@
         
             <li><a href="#call-variants-with-snippy">Call variants with Snippy</a></li>
         
-            <li><a href="#what-next">What next?</a></li>
+            <li><a href="#examine-snippy-output">Examine snippy output</a></li>
+        
+            <li><a href="#view-snippy-output-in-jbrowse">View snippy output in JBrowse</a></li>
         
     
     </ul>
@@ -185,14 +181,8 @@ FIXME: You are working on a bug and you notice one of them is forming smaller co
 
 <h2 id="prepare-reference">Prepare reference</h2>
 <p>We will use the same data that we used in the <a href="../spades/">Assembly with Spades tutorial.</a> This should still be in your current galaxy history. If not, re-import the data into a new history using the instructions in that tutorial.</p>
-<p>For variant calling, we need a reference genome that is of the same strain as the input sequence reads. This can be the plain nucelotide sequence in FASTA format, or annotated in GBK or GFF3 format.</p>
-<ul>
-<li>upload <fn>wildtpe.gbk</fn> file</li>
-</ul>
-<p>Our reference is the <fn>wildtype.gbk</fn> file and our reads are <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.</p>
-<ul>
-<li>screenshot of files</li>
-</ul>
+<p>For variant calling, we need a reference genome that is of the same strain as the input sequence reads.</p>
+<p>For this tutorial, our reference is the <fn>wildtype.gbk</fn> file and our reads are <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.</p>
 <!--
 !!! note
     Please make sure your reference genome includes all chromosomes and plasmids
@@ -206,33 +196,98 @@ FIXME: You are working on a bug and you notice one of them is forming smaller co
 <li>For <ss>Single or Paired-end reads</ss> choose <em>Paired</em>.</li>
 <li>Then choose the first set of reads, <fn>mutant_R1.fastq</fn> and second set of reads, <fn>mutant_R2.fastq</fn>.</li>
 <li>For <ss>Cleanup the non-snp output files</ss> select <em>No</em>.</li>
+</ul>
+<p>Your tool interface should look like this:</p>
+<p><img alt="Snippy interface" src="./images/interface.png" /></p>
+<ul>
 <li>Click <ss>Execute</ss>.</li>
 </ul>
-<p>to do:</p>
+<h2 id="examine-snippy-output">Examine snippy output</h2>
+<p>First, enable &ldquo;Scratchbook&rdquo; in Galaxy - this allows you to view several windows simultaneously. Click on the squares:</p>
+<p><img alt="scratchbook icon" src="./images/scratchbook.png" /></p>
+<p>From snippy, there are 10 output files in various formats.</p>
 <ul>
-<li>look in the output tab file to see list of SNPs</li>
-<li>what types, what do they mean, snpeff predictions</li>
-<li>
-<p>any other snippy output to look at?</p>
-</li>
-<li>
-<p>enable Scratchbook in Galaxy</p>
-</li>
-<li>
-<p>go to Graph/Display data</p>
-</li>
-<li>JBrowse</li>
-<li>Fasta seq: choose wildtype.fna</li>
-<li>Produce standalone- yes</li>
-<li>genetic code - 11</li>
-<li>insert track group - name it</li>
-<li>insert annotation track</li>
-<li>for snps gff, vcf, bam  (autogenerate snp track - yes)</li>
-<li>this makes a file - click on eye to view</li>
-<li>select tracks from the left</li>
-<li>go to position x to see a snp</li>
-<li>go back to snippy tab output to see the snpeff result for this snp</li>
+<li>Go to the file called <fn>snippy on data XX, data XX and data XX table</fn> and click on the eye icon.</li>
+<li>We can see a list of variants. Look in column 3 to see which types the variants are, such as a SNP or a deletion.</li>
+<li>Look at the third variant called. This is a T&rarr;A mutation, causing a stop codon. Look at column 14: the product of this gene is a methicillin resistance protein. Methicillin is an antibiotic. What might be the result of such a mutation? <!--[add a hint/info box]--></li>
 </ul>
+<h2 id="view-snippy-output-in-jbrowse">View snippy output in JBrowse</h2>
+<ul>
+<li>
+<p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss></p>
+</li>
+<li>
+<p>Under <ss>Fasta Sequence(s)</ss> choose <fn>wildtype.fna</fn>. This sequence will be the reference against which annotations are displayed.</p>
+</li>
+<li>
+<p>For <ss>Produce a Standalone Instance</ss> select <em>Yes</em>.</p>
+</li>
+<li>
+<p>For <ss>Genetic Code</ss> choose <em>11: The Bacterial, Archaeal and Plant Plastid Code</em>.</p>
+</li>
+<li>
+<p>We will now set up three different tracks - these are datasets displayed underneath the reference sequence (which is displayed as nucleotides in FASTA format). We will choose to display the sequence reads (the .bam file), the variants found by snippy (the .gff file) and the annotated reference genome (the wildtype.gff)</p>
+</li>
+</ul>
+<p><em>Track 1 - sequence reads</em></p>
+<ul>
+<li>Click <ss>Insert Track Group</ss></li>
+<li>For <ss>Track Cateogry</ss> name it &ldquo;sequence reads&rdquo;</li>
+<li>Click <ss>Insert Annotation Track</ss></li>
+<li>For <ss>Track Type</ss> choose <em>BAM Pileups</em></li>
+<li>For <ss>BAM Track Data</ss> select <fn>the snippy bam file</fn></li>
+<li>For <ss>Autogenerate SNP Track</ss> select <em>Yes</em></li>
+</ul>
+<p><em>Track 2 - variants</em></p>
+<ul>
+<li>Click <ss>Insert Track Group</ss> again</li>
+<li>For <ss>Track Category</ss> name it &ldquo;variants&rdquo;</li>
+<li>Click <ss>Insert Annotation Track</ss></li>
+<li>For <ss>Track Type</ss> choose <em>GFF/GFF3/BED/GBK Features</em></li>
+<li>For <ss>SNP Track Data</ss> select <fn>the snippy snps gff file</fn></li>
+</ul>
+<p><em>Track 3 - annotated reference</em></p>
+<ul>
+<li>Click <ss>Insert Track Group</ss> again</li>
+<li>For <ss> Track Category</ss> name it &ldquo;annotated reference&rdquo;</li>
+<li>Click <ss>Insert Annotation Track</ss></li>
+<li>For <ss>Track Type</ss> choose <em>GFF/GFF3/BED/GBK Features</em></li>
+<li>For <ss>SNP Track Data</ss> select <fn>wildtype.gff</fn></li>
+<li>
+<p>Under <ss>JBrowse Styling Options &rarr; JBrowse style. description</ss> type in <em>product,note,description</em></p>
+</li>
+<li>
+<p>Click <ss>Execute</ss></p>
+</li>
+<li>
+<p>A new file will be created, called <fn>JBrowse on data XX and data XX - Complete</fn>. Click on the eye icon next to the file name. The JBrowse window will appear in the centre Galaxy panel.</p>
+</li>
+<li>
+<p>On the left, tick boxes display the tracks</p>
+</li>
+<li>
+<p>Use the minus button to zoom out to see:</p>
+<ul>
+<li>sequence reads and their coverage (the grey graph)</li>
+</ul>
+</li>
+<li>
+<p>Use the plus button to zoom in to see:</p>
+<ul>
+<li>probable real variants (a whole column of snps)</li>
+<li>probable errors (single one here and there)</li>
+</ul>
+</li>
+</ul>
+<p><img alt="JBrowse screenshot" src="./images/jbrowse1.png" /></p>
+<ul>
+<li>In the coordinates box, type in <em>47299</em> and then <ss>Go</ss> to see the position of the SNP discussed above.<ul>
+<li>the correct codon at this position is TGT, coding for the amino acid Cysteine, in the middle row of the amino acid translations.</li>
+<li>the mutation of T &rarr; A turns this triplet into TGA, a stop codon.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="JBrowse screenshot" src="./images/jbrowse2.png" />    </p>
 <!---
 FIXME: talk about multimapping reads?
 
@@ -249,7 +304,6 @@ FIXME: snpEff - but it is hard to add a genome
     Just use Snippy and all this will happen magically?
 --->
 
-<h2 id="what-next">What next?</h2>
 <!--
 * SNPs can be used to build [phylogentic trees](/trees/index.md).
 --></div>
