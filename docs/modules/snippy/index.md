@@ -76,7 +76,7 @@ From snippy, there are 10 output files in various formats.
 *Track 1 - sequence reads*
 
 - Click <ss>Insert Track Group</ss>
-- name it "sequence reads"
+- For <ss>Track Cateogry</ss> name it "sequence reads"
 - Click <ss>Insert Annotation Track</ss>
 - For <ss>Track Type</ss> choose *BAM Pileups*
 - For <ss>BAM Track Data</ss> select <fn>the snippy bam file</fn>
@@ -85,7 +85,7 @@ From snippy, there are 10 output files in various formats.
 *Track 2 - variants*
 
 - Click <ss>Insert Track Group</ss> again
-- name it "variants"
+- For <ss>Track Category</ss> name it "variants"
 - Click <ss>Insert Annotation Track</ss>
 - For <ss>Track Type</ss> choose *GFF/GFF3/BED/GBK Features*
 - For <ss>SNP Track Data</ss> select <fn>the snippy snps gff file</fn>
@@ -93,7 +93,7 @@ From snippy, there are 10 output files in various formats.
 *Track 3 - annotated reference*
 
 - Click <ss>Insert Track Group</ss> again
-- name it "annotated reference"
+- For <ss> Track Category</ss> name it "annotated reference"
 - Click <ss>Insert Annotation Track</ss>
 - For <ss>Track Type</ss> choose *GFF/GFF3/BED/GBK Features*
 - For <ss>SNP Track Data</ss> select <fn>wildtype.gff</fn>
@@ -113,9 +113,15 @@ From snippy, there are 10 output files in various formats.
     - probable real variants (a whole column of snps)
     - probable errors (single one here and there)
 
-- In the coordinates box, type in *47299*, the position of the SNP discussed above.
-    - the ref seq codes for cysteine at this position (the middle row of the top aa translation)
-    - the mutation - makes this triplet into a stop codon
+![JBrowse screenshot](images/jbrowse1.png)
+
+
+- In the coordinates box, type in *47299* and then <ss>Go</ss> to see the position of the SNP discussed above.
+    - the correct codon at this position is TGT, coding for the amino acid Cysteine, in the middle row of the amino acid translations.
+    - the mutation of T &rarr; A turns this triplet into TGA, a stop codon.
+
+![JBrowse screenshot](images/jbrowse2.png)    
+
 
 
 
