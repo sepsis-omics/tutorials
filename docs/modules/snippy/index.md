@@ -7,17 +7,10 @@ Usually differences are limited to single nucleotide polymorphisms (SNPs) and sm
 
 ## Learning Objectives
 
-At the end of this tutorial you should be able to:
-
 1. Find variants between a reference genome and a set of reads
-2. Determine the effect of those variants on genomic features
-3. Understand if the SNP is potentially affecting the phenotype
-
-<!---
-## Experiment
-
-FIXME: You are working on a bug and you notice one of them is forming smaller colonies than normal. You want to find out why this small colony variant (SCV) is doing at the DNA level.
---->
+2. Visualise the SNP in context of the reads aligned to the genome
+3. Determine the effect of those variants on genomic features
+4. Understand if the SNP is potentially affecting the phenotype
 
 ## Prepare reference
 
@@ -26,11 +19,6 @@ We will use the same data that we used in the [Assembly with Spades tutorial.](.
 For variant calling, we need a reference genome that is of the same strain as the input sequence reads.
 
 For this tutorial, our reference is the <fn>wildtype.gbk</fn> file and our reads are <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.
-
-<!--
-!!! note
-    Please make sure your reference genome includes all chromosomes and plasmids
--->
 
 ## Call variants with Snippy
 
@@ -45,7 +33,6 @@ Your tool interface should look like this:
 
 ![Snippy interface](images/interface.png)
 
-
 - Click <ss>Execute</ss>.
 
 ## Examine snippy output
@@ -54,14 +41,13 @@ First, enable "Scratchbook" in Galaxy - this allows you to view several windows 
 
 ![scratchbook icon](images/scratchbook.png)
 
-
-From snippy, there are 10 output files in various formats.
+From Snippy, there are 10 output files in various formats.
 
 - Go to the file called <fn>snippy on data XX, data XX and data XX table</fn> and click on the eye icon.
 - We can see a list of variants. Look in column 3 to see which types the variants are, such as a SNP or a deletion.
 - Look at the third variant called. This is a T&rarr;A mutation, causing a stop codon. Look at column 14: the product of this gene is a methicillin resistance protein. Methicillin is an antibiotic. What might be the result of such a mutation? <!--[add a hint/info box]-->
 
-## View snippy output in JBrowse
+## View Snippy output in JBrowse
 
 - Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss>
 
@@ -103,7 +89,6 @@ From snippy, there are 10 output files in various formats.
 
 - A new file will be created, called <fn>JBrowse on data XX and data XX - Complete</fn>. Click on the eye icon next to the file name. The JBrowse window will appear in the centre Galaxy panel.
 
-
 - On the left, tick boxes display the tracks
 
 - Use the minus button to zoom out to see:
@@ -115,38 +100,10 @@ From snippy, there are 10 output files in various formats.
 
 ![JBrowse screenshot](images/jbrowse1.png)
 
-
 - In the coordinates box, type in *47299* and then <ss>Go</ss> to see the position of the SNP discussed above.
     - the correct codon at this position is TGT, coding for the amino acid Cysteine, in the middle row of the amino acid translations.
     - the mutation of T &rarr; A turns this triplet into TGA, a stop codon.
 
 ![JBrowse screenshot](images/jbrowse2.png)    
 
-
-
-
-
-
-
-
-
-<!---
-FIXME: talk about multimapping reads?
-
-## Filter variants
-FIXME:  vcffilter? something else?  mindepth, homozygous?
-
-## Annotate consequencs
-
--- how to get ref genome in?
-
-FIXME: snpEff - but it is hard to add a genome
-
-!!! hint
-    Just use Snippy and all this will happen magically?
---->
-
-
-<!--
-* SNPs can be used to build [phylogentic trees](/trees/index.md).
--->
+## Conclusion
