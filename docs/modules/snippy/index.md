@@ -2,7 +2,7 @@
 
 ## Background
 
-Variant calling is the process of identifying differences between to genome samples.
+Variant calling is the process of identifying differences between two genome samples.
 Usually differences are limited to single nucleotide polymorphisms (SNPs) and small insertions and deletions (indels). Larger structural variation such as inversions, duplications and large deletions are not typically covered by "variant calling".
 
 ## Learning Objectives
