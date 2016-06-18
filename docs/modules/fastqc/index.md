@@ -18,10 +18,9 @@ At the end of this tutorial you should be able to:
 
 - We will use the paired-end read set from our Galaxy history.
 - These are the files <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.
-- If you don't have these FASTQ files in your current Galaxy history see how to get them [here](../data/index.md).
+- If you don't have these FASTQ files in your current Galaxy history see how to get them [here](/modules/data-dna/index.md).
 - FASTQ is a file format for sequence reads that displays quality scores for each of the sequenced nucleotides. For more information about FASTQ format see this [link](https://en.wikipedia.org/wiki/FASTQ_format).
 - We will evaluate the <fn>mutant_R1.fastq</fn> reads using the FastQC tool.
-
 
 ## Run FastQC
 
@@ -34,14 +33,14 @@ Once finished, examine the output called <fn>FastQC on data1:webpage</fn> (Hint:
 
 Look at:
 
--   <ss>Basic Statistics</ss>
+-  <ss>Basic Statistics</ss>
 
     - <ss>Sequence length</ss>: will be important in setting maximum k-mer size value for assembly.
     - <ss>Encoding</ss>: The quality encoding type is important for quality trimming software.
     - <ss>% GC</ss>: high GC organisms don’t tend to assemble well and may have an uneven read coverage distribution.
     - <ss>Total sequences</ss>: Total number of reads: gives you an idea of coverage.
 
--   <ss>Per base sequence quality</ss>: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run. In this case, all the reads are of relatively high quality across their length (150 bp).
+-  <ss>Per base sequence quality</ss>: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run. In this case, all the reads are of relatively high quality across their length (150 bp).
 
 ![sequence quality graph](images/seq_quality.png)
 

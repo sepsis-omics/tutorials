@@ -33,31 +33,23 @@ At the end of this tutorial you should be able to:
 
 ## Login to Galaxy
 
-- Open a new tab or window on your web browser.
-- Use Firefox or Chrome - please don’t use Internet Explorer or Safari.
-- In the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.
+Open a new tab or window on your web browser. Use Firefox or Chrome - please don’t use Internet Explorer or Safari.
 
-&nbsp;
+In the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.
 
 ![Galaxy URL](images/image09.png)
 
-&nbsp;
-
 Click on <ss>User</ss> button on the right and either register or login.
-
-&nbsp;
 
 ![Register or Login screenshot](images/image04.png)
 
-&nbsp;
-
-If you haven't yet registered, <ss>Register:</ss>
+If you haven't yet registered yet:
 
 - Select: <ss>User &rarr; Register</ss>
 - Enter your email, choose a password, and choose a user name.
 - Click <ss>Submit</ss>
 
-If you have already registered, <ss>Login:</ss>
+If you have already registered:
 
 - Select: <ss>User &rarr; Login</ss>
 - Enter your username & password.
@@ -80,8 +72,6 @@ First, make a new folder to store the work we are about to perform.
 What sort of file is being uploaded?
 
 We need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, FASTA, FASTQ, VCF, GFF, GBK, and tabular.
-<!---[More on file formats.](../../../data/file_formats.md)
---->
 
 ### Upload a file from your own computer
 
@@ -262,4 +252,4 @@ This example shows how to use a tool called “barrnap” to search for rRNAs in
 
 - Remember how we started a new <ss>History</ss> at the beginning? If you want to see any of your old histories, click on the History options button ![history button](./images/image02.png) at the top of the <ss>History</ss> panel and then select “Saved Histories.” This will give you a list of all the histories you have worked on in this Galaxy server.
 
-- [Upload a saved Galaxy history (a set of files) to use in these tutorials](../data/index.md).
+- [Upload a saved Galaxy history (a set of files) to use in these tutorials](/modules/data-dna/index.md).

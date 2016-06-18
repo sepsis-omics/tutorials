@@ -2,7 +2,7 @@
 
 ## Background
 
-In this section we will use a software tool called Prokka to annotate the draft genome sequence produced in the previous [tutorial](../spades/index.md). Prokka is a “wrapper”; it collects together several pieces of software (from various authors), and so avoids “re-inventing the wheel”.
+In this section we will use a software tool called Prokka to annotate the draft genome sequence produced in the previous [tutorial](/modules/spades/index.md). Prokka is a “wrapper”; it collects together several pieces of software (from various authors), and so avoids “re-inventing the wheel”.
 
 Prokka finds and annotates features (both protein coding regions and RNA genes, i.e. tRNA, rRNA) present on on a sequence. Note, Prokka uses a two-step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using [Prodigal](http://prodigal.ornl.gov/); second, the *function* of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found [here](https://github.com/tseemann/prokka).
 
@@ -10,13 +10,13 @@ Prokka finds and annotates features (both protein coding regions and RNA genes, 
 
 At the end of this tutorial you should be able to:
 
-1. input files into Prokka,
-2. run Prokka, and
-3. examine the annotated genome using JBrowse.
+1. load a genome assembly into Prokka
+2. annotate the assembly using Prokka
+3. examine the annotated genome using JBrowse
 
 ## Input data
 
-- You will need the assembled contigs from the previous workshop ([Assembly with Spades](../spades/index.md)): <fn>SPAdes_contigs.fasta</fn>
+- You will need the assembled contigs from the previous workshop ([Assembly with Spades](/modules/spades/index.md)): <fn>SPAdes_contigs.fasta</fn>
 - If you are continuing on from that tutorial, this file will be in your current history and there is no need to find/import it.
 
 ## Run Prokka
@@ -39,19 +39,19 @@ Your tool interface should look like this:
 
 ## Examine the output
 
-First, enable "Scratchbook" in Galaxy - this allows you to view several windows simultaneously. Click on the squares:
+First, enable *Scratchbook* in Galaxy - this allows you to view several windows simultaneously. Click on the 3&times;3 squares icon on the menu bar:
 
 ![scratchbook icon](images/scratchbook.png)
-
 
 Once Prokka has finished, examine each of its output files.
 
 - The GFF and GBK files contain all of the information about the features annotated (in different formats.)
-- The txt file contains a summary of the number of features annotated.
-- The faa file contains the protein sequences of the genes annotated.
-- The ffn file contains the nucleotide sequences of the genes annotated.
+- The <fn>.txt</fn> file contains a summary of the number of features annotated.
+- The <fn>.faa</fn> file contains the protein sequences of the genes annotated.
+- The <fn>.ffn</fn> file contains the nucleotide sequences of the genes annotated.
 
 ## View annotated features in JBrowse
+
 Now that we have annotated the draft genome sequence, we would like to view the sequence in the JBrowse genome viewer.
 
 - Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss>
@@ -103,4 +103,4 @@ Zoomed in view:
 
 ## What next?
 
-- Identify genome variants (nucletotide changes) using [Snippy](../snippy/index.md).
+- Identify genome variants (nucletotide changes) using [Snippy](/modules/snippy/index.md).

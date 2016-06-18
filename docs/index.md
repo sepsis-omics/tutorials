@@ -7,7 +7,7 @@ the [Galaxy](http://galaxyproject.org/) system.
 
 !!! note
     The site is under active development. Training modules are being developed
-    and added progressively. Please send issues or suggestions
-    to [Anna Syme](mailto:anna.syme@gmail.com) at VLSCI.
+    and added progressively. Please submit issues or suggestions to our
+    [Issue Tracker site](https://github.com/sepsis-omics/tutorials/issues).
 
 ![Logo](media/logos/sepsis-omics.png)
