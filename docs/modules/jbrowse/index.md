@@ -18,6 +18,13 @@ structure:
    - particular annotations: e.g. tRNA, non coding RNA ?
    - all annotations in a row?
 
+other things in jbrowse:
+- highlight with the highlight button
+- drop down arrow next to ref seq - can just show some aas, one strand etc
+- lots of options with bam drop down menu
+
+
+
 navigation:
 - dragging
 - use navigation buttons (left, right, zoom)
