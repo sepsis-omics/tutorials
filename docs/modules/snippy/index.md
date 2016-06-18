@@ -59,7 +59,7 @@ From snippy, there are 10 output files in various formats.
 
 - Go to the file called <fn>snippy on data XX, data XX and data XX table</fn> and click on the eye icon.
 - We can see a list of variants. Look in column 3 to see which types the variants are, such as a SNP or a deletion.
-- Look at the third variant called. This is a T&rarr;A mutation, causing a stop codon. Look at column 14: the product of this gene is a methicillin resistance protein. Methicillin is an antibiotic. What might be the result of such a mutation? [add a hint/info box]
+- Look at the third variant called. This is a T&rarr;A mutation, causing a stop codon. Look at column 14: the product of this gene is a methicillin resistance protein. Methicillin is an antibiotic. What might be the result of such a mutation? <!--[add a hint/info box]-->
 
 ## View snippy output in JBrowse
 
