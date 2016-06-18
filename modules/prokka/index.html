@@ -59,12 +59,12 @@
             
             
                 <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Introductory <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../overview/">Overview</a>
+    <a href="../../genomics/">Overview</a>
 </li>
 
                     
@@ -76,7 +76,7 @@
                     
                         
 <li >
-    <a href="../data/">Dataset</a>
+    <a href="../data-dna/">Training dataset</a>
 </li>
 
                     
@@ -171,9 +171,9 @@
 <h2 id="learning-objectives">Learning objectives</h2>
 <p>At the end of this tutorial you should be able to:</p>
 <ol>
-<li>input files into Prokka,</li>
-<li>run Prokka, and</li>
-<li>examine the annotated genome using JBrowse.</li>
+<li>load a genome assembly into Prokka</li>
+<li>annotate the assembly using Prokka</li>
+<li>examine the annotated genome using JBrowse</li>
 </ol>
 <h2 id="input-data">Input data</h2>
 <ul>
@@ -200,14 +200,14 @@
 <li>Click <ss>Execute</ss>  </li>
 </ul>
 <h2 id="examine-the-output">Examine the output</h2>
-<p>First, enable &ldquo;Scratchbook&rdquo; in Galaxy - this allows you to view several windows simultaneously. Click on the squares:</p>
+<p>First, enable <em>Scratchbook</em> in Galaxy - this allows you to view several windows simultaneously. Click on the 3&times;3 squares icon on the menu bar:</p>
 <p><img alt="scratchbook icon" src="./images/scratchbook.png" /></p>
 <p>Once Prokka has finished, examine each of its output files.</p>
 <ul>
 <li>The GFF and GBK files contain all of the information about the features annotated (in different formats.)</li>
-<li>The txt file contains a summary of the number of features annotated.</li>
-<li>The faa file contains the protein sequences of the genes annotated.</li>
-<li>The ffn file contains the nucleotide sequences of the genes annotated.</li>
+<li>The <fn>.txt</fn> file contains a summary of the number of features annotated.</li>
+<li>The <fn>.faa</fn> file contains the protein sequences of the genes annotated.</li>
+<li>The <fn>.ffn</fn> file contains the nucleotide sequences of the genes annotated.</li>
 </ul>
 <h2 id="view-annotated-features-in-jbrowse">View annotated features in JBrowse</h2>
 <p>Now that we have annotated the draft genome sequence, we would like to view the sequence in the JBrowse genome viewer.</p>

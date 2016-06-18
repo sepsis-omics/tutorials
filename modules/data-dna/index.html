@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../favicon.ico">
         
 
-	<title>Overview - Sepsis Tutorials</title>
+	<title>Training dataset - Sepsis Tutorials</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -59,12 +59,12 @@
             
             
                 <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Introductory <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
-<li class="active">
-    <a href="./">Overview</a>
+<li >
+    <a href="../../genomics/">Overview</a>
 </li>
 
                     
@@ -75,8 +75,8 @@
 
                     
                         
-<li >
-    <a href="../data/">Dataset</a>
+<li class="active">
+    <a href="./">Training dataset</a>
 </li>
 
                     
@@ -124,12 +124,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../..">
+                    <a rel="next" href="../galaxy/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../galaxy/">
+                    <a rel="prev" href="../fastqc/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -143,43 +143,60 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#overview">Overview</a></li>
+        <li class="main active"><a href="#dataset">Dataset</a></li>
+        
+            <li><a href="#galaxy-history">Galaxy history</a></li>
+        
+            <li><a href="#wildtype-reference">Wildtype reference</a></li>
+        
+            <li><a href="#mutant-illumina-sequence">Mutant Illumina sequence</a></li>
+        
+            <li><a href="#get-tutorial-data-into-galaxy">Get tutorial data into Galaxy</a></li>
+        
+            <li><a href="#what-next">What next?</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="overview">Overview</h1>
-<p>This section contains tutorials for basic microbial genomics analyses in Galaxy. These have been designed to be done sequentially.</p>
-<ol>
-<li>
-<p><a href="../galaxy/">Use the Galaxy Platform</a>:
-a web-based interface for bioinformatic analyses.</p>
-</li>
-<li>
-<p><a href="../data/">Import tutorial data to Galaxy</a>: a set of files to use in these introductory tutorials.</p>
-</li>
-<li>
-<p><a href="../fastqc/">Quality control of Illumina data</a>:
-assess raw Illumina data for quality issues.</p>
-</li>
-<li>
-<p><a href="../spades/">Assemble genomes with Spades</a>:
-assemble raw Illumina sequence reads into a draft bacterial genome sequence using the tool &ldquo;Spades&rdquo;.</p>
-</li>
-<li>
-<p><a href="../prokka/">Annotate genomes with Prokka</a>:
-describe the type and location of proteins and other features on the draft bacterial genome sequence using the tool &ldquo;Prokka&rdquo;.</p>
-</li>
-<li>
-<p><a href="../snippy/">Find variants with Snippy</a>: identify differences (such as nucleotide mutations) between genomes using the tool &ldquo;Snippy&rdquo;.</p>
-</li>
-</ol>
-<!--
-3a. [Read cleaning](fastqc/index.md):
-trim and clip your reads of sequencing artifacts
---></div>
+<h1 id="dataset">Dataset</h1>
+<h2 id="galaxy-history">Galaxy history</h2>
+<ul>
+<li><a href="./Data.tar.gz">Galaxy history</a></li>
+</ul>
+<h2 id="wildtype-reference">Wildtype reference</h2>
+<ul>
+<li><a href="./wildtype.fna">wildtype.fna</a></li>
+<li><a href="./wildtype.gbk">wildtype.gbk</a></li>
+<li><a href="./wildtype.gff">wildtype.gff</a></li>
+</ul>
+<h2 id="mutant-illumina-sequence">Mutant Illumina sequence</h2>
+<ul>
+<li><a href="./mutant_R1.fastq.gz">mutant_R1.fastq.gz</a></li>
+<li><a href="./mutant_R2.fastq.gz">mutant_R2.fastq.gz</a></li>
+</ul>
+<h2 id="get-tutorial-data-into-galaxy">Get tutorial data into Galaxy</h2>
+<p>To get the saved tutorial history (a set of files) into Galaxy:</p>
+<ul>
+<li>right-click on <fn>Galaxy history</fn> above and copy link address.</li>
+<li>go to your Galaxy instance</li>
+<li>Click on the <ss>History</ss> cog</li>
+<li>Select <ss>Import from File</ss></li>
+<li>In the box called <ss>Archived History URL</ss>, paste in the link address to the Galaxy history.</li>
+<li>Click <ss>Submit</ss></li>
+<li>wait a few seconds</li>
+<li>Click on the &ldquo;view all histories&rdquo; button</li>
+<li>See if the galaxy history has been imported: it will be called <fn>imported from archive: Data</fn></li>
+<li>above that pane, click on the <ss>Switch to</ss> button</li>
+<li>then click <ss>Done</ss> (in the top left corner)</li>
+<li>You should now have a list of five files in your current history.</li>
+</ul>
+<p><img alt="files in galaxy history" src="./images/datafiles.png" /></p>
+<h2 id="what-next">What next?</h2>
+<ul>
+<li>Next: <a href="../fastqc/">Learn about quality control</a>.</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">

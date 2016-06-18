@@ -59,12 +59,12 @@
             
             
                 <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Introductory <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../overview/">Overview</a>
+    <a href="../../genomics/">Overview</a>
 </li>
 
                     
@@ -76,7 +76,7 @@
                     
                         
 <li >
-    <a href="../data/">Dataset</a>
+    <a href="../data-dna/">Training dataset</a>
 </li>
 
                     
@@ -155,7 +155,9 @@
         
             <li><a href="#examine-snippy-output">Examine snippy output</a></li>
         
-            <li><a href="#view-snippy-output-in-jbrowse">View snippy output in JBrowse</a></li>
+            <li><a href="#view-snippy-output-in-jbrowse">View Snippy output in JBrowse</a></li>
+        
+            <li><a href="#conclusion">Conclusion</a></li>
         
     
     </ul>
@@ -167,27 +169,16 @@
 <p>Variant calling is the process of identifying differences between two genome samples.
 Usually differences are limited to single nucleotide polymorphisms (SNPs) and small insertions and deletions (indels). Larger structural variation such as inversions, duplications and large deletions are not typically covered by &ldquo;variant calling&rdquo;.</p>
 <h2 id="learning-objectives">Learning Objectives</h2>
-<p>At the end of this tutorial you should be able to:</p>
 <ol>
 <li>Find variants between a reference genome and a set of reads</li>
+<li>Visualise the SNP in context of the reads aligned to the genome</li>
 <li>Determine the effect of those variants on genomic features</li>
 <li>Understand if the SNP is potentially affecting the phenotype</li>
 </ol>
-<!---
-## Experiment
-
-FIXME: You are working on a bug and you notice one of them is forming smaller colonies than normal. You want to find out why this small colony variant (SCV) is doing at the DNA level.
---->
-
 <h2 id="prepare-reference">Prepare reference</h2>
 <p>We will use the same data that we used in the <a href="../spades/">Assembly with Spades tutorial.</a> This should still be in your current galaxy history. If not, re-import the data into a new history using the instructions in that tutorial.</p>
 <p>For variant calling, we need a reference genome that is of the same strain as the input sequence reads.</p>
 <p>For this tutorial, our reference is the <fn>wildtype.gbk</fn> file and our reads are <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.</p>
-<!--
-!!! note
-    Please make sure your reference genome includes all chromosomes and plasmids
--->
-
 <h2 id="call-variants-with-snippy">Call variants with Snippy</h2>
 <ul>
 <li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Variant Analysis &rarr; snippy</ss></li>
@@ -205,13 +196,13 @@ FIXME: You are working on a bug and you notice one of them is forming smaller co
 <h2 id="examine-snippy-output">Examine snippy output</h2>
 <p>First, enable &ldquo;Scratchbook&rdquo; in Galaxy - this allows you to view several windows simultaneously. Click on the squares:</p>
 <p><img alt="scratchbook icon" src="./images/scratchbook.png" /></p>
-<p>From snippy, there are 10 output files in various formats.</p>
+<p>From Snippy, there are 10 output files in various formats.</p>
 <ul>
 <li>Go to the file called <fn>snippy on data XX, data XX and data XX table</fn> and click on the eye icon.</li>
 <li>We can see a list of variants. Look in column 3 to see which types the variants are, such as a SNP or a deletion.</li>
 <li>Look at the third variant called. This is a T&rarr;A mutation, causing a stop codon. Look at column 14: the product of this gene is a methicillin resistance protein. Methicillin is an antibiotic. What might be the result of such a mutation? <!--[add a hint/info box]--></li>
 </ul>
-<h2 id="view-snippy-output-in-jbrowse">View snippy output in JBrowse</h2>
+<h2 id="view-snippy-output-in-jbrowse">View Snippy output in JBrowse</h2>
 <ul>
 <li>
 <p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss></p>
@@ -288,25 +279,7 @@ FIXME: You are working on a bug and you notice one of them is forming smaller co
 </li>
 </ul>
 <p><img alt="JBrowse screenshot" src="./images/jbrowse2.png" />    </p>
-<!---
-FIXME: talk about multimapping reads?
-
-## Filter variants
-FIXME:  vcffilter? something else?  mindepth, homozygous?
-
-## Annotate consequencs
-
--- how to get ref genome in?
-
-FIXME: snpEff - but it is hard to add a genome
-
-!!! hint
-    Just use Snippy and all this will happen magically?
---->
-
-<!--
-* SNPs can be used to build [phylogentic trees](/trees/index.md).
---></div>
+<h2 id="conclusion">Conclusion</h2></div>
         </div>
 
         <footer class="col-md-12">

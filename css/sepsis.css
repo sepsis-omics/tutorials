@@ -19,6 +19,9 @@ P {
   text-justify: inter-word;
 }
 
+H1,H2 {
+  font-variant: small-caps;
+}
 /*
 These style abbreviations are as follows:
 SS = "screen shot" for menu items etc.
@@ -40,11 +43,12 @@ SS {
 
 FN {
   font-family: "Lucida Grande", sans-serif;
-  font-weight: bolder;
-  color: royalblue;
+  font-size: 80%;
+  color: black;
   text-align: center;
-  padding: 0 0.5ex;
-  border: dotted 0pt black;
+  padding: 0.3ex 1ex;
+  border: solid thin black;
+  border-radius: 4px;
 }
 
 TX {
@@ -53,11 +57,13 @@ TX {
 }
 
 /* put images in centre */
-P + IMG {
-  display: flex;
-  justify-content: center;
+IMG {
+  padding: 1em 1em;
 }
 
+.navbar-brand {
+  font-weight: bolder;
+}
 /*
 These are for "info boxes" in mkdocs
 
