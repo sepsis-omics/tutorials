@@ -71,7 +71,7 @@ There are two main ways to put your data onto Galaxy; this section will run thro
 
 First, make a new folder to store the work we are about to perform.
 
-- Click on the history menu button ![history icon](images/image02.png) at the top of the <ss>History</ss> panel.
+- Click on the history options button ![history icon](images/image02.png) at the top of the <ss>History</ss> panel.
 - Select <ss>Create New</ss>
 - Click on <ss>Unnamed history</ss> to rename. Type in a new name.
 
@@ -260,6 +260,6 @@ This example shows how to use a tool called “barrnap” to search for rRNAs in
 
 ## What next?
 
-- Remember how we started a new <ss>History</ss> at the beginning? If you want to see any of your old histories, click on the History menu button ![history button](./images/image02.png) at the top of the <ss>History</ss> panel and then select “Saved Histories.” This will give you a list of all the histories you have worked on in this Galaxy server.
+- Remember how we started a new <ss>History</ss> at the beginning? If you want to see any of your old histories, click on the History options button ![history button](./images/image02.png) at the top of the <ss>History</ss> panel and then select “Saved Histories.” This will give you a list of all the histories you have worked on in this Galaxy server.
 
 - [Upload a saved Galaxy history (a set of files) to use in these tutorials](../data/index.md).
