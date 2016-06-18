@@ -25,6 +25,9 @@ At the end of this tutorial you should be able to:
 ## Run FastQC
 
 - Go to <ss>Tools &rarr; NGS:Analysis &rarr; NGS: QC and Manipulation &rarr; FastQC</ss>
+
+![FastQC selection](images/image04.png)
+
 - for <ss>Short read data from your current history</ss>: <fn>mutant_R1.fastq</fn>
 - Click <ss>Execute</ss>
 
