@@ -5,10 +5,11 @@ This site contains tutorials for using the
 tasks on bacterial "omics" data, either on the Unix command line or using
 the [Galaxy](http://galaxyproject.org/) system.
 
-!!! note
+<!--!!! note
     The site is under active development. Training modules are being developed
     and added progressively. Please submit issues or suggestions to our
     [Issue Tracker site](https://github.com/sepsis-omics/tutorials/issues).
+-->
 
-![Logo](media/logos/banner2016.png)
+![Logo](media/logos/mol_gen_epi.jpg)
 ![Logo2](media/logos/mcGill_logo.png)
