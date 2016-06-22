@@ -24,12 +24,13 @@ At the end of this tutorial you should be able to:
 
 ## Run FastQC
 
-- Go to <ss>Tools &rarr; NGS:Analysis &rarr; NGS: QC and Manipulation &rarr; FastQC</ss>
+- Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: QC and Manipulation &rarr; FastQC</ss>
 
 ![FastQC selection](images/image04.png)
 
 - for <ss>Short read data from your current history</ss>: <fn>mutant_R1.fastq</fn>
 - Click <ss>Execute</ss>
+- In the History pane, click on the "refresh" icon to see if the analysis has finished. 
 
 ## Examine output files
 Once finished, examine the output called <fn>FastQC on data1:webpage</fn> (Hint: click the eye icon). It has a summary at the top of the page and a number of graphs.

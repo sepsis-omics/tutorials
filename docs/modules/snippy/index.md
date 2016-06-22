@@ -35,7 +35,7 @@ Your tool interface should look like this:
 
 - Click <ss>Execute</ss>.
 
-## Examine snippy output
+## Examine Snippy output
 
 First, enable "Scratchbook" in Galaxy - this allows you to view several windows simultaneously. Click on the squares:
 
@@ -105,5 +105,3 @@ From Snippy, there are 10 output files in various formats.
     - the mutation of T &rarr; A turns this triplet into TGA, a stop codon.
 
 ![JBrowse screenshot](images/jbrowse2.png)    
-
-## Conclusion

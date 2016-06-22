@@ -6,7 +6,7 @@ Galaxy is a web-based analysis and workflow platform designed for biologists to 
 
 Galaxy is an open, web-based platform. Details about the project can be found [here](https://galaxyproject.org/).
 
-The Galaxy interface is separated into three parts. The <ss>Tools</ss> list on the left, the <ss>Viewing</ss> panel in the middle and the analysis and data <ss>History</ss> on the right. We will be looking at all three parts in this tutorial.
+The Galaxy interface is separated into three parts. The <ss>Tools</ss> list on the left, the <ss>Viewing</ss> panel in the middle and the analysis and data <ss>History</ss> on the right. 
 
 ![galaxy overview screenshot](images/image05.png)
 
@@ -33,7 +33,7 @@ Click on <ss>User</ss> button on the right.
 
 ![Shared histories](images/image10.png)
 
-- A list of published histories should appear. Click on <fn>MGill 2016</fn>.
+- A list of published histories should appear. Click on <fn>McGill 2016</fn>.
 - Click on <ss>Import history</ss>.
 
 ![import history](images/image11.png)

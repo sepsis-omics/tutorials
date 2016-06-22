@@ -10,4 +10,5 @@ the [Galaxy](http://galaxyproject.org/) system.
     and added progressively. Please submit issues or suggestions to our
     [Issue Tracker site](https://github.com/sepsis-omics/tutorials/issues).
 
-![Logo](media/logos/sepsis-omics.png)
+![Logo](media/logos/banner2016.png)
+![Logo2](media/logos/mcGill_logo.png)
