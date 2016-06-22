@@ -11,184 +11,29 @@
             "title": "Welcome!"
         }, 
         {
-            "location": "/genomics/", 
-            "text": "Overview\n\n\nThis section contains tutorials for basic microbial genomics analyses in\nGalaxy.  These have been designed to be done sequentially.\n\n\n\n\n\n\nUse the Galaxy Platform\n:\na web-based interface for bioinformatic analyses.\n\n\n\n\n\n\nImport tutorial data to Galaxy\n: \na set of files to use in these introductory tutorials.\n\n\n\n\n\n\nQuality control of Illumina data\n:\nassess raw Illumina data for quality issues.\n\n\n\n\n\n\nAssemble a genome with Spades\n:\nassemble raw Illumina sequence reads into a draft bacterial genome sequence\nusing the tool \nSpades\n.\n\n\n\n\n\n\nAnnotate a genome with Prokka\n:\ndescribe the type and location of proteins and other features on the draft\nbacterial genome sequence using the tool \nProkka\n.\n\n\n\n\n\n\nFind variants with Snippy\n:\nidentify differences (such as nucleotide mutations) between genomes using\nthe tool \nSnippy\n.", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/genomics/#overview", 
-            "text": "This section contains tutorials for basic microbial genomics analyses in\nGalaxy.  These have been designed to be done sequentially.    Use the Galaxy Platform :\na web-based interface for bioinformatic analyses.    Import tutorial data to Galaxy : \na set of files to use in these introductory tutorials.    Quality control of Illumina data :\nassess raw Illumina data for quality issues.    Assemble a genome with Spades :\nassemble raw Illumina sequence reads into a draft bacterial genome sequence\nusing the tool  Spades .    Annotate a genome with Prokka :\ndescribe the type and location of proteins and other features on the draft\nbacterial genome sequence using the tool  Prokka .    Find variants with Snippy :\nidentify differences (such as nucleotide mutations) between genomes using\nthe tool  Snippy .", 
-            "title": "Overview"
-        }, 
-        {
             "location": "/modules/galaxy/", 
-            "text": "Using Galaxy\n\n\nBackground\n\n\nGalaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety of bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.\n\n\nBioinformatics tools can be added from the Galaxy \u2018tool shed\u2019 or removed as necessary from your Galaxy instance.\n\n\nGalaxy is an open, web-based platform. Details about the project can be found \nhere\n.\n\n\nThe Galaxy interface is separated into three parts. The \nTools\n list on the left, the \nViewing\n panel in the middle and the analysis and data \nHistory\n on the right. We will be looking at all three parts in this tutorial.\n\n\n\n\nThis activity will familiarise you with the Galaxy interface. It will cover the following operations:\n\n\n\n\nLogging in to the server\n\n\nPutting data onto Galaxy\n\n\nUsing some common tools\n\n\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\nRegister and login to a Galaxy server.\n\n\nUpload data to a Galaxy server from:\n\n\nA file on your local computer.\n\n\nA file on a remote datastore with an accessible URL.  \n\n\n\n\n\n\nUse tools in Galaxy by:\n\n\nAccessing the tool via the tool menu.\n\n\nUsing the tool interface to run the particular tool.\n\n\nViewing/accessing the tool output.\n\n\n\n\n\n\n\n\nLogin to Galaxy\n\n\nOpen a new tab or window on your web browser. Use Firefox or Chrome - please don\u2019t use Internet Explorer or Safari.\n\n\nIn the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.\n\n\n\n\nClick on \nUser\n button on the right and either register or login.\n\n\n\n\nIf you haven\nt yet registered yet:\n\n\n\n\nSelect: \nUser \n Register\n\n\nEnter your email, choose a password, and choose a user name.\n\n\nClick \nSubmit\n\n\n\n\nIf you have already registered:\n\n\n\n\nSelect: \nUser \n Login\n\n\nEnter your username \n password.\n\n\nClick \nSubmit\n\n\n\n\nPut data onto Galaxy\n\n\nThere are two main ways to put your data onto Galaxy; this section will run through both ways. First, we need to make a new history.\n\n\nMake a new history\n\n\nFirst, make a new folder to store the work we are about to perform.\n\n\n\n\nClick on the history options button \n at the top of the \nHistory\n panel.\n\n\nSelect \nCreate New\n\n\nClick on \nUnnamed history\n to rename. Type in a new name.\n\n\n\n\nDatatypes\n\n\nWhat sort of file is being uploaded?\n\n\nWe need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, FASTA, FASTQ, VCF, GFF, GBK, and tabular.\n\n\nUpload a file from your own computer\n\n\nWith this method you can get most of the files on your own computer into Galaxy.\n\n\nFirst, download the following file to your computer:\n\n\n\n\nCopy this URL and paste it into the address bar in your web browser: \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/galaxy101/Contig_stats.txt.gz\n\nThis is a file stored on the cloud. Press \nEnter\n, and the file will download. Note the download location.\n\n\n\n\n\n\n\n\n\n\nNext, upload that file to Galaxy\n\n\n\n\nFrom the Galaxy tool panel, click on \nGet Data \n Upload File\n  \n\n\nClick the \nChoose local file\n button  \n\n\nFind and select the \nContig_stats.txt.gz\n file you downloaded and click \nOpen\n  \n\n\nSet the \nType\n to \ntabular\n  \n\n\nClick the \nStart\n button  \n\n\nOnce the progress bar reaches 100%, click the \nClose\n button  \n\n\nThe file will now upload to your current history.\n\n\n\n\nUpload a file from a URL\n\n\nIf a file exists on a web resource somewhere and you know its URL (Unique Resource Location - a web address) you can directly load it into Galaxy.\n\n\n\n\nFrom the tool panel, click on \nGet Data \n Upload File\n\n\nClick on the \nPaste/Fetch Data\n button\n\n\nCopy and paste the following web address into the URL/Text box:\n\nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq.gz\n\n\nSet the \nType\n to \nfastqsanger\n (CAREFUL: not fastqCsanger)\n\n\nClick \nStart\n\n\nOnce the progress bar has reached 100%, click \nClose\n.\n\n\nNote that Galaxy is smart enough to recognize that this is a compressed file and so it will uncompress it as it loads it.\n\n\n\n\nUpload another file from a URL\n\n\nNow we are going to upload another file from the remote data source.\n\n\n\n\nRepeat the above for: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna\n\n\nNote: this file \nType\n is \nFASTA\n.\n\n\nThe DNA sequence of \nStaphylococcus aureus MRSA252\n will be loaded into your history as a FASTA file.\n\n\nYour \nHistory\n should now look like this:\n\n\n\n\n\n\nThe data\n\n\nA brief description of each of the three files uploaded to Galaxy:  \n\n\nContigs_stats.txt\n  \n\n\n\n\nthis file contains a table of summary data from a \nde novo\n genome assembly (the process of attempting to recover the full genome of an organism from the short read sequences produced by most DNA sequencing machines).\n\n\nThe columns contain a lot of information but the ones we will be using indicate the amount of data (or coverage) that went into making up each piece of the final assembly.\n\n\n\n\nbacterial_std_err_1.fastq.gz\n  \n\n\n\n\nThis file contains sequence reads, in the format produced by Illumina sequencing machines. Read more about the\n\nFASTQ\n format at Wikipedia.\n\n\n\n\nMRSA0252.fna\n\n\n\n\nThis file contains the genome sequence of \nStaphylococcus aureus MRSA252\n. Read more about the \nFASTA\n format at Wikipedia.\n\n\n\n\nGalaxy tools\n\n\nThe purpose of this section is to help you become familiar with the way\ntools are run on Galaxy.\n\n\nWe will see how to:\n\n\n\n\nrename files\n\n\nsummarize assembly statistics\n\n\nconvert file formats, and\n\n\nfind features in a DNA sequence.\n\n\n\n\nRename files\n\n\nTwo of the files in the \nHistory\n have very long and confusing names. File names can be changed by taking the following steps:\n\n\n\n\nClick on the edit icon \n next to the file in the \nHistory\n called: \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq\n\n\nIn the \nName\n text box, give it a new name. Rename it to: \ntypical.fastq\n\n\nClick the \nSave\n button.\n\n\n\n\nRepeat the process with another file:\n\n\n\n\nFind the file called: \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna\n  \n\n\nRename it to \nMRSA252.fna\n\n\n\n\nMuch better. There is other functionality hidden behind that edit icon \n\n\nYou can change a file\u2019s datatype, convert its format and many other things. Feel free to play around with them at a later date.\n\n\nSummarize assembly statistics\n\n\nWe are going to produce a histogram of contig read-coverage depths and calculate the summary statistics from the \nContig_stats.txt\n file.\n\n\nTo do this we need to make some changes to the \nContig_stats.txt\n file:\n\n\n\n\ncut out a couple of columns from the file\n\n\nremove a line from the file\n\n\nproduce a histogram\n\n\n\n\nCut out and keep two columns\n\n\n\n\nClick on the eye icon \n of the \nContig_stats.txt\n file to have a look at it.  \n\n\nNote that there are 18 columns in this file. We want column 1 and column 6.\n\n\nGo to \nTools \n Text Manipulation \n Cut\n and set the following:\n\n\nSet \nCut Columns\n to: \nc1,c6\n\n\nDelimited by\n: \nTab\n\n\nFrom\n: \nContig_stats.txt\n\n\nClick \nExecute\n\n\nExamine the new file by clicking on its eye icon \n. We now have 2 columns instead of the 18 in the original file.\n\n\n\n\nRemove the Header lines of the new file\n\n\n\n\nGo to \nTools \n Text Manipulation \n Remove beginning\n and set the following:\n\n\nRemove First\n: \n1\n\n\nfrom\n: \nCut on data1\n\n\nclick \nExecute\n\n\nNote the the new file is the same as the previous one without the header line.\n\n\n\n\nMake a histogram\n\n\n\n\nGo to \nTools \n Graph/Display Data \n Histogram\n and set the following:\n\n\nDataset\n: \nRemove beginning on Data 4\n\n\nNumerical column for X axis\n Column: 2\n\n\nNumber of breaks\n: \n25\n\n\nPlot title\n: \nHistogram of Contig Coverage\n\n\nLabel for X axis\n: \nCoverage depth\n\n\nClick \nExecute\n\n\nClick on the eye icon \n of the histogram to have a look at it. Note there are a few peaks. Maybe these correspond to single, double and triple copy number of these contigs.\n\n\n\n\nCalculate summary statistics for contig coverage depth\n\n\n\n\nGo to \nTools \n Statistics and Visualisation \n Statistics \n Summary Statisitics\n and set the following:  \n\n\nSummary statistics on\n: \nRemove beginning on Data 4\n\n\nColumn or expression\n: \nc2\n\n\nClick \nExecute\n\n\nYou\u2019ll note that the summary statistics tool failed (red background in the \nHistory\n). There was an error!\n\n\nIf you click on the filename, and then the bug symbol \n, it will tell you what went wrong. (There is a missing python library).\n\n\nAt this point, you would normally contact your Galaxy server administrator.\n\n\n\n\nConvert file formats\n\n\nThis shows how to convert a FASTQ file to a FASTA file. The tool creates a new file with the converted data.\n\n\n\n\nGo to \nTools \n Basic Tools \n Convert Formats \n FASTQ to FASTA\n and set the following:\n\n\nFASTQ file to convert\n: \ntypical.fastq\n\n\nClick \nExecute\n\n\nThe output is a new Fasta file called \nFASTQ to FASTA on data 2\n.\n\n\n\n\nFind features\n\n\nThis example shows how to use a tool called \u201cbarrnap\u201d to search for rRNAs in a DNA sequence.\n\n\nFind all of the ribosomal RNAs in a sequence\n\n\n\n\nGo to \nTools \n NGS Analysis \n NGS: Annotation \n barrnap\n and set the following:\n\n\nFasta file\n: \nMRSA252.fna\n\n\nClick \nExecute\n\n\nThe output is \nbarrnap on data 3\n It is a gff3 format file (general feature format version 3). Each line in the file describes a feature in the DNA sequence.\n\n\n\n\nFilter the annotations to get the 23S RNAs\n\n\n\n\nMake a file with only the 23S rRNA features\n\n\nGo to \nTools \n Basic Tools \n Filter and Sort \n Select\n and set the following:\n\n\nSelect lines from\n: (whatever you called the barrnap gff3 output)\n\n\nthe pattern\n: \n23S\n (this will look for all the lines in the file that contain \u201c23S\u201d)\n\n\nClick \nExecute\n\n\nNow you have a gff3 file with just the 23S annotations!\n\n\n\n\nWhat next?\n\n\n\n\n\n\nRemember how we started a new \nHistory\n at the beginning? If you want to see any of your old histories, click on the History options button \n at the top of the \nHistory\n panel and then select \u201cSaved Histories.\u201d This will give you a list of all the histories you have worked on in this Galaxy server.\n\n\n\n\n\n\nUpload a saved Galaxy history (a set of files) to use in these tutorials\n.", 
-            "title": "Using Galaxy"
+            "text": "Get Data into Galaxy\n\n\nGalaxy Background\n\n\nGalaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety of bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.\n\n\nGalaxy is an open, web-based platform. Details about the project can be found \nhere\n.\n\n\nThe Galaxy interface is separated into three parts. The \nTools\n list on the left, the \nViewing\n panel in the middle and the analysis and data \nHistory\n on the right. We will be looking at all three parts in this tutorial.\n\n\n\n\nRegister in Galaxy\n\n\nOpen a new tab or window on your web browser. Use Firefox or Chrome - please don\u2019t use Internet Explorer or Safari.\n\n\nIn the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.\n\n\n\n\nClick on \nUser\n button on the right.\n\n\n\n\n\n\nSelect: \nUser \n Register\n\n\nEnter your email, choose a password, and choose a user name.\n\n\nClick \nSubmit\n\n\n\n\nImport a history\n\n\n\n\nIn the menu options across the top, go to \nShared Data\n.\n\n\nClick on \nHistories\n.\n\n\n\n\n\n\n\n\nA list of published histories should appear. Click on \nMGill 2016\n.\n\n\nClick on \nImport history\n.\n\n\n\n\n\n\n\n\n\n\nAn option will appear to re-name the history. We don\nt need to rename it, so click \nImport\n.\n\n\n\n\n\n\nThe history will now appear in your Current History pane, and the files are ready to use in Galaxy analyses.", 
+            "title": "Starting with Galaxy"
         }, 
         {
-            "location": "/modules/galaxy/#using-galaxy", 
+            "location": "/modules/galaxy/#get-data-into-galaxy", 
             "text": "", 
-            "title": "Using Galaxy"
+            "title": "Get Data into Galaxy"
         }, 
         {
-            "location": "/modules/galaxy/#background", 
-            "text": "Galaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety of bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.  Bioinformatics tools can be added from the Galaxy \u2018tool shed\u2019 or removed as necessary from your Galaxy instance.  Galaxy is an open, web-based platform. Details about the project can be found  here .  The Galaxy interface is separated into three parts. The  Tools  list on the left, the  Viewing  panel in the middle and the analysis and data  History  on the right. We will be looking at all three parts in this tutorial.   This activity will familiarise you with the Galaxy interface. It will cover the following operations:   Logging in to the server  Putting data onto Galaxy  Using some common tools", 
-            "title": "Background"
+            "location": "/modules/galaxy/#galaxy-background", 
+            "text": "Galaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety of bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.  Galaxy is an open, web-based platform. Details about the project can be found  here .  The Galaxy interface is separated into three parts. The  Tools  list on the left, the  Viewing  panel in the middle and the analysis and data  History  on the right. We will be looking at all three parts in this tutorial.", 
+            "title": "Galaxy Background"
         }, 
         {
-            "location": "/modules/galaxy/#learning-objectives", 
-            "text": "At the end of this tutorial you should be able to:   Register and login to a Galaxy server.  Upload data to a Galaxy server from:  A file on your local computer.  A file on a remote datastore with an accessible URL.      Use tools in Galaxy by:  Accessing the tool via the tool menu.  Using the tool interface to run the particular tool.  Viewing/accessing the tool output.", 
-            "title": "Learning Objectives"
+            "location": "/modules/galaxy/#register-in-galaxy", 
+            "text": "Open a new tab or window on your web browser. Use Firefox or Chrome - please don\u2019t use Internet Explorer or Safari.  In the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.   Click on  User  button on the right.    Select:  User   Register  Enter your email, choose a password, and choose a user name.  Click  Submit", 
+            "title": "Register in Galaxy"
         }, 
         {
-            "location": "/modules/galaxy/#login-to-galaxy", 
-            "text": "Open a new tab or window on your web browser. Use Firefox or Chrome - please don\u2019t use Internet Explorer or Safari.  In the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.   Click on  User  button on the right and either register or login.   If you haven t yet registered yet:   Select:  User   Register  Enter your email, choose a password, and choose a user name.  Click  Submit   If you have already registered:   Select:  User   Login  Enter your username   password.  Click  Submit", 
-            "title": "Login to Galaxy"
-        }, 
-        {
-            "location": "/modules/galaxy/#put-data-onto-galaxy", 
-            "text": "There are two main ways to put your data onto Galaxy; this section will run through both ways. First, we need to make a new history.", 
-            "title": "Put data onto Galaxy"
-        }, 
-        {
-            "location": "/modules/galaxy/#make-a-new-history", 
-            "text": "First, make a new folder to store the work we are about to perform.   Click on the history options button   at the top of the  History  panel.  Select  Create New  Click on  Unnamed history  to rename. Type in a new name.", 
-            "title": "Make a new history"
-        }, 
-        {
-            "location": "/modules/galaxy/#datatypes", 
-            "text": "What sort of file is being uploaded?  We need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, FASTA, FASTQ, VCF, GFF, GBK, and tabular.", 
-            "title": "Datatypes"
-        }, 
-        {
-            "location": "/modules/galaxy/#upload-a-file-from-your-own-computer", 
-            "text": "With this method you can get most of the files on your own computer into Galaxy.", 
-            "title": "Upload a file from your own computer"
-        }, 
-        {
-            "location": "/modules/galaxy/#first-download-the-following-file-to-your-computer", 
-            "text": "Copy this URL and paste it into the address bar in your web browser:  https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/galaxy101/Contig_stats.txt.gz \nThis is a file stored on the cloud. Press  Enter , and the file will download. Note the download location.", 
-            "title": "First, download the following file to your computer:"
-        }, 
-        {
-            "location": "/modules/galaxy/#next-upload-that-file-to-galaxy", 
-            "text": "From the Galaxy tool panel, click on  Get Data   Upload File     Click the  Choose local file  button    Find and select the  Contig_stats.txt.gz  file you downloaded and click  Open     Set the  Type  to  tabular     Click the  Start  button    Once the progress bar reaches 100%, click the  Close  button    The file will now upload to your current history.", 
-            "title": "Next, upload that file to Galaxy"
-        }, 
-        {
-            "location": "/modules/galaxy/#upload-a-file-from-a-url", 
-            "text": "If a file exists on a web resource somewhere and you know its URL (Unique Resource Location - a web address) you can directly load it into Galaxy.   From the tool panel, click on  Get Data   Upload File  Click on the  Paste/Fetch Data  button  Copy and paste the following web address into the URL/Text box: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq.gz  Set the  Type  to  fastqsanger  (CAREFUL: not fastqCsanger)  Click  Start  Once the progress bar has reached 100%, click  Close .  Note that Galaxy is smart enough to recognize that this is a compressed file and so it will uncompress it as it loads it.", 
-            "title": "Upload a file from a URL"
-        }, 
-        {
-            "location": "/modules/galaxy/#upload-another-file-from-a-url", 
-            "text": "Now we are going to upload another file from the remote data source.   Repeat the above for: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna  Note: this file  Type  is  FASTA .  The DNA sequence of  Staphylococcus aureus MRSA252  will be loaded into your history as a FASTA file.  Your  History  should now look like this:", 
-            "title": "Upload another file from a URL"
-        }, 
-        {
-            "location": "/modules/galaxy/#the-data", 
-            "text": "A brief description of each of the three files uploaded to Galaxy:    Contigs_stats.txt      this file contains a table of summary data from a  de novo  genome assembly (the process of attempting to recover the full genome of an organism from the short read sequences produced by most DNA sequencing machines).  The columns contain a lot of information but the ones we will be using indicate the amount of data (or coverage) that went into making up each piece of the final assembly.   bacterial_std_err_1.fastq.gz      This file contains sequence reads, in the format produced by Illumina sequencing machines. Read more about the FASTQ  format at Wikipedia.   MRSA0252.fna   This file contains the genome sequence of  Staphylococcus aureus MRSA252 . Read more about the  FASTA  format at Wikipedia.", 
-            "title": "The data"
-        }, 
-        {
-            "location": "/modules/galaxy/#galaxy-tools", 
-            "text": "The purpose of this section is to help you become familiar with the way\ntools are run on Galaxy.  We will see how to:   rename files  summarize assembly statistics  convert file formats, and  find features in a DNA sequence.", 
-            "title": "Galaxy tools"
-        }, 
-        {
-            "location": "/modules/galaxy/#rename-files", 
-            "text": "Two of the files in the  History  have very long and confusing names. File names can be changed by taking the following steps:   Click on the edit icon   next to the file in the  History  called:  https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq  In the  Name  text box, give it a new name. Rename it to:  typical.fastq  Click the  Save  button.   Repeat the process with another file:   Find the file called:  https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna     Rename it to  MRSA252.fna   Much better. There is other functionality hidden behind that edit icon   You can change a file\u2019s datatype, convert its format and many other things. Feel free to play around with them at a later date.", 
-            "title": "Rename files"
-        }, 
-        {
-            "location": "/modules/galaxy/#summarize-assembly-statistics", 
-            "text": "We are going to produce a histogram of contig read-coverage depths and calculate the summary statistics from the  Contig_stats.txt  file.  To do this we need to make some changes to the  Contig_stats.txt  file:   cut out a couple of columns from the file  remove a line from the file  produce a histogram", 
-            "title": "Summarize assembly statistics"
-        }, 
-        {
-            "location": "/modules/galaxy/#cut-out-and-keep-two-columns", 
-            "text": "Click on the eye icon   of the  Contig_stats.txt  file to have a look at it.    Note that there are 18 columns in this file. We want column 1 and column 6.  Go to  Tools   Text Manipulation   Cut  and set the following:  Set  Cut Columns  to:  c1,c6  Delimited by :  Tab  From :  Contig_stats.txt  Click  Execute  Examine the new file by clicking on its eye icon  . We now have 2 columns instead of the 18 in the original file.", 
-            "title": "Cut out and keep two columns"
-        }, 
-        {
-            "location": "/modules/galaxy/#remove-the-header-lines-of-the-new-file", 
-            "text": "Go to  Tools   Text Manipulation   Remove beginning  and set the following:  Remove First :  1  from :  Cut on data1  click  Execute  Note the the new file is the same as the previous one without the header line.", 
-            "title": "Remove the Header lines of the new file"
-        }, 
-        {
-            "location": "/modules/galaxy/#make-a-histogram", 
-            "text": "Go to  Tools   Graph/Display Data   Histogram  and set the following:  Dataset :  Remove beginning on Data 4  Numerical column for X axis  Column: 2  Number of breaks :  25  Plot title :  Histogram of Contig Coverage  Label for X axis :  Coverage depth  Click  Execute  Click on the eye icon   of the histogram to have a look at it. Note there are a few peaks. Maybe these correspond to single, double and triple copy number of these contigs.", 
-            "title": "Make a histogram"
-        }, 
-        {
-            "location": "/modules/galaxy/#calculate-summary-statistics-for-contig-coverage-depth", 
-            "text": "Go to  Tools   Statistics and Visualisation   Statistics   Summary Statisitics  and set the following:    Summary statistics on :  Remove beginning on Data 4  Column or expression :  c2  Click  Execute  You\u2019ll note that the summary statistics tool failed (red background in the  History ). There was an error!  If you click on the filename, and then the bug symbol  , it will tell you what went wrong. (There is a missing python library).  At this point, you would normally contact your Galaxy server administrator.", 
-            "title": "Calculate summary statistics for contig coverage depth"
-        }, 
-        {
-            "location": "/modules/galaxy/#convert-file-formats", 
-            "text": "This shows how to convert a FASTQ file to a FASTA file. The tool creates a new file with the converted data.   Go to  Tools   Basic Tools   Convert Formats   FASTQ to FASTA  and set the following:  FASTQ file to convert :  typical.fastq  Click  Execute  The output is a new Fasta file called  FASTQ to FASTA on data 2 .", 
-            "title": "Convert file formats"
-        }, 
-        {
-            "location": "/modules/galaxy/#find-features", 
-            "text": "This example shows how to use a tool called \u201cbarrnap\u201d to search for rRNAs in a DNA sequence.", 
-            "title": "Find features"
-        }, 
-        {
-            "location": "/modules/galaxy/#find-all-of-the-ribosomal-rnas-in-a-sequence", 
-            "text": "Go to  Tools   NGS Analysis   NGS: Annotation   barrnap  and set the following:  Fasta file :  MRSA252.fna  Click  Execute  The output is  barrnap on data 3  It is a gff3 format file (general feature format version 3). Each line in the file describes a feature in the DNA sequence.", 
-            "title": "Find all of the ribosomal RNAs in a sequence"
-        }, 
-        {
-            "location": "/modules/galaxy/#filter-the-annotations-to-get-the-23s-rnas", 
-            "text": "Make a file with only the 23S rRNA features  Go to  Tools   Basic Tools   Filter and Sort   Select  and set the following:  Select lines from : (whatever you called the barrnap gff3 output)  the pattern :  23S  (this will look for all the lines in the file that contain \u201c23S\u201d)  Click  Execute  Now you have a gff3 file with just the 23S annotations!", 
-            "title": "Filter the annotations to get the 23S RNAs"
-        }, 
-        {
-            "location": "/modules/galaxy/#what-next", 
-            "text": "Remember how we started a new  History  at the beginning? If you want to see any of your old histories, click on the History options button   at the top of the  History  panel and then select \u201cSaved Histories.\u201d This will give you a list of all the histories you have worked on in this Galaxy server.    Upload a saved Galaxy history (a set of files) to use in these tutorials .", 
-            "title": "What next?"
-        }, 
-        {
-            "location": "/modules/data-dna/", 
-            "text": "Dataset\n\n\nGalaxy histories\n\n\n\n\nGalaxy history of input files\n\n\nGalaxy history: FastQC\n\n\nGalaxy history: Spades\n\n\nGalaxy history: Prokka\n\n\nGalaxy history: Snippy\n\n\n\n\nIndividual input files\n\n\nWildtype reference\n\n\n\n\nwildtype.fna\n\n\nwildtype.gbk\n\n\nwildtype.gff\n\n\n\n\nMutant Illumina sequence\n\n\n\n\nmutant_R1.fastq.gz\n\n\nmutant_R2.fastq.gz\n\n\n\n\nGet tutorial data into Galaxy\n\n\nTo get the saved tutorial history (a set of files) into Galaxy:\n\n\n\n\nRight-click on \nGalaxy history of input files\n above and copy link address.\n\n\nGo to your Galaxy instance. Make sure you are registered and logged in. Refresh the page.\n\n\nClick on the \nHistory\n cog \n\n\nSelect \nImport from File\n\n\n\n\n\n\n\n\nIn the box called \nArchived History URL\n, paste in the link address to the Galaxy history.\n\n\nClick \nSubmit\n\n\nWait a few seconds.\n\n\nClick on the \nview all histories\n button \n\n\nSee if the Galaxy history has been imported: it will be called \nimported from archive: Data\n\n\nAbove that pane, click on the \nSwitch to\n button.\n\n\nThen click \nDone\n (in the top left corner).\n\n\nYou should now have a list of five files in your current history.\n\n\n\n\n\n\nWhat next?\n\n\n\n\nIf you are are working through the tutorials in a different order or want to see the completed history for another section, additional Galaxy histories are available above.\n\n\nNext: \nLearn about quality control\n.", 
-            "title": "Training dataset"
-        }, 
-        {
-            "location": "/modules/data-dna/#dataset", 
-            "text": "", 
-            "title": "Dataset"
-        }, 
-        {
-            "location": "/modules/data-dna/#galaxy-histories", 
-            "text": "Galaxy history of input files  Galaxy history: FastQC  Galaxy history: Spades  Galaxy history: Prokka  Galaxy history: Snippy", 
-            "title": "Galaxy histories"
-        }, 
-        {
-            "location": "/modules/data-dna/#individual-input-files", 
-            "text": "", 
-            "title": "Individual input files"
-        }, 
-        {
-            "location": "/modules/data-dna/#wildtype-reference", 
-            "text": "wildtype.fna  wildtype.gbk  wildtype.gff", 
-            "title": "Wildtype reference"
-        }, 
-        {
-            "location": "/modules/data-dna/#mutant-illumina-sequence", 
-            "text": "mutant_R1.fastq.gz  mutant_R2.fastq.gz", 
-            "title": "Mutant Illumina sequence"
-        }, 
-        {
-            "location": "/modules/data-dna/#get-tutorial-data-into-galaxy", 
-            "text": "To get the saved tutorial history (a set of files) into Galaxy:   Right-click on  Galaxy history of input files  above and copy link address.  Go to your Galaxy instance. Make sure you are registered and logged in. Refresh the page.  Click on the  History  cog   Select  Import from File     In the box called  Archived History URL , paste in the link address to the Galaxy history.  Click  Submit  Wait a few seconds.  Click on the  view all histories  button   See if the Galaxy history has been imported: it will be called  imported from archive: Data  Above that pane, click on the  Switch to  button.  Then click  Done  (in the top left corner).  You should now have a list of five files in your current history.", 
-            "title": "Get tutorial data into Galaxy"
-        }, 
-        {
-            "location": "/modules/data-dna/#what-next", 
-            "text": "If you are are working through the tutorials in a different order or want to see the completed history for another section, additional Galaxy histories are available above.  Next:  Learn about quality control .", 
-            "title": "What next?"
+            "location": "/modules/galaxy/#import-a-history", 
+            "text": "In the menu options across the top, go to  Shared Data .  Click on  Histories .     A list of published histories should appear. Click on  MGill 2016 .  Click on  Import history .      An option will appear to re-name the history. We don t need to rename it, so click  Import .    The history will now appear in your Current History pane, and the files are ready to use in Galaxy analyses.", 
+            "title": "Import a history"
         }, 
         {
             "location": "/modules/fastqc/", 
