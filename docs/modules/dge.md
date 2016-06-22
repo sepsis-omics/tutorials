@@ -93,18 +93,24 @@ NGS: RNA Analysis &rarr; htseq-count
 
 - Click <ss>Execute</ss>
 
+Output:
+feature (eg the exons) with the counts for each replicate (so X 6)
 
 
 
-- Generate read counts per gene
-- For each transcriptome, count the number of transcripts per gene/feature
-E.g. with HTSeq
 
 ## DGE Analysis
 
 ### Within Galaxy
 
 FIXME: Need to use Voom/Limma here
+
+<ss>NGS: RNA Analysis &rarr; Differential Count models</ss>
+- seems to be options for using any/all of edgeR, DESeq, Voom ?
+- so tick option for Voom?
+
+
+
 
 ### Within Degust
 
