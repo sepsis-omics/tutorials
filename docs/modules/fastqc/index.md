@@ -18,7 +18,7 @@ At the end of this tutorial you should be able to:
 
 - We will use the paired-end read set from our Galaxy history.
 - These are the files <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.
-- If you don't have these FASTQ files in your current Galaxy history see how to get them [here](/modules/data-dna/index.md).
+- If you don't have these FASTQ files in your current Galaxy history see how to get them [here](/modules/galaxy/index.md).
 - FASTQ is a file format for sequence reads that displays quality scores for each of the sequenced nucleotides. For more information about FASTQ format see this [link](https://en.wikipedia.org/wiki/FASTQ_format).
 - We will evaluate the <fn>mutant_R1.fastq</fn> reads using the FastQC tool.
 
