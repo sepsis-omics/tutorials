@@ -1,4 +1,4 @@
-site_name: Sepsis Tutorials
+site_name: McGill 2016
 site_description: Tutorials for analysing bacterial omics data
 site_author: Anna Syme, Torsten Seemann
 site_favicon: favicon.ico
@@ -13,11 +13,11 @@ extra_css:
     - css/sepsis.css
 pages:
 - Home: index.md
-- Genomics:
-    - Overview: genomics.md
-    - Using Galaxy: modules/galaxy/index.md
-    - Training dataset: modules/data-dna/index.md
-    - Galaxy intro for McGill: modules/galaxy_mcgill/galaxy_start.md
+- Microbial Genomics:
+    #- Overview: genomics.md
+    #- Using Galaxy: modules/galaxy/index.md
+    #- Training dataset: modules/data-dna/index.md
+    - Starting with Galaxy: modules/galaxy/index.md
     - Quality control: modules/fastqc/index.md
     #- Read trimming: modules/trimmomatic/index.md
     - Genome assembly: modules/spades/index.md
