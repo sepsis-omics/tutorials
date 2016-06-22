@@ -17,6 +17,7 @@ pages:
     - Overview: genomics.md
     - Using Galaxy: modules/galaxy/index.md
     - Training dataset: modules/data-dna/index.md
+    - Galaxy intro for McGill: modules/galaxy_mcgill/galaxy_start.md
     - Quality control: modules/fastqc/index.md
     #- Read trimming: modules/trimmomatic/index.md
     - Genome assembly: modules/spades/index.md
