@@ -30,6 +30,9 @@ A typical experiment will have 2 conditions each with 3 replicates, for a total 
 
 Sample data set:
 
+FIXME: can this have a link to swift or a galaxy history URL
+http://45.113.234.197/galaxy/history/export_archive?id=6d4c8d216c52b289
+
 
 E coli
 glycolysis growth phenotype
