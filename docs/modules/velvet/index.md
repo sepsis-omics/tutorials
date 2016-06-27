@@ -119,7 +119,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
 
 - Click on the View Data button ![Eye icon](images/image04.png) on each of the files.
 
-- The <fn>Contigs</fn> file will show each contig with the *k-mer length* and *k-mer coverage* listed as part of the header for each contig (however, these are just called *length* and *coverage*).
+- The <fn>Contigs</fn> file will show each contig with the *k-mer length* and *k-mer coverage* listed as part of the header (however, these are just called *length* and *coverage*).
     - *K-mer length*: For the value of k chosen in the assembly, a measure of how many k-mers overlap (by 1 bp each overlap) to give this length.
     - *K-mer coverage*: For the value of k chosen in the assembly, a measure of how many k-mers overlap each base position (in the assembly).
 
@@ -130,8 +130,8 @@ Ask your demonstrator if you would like to know the difference between contigs a
 ![Contigs stats output](images/image11.png)
 
 - We will summarise the information in the <fn>log</fn> file.
-- Go to <ss>Basic Tools &rarr; NGS Common Toolsets &rarr; Fasta statistics</ss>
-- For the required input ile, choose the velvet <fn>Contigs</fn> file.
+- Go to <ss>Basic Tools &rarr; NGS Common Toolsets &rarr; FASTA manipulation &rarr; Fasta statistics</ss>
+- For the required input file, choose the velvet <fn>Contigs</fn> file.
 - Click <ss>Execute</ss>.
 - A new file will appear called <fn>Fasta summary stats</fn>
 - Click the eye icon to look at this file.
@@ -142,7 +142,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
     - *num_seq*: the number of contigs in the FASTA file.
     - *num_bp*: the number of assembled bases. Roughly proportional to genome size.
     - *len_max*: the biggest contig.  
-    - *len_N50*: N50 is a contig size. If contigs were ordered from small to large, half of all the nucleotides will be in contigs this size or bigger.
+    - *len_N50*: N50 is a contig size. If contigs were ordered from small to large, half of all the nucleotides will be in contigs this size or larger.
 
 <!-- ## What next?
 
