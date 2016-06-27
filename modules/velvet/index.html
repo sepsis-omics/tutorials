@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../favicon.ico">
         
 
-	<title>Genome assembly with Spades - GCC 2016</title>
+	<title>Genome assembly with Velvet - GCC 2016</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -69,14 +69,14 @@
 
                     
                         
-<li class="active">
-    <a href="./">Genome assembly with Spades</a>
+<li >
+    <a href="../spades/">Genome assembly with Spades</a>
 </li>
 
                     
                         
-<li >
-    <a href="../velvet/">Genome assembly with Velvet</a>
+<li class="active">
+    <a href="./">Genome assembly with Velvet</a>
 </li>
 
                     
@@ -112,12 +112,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../galaxy/">
+                    <a rel="next" href="../spades/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../velvet/">
+                    <a rel="prev" href="../prokka/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -131,7 +131,7 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#assembly-using-spades">Assembly using Spades</a></li>
+        <li class="main active"><a href="#assembly-using-velvet">Assembly using Velvet</a></li>
         
             <li><a href="#background">Background</a></li>
         
@@ -139,7 +139,7 @@
         
             <li><a href="#import-and-view-data">Import and view data</a></li>
         
-            <li><a href="#assemble-reads-with-spades">Assemble reads with Spades</a></li>
+            <li><a href="#assemble-reads-with-velvet">Assemble reads with Velvet</a></li>
         
             <li><a href="#examine-the-output">Examine the output</a></li>
         
@@ -148,50 +148,20 @@
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="assembly-using-spades">Assembly using Spades</h1>
+<h1 id="assembly-using-velvet">Assembly using Velvet</h1>
 <h2 id="background">Background</h2>
-<p>Spades is one of a number of <em>de novo</em> assemblers that use short read sets as input (e.g. Illumina Reads), and the assembly method is based on de Bruijn graphs. For information about Spades see this <a href="http://bioinf.spbau.ru/spades">link</a>.</p>
+<p>Velvet is one of a number of <em>de novo</em> assemblers that use short read sets as input (e.g. Illumina Reads), and the assembly method is based on de Bruijn graphs. For information about Velvet see this <a href="https://en.wikipedia.org/wiki/Velvet_assembler">link</a>.</p>
 <!---
 A protocol for assembling with Velvet (another *de novo* assembler) is available [here](https://docs.google.com/document/d/1xs-TI5MejQARqo0pcocGlymsXldwJbJII890gnmjI0o/pub).
 --->
 
-<p>In this activity, we will perform a <em>de novo</em> assembly of a short read set using the Spades assembler. The output from Spades that we are interested in is a multiFASTA file that contains the draft genome sequence.</p>
-<!--
-We have a closed, annotated genome sequence for a closely related *wildtype* strain.
--->
-
+<p>In this activity, we will perform a <em>de novo</em> assembly of a short read set using the Velvet assembler.</p>
 <h2 id="learning-objectives">Learning objectives</h2>
 <p>At the end of this tutorial you should be able to:</p>
-<!--1. import data into Galaxy  
-2. view the input read files -->
-
 <ol>
-<li>assemble the reads using Spades, and</li>
+<li>assemble the reads using Velvet, and</li>
 <li>examine the output assembly.</li>
 </ol>
-<!-- ## Import data into Galaxy
--  Go to the address of your galaxy server.
-
-- [Remind me how to logon.](https://docs.google.com/document/d/1LAQvhIG8s-vv6T14bb8lGRkmoNha7E3bHf9kAgUwMs0/pub)
-FIXME: note this contains the same galaxy address as above - change?
-
-
-- Click on the <ss>Analyze Data</ss> menu at the top of the page.    
-- Click on the <ss>History options</ss> button the ![history button](images/image02.png) on the top right of the history pane.
-- Click <ss>Import from File</ss> (at the bottom of the list).  
-- A new page will appear with a text box for the URL of the history to import.  
-- Copy the following URL into the text box: <http://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz>  
-- Click <ss>Submit</ss>.  
-- Galaxy will download the data files from the internet and will be available as an additional history (takes about one minute).  
-- To view this new history, click the <ss>View all histories</ss> button![Histories button](images/image01.png) (top right of the history pane).  
-  - If the history has finished downloading it will appear as <fn>imported from archive: Colombia_workshop_start</fn>
-- Click on the ![Switch button](images/image06.png) button above the <fn>imported from archive:Colombia_workshop_start</fn> then the ![Done button](images/image05.png) button.
-- You should now have four files in the history pane as follows:
-
-![Files in history](images/image07.png)
-
---->
-
 <h2 id="import-and-view-data">Import and view data</h2>
 <!-- If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/galaxy/index.md).
 -->
@@ -266,55 +236,82 @@ Although we have warnings for two outputs (per base sequence content; Kmer conte
 
 -->
 
-<h2 id="assemble-reads-with-spades">Assemble reads with Spades</h2>
+<h2 id="assemble-reads-with-velvet">Assemble reads with Velvet</h2>
 <ul>
 <li>We will perform a <em>de novo</em> assembly of the mutant FASTQ reads into long contiguous sequences (in FASTA format.)</li>
+<li>Velvet requires the user to input a value of <em>k</em> for the assembly process. K-mers are fragments of sequence reads. Small k-mers will give greater connectivity, but large k-mers will give better specificity.</li>
 </ul>
 <!---
-- Spades produces both contigs and scaffolds.
+- velvet produces both contigs and scaffolds.
 Ask your demonstrator if you would like to know the difference between contigs and scaffolds.
 --->
 
 <ul>
-<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; spades</ss></li>
+<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; velvet</ss></li>
 <li>
 <p>Set the following parameters (leave other settings as they are):</p>
 <ul>
-<li><ss>Run only Assembly</ss>: <em>Yes</em> [the <em>Yes</em> button should be darker grey]</li>
-<li><ss>Kmers to use separated by commas:</ss> <em>33,55,91</em>  [note: no spaces]  </li>
-<li><ss>Coverage cutoff:</ss> <em>auto</em>  </li>
-<li><ss>Files &rarr; Forward reads:</ss> <fn>mutant_R1.fastq</fn>  </li>
-<li><ss>Files &rarr; Reverse reads:</ss> <fn>mutant_R2.fastq</fn>  </li>
+<li><ss>K-mer</ss>: choose a value for k between 21 and 95</li>
+<li><ss>Input file type</ss>: Fastq</li>
+<li><ss>Single or paired end reads</ss>: Paired</li>
+<li><ss> Select first set of reads</ss>: <fn>mutant_R1.fastq</fn>  </li>
+<li><ss> Select second set of reads</ss>: <fn>mutant_R2.fastq</fn></li>
 </ul>
 </li>
 <li>
 <p>Your tool interface should look like this:</p>
 </li>
 </ul>
-<p><img alt="Spades interface" src="./images/image03.png" /></p>
+<p><img alt="velvet interface" src="./images/image09.png" /></p>
 <ul>
 <li>Click <ss>Execute</ss></li>
 </ul>
 <h2 id="examine-the-output">Examine the output</h2>
 <ul>
-<li>Galaxy is now running Spades on the reads for you.</li>
+<li>Galaxy is now running velvet on the reads for you.</li>
+<li>Press the refresh button in the history pane to see if it has finished.</li>
 <li>
-<p>When it is finished, you will have five new files in your history.  </p>
+<p>When it is finished, you will have three new files in your history.  </p>
 <ul>
-<li>two FASTA files of the resulting contigs and scaffolds</li>
-<li>two files for statistics about these</li>
-<li>the Spades logfile</li>
+<li>a <fn>Contigs</fn> file</li>
+<li>a <fn>Contigs stats</fn> file</li>
+<li>the velvet <fn>log</fn> file</li>
+</ul>
+</li>
+<li>
+<p>Click on the View Data button <img alt="Eye icon" src="./images/image04.png" /> on each of the files.</p>
+</li>
+<li>
+<p>The <fn>Contigs</fn> file will show each contig with the <em>k-mer length</em> and <em>k-mer coverage</em> listed as part of the header for each contig (however, these are just called <em>length</em> and <em>coverage</em>).</p>
+<ul>
+<li><em>K-mer length</em>: For the value of k chosen in the assembly, a measure of how many k-mers overlap (by 1 bp each overlap) to give this length.</li>
+<li><em>K-mer coverage</em>: For the value of k chosen in the assembly, a measure of how many k-mers overlap each base position (in the assembly).</li>
 </ul>
 </li>
 </ul>
-<p><img alt="spades output" src="./images/output_files.png" /></p>
+<p><img alt="Contigs output" src="./images/image10.png" /></p>
 <ul>
-<li>Click on the View Data button <img alt="Eye icon" src="./images/image04.png" /> on each of the files.</li>
-<li>Note that the short reads have been assembled into much longer contigs.</li>
-<li>(However, in this case, the contigs have not been assembled into larger scaffolds.)</li>
-<li>The stats files will give you the length of each of the contigs.</li>
+<li>The <fn>Contigs stats</fn> file will show a list of these k-mer lengths and k-mer coverages.</li>
 </ul>
-<p><img alt="spades output contigs" src="./images/contig_stats.png" /></p>
+<p><img alt="Contigs stats output" src="./images/image11.png" /></p>
+<ul>
+<li>We will summarise the information in the <fn>log</fn> file.</li>
+<li>Go to <ss>Basic Tools &rarr; NGS Common Toolsets &rarr; Fasta statistics</ss></li>
+<li>For the required input ile, choose the velvet <fn>Contigs</fn> file.</li>
+<li>Click <ss>Execute</ss>.</li>
+<li>A new file will appear called <fn>Fasta summary stats</fn></li>
+<li>Click the eye icon to look at this file.</li>
+</ul>
+<p><img alt="Fasta stats" src="./images/image12.png" /></p>
+<ul>
+<li>Look at:<ul>
+<li><em>num_seq</em>: the number of contigs in the FASTA file.</li>
+<li><em>num_bp</em>: the number of assembled bases. Roughly proportional to genome size.</li>
+<li><em>len_max</em>: the biggest contig.  </li>
+<li><em>len_N50</em>: N50 is a contig size. If contigs were ordered from small to large, half of all the nucleotides will be in contigs this size or bigger.</li>
+</ul>
+</li>
+</ul>
 <!-- ## What next?
 
 - [Annotate the genome using Prokka.](/modules/prokka/index.md)

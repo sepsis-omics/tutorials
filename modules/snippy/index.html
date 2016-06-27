@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../favicon.ico">
         
 
-	<title>Variant finding - McGill 2016</title>
+	<title>Variant finding - GCC 2016</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -43,7 +43,7 @@
             </button>
 
             <!-- Main title -->
-            <a class="navbar-brand" href="../..">McGill 2016</a>
+            <a class="navbar-brand" href="../..">GCC 2016</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -70,13 +70,13 @@
                     
                         
 <li >
-    <a href="../fastqc/">Quality control</a>
+    <a href="../spades/">Genome assembly with Spades</a>
 </li>
 
                     
                         
 <li >
-    <a href="../spades/">Genome assembly</a>
+    <a href="../velvet/">Genome assembly with Velvet</a>
 </li>
 
                     
@@ -162,8 +162,19 @@ Usually differences are limited to single nucleotide polymorphisms (SNPs) and sm
 <li>Understand if the SNP is potentially affecting the phenotype</li>
 </ol>
 <h2 id="prepare-reference">Prepare reference</h2>
-<p>We will use the same data that we used in the <a href="../spades/">Assembly with Spades tutorial.</a> This should still be in your current galaxy history. If not, re-import the data into a new history using the instructions in that tutorial.</p>
-<p>For variant calling, we need a reference genome that is of the same strain as the input sequence reads.</p>
+<p>We will import  history from Galaxy:</p>
+<ul>
+<li>In the menu options across the top, go to <ss>Shared Data</ss>.</li>
+<li>Click on <ss>Histories</ss>.</li>
+<li>A list of published histories should appear. Click on <fn>GCC 2016 small genome variants</fn>.</li>
+<li>Click on <ss>Import history</ss>.</li>
+<li>An option will appear to re-name the history. We don&rsquo;t need to rename it, so click <ss>Import</ss>.</li>
+<li>The history will now appear in your Current History pane, and the files are now ready to use in Galaxy analyses.</li>
+</ul>
+<!-- We will use the same data that we used in the [Assembly with Spades tutorial.](../spades/index.md) This should still be in your current galaxy history. If not, re-import the data into a new history using the instructions in that tutorial.
+
+For variant calling, we need a reference genome that is of the same strain as the input sequence reads. -->
+
 <p>For this tutorial, our reference is the <fn>wildtype.gbk</fn> file and our reads are <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.</p>
 <h2 id="call-variants-with-snippy">Call variants with Snippy</h2>
 <ul>
