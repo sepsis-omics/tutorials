@@ -33,7 +33,7 @@ Click on <ss>User</ss> button on the right.
 
 ![Shared histories](images/image10.png)
 
-- A list of published histories should appear. Click on <fn>GCC 2016 small genome assembly</fn>.
+- A list of published histories should appear. Click on <fn>GCC 2016 small genome data</fn>.
 - Click on <ss>Import history</ss>.
 - An option will appear to re-name the history. We don't need to rename it, so click <ss>Import</ss>.
 

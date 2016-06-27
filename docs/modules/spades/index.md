@@ -50,7 +50,10 @@ FIXME: note this contains the same galaxy address as above - change?
 --->
 ## Import and view data
 
-If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/galaxy/index.md).
+<!-- If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/galaxy/index.md).
+-->
+
+If you don't already have the files in your current galaxy history, see [here](/modules/galaxy/index.md) for information on how to get them.
 
 - The read set for today is from an imaginary *Staphylococcus aureus* bacterium with a miniature genome.
 - The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.
@@ -153,6 +156,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
 
 ![spades output contigs](images/contig_stats.png)
 
-## What next?
+<!-- ## What next?
 
 - [Annotate the genome using Prokka.](/modules/prokka/index.md)
+-->

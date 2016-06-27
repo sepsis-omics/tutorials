@@ -18,7 +18,10 @@ At the end of this tutorial you should be able to:
 
 ## Import and view data
 
-If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/galaxy/index.md).
+<!-- If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/galaxy/index.md).
+-->
+
+If you don't already have the files in your current galaxy history, see [here](/modules/galaxy/index.md) for information on how to get them.
 
 - The read set for today is from an imaginary *Staphylococcus aureus* bacterium with a miniature genome.
 - The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.
@@ -83,6 +86,7 @@ Although we have warnings for two outputs (per base sequence content; Kmer conte
 
 - We will perform a *de novo* assembly of the mutant FASTQ reads into long contiguous sequences (in FASTA format.)
 - Velvet requires the user to input a value of *k* for the assembly process. K-mers are fragments of sequence reads. Small k-mers will give greater connectivity, but large k-mers will give better specificity.
+
 <!---
 - velvet produces both contigs and scaffolds.
 Ask your demonstrator if you would like to know the difference between contigs and scaffolds.
@@ -115,17 +119,19 @@ Ask your demonstrator if you would like to know the difference between contigs a
 
 - Click on the View Data button ![Eye icon](images/image04.png) on each of the files.
 
-- The <fn>Contigs</fn> file will show each contig with the length and coverage listed as part of the header for each contig.
+- The <fn>Contigs</fn> file will show each contig with the *k-mer length* and *k-mer coverage* listed as part of the header for each contig (however, these are just called *length* and *coverage*).
+    - *K-mer length*: For the value of k chosen in the assembly, a measure of how many k-mers overlap (by 1 bp each overlap) to give this length.
+    - *K-mer coverage*: For the value of k chosen in the assembly, a measure of how many k-mers overlap each base position (in the assembly).
 
 ![Contigs output](images/image10.png)
 
-- The <fn>Contigs stats</fn> will show a list of these lengths and coverages.
+- The <fn>Contigs stats</fn> file will show a list of these k-mer lengths and k-mer coverages.
 
 ![Contigs stats output](images/image11.png)
 
 - We will summarise the information in the <fn>log</fn> file.
 - Go to <ss>Basic Tools &rarr; NGS Common Toolsets &rarr; Fasta statistics</ss>
-- For the file, choose the velvet <fn>Contigs> file.
+- For the required input ile, choose the velvet <fn>Contigs</fn> file.
 - Click <ss>Execute</ss>.
 - A new file will appear called <fn>Fasta summary stats</fn>
 - Click the eye icon to look at this file.
@@ -133,11 +139,12 @@ Ask your demonstrator if you would like to know the difference between contigs a
 ![Fasta stats](images/image12.png)
 
 - Look at:
-    - num_seq: the number of contigs in the FASTA file.
-    - num_bp: the number of assembled bases. Roughly proportional to genome size.
-    - len_max: the biggest contig.  
-    - len_N50 (N50 is a contig size. If contigs were ordered from small to large, half of all the nucleotides will be in contigs this size or bigger.)
+    - *num_seq*: the number of contigs in the FASTA file.
+    - *num_bp*: the number of assembled bases. Roughly proportional to genome size.
+    - *len_max*: the biggest contig.  
+    - *len_N50*: N50 is a contig size. If contigs were ordered from small to large, half of all the nucleotides will be in contigs this size or bigger.
 
-## What next?
+<!-- ## What next?
 
 - [Annotate the genome using Prokka.](/modules/prokka/index.md)
+-->

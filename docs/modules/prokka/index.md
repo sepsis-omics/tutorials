@@ -16,8 +16,20 @@ At the end of this tutorial you should be able to:
 
 ## Input data
 
-- You will need the assembled contigs from the previous workshop ([Assembly with Spades](/modules/spades/index.md)): <fn>SPAdes_contigs.fasta</fn>
-- If you are continuing on from that tutorial, this file will be in your current history and there is no need to find/import it.
+Prokka requires assembled contigs.
+
+<!-- - If you are continuing on from the previous workshop ([Assembly with Spades](/modules/spades/index.md)), this file will be in your current history: <fn>SPAdes_contigs.fasta</fn>.
+-->
+
+We will import a history from Galaxy:
+
+- In the menu options across the top, go to <ss>Shared Data</ss>.
+- Click on <ss>Histories</ss>.
+- A list of published histories should appear. Click on <fn>GCC 2016 small genome annotation</fn>.
+- Click on <ss>Import history</ss>.
+- An option will appear to re-name the history. We don't need to rename it, so click <ss>Import</ss>.
+- The history will now appear in your Current History pane, and the <fn>SPAdes_contigs.fasta</fn> file is now ready to use in Galaxy analyses.
+
 
 ## Run Prokka
 
@@ -101,6 +113,7 @@ Zoomed in view:
     - product name
     - you can download the FASTA sequence by clicking on the disk icon.
 
-## What next?
+<!-- ## What next?
 
 - Identify genome variants (nucletotide changes) using [Snippy](/modules/snippy/index.md).
+-->
