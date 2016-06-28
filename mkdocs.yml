@@ -31,7 +31,7 @@ pages:
 #  #- Quality control: modules/fastqc/index.md
 #  #- Read trimming: modules/trimmomatic/index.md
 #  - Transcriptome assembly: modules/stringtie/index.md
-    - Differential gene expression: modules/dge/index.md
+#  - Differential gene expression: modules/dge/index.md
 #- Advanced:
     #- Differential Gene Expression: intro/dge/index.md
     #- Pan genome: intro/roary/index.md
