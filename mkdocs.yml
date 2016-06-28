@@ -24,13 +24,14 @@ pages:
     - Genome assembly with Velvet: modules/velvet/index.md
     - Genome annotation: modules/prokka/index.md
     - Variant finding: modules/snippy/index.md
+
 #- Transcriptomics:
 #  - Overview: modules/transcriptomics.md
 #  - Dataset: modules/data-rna/index.md
 #  #- Quality control: modules/fastqc/index.md
 #  #- Read trimming: modules/trimmomatic/index.md
 #  - Transcriptome assembly: modules/stringtie/index.md
-#  - Differential gene expression: modules/dge/index.md
+    - Differential gene expression: modules/dge/index.md
 #- Advanced:
     #- Differential Gene Expression: intro/dge/index.md
     #- Pan genome: intro/roary/index.md
