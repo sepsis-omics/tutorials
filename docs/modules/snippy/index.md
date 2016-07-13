@@ -14,7 +14,7 @@ Usually differences are limited to single nucleotide polymorphisms (SNPs) and sm
 
 ## Prepare reference
 
-We will import  history from Galaxy:
+<!-- We will import  history from Galaxy:
 
 - In the menu options across the top, go to <ss>Shared Data</ss>.
 - Click on <ss>Histories</ss>.
@@ -22,13 +22,16 @@ We will import  history from Galaxy:
 - Click on <ss>Import history</ss>.
 - An option will appear to re-name the history. We don't need to rename it, so click <ss>Import</ss>.
 - The history will now appear in your Current History pane, and the files are now ready to use in Galaxy analyses.
+-->
 
 
-<!-- We will use the same data that we used in the [Assembly with Spades tutorial.](../spades/index.md) This should still be in your current galaxy history. If not, re-import the data into a new history using the instructions in that tutorial.
+<!-- We will use the same data that we used in the [Assembly with Spades tutorial.](../spades/index.md) This should still be in your current galaxy history. If not, re-import the data into a new history using the instructions in that tutorial.-->
 
-For variant calling, we need a reference genome that is of the same strain as the input sequence reads. -->
+For variant calling, we need a reference genome that is of the same strain as the input sequence reads.
 
 For this tutorial, our reference is the <fn>wildtype.gbk</fn> file and our reads are <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.
+
+If these files are not presently in your Galaxy history, import them from the [Training dataset page.](../data-dna/index.md)
 
 ## Call variants with Snippy
 

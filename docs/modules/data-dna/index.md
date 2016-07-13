@@ -1,14 +1,9 @@
 # Dataset
 
-## Galaxy histories
-
-* [Galaxy history of input files](Data.tar.gz)
-* [Galaxy history: FastQC](FastQChistory.tar.gz)
-* [Galaxy history: Spades](Spadeshistory.tar.gz)
-* [Galaxy history: Prokka](Prokkahistory.tar.gz)
-* [Galaxy history: Snippy](Snippyhistory.tar.gz)
+This page contains data for the tutorials.
 
 ## Individual input files
+
 ###Wildtype reference
 
 * [wildtype.fna](wildtype.fna)
@@ -20,7 +15,31 @@
 * [mutant_R1.fastq.gz](mutant_R1.fastq.gz)
 * [mutant_R2.fastq.gz](mutant_R2.fastq.gz)
 
-## Get tutorial data into Galaxy
+###Assembled contigs
+* [SPAdes_contigs.fasta](SPAdes_contigs.fasta)
+
+### Upload to Galaxy
+
+-  Download required file(s) to your computer.
+-  From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  
+-  Click the <ss>Choose local file</ss> button  
+-  Find and select the <fn>file</fn> you downloaded and click <ss>Open</ss>  
+-  Set the <ss>Type</ss> correctly.  
+-  Click the <ss>Start</ss> button.  
+-  Once the progress bar reaches 100%, click the <ss>Close</ss> button  
+- The file will now upload to your current history.
+
+
+
+
+## Galaxy histories
+
+* [Galaxy history of input files](Data.tar.gz)
+* [Galaxy history: FastQC](FastQChistory.tar.gz)
+* [Galaxy history: Spades](Spadeshistory.tar.gz)
+* [Galaxy history: Prokka](Prokkahistory.tar.gz)
+* [Galaxy history: Snippy](Snippyhistory.tar.gz)
+
 
 To get the saved tutorial history (a set of files) into Galaxy:
 
@@ -42,7 +61,8 @@ To get the saved tutorial history (a set of files) into Galaxy:
 
 ![files in galaxy history](images/datafiles.png)
 
-## What next?
+<!-- ## What next?
 
 - If you are are working through the tutorials in a different order or want to see the completed history for another section, additional Galaxy histories are available above.
 - Next: [Learn about quality control](../fastqc/index.md).
+-->

@@ -33,8 +33,14 @@ Click on <ss>User</ss> button on the right.
 
 ![Shared histories](images/image10.png)
 
-- A list of published histories should appear. Click on <fn>GCC 2016 small genome data</fn>.
+- A list of published histories should appear. Click on the history that you want to use.
 - Click on <ss>Import history</ss>.
 - An option will appear to re-name the history. We don't need to rename it, so click <ss>Import</ss>.
 
 - The history will now appear in your Current History pane, and the files are ready to use in Galaxy analyses.
+
+## Other ways to import data into Galaxy
+
+- Upload a file from your computer
+- Copy a link to a Galaxy history
+- For sample training data files to use, see the [next section.](../data-dna/index.md)
