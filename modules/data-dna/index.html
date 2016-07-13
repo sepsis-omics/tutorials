@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="../../favicon.ico">
         
 
-	<title>Starting with Galaxy - CLIMB 2016</title>
+	<title>Training dataset - CLIMB 2016</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -63,14 +63,14 @@
                     <ul class="dropdown-menu">
                     
                         
-<li class="active">
-    <a href="./">Starting with Galaxy</a>
+<li >
+    <a href="../galaxy/">Starting with Galaxy</a>
 </li>
 
                     
                         
-<li >
-    <a href="../data-dna/">Training dataset</a>
+<li class="active">
+    <a href="./">Training dataset</a>
 </li>
 
                     
@@ -118,12 +118,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../..">
+                    <a rel="next" href="../galaxy/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../data-dna/">
+                    <a rel="prev" href="../velvet/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -137,60 +137,78 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#get-data-into-galaxy">Get Data into Galaxy</a></li>
+        <li class="main active"><a href="#dataset">Dataset</a></li>
         
-            <li><a href="#galaxy-background">Galaxy Background</a></li>
+            <li><a href="#individual-input-files">Individual input files</a></li>
         
-            <li><a href="#register-in-galaxy">Register in Galaxy</a></li>
-        
-            <li><a href="#import-a-history">Import a history</a></li>
-        
-            <li><a href="#other-ways-to-import-data-into-galaxy">Other ways to import data into Galaxy</a></li>
+            <li><a href="#galaxy-histories">Galaxy histories</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="get-data-into-galaxy">Get Data into Galaxy</h1>
-<h2 id="galaxy-background">Galaxy Background</h2>
-<p>Galaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety of bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.</p>
-<p>Galaxy is an open, web-based platform. Details about the project can be found <a href="https://galaxyproject.org/">here</a>.</p>
-<p>The Galaxy interface is separated into three parts. The <ss>Tools</ss> list on the left, the <ss>Viewing</ss> panel in the middle and the analysis and data <ss>History</ss> on the right.</p>
-<p><img alt="galaxy overview screenshot" src="./images/image05.png" /></p>
-<h2 id="register-in-galaxy">Register in Galaxy</h2>
-<p>Open a new tab or window on your web browser. Use Firefox or Chrome - please don’t use Internet Explorer or Safari.</p>
-<p>In the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.</p>
-<p><img alt="Galaxy URL" src="./images/image09.png" /></p>
-<p>Click on <ss>User</ss> button on the right.</p>
-<p><img alt="Register or Login screenshot" src="./images/image04.png" /></p>
+<h1 id="dataset">Dataset</h1>
+<p>This page contains data for the tutorials.</p>
+<h2 id="individual-input-files">Individual input files</h2>
+<h3 id="wildtype-reference">Wildtype reference</h3>
 <ul>
-<li>Select: <ss>User &rarr; Register</ss></li>
-<li>Enter your email, choose a password, and choose a user name.</li>
+<li><a href="./wildtype.fna">wildtype.fna</a></li>
+<li><a href="./wildtype.gbk">wildtype.gbk</a></li>
+<li><a href="./wildtype.gff">wildtype.gff</a></li>
+</ul>
+<h3 id="mutant-illumina-sequence">Mutant Illumina sequence</h3>
+<ul>
+<li><a href="./mutant_R1.fastq.gz">mutant_R1.fastq.gz</a></li>
+<li><a href="./mutant_R2.fastq.gz">mutant_R2.fastq.gz</a></li>
+</ul>
+<h3 id="assembled-contigs">Assembled contigs</h3>
+<ul>
+<li><a href="./SPAdes_contigs.fasta">SPAdes_contigs.fasta</a></li>
+</ul>
+<h3 id="upload-to-galaxy">Upload to Galaxy</h3>
+<ul>
+<li>Download required file(s) to your computer.</li>
+<li>From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  </li>
+<li>Click the <ss>Choose local file</ss> button  </li>
+<li>Find and select the <fn>file</fn> you downloaded and click <ss>Open</ss>  </li>
+<li>Set the <ss>Type</ss> correctly.  </li>
+<li>Click the <ss>Start</ss> button.  </li>
+<li>Once the progress bar reaches 100%, click the <ss>Close</ss> button  </li>
+<li>The file will now upload to your current history.</li>
+</ul>
+<h2 id="galaxy-histories">Galaxy histories</h2>
+<ul>
+<li><a href="./Data.tar.gz">Galaxy history of input files</a></li>
+<li><a href="./FastQChistory.tar.gz">Galaxy history: FastQC</a></li>
+<li><a href="./Spadeshistory.tar.gz">Galaxy history: Spades</a></li>
+<li><a href="./Prokkahistory.tar.gz">Galaxy history: Prokka</a></li>
+<li><a href="./Snippyhistory.tar.gz">Galaxy history: Snippy</a></li>
+</ul>
+<p>To get the saved tutorial history (a set of files) into Galaxy:</p>
+<ul>
+<li>Right-click on <fn>Galaxy history of input files</fn> above and copy link address.</li>
+<li>Go to your Galaxy instance. Make sure you are registered and logged in. Refresh the page.</li>
+<li>Click on the <ss>History</ss> cog <img alt="cog icon" src="./images/image02.png" /></li>
+<li>Select <ss>Import from File</ss></li>
+</ul>
+<p><img alt="history options" src="./images/image03.png" /></p>
+<ul>
+<li>In the box called <ss>Archived History URL</ss>, paste in the link address to the Galaxy history.</li>
 <li>Click <ss>Submit</ss></li>
+<li>Wait a few seconds.</li>
+<li>Click on the &ldquo;view all histories&rdquo; button <img alt="histories icon" src="./images/image11.png" /></li>
+<li>See if the Galaxy history has been imported: it will be called <fn>imported from archive: Data</fn></li>
+<li>Above that pane, click on the <ss>Switch to</ss> button.</li>
+<li>Then click <ss>Done</ss> (in the top left corner).</li>
+<li>You should now have a list of five files in your current history.</li>
 </ul>
-<h2 id="import-a-history">Import a history</h2>
-<ul>
-<li>In the menu options across the top, go to <ss>Shared Data</ss>.</li>
-<li>Click on <ss>Histories</ss>.</li>
-</ul>
-<p><img alt="Shared histories" src="./images/image10.png" /></p>
-<ul>
-<li>A list of published histories should appear. Click on the history that you want to use.</li>
-<li>Click on <ss>Import history</ss>.</li>
-<li>
-<p>An option will appear to re-name the history. We don&rsquo;t need to rename it, so click <ss>Import</ss>.</p>
-</li>
-<li>
-<p>The history will now appear in your Current History pane, and the files are ready to use in Galaxy analyses.</p>
-</li>
-</ul>
-<h2 id="other-ways-to-import-data-into-galaxy">Other ways to import data into Galaxy</h2>
-<ul>
-<li>Upload a file from your computer</li>
-<li>Copy a link to a Galaxy history</li>
-<li>For sample training data files to use, see the <a href="../data-dna/">next section.</a></li>
-</ul></div>
+<p><img alt="files in galaxy history" src="./images/datafiles.png" /></p>
+<!-- ## What next?
+
+- If you are are working through the tutorials in a different order or want to see the completed history for another section, additional Galaxy histories are available above.
+- Next: [Learn about quality control](../fastqc/index.md).
+--></div>
         </div>
 
         <footer class="col-md-12">
