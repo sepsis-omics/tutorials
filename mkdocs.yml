@@ -1,4 +1,4 @@
-site_name: CLIMB 2016
+site_name: Sepsis Training 2016
 site_description: Tutorials for analysing bacterial omics data
 site_author: Anna Syme, Torsten Seemann
 site_favicon: favicon.ico
@@ -32,7 +32,7 @@ pages:
 #  #- Quality control: modules/fastqc/index.md
 #  #- Read trimming: modules/trimmomatic/index.md
 #  - Transcriptome assembly: modules/stringtie/index.md
-     - Differential gene expression: modules/dge/index.md
+     - Differential gene expression: modules/DGE/index.md
 #- Advanced:
     #- Differential Gene Expression: intro/dge/index.md
     #- Pan genome: intro/roary/index.md
