@@ -19,3 +19,22 @@ genomic, transcriptomic, proteomic and metabolomic data.
 * [Research Data Services](http://omics.data.edu.au/)
 * [Bioplatforms Australia](http://www.bioplatforms.com/antibiotic-resistant-pathogens/)
 * [Nectar](http://www.nectar.org.au/)
+
+
+These training materials have been used for:
+
+McGill Summer Institute in Infectious Diseases and Global Health, June 2016, Montreal, Canada
+
+<img src="../media/logos/banner2016.png" width="40%">
+<img src="../media/logos/mcGill_logo.png" width="40%">
+
+Galaxy Community Conference 2016, Indiana, USA
+
+<img src="../media/logos/conf_logo3.png" width="40%">
+<img src="../media/logos/indiana_logo2.png" width="40%">
+
+CLIMB UK Launch: Cloud Infrastructure for Microbial Bioinformatics, 2016
+
+<img src="../media/logos/climb3.png" width="25%">
+<img src="../media/logos/climb1.png" width="30%">
+<img src="../media/logos/climb2.png" width="70%">
