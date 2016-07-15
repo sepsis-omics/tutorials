@@ -2,24 +2,12 @@
 
 This tutorial is about differential gene expression in bacteria, using Galaxy tools and Degust (web).
 
-**FIXME:**
-
+<!-- **FIXME:**
 - Degust to be installed on mGVL Galaxy
-- takes a long time with this dataset - make smaller?
-- Is there any info about which is treatment and which is control? (MG vs LB) does Simon know. Have currently put MG as control and LB as treatment. More informative names and info would be good.
-- get EC numbers into ref genome annotation (GTF)? so can view in Degust Kegg pathway
+- (Fastq files have been shortened to 1% using seqtk)
 - Data files (Fastq reads and refs): link to swift URL? -- add correct link to the "input data" section - RNA-Seq data - and information about how to upload
-- Voom output: is it sorted by t-values? What does this mean? Add sentence explaining this.
-
-
-<!-- This tutorial:
-- map: BWA-MEM
-- count: bams to HTSeq
-- DGE analysis and view: Degust (web)
-
-Alternative tutorial:
-BWA-MEM - stringtie in galaxy - combine files - ballgown in galaxy? - view?
 -->
+
 
 ## Background
 Differential Gene Expression (DGE) is the process of determining whether any genes were expressed at a different level between two conditions. For example, the conditions could be wildtype versus mutant, or two growth conditions. Usually multiple biological replicates are done for each condition - these are needed to separate variation within the condition from that between the conditions.
@@ -38,6 +26,8 @@ At the end of this tutorial you should be able to:
 
 We need RNA-Seq reads and a reference genome.
 
+**RNA-Seq reads**
+
 A typical experiment will have 2 conditions each with 3 replicates, for a total of 6 samples. Each sample will be a set of RNA sequence reads, either as one file per sample (single-end reads / SE) or two files (paired-end reads / PE).
 
 |             | Condition 1 | Condition 2 |
@@ -46,19 +36,35 @@ A typical experiment will have 2 conditions each with 3 replicates, for a total 
 | Replicate 2 |     2       |      5      |
 | Replicate 3 |     3       |      6      |
 
-Sample data set for this tutorial:
+Our RNA-seq reads are from 6 samples in <fn>FASTQ</fn> format. These have been reduced to 1% of their original size for this tutorial. The experiment used the bacteria *E. coli* grown in two conditions.
 
-- From the bacteria *E. coli* grown in two conditions.
-- Dataset contains:
-    - RNA-seq reads from 6 samples in <fn>FASTQ</fn> format
-    - Reference genomes in <fn>FASTA</fn> and <fn>GTF</fn> formats
-- Where is it and how to upload. <!-- e.g. [RNA-Seq data](/rna/data.md) -->
+- Files labelled "LB" are the wildtype
+- Files labelled "MG" have been exposed to 0.5% aMG - alpha methyglucoside (a sugar solution).
+
+
+**Reference genome**
+
+The reference genomes are in <fn>FASTA</fn> and <fn>GTF</fn> formats
+
+<!--
+- Where is it and how to upload. e.g. [RNA-Seq data](/rna/data.md)
 - For the RNA-seq reads, change datatype to fastqsanger (not fastqCsanger)
 - For the reference genome in GTF format, change datatype to GTF (not GFF)
+-->
+
+**Upload files to Galaxy**
+
+- Log in to your Galaxy server.
+- In the <ss>History</ss> pane, click on the cog icon, and select <ss>Import from File</ss>.
+- Under <ss>Archived History URL</ss> paste:
+https://swift.rc.nectar.org.au:8888/v1/AUTH_a3929895f9e94089ad042c9900e1ee82/Sepsis_DGE/Galaxy-History-DGE.tar.gz
+- Click <ss>View all histories</ss> and find the uploaded history. (This may take a minute. Refresh the page.)
+- Click <ss>Switch to</ss> that history, then <ss>Done</ss>.
+- The files should now be ready to use in your current History pane.
 
 ## Align reads to reference
 
-The RNA-Seq reads are fragmented are are not complete transcripts. To reconstruct how the reads group into transcripts (and therefore, correspond to which genes) we can map them to a reference genome.
+The RNA-Seq reads are fragmented are are not complete transcripts. To reconstruct how the reads group into transcripts (and therefore, correspond to genes) we can map them to a reference genome.
 
 In Galaxy:
 
@@ -79,20 +85,27 @@ Your tool interface should look like this:
 - Click <ss>Refresh</ss> in the history pane to see if the analysis has finished.
 - Output: 6 <fn>bam</fn> files of reads mapped to the reference genome.
 
+- Re-name the output files:
+    - These are called "Map with BWA-MEM on data x and data x".
+    - Click on the pencil icon next to each of these and re-name them as their sample name (e.g. LB1, LB2 etc.).
+    - Click <ss>Save</ss>.
+
 ## Count reads per gene
 
 We now need to count how many reads overlap with particular genes. The information about gene names is from the annotated reference genome in GTF format.
 
 In Galaxy:
 
-- Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: RNA Analysis &rarr; SAM/BAM to count matrix</ss>     
-    - note: Don't select the tool called *htseq-count*. The *SAM/BAM to count matrix* also uses that tool but allows an input of multiple bam files, which is what we want.
+- Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: RNA Analysis &rarr; SAM/BAM to count matrix</ss>.
+    - Note: Don't select the tool called *htseq-count*. The *SAM/BAM to count matrix* also uses that tool but allows an input of multiple bam files, which is what we want.
 - For <ss>Gene model (GFF) file to count reads over from your current history</ss>, select the <fn>GTF</fn> reference genome file.
+- For <ss>Reads are stranded</ss> select *Yes*.
+- For <ss>GTF feature type for counting reads...</ss> select *transcript*.
 - For <ss>bam/sam file from your history</ss> choose the 6 <fn>bam</fn> files.
 
 Your tool interface should look like this:
 
-![HTSeq tool commands](images/image01.png)
+![HTSeq tool commands](images/image08.png)
 
 - Click <ss>Execute</ss>
 - Click <ss>Refresh</ss> in the history pane to see if the analysis has finished.
@@ -102,32 +115,120 @@ Output:
 - there is one output file: a <fn>bams to DGE count matrix</fn>.
 - Click on the eye icon to see this file.
 
-![counts file](images/image07.png)
+![counts file](images/image09.png)
 
-- each row is a gene (or feature) and each column is a sample, with counts against each gene.
-- have a look at how the counts vary between samples, per gene.
-- we can't just compare the counts directly; all need to be normalized before comparison, and this will be done as part of the DGE analysis in the next step.
+- Each row is a gene (or feature) and each column is a sample, with counts against each gene.
+- Have a look at how the counts vary between samples, per gene.
+- We can't just compare the counts directly; all need to be normalized before comparison, and this will be done as part of the DGE analysis in the next step.
 - Click on the file icon underneath the file (in the history pane) to download it to your computer for use later on in this tutorial.
 
-<!-- FIXME: need to combine each of the results in count-reads section into a single table (using galaxy table tools?) but need to munge in the annotation as well, so i or simon will need to add new tools to toolshed to do this) -->
+## DGE in Degust
 
-## Test for differential gene expression
+Degust is a tool on the web that can analyse the counts files produced in the step above, to test for differential gene expression.
 
-The next step is to test whether any genes have been expressed more under either condition.
+(Degust can also display the results from DGE analyses performed elsewhere.)
 
-Here, we will use two methods:
+###Upload counts file
 
-- voom in Galaxy
-- voom in Degust
+Go to the [Degust web page](http://vicbioinformatics.com/degust/index.html). Click <ss>Get Started</ss>.
 
-In either case, we will then examine the results in Degust (web).
+![Degust webpage image](images/image04.png)
 
-[Link to Degust on github](https://github.com/Victorian-Bioinformatics-Consortium/degust#degust-formerly-known-as-dge-vis)
+- Click on <ss>Choose File</ss>.
+- Select the <fn>htseq output file. tabular</fn> (that you previously downloaded to your computer from Galaxy) and click <ss>Open</ss>.
+- Click <ss>Upload</ss>.
+- A Configuation page will appear.
+- For <ss>Name</ss> type *DGE in E coli*
+- For <ss>Info columns</ss> select *Contig*
+- For <ss>Analyze server side</ss> leave box checked.
+- For <ss>Min read count</ss> put *10*.
+- Click <ss>Add condition</ss>
+    - Add a condition called "Control" and select the LB columns.
+    - Add a condition called "Treament" and select the MG columns.
 
-### DGE in Galaxy
+Your Configuration page should look like this:
 
-- Input: the count matrix   
-- Output: a list of DE genes
+![Degust configuation](images/image10.png)
+
+- <ss>Save changes</ss>
+- <ss>View</ss> - this brings up the Degust viewing window.
+
+###Overview of Degust sections
+
+- Top black panel with <ss>Configure</ss> settings at right.
+- Left: Conditions: Control and Treatment.
+- Left: Method selection for DGE.
+- Top centre: Plots, with options at right.
+- When either of the expression plots are selected, a heatmap appears below.
+- A table of genes. Sort by FDR (significance level) or by fold change in the "treatment" column.
+
+![Degust overview](images/image12.png)
+
+###Analyze gene experession
+
+- Under <ss>Method</ss>, make sure that <ss>Voom/Limma</ss> is selected.
+- Click <ss>Apply</ss>.
+- This runs Voom/Limma on the uploaded counts.
+
+###MDS plot
+
+First, look at the MDS plot.
+
+![MDSplot](images/image11.png)
+
+- This is a multidimensional scaling plot which represents the variation between samples.
+- The x-axis is the dimension with the highest magnitude. The control/treatment samples should be split along this axis.
+- Our LB samples are on the left and the MG samples are on the right, which looks correct.
+
+###Expression - MA plot
+- The average expression (over both condition and treatment samples) is represented on the x axis.
+    - Plot points should be symmetrical around the x-axis.
+    - We can see that many genes are expressed at a low level, and some are highly expressed.
+- The fold change is represented on the y axis.
+    - If expression is significantly different between treatment and control, the dots are red. If not, they are blue.
+    - At low levels of gene expression (low values of the x axis), fold changes are less likely to be significant.
+
+![MAplot](images/image17.png)
+
+###Expression - Parallel Coordinates and heatmap
+- Go to <ss>Options</ss> at the right.
+    - For <ss>FDR cut-off</ss> set at 0.001.
+    - This is a significance level (an adjusted p value). We will set it quite low in this example.
+- Look at the Parallel Coordinates plot. There are two axes:
+    - Left: Gene expression in the control samples. All values are set at zero.
+    - Right: Gene expression in the treatment samples, relative to expression in the control.
+    - Each line shows the change in expression in one gene.  
+- The blocks of blue and red underneath the plot are called a heatmap.
+    - Each block is a gene. Click on a block to see its line in the plot above.
+    - Look at the row for the Treatment. Relative to the control, genes expressed more are red; genes expressed less are blue.
+
+![Parallel Coordinates plot](images/image14.png)
+
+Note:
+
+- for an experiment with multiple treatments, the various treatment axes can be dragged to rearrange. There is no natural order (such as a time series).
+
+###Table of genes
+- Contig: names of genes. Note that gene names are sometimes specific to a species, or they may be only named as a locus ID (a chromosomal location specified in the genome annotation).
+- FDR: False Discovery Rate. This is an adjusted p value to show the signficance of the gene expression difference. Click on column headings to sort. By default, this table is sorted by FDR.
+- Control and Treatment: log2(Fold Change) of gene expression. Control values will always be zero. Treatment values are relative to the control.
+    - Note that fold change has no absolute biological meaning. In some cases, a large fold change will be meaningful but in others, even a small fold change can be important biologically.
+
+Table of genes and expression:
+
+![gene table](images/image15.png)
+
+
+
+<!--
+A pathway is a drawn network to show interaction between molecules, including some or all of genes, proteins, RNAs, chemical reactions. E.g.
+The Kegg pathway database: (Kyoto Encyclopedia of Genes and Genomes)
+numbers are EC numbers - enzyme commission ->  enzyme/s that catalyze a reaction (might be >1)
+-->
+
+## DGE in Galaxy
+
+Differential gene expression can also be analyzed in Galaxy. The input is the count matrix produced by a tool such as HTSeq-Count (see section above: "Count reads per gene").
 
 - Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: RNA Analysis &rarr; Differential Count models</ss>
     - This has options to use edgeR, DESeq, or Voom. Here we will use Voom.
@@ -141,51 +242,57 @@ In either case, we will then examine the results in Degust (web).
 
 Your tool interface should look like this:
 
-![DGE using voom](images/image03.png)
+![DGE using voom](images/image16.png)
 
 - Click <ss>Execute</ss>.
 
-- There are two output files.
-- View the <fn>xls</fn> output file (click on the eye icon).
-    - The rows are the genes; the columns are various statistics.
-    - Column 2, the log fold change, is a measure of the change in expression between the control and the treatment samples.
-    - Click on the file icon underneath the file (in the history pane) to download it to your computer for use later on in this tutorial.
-<!--     - t values? -->
+There are two output files.
 
-### DGE in degust
+View the file called <fn>DGEusingvoom.html</fn>.
 
-**Upload counts file**
+- Scroll down to "VOOM log output" and "#VOOM top 50".
+- The "Contig" column has the gene names.
+- Look at the "adj.P.Val" column. This is an adjusted p value to show the signficance of the gene expression difference, accounting for the effect of multiple testing. Also known as False Discovery Rate. The table is ordered by the values in this column.
+- Look at the "logFC" column. This is log2(Fold Change) of gene expression in treatment samples relative to the control samples.
+    - Note that fold change has no absolute biological meaning. In some cases, a large fold change will be meaningful but in others, even a small fold change can be important biologically.
 
-Go to the [Degust web page](http://vicbioinformatics.com/degust/index.html). Click on <ss>Get Started</ss>.
+View the file called <fn>DEGusingvoom_topTable_VOOM.xls</fn>.
 
-![Degust webpage image](images/image04.png)
+- This is a list of all the genes that had transcripts mapped, and associated statistics.
 
-- Click on <ss>Choose File</ss>.
-- Select the <fn>htseq output file. tabular</fn> (that you previously downloaded to your computer from Galaxy) and click <ss>Open</ss>.
-- Click <ss>Upload</ss>.
-- A Configuation page will appear.
-- For <ss>Name</ss> type *DGE in E coli*
-- Click <ss>Add condition</ss>
 
-![Degust configuation](images/image05.png)
+##What next?
 
-- Add a condition called "Control" and select the MG columns.
-- Add a condition called "Treament" and select the LB columns.
-- <ss>Save changes</ss>
-- <ss>View</ss> - this brings up the Degust viewing window.
+To learn more about the differentially-expressed genes:
 
-**Run the voom analysis**
+- Go to [the NCBI website.](http://www.ncbi.nlm.nih.gov)
+- Under <ss>All Databases</ss>, click on *Gene*
+- Enter the gene name in the search bar; e.g. ptsG
+- Click on the first result that matches the species (e.g. in this case, *E. coli*).
+    - This provides information about the gene, and may also show further references (e.g. in this case, a link to the EcoGene resource).
 
-- Under <ss>Method</ss>, make sure that <ss>Voom/Limma</ss> is selected.
+Some of the most (statistically) significant differentially-expressed genes in this experiment are:
 
-![Degust Method](images/image06.png)
+- [ptsG](http://www.ncbi.nlm.nih.gov/gene/945651): a glucose-specific transporter.
+- [setA](http://www.ncbi.nlm.nih.gov/gene/944793): a sugar efflux transporter; is induced by glucose-phosphate stress.
+- [sucD](http://www.ncbi.nlm.nih.gov/gene/945314): the alpha subunit of the the gene for succinyl-CoA synthetase; involved in ATP production.
+- [sucB](http://www.ncbi.nlm.nih.gov/gene/945307): a component of the 2-oxoglutarate dehydrogenase complex; catalyzes a step in the Krebs cycle.
+- [deoC](http://www.ncbi.nlm.nih.gov/gene/948902): 2-deoxyribose-5-phosphate aldolase; binds selenium; may be involved in selenium transport.
 
-- Click <ss>Apply</ss>.
-- This runs Voom/Limma on the uploaded counts.
+Next steps: Investigate the biochemical pathways involving the genes of interest, using resources such as:
 
-## Visualize results in Degust (web)
+- [KEGG pathways](http://www.genome.jp/kegg/pathway.html)
+- [Gene Set Enrichment Analysis](http://software.broadinstitute.org/gsea/index.jsp)
 
-If you have already run voom within Degust, continue from there.
+## More information
+
+- [Link to Degust.](https://github.com/Victorian-Bioinformatics-Consortium/degust#degust-formerly-known-as-dge-vis)
+- [Link to voom paper.]( https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29)
+
+<!-- If you have already run voom within Degust, continue from there. -->
+
+<!---
+Not sure if this is right: can't see MDS plot?
 
 Alternatively, to upload a file of DGE analysis results (e.g. from Galaxy):
 
@@ -194,109 +301,14 @@ Alternatively, to upload a file of DGE analysis results (e.g. from Galaxy):
 - Select the <fn>voom output.tabular</fn> (that you previously downloaded to your computer from Galaxy) and click <ss>Open</ss>.
 - Click <ss>Upload</ss>.
 - A Configuation page will appear.
-- For <ss>Name</ss> type
-
-uncheck "analyze server side"
-fold change (is log FC ok?)
-FDR
-Ave expression
-how to get condition names in here?
-save
-view
-
-
-Things to look at:
-
-- We want to see whether the gene expression is higher in different conditions.
-Ideally, replicates within each condition should be similar.
-
-Viewing options overview:
-
-- Top panel at right: Configure - click to change the input settings / toggles with view
-- Conditions (left hand, top): These are the diff exp conditions
-- Centre - top: There are three plots (with options at the right for each)
-- Under this is a heat map of gene expression
-- Under this is a list of the genes (choose to sort by FDR or by the ?most highly expressed genes?  from each condition)
-- Show R Code to see [stuff]
-
-**Plots: MDS plot**
-- to do
-- options...
-
-MDS is multidimensional scaling. This is a 2D plot to visualize the difference between samples.
-
-**Plots: Expression: Parallel Coordinates**
-
-- data has been scaled.
-- Each condition has a vertical, parallel axis
-- we are trying to see the relationship between conditions (axes)
-- if lines between axes are parallel, = pos relationship (high A = highB)
-- if lines cross between axes, = neg relationship (high A = low B)
-change order of axes by dragging the name at the top of each axis. as there is no natural order (as there would be in a time series) we can try a few ways. no absolute way to find "best" order.
-
-if you want to look at a particular section (e.g. low expression in condition A) drag the rectangle that sits on that axis to cover the area of interest. then only genes that connect to that area will be shown. to turn off, drag the top of the rectangle right down past the base of the axis.
-what does it mean if lines converge at 0 on one graph - is that the point all other condtions are compared to?
-good discussion of PC.  https://eagereyes.org/techniques/parallel-coordinates
-
-- options.....
-
-**Plots: Expression: MA plot**
-
-- what does it stand for
-- each gene is a dot on the graph
-- y axis: fold.
-- x axis: expression (averaged over samples -- does this mean all reps in all conditions?)
-fold change vs expression.
-called MA bc y M (y) is the ratio (folds) and A (x) is the avg expression
-what are we looking for? high fold changes at low and high expressions?
-
-"The MA-plot represents each gene with a dot. The x axis is the average expression over all samples, the y axis the log2 fold change of normalized counts (i.e the average of counts normalized by size factor) between treatment and control. Genes with an adjusted p value below a threshold (here 0.1, the default) are shown in red.
-This plot demonstrates that only genes with a large average normalized count contain sufficient information to yield a significant call."
-
-FC = fold change:
-but note there is no single fold change of x with biological importance
-
-- options...
-
-**Kegg Pathway**
-
-- in options.
-
-A pathway is a drawn network to show interaction between molecules, including some or all of genes, proteins, RNAs, chemical reactions. E.g.
-The Kegg pathway database: (Kyoto Encyclopedia of Genes and Genomes)
-numbers are EC numbers - enzyme commission ->  enzyme/s that catalyze a reaction (might be >1)
-Click on a pathway in the drop down menu
-highlighted numbers (relate to lines in the parallel coords graph - but what is it?)
-
-
-FIXME: to do:
-get EC numbers in so Kegg pathway
-can these be obtained from the gene IDs in the annotation?
-
-**Heatmap**
-no heading, but this is the patchwork under the plots
-conditions on the left
-don't know what the blocks are - one per gene?
-colours: fold change - e.g. blue, lower expression, red, increased expression.
-
-**Genes**
-list of genes.
-
-
-
-## What next?
-
-FIXME
-
-## More information
-
-http://rnaseq.uoregon.edu/#exp-design-differential-gene-expression
-
-RNA-Seq experimental design
-http://vlsci.github.io/lscc_docs/tutorials/rna_seq_exp_design/rna_seq_experimental_design/
-
-voom paper
- https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29
-
-stringtie website
-https://ccb.jhu.edu/software/stringtie/
+- For <ss>Name</ss>, give it a name.
+- Leave other setting as they are except:
+- For <ss>Analyze server side</ss> uncheck box.
+- For <ss>Primary condition</ss> write "Control".
+- For <ss>FDR column</ss> click on the drop-down list and choose *adj.P.Val*
+- For <ss>Average expression column</ss> click on the drop-down list and choose *AveExpr*.
+- For <ss>Fold-change columns</ss> check the box next to *logFC*.
+    - this is the change in the treatment relative to the control (FIXME: check)
+- Click <ss>Save changes</ss>.
+- Click <ss>View</ss>.
+--->
