@@ -19,8 +19,7 @@ At the end of this tutorial you should be able to:
 1. Align RNA-Seq data to a reference genome  
 2. Count transcripts for each sample
 3. Perform statistical analysis to obtain a list of differentially expressed genes
-4. Interpret the DGE list
-5. Visualize the results
+4. Visualize and interpret the results
 
 ## Input data: reads and reference
 
@@ -39,12 +38,16 @@ A typical experiment will have 2 conditions each with 3 replicates, for a total 
 Our RNA-seq reads are from 6 samples in <fn>FASTQ</fn> format. These have been reduced to 1% of their original size for this tutorial. The experiment used the bacteria *E. coli* grown in two conditions.
 
 - Files labelled "LB" are the wildtype
-- Files labelled "MG" have been exposed to 0.5% aMG - alpha methyglucoside (a sugar solution).
+- Files labelled "MG" have been exposed to 0.5% &alpha;MG - alpha methyglucoside (a sugar solution).
 
 
 **Reference genome**
 
-The reference genomes are in <fn>FASTA</fn> and <fn>GTF</fn> formats
+The reference genomes is in two parts: <fn>FASTA</fn> and <fn>GTF</fn> formats
+
+The <fn>FASTA</fn> file contains the DNA sequence(s) that make up the genome; e.g. the chromosome and any plasmids.
+
+The <fn>GTF</fn> file lists the coordinates (position) of each feature. Commonly-annotated features are genes, transcripts and protein-coding sequences.
 
 <!--
 - Where is it and how to upload. e.g. [RNA-Seq data](/rna/data.md)
@@ -57,25 +60,25 @@ The reference genomes are in <fn>FASTA</fn> and <fn>GTF</fn> formats
 - Log in to your Galaxy server.
 - In the <ss>History</ss> pane, click on the cog icon, and select <ss>Import from File</ss>.
 - Under <ss>Archived History URL</ss> paste:
-https://swift.rc.nectar.org.au:8888/v1/AUTH_a3929895f9e94089ad042c9900e1ee82/Sepsis_DGE/Galaxy-History-DGE.tar.gz
+<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_a3929895f9e94089ad042c9900e1ee82/Sepsis_DGE/Galaxy-History-DGE.tar.gz</tt>
 - Click <ss>View all histories</ss> and find the uploaded history. (This may take a minute. Refresh the page.)
 - Click <ss>Switch to</ss> that history, then <ss>Done</ss>.
 - The files should now be ready to use in your current History pane.
 
 ## Align reads to reference
 
-The RNA-Seq reads are fragmented are are not complete transcripts. To reconstruct how the reads group into transcripts (and therefore, correspond to genes) we can map them to a reference genome.
+The RNA-Seq reads are fragmented are are not complete transcripts. To determine the transcripts from which the reads originated (and therefore, to which gene they correspond) we can map them to a reference genome.
 
 In Galaxy:
 
 - Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Mapping &rarr; Map with BWA-MEM</ss>
 - Under <ss>Will you select a reference genome from your history or use a built-in index?</ss>: *Use a genome from history and build index*
-- <ss>Use the following dataset as the reference sequence</ss>: <fn>Ecoli fasta file </fn>
+- <ss>Use the following dataset as the reference sequence</ss>: <fn>Ecoli_k12.fna.fasta</fn>
 - <ss>Single or Paired-end reads</ss>: *single*
-- <ss>Select FASTQ dataset</ss>:
-    - Click on the multiple files icon in centre
+- <ss>Select fastq dataset</ss>:
+    - Click on the <ss>Multiple Datasets</ss> icon in centre
     - Select all 6 <fn>FASTQ</fn> files (they turn blue)
-    - This will map each set of transcripts to the reference genome
+    - This will map each set of reads to the reference genome
 
 Your tool interface should look like this:
 
@@ -86,13 +89,13 @@ Your tool interface should look like this:
 - Output: 6 <fn>bam</fn> files of reads mapped to the reference genome.
 
 - Re-name the output files:
-    - These are called "Map with BWA-MEM on data x and data x".
+    - These are called <fn>Map with BWA-MEM on data x and data x</fn>.
     - Click on the pencil icon next to each of these and re-name them as their sample name (e.g. LB1, LB2 etc.).
     - Click <ss>Save</ss>.
 
 ## Count reads per gene
 
-We now need to count how many reads overlap with particular genes. The information about gene names is from the annotated reference genome in GTF format.
+We now need to count how many reads overlap with particular genes. The information about gene names is from the annotations in the GTF file.
 
 In Galaxy:
 
@@ -112,15 +115,15 @@ Your tool interface should look like this:
 
 Output:
 
-- there is one output file: a <fn>bams to DGE count matrix</fn>.
+- There is one output file: <fn>bams to DGE count matrix</fn>.
 - Click on the eye icon to see this file.
 
 ![counts file](images/image09.png)
 
 - Each row is a gene (or feature) and each column is a sample, with counts against each gene.
 - Have a look at how the counts vary between samples, per gene.
-- We can't just compare the counts directly; all need to be normalized before comparison, and this will be done as part of the DGE analysis in the next step.
-- Click on the file icon underneath the file (in the history pane) to download it to your computer for use later on in this tutorial.
+- We can't just compare the counts directly; they need to be normalized before comparison, and this will be done as part of the DGE analysis in the next step.
+- Click on the file icon underneath the counts file (in the history pane) to download it to your computer for use later on in this tutorial.
 
 ## DGE in Degust
 
@@ -137,7 +140,9 @@ Go to the [Degust web page](http://vicbioinformatics.com/degust/index.html). Cli
 - Click on <ss>Choose File</ss>.
 - Select the <fn>htseq output file. tabular</fn> (that you previously downloaded to your computer from Galaxy) and click <ss>Open</ss>.
 - Click <ss>Upload</ss>.
-- A Configuation page will appear.
+
+A Configuation page will appear.
+
 - For <ss>Name</ss> type *DGE in E coli*
 - For <ss>Info columns</ss> select *Contig*
 - For <ss>Analyze server side</ss> leave box checked.
@@ -160,15 +165,14 @@ Your Configuration page should look like this:
 - Left: Method selection for DGE.
 - Top centre: Plots, with options at right.
 - When either of the expression plots are selected, a heatmap appears below.
-- A table of genes. Sort by FDR (significance level) or by fold change in the "treatment" column.
+- A table of genes (or features); expression in treatment relative to control (Treatment column); and significance (FDR column).  
 
 ![Degust overview](images/image12.png)
 
-###Analyze gene experession
+###Analyze gene expression
 
 - Under <ss>Method</ss>, make sure that <ss>Voom/Limma</ss> is selected.
-- Click <ss>Apply</ss>.
-- This runs Voom/Limma on the uploaded counts.
+- Click <ss>Apply</ss>. This runs Voom/Limma on the uploaded counts.
 
 ###MDS plot
 
