@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Anna Syme, Torsten Seemann">
+        
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+	<title>Differential gene expression - CLIMB 2016</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/sepsis.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">CLIMB 2016</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Microbial Genomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../galaxy/">Starting with Galaxy</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../data-dna/">Training dataset</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../velvet/">Genome assembly with Velvet</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../spades/">Genome assembly with Spades</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../prokka/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../snippy/">Variant finding</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Microbial Transcriptomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li class="active">
+    <a href="./">Differential gene expression</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../snippy/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../about/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#differential-gene-expression">Differential Gene Expression</a></li>
+        
+            <li><a href="#background">Background</a></li>
+        
+            <li><a href="#learning-objectives">Learning Objectives</a></li>
+        
+            <li><a href="#input-data-reads-and-reference">Input data: reads and reference</a></li>
+        
+            <li><a href="#align-reads-to-reference">Align reads to reference</a></li>
+        
+            <li><a href="#count-reads-per-gene">Count reads per gene</a></li>
+        
+            <li><a href="#dge-in-degust">DGE in Degust</a></li>
+        
+            <li><a href="#dge-in-galaxy">DGE in Galaxy</a></li>
+        
+            <li><a href="#what-next">What next?</a></li>
+        
+            <li><a href="#more-information">More information</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="differential-gene-expression">Differential Gene Expression</h1>
+<p>This tutorial is about differential gene expression in bacteria, using Galaxy tools and Degust (web).</p>
+<!-- **FIXME:**
+- Degust to be installed on mGVL Galaxy
+- (Fastq files have been shortened to 1% using seqtk)
+- Data files (Fastq reads and refs): link to swift URL? -- add correct link to the "input data" section - RNA-Seq data - and information about how to upload
+-->
+
+<h2 id="background">Background</h2>
+<p>Differential Gene Expression (DGE) is the process of determining whether any genes were expressed at a different level between two conditions. For example, the conditions could be wildtype versus mutant, or two growth conditions. Usually multiple biological replicates are done for each condition - these are needed to separate variation within the condition from that between the conditions.</p>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>At the end of this tutorial you should be able to:</p>
+<ol>
+<li>Align RNA-Seq data to a reference genome  </li>
+<li>Count transcripts for each sample</li>
+<li>Perform statistical analysis to obtain a list of differentially expressed genes</li>
+<li>Interpret the DGE list</li>
+<li>Visualize the results</li>
+</ol>
+<h2 id="input-data-reads-and-reference">Input data: reads and reference</h2>
+<p>We need RNA-Seq reads and a reference genome.</p>
+<p><strong>RNA-Seq reads</strong></p>
+<p>A typical experiment will have 2 conditions each with 3 replicates, for a total of 6 samples. Each sample will be a set of RNA sequence reads, either as one file per sample (single-end reads / SE) or two files (paired-end reads / PE).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Condition 1</th>
+<th>Condition 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Replicate 1</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Replicate 2</td>
+<td>2</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Replicate 3</td>
+<td>3</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>Our RNA-seq reads are from 6 samples in <fn>FASTQ</fn> format. These have been reduced to 1% of their original size for this tutorial. The experiment used the bacteria <em>E. coli</em> grown in two conditions.</p>
+<ul>
+<li>Files labelled &ldquo;LB&rdquo; are the wildtype</li>
+<li>Files labelled &ldquo;MG&rdquo; have been exposed to 0.5% aMG - alpha methyglucoside (a sugar solution).</li>
+</ul>
+<p><strong>Reference genome</strong></p>
+<p>The reference genomes are in <fn>FASTA</fn> and <fn>GTF</fn> formats</p>
+<!--
+- Where is it and how to upload. e.g. [RNA-Seq data](/rna/data.md)
+- For the RNA-seq reads, change datatype to fastqsanger (not fastqCsanger)
+- For the reference genome in GTF format, change datatype to GTF (not GFF)
+-->
+
+<p><strong>Upload files to Galaxy</strong></p>
+<ul>
+<li>Log in to your Galaxy server.</li>
+<li>In the <ss>History</ss> pane, click on the cog icon, and select <ss>Import from File</ss>.</li>
+<li>Under <ss>Archived History URL</ss> paste:
+https://swift.rc.nectar.org.au:8888/v1/AUTH_a3929895f9e94089ad042c9900e1ee82/Sepsis_DGE/Galaxy-History-DGE.tar.gz</li>
+<li>Click <ss>View all histories</ss> and find the uploaded history. (This may take a minute. Refresh the page.)</li>
+<li>Click <ss>Switch to</ss> that history, then <ss>Done</ss>.</li>
+<li>The files should now be ready to use in your current History pane.</li>
+</ul>
+<h2 id="align-reads-to-reference">Align reads to reference</h2>
+<p>The RNA-Seq reads are fragmented are are not complete transcripts. To reconstruct how the reads group into transcripts (and therefore, correspond to genes) we can map them to a reference genome.</p>
+<p>In Galaxy:</p>
+<ul>
+<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Mapping &rarr; Map with BWA-MEM</ss></li>
+<li>Under <ss>Will you select a reference genome from your history or use a built-in index?</ss>: <em>Use a genome from history and build index</em></li>
+<li><ss>Use the following dataset as the reference sequence</ss>: <fn>Ecoli fasta file </fn></li>
+<li><ss>Single or Paired-end reads</ss>: <em>single</em></li>
+<li><ss>Select FASTQ dataset</ss>:<ul>
+<li>Click on the multiple files icon in centre</li>
+<li>Select all 6 <fn>FASTQ</fn> files (they turn blue)</li>
+<li>This will map each set of transcripts to the reference genome</li>
+</ul>
+</li>
+</ul>
+<p>Your tool interface should look like this:</p>
+<p><img alt="BWA-MEM tool commands" src="./images/image02.png" /></p>
+<ul>
+<li>Click <ss>Execute</ss></li>
+<li>Click <ss>Refresh</ss> in the history pane to see if the analysis has finished.</li>
+<li>
+<p>Output: 6 <fn>bam</fn> files of reads mapped to the reference genome.</p>
+</li>
+<li>
+<p>Re-name the output files:</p>
+<ul>
+<li>These are called &ldquo;Map with BWA-MEM on data x and data x&rdquo;.</li>
+<li>Click on the pencil icon next to each of these and re-name them as their sample name (e.g. LB1, LB2 etc.).</li>
+<li>Click <ss>Save</ss>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="count-reads-per-gene">Count reads per gene</h2>
+<p>We now need to count how many reads overlap with particular genes. The information about gene names is from the annotated reference genome in GTF format.</p>
+<p>In Galaxy:</p>
+<ul>
+<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: RNA Analysis &rarr; SAM/BAM to count matrix</ss>.<ul>
+<li>Note: Don&rsquo;t select the tool called <em>htseq-count</em>. The <em>SAM/BAM to count matrix</em> also uses that tool but allows an input of multiple bam files, which is what we want.</li>
+</ul>
+</li>
+<li>For <ss>Gene model (GFF) file to count reads over from your current history</ss>, select the <fn>GTF</fn> reference genome file.</li>
+<li>For <ss>Reads are stranded</ss> select <em>Yes</em>.</li>
+<li>For <ss>GTF feature type for counting reads&hellip;</ss> select <em>transcript</em>.</li>
+<li>For <ss>bam/sam file from your history</ss> choose the 6 <fn>bam</fn> files.</li>
+</ul>
+<p>Your tool interface should look like this:</p>
+<p><img alt="HTSeq tool commands" src="./images/image08.png" /></p>
+<ul>
+<li>Click <ss>Execute</ss></li>
+<li>Click <ss>Refresh</ss> in the history pane to see if the analysis has finished.</li>
+</ul>
+<p>Output:</p>
+<ul>
+<li>there is one output file: a <fn>bams to DGE count matrix</fn>.</li>
+<li>Click on the eye icon to see this file.</li>
+</ul>
+<p><img alt="counts file" src="./images/image09.png" /></p>
+<ul>
+<li>Each row is a gene (or feature) and each column is a sample, with counts against each gene.</li>
+<li>Have a look at how the counts vary between samples, per gene.</li>
+<li>We can&rsquo;t just compare the counts directly; all need to be normalized before comparison, and this will be done as part of the DGE analysis in the next step.</li>
+<li>Click on the file icon underneath the file (in the history pane) to download it to your computer for use later on in this tutorial.</li>
+</ul>
+<h2 id="dge-in-degust">DGE in Degust</h2>
+<p>Degust is a tool on the web that can analyse the counts files produced in the step above, to test for differential gene expression.</p>
+<p>(Degust can also display the results from DGE analyses performed elsewhere.)</p>
+<h3 id="upload-counts-file">Upload counts file</h3>
+<p>Go to the <a href="http://vicbioinformatics.com/degust/index.html">Degust web page</a>. Click <ss>Get Started</ss>.</p>
+<p><img alt="Degust webpage image" src="./images/image04.png" /></p>
+<ul>
+<li>Click on <ss>Choose File</ss>.</li>
+<li>Select the <fn>htseq output file. tabular</fn> (that you previously downloaded to your computer from Galaxy) and click <ss>Open</ss>.</li>
+<li>Click <ss>Upload</ss>.</li>
+<li>A Configuation page will appear.</li>
+<li>For <ss>Name</ss> type <em>DGE in E coli</em></li>
+<li>For <ss>Info columns</ss> select <em>Contig</em></li>
+<li>For <ss>Analyze server side</ss> leave box checked.</li>
+<li>For <ss>Min read count</ss> put <em>10</em>.</li>
+<li>Click <ss>Add condition</ss><ul>
+<li>Add a condition called &ldquo;Control&rdquo; and select the LB columns.</li>
+<li>Add a condition called &ldquo;Treament&rdquo; and select the MG columns.</li>
+</ul>
+</li>
+</ul>
+<p>Your Configuration page should look like this:</p>
+<p><img alt="Degust configuation" src="./images/image10.png" /></p>
+<ul>
+<li><ss>Save changes</ss></li>
+<li><ss>View</ss> - this brings up the Degust viewing window.</li>
+</ul>
+<h3 id="overview-of-degust-sections">Overview of Degust sections</h3>
+<ul>
+<li>Top black panel with <ss>Configure</ss> settings at right.</li>
+<li>Left: Conditions: Control and Treatment.</li>
+<li>Left: Method selection for DGE.</li>
+<li>Top centre: Plots, with options at right.</li>
+<li>When either of the expression plots are selected, a heatmap appears below.</li>
+<li>A table of genes. Sort by FDR (significance level) or by fold change in the &ldquo;treatment&rdquo; column.</li>
+</ul>
+<p><img alt="Degust overview" src="./images/image12.png" /></p>
+<h3 id="analyze-gene-experession">Analyze gene experession</h3>
+<ul>
+<li>Under <ss>Method</ss>, make sure that <ss>Voom/Limma</ss> is selected.</li>
+<li>Click <ss>Apply</ss>.</li>
+<li>This runs Voom/Limma on the uploaded counts.</li>
+</ul>
+<h3 id="mds-plot">MDS plot</h3>
+<p>First, look at the MDS plot.</p>
+<p><img alt="MDSplot" src="./images/image11.png" /></p>
+<ul>
+<li>This is a multidimensional scaling plot which represents the variation between samples.</li>
+<li>The x-axis is the dimension with the highest magnitude. The control/treatment samples should be split along this axis.</li>
+<li>Our LB samples are on the left and the MG samples are on the right, which looks correct.</li>
+</ul>
+<h3 id="expression-ma-plot">Expression - MA plot</h3>
+<ul>
+<li>The average expression (over both condition and treatment samples) is represented on the x axis.<ul>
+<li>Plot points should be symmetrical around the x-axis.</li>
+<li>We can see that many genes are expressed at a low level, and some are highly expressed.</li>
+</ul>
+</li>
+<li>The fold change is represented on the y axis.<ul>
+<li>If expression is significantly different between treatment and control, the dots are red. If not, they are blue.</li>
+<li>At low levels of gene expression (low values of the x axis), fold changes are less likely to be significant.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="MAplot" src="./images/image17.png" /></p>
+<h3 id="expression-parallel-coordinates-and-heatmap">Expression - Parallel Coordinates and heatmap</h3>
+<ul>
+<li>Go to <ss>Options</ss> at the right.<ul>
+<li>For <ss>FDR cut-off</ss> set at 0.001.</li>
+<li>This is a significance level (an adjusted p value). We will set it quite low in this example.</li>
+</ul>
+</li>
+<li>Look at the Parallel Coordinates plot. There are two axes:<ul>
+<li>Left: Gene expression in the control samples. All values are set at zero.</li>
+<li>Right: Gene expression in the treatment samples, relative to expression in the control.</li>
+<li>Each line shows the change in expression in one gene.  </li>
+</ul>
+</li>
+<li>The blocks of blue and red underneath the plot are called a heatmap.<ul>
+<li>Each block is a gene. Click on a block to see its line in the plot above.</li>
+<li>Look at the row for the Treatment. Relative to the control, genes expressed more are red; genes expressed less are blue.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Parallel Coordinates plot" src="./images/image14.png" /></p>
+<p>Note:</p>
+<ul>
+<li>for an experiment with multiple treatments, the various treatment axes can be dragged to rearrange. There is no natural order (such as a time series).</li>
+</ul>
+<h3 id="table-of-genes">Table of genes</h3>
+<ul>
+<li>Contig: names of genes. Note that gene names are sometimes specific to a species, or they may be only named as a locus ID (a chromosomal location specified in the genome annotation).</li>
+<li>FDR: False Discovery Rate. This is an adjusted p value to show the signficance of the gene expression difference. Click on column headings to sort. By default, this table is sorted by FDR.</li>
+<li>Control and Treatment: log2(Fold Change) of gene expression. Control values will always be zero. Treatment values are relative to the control.<ul>
+<li>Note that fold change has no absolute biological meaning. In some cases, a large fold change will be meaningful but in others, even a small fold change can be important biologically.</li>
+</ul>
+</li>
+</ul>
+<p>Table of genes and expression:</p>
+<p><img alt="gene table" src="./images/image15.png" /></p>
+<!--
+A pathway is a drawn network to show interaction between molecules, including some or all of genes, proteins, RNAs, chemical reactions. E.g.
+The Kegg pathway database: (Kyoto Encyclopedia of Genes and Genomes)
+numbers are EC numbers - enzyme commission ->  enzyme/s that catalyze a reaction (might be >1)
+-->
+
+<h2 id="dge-in-galaxy">DGE in Galaxy</h2>
+<p>Differential gene expression can also be analyzed in Galaxy. The input is the count matrix produced by a tool such as HTSeq-Count (see section above: &ldquo;Count reads per gene&rdquo;).</p>
+<ul>
+<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: RNA Analysis &rarr; Differential Count models</ss><ul>
+<li>This has options to use edgeR, DESeq, or Voom. Here we will use Voom.</li>
+</ul>
+</li>
+<li>For <ss>Select an input matrix</ss> choose the <fn>count matrix</fn> file generated in the previous step.</li>
+<li>For <ss>Title for job outputs</ss> enter <em>DGE using voom</em>.</li>
+<li>For <ss>Select columns containing treatment</ss> tick boxes for the MG samples.</li>
+<li>For <ss>Select columns containing control</ss> tick boxes for the LB samples.</li>
+<li>Under <ss>Run this model using edgeR</ss> choose <em>Do not run edgeR</em>.</li>
+<li>Under <ss>Run the same model with DESeq2 and compare findings</ss> choose <em>Do not run DESeq2</em>.</li>
+<li>Under <ss>Run the same model with Voom/limma and compare findings</ss> choose <em>Run VOOM</em>.</li>
+</ul>
+<p>Your tool interface should look like this:</p>
+<p><img alt="DGE using voom" src="./images/image16.png" /></p>
+<ul>
+<li>Click <ss>Execute</ss>.</li>
+</ul>
+<p>There are two output files.</p>
+<p>View the file called <fn>DGEusingvoom.html</fn>.</p>
+<ul>
+<li>Scroll down to &ldquo;VOOM log output&rdquo; and &ldquo;#VOOM top 50&rdquo;.</li>
+<li>The &ldquo;Contig&rdquo; column has the gene names.</li>
+<li>Look at the &ldquo;adj.P.Val&rdquo; column. This is an adjusted p value to show the signficance of the gene expression difference, accounting for the effect of multiple testing. Also known as False Discovery Rate. The table is ordered by the values in this column.</li>
+<li>Look at the &ldquo;logFC&rdquo; column. This is log2(Fold Change) of gene expression in treatment samples relative to the control samples.<ul>
+<li>Note that fold change has no absolute biological meaning. In some cases, a large fold change will be meaningful but in others, even a small fold change can be important biologically.</li>
+</ul>
+</li>
+</ul>
+<p>View the file called <fn>DEGusingvoom_topTable_VOOM.xls</fn>.</p>
+<ul>
+<li>This is a list of all the genes that had transcripts mapped, and associated statistics.</li>
+</ul>
+<h2 id="what-next">What next?</h2>
+<p>To learn more about the differentially-expressed genes:</p>
+<ul>
+<li>Go to <a href="http://www.ncbi.nlm.nih.gov">the NCBI website.</a></li>
+<li>Under <ss>All Databases</ss>, click on <em>Gene</em></li>
+<li>Enter the gene name in the search bar; e.g. ptsG</li>
+<li>Click on the first result that matches the species (e.g. in this case, <em>E. coli</em>).<ul>
+<li>This provides information about the gene, and may also show further references (e.g. in this case, a link to the EcoGene resource).</li>
+</ul>
+</li>
+</ul>
+<p>Some of the most (statistically) significant differentially-expressed genes in this experiment are:</p>
+<ul>
+<li><a href="http://www.ncbi.nlm.nih.gov/gene/945651">ptsG</a>: a glucose-specific transporter.</li>
+<li><a href="http://www.ncbi.nlm.nih.gov/gene/944793">setA</a>: a sugar efflux transporter; is induced by glucose-phosphate stress.</li>
+<li><a href="http://www.ncbi.nlm.nih.gov/gene/945314">sucD</a>: the alpha subunit of the the gene for succinyl-CoA synthetase; involved in ATP production.</li>
+<li><a href="http://www.ncbi.nlm.nih.gov/gene/945307">sucB</a>: a component of the 2-oxoglutarate dehydrogenase complex; catalyzes a step in the Krebs cycle.</li>
+<li><a href="http://www.ncbi.nlm.nih.gov/gene/948902">deoC</a>: 2-deoxyribose-5-phosphate aldolase; binds selenium; may be involved in selenium transport.</li>
+</ul>
+<p>Next steps: Investigate the biochemical pathways involving the genes of interest, using resources such as:</p>
+<ul>
+<li><a href="http://www.genome.jp/kegg/pathway.html">KEGG pathways</a></li>
+<li><a href="http://software.broadinstitute.org/gsea/index.jsp">Gene Set Enrichment Analysis</a></li>
+</ul>
+<h2 id="more-information">More information</h2>
+<ul>
+<li><a href="https://github.com/Victorian-Bioinformatics-Consortium/degust#degust-formerly-known-as-dge-vis">Link to Degust.</a></li>
+<li><a href="https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29">Link to voom paper.</a></li>
+</ul>
+<!-- If you have already run voom within Degust, continue from there. -->
+
+<!---
+Not sure if this is right: can't see MDS plot?
+
+Alternatively, to upload a file of DGE analysis results (e.g. from Galaxy):
+
+- Go to the [Degust web page](http://vicbioinformatics.com/degust/index.html). Click on <ss>Get Started</ss>.
+- Click on <ss>Choose File</ss>.
+- Select the <fn>voom output.tabular</fn> (that you previously downloaded to your computer from Galaxy) and click <ss>Open</ss>.
+- Click <ss>Upload</ss>.
+- A Configuation page will appear.
+- For <ss>Name</ss>, give it a name.
+- Leave other setting as they are except:
+- For <ss>Analyze server side</ss> uncheck box.
+- For <ss>Primary condition</ss> write "Control".
+- For <ss>FDR column</ss> click on the drop-down list and choose *adj.P.Val*
+- For <ss>Average expression column</ss> click on the drop-down list and choose *AveExpr*.
+- For <ss>Fold-change columns</ss> check the box next to *logFC*.
+    - this is the change in the treatment relative to the control (FIXME: check)
+- Click <ss>Save changes</ss>.
+- Click <ss>View</ss>.
+---></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
