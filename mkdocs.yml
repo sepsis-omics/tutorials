@@ -26,6 +26,10 @@ pages:
     - Variant finding: modules/snippy/index.md
 
 
+- Advanced Microbial Genomics:
+    - Assembly with SMRT portal: modules/pacbio/index.md
+    #- Assembly and finishing with command line tools: modules/cmdline_assembly/index.md
+
 - Microbial Transcriptomics:
 #  - Overview: modules/transcriptomics.md
 #  - Dataset: modules/data-rna/index.md
