@@ -49,7 +49,7 @@ Not included here?
 - Under <ss>Protocols</ss> choose <ss>RS_HGAP_Assembly.3</ss>.
 - There is an ellipsis underneath <ss>Protocols</ss> - click on the ellipsis.
 
-![smrt portal screenshot](/media/screenshots/smrt1.png)
+![smrt portal screenshot](images/smrt1.png)
 
 This brings up the settings. Click on <ss>Assembly</ss>.
 
@@ -69,14 +69,14 @@ This brings up the settings. Click on <ss>Assembly</ss>.
 
 - In the <ss>SMRT Cells Available</ss> window, select the file to be used. Click on the arrow to transfer these files to the SMRT Cells in Job window.
 
-![smrt portal screenshot](/media/screenshots/smrt3.png)
+![smrt portal screenshot](images/smrt3.png)
 
 - Click <ss>Save</ss> (bottom right hand side).
 - Next to <ss>Save</ss>, click <ss>Start</ss>.
 - The <ss>Monitor Jobs</ss> window should open.
     - As each step proceeds, new items will appear under the <ss>Reports</ss> and <ss>Data</ss> tabs on the left.
 
-![smrt portal screenshot](/media/screenshots/smrt6.png)
+![smrt portal screenshot](images/smrt6.png)
 
 ## Output
 
@@ -96,7 +96,6 @@ During polishing, raw reads are used to correct the assembly.
 - Unzip the .gz file
 - Go to Design Job, Import and Manage, (bottom right hand side button:) New, then select that FASTA assembly file to upload.
     - creates a new reference.
-
 - <ss>Design Job &rarr; Create New</ss>
 - choose reference-based
 - Select protocol: RS_Resequencing.1
@@ -105,13 +104,9 @@ During polishing, raw reads are used to correct the assembly.
 - Select your reference from the drop down menu.
 - Save.
 - Start.
-
-3. Output
-
-reports:
-- Variants: how many found? if less than 2, does not need any more polishing.
-- If 2+ variants found, repeat the polishing step (including adding a new reference).
-
+- When complete, see Reports.
+    - Variants: how many found? if less than 2, does not need any more polishing.
+    - If 2+ variants found, repeat the polishing step (including adding a new reference).
 
 ## Next
 Correct with Illumina reads <link to tutorial>
