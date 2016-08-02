@@ -23,31 +23,40 @@ At the end of this tutorial you should be able to:
 
 ## Input data: reads and reference
 
-We need RNA-Seq reads and a reference genome.
-
 **RNA-Seq reads**
 
-A typical experiment will have 2 conditions each with 3 replicates, for a total of 6 samples. Each sample will be a set of RNA sequence reads, either as one file per sample (single-end reads / SE) or two files (paired-end reads / PE).
+A typical experiment will have 2 conditions each with 3 replicates, for a total of 6 samples.
 
+- Our RNA-seq reads are from 6 samples in <fn>FASTQ</fn> format.
+    - We have single-end reads; so one file per sample.
+    - Data could also be paired-end reads, and there would be two files per sample.
+- These have been reduced to 1% of their original size for this tutorial.
+- The experiment used the bacteria *E. coli* grown in two conditions.
+    - Files labelled "LB" are the wildtype
+    - Files labelled "MG" have been exposed to 0.5% &alpha;MG - alpha methyglucoside (a sugar solution).
+
+
+
+
+
+<!--
 |             | Condition 1 | Condition 2 |
 |-------------|-------------|-------------|
 | Replicate 1 |     1       |      4      |
 | Replicate 2 |     2       |      5      |
 | Replicate 3 |     3       |      6      |
 
-Our RNA-seq reads are from 6 samples in <fn>FASTQ</fn> format. These have been reduced to 1% of their original size for this tutorial. The experiment used the bacteria *E. coli* grown in two conditions.
+-->
 
-- Files labelled "LB" are the wildtype
-- Files labelled "MG" have been exposed to 0.5% &alpha;MG - alpha methyglucoside (a sugar solution).
+
 
 
 **Reference genome**
 
-The reference genomes is in two parts: <fn>FASTA</fn> and <fn>GTF</fn> formats
+The reference genomes is in <fn>FASTA</fn> format and the gene annotations are in <fn>GTF</fn> format.
 
-The <fn>FASTA</fn> file contains the DNA sequence(s) that make up the genome; e.g. the chromosome and any plasmids.
-
-The <fn>GTF</fn> file lists the coordinates (position) of each feature. Commonly-annotated features are genes, transcripts and protein-coding sequences.
+- The <fn>FASTA</fn> file contains the DNA sequence(s) that make up the genome; e.g. the chromosome and any plasmids.
+- The <fn>GTF</fn> file lists the coordinates (position) of each feature. Commonly-annotated features are genes, transcripts and protein-coding sequences.
 
 <!--
 - Where is it and how to upload. e.g. [RNA-Seq data](/rna/data.md)
@@ -58,26 +67,31 @@ The <fn>GTF</fn> file lists the coordinates (position) of each feature. Commonly
 **Upload files to Galaxy**
 
 - Log in to your Galaxy server.
-- In the <ss>History</ss> pane, click on the cog icon, and select <ss>Import from File</ss>.
+- In the <ss>History</ss> pane, click on the cog![cog icon](images/Galaxy-cog.png)icon, and select <ss>Import from File</ss> (at the bottom of the list).
 - Under <ss>Archived History URL</ss> paste:
-<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_a3929895f9e94089ad042c9900e1ee82/Sepsis_DGE/Galaxy-History-DGE.tar.gz</tt>
-- Click <ss>View all histories</ss> and find the uploaded history. (This may take a minute. Refresh the page.)
+<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy-History-BacterialDGE.tar.gz</tt>
+- In the <ss>History</ss> pane, click on the view![view icon](images/Galaxy-histories.png)icon and find the uploaded history.
+    - (This may take a minute. Refresh the page.)
 - Click <ss>Switch to</ss> that history, then <ss>Done</ss>.
 - The files should now be ready to use in your current History pane.
 
+![Files for DGE](images/image18.png)
+
+
+
 ## Align reads to reference
 
-The RNA-Seq reads are fragmented are are not complete transcripts. To determine the transcripts from which the reads originated (and therefore, to which gene they correspond) we can map them to a reference genome.
+The RNA-Seq reads are fragmented and are not complete transcripts. To determine the transcripts from which the reads originated (and therefore, to which gene they correspond) we can map them to a reference genome.
 
 In Galaxy:
 
 - Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Mapping &rarr; Map with BWA-MEM</ss>
 - Under <ss>Will you select a reference genome from your history or use a built-in index?</ss>: *Use a genome from history and build index*
-- <ss>Use the following dataset as the reference sequence</ss>: <fn>Ecoli_k12.fna.fasta</fn>
+- <ss>Use the following dataset as the reference sequence</ss>: <fn>Ecoli_k12.fasta</fn>
 - <ss>Single or Paired-end reads</ss>: *single*
 - <ss>Select fastq dataset</ss>:
     - Click on the <ss>Multiple Datasets</ss> icon in centre
-    - Select all 6 <fn>FASTQ</fn> files (they turn blue)
+    - Select all 6 <fn>FASTQ</fn> files (they turn blue; use side-scroll bar to check all have been selected)
     - This will map each set of reads to the reference genome
 
 Your tool interface should look like this:
@@ -101,8 +115,8 @@ In Galaxy:
 
 - Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: RNA Analysis &rarr; SAM/BAM to count matrix</ss>.
     - Note: Don't select the tool called *htseq-count*. The *SAM/BAM to count matrix* also uses that tool but allows an input of multiple bam files, which is what we want.
-- For <ss>Gene model (GFF) file to count reads over from your current history</ss>, select the <fn>GTF</fn> reference genome file.
-- For <ss>Reads are stranded</ss> select *Yes*.
+- For <ss>Gene model (GFF) file to count reads over from your current history</ss>, select the <fn>GTF</fn> file.
+- For <ss>Reads are stranded</ss> select *Yes* (box turns dark grey)
 - For <ss>GTF feature type for counting reads...</ss> select *transcript*.
 - For <ss>bam/sam file from your history</ss> choose the 6 <fn>bam</fn> files.
 
@@ -116,6 +130,8 @@ Your tool interface should look like this:
 Output:
 
 - There is one output file: <fn>bams to DGE count matrix</fn>.
+- Click on the file name to expand the information in the History pane.
+- Click on the file ![File icon](images/Galaxy-download.png)icon underneath to download it to your computer for use later on in this tutorial.
 - Click on the eye icon to see this file.
 
 ![counts file](images/image09.png)
@@ -123,7 +139,6 @@ Output:
 - Each row is a gene (or feature) and each column is a sample, with counts against each gene.
 - Have a look at how the counts vary between samples, per gene.
 - We can't just compare the counts directly; they need to be normalized before comparison, and this will be done as part of the DGE analysis in the next step.
-- Click on the file icon underneath the counts file (in the history pane) to download it to your computer for use later on in this tutorial.
 
 ## DGE in Degust
 
@@ -181,27 +196,37 @@ First, look at the MDS plot.
 ![MDSplot](images/image11.png)
 
 - This is a multidimensional scaling plot which represents the variation between samples.
+- Ideally:
+    - All the LB samples would be close to each other
+    - All the MG samples would be close to each other
+    - The LB and MG groups would be far apart
 - The x-axis is the dimension with the highest magnitude. The control/treatment samples should be split along this axis.
-- Our LB samples are on the left and the MG samples are on the right, which looks correct.
+- Our LB samples are on the left and the MG samples are on the right, which means they are well separated on their major MDS dimension, which looks correct.
 
 ###Expression - MA plot
-- The average expression (over both condition and treatment samples) is represented on the x axis.
+Each dot shows the change in expression in one gene.
+
+- The average expression (over both condition and treatment samples) is represented on the x-axis.
     - Plot points should be symmetrical around the x-axis.
     - We can see that many genes are expressed at a low level, and some are highly expressed.
 - The fold change is represented on the y axis.
-    - If expression is significantly different between treatment and control, the dots are red. If not, they are blue.
+    - If expression is significantly different between treatment and control, the dots are red. If not, they are blue. (In Degust, significant means FDR <0.05).
     - At low levels of gene expression (low values of the x axis), fold changes are less likely to be significant.
+
+Click on the dot to see the gene name.     
 
 ![MAplot](images/image17.png)
 
 ###Expression - Parallel Coordinates and heatmap
+Each line shows the change in expression in one gene, between control and treatment.
+
 - Go to <ss>Options</ss> at the right.
     - For <ss>FDR cut-off</ss> set at 0.001.
-    - This is a significance level (an adjusted p value). We will set it quite low in this example.
+    - This is a significance level (an adjusted p value). We will set it quite low in this example, to ensure we only examine key differences.
 - Look at the Parallel Coordinates plot. There are two axes:
-    - Left: Gene expression in the control samples. All values are set at zero.
-    - Right: Gene expression in the treatment samples, relative to expression in the control.
-    - Each line shows the change in expression in one gene.  
+    - Left: **Control**: Gene expression in the control samples. All values are set at zero.
+    - Right: **Treatment** Gene expression in the treatment samples, relative to expression in the control.
+
 - The blocks of blue and red underneath the plot are called a heatmap.
     - Each block is a gene. Click on a block to see its line in the plot above.
     - Look at the row for the Treatment. Relative to the control, genes expressed more are red; genes expressed less are blue.
@@ -213,10 +238,10 @@ Note:
 - for an experiment with multiple treatments, the various treatment axes can be dragged to rearrange. There is no natural order (such as a time series).
 
 ###Table of genes
-- Contig: names of genes. Note that gene names are sometimes specific to a species, or they may be only named as a locus ID (a chromosomal location specified in the genome annotation).
-- FDR: False Discovery Rate. This is an adjusted p value to show the signficance of the gene expression difference. Click on column headings to sort. By default, this table is sorted by FDR.
-- Control and Treatment: log2(Fold Change) of gene expression. Control values will always be zero. Treatment values are relative to the control.
-    - Note that fold change has no absolute biological meaning. In some cases, a large fold change will be meaningful but in others, even a small fold change can be important biologically.
+- **Contig**: names of genes. Note that gene names are sometimes specific to a species, or they may be only named as a locus ID (a chromosomal location specified in the genome annotation).
+- **FDR**: False Discovery Rate. This is an adjusted p value to show the significance of the difference in gene expression between two conditions. Click on column headings to sort. By default, this table is sorted by FDR.
+- **Control** and **Treatment**: log2(Fold Change) of gene expression. The default display is of fold change in the treatment relative to the control. Therefore, values in the "Control" column are zero. This can be changed in the <ss>Options</ss> panel at the top right.
+- In some cases, a large fold change will be meaningful but in others, even a small fold change can be important biologically.
 
 Table of genes and expression:
 
@@ -256,9 +281,8 @@ View the file called <fn>DGEusingvoom.html</fn>.
 
 - Scroll down to "VOOM log output" and "#VOOM top 50".
 - The "Contig" column has the gene names.
-- Look at the "adj.P.Val" column. This is an adjusted p value to show the signficance of the gene expression difference, accounting for the effect of multiple testing. Also known as False Discovery Rate. The table is ordered by the values in this column.
-- Look at the "logFC" column. This is log2(Fold Change) of gene expression in treatment samples relative to the control samples.
-    - Note that fold change has no absolute biological meaning. In some cases, a large fold change will be meaningful but in others, even a small fold change can be important biologically.
+- Look at the "adj.P.Val" column. This is an adjusted p value to show the significance of the gene expression difference, accounting for the effect of multiple testing. Also known as False Discovery Rate. The table is ordered by the values in this column.
+- Look at the "logFC" column. This is log2(Fold Change) of relative gene expression between the treatment samples and the control samples.
 
 View the file called <fn>DEGusingvoom_topTable_VOOM.xls</fn>.
 
@@ -291,7 +315,7 @@ Next steps: Investigate the biochemical pathways involving the genes of interest
 ## More information
 
 - [Link to Degust.](https://github.com/Victorian-Bioinformatics-Consortium/degust#degust-formerly-known-as-dge-vis)
-- [Link to voom paper.]( https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29)
+- [Link to Voom paper.]( https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29)
 
 <!-- If you have already run voom within Degust, continue from there. -->
 
