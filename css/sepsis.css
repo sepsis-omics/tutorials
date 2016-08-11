@@ -12,6 +12,14 @@ H1 {
 
 H2 {
   border-bottom: 1px solid grey;
+  font-weight: bolder;
+}
+
+H3 {
+  font-style: italic;
+  font-weight: bold;
+
+
 }
 
 P {
