@@ -11,7 +11,7 @@ the [Galaxy](http://galaxyproject.org/) system.
 
 Tutorials on assembly, annotation and variant calling can be found under the *Microbial Genomics* tab in the top panel.
 
-Tutorials on assembly using PacBio reads can be found under *Advanced Microbial Genomics*.
+<!-- Tutorials on assembly using PacBio reads can be found under *Advanced Microbial Genomics*. -->
 
 Tutorials on examining differential gene expression can be found under *Microbial Transcriptomics*.
 
