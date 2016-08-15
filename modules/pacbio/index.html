@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Anna Syme, Torsten Seemann">
+        
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+	<title>Assembly with SMRT portal - ABRPI Training 2016</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/sepsis.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">ABRPI Training 2016</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Microbial Genomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../galaxy/">Starting with Galaxy</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../data-dna/">Training dataset</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../velvet/">Genome assembly with Velvet</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../spades/">Genome assembly with Spades</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../prokka/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../snippy/">Variant finding</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Advanced Microbial Genomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li class="active">
+    <a href="./">Assembly with SMRT portal</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Microbial Transcriptomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../dge/">Differential gene expression</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../snippy/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../dge/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#assembly-with-pacbio-data-and-smrt-portal">Assembly with PacBio data and SMRT Portal</a></li>
+        
+            <li><a href="#start">Start</a></li>
+        
+            <li><a href="#data">Data</a></li>
+        
+            <li><a href="#input">Input</a></li>
+        
+            <li><a href="#assembly">Assembly</a></li>
+        
+            <li><a href="#output">Output</a></li>
+        
+            <li><a href="#further-polishing">Further Polishing</a></li>
+        
+            <li><a href="#links-to-more-information">Links to more information</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="assembly-with-pacbio-data-and-smrt-portal">Assembly with PacBio data and SMRT Portal</h1>
+<p>This tutorial will show you how to assemble a bacterial genome <em>de novo</em>, using the PacBio SMRT Portal on the mGVL. We will use an analysis pipeline called HGAP, the Hierarchical Genome Assembly Process.</p>
+<!-- FIXMEs:
+
+- will SMRT portal be available on all training GVLs
+- will students use existing SMRT portal registrations, or will each set up their own
+- PacBio data to be loaded into SMRT portal(s) -->
+
+<h2 id="start">Start</h2>
+<ul>
+<li>Open your mGVL dashboard.</li>
+<li>You should see SMRT Portal as one of the instance services on your GVL dashboard.</li>
+<li>Open up the SMRT portal web link (to the right) and register/log on.</li>
+</ul>
+<h2 id="data">Data</h2>
+<p>We will use a publicly available data-set of PacBio reads from the bacteria <em>E. coli</em> (reference link below). This has already been added to SMRT Portal for this tutorial.</p>
+<h2 id="input">Input</h2>
+<p>If using this tutorial during a training session, proceed to the next step (Assembly).</p>
+<p>Otherwise:</p>
+<ul>
+<li>Load the PacBio data (your own, or the training <em>E. coli</em> dataset) onto your GVL.</li>
+<li>In the SMRT Portal, go to <ss>Design Job</ss>, the top left tab.</li>
+<li>Go to <ss>Import and Manage</ss>.
+<img alt="smrt portal screenshot" src="./images/image03.png" /></li>
+<li>Click <ss>Import SMRT cells</ss>.
+<img alt="smrt portal screenshot" src="./images/image04.png" /></li>
+<li>Work out where you put the data on your GVL, and make sure the file path is showing.<ul>
+<li>If not, click <ss>Add</ss> and enter the file path to the data.</li>
+</ul>
+</li>
+<li>Click on the file path and then <ss>Scan</ss> to check for new data.</li>
+</ul>
+<h2 id="assembly">Assembly</h2>
+<ul>
+<li>In the SMRT Portal, go to the top left tab, <ss>Design Job</ss>.</li>
+<li>Go to <ss>Create New</ss>.</li>
+<li>An <ss>Analysis</ss> window should appear. Check the box next to <ss>De novo assembly</ss>, then <ss>Next</ss>.</li>
+<li>Under <ss>Job Name</ss> enter a name.</li>
+<li>Under <ss>Protocols</ss> choose <ss>RS_HGAP_Assembly.3</ss>.</li>
+<li>There is an ellipsis underneath <ss>Protocols</ss> - click on the ellipsis.</li>
+</ul>
+<p><img alt="smrt portal screenshot" src="./images/smrt1.png" /></p>
+<p>This brings up the settings. Click on <ss>Assembly</ss>.</p>
+<ul>
+<li>For <ss>Compute Minimum Seed Read Length</ss>: ensure box is ticked</li>
+<li>For <ss>Number of Seed Read Chunks</ss>: enter <em>12</em></li>
+<li>Change the <ss>Genome Size</ss> to an approximately correct size for the species.</li>
+<li>For <ss>Target Coverage</ss>: enter <em>10</em></li>
+<li>For <ss>Overlapper Error Rate</ss>: enter <em>0.04</em></li>
+<li>Leave all other settings as they are.</li>
+<li>Click <ss>Apply</ss></li>
+</ul>
+<p>Your protocol window should look like this:</p>
+<p><img alt="smrt portal screenshot" src="./images/image02.png" /></p>
+<ul>
+<li>
+<p>Click <ss>Ok</ss>.  </p>
+</li>
+<li>
+<p>In the <ss>SMRT Cells Available</ss> window, select the file to be used. Click on the arrow to transfer these files to the SMRT Cells in Job window.</p>
+</li>
+</ul>
+<p><img alt="smrt portal screenshot" src="./images/smrt3.png" /></p>
+<ul>
+<li>Click <ss>Save</ss> (bottom right hand side).</li>
+<li>Next to <ss>Save</ss>, click <ss>Start</ss>.</li>
+<li>The <ss>Monitor Jobs</ss> window should open.<ul>
+<li>As each step proceeds, new items will appear under the <ss>Reports</ss> and <ss>Data</ss> tabs on the left.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="smrt portal screenshot" src="./images/smrt6.png" /></p>
+<h2 id="output">Output</h2>
+<ul>
+<li>Click on the top right tab, <ss>View Data</ss>.<ul>
+<li>Double click on the job name to open its reports.</li>
+</ul>
+</li>
+<li>Click on different <ss>Reports</ss> in the left hand panel.</li>
+<li>Click on <ss>Assembly &rarr; Pre-Assembly</ss><ul>
+<li>see <em>Length Cutoff</em> for the calcuated sequence read length that was used: shorter reads were mapped against reads of at least this length to make pre-assembled reads.</li>
+<li>see number of <em>Pre-Assembled Reads</em></li>
+<li>see average <em>Pre-Assembled Reads Length</em>    </li>
+</ul>
+</li>
+<li>Click on <ss>Assembly &rarr; Polished Assembly</ss>.<ul>
+<li>See how many <em>Polished Contigs</em> were found.</li>
+<li>See the <em>Max Contig Length</em>.</li>
+<li>Are there multiple contigs?</li>
+<li>Are some of these plasmids?</li>
+</ul>
+</li>
+</ul>
+<!--   
+- Poor assembly?
+      - Does the sample require different assembly parameters?
+      - Does the sample require new sequencing? -->
+
+<h2 id="further-polishing">Further Polishing</h2>
+<p>During polishing, raw reads are used to correct the assembly.
+During HGAP, the assembly was polished once but may need further corrections.</p>
+<ul>
+<li>From the previous step, Go to <ss>Data &rarr; Assembly &rarr; Polished Assembly</ss> and download the FASTA file by clicking on it.<ul>
+<li>Unzip the .gz file</li>
+</ul>
+</li>
+<li>Go to <ss>Design Job &rarr; Import and Manage</ss> and click <ss>New</ss> on the bottom right hand side. Then, select that FASTA assembly file to upload.<ul>
+<li>creates a new reference.</li>
+</ul>
+</li>
+<li>Go to <ss>Design Job &rarr; Create New</ss><ul>
+<li>choose reference-based</li>
+<li>Select protocol: RS_Resequencing.1</li>
+<li>Leave all settings.</li>
+<li>Select your reference from the drop down menu.</li>
+<li>Click <ss>Save</ss> and <ss>Start</ss>.</li>
+</ul>
+</li>
+<li>Examine the output assembly and repeat if necessary.</li>
+</ul>
+<!-- - When complete, see Reports.
+
+    - Variants: how many found? if less than 2, does not need any more polishing.
+    - If 2+ variants found, repeat the polishing step (including adding a new reference).
+-->
+
+<!-- ## Next
+Correct with Illumina reads <link to tutorial> -->
+
+<h2 id="links-to-more-information">Links to more information</h2>
+<p><a href="https://github.com/PacificBiosciences/DevNet/wiki/E.-coli-Bacterial-Assembly">PacBio <em>E. coli</em> data set</a></p>
+<p><a href="https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP">HGAP overview</a></p>
+<p><a href="http://files.pacb.com/software/smrtanalysis/2.3.0/doc/smrtportal/help/Webhelp/SMRT_Portal.htm">A full ist of reports and terminology</a></p>
+<p><a href="http://www.pacb.com/training/BacterialAssemblyandEpigeneticAnalysis/story.html">Video overview of HGAP on SMRT portal</a></p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
