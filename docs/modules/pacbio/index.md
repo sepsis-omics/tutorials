@@ -1,48 +1,39 @@
 #Assembly with PacBio data and SMRT Portal
 
-<!-- *FIXME to do*
-
-- where is some pac bio data - should be on its way soon - email from mabel.
-- to get into SMRT portal: need to download onto particular GVL
-- is format ok or do we need certain files- and how many cells per sample ?
-
--->
-
 This tutorial will show you how to assemble a bacterial genome *de novo*, using the PacBio SMRT Portal on the mGVL. We will use an analysis pipeline called HGAP, the Hierarchical Genome Assembly Process.
+
+<!-- FIXMEs:
+
+- will SMRT portal be available on all training GVLs
+- will students use existing SMRT portal registrations, or will each set up their own
+- PacBio data to be loaded into SMRT portal(s) -->
+
 
 ## Start
 - Open your mGVL dashboard.
-- Go to Admin. There is a list of packages. Find SMRT Analysis. On the right, click <ss>Install</ss>.
 - You should see SMRT Portal as one of the instance services on your GVL dashboard.
 - Open up the SMRT portal web link (to the right) and register/log on.
 
-<!--
-Not included here?
-- trim overhang
-- circularise
-- annotate
--->
+## Data
+We will use a publicly available data-set of PacBio reads from the bacteria *E. coli* (reference link below). This has already been added to SMRT Portal for this tutorial.
 
 ## Input
+If using this tutorial during a training session, proceed to the next step (Assembly).
 
-- Locate your PacBio data.
-- Load the PacBio data onto your GVL.
+Otherwise:
+
+- Load the PacBio data (your own, or the training *E. coli* dataset) onto your GVL.
 - In the SMRT Portal, go to <ss>Design Job</ss>, the top left tab.
 - Go to <ss>Import and Manage</ss>.
-
 ![smrt portal screenshot](images/image03.png)
-
 - Click <ss>Import SMRT cells</ss>.
-
 ![smrt portal screenshot](images/image04.png)
-
 - Work out where you put the data on your GVL, and make sure the file path is showing.
     - If not, click <ss>Add</ss> and enter the file path to the data.
 - Click on the file path and then <ss>Scan</ss> to check for new data.
 
 ## Assembly
-
-- Go back to the top left tab, <ss>Design Job</ss>.
+- In the SMRT Portal, go to the top left tab, <ss>Design Job</ss>.
 - Go to <ss>Create New</ss>.
 - An <ss>Analysis</ss> window should appear. Check the box next to <ss>De novo assembly</ss>, then <ss>Next</ss>.
 - Under <ss>Job Name</ss> enter a name.
@@ -80,37 +71,57 @@ This brings up the settings. Click on <ss>Assembly</ss>.
 
 ## Output
 
-- Click on the top right tab, <ss>View Data</ss>. Double click on the job name to open its reports.
-- Click on different reports in the left hand panel.
-- Look at <ss>Assembly: Polished Assembly</ss>.
-- If there is only one contig, then this is the assembled genome. We will do further polishing in the next step.
-- If there are two or more contigs, one could be a plasmid, or the sample may require different assembly parameters, or new sequencing.
+- Click on the top right tab, <ss>View Data</ss>.
+    - Double click on the job name to open its reports.
+- Click on different <ss>Reports</ss> in the left hand panel.
+- Click on <ss>Assembly &rarr; Pre-Assembly</ss>
+    - see *Length Cutoff* for the calcuated sequence read length that was used: shorter reads were mapped against reads of at least this length to make pre-assembled reads.
+    - see number of *Pre-Assembled Reads*
+    - see average *Pre-Assembled Reads Length*    
+- Click on <ss>Assembly &rarr; Polished Assembly</ss>.
+    - See how many *Polished Contigs* were found.
+    - See the *Max Contig Length*.
+    - Are there multiple contigs?
+      - Are some of these plasmids?
 
+<!--   
+- Poor assembly?
+      - Does the sample require different assembly parameters?
+      - Does the sample require new sequencing? -->
 
-
-##Polishing
+##Further Polishing
 
 During polishing, raw reads are used to correct the assembly.
+During HGAP, the assembly was polished once but may need further corrections.
 
-- From the previous step, Go to Data: Assembly: Polished Assembly: and download the FASTA file by clicking on it.
-- Unzip the .gz file
-- Go to Design Job, Import and Manage, (bottom right hand side button:) New, then select that FASTA assembly file to upload.
+- From the previous step, Go to <ss>Data &rarr; Assembly &rarr; Polished Assembly</ss> and download the FASTA file by clicking on it.
+    - Unzip the .gz file
+- Go to <ss>Design Job &rarr; Import and Manage</ss> and click <ss>New</ss> on the bottom right hand side. Then, select that FASTA assembly file to upload.
     - creates a new reference.
-- <ss>Design Job &rarr; Create New</ss>
-- choose reference-based
-- Select protocol: RS_Resequencing.1
-- Leave all settings.
-- Select SMRT cell (same cell as used in the first analysis)
-- Select your reference from the drop down menu.
-- Save.
-- Start.
-- When complete, see Reports.
+- Go to <ss>Design Job &rarr; Create New</ss>
+    - choose reference-based
+    - Select protocol: RS_Resequencing.1
+    - Leave all settings.
+    - Select your reference from the drop down menu.
+    - Click <ss>Save</ss> and <ss>Start</ss>.
+- Examine the output assembly and repeat if necessary.
+
+<!-- - When complete, see Reports.
+
     - Variants: how many found? if less than 2, does not need any more polishing.
     - If 2+ variants found, repeat the polishing step (including adding a new reference).
+-->
 
-## Next
-Correct with Illumina reads <link to tutorial>
+<!-- ## Next
+Correct with Illumina reads <link to tutorial> -->
 
 ## Links to more information
-- [HGAP overview](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
-- [A full ist of reports and terminology is here](http://files.pacb.com/software/smrtanalysis/2.3.0/doc/smrtportal/help/Webhelp/SMRT_Portal.htm)
+
+[PacBio *E. coli* data set](https://github.com/PacificBiosciences/DevNet/wiki/E.-coli-Bacterial-Assembly)
+
+
+[HGAP overview](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
+
+[A full ist of reports and terminology](http://files.pacb.com/software/smrtanalysis/2.3.0/doc/smrtportal/help/Webhelp/SMRT_Portal.htm)
+
+[Video overview of HGAP on SMRT portal](http://www.pacb.com/training/BacterialAssemblyandEpigeneticAnalysis/story.html)
