@@ -6,7 +6,7 @@ This tutorial will show you how to assemble a bacterial genome *de novo*, using 
 
 - will SMRT portal be available on all training GVLs
 - will students use existing SMRT portal registrations, or will each set up their own
-- PacBio data to be loaded into SMRT portal(s) -->
+- PacBio data E coli to be loaded into SMRT portal(s) -->
 
 
 ## Start
@@ -14,11 +14,10 @@ This tutorial will show you how to assemble a bacterial genome *de novo*, using 
 - You should see SMRT Portal as one of the instance services on your GVL dashboard.
 - Open up the SMRT portal web link (to the right) and register/log on.
 
-## Data
-We will use a publicly available data-set of PacBio reads from the bacteria *E. coli* (reference link below). This has already been added to SMRT Portal for this tutorial.
-
 ## Input
-If using this tutorial during a training session, proceed to the next step (Assembly).
+We will use a publicly available data-set of PacBio reads from the bacteria *E. coli* (reference link below).
+
+If this has already been loaded onto SMRT portal (e.g. for use during a workshop), proceed to the next step ("Assembly").
 
 Otherwise:
 
@@ -46,7 +45,7 @@ This brings up the settings. Click on <ss>Assembly</ss>.
 
 - For <ss>Compute Minimum Seed Read Length</ss>: ensure box is ticked
 - For <ss>Number of Seed Read Chunks</ss>: enter *12*
-- Change the <ss>Genome Size</ss> to an approximately correct size for the species.
+- Change the <ss>Genome Size</ss> to an approximately correct size for the species. For *E. coli*, enter 4600000.
 - For <ss>Target Coverage</ss>: enter *10*
 - For <ss>Overlapper Error Rate</ss>: enter *0.04*
 - Leave all other settings as they are.
@@ -71,25 +70,66 @@ This brings up the settings. Click on <ss>Assembly</ss>.
 
 ## Output
 
-- Click on the top right tab, <ss>View Data</ss>.
-    - Double click on the job name to open its reports.
+Click on the top right tab, <ss>View Data</ss>.
+
+- Double click on the job name to open its reports.
 - Click on different <ss>Reports</ss> in the left hand panel.
-- Click on <ss>Assembly &rarr; Pre-Assembly</ss>
-    - see *Length Cutoff* for the calcuated sequence read length that was used: shorter reads were mapped against reads of at least this length to make pre-assembled reads.
-    - see number of *Pre-Assembled Reads*
-    - see average *Pre-Assembled Reads Length*    
-- Click on <ss>Assembly &rarr; Polished Assembly</ss>.
-    - See how many *Polished Contigs* were found.
-    - See the *Max Contig Length*.
-    - Are there multiple contigs?
-      - Are some of these plasmids?
 
-<!--   
-- Poor assembly?
-      - Does the sample require different assembly parameters?
-      - Does the sample require new sequencing? -->
+[add screenshot for reports overview]
 
-##Further Polishing
+Things to look at:
+
+**General: Filtering (polymerase reads)**
+
+- number of reads post-filter
+- read length (=average)
+
+**General: Subread Filtering (subreads)**
+
+- number of reads post-filter
+- read length (average)
+
+**Assembly: Pre-Assembly (pre-assembled reads)**
+
+- length cutoff (the computed minimum seed read length)
+- read length (average)
+
+**Assembly: Corrections**
+
+Consensus calling results:
+
+- Consensus concordance should be > 99%.
+
+Graph: corrections across reference:
+
+- With the first run of polishing, expect a lot of corrections but they should be randomly distributed.
+
+**Assembly: Top Corrections**
+
+This is a list of all the corrections made.
+
+- If more than two corrections (with confidence > 50), repeat polishing (see next section "Further polishing").
+
+**Resequencing: Coverage**
+
+Coverage across reference:
+
+- discard contigs <20X coverage
+- others should have fairly consistent coverage.
+- spikes could be collapsed repeats.
+- valleys could be mis-assembly - e.g. draft assembly was incorrect and so remapped reads didn't support this part of the assembly.
+
+Graph: Depth of Coverage:
+
+*Number* of reference regions vs coverage. e.g. lots of regions with low coverage, some with high.
+
+**Assembly: Polished Assembly**
+
+- number of contigs
+- max contig length
+- graph: confidence vs depth. multi-copy plasmids may have higher coverage.
+
+## Further Polishing
 
 During polishing, raw reads are used to correct the assembly.
 During HGAP, the assembly was polished once but may need further corrections.
@@ -104,24 +144,32 @@ During HGAP, the assembly was polished once but may need further corrections.
     - Leave all settings.
     - Select your reference from the drop down menu.
     - Click <ss>Save</ss> and <ss>Start</ss>.
-- Examine the output assembly and repeat if necessary.
+- Examine the output assembly and repeat if necessary (e.g. if > 2 corrections with >50 confidence).
 
-<!-- - When complete, see Reports.
+##Output
 
-    - Variants: how many found? if less than 2, does not need any more polishing.
-    - If 2+ variants found, repeat the polishing step (including adding a new reference).
--->
+Polished Assembly FASTA file
 
-<!-- ## Next
-Correct with Illumina reads <link to tutorial> -->
+=> download to local computer, or:
+
+=> get file into Galaxy (TBA)
+
+##Next
+
+Further options:
+
+- correct with Illumina reads
+- circularise
+- annotate
 
 ## Links to more information
 
 [PacBio *E. coli* data set](https://github.com/PacificBiosciences/DevNet/wiki/E.-coli-Bacterial-Assembly)
-
 
 [HGAP overview](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP)
 
 [A full ist of reports and terminology](http://files.pacb.com/software/smrtanalysis/2.3.0/doc/smrtportal/help/Webhelp/SMRT_Portal.htm)
 
 [Video overview of HGAP on SMRT portal](http://www.pacb.com/training/BacterialAssemblyandEpigeneticAnalysis/story.html)
+
+[More about the SMRT bell template](http://files.pacb.com/Training/IntroductiontoSMRTbellTemplatePreparation/story_content/external_files/Introduction%20to%20SMRTbell%E2%84%A2%20Template%20Preparation.pdf)
