@@ -121,7 +121,7 @@ Coverage across reference:
 
 Graph: Depth of Coverage:
 
-*Number* of reference regions vs coverage. e.g. lots of regions with low coverage, some with high.
+*Number* of reference regions vs coverage. Should be roughly normal?
 
 **Assembly: Polished Assembly**
 
@@ -150,9 +150,11 @@ During HGAP, the assembly was polished once but may need further corrections.
 
 Polished Assembly FASTA file
 
-=> download to local computer, or:
+=> download to local computer; or
 
-=> get file into Galaxy (TBA)
+=> open file in (GVL) Galaxy (TBA); or
+
+=> open file in GVL command line: and further analysis.
 
 ##Next
 
