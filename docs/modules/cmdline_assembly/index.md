@@ -9,205 +9,241 @@ At the end of this tutorial, be able to use command line tools to:
 1. assemble long (PacBio) sequence reads
 2. trim overhang
 3. correct the draft assembly with short (Illumina) reads
-4. circularise the corrected assembly.
-
-=> finished assembly
+4. circularise the corrected assembly
+5. &rarr; produce a finished assembly.
 
 ##Input files
 
 - Open the mGVL command line
 - Navigate to the directory in which you want to work.
+- Make a directory called "staph"
 
-You will also need to know the location of the sequences (the file path).
+```
+mkdir staph
+cd staph
+```
+- Make a subdirectory with the sample name "25745"
 
-TBA: filepath of staph tutorial data. e.g. sample 25745 -- Staphylococcus aureus.
-
-- pacbio files (3 x fastq.gz)
-- illumina reads (2 x fastq.gz)
-
-Make sure these files are in the directory.
-
-
-PacBio files are often stored in the format:
-
-Sample_name/Cell_name/Analysis_Results/long_file_name_1.fastq
-
-The PacBio sequences are usually stored in three fastq files.
-
-Illumina files will be in forward and reverse reads, R1 and R2.
-
-## join pacbio fastq files
-
-This command takes the three FASTQ files, pipes them to gzip, and stores the gzipped concatenated sequences in the file subreads.fastq.gz
-
-Type in:
-
-```Unix
-cat filepath/filep0.*.subreads.fastq | gzip > subreads.fastq.gz
+```
+mkdir 25745
+cd 25745
 ```
 
-if the files are already gzipped,
+**Find the PacBio files for this sample**
 
-```Unix
+- Obtain the input files. e.g. from the BPA portal.
+- PacBio files are often stored in the format:
+Sample_name/Cell_name/Analysis_Results/long_file_name_1.fastq.gz
+- We will use the <fn>fastq.gz</fn> files.
+- The reads are usually split into three separate files because they are so large.
+- Right click on the first <fn>subread.fastq.gz</fn> file and "copy link address".
+
+- In the cmd line,
+
+```
+wget --user username --password password [paste link URL for file]
+```
+- repeat for the other two <fn>subread.fastq.gz</fn> files.
+
+**Join PacBio fastq files**
+
+- If the files are gzipped, type:
+
+```
 cat filepath/filep0.*.subreads.fastq.gz > subreads.fastq.gz
 ```
 
-##Assemble with Canu
+- If the files are not gzipped, type:
 
-Type in:
-
-```Unix
-canu -p staph -d outdir corMhapSensitivity=high corMinCoverage=0 genomeSize=2.8m -pacbio-raw subreads.fastq.gz
+```
+cat filepath/filep0.*.subreads.fastq | gzip > subreads.fastq.gz
 ```
 
-- **staph** is the prefix given to output files (check)
-- **outdir** is the output directory
-- **corMhapSensitivity** and **corMinCoverage** is a recommended option for (to be explained)
-- **genomeSize** only has to be approximate
+- We now have a file called <fn>subreads.fastq.gz</fn>.
 
-e.g.
-Staph: 2.8m
+**Find the Illumina files for this sample**
 
-note: it may say "Finished..."  but it is probably still running
-type squeue to see what is running
+- We will also use 2 x Illumina (Miseq) fastq.gz files.
+- These are the <fn>R1.fastq.gz</fn> and <fn>R2.fastq.gz</fn> files.
+- Right click on the file name and "copy link address".
+- In the cmd line,
+
+```
+wget --user username --password password [paste link URL for file]
+```
+- Repeat for the other read.fastq.gz file.
+- Shorten the name of each of these files:
+
+```
+mv longfilename_R1.fastq.gz R1.fastq.gz
+mv longfilename_R2.fastq.gz R2.fastq.gz
+```
+
+**View files**
+
+- Type "ls" to display the folder contents.
+
+```
+ls
+```
+
+- The 3 files we will use in this analysis are:
+    - <fn>subreads.fastq.g</fn> (the PacBio reads)
+    - <fn>R1.fastq.gz</fn> and <fn>R2.fastq.gz</fn> (the Illumina reads)
+
+##Assemble with Canu
+
+- Run canu with these commands:
+
+```Unix
+canu -p staph -d staph_outdir corMhapSensitivity=high corMinCoverage=0 genomeSize=2.8m -pacbio-raw subreads.fastq
+```
+
+- **staph** is the prefix given to output files
+- **staph_outdir** is the output directory
+- **corMhapSensitivity** and **corMinCoverage** is a recommended option for sensitivity
+- **genomeSize** only has to be approximate. e.g., for staph, 2.8M.
 
 
-Canu will correct, trim and assemble the reads.
-This will take ~ x minutes.
+- Note: it may say "Finished..."  but it is probably still running. Type:
 
-**Check output**
+```
+squeue
+```
 
-Look at the outdir.
+- This will show you what is running.
 
-- contigs.fasta : assembled sequences
-- unassembled.fasta
-- file.gfa : the graph of the assembly (could examine in Bandage).
+- Canu will correct, trim and assemble the reads.
+- This will take ~ x minutes.
+
+**Check the output**
+
+```
+cd staph_outdir
+```
+
+- The <fn>contigs.fasta</fn> are the assembled sequences.
+- The <fn>unassembled.fasta</fn> are the reads that could not be assembled.
+- The <fn>file.gfa</fn> is the graph of the assembly.
 
 **Look at the contigs file**
 
+- Display summary information about the contigs:
 
-```Unix
-fa -f contigs.fasta
+```
+fa -f staph.contigs.fasta
 ```
 
-if there are two contigs, split them:
+![contigs_info_screenshot](images/contigs_info.png)
 
-index the contigs file:
+- There are two contigs. Note down their lengths: 2,725,231 and 43,991
+- We will split these into two separate fasta files.
+
+**Separate the contigs into single files**
+
+- Index the contigs file:
+
+```
 samtools faidx staph.contigs.fasta
+```
 
-send each contig to a new file:
+- this makes an indexed file with the suffix -fai
 
+- send each contig to a new file:
+
+```
 samtools faidx staph.contigs.fasta tig00000000 > contig1.fa
-
 samtools faidx staph.contigs.fasta tig00000001 > contig2.fa
-
-**What is in the unassembled reads**
-
-- are they contaminants? blast against ncbi?
-(explain how to do so on command line)
-
-
-
-output => assembled contigs
-
-## Trim overhang
-The assembly graph will be split at an ambiguous/unstable node. However, this area of the graph likely overlaps in the bacterial chromosome, but has not aligned with itself completely. This is called an overhang.
-
-To find out whether the ends match, blast the first bit of the assembly with the last bit. e.g. the first 60kb.
-
-
-
-Find where these should properly overlap, and trim. (explain how)
-
-- take the first 501 lines (there are 100 bases per line) and send them to a new file => 50,000 bases
-- this is the start of the assembly. want to see if it matches the end (overhang)
-
-(note: do this for the largest contig. if additional smaller contigs, take fewer start lines)
-
-
-```Unix
-head -n 501 ass.contigs.fasta > start.fasta
 ```
 
-- format the assembly file for blast
-```Unix
-formatdb -i ass.contigs.fasta -p F
+**What is in the unassembled reads?**
+
+- Are they contaminants?
+- Blast against NCBI
+    - Use Cyberduck to transfer the file to your local computer
+    - Go to NCBI and upload the file
+    - (doesn't work with this file - too big)
+    - (or: explain how to do so on command line?)
+
+## Trim overhang in the large contig
+
+The assembly graph will be split at an ambiguous/unstable node. However, this area of the graph likely overlaps in the bacterial chromosome, but has not aligned with itself completely. This is called an overhang. We need to identify these overhangs and trim them, for the chromosome and any plamsids.
+
+Contig 1.
+
+Take the first 30,000 bases:
+
+```
+head -n 501 contig1.fa > contig1.fa.head
 ```
 
-- blast the start (the 50k bases in the file called start.fasta) against the whole assembly (the contigs.fasta), send to file called start.bls
+- this is the start of the assembly
+- we want to see if it matches the end (overhang)
+- format the assembly file for blast:
 
-```Unix
-blastall -p blastn -i start.fasta -d ass.contigs.fasta -e 1e-100 -F F -o start.bls
+```
+formatdb -i contig1.fa -p F
 ```
 
-- look at start.bls to see hits
+- blast the start of the assembly against all of the assembly:
 
-
-```Unix
-less start.bls
 ```
-![screeshot of blast](images/blast_query.png)
-
-Then type
-
-```Unix
-/ Score
-n
+blastall -p blastn -i contig1.fa.head -d contig1.fa -e 1e-10 -F F -o contig1.bls
 ```
 
-this takes you to the first blast match
+- look at contig1.bls to see hits:
 
-then
-
-```Unix
-n
+```
+less contig1.bls
 ```
 
-to see the next blast match
+The first hit is against the start of the chromosome, as expected.
 
-![screeshot of blast](images/blast_query2.png)
+![screeshot of blast](images/contig1_bls.png)
 
 
-- This position, near the end of the contig, is where the overhang starts.
+- This position, near the end of the contig, is where the overhang starts: position 2725159
+- check that this match goes to the end of the contig.2725231 - yes.
+- we will now trim the contig
+- first, index the contig1 fasta file
 
-(type "n" again to check there are no more matches)
-
-- also check that this match goes to the end of the contig.
-
-- use the position at the start of the overhang; trim
-
-first, index the fasta file
-
-```Unix
-samtools faidx contigs.fasta
+```
+samtools faidx contig1.fa
 ```
 
-makes contigs.fasta.fai
+- this makes contigs.fasta.fai
 (samtools will find this automatically though in the next step)
 
 
-```Unix
-samtools faidx contigs.fasta tig00000000:1-943266 > trimmed.fa
+```
+samtools faidx contig1.fa tig00000000:1-2725158 > contig1.fa.trimmed
 ```
 
-- open the trimmed.fa file
+- open the contig1.fa.trimmed file
 
-```Unix
-nano trimmed.fa
+```
+nano contig1.fa.trimmed
 ```
 
 delete the header info except contig name (e.g. tig00000000)
 exit.
 
-output => trimmed contigs
+
+
+
+
+
+## Trim overhang in the plamsid
+
+contig 2.
+
+
+
 
 
 make single FASTA file
 chromosome
 plasmid
-
-
-
 
 ##Correct with Pilon
 
@@ -235,6 +271,28 @@ samtools faidx contigs.fasta
 -t is the number of cores (e.g. 8)
 to find out how many you have,
 grep -c processor /proc/cpuinfo
+
+
+**Look at the assembly graph**
+
+- Copy the <fn>file.gfa</fn> to your local computer
+    - e.g. using a file transfer program such as Cyberduck
+    - Install Cyberduck
+    - Open Cyberduck
+    - click on "open connection"
+    - choose SFTP from drop down menu
+    - server = your virtual machine IP address (e.g. abrpi.genome.edu.au)
+    - username = your username
+    - password = your password
+    - You should now see a window showing the folders and files on your virtual machine.
+    - You can drag and drop files into the preferred folder.
+
+- Examine the assembly in the program Bandage.
+    - Install Bandage.
+    - File: Load graph: <fn>file.gfa</fn>
+    - In the left hand panel, click "Draw graph"
+    - How many contigs? Sizes?
+
 
 **Correct**
 
