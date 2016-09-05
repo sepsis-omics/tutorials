@@ -29,7 +29,7 @@ mkdir 25745
 cd 25745
 ```
 
-**Find the PacBio files for this sample**
+###Find the PacBio files for this sample
 
 - Obtain the input files. e.g. from the BPA portal.
 - PacBio files are often stored in the format:
@@ -38,14 +38,14 @@ Sample_name/Cell_name/Analysis_Results/long_file_name_1.fastq.gz
 - The reads are usually split into three separate files because they are so large.
 - Right click on the first <fn>subread.fastq.gz</fn> file and "copy link address".
 
-- In the cmd line,
+- In the command line, type:
 
 ```
 wget --user username --password password [paste link URL for file]
 ```
 - repeat for the other two <fn>subread.fastq.gz</fn> files.
 
-**Join PacBio fastq files**
+###Join PacBio fastq files
 
 - If the files are gzipped, type:
 
@@ -61,12 +61,12 @@ cat filepath/filep0.*.subreads.fastq | gzip > subreads.fastq.gz
 
 - We now have a file called <fn>subreads.fastq.gz</fn>.
 
-**Find the Illumina files for this sample**
+###Find the Illumina files for this sample
 
 - We will also use 2 x Illumina (Miseq) fastq.gz files.
 - These are the <fn>R1.fastq.gz</fn> and <fn>R2.fastq.gz</fn> files.
 - Right click on the file name and "copy link address".
-- In the cmd line,
+- In the command line, type:
 
 ```
 wget --user username --password password [paste link URL for file]
@@ -79,7 +79,7 @@ mv longfilename_R1.fastq.gz R1.fastq.gz
 mv longfilename_R2.fastq.gz R2.fastq.gz
 ```
 
-**View files**
+###View files
 
 - Type "ls" to display the folder contents.
 
@@ -114,9 +114,9 @@ squeue
 - This will show you what is running.
 
 - Canu will correct, trim and assemble the reads.
-- This will take ~ x minutes.
+- This will take ~ 30 minutes.
 
-**Check the output**
+###Check the output
 
 ```
 cd staph_outdir
@@ -125,9 +125,6 @@ cd staph_outdir
 - The <fn>contigs.fasta</fn> are the assembled sequences.
 - The <fn>unassembled.fasta</fn> are the reads that could not be assembled.
 - The <fn>file.gfa</fn> is the graph of the assembly.
-
-**Look at the contigs file**
-
 - Display summary information about the contigs:
 
 ```
@@ -156,7 +153,14 @@ samtools faidx staph.contigs.fasta tig00000000 > contig1.fa
 samtools faidx staph.contigs.fasta tig00000001 > contig2.fa
 ```
 
-**What is in the unassembled reads?**
+- change contig names:
+```
+nano filename.fa
+```
+change header to contig1 or contig2
+save
+
+<!-- ###What is in the unassembled reads?
 
 - Are they contaminants?
 - Blast against NCBI
@@ -164,8 +168,9 @@ samtools faidx staph.contigs.fasta tig00000001 > contig2.fa
     - Go to NCBI and upload the file
     - (doesn't work with this file - too big)
     - (or: explain how to do so on command line?)
+-->
 
-## Trim overhang in the large contig
+## Trim overhang in chromosome 1
 
 The assembly graph will be split at an ambiguous/unstable node. However, this area of the graph likely overlaps in the bacterial chromosome, but has not aligned with itself completely. This is called an overhang. We need to identify these overhangs and trim them, for the chromosome and any plamsids.
 
@@ -618,11 +623,12 @@ fa -f all_contigs.fa
 see the three contigs and sizes
 
 
-we also need the aligned bam file (illumina aligned against pacbio)
-these are in find_contig_3   as aln.bam
+rename all the contigs
+-contig1
+-contig2
+-contig3b
 
-cd ..
-cp find_contig_3/aln.bam pilon/
+
 
 
 
@@ -686,8 +692,8 @@ need to make a new bam
 bwa index all_contigs.fa
 bwa mem -t 8 all_contigs.fa R1.fastq.gz R2.fastq.gz | samtools sort > all_aln.bam
 
-samtools index aln.bam
-samtools faidx contigs.fasta
+samtools index all_aln.bam
+samtools faidx all_contigs.fa
 ```
 
 pilon
@@ -716,28 +722,136 @@ less corrected.changes
 
 a lot are single, but there are some bigger ones.
 
-=> corrected assembly
+e.g. at position 2,463,699 there is a 23-bp seq that is deleted.
+
+tig00000000:2463600-2463622 tig00000000_pilon:2463699 GTTAAAGGTTATTTGAATGATCA .
+
+view the illumina reads mapped against the original assembly:
+
+view pileup:
+
+```
+samtools tview -p chrm:position bamfile reffile
+
+```
+
+-p gives the chromosome position that we want to view
+then input file; then reference file
+
+view:
+reference sequence along the top
+then consensus sequence (does this show anything here?)
+then consensus from the aligned illumina reads
+   - a dot is a match on F
+   - a comma is a match on R
+   - capital letter is a correction on F
+   - small letter is a correction on R
+   - asterisk
+   - underlining?
+
+view in IGV
+
+- transfer aln.bam, aln.bam.bai, contigs.fa, contigs.fa.fai to local computer
+
+(do we need the .bai files?)
+
+- open IGV
+- File - genomes - load genome from file: contigs
+- File - load from file - aln.bam file
+select the main chromosome eg tig00000000
+go to coordinate 2463600
 
 
-(Correct again?)
+there is a dip in coverage here.
+pilon has identified this as a local misassembly and has deleted this section in the corrected assembly
 
-##Circularise
-corrected contigs => circlator => circular genome starting at dnaA
+![IGV screenshot](images/IGV_first_pilon_correction.png)
 
-```Unix
-circlator fixstart trimmed.fa outprefix
+output:corrected assembly
+
+re run pilon to correct again.
+
+use the illumina R1 and R2 reads, and the reference is now the corrected assembly
+
+
+
+```
+bwa index corrected.fasta
+bwa mem -t 8 corrected.fasta R1.fastq.gz R2.fastq.gz | samtools sort > aln_to_corrected.bam
+
+
+samtools index all_to_corrected.bam
+samtools faidx corrected.fasta
 ```
 
 
-orients at DNAa
+
+
+
+
+
+separate into three fasta files
+
+
+##or, use Bowtie for alignment
+
+index the fasta file
+
+```
+bowtie2-build all_contigs.fa bowtie
+```
+
+input file
+output ref name
+
+align:
+
+```
+bowtie2 --end-to-end --threads 72 -x bowtie -1 25745_1_PE_700bp_SEP_UNSW_ARE4E_TCGACGTC_AAGGAGTA_S5_L001_R1.fastq.gz -2 25745_1_PE_700bp_SEP_UNSW_ARE4E_TCGACGTC_AAGGAGTA_S5_L001_R2.fastq.gz | samtools sort > bowtie2.bam
+
+```
+
+"bowtie" means use the index files that were generated above that we called bowtie
+
+use 72 threads on mdu but <8 on sepsis
+
+
+then index the bam file
+
+samtools index bowtie2.bam
+samtools faidx contigs.fasta
+
+the view in tview
+
+samtools tview -p tig00000000:2463600 bowtie2.bam all_contigs.fa
+
+
+
+
+##Circularise
+corrected contigs => circlator => circular genome (e.g. starting at dnaA)
+
+###Chromosome
+
+```
+circlator fixstart contig.fa outprefix
+```
+
+default: orients at DNAa
 
 => circular, corrected assembly
 
+###Plasmid 1
 
-for plasmid:
+blast against ncbi
+find hit
+what have they done
+download the start of their assembly (may be a gene or may be tandem repeats etc. )
+
+```
 circlator fixstart --genes_fa filename contig outprefix
+```
 
-need to give it the file (DNA?) of repA
 
  -or, whatever has been done with the plasmid it most closely blast matches to
 eg
@@ -746,10 +860,15 @@ eg
 
 need to download
 
+###Plasmid 2
+
+
+
 
 ## Next
 
-Annotate - in Galaxy, obtain this file
+Annotate with prokka
+
 
 ## Links
 
