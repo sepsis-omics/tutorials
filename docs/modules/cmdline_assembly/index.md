@@ -771,6 +771,66 @@ samtools tview -p tig00000000:2463600 bowtie2.bam all_contigs.fa
 blasr subreads.fastq all_contigs.fa -nproc 72 -sam | samtools sort > blasr_aln.bam
 ```
 
+blasr subreads.fastq all_contigs.fa -nproc 72 -sam | samtools sort > blasr_aln.bam
+samtools index blasr_aln.bam
+samtools faidx all_contigs.fa
+samtools tview -p tig00000000:2463600 blasr_aln.bam all_contigs.fa
+
+###or align pacbio reads to pacbio assembly with bwa mem
+
+canu: pacbio corrected reads
+bwa mem
+align to pacbio assembly
+
+
+bam index all_contigs.fasta
+
+bwa mem -t 72 all_contigs.fa staph.correctedReads.fasta | samtools sort > pacbio_aln.bam
+
+
+(leave out -x pacbio option as these are corrected reads)
+
+
+##Examine 23bp
+
+align corrected pacbio reads to pacbio assembly
+
+make a 23bp seq
+
+```
+nano 23bp.fa
+```
+
+paste in the seq
+
+
+
+
+## Split into three final contigs
+
+- Examine the all_contigs.fa file
+
+```
+fa -f
+```
+
+tig00000000	dna	2725158
+tig00000001	dna	24884
+contig3b	dna	2252
+
+- split these
+
+```
+samtools faidx all_contigs.fa tig00000000: > chromosome.fa
+
+samtools faidx all_contigs.fa tig00000001: > chromosome.fa
+
+samtools faidx all_contigs.fa contig3b: > chromosome.fa
+```
+
+
+
+
 ##Circularise
 corrected contigs => circlator => circular genome (e.g. starting at dnaA)
 
