@@ -113,6 +113,18 @@
 </li>
 
                     
+                        
+<li >
+    <a href="../cmdline_assembly/">Assembly and finishing with command line tools</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../cmdline_prokka/">Annotation using command line tools</a>
+</li>
+
+                    
                     </ul>
                 </li>
             
@@ -153,7 +165,7 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../dge/">
+                    <a rel="prev" href="../cmdline_assembly/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -171,8 +183,6 @@
         
             <li><a href="#start">Start</a></li>
         
-            <li><a href="#data">Data</a></li>
-        
             <li><a href="#input">Input</a></li>
         
             <li><a href="#assembly">Assembly</a></li>
@@ -180,6 +190,10 @@
             <li><a href="#output">Output</a></li>
         
             <li><a href="#further-polishing">Further Polishing</a></li>
+        
+            <li><a href="#output_1">Output</a></li>
+        
+            <li><a href="#next">Next</a></li>
         
             <li><a href="#links-to-more-information">Links to more information</a></li>
         
@@ -194,7 +208,7 @@
 
 - will SMRT portal be available on all training GVLs
 - will students use existing SMRT portal registrations, or will each set up their own
-- PacBio data to be loaded into SMRT portal(s) -->
+- PacBio data E coli to be loaded into SMRT portal(s) -->
 
 <h2 id="start">Start</h2>
 <ul>
@@ -202,10 +216,9 @@
 <li>You should see SMRT Portal as one of the instance services on your GVL dashboard.</li>
 <li>Open up the SMRT portal web link (to the right) and register/log on.</li>
 </ul>
-<h2 id="data">Data</h2>
-<p>We will use a publicly available data-set of PacBio reads from the bacteria <em>E. coli</em> (reference link below). This has already been added to SMRT Portal for this tutorial.</p>
 <h2 id="input">Input</h2>
-<p>If using this tutorial during a training session, proceed to the next step (Assembly).</p>
+<p>We will use a publicly available data-set of PacBio reads from the bacteria <em>E. coli</em> (reference link below).</p>
+<p>If this has already been loaded onto SMRT portal (e.g. for use during a workshop), proceed to the next step (&ldquo;Assembly&rdquo;).</p>
 <p>Otherwise:</p>
 <ul>
 <li>Load the PacBio data (your own, or the training <em>E. coli</em> dataset) onto your GVL.</li>
@@ -234,7 +247,7 @@
 <ul>
 <li>For <ss>Compute Minimum Seed Read Length</ss>: ensure box is ticked</li>
 <li>For <ss>Number of Seed Read Chunks</ss>: enter <em>12</em></li>
-<li>Change the <ss>Genome Size</ss> to an approximately correct size for the species.</li>
+<li>Change the <ss>Genome Size</ss> to an approximately correct size for the species. For <em>E. coli</em>, enter 4600000.</li>
 <li>For <ss>Target Coverage</ss>: enter <em>10</em></li>
 <li>For <ss>Overlapper Error Rate</ss>: enter <em>0.04</em></li>
 <li>Leave all other settings as they are.</li>
@@ -261,31 +274,58 @@
 </ul>
 <p><img alt="smrt portal screenshot" src="./images/smrt6.png" /></p>
 <h2 id="output">Output</h2>
+<p>Click on the top right tab, <ss>View Data</ss>.</p>
 <ul>
-<li>Click on the top right tab, <ss>View Data</ss>.<ul>
 <li>Double click on the job name to open its reports.</li>
-</ul>
-</li>
 <li>Click on different <ss>Reports</ss> in the left hand panel.</li>
-<li>Click on <ss>Assembly &rarr; Pre-Assembly</ss><ul>
-<li>see <em>Length Cutoff</em> for the calcuated sequence read length that was used: shorter reads were mapped against reads of at least this length to make pre-assembled reads.</li>
-<li>see number of <em>Pre-Assembled Reads</em></li>
-<li>see average <em>Pre-Assembled Reads Length</em>    </li>
 </ul>
-</li>
-<li>Click on <ss>Assembly &rarr; Polished Assembly</ss>.<ul>
-<li>See how many <em>Polished Contigs</em> were found.</li>
-<li>See the <em>Max Contig Length</em>.</li>
-<li>Are there multiple contigs?</li>
-<li>Are some of these plasmids?</li>
+<p>[add screenshot for reports overview]</p>
+<p>Things to look at:</p>
+<p><strong>General: Filtering (polymerase reads)</strong></p>
+<ul>
+<li>number of reads post-filter</li>
+<li>read length (=average)</li>
 </ul>
-</li>
+<p><strong>General: Subread Filtering (subreads)</strong></p>
+<ul>
+<li>number of reads post-filter</li>
+<li>read length (average)</li>
 </ul>
-<!--   
-- Poor assembly?
-      - Does the sample require different assembly parameters?
-      - Does the sample require new sequencing? -->
-
+<p><strong>Assembly: Pre-Assembly (pre-assembled reads)</strong></p>
+<ul>
+<li>length cutoff (the computed minimum seed read length)</li>
+<li>read length (average)</li>
+</ul>
+<p><strong>Assembly: Corrections</strong></p>
+<p>Consensus calling results:</p>
+<ul>
+<li>Consensus concordance should be &gt; 99%.</li>
+</ul>
+<p>Graph: corrections across reference:</p>
+<ul>
+<li>With the first run of polishing, expect a lot of corrections but they should be randomly distributed.</li>
+</ul>
+<p><strong>Assembly: Top Corrections</strong></p>
+<p>This is a list of all the corrections made.</p>
+<ul>
+<li>If more than two corrections (with confidence &gt; 50), repeat polishing (see next section &ldquo;Further polishing&rdquo;).</li>
+</ul>
+<p><strong>Resequencing: Coverage</strong></p>
+<p>Coverage across reference:</p>
+<ul>
+<li>discard contigs &lt;20X coverage</li>
+<li>others should have fairly consistent coverage.</li>
+<li>spikes could be collapsed repeats.</li>
+<li>valleys could be mis-assembly - e.g. draft assembly was incorrect and so remapped reads didn&rsquo;t support this part of the assembly.</li>
+</ul>
+<p>Graph: Depth of Coverage:</p>
+<p><em>Number</em> of reference regions vs coverage. Should be roughly normal?</p>
+<p><strong>Assembly: Polished Assembly</strong></p>
+<ul>
+<li>number of contigs</li>
+<li>max contig length</li>
+<li>graph: confidence vs depth. multi-copy plasmids may have higher coverage.</li>
+</ul>
 <h2 id="further-polishing">Further Polishing</h2>
 <p>During polishing, raw reads are used to correct the assembly.
 During HGAP, the assembly was polished once but may need further corrections.</p>
@@ -306,22 +346,26 @@ During HGAP, the assembly was polished once but may need further corrections.</p
 <li>Click <ss>Save</ss> and <ss>Start</ss>.</li>
 </ul>
 </li>
-<li>Examine the output assembly and repeat if necessary.</li>
+<li>Examine the output assembly and repeat if necessary (e.g. if &gt; 2 corrections with &gt;50 confidence).</li>
 </ul>
-<!-- - When complete, see Reports.
-
-    - Variants: how many found? if less than 2, does not need any more polishing.
-    - If 2+ variants found, repeat the polishing step (including adding a new reference).
--->
-
-<!-- ## Next
-Correct with Illumina reads <link to tutorial> -->
-
+<h2 id="output_1">Output</h2>
+<p>Polished Assembly FASTA file</p>
+<p>=&gt; download to local computer; or</p>
+<p>=&gt; open file in (GVL) Galaxy (TBA); or</p>
+<p>=&gt; open file in GVL command line: and further analysis.</p>
+<h2 id="next">Next</h2>
+<p>Further options:</p>
+<ul>
+<li>correct with Illumina reads</li>
+<li>circularise</li>
+<li>annotate</li>
+</ul>
 <h2 id="links-to-more-information">Links to more information</h2>
 <p><a href="https://github.com/PacificBiosciences/DevNet/wiki/E.-coli-Bacterial-Assembly">PacBio <em>E. coli</em> data set</a></p>
 <p><a href="https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP">HGAP overview</a></p>
 <p><a href="http://files.pacb.com/software/smrtanalysis/2.3.0/doc/smrtportal/help/Webhelp/SMRT_Portal.htm">A full ist of reports and terminology</a></p>
-<p><a href="http://www.pacb.com/training/BacterialAssemblyandEpigeneticAnalysis/story.html">Video overview of HGAP on SMRT portal</a></p></div>
+<p><a href="http://www.pacb.com/training/BacterialAssemblyandEpigeneticAnalysis/story.html">Video overview of HGAP on SMRT portal</a></p>
+<p><a href="http://files.pacb.com/Training/IntroductiontoSMRTbellTemplatePreparation/story_content/external_files/Introduction%20to%20SMRTbell%E2%84%A2%20Template%20Preparation.pdf">More about the SMRT bell template</a></p></div>
         </div>
 
         <footer class="col-md-12">
