@@ -215,38 +215,68 @@
 <h2 id="quickstart-overview">Quickstart overview</h2>
 <p>A summary of the commands used in this example (not all directory changes and minor steps listed):</p>
 <p>(Note, filenames in this section and the next section are not yet finalised).</p>
-<pre><code class="bash">#join files and analyse with canu
+<p>example with Staph aureus. Sample 25745</p>
+<pre><code class="bash"># join files and analyse with canu
 cat pacbio* &gt; subreads.fastq.gz
-canu -p staph -d canu.default genomeSize=2.8m -pacbio-raw subreads.fastq.gz
+# gunzip
+# find info about read lengths
+fq subreads.fastq
+# average length is 10k; mode is 20k
+mkdir 01.canu
+cd 01.canu
+canu -p canu -d canu.default genomeSize=2.8m -pacbio-raw ../subreads.fastq.gz
+# examine how many contigs found and their lengths
+cd canu.default/
+fa -f canu.contigs.fasta
+# 1 chrm; 1 plasmid
+# if too many contigs found, repeat canu with sensitive options
 # use circlator to trim overhangs and orient start of assemblies
-circlator all --threads 72 --verbose ../staph.contigs.fasta ../staph.corrected.reads.fastq.gz circlator_all_output
+mkdir 02.circlator
+cd circlator
+# using a length cutoff of approx 2X mode read length
+circlator all --threads 72 --verbose --b2r_length_cutoff 40000 ../01.canu/canu.default/canu.contigs.fasta ../01.canu/canu.default/canu.correctedReads.fasta.gz circlator_all_output
+# check the output to see if contigs were circularised
+cd circlator_all_output
+less 04.merge.circularise.log
+# check where the contigs were oriented
+less 06.fixstart.log
+# look at new contig trimmed lengths
+fa -f 06.fixstart.fasta
+# rename file and copy up
+mv 06.fixstart.fasta canu.circlator.contigs.fa
 # use illumina reads to find smaller plasmids
+mkdir 03.find_smaller_plasmids
 bwa index ../canu.circlator.contig.fa
 bwa mem -t 32 ../canu.circlator.contig.fa ../R1 ../R2 | samtools sort &gt; aln.bam
 samtools index aln.bam
 samtools fastq -f 4 -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq aln.bam
 spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq -o spades_assembly
 # use sizeseq to find longest contig
-# blast start agains all; no overhang found
-# ncbi blastx hits a rep protein suggesting this is a small plasmid
-# assemble all illumina reads to find flanking regions
-spades-fast --R1 ../R1 --R2 ../R2 --gsize 2.8M --outdir spades_fast --cpus 32
-# view assembly_graph.fastg in bandagae and blast using the contig
-# it matches a node of length 2373: extract this node from the all-illumina contigs
-samtools faidx contigs.fasta
-samtools faidx contigs.fasta NODE_11_length_2373_cov_417.492 &gt; contig3b.fa
-# blast start against all to find overhang
-head -n 10 contig3b.fa &gt; contig3b.fa.head
-makeblastdb -in contig3b.fa -dbtype nucl
-blastn -query contig3b.fa.head -db contig3b.fa -evalue 1e-3 -dust no -out contig3b.bls
-samtools faidx contig3b.fa
-samtools faidx contig3b.fa contig3b:1-2252 &gt; contig3b_trimmed.fa
-# ncbi blast x: find this matches rep protein; save as nucleotides as rep_protein.fa
+# blast start agains all; if overhang found; trim
+
+    # if no overhang found: ncbi blastx hits a rep protein suggesting this is a small plasmid
+    # assemble all illumina reads to find flanking regions
+    # mkdir 04.all_illumina_spades
+    spades-fast --R1 ../R1 --R2 ../R2 --gsize 2.8M --outdir spades_fast --cpus 32
+    # view assembly_graph.fastg in bandagae and blast using the contig
+    # it matches a node of length 2373: extract this node from the all-illumina contigs
+    samtools faidx contigs.fasta
+    samtools faidx contigs.fasta NODE_11_length_2373_cov_417.492 &gt; contig3b.fa
+    # blast start against all to find overhang
+    head -n 10 contig3b.fa &gt; contig3b.fa.head
+    makeblastdb -in contig3b.fa -dbtype nucl
+    blastn -query contig3b.fa.head -db contig3b.fa -evalue 1e-3 -dust no -out contig3b.bls
+    samtools faidx contig3b.fa
+    samtools faidx contig3b.fa contig3b:1-2252 &gt; contig3b_trimmed.fa
+    # ncbi blast x: find this matches rep protein; save as nucleotides as rep_protein.fa
+
 # fixstart
 circlator fixstart --genes_fa rep_protein.fa contig3b_trimmed.fa fixstart
 # join all contigs and plasmids
 cat canu.circlator.contigs.fa small_plasmid.fa &gt; pre_pilon_staph.fa
 #run pilon to correct using illumina reads
+mkdir 05.pilon/
+cd 05.pilon/
 bwa index ../pre_pilon_staph.fa
 bwa mem -t 32 ../pre_pilon_staph.fa ../R1 ../R2 | samtools sort &gt; aln.bam
 samtools index aln.bam
@@ -254,6 +284,9 @@ samtools faidx ../pre_pilon_staph.fa
 pilon --genome ../pre_pilon_staph.fa --frags aln.bam --output pilon --fix all --mindepth 0.5 --changes --threads 32 --verbose
 #check the output: one large deletion - this is a tandem repeat in the pacbio assembly; unsupported by the illumina reads.
 # final assembly pilon.fasta changed name to staph_25745.fasta
+
+options:
+
 #re-orient larger plasmid, rather that use circlator's choice
 samtools faidx staph_25745.fasta
 samtools faidx staph_25745.fasta tig00000001_pilon &gt; large.plasmid.fa
