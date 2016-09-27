@@ -6,7 +6,7 @@ This tutorial will show you how to assemble a bacterial genome *de novo*, using 
 
 - will SMRT portal be available on all training GVLs
 - will students use existing SMRT portal registrations, or will each set up their own
-- PacBio data E coli to be loaded into SMRT portal(s) -->
+- PacBio data training data to be loaded into SMRT portal(s) -->
 
 
 ## Start
@@ -15,13 +15,17 @@ This tutorial will show you how to assemble a bacterial genome *de novo*, using 
 - Open up the SMRT portal web link (to the right) and register/log on.
 
 ## Input
-We will use a publicly available data-set of PacBio reads from the bacteria *E. coli* (reference link below).
+<!-- We will use a publicly available data-set of PacBio reads from the bacteria *E. coli* (reference link below).
+-->
+
+We will use a dataset from a *Streptococcus pyogenes* bacteria.
 
 If this has already been loaded onto SMRT portal (e.g. for use during a workshop), proceed to the next step ("Assembly").
 
+
 Otherwise:
 
-- Load the PacBio data (your own, or the training *E. coli* dataset) onto your GVL.
+- Load the PacBio data (your own, or the training dataset) onto your GVL.
 - In the SMRT Portal, go to <ss>Design Job</ss>, the top left tab.
 - Go to <ss>Import and Manage</ss>.
 ![smrt portal screenshot](images/image03.png)
@@ -39,13 +43,13 @@ Otherwise:
 - Under <ss>Protocols</ss> choose <ss>RS_HGAP_Assembly.3</ss>.
 - There is an ellipsis underneath <ss>Protocols</ss> - click on the ellipsis.
 
-![smrt portal screenshot](images/smrt1.png)
+![smrt portal screenshot](images/setup.png)
 
 This brings up the settings. Click on <ss>Assembly</ss>.
 
 - For <ss>Compute Minimum Seed Read Length</ss>: ensure box is ticked
 - For <ss>Number of Seed Read Chunks</ss>: enter *12*
-- Change the <ss>Genome Size</ss> to an approximately correct size for the species. For *E. coli*, enter 4600000.
+- Change the <ss>Genome Size</ss> to an approximately correct size for the species. For *S. pyogenes*, enter 1800000.
 - For <ss>Target Coverage</ss>: enter *10*
 - For <ss>Overlapper Error Rate</ss>: enter *0.04*
 - Leave all other settings as they are.
@@ -53,7 +57,7 @@ This brings up the settings. Click on <ss>Assembly</ss>.
 
  Your protocol window should look like this:
 
-![smrt portal screenshot](images/image02.png)
+![smrt portal screenshot](images/assembly_options.png)
 
 - Click <ss>Ok</ss>.  
 
@@ -68,14 +72,12 @@ This brings up the settings. Click on <ss>Assembly</ss>.
 
 ![smrt portal screenshot](images/smrt6.png)
 
-## Output
+## Results
 
-Click on the top right tab, <ss>View Data</ss>.
+If the job is still running, click on the centre tab <ss>Monitor Jobs</ss>. Otherwise, click on the top right tab, <ss>View Data</ss>.
 
 - Double click on the job name to open its reports.
 - Click on different <ss>Reports</ss> in the left hand panel.
-
-[add screenshot for reports overview]
 
 Things to look at:
 
@@ -102,7 +104,7 @@ Consensus calling results:
 
 Graph: corrections across reference:
 
-- With the first run of polishing, expect a lot of corrections but they should be randomly distributed.
+- With the first run of polishing, we expect a lot of corrections but they should be randomly distributed.
 
 **Assembly: Top Corrections**
 
@@ -121,7 +123,7 @@ Coverage across reference:
 
 Graph: Depth of Coverage:
 
-*Number* of reference regions vs coverage. Should be roughly normal?
+*Number* of reference regions vs coverage. <!-- Should be roughly normal? -->
 
 **Assembly: Polished Assembly**
 
@@ -148,16 +150,13 @@ During HGAP, the assembly was polished once but may need further corrections.
 
 ##Output
 
-Polished Assembly FASTA file
+The polished assembly as a FASTA file.
 
-=> download to local computer; or
-
-=> open file in (GVL) Galaxy (TBA); or
-
-=> open file in GVL command line: and further analysis.
+- download to local computer; or
+- open file in (GVL) Galaxy; or
+- open file in GVL command line: and perform further analysis.
 
 ##Next
-
 Further options:
 
 - correct with Illumina reads
