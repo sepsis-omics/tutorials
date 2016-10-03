@@ -119,12 +119,6 @@
 </li>
 
                     
-                        
-<li >
-    <a href="../cmdline_prokka/">Annotation using command line tools</a>
-</li>
-
-                    
                     </ul>
                 </li>
             
@@ -187,11 +181,11 @@
         
             <li><a href="#assembly">Assembly</a></li>
         
-            <li><a href="#output">Output</a></li>
+            <li><a href="#results">Results</a></li>
         
             <li><a href="#further-polishing">Further Polishing</a></li>
         
-            <li><a href="#output_1">Output</a></li>
+            <li><a href="#output">Output</a></li>
         
             <li><a href="#next">Next</a></li>
         
@@ -208,7 +202,7 @@
 
 - will SMRT portal be available on all training GVLs
 - will students use existing SMRT portal registrations, or will each set up their own
-- PacBio data E coli to be loaded into SMRT portal(s) -->
+- PacBio data training data to be loaded into SMRT portal(s) -->
 
 <h2 id="start">Start</h2>
 <ul>
@@ -217,11 +211,14 @@
 <li>Open up the SMRT portal web link (to the right) and register/log on.</li>
 </ul>
 <h2 id="input">Input</h2>
-<p>We will use a publicly available data-set of PacBio reads from the bacteria <em>E. coli</em> (reference link below).</p>
+<!-- We will use a publicly available data-set of PacBio reads from the bacteria *E. coli* (reference link below).
+-->
+
+<p>We will use a dataset from a <em>Streptococcus pyogenes</em> bacteria.</p>
 <p>If this has already been loaded onto SMRT portal (e.g. for use during a workshop), proceed to the next step (&ldquo;Assembly&rdquo;).</p>
 <p>Otherwise:</p>
 <ul>
-<li>Load the PacBio data (your own, or the training <em>E. coli</em> dataset) onto your GVL.</li>
+<li>Load the PacBio data (your own, or the training dataset) onto your GVL.</li>
 <li>In the SMRT Portal, go to <ss>Design Job</ss>, the top left tab.</li>
 <li>Go to <ss>Import and Manage</ss>.
 <img alt="smrt portal screenshot" src="./images/image03.png" /></li>
@@ -242,19 +239,19 @@
 <li>Under <ss>Protocols</ss> choose <ss>RS_HGAP_Assembly.3</ss>.</li>
 <li>There is an ellipsis underneath <ss>Protocols</ss> - click on the ellipsis.</li>
 </ul>
-<p><img alt="smrt portal screenshot" src="./images/smrt1.png" /></p>
+<p><img alt="smrt portal screenshot" src="./images/setup.png" /></p>
 <p>This brings up the settings. Click on <ss>Assembly</ss>.</p>
 <ul>
 <li>For <ss>Compute Minimum Seed Read Length</ss>: ensure box is ticked</li>
 <li>For <ss>Number of Seed Read Chunks</ss>: enter <em>12</em></li>
-<li>Change the <ss>Genome Size</ss> to an approximately correct size for the species. For <em>E. coli</em>, enter 4600000.</li>
+<li>Change the <ss>Genome Size</ss> to an approximately correct size for the species. For <em>S. pyogenes</em>, enter 1800000.</li>
 <li>For <ss>Target Coverage</ss>: enter <em>10</em></li>
 <li>For <ss>Overlapper Error Rate</ss>: enter <em>0.04</em></li>
 <li>Leave all other settings as they are.</li>
 <li>Click <ss>Apply</ss></li>
 </ul>
 <p>Your protocol window should look like this:</p>
-<p><img alt="smrt portal screenshot" src="./images/image02.png" /></p>
+<p><img alt="smrt portal screenshot" src="./images/assembly_options.png" /></p>
 <ul>
 <li>
 <p>Click <ss>Ok</ss>.  </p>
@@ -273,13 +270,12 @@
 </li>
 </ul>
 <p><img alt="smrt portal screenshot" src="./images/smrt6.png" /></p>
-<h2 id="output">Output</h2>
-<p>Click on the top right tab, <ss>View Data</ss>.</p>
+<h2 id="results">Results</h2>
+<p>If the job is still running, click on the centre tab <ss>Monitor Jobs</ss>. Otherwise, click on the top right tab, <ss>View Data</ss>.</p>
 <ul>
 <li>Double click on the job name to open its reports.</li>
 <li>Click on different <ss>Reports</ss> in the left hand panel.</li>
 </ul>
-<p>[add screenshot for reports overview]</p>
 <p>Things to look at:</p>
 <p><strong>General: Filtering (polymerase reads)</strong></p>
 <ul>
@@ -303,7 +299,7 @@
 </ul>
 <p>Graph: corrections across reference:</p>
 <ul>
-<li>With the first run of polishing, expect a lot of corrections but they should be randomly distributed.</li>
+<li>With the first run of polishing, we expect a lot of corrections but they should be randomly distributed.</li>
 </ul>
 <p><strong>Assembly: Top Corrections</strong></p>
 <p>This is a list of all the corrections made.</p>
@@ -319,7 +315,7 @@
 <li>valleys could be mis-assembly - e.g. draft assembly was incorrect and so remapped reads didn&rsquo;t support this part of the assembly.</li>
 </ul>
 <p>Graph: Depth of Coverage:</p>
-<p><em>Number</em> of reference regions vs coverage. Should be roughly normal?</p>
+<p><em>Number</em> of reference regions vs coverage. <!-- Should be roughly normal? --></p>
 <p><strong>Assembly: Polished Assembly</strong></p>
 <ul>
 <li>number of contigs</li>
@@ -348,11 +344,13 @@ During HGAP, the assembly was polished once but may need further corrections.</p
 </li>
 <li>Examine the output assembly and repeat if necessary (e.g. if &gt; 2 corrections with &gt;50 confidence).</li>
 </ul>
-<h2 id="output_1">Output</h2>
-<p>Polished Assembly FASTA file</p>
-<p>=&gt; download to local computer; or</p>
-<p>=&gt; open file in (GVL) Galaxy (TBA); or</p>
-<p>=&gt; open file in GVL command line: and further analysis.</p>
+<h2 id="output">Output</h2>
+<p>The polished assembly as a FASTA file.</p>
+<ul>
+<li>download to local computer; or</li>
+<li>open file in (GVL) Galaxy; or</li>
+<li>open file in GVL command line: and perform further analysis.</li>
+</ul>
 <h2 id="next">Next</h2>
 <p>Further options:</p>
 <ul>
