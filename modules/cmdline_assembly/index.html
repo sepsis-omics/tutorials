@@ -355,7 +355,20 @@ mv longfilename_R2.fastq.gz R2.fastq.gz
 <pre><code>circlator all --verbose ../staph.contigs.fasta ../staph.corrected.reads.fastq.gz circlator_all_output
 </code></pre>
 
+<ul>
+<li>
+<p><strong>- -verbose</strong> prints progress information to the screen</p>
+</li>
+<li>
+<p><strong>../staph.contigs.fasta</strong> is the file path to the input multi-fasta assembly</p>
+</li>
+<li>
+<p><strong>../staph.corrected.reads.fastq.gz</strong> is the file path to the corrected pacbio reads</p>
+</li>
+<li>
 <p><strong>circlator_all_output</strong> is the name of the output directory.</p>
+</li>
+</ul>
 <p>Check the output: contig sizes, whether they were circularised, trimmed and the start position chosen.</p>
 <pre><code>less 04.merge.circularise.log
 less 06.fixstart.log
@@ -364,183 +377,6 @@ less 06.fixstart.log
 <p>The trimmed contigs are in the file called <fn>06.fixstart.fasta</fn>. Re-name it <fn>contig_1_2.fa</fn>:</p>
 <pre><code>mv 06.fixstart.fasta contig_1_2.fa
 </code></pre>
-
-<!--
-###Separate the contigs into single files
-- Index the contigs file:
-
-wzxhzdk:16
-
-- this makes an indexed file with the suffix -fai
-- send each contig to a new file:
-
-wzxhzdk:17
-
-- change contig names:
-
-wzxhzdk:18
-
-- change header to >contig1 or >contig2
-- save
-- We now have two files:
-    - <fn>contig1.fa</fn> : the chromosome
-    - <fn>contig2.fa</fn> : a plasmid
-
--->
-
-<!-- ###What is in the unassembled reads?
-
-- Are they contaminants?
-- Blast against NCBI
-    - Use Cyberduck to transfer the file to your local computer
-    - Go to NCBI and upload the file
-    - (doesn't work with this file - too big)
-    - (or: explain how to do so on command line?)
--->
-
-<!--## Alternatives for assembly
-- canu without sensitivity settings
-- HGAP2
-
-##Use Quiver/Arrow here?
-
-to correct assembly with the raw reads.
--->
-
-<!---
-## Trim - manuallly
-
-The bacterial chromosome and plasmids are circular.
-
-The canu assembly graph will be split at an ambiguous/unstable node. However, this area of the graph likely overlaps in the bacterial chromosome, but has not aligned with itself completely. This is called an overhang. We need to identify these overhangs and trim them, for the chromosome and any plamsids.
-### Chromosome: identify overhang
-- Take the first 30,000 bases of contig1.
-
-wzxhzdk:19
-
-- this is the start of the assembly
-- we want to see if it matches the end (overhang)
-- format the assembly file for blast:
-
-wzxhzdk:20
-
-- blast the start of the assembly (.head file) against all of the assembly:
-
-wzxhzdk:21
-
-- look at <fn>contig1.bls</fn> to see hits:
-
-wzxhzdk:22
-
-- The first hit is against the start of the chromosome, as expected.
-- To find the next hit, type:
-
-wzxhzdk:23
-
-then
-
-wzxhzdk:24
-
-to scroll through the remaining hits.
-
-- The next hit is from position 2,725,223 until the end of the chromosome (position 2,746,242).
-
-![screeshot of blast](images/blast_chrm.png)
-
-- Therefore, the overhang starts at position 2,725,233 and we can trim the contig to this position minus 1.
-### Chromosome: trim
-- First, index the <fn>contig1.fa</fn> file
-
-wzxhzdk:25
-
-- this makes an index file called <fn>contig1.fa.fai</fn>
-- next, extract all the sequence except for the overhang. (We don't have to specify the name of the *index* file; it will be found automatically):
-
-wzxhzdk:26
-
-- open the <fn>contig1.fa.trimmed</fn> file
-
-wzxhzdk:27
-
-- delete the header info except contig name (e.g. contig1)
-- save, exit.
-- we now have a trimmed contig1.
-### Plasmid: examine
-- Contig 2 is 48,500 bases.
-- This seems long for a plasmid in this species.
-- Do a dot plot to examine the sequence.
-###Transfer file to local computer
-- Use Cyberduck to copy <fn>contig2.fa</fn> to your local computer
-    - Install Cyberduck
-    - Open Cyberduck
-    - click on "open connection"
-    - choose SFTP from drop down menu
-    - server = your virtual machine IP address (e.g. abrpi.genome.edu.au)
-    - username = your username
-    - password = your password
-    - You should now see a window showing the folders and files on your virtual machine.
-    - You can drag and drop files into the preferred folder.
-###View dot plot
-- Install Gepard
-- Open Gepard
-- Sequences - sequence 1 - select file - <fn>contig2.fa</fn>
-- Sequences - sequence 2 - select file - <fn>contig2.fa</fn>
-- Create dotplot
-![Gepard dotplot screenshot](images/gepard_contig2.png)
-- the sequence starts to repeat at position 24880
-- there are probably two plasmids combined into one contig in tandem.
-- the whole length is 48500
-- we will cut 10,000 from each end
-
-###Trim plasmid
-- use samtools to extract the region of the contig except for 10k on each end
-
-wzxhzdk:28
-
-- we now have a ~ 28500 bases plasmid
-
-wzxhzdk:29
-
-- delete the rest of the name after >contig2
-###Trim overhang in the plasmid
-
-- Take the first x bases:
-
-wzxhzdk:30
-
-- this is the start of the assembly
-- we want to see if it matches the end (overhang)
-- format the assembly file for blast:
-
-wzxhzdk:31
-
-- blast the start of the assembly against all of the assembly:
-
-wzxhzdk:32
-
-- look at contig2.bls to see hits:
-
-wzxhzdk:33
-
-- The first hit is against the start of the chromosome, as expected.
-- The last hit starts at position 24886.
-- We will trim the plasmid to position 24885
-- first, index the contig2.fa.half file
-
-wzxhzdk:34
-
-- trim
-
-wzxhzdk:35
-
-- open the contig2.fa.half.trimmed file
-
-wzxhzdk:36
-
-- delete the header info except contig name (e.g. contig2)
-exit.
-- we now have a trimmed contig2.
---->
 
 <h2 id="find-smaller-plasmids">Find smaller plasmids</h2>
 <p>Pacbio reads are long, and may have been longer than small plasmids. We will look for any small plasmids using the Illumina reads.</p>
@@ -556,20 +392,6 @@ exit.
 <li>Extract this longer sequence from the Illumina assembly: this is the small plasmid.</li>
 <li>Check for overhang in this plasmid and trim.</li>
 </ol>
-<!-- combine contigs 1 and 2
-take chr and plasmid => one fasta file
-
-wzxhzdk:37
-
-
-wzxhzdk:38
-
-- Make directory and move in combined contigs file and the illumina reads
-
-wzxhzdk:39
-
--->
-
 <h3 id="align-illumina-with-bwa">Align Illumina with BWA</h3>
 <ul>
 <li>Align illumina reads to these contigs</li>
@@ -585,12 +407,13 @@ take chr and plasmid => one fasta file
 </code></pre>
 
 <ul>
-<li>the output alignment is <fn>aln.bam</fn></li>
+<li><strong>bwa mem</strong> is the alignment tool</li>
+<li><strong>-t 8</strong> is the number of cores</li>
+<li><strong>contig_1_3.fa</strong> is the input assembly file</li>
+<li><strong>R1.fastq.gz R2.fastq.gz</strong> are the Illumina reads</li>
+<li><strong> | samtools sort</strong> pipes the output to samtools to sort</li>
+<li><strong>&gt; aln.bam</strong> sends the alignment to the file <fn>aln.bam</fn></li>
 </ul>
-<!--
-###Or align with bowtie2
--->
-
 <h3 id="extract-unmapped-illlumina-reads">Extract unmapped illlumina reads</h3>
 <ul>
 <li>Index the alignment file</li>
@@ -603,17 +426,6 @@ take chr and plasmid => one fasta file
 </ul>
 <pre><code>samtools fastq -f 4 -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq aln.bam
 </code></pre>
-
-<!--
-- check R1 and R2 are approx same size:
-
-wzxhzdk:44
-
-- check first reads have same name in R1 and R2:
-
-wzxhzdk:45
-
--->
 
 <ul>
 <li>we now have three files of the unampped reads:</li>
@@ -749,7 +561,9 @@ samtools faidx sorted_contigs.fasta NODE_1_length_2229_cov_610.583 &gt; contig3.
 <img alt="bandage pic" src="./images/illumina_assembly_bandage.png" /></li>
 </ul>
 </li>
-<li>Blast the small plasmid sequence in this assembly<ul>
+<li>
+<p>Blast the small plasmid sequence in this assembly</p>
+<ul>
 <li>In the left hand panel: Blast: create/view BLAST search</li>
 <li>Build blast database</li>
 <li>Paste in the sequence of contig3</li>
@@ -757,13 +571,9 @@ samtools faidx sorted_contigs.fasta NODE_1_length_2229_cov_610.583 &gt; contig3.
 <li>The main hit is around node 10.</li>
 </ul>
 </li>
-</ul>
-<!--- - there are two hits
-this is probably due to overhang? eg this is where the plasmid overhang occurs and this is where it would later be trimmed?
---->
-
+<li>
+<p>Go to the main Bandage window</p>
 <ul>
-<li>Go to the main Bandage window<ul>
 <li>&ldquo;find nodes&rdquo; in right hand panel - 10</li>
 <li>This node is slightly longer: 2373: this could be the plasmid</li>
 <li>Extract this node in fasta format: In the top panel, go to Output: Save selected node sequences; save as <fn>contig3b.fa</fn></li>
@@ -810,8 +620,7 @@ less contig3b.bls
 </code></pre>
 
 <h2 id="correct">Correct</h2>
-<p><!-- check: Canu doesn't do any polishing, so there will be thousands of errors, almost all insertions. -->
-We will correct the pacbio assembly, first with pacbio corrected reads (from Canu) and then with Illumina reads.</p>
+<p>We will correct the pacbio assembly, first with pacbio corrected reads (from Canu) and then with Illumina reads.</p>
 <ul>
 <li>inputs:<ul>
 <li>Draft pacbio assembly (overhang trimmed from each of the three replicons)</li>
@@ -830,11 +639,14 @@ samtools faidx all_contigs.fa
 </code></pre>
 
 <ul>
-<li><strong>-t</strong> is the number of cores (e.g. 8); to find out how many you have, grep -c processor /proc/cpuinfo</li>
+<li><strong>-t</strong> is the number of cores (e.g. 8)<ul>
+<li>to find out how many you have, grep -c processor /proc/cpuinfo</li>
+</ul>
+</li>
 <li>now we have an alignment file to use in pilon: <fn>aln.bam</fn></li>
 </ul>
 <p>Run pilon:</p>
-<pre><code class="bash">pilon --genome all_contigs.fa --frags aln.bam --output corrected --fix all --mindepth 0.5 --changes --threads 32 --verbose
+<pre><code class="bash">pilon --genome all_contigs.fa --frags aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --threads 32 --verbose
 </code></pre>
 
 <ul>
@@ -848,7 +660,7 @@ samtools faidx all_contigs.fa
 <li><strong>&ndash;verbose</strong> prints information to the screen during the run</li>
 </ul>
 <p>Look at the .changes file:</p>
-<pre><code class="bash">less corrected.changes | column -t
+<pre><code class="bash">less pilon1.changes | column -t
 </code></pre>
 
 <ul>
@@ -856,244 +668,42 @@ samtools faidx all_contigs.fa
 </ul>
 <p><img alt="Pilon" src="./images/pilon.png" /></p>
 <ul>
-<li>look at the .fasta file.</li>
+<li>Look at the details of the .fasta file:</li>
 </ul>
-<h3 id="align-illumina-reads-bam">Align Illumina reads =&gt; bam</h3>
-<p>used the corrected assembly from the previous step:</p>
-<pre><code>bwa index all_contigs.fa
-bwa mem -t 32 all_contigs.fa R1.fastq.gz R2.fastq.gz | samtools sort &gt; aln.bam
+<pre><code>fa -f pilon1.fasta
+</code></pre>
+
+<h3 id="2-correct-with-illumina-reads">2. Correct with Illumina reads</h3>
+<p>Input: the corrected assembly from the previous step: <fn>pilon1.fasta</fn></p>
+<p>Align the Illumina reads to this assembly:</p>
+<pre><code>bwa index pilon1.fasta
+bwa mem -t 32 pilon1.fasta R1.fastq.gz R2.fastq.gz | samtools sort &gt; aln.bam
 samtools index aln.bam
-samtools faidx all_contigs.fa
+samtools faidx pilon1.fasta
 </code></pre>
 
-<ul>
-<li>look at how the illumina reads are aligned:</li>
-</ul>
-<pre><code>samtools tview -p contig1 aln.bam all_contigs.fa
+<p>Look at how the illumina reads are aligned:</p>
+<pre><code>samtools tview -p contig1 aln.bam pilon1.fasta
 </code></pre>
 
-<!--
-contigs & bam => pilon => corrected contigs
-don't run on things with lots (10+) of contigs, but 1 or 2 is ok
--->
-
-<ul>
-<li>run pilon:</li>
-</ul>
-<pre><code class="bash">pilon --genome all_contigs.fa --frags aln.bam --output corrected --fix bases --mindepth 0.5 --changes --threads 32 --verbose
+<p>note: <strong>contig1</strong> is the name of the contig to view; e.g. tig00000000.</p>
+<p>Run pilon:</p>
+<pre><code class="bash">pilon --genome pilon1.fa --frags aln.bam --output pilon2 --fix all --mindepth 0.5 --changes --threads 32 --verbose
 </code></pre>
 
-<ul>
-<li>look at the changes file</li>
-</ul>
-<pre><code class="bash">less corrected.changes
+<p>Look at the changes file:</p>
+<pre><code class="bash">less pilon1.changes
 </code></pre>
 
-<ul>
-<li>
-<p>look at the .fasta file.</p>
-</li>
-<li>
-<p>option: re run pilon to correct again.</p>
-</li>
-</ul>
+<p>Look at the .fasta file:</p>
+<pre><code>less pilon2.fasta
+</code></pre>
+
+<p>If there are more than 2 changes, run Pilon again, using the pilon2.fasta file as the input assembly, and the Illumina reads to correct.</p>
 <p><strong>Final output:</strong></p>
 <ul>
 <li>the corrected genome assembly of <em>Staphylococcus aureus</em> in .fasta format, containing three contigs: chromosome, large plasmid and small plasmid.  </li>
 </ul>
-<!--
--but there are some bigger ones.
-    - e.g. at position 2,463,699 there is a 23-bp seq that is deleted.
-
-###View the deletion in a pileup
-
-tig00000000:2463600-2463622 tig00000000_pilon:2463699 GTTAAAGGTTATTTGAATGATCA .
-
-- view the illumina reads mapped against the original assembly:
-
-wzxhzdk:71
-
-
-- -p gives the chromosome position that we want to view
-- then input file; then reference file
-
-view:
-- reference sequence along the top
-- then consensus from the aligned illumina reads
-- a dot is a match on F
-- a comma is a match on R
-- capital letter is a correction on F
-- small letter is a correction on R
-- asterisk
-- underlining
-
-view in IGV:
-- transfer aln.bam, aln.bam.bai, contigs.fa, contigs.fa.fai to local computer
-- open IGV
-- File - genomes - load genome from file: contigs
-- File - load from file - aln.bam file
-- select the main chromosome eg tig00000000
-- go to coordinate 2463600
-- there is a dip in coverage here.
-- pilon has identified this as a local misassembly and has deleted this section in the corrected assembly
-
-![IGV screenshot](images/IGV_first_pilon_correction.png)
-
-- output:corrected assembly
-
-- re run pilon to correct again.
-    - but this time, the reference is the first pilon correction
-
-
-wzxhzdk:72
-
-
-- separate into three fasta files
-
--->
-
-<!--
-###or, use Bowtie for alignment
-
-index the fasta file
-
-
-wzxhzdk:73
-
-
-input file
-output ref name
-
-align:
-
-
-wzxhzdk:74
-
-
-- "bowtie" means use the index files that were generated above that we called bowtie
-- use 72 threads on mdu but <8 on sepsis
-- then index the bam file
-
-wzxhzdk:75
-
-
-- then view in tview
-
-wzxhzdk:76
-
-<!--
-###or use BLASR for alignment: pacbio reads to pacbio assembly
-
-(in MDU marvin)
-
-wzxhzdk:77
-
-
-blasr subreads.fastq all_contigs.fa -nproc 72 -sam | samtools sort > blasr_aln.bam
-samtools index blasr_aln.bam
-samtools faidx all_contigs.fa
-samtools tview -p tig00000000:2463600 blasr_aln.bam all_contigs.fa
-
-###or align pacbio reads to pacbio assembly with bwa mem
-
-canu: pacbio corrected reads
-bwa mem
-align to pacbio assembly
-
-
-bam index all_contigs.fasta
-
-bwa mem -t 72 all_contigs.fa staph.correctedReads.fasta | samtools sort > pacbio_aln.bam
-
-
-(leave out -x pacbio option as these are corrected reads)
---->
-
-<!--
-
-##Examine 23bp
-
-align corrected pacbio reads to pacbio assembly
-
-make a 23bp seq
-
-
-wzxhzdk:78
-
-
-paste in the seq
-
--->
-
-<!--
-
-### Split into three final contigs
-
-- Examine the all_contigs.fa file
-
-wzxhzdk:79
-
-- contig1   dna 2725158
-- contig2   dna 24884
-- contig3b  dna 2252
-- split these
-
-wzxhzdk:80
-
-
-##Circularise
-corrected contigs => circlator => circular genome (e.g. starting at dnaA)
-
-###Chromosome
-
-
-wzxhzdk:81
-
-
-circlator fixstart chromosome.fa chrm
-
-
-
-default: orients at DNAa
-
-=> circular, corrected assembly
-
-###Plasmid 1
-
-blast against ncbi
-find hit
-what have they done
-download the start of their assembly (may be a gene or may be tandem repeats etc. )
-
-
-wzxhzdk:82
-
-
-
- -or, whatever has been done with the plasmid it most closely blast matches to
-eg
-  https://www.ncbi.nlm.nih.gov/nucleotide/260066114?report=genbank&log$=nuclalign&blast_rank=1&RID=WTK2RJSZ014
-
-
-need to download
-
-###Plasmid 2
-
--->
-
-<!--
-##Quickstart overview
-A summary of the commands used in this example (not all directory changes and minor steps listed):
-
-(Note, filenames in this section and the next section are not yet finalised).
-
-example with Staph aureus. Sample 25745
-
-wzxhzdk:83
-
-
--->
-
 <h2 id="next">Next</h2>
 <p><strong>Further analyses:</strong></p>
 <ul>
@@ -1101,29 +711,12 @@ example with Staph aureus. Sample 25745
 <li>Comparative genomics, e.g. with Roary.</li>
 </ul>
 <p><strong>Links:</strong></p>
-<p>Canu</p>
 <ul>
-<li><a href="http://canu.readthedocs.io/en/stable/quick-start.html">Canu manual</a></li>
-<li><a href="https://github.com/marbl/canu">Canu code</a></li>
-</ul>
-<p>Circlator</p>
-<ul>
-<li>http://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0849-0</li>
-<li>http://sanger-pathogens.github.io/circlator/</li>
-</ul>
-<p>Pilon</p>
-<ul>
-<li><a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0112963">Pilon article</a></li>
-<li><a href="https://github.com/broadinstitute/pilon/wiki">Pilon on github</a></li>
-</ul>
-<p>Finishing</p>
-<ul>
-<li>https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Finishing-Bacterial-Genomes</li>
-<li>https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies</li>
-</ul>
-<p>Details of bas.h5 files</p>
-<ul>
-<li>https://s3.amazonaws.com/files.pacb.com/software/instrument/2.0.0/bas.h5+Reference+Guide.pdf</li>
+<li><a href="https://s3.amazonaws.com/files.pacb.com/software/instrument/2.0.0/bas.h5+Reference+Guide.pdf">Details of bas.h5 files</a></li>
+<li>Canu <a href="http://canu.readthedocs.io/en/stable/quick-start.html">manual</a> and <a href="https://github.com/marbl/canu">gitub repository</a></li>
+<li>Circlator <a href="http://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0849-0">article</a> and <a href="http://sanger-pathogens.github.io/circlator/">github repository</a></li>
+<li>Pilon <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0112963">article</a> and <a href="https://github.com/broadinstitute/pilon/wiki">github repository</a></li>
+<li>Notes on <a href="https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Finishing-Bacterial-Genomes">finishing</a> and <a href="https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies">evaluating</a> assemblies.</li>
 </ul>
 <h2 id="commands-summary">Commands summary <a name="summary"></a></h2>
 <pre><code class="bash">//get the sequencing reads
