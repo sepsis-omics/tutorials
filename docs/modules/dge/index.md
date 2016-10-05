@@ -307,10 +307,7 @@ Some of the most (statistically) significant differentially-expressed genes in t
 - [sucB](http://www.ncbi.nlm.nih.gov/gene/945307): a component of the 2-oxoglutarate dehydrogenase complex; catalyzes a step in the Krebs cycle.
 - [deoC](http://www.ncbi.nlm.nih.gov/gene/948902): 2-deoxyribose-5-phosphate aldolase; binds selenium; may be involved in selenium transport.
 
-Next steps: Investigate the biochemical pathways involving the genes of interest, using resources such as:
-
-- [KEGG pathways](http://www.genome.jp/kegg/pathway.html)
-- [Gene Set Enrichment Analysis](http://software.broadinstitute.org/gsea/index.jsp)
+Next steps: Investigate the biochemical pathways involving the genes of interest.
 
 ## More information
 
