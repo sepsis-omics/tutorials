@@ -173,7 +173,7 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#pacbio-reads-assembly-with-command-line-tools">PacBio reads: assembly with command line tools</a></li>
+        <li class="main active"><a href="#pacbio-reads-assembly-with-command-line-tools">Pacbio reads: assembly with command line tools</a></li>
         
             <li><a href="#learning-objectives">Learning objectives</a></li>
         
@@ -196,13 +196,13 @@
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="pacbio-reads-assembly-with-command-line-tools">PacBio reads: assembly with command line tools</h1>
-<p>This tutorial demonstrates how to use long PacBio sequence reads to assemble a bacterial genome and plasmids, including correcting the assembly with short Illumina reads. The last section contains a <a href="#summary">summary</a> of the main commands used.</p>
+<h1 id="pacbio-reads-assembly-with-command-line-tools">Pacbio reads: assembly with command line tools</h1>
+<p>This tutorial demonstrates how to use long Pacbio sequence reads to assemble a bacterial genome and plasmids, including correcting the assembly with short Illumina reads. The last section contains a <a href="#summary">summary</a> of the main commands used.</p>
 <h2 id="learning-objectives">Learning objectives</h2>
 <p>At the end of this tutorial, be able to use command line tools to produce a bacterial genome assembly using the following workflow:</p>
 <ol>
 <li>get data</li>
-<li>assemble long (PacBio) reads</li>
+<li>assemble long (Pacbio) reads</li>
 <li>trim overhangs and circularise</li>
 <li>search for smaller plasmids</li>
 <li>correct with short (Illumina) reads</li>
@@ -213,42 +213,42 @@
 <li>Navigate to or create the directory in which you want to work.
 e.g.</li>
 </ul>
-<pre><code>mkdir staph
+<pre><code class="text">mkdir staph
 cd staph
 </code></pre>
 
-<h3 id="find-the-pacbio-files-for-this-sample">Find the PacBio files for this sample</h3>
+<h3 id="find-the-pacbio-files-for-this-sample">Find the Pacbio files for this sample</h3>
 <ul>
 <li>If the files are already on your server, you can symlink by using</li>
 </ul>
-<pre><code>ln -s real_file_path chosen_symlink_name
+<pre><code class="text">ln -s real_file_path chosen_symlink_name
 </code></pre>
 
 <ul>
 <li>Alternatively, obtain the input files from elsewhere, e.g. from the BPA portal. (You will need a password.)</li>
-<li>PacBio files are often stored in the format: Sample_name/Cell_name/Analysis_Results/long_file_name_1.fastq.gz</li>
+<li>Pacbio files are often stored in the format: Sample_name/Cell_name/Analysis_Results/long_file_name_1.fastq.gz</li>
 <li>We will use the <fn>longfilename.subreads.fastq.gz</fn> files.</li>
 <li>The reads are usually split into three separate files because they are so large.</li>
 <li>Right click on the first <fn>subreads.fastq.gz</fn> file and &ldquo;copy link address&rdquo;.</li>
 <li>In the command line, type:</li>
 </ul>
-<pre><code class="bash">wget --user username --password password [paste link URL for file]
+<pre><code class="text">wget --user username --password password [paste link URL for file]
 </code></pre>
 
 <ul>
 <li>Repeat for the other two <fn>subreads.fastq.gz</fn> files.</li>
 </ul>
-<h3 id="join-pacbio-fastq-files">Join PacBio fastq files</h3>
+<h3 id="join-pacbio-fastq-files">Join Pacbio fastq files</h3>
 <ul>
 <li>If the files are gzipped, type:</li>
 </ul>
-<pre><code>cat filepath/filep0.*.subreads.fastq.gz &gt; subreads.fastq.gz
+<pre><code class="text">cat filepath/filep0.*.subreads.fastq.gz &gt; subreads.fastq.gz
 </code></pre>
 
 <ul>
 <li>If the files are not gzipped, type:</li>
 </ul>
-<pre><code>cat filepath/filep0.*.subreads.fastq | gzip &gt; subreads.fastq.gz
+<pre><code class="text">cat filepath/filep0.*.subreads.fastq | gzip &gt; subreads.fastq.gz
 </code></pre>
 
 <ul>
@@ -261,14 +261,14 @@ cd staph
 <li>Right click on the file name and &ldquo;copy link address&rdquo;.</li>
 <li>In the command line, type:</li>
 </ul>
-<pre><code>wget --user username --password password [paste link URL for file]
+<pre><code class="text">wget --user username --password password [paste link URL for file]
 </code></pre>
 
 <ul>
 <li>Repeat for the other read.fastq.gz file.</li>
 <li>Shorten the name of each of these files:</li>
 </ul>
-<pre><code>mv longfilename_R1.fastq.gz R1.fastq.gz
+<pre><code class="text">mv longfilename_R1.fastq.gz R1.fastq.gz
 mv longfilename_R2.fastq.gz R2.fastq.gz
 </code></pre>
 
@@ -276,16 +276,23 @@ mv longfilename_R2.fastq.gz R2.fastq.gz
 <ul>
 <li>Type &ldquo;ls&rdquo; to display the folder contents.</li>
 </ul>
-<pre><code>ls
+<pre><code class="text">ls
+</code></pre>
+
+<ul>
+<li>The 3 files we will use in this analysis are:<ul>
+<li><fn>subreads.fastq.gz</fn> (the Pacbio reads)</li>
+<li><fn>R1.fastq.gz</fn> and <fn>R2.fastq.gz</fn> (the Illumina reads)</li>
+</ul>
+</li>
+</ul>
+<p>Find information about read lengths:</p>
+<pre><code class="text">fq subreads.fastq.gz
 </code></pre>
 
 <ul>
 <li>
-<p>The 3 files we will use in this analysis are:</p>
-<ul>
-<li><fn>subreads.fastq.gz</fn> (the PacBio reads)</li>
-<li><fn>R1.fastq.gz</fn> and <fn>R2.fastq.gz</fn> (the Illumina reads)</li>
-</ul>
+<p>Look at the average and maximum lengths.</p>
 </li>
 <li>
 <p>In this tutorial we will use <em>Staphylococcus aureus</em> sample 25745.</p>
@@ -296,7 +303,7 @@ mv longfilename_R2.fastq.gz R2.fastq.gz
 <li>We will use the assembly software called <a href="http://canu.readthedocs.io/en/stable/">Canu</a>.</li>
 <li>Run Canu with these commands:</li>
 </ul>
-<pre><code>canu -p staph -d output genomeSize=2.8m -pacbio-raw subreads.fastq
+<pre><code class="text">canu -p staph -d output genomeSize=2.8m -Pacbio-raw subreads.fastq
 </code></pre>
 
 <ul>
@@ -314,20 +321,15 @@ mv longfilename_R2.fastq.gz R2.fastq.gz
 <p>Canu will correct, trim and assemble the reads.</p>
 </li>
 <li>This will take ~ 30 minutes.</li>
-<li>Type</li>
 </ul>
-<pre><code>squeue
-</code></pre>
-
-<p>to check that the job is running.</p>
 <h3 id="check-the-output">Check the output</h3>
-<pre><code>cd output
+<pre><code class="text">cd output
 </code></pre>
 
 <ul>
 <li>The <fn>staph.contigs.fasta</fn> are the assembled sequences.</li>
 <li>The <fn>staph.unassembled.fasta</fn> are the reads that could not be assembled.</li>
-<li>The <fn>staph.correctedReads.fasta.gz</fn> are the corrected pacbio reads that were used in the assembly.</li>
+<li>The <fn>staph.correctedReads.fasta.gz</fn> are the corrected Pacbio reads that were used in the assembly.</li>
 <li>The <fn>staph.file.gfa</fn> is the graph of the assembly.</li>
 <li>Display summary information about the contigs:</li>
 </ul>
@@ -335,47 +337,48 @@ mv longfilename_R2.fastq.gz R2.fastq.gz
 </code></pre>
 
 <ul>
-<li>This will show the number of contigs, e.g.<ul>
-<li>tig00000000   dna 2746242</li>
-<li>tig00000001   dna 48500</li>
+<li>This will show the number of contigs, e.g.</li>
 </ul>
-</li>
-</ul>
+<pre><code class="text">    - tig00000000   dna 2746242
+    - tig00000001   dna 48500
+</code></pre>
+
 <h3 id="change-canu-parameters-if-required">Change Canu parameters if required</h3>
 <ul>
 <li>If the assembly is poor with many contigs, re-run Canu with extra sensitivity parameters; e.g.</li>
 </ul>
-<pre><code>canu -p prefix -d outdir corMhapSensitivity=high corMinCoverage=0 genomeSize=2.8m -pacbio-raw subreads.fastq
+<pre><code class="text">canu -p prefix -d outdir corMhapSensitivity=high corMinCoverage=0 genomeSize=2.8m -Pacbio-raw subreads.fastq
 </code></pre>
 
 <h2 id="trim-and-circularise">Trim and circularise</h2>
 <h3 id="run-circlator">Run Circlator</h3>
 <p>Circlator identifies and trims overhangs (on chromosomes and plasmids) and orients the start position at an appropriate gene (e.g. dnaA). It takes in the assembled contigs from Canu, as well as the corrected reads prepared by Canu.</p>
 <p>To run:</p>
-<pre><code>circlator all --verbose ../staph.contigs.fasta ../staph.corrected.reads.fastq.gz circlator_all_output
+<pre><code class="text">circlator all --threads 8 --verbose --b2r_length_cutoff 20000 ../staph.contigs.fasta ../staph.corrected.reads.fastq.gz circlator_all_output
 </code></pre>
 
 <ul>
-<li>
-<p><strong>- -verbose</strong> prints progress information to the screen</p>
-</li>
-<li>
-<p><strong>../staph.contigs.fasta</strong> is the file path to the input multi-fasta assembly</p>
-</li>
-<li>
-<p><strong>../staph.corrected.reads.fastq.gz</strong> is the file path to the corrected pacbio reads</p>
-</li>
-<li>
-<p><strong>circlator_all_output</strong> is the name of the output directory.</p>
-</li>
+<li><strong>&#45;&#45;threads</strong> is the number of cores</li>
+<li><strong>&#45;&#45;verbose</strong> prints progress information to the screen</li>
+<li><strong>&#45;&#45;b2r_length_cutoff</strong> using approximately 2X average read length</li>
+<li><strong><fn>../staph.contigs.fasta</fn></strong> is the file path to the input multi-fasta assembly</li>
+<li><strong><fn>../staph.corrected.reads.fastq.gz</fn></strong> is the file path to the corrected Pacbio reads</li>
+<li><strong>circlator_all_output</strong> is the name of the output directory.</li>
 </ul>
-<p>Check the output: contig sizes, whether they were circularised, trimmed and the start position chosen.</p>
-<pre><code>less 04.merge.circularise.log
-less 06.fixstart.log
+<p>Check the output: were the contigs circularised:</p>
+<pre><code class="text">less 04.merge.circularise.log
+</code></pre>
+
+<p>Where were the contigs oriented (which gene):</p>
+<pre><code class="text">less 06.fixstart.log
+</code></pre>
+
+<p>What are the trimmed contig sizes:</p>
+<pre><code class="text">fa -f 06.fixstart.fasta
 </code></pre>
 
 <p>The trimmed contigs are in the file called <fn>06.fixstart.fasta</fn>. Re-name it <fn>contig_1_2.fa</fn>:</p>
-<pre><code>mv 06.fixstart.fasta contig_1_2.fa
+<pre><code class="text">mv 06.fixstart.fasta contig_1_2.fa
 </code></pre>
 
 <h2 id="find-smaller-plasmids">Find smaller plasmids</h2>
@@ -383,7 +386,7 @@ less 06.fixstart.log
 <p>This section involves several steps:</p>
 <ol>
 <li>Use the multifasta canu-circlator output of trimmed assembly contigs.</li>
-<li>Map all the Illumina reads against these pacbio assembled contigs.</li>
+<li>Map all the Illumina reads against these Pacbio assembled contigs.</li>
 <li>Extract any reads that <em>didn&rsquo;t</em> map and assemble them together: this could be a plasmid, or part of a plasmid.</li>
 <li>Look for overhang: if found, trim. If not, continue:</li>
 <li>Search Genbank for any matching proteins: a replication protein found.  </li>
@@ -397,19 +400,19 @@ less 06.fixstart.log
 <li>Align illumina reads to these contigs</li>
 <li>First, index the contigs file</li>
 </ul>
-<pre><code>bwa index contig_1_2.fa
+<pre><code class="text">bwa index contig_1_2.fa
 </code></pre>
 
 <ul>
 <li>then, align using bwa mem</li>
 </ul>
-<pre><code>bwa mem -t 8 contig_1_2.fa R1.fastq.gz R2.fastq.gz | samtools sort &gt; aln.bam
+<pre><code class="text">bwa mem -t 8 contig_1_2.fa R1.fastq.gz R2.fastq.gz | samtools sort &gt; aln.bam
 </code></pre>
 
 <ul>
 <li><strong>bwa mem</strong> is the alignment tool</li>
 <li><strong>-t 8</strong> is the number of cores</li>
-<li><strong>contig_1_3.fa</strong> is the input assembly file</li>
+<li><strong>contig_1_2.fa</strong> is the input assembly file</li>
 <li><strong>R1.fastq.gz R2.fastq.gz</strong> are the Illumina reads</li>
 <li><strong> | samtools sort</strong> pipes the output to samtools to sort</li>
 <li><strong>&gt; aln.bam</strong> sends the alignment to the file <fn>aln.bam</fn></li>
@@ -418,13 +421,13 @@ less 06.fixstart.log
 <ul>
 <li>Index the alignment file</li>
 </ul>
-<pre><code>samtools index aln.bam
+<pre><code class="text">samtools index aln.bam
 </code></pre>
 
 <ul>
-<li>extract the fastq files from the bam alignment - those reads that were unmapped to the pacbio alignment - and save them in various &ldquo;unmapped&rdquo; files:</li>
+<li>extract the fastq files from the bam alignment - those reads that were unmapped to the Pacbio alignment - and save them in various &ldquo;unmapped&rdquo; files:</li>
 </ul>
-<pre><code>samtools fastq -f 4 -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq aln.bam
+<pre><code class="text">samtools fastq -f 4 -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq aln.bam
 </code></pre>
 
 <ul>
@@ -437,7 +440,7 @@ less 06.fixstart.log
 <ul>
 <li>assemble with spades</li>
 </ul>
-<pre><code>spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq -o spades_assembly
+<pre><code class="text">spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq -o spades_assembly
 </code></pre>
 
 <ul>
@@ -446,7 +449,7 @@ less 06.fixstart.log
 <li><strong>-s</strong> is unpaired</li>
 <li><strong>-o</strong> is the output directory</li>
 </ul>
-<pre><code>cd spades_assembly
+<pre><code class="text">cd spades_assembly
 fa contigs.fasta
 </code></pre>
 
@@ -458,16 +461,14 @@ fa contigs.fasta
 </li>
 <li>sort fasta by size of seqs:</li>
 </ul>
-<pre><code>sizeseq
+<pre><code class="text">sizeseq
+input sequence set: contigs.fasta
+return longest sequence first [N]: Y
+output sequence(s) [contigs.fasta]: sorted_contigs.fasta
 </code></pre>
 
-<ul>
-<li>Input sequence set: contigs.fasta</li>
-<li>Return longest sequence first [N]: Y</li>
-<li>output sequence(s) [contigs.fasta]: sorted_contigs.fasta</li>
-</ul>
 <p>Print the first row of each seq to see coverage:</p>
-<pre><code>grep cov sorted_contigs.fasta  
+<pre><code class="text">grep cov sorted_contigs.fasta  
 </code></pre>
 
 <ul>
@@ -482,14 +483,14 @@ fa contigs.fasta
 </li>
 <li>look at the sequence of this contig:</li>
 </ul>
-<pre><code>tail sorted_contigs.fasta
+<pre><code class="text">tail sorted_contigs.fasta
 </code></pre>
 
 <ul>
 <li>This is a homopolymer, so disregard.</li>
 <li>We will extract the first sequence (NODE_1):</li>
 </ul>
-<pre><code>samtools faidx sorted_contigs.fasta
+<pre><code class="text">samtools faidx sorted_contigs.fasta
 samtools faidx sorted_contigs.fasta NODE_1_length_2229_cov_610.583 &gt; contig3.fa
 </code></pre>
 
@@ -502,26 +503,26 @@ samtools faidx sorted_contigs.fasta NODE_1_length_2229_cov_610.583 &gt; contig3.
 <li>Blast the start of contig3 against itself</li>
 <li>Take the start of the contig:</li>
 </ul>
-<pre><code>head -n 10 contig3.fa &gt; contig3.fa.head
+<pre><code class="text">head -n 10 contig3.fa &gt; contig3.fa.head
 </code></pre>
 
 <ul>
 <li>We want to see if it matches the end (overhang)</li>
 <li>Format the assembly file for blast:</li>
 </ul>
-<pre><code>makeblastdb -in contig3.fa -dbtype nucl
+<pre><code class="text">makeblastdb -in contig3.fa -dbtype nucl
 </code></pre>
 
 <ul>
 <li>blast the start of the assembly (.head file) against all of the assembly:</li>
 </ul>
-<pre><code>blastn -query contig3.fa.head -db contig3.fa -evalue 1e-3 -dust no -out contig3.bls
+<pre><code class="text">blastn -query contig3.fa.head -db contig3.fa -evalue 1e-3 -dust no -out contig3.bls
 </code></pre>
 
 <ul>
 <li>look at <fn>contig3.bls</fn> to see hits:</li>
 </ul>
-<pre><code>less contig3.bls
+<pre><code class="text">less contig3.bls
 </code></pre>
 
 <ul>
@@ -529,7 +530,7 @@ samtools faidx sorted_contigs.fasta NODE_1_length_2229_cov_610.583 &gt; contig3.
 <li>there are no few further hits, so we assume there is no overhang that needs trimming.</li>
 <li>however, the sequence is likely then to be longer than this.</li>
 </ul>
-<pre><code>less contig3.fa
+<pre><code class="text">less contig3.fa
 </code></pre>
 
 <ul>
@@ -543,12 +544,12 @@ samtools faidx sorted_contigs.fasta NODE_1_length_2229_cov_610.583 &gt; contig3.
 </ul>
 <h3 id="assemble-all-the-illumina-reads">Assemble <em>all</em> the illumina reads</h3>
 <ul>
-<li>Assemble all the Illumina reads with spades (not just those reads that did not map to the pacbio assembly).</li>
+<li>Assemble all the Illumina reads with spades (not just those reads that did not map to the Pacbio assembly).</li>
 </ul>
-<pre><code>spades-fast --R1 R1.fastq.gz --R2 R2.fastq.gz --gsize 2.8M --outdir spades_fast --cpus 32
+<pre><code class="text">spades-fast --R1 R1.fastq.gz --R2 R2.fastq.gz --gsize 2.8M --outdir spades_fast --cpus 8
 </code></pre>
 
-<pre><code>cd spades_fast
+<pre><code class="text">cd spades_fast
 </code></pre>
 
 <ul>
@@ -585,7 +586,7 @@ samtools faidx sorted_contigs.fasta NODE_1_length_2229_cov_610.583 &gt; contig3.
 <ul>
 <li>Take the start of the sequence and see if it matches the end:</li>
 </ul>
-<pre><code>head -n 10 contig3b.fa &gt; contig3b.fa.head
+<pre><code class="text">head -n 10 contig3b.fa &gt; contig3b.fa.head
 makeblastdb -in contig3b.fa -dbtype nucl
 blastn -query contig3b.fa.head -db contig3b.fa -evalue 1e-3 -dust no -out contig3b.bls
 less contig3b.bls
@@ -596,13 +597,13 @@ less contig3b.bls
 <li>The last hit starts at position 2253; we will trim the plasmid to position 2252</li>
 <li>Index the contig3b.fa file:</li>
 </ul>
-<pre><code>samtools faidx contig3b.fa
+<pre><code class="text">samtools faidx contig3b.fa
 </code></pre>
 
 <ul>
 <li>Trim:</li>
 </ul>
-<pre><code>samtools faidx contig3b.fa contig3b:1-2252 &gt; contig3b.fa.trimmed
+<pre><code class="text">samtools faidx contig3b.fa contig3b:1-2252 &gt; contig3b.fa.trimmed
 </code></pre>
 
 <ul>
@@ -610,29 +611,29 @@ less contig3b.bls
 <li>We now have a trimmed contig3b.</li>
 </ul>
 <h3 id="collect-all-contigs-in-one-file">Collect all contigs in one file</h3>
-<pre><code>cat contig_1_2.fa contig3b.fa.trimmed &gt; all_contigs.fa
+<pre><code class="text">cat contig_1_2.fa contig3b.fa.trimmed &gt; all_contigs.fa
 </code></pre>
 
 <ul>
 <li>See the three contigs and sizes:</li>
 </ul>
-<pre><code>fa -f all_contigs.fa
+<pre><code class="text">fa -f all_contigs.fa
 </code></pre>
 
 <h2 id="correct">Correct</h2>
-<p>We will correct the pacbio assembly, first with pacbio corrected reads (from Canu) and then with Illumina reads.</p>
+<p>We will correct the Pacbio assembly, first with Pacbio corrected reads (from Canu) and then with Illumina reads.</p>
 <ul>
 <li>inputs:<ul>
-<li>Draft pacbio assembly (overhang trimmed from each of the three replicons)</li>
-<li>corrected pacbio reads from Canu.</li>
-<li>illumina reads (aligned to pacbio assembly: in bam format)</li>
+<li>Draft Pacbio assembly (overhang trimmed from each of the three replicons)</li>
+<li>corrected Pacbio reads from Canu.</li>
+<li>illumina reads (aligned to Pacbio assembly: in bam format)</li>
 </ul>
 </li>
 <li>output: corrected assembly</li>
 </ul>
-<h3 id="1-correct-with-pacbio-corrected-reads">1. Correct with pacbio corrected reads</h3>
+<h3 id="1-correct-with-pacbio-corrected-reads">1. Correct with Pacbio corrected reads</h3>
 <p>Align reads to assembly:</p>
-<pre><code class="bash">bwa index all_contigs.fa
+<pre><code class="text">bwa index all_contigs.fa
 bwa mem -t 32 all_contigs.fa canu.correctedReads.fasta.gz | samtools sort &gt; aln.bam
 samtools index aln.bam
 samtools faidx all_contigs.fa
@@ -646,21 +647,21 @@ samtools faidx all_contigs.fa
 <li>now we have an alignment file to use in pilon: <fn>aln.bam</fn></li>
 </ul>
 <p>Run pilon:</p>
-<pre><code class="bash">pilon --genome all_contigs.fa --frags aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --threads 32 --verbose
+<pre><code class="text">pilon --genome all_contigs.fa --frags aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --threads 32 --verbose
 </code></pre>
 
 <ul>
-<li><strong>&ndash;genome</strong> is the name of the input assembly to be corrected</li>
-<li><strong>&ndash;frags</strong> is the alignment of the reads against the assembly</li>
-<li><strong>&ndash;output</strong> is the name of the output directory</li>
-<li><strong>&ndash;fix</strong> is an option for types of corrections</li>
-<li><strong>&ndash;mindepth</strong> gives a minimum read depth to use</li>
-<li><strong>&ndash;changes</strong> produces an output file of the changes made</li>
-<li><strong>&ndash;threads</strong> is the number of cores</li>
-<li><strong>&ndash;verbose</strong> prints information to the screen during the run</li>
+<li><strong>&#45;&#45;genome</strong> is the name of the input assembly to be corrected</li>
+<li><strong>&#45;&#45;frags</strong> is the alignment of the reads against the assembly</li>
+<li><strong>&#45;&#45;output</strong> is the name of the output prefix</li>
+<li><strong>&#45;&#45;fix</strong> is an option for types of corrections</li>
+<li><strong>&#45;&#45;mindepth</strong> gives a minimum read depth to use</li>
+<li><strong>&#45;&#45;changes</strong> produces an output file of the changes made</li>
+<li><strong>&#45;&#45;threads</strong> is the number of cores</li>
+<li><strong>&#45;&#45;verbose</strong> prints information to the screen during the run</li>
 </ul>
 <p>Look at the .changes file:</p>
-<pre><code class="bash">less pilon1.changes | column -t
+<pre><code class="text">less pilon1.changes | column -t
 </code></pre>
 
 <ul>
@@ -670,33 +671,33 @@ samtools faidx all_contigs.fa
 <ul>
 <li>Look at the details of the .fasta file:</li>
 </ul>
-<pre><code>fa -f pilon1.fasta
+<pre><code class="text">fa -f pilon1.fasta
 </code></pre>
 
 <h3 id="2-correct-with-illumina-reads">2. Correct with Illumina reads</h3>
 <p>Input: the corrected assembly from the previous step: <fn>pilon1.fasta</fn></p>
 <p>Align the Illumina reads to this assembly:</p>
-<pre><code>bwa index pilon1.fasta
+<pre><code class="text">bwa index pilon1.fasta
 bwa mem -t 32 pilon1.fasta R1.fastq.gz R2.fastq.gz | samtools sort &gt; aln.bam
 samtools index aln.bam
 samtools faidx pilon1.fasta
 </code></pre>
 
 <p>Look at how the illumina reads are aligned:</p>
-<pre><code>samtools tview -p contig1 aln.bam pilon1.fasta
+<pre><code class="text">samtools tview -p contig1 aln.bam pilon1.fasta
 </code></pre>
 
 <p>note: <strong>contig1</strong> is the name of the contig to view; e.g. tig00000000.</p>
 <p>Run pilon:</p>
-<pre><code class="bash">pilon --genome pilon1.fa --frags aln.bam --output pilon2 --fix all --mindepth 0.5 --changes --threads 32 --verbose
+<pre><code class="text">pilon --genome pilon1.fa --frags aln.bam --output pilon2 --fix all --mindepth 0.5 --changes --threads 32 --verbose
 </code></pre>
 
 <p>Look at the changes file:</p>
-<pre><code class="bash">less pilon1.changes
+<pre><code class="text">less pilon1.changes
 </code></pre>
 
 <p>Look at the .fasta file:</p>
-<pre><code>less pilon2.fasta
+<pre><code class="text">less pilon2.fasta
 </code></pre>
 
 <p>If there are more than 2 changes, run Pilon again, using the pilon2.fasta file as the input assembly, and the Illumina reads to correct.</p>
@@ -719,69 +720,69 @@ samtools faidx pilon1.fasta
 <li>Notes on <a href="https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Finishing-Bacterial-Genomes">finishing</a> and <a href="https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies">evaluating</a> assemblies.</li>
 </ul>
 <h2 id="commands-summary">Commands summary <a name="summary"></a></h2>
-<pre><code class="bash">//get the sequencing reads
-//joined pacbio reads: subreads.fastq
-//illumina reads: R1.fastq.gz, R2.fastq.gz
+<pre><code class="text">#get the sequencing reads
+#joined Pacbio reads: subreads.fastq
+#illumina reads: R1.fastq.gz, R2.fastq.gz
 
-//run canu to assemble
-canu -p staph -d output genomeSize=2.8m -pacbio-raw subreads.fastq
-//output: staph.contigs.fasta
+#run canu to assemble
+canu -p staph -d output genomeSize=2.8m -Pacbio-raw subreads.fastq
+#output: staph.contigs.fasta
 
-//run circlator to trim and orient
+#run circlator to trim and orient
 circlator all --verbose ../staph.contigs.fasta ../staph.corrected.reads.fastq.gz circlator_all_output
-//output: 06.fixstart.fasta; rename as contig_1_2.fa
+#output: 06.fixstart.fasta; rename as contig_1_2.fa
 
-//find smaller plasmids
+#find smaller plasmids
 
-//align illumina to pacbio contigs
+#align illumina to Pacbio contigs
 bwa index contig_1_2.fa
 bwa mem -t 8 contig_1_2.fa R1.fastq.gz R2.fastq.gz | samtools sort &gt; aln.bam
-//output is aln.bam
+#output is aln.bam
 
-//extract unmapped reads
+#extract unmapped reads
 samtools index aln.bam
 samtools fastq -f 4 -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq aln.bam
 
-//assemble these reads with spades
+#assemble these reads with spades
 spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq -o spades_assembly
-//save any long contigs; e.g. as contig3.fa
+#save any long contigs; e.g. as contig3.fa
 
-//blast this contig to find overhang
+#blast this contig to find overhang
 head -n 10 contig3.fa &gt; contig3.fa.head
 makeblastdb -in contig3.fa -dbtype nucl
 blastn -query contig3.fa.head -db contig3.fa -evalue 1e-3 -dust no -out contig3.bls
 less contig3.bls
-//no overhang found
+#no overhang found
 
-//assemble all illumina reads
+#assemble all illumina reads
 spades-fast --R1 R1.fastq.gz --R2 R2.fastq.gz --gsize 2.8M --outdir spades_fast --cpus 32
-//blast the assembly graph with contig3.fa; extract out node and save as contig3b.fa
+#blast the assembly graph with contig3.fa; extract out node and save as contig3b.fa
 
-//trim overhang
+#trim overhang
 head -n 10 contig3b.fa &gt; contig3b.fa.head
 makeblastdb -in contig3b.fa -dbtype nucl
 blastn -query contig3b.fa.head -db contig3b.fa -evalue 1e-3 -dust no -out contig3b.bls
 less contig3b.bls
 samtools faidx contig3b.fa
 samtools faidx contig3b.fa contig3b:1-2252 &gt; contig3b.fa.trimmed
-//open contig3b.fa in nano and shorten header name
+#open contig3b.fa in nano and shorten header name
 
-//join all contigs: all_contigs.fa
+#join all contigs: all_contigs.fa
 
-//correct with pilon
+#correct with pilon
 
-//1. correct using corrected pacbio reads
+#1. correct using corrected Pacbio reads
 bwa index all_contigs.fa
 bwa mem -t 32 all_contigs.fa canu.correctedReads.fasta.gz | samtools sort &gt; aln.bam
 samtools index aln.bam
 samtools faidx all_contigs.fa
 pilon --genome all_contigs.fa --frags aln.bam --output corrected --fix bases --mindepth 0.5 --changes --threads 32 --verbose
 
-//2. correct using illumina reads - use output from 1 as the contigs file
+#2. correct using illumina reads - use output from 1 as the contigs file
 
-//3. repeat correction using Illumina reads - use output from 2 as the contigs file
+#3. repeat correction using Illumina reads - use output from 2 as the contigs file
 
-//output: corrected genome assembly of Staphylococcus aureus in .fasta format, containing three contigs: chromosome, large plasmid and small plasmid.
+#output: corrected genome assembly of Staphylococcus aureus in .fasta format, containing three contigs: chromosome, large plasmid and small plasmid.
 </code></pre></div>
         </div>
 
