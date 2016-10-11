@@ -303,7 +303,7 @@ mv longfilename_R2.fastq.gz R2.fastq.gz
 <li>We will use the assembly software called <a href="http://canu.readthedocs.io/en/stable/">Canu</a>.</li>
 <li>Run Canu with these commands:</li>
 </ul>
-<pre><code class="text">canu -p staph -d output genomeSize=2.8m -Pacbio-raw subreads.fastq
+<pre><code class="text">canu -p staph -d output genomeSize=2.8m -pacbio-raw subreads.fastq
 </code></pre>
 
 <ul>
@@ -347,7 +347,7 @@ mv longfilename_R2.fastq.gz R2.fastq.gz
 <ul>
 <li>If the assembly is poor with many contigs, re-run Canu with extra sensitivity parameters; e.g.</li>
 </ul>
-<pre><code class="text">canu -p prefix -d outdir corMhapSensitivity=high corMinCoverage=0 genomeSize=2.8m -Pacbio-raw subreads.fastq
+<pre><code class="text">canu -p prefix -d outdir corMhapSensitivity=high corMinCoverage=0 genomeSize=2.8m -pacbio-raw subreads.fastq
 </code></pre>
 
 <h2 id="trim-and-circularise">Trim and circularise</h2>
@@ -360,7 +360,7 @@ mv longfilename_R2.fastq.gz R2.fastq.gz
 <ul>
 <li><strong>&#45;&#45;threads</strong> is the number of cores</li>
 <li><strong>&#45;&#45;verbose</strong> prints progress information to the screen</li>
-<li><strong>&#45;&#45;b2r_length_cutoff</strong> using approximately 2X average read length</li>
+<li><strong>&#45;&#45;b2r_length_cutoff</strong> using approximately 2X average read length (could be omitted at first; if all contigs don&rsquo;t circularise, include this option to see if any improvement)</li>
 <li><strong><fn>../staph.contigs.fasta</fn></strong> is the file path to the input multi-fasta assembly</li>
 <li><strong><fn>../staph.corrected.reads.fastq.gz</fn></strong> is the file path to the corrected Pacbio reads</li>
 <li><strong>circlator_all_output</strong> is the name of the output directory.</li>
@@ -447,7 +447,16 @@ mv longfilename_R2.fastq.gz R2.fastq.gz
 <li><strong>-1</strong> is input file forward</li>
 <li><strong>-2</strong> is input file reverse</li>
 <li><strong>-s</strong> is unpaired</li>
-<li><strong>-o</strong> is the output directory</li>
+<li>
+<p><strong>-o</strong> is the output directory</p>
+</li>
+<li>
+<p><strong>other options</strong> (include before the -o)</p>
+<ul>
+<li>&ndash;careful</li>
+<li>&ndash;cov-cutoff auto</li>
+</ul>
+</li>
 </ul>
 <pre><code class="text">cd spades_assembly
 fa contigs.fasta
@@ -634,7 +643,7 @@ less contig3b.bls
 <h3 id="1-correct-with-pacbio-corrected-reads">1. Correct with Pacbio corrected reads</h3>
 <p>Align reads to assembly:</p>
 <pre><code class="text">bwa index all_contigs.fa
-bwa mem -t 32 all_contigs.fa canu.correctedReads.fasta.gz | samtools sort &gt; aln.bam
+bwa mem -t 32 all_contigs.fa canu.trimmedReads.fasta.gz | samtools sort &gt; aln.bam
 samtools index aln.bam
 samtools faidx all_contigs.fa
 </code></pre>
@@ -647,12 +656,12 @@ samtools faidx all_contigs.fa
 <li>now we have an alignment file to use in pilon: <fn>aln.bam</fn></li>
 </ul>
 <p>Run pilon:</p>
-<pre><code class="text">pilon --genome all_contigs.fa --frags aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --threads 32 --verbose
+<pre><code class="text">pilon --genome all_contigs.fa --unpaired aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --threads 32 --verbose
 </code></pre>
 
 <ul>
 <li><strong>&#45;&#45;genome</strong> is the name of the input assembly to be corrected</li>
-<li><strong>&#45;&#45;frags</strong> is the alignment of the reads against the assembly</li>
+<li><strong>&#45;&#45;unpaired</strong> is the alignment of the reads against the assembly (use &ldquo;unpaired&rdquo; instead of &ldquo;frags&rdquo; where alignment is from pacbio reads)</li>
 <li><strong>&#45;&#45;output</strong> is the name of the output prefix</li>
 <li><strong>&#45;&#45;fix</strong> is an option for types of corrections</li>
 <li><strong>&#45;&#45;mindepth</strong> gives a minimum read depth to use</li>
@@ -688,7 +697,7 @@ samtools faidx pilon1.fasta
 </code></pre>
 
 <p>note: <strong>contig1</strong> is the name of the contig to view; e.g. tig00000000.</p>
-<p>Run pilon:</p>
+<p>Run pilon (note: use &ldquo;&ndash;frags&rdquo; this time instead of &ldquo;&ndash;unpaired&rdquo;):</p>
 <pre><code class="text">pilon --genome pilon1.fa --frags aln.bam --output pilon2 --fix all --mindepth 0.5 --changes --threads 32 --verbose
 </code></pre>
 
@@ -725,11 +734,13 @@ samtools faidx pilon1.fasta
 #illumina reads: R1.fastq.gz, R2.fastq.gz
 
 #run canu to assemble
-canu -p staph -d output genomeSize=2.8m -Pacbio-raw subreads.fastq
+canu -p staph -d output genomeSize=2.8m -pacbio-raw subreads.fastq
+#option: use sensitivity settings
 #output: staph.contigs.fasta
 
 #run circlator to trim and orient
 circlator all --verbose ../staph.contigs.fasta ../staph.corrected.reads.fastq.gz circlator_all_output
+#option: use branch lengths option
 #output: 06.fixstart.fasta; rename as contig_1_2.fa
 
 #find smaller plasmids
@@ -745,6 +756,7 @@ samtools fastq -f 4 -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fas
 
 #assemble these reads with spades
 spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq -o spades_assembly
+#option: use careful and cutoff options
 #save any long contigs; e.g. as contig3.fa
 
 #blast this contig to find overhang
@@ -771,14 +783,15 @@ samtools faidx contig3b.fa contig3b:1-2252 &gt; contig3b.fa.trimmed
 
 #correct with pilon
 
-#1. correct using corrected Pacbio reads
+#1. correct using trimmed, corrected Pacbio reads
 bwa index all_contigs.fa
-bwa mem -t 32 all_contigs.fa canu.correctedReads.fasta.gz | samtools sort &gt; aln.bam
+bwa mem -t 32 all_contigs.fa canu.trimmedReads.fasta.gz | samtools sort &gt; aln.bam
 samtools index aln.bam
 samtools faidx all_contigs.fa
-pilon --genome all_contigs.fa --frags aln.bam --output corrected --fix bases --mindepth 0.5 --changes --threads 32 --verbose
+pilon --genome all_contigs.fa --unpaired aln.bam --output corrected --fix bases --mindepth 0.5 --changes --threads 32 --verbose
 
 #2. correct using illumina reads - use output from 1 as the contigs file
+# use --frags not --unpaired
 
 #3. repeat correction using Illumina reads - use output from 2 as the contigs file
 
