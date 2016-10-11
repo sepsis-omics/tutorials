@@ -81,7 +81,7 @@ fq subreads.fastq.gz
 - We will use the assembly software called [Canu](http://canu.readthedocs.io/en/stable/).
 - Run Canu with these commands:
 ```text
-canu -p staph -d output genomeSize=2.8m -Pacbio-raw subreads.fastq
+canu -p staph -d output genomeSize=2.8m -pacbio-raw subreads.fastq
 ```
 - **staph** is the prefix given to output files
 - **output** is the name of the output directory
@@ -115,7 +115,7 @@ fa -f staph.contigs.fasta
 ###Change Canu parameters if required
 - If the assembly is poor with many contigs, re-run Canu with extra sensitivity parameters; e.g.
 ```text
-canu -p prefix -d outdir corMhapSensitivity=high corMinCoverage=0 genomeSize=2.8m -Pacbio-raw subreads.fastq
+canu -p prefix -d outdir corMhapSensitivity=high corMinCoverage=0 genomeSize=2.8m -pacbio-raw subreads.fastq
 ```
 
 ## Trim and circularise
@@ -129,7 +129,7 @@ circlator all --threads 8 --verbose --b2r_length_cutoff 20000 ../staph.contigs.f
 ```
 - **&#45;&#45;threads** is the number of cores
 - **&#45;&#45;verbose** prints progress information to the screen
-- **&#45;&#45;b2r_length_cutoff** using approximately 2X average read length
+- **&#45;&#45;b2r_length_cutoff** using approximately 2X average read length (could be omitted at first; if all contigs don't circularise, include this option to see if any improvement)
 - **<fn>../staph.contigs.fasta</fn>** is the file path to the input multi-fasta assembly
 - **<fn>../staph.corrected.reads.fastq.gz</fn>** is the file path to the corrected Pacbio reads
 - **circlator_all_output** is the name of the output directory.
@@ -208,6 +208,11 @@ spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq -o spad
 - **-2** is input file reverse
 - **-s** is unpaired
 - **-o** is the output directory
+
+- **other options** (include before the -o)
+    -  --careful
+    -  --cov-cutoff auto
+
 ```text
 cd spades_assembly
 fa contigs.fasta
@@ -353,7 +358,7 @@ Align reads to assembly:
 
 ```text
 bwa index all_contigs.fa
-bwa mem -t 32 all_contigs.fa canu.correctedReads.fasta.gz | samtools sort > aln.bam
+bwa mem -t 32 all_contigs.fa canu.trimmedReads.fasta.gz | samtools sort > aln.bam
 samtools index aln.bam
 samtools faidx all_contigs.fa
 ```
@@ -365,10 +370,10 @@ samtools faidx all_contigs.fa
 Run pilon:
 
 ```text
-pilon --genome all_contigs.fa --frags aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --threads 32 --verbose
+pilon --genome all_contigs.fa --unpaired aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --threads 32 --verbose
 ```
 - **&#45;&#45;genome** is the name of the input assembly to be corrected
-- **&#45;&#45;frags** is the alignment of the reads against the assembly
+- **&#45;&#45;unpaired** is the alignment of the reads against the assembly (use "unpaired" instead of "frags" where alignment is from pacbio reads)
 - **&#45;&#45;output** is the name of the output prefix
 - **&#45;&#45;fix** is an option for types of corrections
 - **&#45;&#45;mindepth** gives a minimum read depth to use
@@ -409,7 +414,7 @@ samtools tview -p contig1 aln.bam pilon1.fasta
 ```
 note: **contig1** is the name of the contig to view; e.g. tig00000000.
 
-Run pilon:
+Run pilon (note: use "--frags" this time instead of "--unpaired"):
 
 ```text
 pilon --genome pilon1.fa --frags aln.bam --output pilon2 --fix all --mindepth 0.5 --changes --threads 32 --verbose
@@ -457,11 +462,13 @@ If there are more than 2 changes, run Pilon again, using the pilon2.fasta file a
 #illumina reads: R1.fastq.gz, R2.fastq.gz
 
 #run canu to assemble
-canu -p staph -d output genomeSize=2.8m -Pacbio-raw subreads.fastq
+canu -p staph -d output genomeSize=2.8m -pacbio-raw subreads.fastq
+#option: use sensitivity settings
 #output: staph.contigs.fasta
 
 #run circlator to trim and orient
 circlator all --verbose ../staph.contigs.fasta ../staph.corrected.reads.fastq.gz circlator_all_output
+#option: use branch lengths option
 #output: 06.fixstart.fasta; rename as contig_1_2.fa
 
 #find smaller plasmids
@@ -477,6 +484,7 @@ samtools fastq -f 4 -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fas
 
 #assemble these reads with spades
 spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq -o spades_assembly
+#option: use careful and cutoff options
 #save any long contigs; e.g. as contig3.fa
 
 #blast this contig to find overhang
@@ -503,14 +511,15 @@ samtools faidx contig3b.fa contig3b:1-2252 > contig3b.fa.trimmed
 
 #correct with pilon
 
-#1. correct using corrected Pacbio reads
+#1. correct using trimmed, corrected Pacbio reads
 bwa index all_contigs.fa
-bwa mem -t 32 all_contigs.fa canu.correctedReads.fasta.gz | samtools sort > aln.bam
+bwa mem -t 32 all_contigs.fa canu.trimmedReads.fasta.gz | samtools sort > aln.bam
 samtools index aln.bam
 samtools faidx all_contigs.fa
-pilon --genome all_contigs.fa --frags aln.bam --output corrected --fix bases --mindepth 0.5 --changes --threads 32 --verbose
+pilon --genome all_contigs.fa --unpaired aln.bam --output corrected --fix bases --mindepth 0.5 --changes --threads 32 --verbose
 
 #2. correct using illumina reads - use output from 1 as the contigs file
+# use --frags not --unpaired
 
 #3. repeat correction using Illumina reads - use output from 2 as the contigs file
 
