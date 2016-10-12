@@ -453,8 +453,8 @@ mv longfilename_R2.fastq.gz R2.fastq.gz
 <li>
 <p><strong>other options</strong> (include before the -o)</p>
 <ul>
-<li>&ndash;careful</li>
-<li>&ndash;cov-cutoff auto</li>
+<li>&#45;&#45; careful</li>
+<li>&#45;&#45; cov-cutoff auto</li>
 </ul>
 </li>
 </ul>
@@ -634,13 +634,13 @@ less contig3b.bls
 <ul>
 <li>inputs:<ul>
 <li>Draft Pacbio assembly (overhang trimmed from each of the three replicons)</li>
-<li>corrected Pacbio reads from Canu.</li>
+<li>corrected (and trimmed) Pacbio reads from Canu.</li>
 <li>illumina reads (aligned to Pacbio assembly: in bam format)</li>
 </ul>
 </li>
 <li>output: corrected assembly</li>
 </ul>
-<h3 id="1-correct-with-pacbio-corrected-reads">1. Correct with Pacbio corrected reads</h3>
+<h3 id="1-correct-with-pacbio-correctedtrimmed-reads">1. Correct with Pacbio corrected/trimmed reads</h3>
 <p>Align reads to assembly:</p>
 <pre><code class="text">bwa index all_contigs.fa
 bwa mem -t 32 all_contigs.fa canu.trimmedReads.fasta.gz | samtools sort &gt; aln.bam
@@ -702,7 +702,7 @@ samtools faidx pilon1.fasta
 </code></pre>
 
 <p>Look at the changes file:</p>
-<pre><code class="text">less pilon1.changes
+<pre><code class="text">less pilon2.changes
 </code></pre>
 
 <p>Look at the .fasta file:</p>
