@@ -35,7 +35,17 @@ Otherwise:
     - If not, click <ss>Add</ss> and enter the file path to the data.
 - Click on the file path and then <ss>Scan</ss> to check for new data.
 
+
 ## Assembly
+
+###HGAP process overview
+
+We will use the Hierarchical Genome Assembly Process (HGAP). This flowchart shows the steps in the process:
+
+![flowchart of HGAP process](images/flowchart.png)
+
+###Set up job
+
 - In the SMRT Portal, go to the top left tab, <ss>Design Job</ss>.
 - Go to <ss>Create New</ss>.
 - An <ss>Analysis</ss> window should appear. Check the box next to <ss>De novo assembly</ss>, then <ss>Next</ss>.
@@ -71,6 +81,13 @@ This brings up the settings. Click on <ss>Assembly</ss>.
     - As each step proceeds, new items will appear under the <ss>Reports</ss> and <ss>Data</ss> tabs on the left.
 
 ![smrt portal screenshot](images/smrt6.png)
+
+###Inputs and Outputs
+
+The connections between the names of assembly stages and outputs is not always clear. This flowchart shows how each stage of the HGAP process corresponds to protocol window names and outputs:
+
+![inputs and outputs](images/inputs_outputs.png)
+
 
 ## Results
 
