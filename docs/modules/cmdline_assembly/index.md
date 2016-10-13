@@ -10,6 +10,12 @@ At the end of this tutorial, be able to use command line tools to produce a bact
 4. search for smaller plasmids
 5. correct with short (Illumina) reads
 
+##Overview
+
+Simplified version of workflow:
+
+![workflow](images/flowchart.png)
+
 ##Get data
 - Open the mGVL command line
 - Navigate to or create the directory in which you want to work.
@@ -210,8 +216,8 @@ spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq -o spad
 - **-o** is the output directory
 
 - **other options** (include before the -o)
-    -  --careful
-    -  --cov-cutoff auto
+    -  &#45;&#45; careful
+    -  &#45;&#45; cov-cutoff auto
 
 ```text
 cd spades_assembly
@@ -348,11 +354,11 @@ We will correct the Pacbio assembly, first with Pacbio corrected reads (from Can
 
 - inputs:
     - Draft Pacbio assembly (overhang trimmed from each of the three replicons)
-    - corrected Pacbio reads from Canu.
+    - corrected (and trimmed) Pacbio reads from Canu.
     - illumina reads (aligned to Pacbio assembly: in bam format)
 - output: corrected assembly
 
-### 1. Correct with Pacbio corrected reads
+### 1. Correct with Pacbio corrected/trimmed reads
 
 Align reads to assembly:
 
@@ -423,7 +429,7 @@ pilon --genome pilon1.fa --frags aln.bam --output pilon2 --fix all --mindepth 0.
 Look at the changes file:
 
 ```text
-less pilon1.changes
+less pilon2.changes
 ```
 
 Look at the .fasta file:
