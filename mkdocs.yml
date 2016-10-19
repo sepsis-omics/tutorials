@@ -43,4 +43,8 @@ pages:
     #- Pan genome: intro/roary/index.md
     #- Artemis: modules/artemis/index.md
     #- JBrowse: modules/jbrowse/index.md
+
+- Microbial Proteomics:
+  - Protein Identification: modules/xtandem/index.md
+
 - About: about/index.md
