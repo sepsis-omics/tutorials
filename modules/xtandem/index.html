@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Anna Syme, Torsten Seemann">
+        
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+	<title>Protein Identification - ABRPI Training 2016</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/sepsis.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">ABRPI Training 2016</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../galaxy/">Starting with Galaxy</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../data-dna/">Training dataset</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../velvet/">Genome assembly with Velvet</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../spades/">Genome assembly with Spades</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../prokka/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../snippy/">Variant finding</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">PacBio assembly <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../pacbio/">Assembly with SMRT portal</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../cmdline_assembly/">Assembly and finishing with command line tools</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transcriptomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../dge/">Differential gene expression</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proteomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li class="active">
+    <a href="./">Protein Identification</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../dge/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../about/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#protein-indentification-using-xtandem">Protein indentification using X!Tandem</a></li>
+        
+            <li><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#background">Background</a></li>
+        
+            <li><a href="#tutorial">Tutorial</a></li>
+        
+            <li><a href="#references">References</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="protein-indentification-using-xtandem">Protein indentification using X!Tandem</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The high-throughput nature of proteomics mass spectrometry is enabled by a productive combination of data acquisition protocols and the computational tools used to interpret the resulting spectra (list of peaks). One of the key components in mainstream protocols is the generation of tandem mass (MS/MS) spectra by peptide fragmentation. This approach is currently used in the large majority of proteomics experiments to routinely identify hundreds to thousands of proteins from single mass spectrometry runs. In order to do that multiple tools have to be employed: <strong>LC-MS/MS</strong> to segregate components of proteomic samples associated with <em>protein identification</em> (see <strong>Figure 1</strong>) softwares, <strong>X!Tandem</strong>[^xtand], <strong>Mascot</strong> or <strong>SEQUEST</strong> all of which perform protein identification but with different algorithms.</p>
+<p><img alt="Protein Identification Workflow" src="./images/training_Workflow_1v3.png" /></p>
+<blockquote>
+<p><strong>Figure 1</strong> &mdash; <em>General overview of the experimental steps and flow of data in protein identification using shotgun proteomics experiment.</em>[^figure1]. </p>
+</blockquote>
+<p><strong>Figure 1</strong> shows a general overview of the experimental steps in protein identification. Sample proteins are first cleaved into peptides, which are then separated using chromatography (e.g. HPLC). The peptides are then ionised and then selected ions are fragmented to produce signature tandem mass spectrometry (MS/MS) spectra. Peptides are identified from the MS/MS spectra by using programs such as X!Tandem, which search against a database of known peptides. Sequences of the identified peptides are used to infer which proteins are present in the original sample.</p>
+<h2 id="background">Background</h2>
+<h3 id="lc-msms-analysis">LC-MS/MS Analysis</h3>
+<p><strong>Liquid Chromatography</strong> (LC) is a technique used to separate molecules in the solvent (mobile phase). Nowadays liquid chromatography utilising high pressure to force the solvent through the columns packed with porous particles (stationary phase) is referred as High Pressure Liquid Chromatography (HPLC) &ndash; see <strong>Figure 2</strong>. After purifying the proteomic cell content, LC is able to separate the different proteins which are injected in the mass spectrometer. Each peak from the results will be analysed by mass spectrometry.</p>
+<p><img alt="HPLC Schema" src="./images/training_HPLC_1.png" /></p>
+<blockquote>
+<p><strong>Figure 2</strong> &mdash; <em>Schema of High Pressure Liquid Chromatography (HPLC)[^figure3].</em> Compounds of the mixture are separated in the HPLC column according to various parameters (polarity, charge, affinity etc). The type of separation depends on the column being used). A detector flow cell is used to detect the separated compounds band.</p>
+</blockquote>
+<p><strong>Mass spectrometry</strong> (MS) &ndash; see <strong>Figure 3</strong> &ndash; has been widely used to analyse biological samples and has evolved into an indispensable tool for proteomics research. Fundamentally, MS measures the mass-to-charge ratio (m/z) of gas-phase ions. Mass spectrometers consist of an ion source that converts analyte molecules into gas-phase ions, a mass analyser that separates ionised analytes on the basis of m/z ratio and a detector that records the number of ions at each m/z value. </p>
+<p><img alt="Mass Spectrometry" src="./images/training_MS.png" /></p>
+<blockquote>
+<p><strong>Figure 3</strong> &mdash; <em>Schema of mass specter</em>. &ldquo;A mass spectrometer consists of three components: an ion source, a mass analyzer, and a detector. The ionizer converts a portion of the sample into ions. There is a wide variety of ionization techniques, depending on the phase (solid, liquid, gas) of the sample and the efficiency of various ionization mechanisms for the unknown species. An extraction system removes ions from the sample, which are then targeted through the mass analyzer and onto the detector. The differences in masses of the fragments allows the mass analyzer to sort the ions by their mass-to-charge ratio. The detector measures the value of an indicator quantity and thus provides data for calculating the abundances of each ion present.&rdquo; [^figure4]</p>
+</blockquote>
+<p><strong>Tandem mass spectrometry</strong> (MS/MS) &ndash; see <strong>Figure 4</strong> &ndash; is a key technique for protein or peptide sequencing and post-translational modifications analysis. Collision-induced dissociation (CID) has been the most widely used MS/MS technique in proteomics research. In this method, gas-phase peptide/protein cations are internally heated by multiple collisions with rare gas atoms. The result is fragmented ions that, after the detection phase and reconstitution, reveal the amino-acid chains. </p>
+<p><img alt="LC-MS/MS" src="./images/training_LC-MSMS_2.png" /></p>
+<blockquote>
+<p><strong>Figure 4</strong> &mdash; <em>Schema of a tandem mass spectrometry associated with liquid chromatography (LC-MS/MS)</em>. This technique combine separation form liquid chromatography and m/z ratio analyse of the tandem mass spectrometry in order to generate spectra.</p>
+</blockquote>
+<p><strong>File formats</strong> : During a full proteomics analysis, as seen in <strong>Figure 5</strong>, many files are created. Every step has it&rsquo;s own multiples files formats :</p>
+<p><img alt="Files_Created" src="./images/training_files.png" /></p>
+<blockquote>
+<p><strong>Figure 5</strong> &mdash; <em>Multiple formats during MS treatment</em>[^MS file format]. From the sample processing to the final file, various file formats can be used. This schema shows the different processes and file formats that are generated during a full MS experiment.</p>
+</blockquote>
+<p>For this tutorial we will focus on the &ldquo;Informatics Analysis&rdquo; part using the following file formats:</p>
+<ul>
+<li><strong>fasta</strong>: fasta files are mainly used for representing either nucleotide sequences or peptide sequences, using single-letter codes.</li>
+<li><strong>MGF</strong> : Mascot Generic Format (MGF) file is the most common format for MS/MS data encoding in the form of a peak list[^MGF]. This file encodes multiple MS/MS spectra in a single file listing the [m/z, intensity] pairs separated by headers &ndash; see <strong>Figure 6</strong>. More precisely each query represents a complete MS/MS spectrum delimited by BEGIN IONS and END IONS statements. Embedded parameters[^embedded_parameters] can be found after each BEGIN IONS statement. An example entry is shown in the figure below:</li>
+</ul>
+<p><img alt="MGF example" src="./images/training_MGF.png" /></p>
+<blockquote>
+<p><strong>Figure 6</strong> &mdash; <em>Sample of a MGF file</em>. MGF files are used for enconding MS results, multiple spectra can be enconded in one MGF. Every spectrum begins with the <em>BEGINS IONS</em> assessment and finishes with <em>END IONS</em>. MGF files can be divided in 2 parts : 
+    &ndash; The header : containing information about the embedded Search Parameters. 
+    &ndash; Ions information : the first figure is the ion mass, the second is the ion charge.</p>
+</blockquote>
+<h3 id="xtandem">X!Tandem</h3>
+<p><strong>X!Tandem</strong> is an open source software that can match tandem mass spectra (usually the experiment) with peptide sequences from a database. This process allows identification of proteins in one or more samples.</p>
+<p>The X!Tandem search engine calculates a statistical confidence (expectation value) for all of the individual spectrum-to-sequence assignments. Some spectra might map to more than one protein, in this case X!Tandem will pick the best match with the highest confidence score (see <strong>Figure 7</strong>). The output is a lists all of the high confidence assignments.</p>
+<p><img alt="xtandem Analysis" src="./images/training_xtandemAnalyse_3.png" /></p>
+<blockquote>
+<p><strong>Figure 7</strong> &mdash; <em>Schema of the X!Tandem analysis</em>[^figure1]. After LC-MS/MS analysis the experimental spectrum is compared to a theoretical spectrum made from a protein database. This comparison leads to a list of peptide match ranked by score.</p>
+</blockquote>
+<h3 id="galaxy">GALAXY</h3>
+<p>GALAXY[^galaxy] is an open source, web-based platform for biomedical research. GALAXY allows users to perform multi-omics data analyses: genomics, proteomics, transcriptomics and more. Numerous tools are available to achieve various analyses. This tutorial will focus on proteomics identification: matching the experimental data, spectra from LC-MS/MS analysis against data from a protein database using X!Tandem.</p>
+<p>Before starting, a quick overview of the GALAXY interface &ndash; see <strong>Figure 8</strong>. The interface is divided into three parts:</p>
+<ul>
+<li><strong>Left panel</strong>:  List the tools that are available.  A search textbox is at the top of the panel in order to find the tool you want.</li>
+<li><strong>Right panel</strong>: Is the history of all the data outputs from previous steps and subsequently becoming the input for the next step. For example, the figure below shows the data imported ready for the next step. This panel allows the user to follow the different steps of the  analysis.</li>
+<li><strong>Central panel</strong>: Is the main screen, showing the details and options of the selected tool.</li>
+</ul>
+<p><img alt="GALAXY Panels" src="./images/training_GalaxyPanels.png" /></p>
+<blockquote>
+<p><strong>Figure 8</strong> &mdash; <em>Galaxy interface</em>. Divided in 3 parts Galaxy&rsquo;s interface go from the left selecting the tools to the right where the results are displayed.</p>
+</blockquote>
+<hr />
+<h2 id="tutorial">Tutorial</h2>
+<p>This tutorial describes how to identify a list of proteins from tandem mass spectrometry data.</p>
+<p>Analyses of this type are a fundamental part of most proteomics studies. The basic idea is to match tandem MS spectra obtained from a sample with equivalent theoretical spectra against a reference protein database. The process is referred to as &ldquo;protein identification&rdquo;, although amino acid sequences are not obtained <em>de novo</em> with this method.</p>
+<h3 id="objectives">Objectives</h3>
+<p>The objective of this tutorial is to perform protein identification from MS/MS spectra data using the X!Tandem tool in GALAXY &ndash; see <strong>Figure 9</strong>. The basic steps involved are:</p>
+<ul>
+<li>Loading UniProt[^uniprot] proteome data in GALAXY (fasta file format)</li>
+<li>Loading your MS/MS spectra in GALAXY</li>
+<li>Run X!Tandem proteomics search</li>
+<li>Sorting and analysing the results</li>
+</ul>
+<p>The tutorial will finish with an exercise where you repeat the same protocol <strong>but</strong> with your own proteome as the reference database instead of using UniProt.</p>
+<p><img alt="Training Flowchart" src="./images/training_flowchart.png" /></p>
+<blockquote>
+<p><strong>Figure 9</strong> - <em>General flowchart of this training</em>. The first part is to upload datasets to be investigated. Then the training will cover the key parts of the configuration of a X!Tandem search. Finally, we look at sorting and analysing the results.</p>
+</blockquote>
+<p>The aim of the training will be to create a list of all proteins that can be confidently said to be present in the sample.</p>
+<p>This tutorial uses the following open source tools:</p>
+<ul>
+<li>X!Tandem search engine</li>
+<li>Trans Proteomic Pipeline[^tpp]</li>
+<li>GALAXY platform with tools already installed</li>
+</ul>
+<p>This tutorial uses an <em>E. Coli</em> MS/MS spectra dataset that can be downloaded from: <a href="./images/">EColi K12 Dataset</a></p>
+<p>Original source : <a href="http://www.marcottelab.org/MSdata/">http://www.marcottelab.org/MSdata/</a></p>
+<h3 id="step-1-data-import">STEP 1: Data import</h3>
+<ul>
+<li>Before importing data, <ss>Name</ss> your history. <ss>Click</ss> on the &ldquo;Unnamed history&rdquo; on the top of the right panel until you get the cursor. <ss>Delete</ss> and <ss>type</ss> in &ldquo;Protein Identificaiton E.coli K12&rdquo; or a more meaningful name. You <strong>must</strong> <ss>hit Enter</ss>, otherwise the name will not be saved.</li>
+</ul>
+<p><img alt="GALAXY History Name" src="./images/training_history.png" /></p>
+<ul>
+<li>Next, <ss>import</ss> data into GALAXY. On the left panel <ss>click</ss> on the upload button as shown below:</li>
+</ul>
+<p><img alt="GALAXY Upload Data Button" src="./images/training_upload_0.png" /></p>
+<ul>
+<li>A new window will open, where you can select a method to upload your data: Choose local file, Choose FTP file, Paste/Fetch data. <ss>Click</ss> on <ss>Paste/Fetch data</ss> then copy and paste the URL of the mass spectrometer file: into the textbox: EColi_K12_MS_Spectra.mgf</li>
+</ul>
+<blockquote>
+<p><strong>Tip</strong> : You can also use the <ss>Get Data &rarr; Upload file</ss> tool to obtain the same result. Here you want to upload your MS/MS spectra.</p>
+</blockquote>
+<p><img alt="GALAXY Upload Data Fetch" src="./images/training_upload_2.png" /></p>
+<blockquote>
+<p><strong>Warning</strong> : X!Tandem only accepts mgf files in GALAXY.  Other file formats have to be converted beforehand. A useful tool for that is msconvert<a href="./download : [here](http://proteowizard.sourceforge.net/downloads.shtml). This tool only working on Windows">^msconvert</a>.</p>
+</blockquote>
+<h3 id="step-2-import-reference-data">STEP 2: Import Reference Data</h3>
+<p>We will first use the UniProt Database as our reference data to search against.</p>
+<ul>
+<li>Select the tool named <ss>Protein Database Downloader</ss></li>
+<li>Choose the database: <fn>UniProtKB</fn></li>
+<li>Select the organism of interest: <fn>Escherichia Coli (strain K12)</fn></li>
+<li>
+<p>Click on <ss>Execute</ss></p>
+</li>
+<li>
+<p>You will see your history update with the new data imports</p>
+</li>
+</ul>
+<p><img alt="Data Imported" src="./images/training_Data_importation_1.png" /></p>
+<ul>
+<li>Rename your &ldquo;Protein Database&rdquo; by clicking on <i class="icon-pencil"></i> icon.</li>
+<li>Select <ss>Edit Attributes</ss></li>
+<li>In <strong>Name</strong>, type in <fn>EColi_K12_UniProt_Database</fn></li>
+<li>Click <ss>Save</ss></li>
+</ul>
+<p><img alt="Data Rename" src="./images/training_Data_Rename.png" /></p>
+<h3 id="step-3-xtandem-msms-search">STEP 3: X!Tandem MS/MS Search</h3>
+<p>This part of the tutorial is to perform the X!Tandem MS/MS search. </p>
+<ul>
+<li>The tool can be found in the left panel under the section <ss>Proteomics Tools &rarr; X!Tandem MSMS Search</ss></li>
+<li>In the central section, you should see the following options. Below the key parameters are explained in detail. </li>
+</ul>
+<p><img alt="X!Tandem Options" src="./images/training_Xtandem.png" /></p>
+<p>X!Tandem proposes many options, the key options of interest are:</p>
+<ol>
+<li><strong>Uploaded FASTA file</strong>: this parameter is to select the fasta file that will be used as the proteins database.</li>
+<li><strong>MSMS File</strong> : select the spectra file to analyse.</li>
+<li><strong>Variable Modifications</strong>: this option considers possible modification on each residue (which impact the MS/MS spectra).</li>
+<li><strong>Fixed Modifications</strong>: this option allows you to specify any known modification.</li>
+<li><strong>Missed Cleavages Allowed</strong>: &ldquo;when a cleavage reagent (either chemical or enzymatic) is used to cleave the peptide backbone of a protein to produce peptides, different sites along the backbone will have different reaction rates and kinetics. Therefore, there may be some sites that should be cleaved by the reagent that are not completely cleaved during the course of the experiment. The value of this parameter represents the maximum number of missed cleavage sites allowed within a peptide.&rdquo;</li>
+<li><strong>Enzyme</strong>: specify the enzyme that has been used to cleave the proteins (affecting the interpretation of the spectrum).</li>
+<li><strong>Fragment ion tolerance</strong>: define the minimum weight (in Da) of the fragmented ions, default value is 0.5.</li>
+<li><strong>Precursor ion tolerance</strong>: define the minimum weight (in Da) of the precursor ions.</li>
+</ol>
+<p>In this tutorial, we are using the following parameters:</p>
+<table>
+<thead>
+<tr>
+<th>Parameters Name</th>
+<th>Value</th>
+<th align="right">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Uploaded FASTA file</td>
+<td>EColi_K12_UniProt_Database</td>
+<td align="right">&ndash;</td>
+</tr>
+<tr>
+<td>MSMS File</td>
+<td>EColi_K12_MS_Spectra.mgf</td>
+<td align="right">&ndash;</td>
+</tr>
+<tr>
+<td>Variable Modifications</td>
+<td>Oxidation M</td>
+<td align="right">&ndash;</td>
+</tr>
+<tr>
+<td>Fixed Modifications</td>
+<td>Carbamidomethyl C</td>
+<td align="right">&ndash;</td>
+</tr>
+<tr>
+<td>Missed Cleavages Allowed</td>
+<td>2</td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td>Enzyme</td>
+<td>Trypsin</td>
+<td align="right">Trypsin</td>
+</tr>
+<tr>
+<td>Fragment ion tolerance</td>
+<td>0.5</td>
+<td align="right">0.5</td>
+</tr>
+<tr>
+<td>Precursor ion tolerance</td>
+<td>10 ppm</td>
+<td align="right">10 ppm</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Leave all other parameters as their default settings.</li>
+<li>
+<p>Click on <ss>Execute</ss></p>
+</li>
+<li>
+<p>The history should update with a new entry, the output file of the X!Tandem</p>
+</li>
+<li>Rename the output by clicking on the <i class="icon-pencil"></i>  icon</li>
+</ul>
+<p><img alt="Output X!Tandem XML" src="./images/training_output_xtandem.png" /></p>
+<ul>
+<li>You can view the output by click on the name in the history panel.</li>
+</ul>
+<h3 id="step-4-convert-xtandem-xml-to-table">STEP 4: Convert X!Tandem XML to Table</h3>
+<p>The output of X!Tandem is an XML format, which is not easy to decipher. In order to get a more readable file, we will convert the XML format to a table. This is a two step process:</p>
+<ul>
+<li>Select <ss>Proteomics Tools &rarr; Tandem to pepXML</ss></li>
+<li>Select your <em>tandem</em> file in the <fn>Input File</fn> field</li>
+<li>Click on <ss>Execute</ss></li>
+<li>The history should update with a new <em>pepXML</em> file. The pepXML file is still a XML file and needs to be converted to a tabular.</li>
+<li>Select <ss>Proteomics Tools &rarr; PepXML to Table</ss></li>
+<li>Select your <em>pepXML</em> file in the <fn>Input File</fn> field</li>
+<li>This history should update with a new file</li>
+</ul>
+<p><img alt="Output X!Tandem Tabular" src="./images/training_output_tabular.png" /></p>
+<p>After the X!Tandem search we obtain a list of proteins present in the sample data from Step 1:</p>
+<table>
+<thead>
+<tr>
+<th>Tabular name</th>
+<th>Tandem file XML designation</th>
+<th align="right">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Protein</td>
+<td>label</td>
+<td align="right">Protein name according to the database used for the MS/MS search</td>
+</tr>
+<tr>
+<td>Peptide</td>
+<td>seq</td>
+<td align="right">Peptide sequence</td>
+</tr>
+<tr>
+<td>Assumed_charge</td>
+<td>z</td>
+<td align="right">Parent ion mass (plus a proton) from the spectrum</td>
+</tr>
+<tr>
+<td>Calc_neutral_pep_mass</td>
+<td>mh (+mass of a proton)</td>
+<td align="right">Parent ion mass calculated from the spectrum</td>
+</tr>
+<tr>
+<td>Neutral_mass</td>
+<td>mh (+mass of a proton)</td>
+<td align="right">Calculated peptide mass (plus a proton)</td>
+</tr>
+<tr>
+<td>Retention_time</td>
+<td>rt</td>
+<td align="right">Length of time between injection and position of the target compound peak.[^rt]</td>
+</tr>
+<tr>
+<td>Start_scan</td>
+<td>id</td>
+<td align="right">id of the group treated (where the analysis starts)</td>
+</tr>
+<tr>
+<td>End_scan</td>
+<td>id</td>
+<td align="right">id of the domain treated (usually the same as start_scan, no consideration of the doted name in the original XML file)</td>
+</tr>
+<tr>
+<td>Search_engine</td>
+<td><em>&mdash;</em></td>
+<td align="right">Name of the search engine used, in our case X!Tandem (associated with the scoring method : <em>k-score</em>)</td>
+</tr>
+<tr>
+<td>Raw_score</td>
+<td>expect</td>
+<td align="right">Expectation value for the top ranked protein identified with this spectrum</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> You can find all the details on the X!Tandem output file here: <a href="http://www.thegpm.org/docs/X_series_output_form.pdf">The file format for X! series search engines</a>. The tandem XML file contains more information than the tabular format which can also be of further use (e.i. the score for the different ions <em>x, y, z, a, b, c</em> &hellip;)</p>
+</blockquote>
+<h3 id="exercise">Exercise</h3>
+<blockquote>
+<p>Repeat the tutorial but instead of uploading a UniProt database in Step 2, upload your own database. You can use the <em>E. Coli</em> dataset : <a href="./images/EColi_K12_Annoted_Genome.fasta">E. Coli Annotated Genome</a> and compare the two outputs.</p>
+</blockquote>
+<hr />
+<h2 id="references">References</h2>
+<p>[^xtand]: X!Tandem website: http://www.thegpm.org/tandem/. X!Tandem documentation : http://www.thegpm.org/TANDEM/api/. Craig, R., and R. C. Beavis. 2004. <em>“TANDEM: matching proteins with tandem mass spectra.”</em> Bioinformatics 20, no. 9 (June): 1466-67. http://dx.doi.org/10.1093/bioinformatics/bth092.</p>
+<p>[^figure1]: Nesvizhskii, Alexey I. <em>&ldquo;Protein Identification By Tandem Mass Spectrometry And Sequence Database Searching&rdquo;</em>. Mass Spectrometry Data Analysis in Proteomics 87-120. 
+ &mdash; <a href="http://www.springerprotocols.com/BookToc/doi/10.1385/1597452750">Mass Spectrometry Data Analysis in Proteomics</a></p>
+<p>[^galaxy]: GALAXY platform : https://usegalaxy.org/. You can also find a more extensive documentation here : https://galaxyproject.org/.
+Afgan, Enis et al. <em>&ldquo;The Galaxy Platform For Accessible, Reproducible And Collaborative Biomedical Analyses: 2016 Update&rdquo;</em>. Nucleic Acids Res 44.W1 (2016): W3-W10.
+ &mdash; <a href="http://www.ncbi.nlm.nih.gov/pubmed/27137889">The Galaxy platform for accessible, reproducible and collaborative biomedical analyses: 2016 update</a></p>
+<p>[^uniprot]: UniProt : http://www.uniprot.org/. Apweiler, R. <em>&ldquo;Uniprot: The Universal Protein Knowledgebase&rdquo;</em>. Nucleic Acids Research 32.90001 (2004): 115D-119.
+ &mdash; <a href="http://www.ncbi.nlm.nih.gov/pubmed/14681372">UniProt: the Universal Protein knowledgebase</a></p>
+<p>[^figure3]: High-performance liquid chromatography (HPLC): <a href="http://www.waters.com/waters/en_AU/How-Does-High-Performance-Liquid-Chromatography-Work%3F/nav.htm?cid=10049055&amp;locale=en_AU">How Does High Performance Liquid Chromatography Work ?</a> Mant, Colin T. et al. <em>&ldquo;HPLC Analysis And Purification Of Peptides&rdquo;</em>. Peptide Characterization and Application Protocols (2007): 3-55.</p>
+<p>[^figure4]: Aebersold, Ruedi and Matthias Mann. <em>&ldquo;Mass Spectrometry-Based Proteomics&rdquo;</em>. Nature 422.6928 (2003): 198-207.
+ &mdash; <a href="http://www.ncbi.nlm.nih.gov/pubmed/12634793">Mass Spectrometry-Based Proteomics</a></p>
+<p>[^MS file format]: Deutsch, E. W. <em>&ldquo;File Formats Commonly Used In Mass Spectrometry Proteomics&rdquo;</em>. Molecular &amp; Cellular Proteomics 11.12 (2012): 1612-1621.
+ &mdash; <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3518119/">File Formats Commonly Used in Mass Spectrometry Proteomics</a></p>
+<p>[^MGF]: Mascot Generic Format (MGF) file is likely the most common text format for MS/MS data encoding in the form of a peak list. This file encodes multiple MS/MS spectra in a single file via m/z, intensity pairs separated by headers.
+ &mdash; <a href="http://www.matrixscience.com/help/data_file_help.html">MGF file format</a></p>
+<p>[^embedded_parameters]: The MGF format allows parameters that can be found after the BEGIN IONS statement.
+ &mdash; <a href="http://www.matrixscience.com/help/data_file_help.html#PARAMS">Embedded Parameters</a></p>
+<p>[^rt]: The retention time of a peak can be used as means of qualitative identification. The length of time between injection and position of the target compound peak.
+ &mdash; <a href="http://www.shimadzu.com/an/retentiontime_parameters.html">Retention Time Parameters</a>
+ &mdash; <a href="http://www.scientific.org/tutorials/articles/gcms.html">Retention Time explained for GC/MS</a></p>
+<p>[^tpp]: The Trans-Proteomic Pipeline (TPP) website : http://tools.proteomecenter.org/wiki/index.php?title=Software:TPP. Deutsch, Eric W. et al. <em>&ldquo;A Guided Tour Of The Trans-Proteomic Pipeline&rdquo;</em>. Proteomics 10.6 (2010): 1150-1159.
+ &mdash; <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3017125/">A Guided Tour of the Trans-Proteomic Pipeline</a></p>
+<p>[^msconvert]: ProteoWizard Tools website : http://proteowizard.sourceforge.net/tools.shtml. Holman, Jerry D., David L. Tabb, and Parag Mallick. <em>&ldquo;Employing Proteowizard To Convert Raw Mass Spectrometry Data&rdquo;</em>. Current Protocols in Bioinformatics (2014): 13.24.1-13.24.9.
+&mdash; <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4113728/">Employing ProteoWizard to Convert Raw Mass Spectrometry Data</a></p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
