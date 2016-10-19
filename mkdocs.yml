@@ -13,7 +13,7 @@ extra_css:
     - css/sepsis.css
 pages:
 - Home: index.md
-- Microbial Genomics:
+- Genomics:
     #- Overview: genomics.md
     #- Using Galaxy: modules/galaxy/index.md
     - Starting with Galaxy: modules/galaxy/index.md
@@ -26,12 +26,12 @@ pages:
     - Variant finding: modules/snippy/index.md
 
 
-- Advanced Microbial Genomics:
+- PacBio assembly:
     - Assembly with SMRT portal: modules/pacbio/index.md
     - Assembly and finishing with command line tools: modules/cmdline_assembly/index.md
     #- Annotation using command line tools: modules/cmdline_prokka/index.md
 
-- Microbial Transcriptomics:
+- Transcriptomics:
 #  - Overview: modules/transcriptomics.md
 #  - Dataset: modules/data-rna/index.md
 #  #- Quality control: modules/fastqc/index.md
@@ -44,7 +44,7 @@ pages:
     #- Artemis: modules/artemis/index.md
     #- JBrowse: modules/jbrowse/index.md
 
-- Microbial Proteomics:
+- Proteomics:
   - Protein Identification: modules/xtandem/index.md
 
 - About: about/index.md
