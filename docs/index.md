@@ -9,11 +9,6 @@ This site contains tutorials for using the
 tasks on bacterial "omics" data, either on the Unix command line or using
 the [Galaxy](http://galaxyproject.org/) system.
 
-Tutorials on assembly, annotation and variant calling can be found under the *Microbial Genomics* tab in the top panel.
-
-<!-- Tutorials on assembly using PacBio reads can be found under *Advanced Microbial Genomics*. -->
-
-Tutorials on examining differential gene expression can be found under *Microbial Transcriptomics*.
-
+Tutorials on Genomics, PacBio assembly, Transcriptomics and Proteomics can be found under the tabs in the top panel.
 
 ![sepsis omics logo](media/logos/omics.png)

@@ -14,6 +14,10 @@ genomic, transcriptomic, proteomic and metabolomic data. The data platform will 
 
 ![Dieter](dieter.jpg) Dieter Bulach
 
+![Xin-Yi](XinyiChua.jpg) Xin-Yi Chua
+
+![Dom](dom.jpg) Dominique Gorse
+
 ## Support
 
 * [Research Data Services](http://omics.data.edu.au/)
