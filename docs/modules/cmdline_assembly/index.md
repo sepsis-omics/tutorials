@@ -292,11 +292,19 @@ less contig3.fa
 - Assemble all the Illumina reads with spades (not just those reads that did not map to the Pacbio assembly).
 
 ```text
-spades-fast --R1 R1.fastq.gz --R2 R2.fastq.gz --gsize 2.8M --outdir spades_fast --cpus 8
+spades.py -1 R1.fastq -2 R2.fastq --careful --cov-cutoff auto -o spades_assembly_all_illumina
 ```
 
+Alternatively, if you have spades-fast, you can run with these options:
+
 ```text
-cd spades_fast
+spades-fast --R1 R1.fastq.gz --R2 R2.fastq.gz --gsize 2.8M --outdir spades_assembly_all_illumina --cpus 8
+```
+
+Navigate to the output:
+
+```text
+cd spades_assembly_all_illumina
 ```
 - in here is the <fn>assembly_graph.fastg</fn>
 - Transfer this file to your local computer (e.g. using the file transfer program [Cyberduck](https://cyberduck.io/?l=en)).
