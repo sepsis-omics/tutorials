@@ -575,10 +575,15 @@ samtools faidx sorted_contigs.fasta NODE_1_length_2229_cov_610.583 &gt; contig3.
 <ul>
 <li>Assemble all the Illumina reads with spades (not just those reads that did not map to the Pacbio assembly).</li>
 </ul>
-<pre><code class="text">spades-fast --R1 R1.fastq.gz --R2 R2.fastq.gz --gsize 2.8M --outdir spades_fast --cpus 8
+<pre><code class="text">spades.py -1 R1.fastq -2 R2.fastq --careful --cov-cutoff auto -o spades_assembly_all_illumina
 </code></pre>
 
-<pre><code class="text">cd spades_fast
+<p>Alternatively, if you have spades-fast, you can run with these options:</p>
+<pre><code class="text">spades-fast --R1 R1.fastq.gz --R2 R2.fastq.gz --gsize 2.8M --outdir spades_assembly_all_illumina --cpus 8
+</code></pre>
+
+<p>Navigate to the output:</p>
+<pre><code class="text">cd spades_assembly_all_illumina
 </code></pre>
 
 <ul>
