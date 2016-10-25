@@ -1,5 +1,5 @@
 #Pacbio reads: assembly with command line tools
-This tutorial demonstrates how to use long Pacbio sequence reads to assemble a bacterial genome and plasmids, including correcting the assembly with short Illumina reads. The last section contains a [summary](#summary) of the main commands used.
+This tutorial demonstrates how to use long Pacbio sequence reads to assemble a bacterial genome and plasmids, including correcting the assembly with short Illumina reads.
 
 ## Learning objectives
 At the end of this tutorial, be able to use command line tools to produce a bacterial genome assembly using the following workflow:
@@ -24,6 +24,8 @@ e.g.
 mkdir staph
 cd staph
 ```
+If you already have the files ready, skip forward to next section, [Assemble](#assemble).
+
 ###Find the Pacbio files for this sample
 - If the files are already on your server, you can symlink by using
 ```text
@@ -73,6 +75,7 @@ ls
     - <fn>subreads.fastq.gz</fn> (the Pacbio reads)
     - <fn>R1.fastq.gz</fn> and <fn>R2.fastq.gz</fn> (the Illumina reads)
 
+<!--
 Find information about read lengths:
 
 ```text
@@ -80,10 +83,10 @@ fq subreads.fastq.gz
 ```
 
 - Look at the average and maximum lengths.
-
+-->
 - In this tutorial we will use *Staphylococcus aureus* sample 25745.
 
-##Assemble
+##Assemble<a name="assemble"></a>
 - We will use the assembly software called [Canu](http://canu.readthedocs.io/en/stable/).
 - Run Canu with these commands:
 ```text
@@ -109,8 +112,10 @@ cd output
 - The <fn>staph.file.gfa</fn> is the graph of the assembly.
 - Display summary information about the contigs:
 ```
-fa -f staph.contigs.fasta
+infoseq staph.contigs.fasta
 ```
+
+- (infoseq is a tool from [EMBOSS](http://emboss.sourceforge.net/index.html))
 
 - This will show the number of contigs, e.g.
 ```text
@@ -190,7 +195,7 @@ bwa mem -t 8 contig_1_2.fa R1.fastq.gz R2.fastq.gz | samtools sort > aln.bam
 - ** | samtools sort** pipes the output to samtools to sort
 - **> aln.bam** sends the alignment to the file <fn>aln.bam</fn>
 
-###Extract unmapped illlumina reads
+###Extract unmapped Illumina reads
 - Index the alignment file
 ```text
 samtools index aln.bam
@@ -199,29 +204,35 @@ samtools index aln.bam
 ```text
 samtools fastq -f 4 -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq aln.bam
 ```
+- **fastq** is a command that coverts a <fn>.bam</fn> file into fastq format
+- **-f 4** : only output unmapped reads
+- **-1** : put R1 reads into a file called <fn>unmapped.R1.fastq</fn>
+- **-2** : put R2 reads into a file called <fn>unmapped.R2.fastq</fn>
+- **-s** : put singleton reads into a file called <fn>unmapped.RS.fastq</fn>
+- **aln.bam** : input alignment file
 
-- we now have three files of the unampped reads:
+We now have three files of the unampped reads:
+
 - <fn> unmapped.R1.fastq</fn>
 - <fn> unmapped.R2.fastq</fn>
 - <fn> unmapped.RS.fastq</fn>
+
 ###Assemble the unmapped reads
 - assemble with spades
 ```text
-spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq -o spades_assembly
+spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq --careful --cov-cutoff auto -o spades_assembly
 ```
 
 - **-1** is input file forward
 - **-2** is input file reverse
 - **-s** is unpaired
+- **&#45;&#45; careful** : minimizes mismatches and short indels
+- **&#45;&#45; cov-cutoff auto** : computes the coverage threshold (rather than the default setting, "off")
 - **-o** is the output directory
-
-- **other options** (include before the -o)
-    -  &#45;&#45; careful
-    -  &#45;&#45; cov-cutoff auto
 
 ```text
 cd spades_assembly
-fa contigs.fasta
+infoseq contigs.fasta
 ```
 - shows how many assembled:
     - e.g. no=135
@@ -294,13 +305,13 @@ less contig3.fa
 ```text
 spades.py -1 R1.fastq -2 R2.fastq --careful --cov-cutoff auto -o spades_assembly_all_illumina
 ```
-
+<!--
 Alternatively, if you have spades-fast, you can run with these options:
 
 ```text
 spades-fast --R1 R1.fastq.gz --R2 R2.fastq.gz --gsize 2.8M --outdir spades_assembly_all_illumina --cpus 8
 ```
-
+-->
 Navigate to the output:
 
 ```text
@@ -353,7 +364,7 @@ cat contig_1_2.fa contig3b.fa.trimmed > all_contigs.fa
 ```
 - See the three contigs and sizes:
 ```text
-fa -f all_contigs.fa
+infoseq all_contigs.fa
 ```
 
 ##Correct
@@ -406,7 +417,7 @@ less pilon1.changes | column -t
 - Look at the details of the .fasta file:
 
 ```text
-fa -f pilon1.fasta
+infoseq pilon1.fasta
 ```
 
 ### 2. Correct with Illumina reads
@@ -468,6 +479,7 @@ If there are more than 2 changes, run Pilon again, using the pilon2.fasta file a
 - Pilon [article](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0112963) and [github repository](https://github.com/broadinstitute/pilon/wiki)
 - Notes on [finishing](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Finishing-Bacterial-Genomes) and [evaluating](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies) assemblies.
 
+<!--
 ## Commands summary <a name="summary"></a>
 
 ```text
@@ -539,3 +551,4 @@ pilon --genome all_contigs.fa --unpaired aln.bam --output corrected --fix bases 
 
 #output: corrected genome assembly of Staphylococcus aureus in .fasta format, containing three contigs: chromosome, large plasmid and small plasmid.
 ```
+-->
