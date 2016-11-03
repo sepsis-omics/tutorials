@@ -377,6 +377,16 @@ We will correct the Pacbio assembly, first with Pacbio corrected reads (from Can
     - illumina reads (aligned to Pacbio assembly: in bam format)
 - output: corrected assembly
 
+First, we will change some of the mGVL settings so that we can use a worker node with more CPUs.
+
+Type in
+
+```text
+sinteractive --cpus=8 --mem=10g
+```
+
+(To later exit out of this worker node, if you want to, type in "exit").
+
 ### 1. Correct with Pacbio corrected/trimmed reads
 
 Align reads to assembly:
@@ -395,7 +405,7 @@ samtools faidx all_contigs.fa
 Run pilon:
 
 ```text
-pilon --genome all_contigs.fa --unpaired aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --threads 32 --verbose
+pilon --genome all_contigs.fa --unpaired aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --verbose
 ```
 - **&#45;&#45;genome** is the name of the input assembly to be corrected
 - **&#45;&#45;unpaired** is the alignment of the reads against the assembly (use "unpaired" instead of "frags" where alignment is from pacbio reads)
@@ -403,8 +413,9 @@ pilon --genome all_contigs.fa --unpaired aln.bam --output pilon1 --fix all --min
 - **&#45;&#45;fix** is an option for types of corrections
 - **&#45;&#45;mindepth** gives a minimum read depth to use
 - **&#45;&#45;changes** produces an output file of the changes made
-- **&#45;&#45;threads** is the number of cores
 - **&#45;&#45;verbose** prints information to the screen during the run
+- if you are using pilon on a different machine and you want to specify the number of CPUs, type in **&#45;&#45;threads** number (e.g. 32).
+
 
 Look at the .changes file:
 ```text
@@ -442,7 +453,7 @@ note: **contig1** is the name of the contig to view; e.g. tig00000000.
 Run pilon (note: use "--frags" this time instead of "--unpaired"):
 
 ```text
-pilon --genome pilon1.fa --frags aln.bam --output pilon2 --fix all --mindepth 0.5 --changes --threads 32 --verbose
+pilon --genome pilon1.fa --frags aln.bam --output pilon2 --fix all --mindepth 0.5 --changes --verbose
 ```
 
 Look at the changes file:
