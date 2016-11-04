@@ -208,6 +208,7 @@
             <div class="col-md-9" role="main">
 
 <h1 id="variant-calling-with-snippy">Variant calling with Snippy</h1>
+<p>Keywords: variant calling, SNP, Snippy, JBrowse, Galaxy, Microbial Genomics Virtual Lab</p>
 <h2 id="background">Background</h2>
 <p>Variant calling is the process of identifying differences between two genome samples.
 Usually differences are limited to single nucleotide polymorphisms (SNPs) and small insertions and deletions (indels). Larger structural variation such as inversions, duplications and large deletions are not typically covered by &ldquo;variant calling&rdquo;.</p>
@@ -260,7 +261,13 @@ Usually differences are limited to single nucleotide polymorphisms (SNPs) and sm
 <h2 id="view-snippy-output-in-jbrowse">View Snippy output in JBrowse</h2>
 <ul>
 <li>
-<p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss></p>
+<p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss> (choose the top listed one; version 0.5.2).</p>
+</li>
+<li>
+<p>Under <ss>JBrowse-in-Galaxy Action</ss> choose <em>New JBrowse Instance</em>.</p>
+</li>
+<li>
+<p>Under <ss>Reference genome to display</ss> choose <em>Use a genome from history</em>.</p>
 </li>
 <li>
 <p>Under <ss>Fasta Sequence(s)</ss> choose <fn>wildtype.fna</fn>. This sequence will be the reference against which annotations are displayed.</p>
@@ -283,6 +290,7 @@ Usually differences are limited to single nucleotide polymorphisms (SNPs) and sm
 <li>For <ss>Track Type</ss> choose <em>BAM Pileups</em></li>
 <li>For <ss>BAM Track Data</ss> select <fn>the snippy bam file</fn></li>
 <li>For <ss>Autogenerate SNP Track</ss> select <em>Yes</em></li>
+<li>Under <ss>Track Visibility</ss> choose <em>On for new users</em>.</li>
 </ul>
 <p><em>Track 2 - variants</em></p>
 <ul>
@@ -291,6 +299,7 @@ Usually differences are limited to single nucleotide polymorphisms (SNPs) and sm
 <li>Click <ss>Insert Annotation Track</ss></li>
 <li>For <ss>Track Type</ss> choose <em>GFF/GFF3/BED/GBK Features</em></li>
 <li>For <ss>SNP Track Data</ss> select <fn>the snippy snps gff file</fn></li>
+<li>Under <ss>Track Visibility</ss> choose <em>On for new users</em>.</li>
 </ul>
 <p><em>Track 3 - annotated reference</em></p>
 <ul>
@@ -299,8 +308,12 @@ Usually differences are limited to single nucleotide polymorphisms (SNPs) and sm
 <li>Click <ss>Insert Annotation Track</ss></li>
 <li>For <ss>Track Type</ss> choose <em>GFF/GFF3/BED/GBK Features</em></li>
 <li>For <ss>SNP Track Data</ss> select <fn>wildtype.gff</fn></li>
+<li>Under <ss>JBrowse Track Type[Advanced]</ss> select <em>Canvas Features</em>.</li>
+<li>Click on <ss>JBrowse Styling Options <Advanced]</ss></li>
+<li>Under <ss>JBrowse style.label</ss> correct the word &ldquo;prodcut&rdquo; to &ldquo;product&rdquo;.</li>
+<li>Under <ss>JBrowse style.description</ss> type in <em>product,note,description</em></li>
 <li>
-<p>Under <ss>JBrowse Styling Options &rarr; JBrowse style. description</ss> type in <em>product,note,description</em></p>
+<p>Under <ss>Track Visibility</ss> choose <em>On for new users</em>.</p>
 </li>
 <li>
 <p>Click <ss>Execute</ss></p>

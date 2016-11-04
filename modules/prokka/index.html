@@ -208,6 +208,7 @@
             <div class="col-md-9" role="main">
 
 <h1 id="genome-annotation-using-prokka">Genome annotation using Prokka</h1>
+<p>Keywords: annotation, Prokka, JBrowse, Galaxy, Microbial Genomics Virtual Lab</p>
 <h2 id="background">Background</h2>
 <p>In this section we will use a software tool called Prokka to annotate the draft genome sequence produced in the previous <a href="../spades/">tutorial</a>. Prokka is a “wrapper”; it collects together several pieces of software (from various authors), and so avoids “re-inventing the wheel”.</p>
 <p>Prokka finds and annotates features (both protein coding regions and RNA genes, i.e. tRNA, rRNA) present on on a sequence. Note, Prokka uses a two-step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using <a href="http://prodigal.ornl.gov/">Prodigal</a>; second, the <em>function</em> of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found <a href="https://github.com/tseemann/prokka">here</a>.</p>
@@ -225,7 +226,7 @@
 <p>If you are continuing on from the previous workshop (<a href="../spades/">Assembly with Spades</a>), this file will be in your current history: <fn>SPAdes_contigs.fasta</fn>.</p>
 </li>
 <li>
-<p>Alternatively, download the assembled contigs from the <a href="../data-dna/">Training dataset page.</a></p>
+<p>Alternatively, get the file called &ldquo;assembled contigs&rdquo; from the <a href="../data-dna/">Training dataset page.</a></p>
 </li>
 </ul>
 <!--
@@ -272,10 +273,16 @@ We will import a history from Galaxy:
 <p>Now that we have annotated the draft genome sequence, we would like to view the sequence in the JBrowse genome viewer.</p>
 <ul>
 <li>
-<p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss></p>
+<p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss> (choose the top listed one; version 0.5.2).</p>
 </li>
 <li>
-<p>Under <ss>Fasta Sequence(s)</ss> choose <fn>Prokka on data XX:fna</fn>. This sequence will be the reference against which annotations are displayed.</p>
+<p>Under <ss>JBrowse-in-Galaxy Action</ss> choose <em>New JBrowse Instance</em>.</p>
+</li>
+<li>
+<p>Under <ss>Reference genome to display</ss> choose <em>Use a genome from history</em>.</p>
+</li>
+<li>
+<p>Under <ss>Fasta sequences</ss> choose <fn>Prokka on data XX:fna</fn>. This sequence will be the reference against which annotations are displayed.</p>
 </li>
 <li>
 <p>For <ss>Produce a Standalone Instance</ss> select <em>Yes</em>.</p>
@@ -287,6 +294,9 @@ We will import a history from Galaxy:
 <p>Click <ss>Insert Track Group</ss></p>
 </li>
 <li>
+<p>Under <ss>Track Category</ss> type in <em>gene annotations</em>.</p>
+</li>
+<li>
 <p>Click <ss>Insert Annotation Track</ss></p>
 </li>
 <li>
@@ -295,9 +305,21 @@ We will import a history from Galaxy:
 <li>
 <p>For <ss>GFF/GFF3/BED Track Data</ss> select <fn>Prokka on data XX:gff</fn>  [Note: not wildtype.gff]</p>
 </li>
+<li>
+<p>Under <ss>JBrowse Track Type[Advanced]</ss> select <em>Canvas Features</em>.</p>
+</li>
+<li>
+<p>Click on <ss>JBrowse Styling Options <Advanced]</ss></p>
+</li>
+<li>
+<p>Under <ss>JBrowse style.label</ss> correct the word &ldquo;prodcut&rdquo; to &ldquo;product&rdquo;.</p>
+</li>
+<li>
+<p>Under <ss>Track Visibility</ss> choose <em>On for new users</em>.</p>
+</li>
 </ul>
 <p>Your tool interface should look like this:</p>
-<p><img alt="JBrowse interface" src="./images/jbrowse.png" /></p>
+<p><img alt="JBrowse interface" src="./images/jbrowse_interface.png" /></p>
 <ul>
 <li>
 <p>Click <ss>Execute</ss></p>

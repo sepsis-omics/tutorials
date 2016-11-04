@@ -212,6 +212,7 @@
             <div class="col-md-9" role="main">
 
 <h1 id="pacbio-reads-assembly-with-command-line-tools">Pacbio reads: assembly with command line tools</h1>
+<p>Keywords: de novo assembly, PacBio, PacificBiosciences, Illumina, command line, Canu, Circlator, BWA, Spades, Pilon, Microbial Genomics Virtual Laboratory</p>
 <p>This tutorial demonstrates how to use long Pacbio sequence reads to assemble a bacterial genome and plasmids, including correcting the assembly with short Illumina reads.</p>
 <h2 id="learning-objectives">Learning objectives</h2>
 <p>At the end of this tutorial, be able to use command line tools to produce a bacterial genome assembly using the following workflow:</p>
@@ -673,6 +674,12 @@ less contig3b.bls
 </li>
 <li>output: corrected assembly</li>
 </ul>
+<p>First, we will change some of the mGVL settings so that we can use a worker node with more CPUs.</p>
+<p>Type in</p>
+<pre><code class="text">sinteractive --cpus=8 --mem=10g
+</code></pre>
+
+<p>(To later exit out of this worker node, if you want to, type in &ldquo;exit&rdquo;).</p>
 <h3 id="1-correct-with-pacbio-correctedtrimmed-reads">1. Correct with Pacbio corrected/trimmed reads</h3>
 <p>Align reads to assembly:</p>
 <pre><code class="text">bwa index all_contigs.fa
@@ -689,7 +696,7 @@ samtools faidx all_contigs.fa
 <li>now we have an alignment file to use in pilon: <fn>aln.bam</fn></li>
 </ul>
 <p>Run pilon:</p>
-<pre><code class="text">pilon --genome all_contigs.fa --unpaired aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --threads 32 --verbose
+<pre><code class="text">pilon --genome all_contigs.fa --unpaired aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --verbose
 </code></pre>
 
 <ul>
@@ -699,8 +706,8 @@ samtools faidx all_contigs.fa
 <li><strong>&#45;&#45;fix</strong> is an option for types of corrections</li>
 <li><strong>&#45;&#45;mindepth</strong> gives a minimum read depth to use</li>
 <li><strong>&#45;&#45;changes</strong> produces an output file of the changes made</li>
-<li><strong>&#45;&#45;threads</strong> is the number of cores</li>
 <li><strong>&#45;&#45;verbose</strong> prints information to the screen during the run</li>
+<li>if you are using pilon on a different machine and you want to specify the number of CPUs, type in <strong>&#45;&#45;threads</strong> number (e.g. 32).</li>
 </ul>
 <p>Look at the .changes file:</p>
 <pre><code class="text">less pilon1.changes | column -t
@@ -731,7 +738,7 @@ samtools faidx pilon1.fasta
 
 <p>note: <strong>contig1</strong> is the name of the contig to view; e.g. tig00000000.</p>
 <p>Run pilon (note: use &ldquo;&ndash;frags&rdquo; this time instead of &ldquo;&ndash;unpaired&rdquo;):</p>
-<pre><code class="text">pilon --genome pilon1.fa --frags aln.bam --output pilon2 --fix all --mindepth 0.5 --changes --threads 32 --verbose
+<pre><code class="text">pilon --genome pilon1.fa --frags aln.bam --output pilon2 --fix all --mindepth 0.5 --changes --verbose
 </code></pre>
 
 <p>Look at the changes file:</p>
@@ -764,7 +771,7 @@ samtools faidx pilon1.fasta
 <!--
 ## Commands summary <a name="summary"></a>
 
-wzxhzdk:51
+wzxhzdk:52
 
 --></div>
         </div>
