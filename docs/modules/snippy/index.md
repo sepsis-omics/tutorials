@@ -1,5 +1,7 @@
 # Variant calling with Snippy
 
+Keywords: variant calling, SNP, Snippy, JBrowse, Galaxy, Microbial Genomics Virtual Lab
+
 ## Background
 
 Variant calling is the process of identifying differences between two genome samples.
@@ -62,7 +64,11 @@ From Snippy, there are 10 output files in various formats.
 
 ## View Snippy output in JBrowse
 
-- Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss>
+- Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss> (choose the top listed one; version 0.5.2).
+
+- Under <ss>JBrowse-in-Galaxy Action</ss> choose *New JBrowse Instance*.
+
+- Under <ss>Reference genome to display</ss> choose *Use a genome from history*.
 
 - Under <ss>Fasta Sequence(s)</ss> choose <fn>wildtype.fna</fn>. This sequence will be the reference against which annotations are displayed.
 
@@ -80,6 +86,7 @@ From Snippy, there are 10 output files in various formats.
 - For <ss>Track Type</ss> choose *BAM Pileups*
 - For <ss>BAM Track Data</ss> select <fn>the snippy bam file</fn>
 - For <ss>Autogenerate SNP Track</ss> select *Yes*
+- Under <ss>Track Visibility</ss> choose *On for new users*.
 
 *Track 2 - variants*
 
@@ -88,6 +95,7 @@ From Snippy, there are 10 output files in various formats.
 - Click <ss>Insert Annotation Track</ss>
 - For <ss>Track Type</ss> choose *GFF/GFF3/BED/GBK Features*
 - For <ss>SNP Track Data</ss> select <fn>the snippy snps gff file</fn>
+- Under <ss>Track Visibility</ss> choose *On for new users*.
 
 *Track 3 - annotated reference*
 
@@ -96,7 +104,11 @@ From Snippy, there are 10 output files in various formats.
 - Click <ss>Insert Annotation Track</ss>
 - For <ss>Track Type</ss> choose *GFF/GFF3/BED/GBK Features*
 - For <ss>SNP Track Data</ss> select <fn>wildtype.gff</fn>
-- Under <ss>JBrowse Styling Options &rarr; JBrowse style. description</ss> type in *product,note,description*
+- Under <ss>JBrowse Track Type[Advanced]</ss> select *Canvas Features*.
+- Click on <ss>JBrowse Styling Options <Advanced]</ss>
+- Under <ss>JBrowse style.label</ss> correct the word "prodcut" to "product".
+- Under <ss>JBrowse style.description</ss> type in *product,note,description*
+- Under <ss>Track Visibility</ss> choose *On for new users*.
 
 - Click <ss>Execute</ss>
 

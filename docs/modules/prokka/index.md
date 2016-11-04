@@ -1,5 +1,7 @@
 # Genome annotation using Prokka
 
+Keywords: annotation, Prokka, JBrowse, Galaxy, Microbial Genomics Virtual Lab
+
 ## Background
 
 In this section we will use a software tool called Prokka to annotate the draft genome sequence produced in the previous [tutorial](/modules/spades/index.md). Prokka is a “wrapper”; it collects together several pieces of software (from various authors), and so avoids “re-inventing the wheel”.
@@ -20,7 +22,7 @@ Prokka requires assembled contigs.
 
 - If you are continuing on from the previous workshop ([Assembly with Spades](/modules/spades/index.md)), this file will be in your current history: <fn>SPAdes_contigs.fasta</fn>.
 
-- Alternatively, download the assembled contigs from the [Training dataset page.](../data-dna/index.md)
+- Alternatively, get the file called "assembled contigs" from the [Training dataset page.](../data-dna/index.md)
 
 
 <!--
@@ -71,9 +73,13 @@ Once Prokka has finished, examine each of its output files.
 
 Now that we have annotated the draft genome sequence, we would like to view the sequence in the JBrowse genome viewer.
 
-- Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss>
+- Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss> (choose the top listed one; version 0.5.2).
 
-- Under <ss>Fasta Sequence(s)</ss> choose <fn>Prokka on data XX:fna</fn>. This sequence will be the reference against which annotations are displayed.
+- Under <ss>JBrowse-in-Galaxy Action</ss> choose *New JBrowse Instance*.
+
+- Under <ss>Reference genome to display</ss> choose *Use a genome from history*.
+
+- Under <ss>Fasta sequences</ss> choose <fn>Prokka on data XX:fna</fn>. This sequence will be the reference against which annotations are displayed.
 
 - For <ss>Produce a Standalone Instance</ss> select *Yes*.
 
@@ -81,15 +87,25 @@ Now that we have annotated the draft genome sequence, we would like to view the 
 
 - Click <ss>Insert Track Group</ss>
 
+- Under <ss>Track Category</ss> type in *gene annotations*.
+
 - Click <ss>Insert Annotation Track</ss>
 
 - For <ss>Track Type</ss> choose *GFF/GFF3/BED/GBK Features*
 
 - For <ss>GFF/GFF3/BED Track Data</ss> select <fn>Prokka on data XX:gff</fn>  [Note: not wildtype.gff]
 
+- Under <ss>JBrowse Track Type[Advanced]</ss> select *Canvas Features*.
+
+- Click on <ss>JBrowse Styling Options <Advanced]</ss>
+
+- Under <ss>JBrowse style.label</ss> correct the word "prodcut" to "product".
+
+- Under <ss>Track Visibility</ss> choose *On for new users*.
+
 Your tool interface should look like this:
 
-![JBrowse interface](images/jbrowse.png)
+![JBrowse interface](images/jbrowse_interface.png)
 
 - Click <ss>Execute</ss>
 

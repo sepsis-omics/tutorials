@@ -1,5 +1,7 @@
 # Differential Gene Expression
 
+Keywords: differential gene expression, DGE, RNA, RNA-Seq, transcriptomics, Degust, voom, limma, Galaxy, Microbial Genomics Virtual Laboratory. 
+
 This tutorial is about differential gene expression in bacteria, using Galaxy tools and Degust (web).
 
 <!-- **FIXME:**

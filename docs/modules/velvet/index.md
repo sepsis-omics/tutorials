@@ -1,5 +1,7 @@
 #Assembly using Velvet
 
+Keywords: de novo assembly, Velvet, Galaxy, Microbial Genomics Virtual Lab
+
 ## Background
 Velvet is one of a number of *de novo* assemblers that use short read sets as input (e.g. Illumina Reads), and the assembly method is based on de Bruijn graphs. For information about Velvet see this [link](https://en.wikipedia.org/wiki/Velvet_assembler).
 
@@ -21,7 +23,7 @@ At the end of this tutorial you should be able to:
 <!-- If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/galaxy/index.md).
 -->
 
-If you don't already have the files in your current galaxy history, see [here](/modules/galaxy/index.md) for information on how to get them.
+See [here](/modules/galaxy/index.md) for information about how to start with Galaxy, and [here](/modules/data-dna/index.md) for the link to import the "Galaxy history of input files" for this tutorial, if you don't already have them in your history.
 
 - The read set for today is from an imaginary *Staphylococcus aureus* bacterium with a miniature genome.
 - The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.

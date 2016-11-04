@@ -1,5 +1,7 @@
 # Get Data into Galaxy
 
+Keywords: Galaxy, Microbial Genomics Virtual Lab
+
 ## Galaxy Background
 
 Galaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety of bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.

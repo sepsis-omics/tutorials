@@ -1,5 +1,7 @@
 #Assembly with PacBio data and SMRT Portal
 
+Keywords: de novo assembly, PacBio, PacificBiosciences, HGAP, SMRT Portal, Microbial Genomics Virtual Laboratory
+
 This tutorial will show you how to assemble a bacterial genome *de novo*, using the PacBio SMRT Portal on the mGVL. We will use an analysis pipeline called HGAP, the Hierarchical Genome Assembly Process.
 
 <!-- FIXMEs:
