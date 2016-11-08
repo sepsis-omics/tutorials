@@ -380,6 +380,8 @@ We will correct the Pacbio assembly, first with Pacbio corrected reads (from Can
     - illumina reads (aligned to Pacbio assembly: in bam format)
 - output: corrected assembly
 
+
+<!--
 First, we will change some of the mGVL settings so that we can use a worker node with more CPUs.
 
 Type in
@@ -389,6 +391,7 @@ sinteractive --cpus=8 --mem=10g
 ```
 
 (To later exit out of this worker node, if you want to, type in "exit").
+--->
 
 ### 1. Correct with Pacbio corrected/trimmed reads
 
