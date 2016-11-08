@@ -674,12 +674,18 @@ less contig3b.bls
 </li>
 <li>output: corrected assembly</li>
 </ul>
-<p>First, we will change some of the mGVL settings so that we can use a worker node with more CPUs.</p>
-<p>Type in</p>
-<pre><code class="text">sinteractive --cpus=8 --mem=10g
-</code></pre>
+<!--
+First, we will change some of the mGVL settings so that we can use a worker node with more CPUs.
 
-<p>(To later exit out of this worker node, if you want to, type in &ldquo;exit&rdquo;).</p>
+Type in
+
+
+wzxhzdk:42
+
+
+(To later exit out of this worker node, if you want to, type in "exit").
+--->
+
 <h3 id="1-correct-with-pacbio-correctedtrimmed-reads">1. Correct with Pacbio corrected/trimmed reads</h3>
 <p>Align reads to assembly:</p>
 <pre><code class="text">bwa index all_contigs.fa
