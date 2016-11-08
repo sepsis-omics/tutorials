@@ -115,15 +115,11 @@ Your tool interface should look like this:
 
 - Select contig 6 in the drop down box. You can only see one contig displayed at a time.
 
-![JBrowse](images/jbrowse2.png)
+![JBrowse](images/jbrowse_01.png)
 
 - Use the plus and minus buttons to zoom in and out, and the arrows to move left or right (or click and drag within the window to move left or right).
 
-Zoomed out view:
-
-![JBrowse](images/jbrowse3.png)
-
-Zoom in to see the reference sequence at the top. JBrowse displays the sequence and a 6-frame amino acid translation.
+- Zoom in to see the reference sequence at the top. JBrowse displays the sequence and a 6-frame amino acid translation.
 
 Zoomed in view:
 
