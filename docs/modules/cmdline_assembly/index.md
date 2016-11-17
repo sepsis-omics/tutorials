@@ -372,14 +372,12 @@ infoseq all_contigs.fa
 
 ##Correct
 
-We will correct the Pacbio assembly, first with Pacbio corrected reads (from Canu) and then with Illumina reads.
+We will correct the Pacbio assembly with Illumina reads.
 
 - inputs:
-    - Draft Pacbio assembly (overhang trimmed from each of the three replicons)
-    - corrected (and trimmed) Pacbio reads from Canu.
+    - draft Pacbio assembly (overhang trimmed from each of the three replicons)
     - illumina reads (aligned to Pacbio assembly: in bam format)
 - output: corrected assembly
-
 
 <!--
 First, we will change some of the mGVL settings so that we can use a worker node with more CPUs.
@@ -392,29 +390,37 @@ sinteractive --cpus=8 --mem=10g
 
 (To later exit out of this worker node, if you want to, type in "exit").
 --->
+### 2. Correct with Illumina reads
 
-### 1. Correct with Pacbio corrected/trimmed reads
+Input: the draft Pacbio assembly, e.g. <fn>contigs.fasta</fn>
 
-Align reads to assembly:
+Align the Illumina reads (R1 and R2) to this assembly:
 
 ```text
-bwa index all_contigs.fa
-bwa mem -t 32 all_contigs.fa canu.trimmedReads.fasta.gz | samtools sort > aln.bam
+bwa index contigs.fasta
+bwa mem -t 32 contigs.fasta R1.fastq.gz R2.fastq.gz | samtools sort > aln.bam
 samtools index aln.bam
-samtools faidx all_contigs.fa
+samtools faidx contigs.fasta
 ```
 
 - **-t** is the number of cores (e.g. 8)
     - to find out how many you have, grep -c processor /proc/cpuinfo
 - now we have an alignment file to use in pilon: <fn>aln.bam</fn>
 
+Look at how the illumina reads are aligned:
+
+```text
+samtools tview -p contig1 aln.bam contigs.fasta
+```
+note: **contig1** is the name of the contig to view; e.g. tig00000000.
+
 Run pilon:
 
 ```text
-pilon --genome all_contigs.fa --unpaired aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --verbose
+pilon --genome contigs.fa --frags aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --verbose
 ```
 - **&#45;&#45;genome** is the name of the input assembly to be corrected
-- **&#45;&#45;unpaired** is the alignment of the reads against the assembly (use "unpaired" instead of "frags" where alignment is from pacbio reads)
+- **&#45;&#45;frags** is the alignment of the reads against the assembly
 - **&#45;&#45;output** is the name of the output prefix
 - **&#45;&#45;fix** is an option for types of corrections
 - **&#45;&#45;mindepth** gives a minimum read depth to use
@@ -422,64 +428,35 @@ pilon --genome all_contigs.fa --unpaired aln.bam --output pilon1 --fix all --min
 - **&#45;&#45;verbose** prints information to the screen during the run
 - if you are using pilon on a different machine and you want to specify the number of CPUs, type in **&#45;&#45;threads** number (e.g. 32).
 
+Look at the changes file:
 
-Look at the .changes file:
 ```text
-less pilon1.changes | column -t
+less pilon1.changes
 ```
+
+<!-- fix this to show this file
 - This shows the corrections made by Pilon:
 
 ![Pilon](images/pilon.png)
+ -->
 
-- Look at the details of the .fasta file:
+Look at the fasta file:
+
+```text
+less pilon1.fasta
+```
+
+Look at the details of the fasta file:
 
 ```text
 infoseq pilon1.fasta
 ```
 
-### 2. Correct with Illumina reads
-
-Input: the corrected assembly from the previous step: <fn>pilon1.fasta</fn>
-
-Align the Illumina reads to this assembly:
-
-```text
-bwa index pilon1.fasta
-bwa mem -t 32 pilon1.fasta R1.fastq.gz R2.fastq.gz | samtools sort > aln.bam
-samtools index aln.bam
-samtools faidx pilon1.fasta
-```
-
-Look at how the illumina reads are aligned:
-```text
-samtools tview -p contig1 aln.bam pilon1.fasta
-```
-note: **contig1** is the name of the contig to view; e.g. tig00000000.
-
-Run pilon (note: use "--frags" this time instead of "--unpaired"):
-
-```text
-pilon --genome pilon1.fa --frags aln.bam --output pilon2 --fix all --mindepth 0.5 --changes --verbose
-```
-
-Look at the changes file:
-
-```text
-less pilon2.changes
-```
-
-Look at the .fasta file:
-
-```text
-less pilon2.fasta
-```
-
-If there are more than 2 changes, run Pilon again, using the pilon2.fasta file as the input assembly, and the Illumina reads to correct.
+If there are more than 2 changes, run Pilon again, using the pilon1.fasta file as the input assembly, and the Illumina reads to correct.
 
 **Final output:**
 
 - the corrected genome assembly of *Staphylococcus aureus* in .fasta format, containing three contigs: chromosome, large plasmid and small plasmid.  
-
 
 ##Next
 
