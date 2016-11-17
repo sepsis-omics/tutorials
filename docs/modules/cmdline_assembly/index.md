@@ -374,11 +374,6 @@ infoseq all_contigs.fa
 
 We will correct the Pacbio assembly with Illumina reads.
 
-- inputs:
-    - draft Pacbio assembly (overhang trimmed from each of the three replicons)
-    - illumina reads (aligned to Pacbio assembly: in bam format)
-- output: corrected assembly
-
 <!--
 First, we will change some of the mGVL settings so that we can use a worker node with more CPUs.
 
@@ -390,11 +385,8 @@ sinteractive --cpus=8 --mem=10g
 
 (To later exit out of this worker node, if you want to, type in "exit").
 --->
-### 2. Correct with Illumina reads
 
-Input: the draft Pacbio assembly, e.g. <fn>contigs.fasta</fn>
-
-Align the Illumina reads (R1 and R2) to this assembly:
+Align the Illumina reads (R1 and R2) to the draft PacBio assembly, e.g. <fn>contigs.fasta</fn>:
 
 ```text
 bwa index contigs.fasta
