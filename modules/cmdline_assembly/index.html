@@ -665,14 +665,6 @@ less contig3b.bls
 
 <h2 id="correct">Correct</h2>
 <p>We will correct the Pacbio assembly with Illumina reads.</p>
-<ul>
-<li>inputs:<ul>
-<li>draft Pacbio assembly (overhang trimmed from each of the three replicons)</li>
-<li>illumina reads (aligned to Pacbio assembly: in bam format)</li>
-</ul>
-</li>
-<li>output: corrected assembly</li>
-</ul>
 <!--
 First, we will change some of the mGVL settings so that we can use a worker node with more CPUs.
 
@@ -685,9 +677,7 @@ Type in
 (To later exit out of this worker node, if you want to, type in "exit").
 --->
 
-<h3 id="2-correct-with-illumina-reads">2. Correct with Illumina reads</h3>
-<p>Input: the draft Pacbio assembly, e.g. <fn>contigs.fasta</fn></p>
-<p>Align the Illumina reads (R1 and R2) to this assembly:</p>
+<p>Align the Illumina reads (R1 and R2) to the draft PacBio assembly, e.g. <fn>contigs.fasta</fn>:</p>
 <pre><code class="text">bwa index contigs.fasta
 bwa mem -t 32 contigs.fasta R1.fastq.gz R2.fastq.gz | samtools sort &gt; aln.bam
 samtools index aln.bam
