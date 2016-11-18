@@ -200,6 +200,8 @@
         
             <li><a href="#examine-the-output">Examine the output</a></li>
         
+            <li><a href="#assembly-with-velvet-optimiser">Assembly with Velvet Optimiser</a></li>
+        
     
     </ul>
 </div></div>
@@ -309,7 +311,11 @@ Ask your demonstrator if you would like to know the difference between contigs a
 <li>
 <p>Set the following parameters (leave other settings as they are):</p>
 <ul>
-<li><ss>K-mer</ss>: choose a value for k between 21 and 95</li>
+<li><ss>K-mer</ss>: Enter the value for <em>k</em> that you have been assigned in the spreadsheet.</li>
+</ul>
+<!-- choose a value for k between 21 and 95 -->
+
+<ul>
 <li><ss>Input file type</ss>: Fastq</li>
 <li><ss>Single or paired end reads</ss>: Paired</li>
 <li><ss> Select first set of reads</ss>: <fn>mutant_R1.fastq</fn>  </li>
@@ -317,7 +323,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
 </ul>
 </li>
 <li>
-<p>Your tool interface should look like this:</p>
+<p>Your tool interface should look like this (you will most likely have a different value for k):</p>
 </li>
 </ul>
 <p><img alt="velvet interface" src="./images/image09.png" /></p>
@@ -334,6 +340,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
 <li>a <fn>Contigs</fn> file</li>
 <li>a <fn>Contigs stats</fn> file</li>
 <li>the velvet <fn>log</fn> file</li>
+<li>an assembly <fn>Last Graph</fn> file</li>
 </ul>
 </li>
 <li>
@@ -354,7 +361,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
 <p><img alt="Contigs stats output" src="./images/image11.png" /></p>
 <ul>
 <li>We will summarise the information in the <fn>log</fn> file.</li>
-<li>Go to <ss>Basic Tools &rarr; NGS Common Toolsets &rarr; FASTA manipulation &rarr; Fasta statistics</ss></li>
+<li>Go to <ss>NGS Common Toolsets &rarr; FASTA manipulation &rarr; Fasta statistics</ss></li>
 <li>For the required input file, choose the velvet <fn>Contigs</fn> file.</li>
 <li>Click <ss>Execute</ss>.</li>
 <li>A new file will appear called <fn>Fasta summary stats</fn></li>
@@ -370,6 +377,35 @@ Ask your demonstrator if you would like to know the difference between contigs a
 </ul>
 </li>
 </ul>
+<h3 id="now-copy-the-relevant-data-back-into-the-k-mer-spreadsheet-on-your-line">Now copy the relevant data back into the k-mer spreadsheet on your line.</h3>
+<p>Along with the demonstrator, have a look at the effect of the k-mer size on the output metrics of the assembly. Note that there are local maxima and minima in the charts.</p>
+<!--In next week's lecture, this will be discussed in detail. -->
+
+<h2 id="assembly-with-velvet-optimiser">Assembly with Velvet Optimiser</h2>
+<p>Now that we have seen the effect of k-mer size on the assembly, we will run the Velvet Optimiser to automatically choose the best k-mer size for us. It will use the &ldquo;n50&rdquo; to determine the best k-mer value to use. It then performs the further graph cleaning steps and automatically chooses a bunch of other parameters for velvet. We should get a much better assembly result than we did with our attempts with Velvet alone.</p>
+<ul>
+<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; Velvet Optimiser</ss><ul>
+<li>
+<p>Set the following parameters (leave other settings as they are):</p>
+<ul>
+<li><ss>Start k-mer size</ss>: 45</li>
+<li><ss>End k-mer size</ss>: 73</li>
+<li><ss>Input file type</ss>: Fastq</li>
+<li><ss>Single or paired end reads</ss>: Paired</li>
+<li><ss> Select first set of reads</ss>: <fn>mutant_R1.fastq</fn>  </li>
+<li>
+<p><ss> Select second set of reads</ss>: <fn>mutant_R2.fastq</fn></p>
+</li>
+<li>
+<p>Click <ss>Execute</ss></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="look-at-the-fasta-statistics-for-the-velvet-optimiser-contigs">Look at the fasta statistics for the Velvet Optimiser contigs</h3>
+<p>Use the Fasta Statistics tool you used earlier to summarise the Velvet Optimiser output. Examine the resulting table. What are the main differences?</p>
 <!-- ## What next?
 
 - [Annotate the genome using Prokka.](/modules/prokka/index.md)
