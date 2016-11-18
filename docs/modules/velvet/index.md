@@ -121,6 +121,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
     - a <fn>Contigs</fn> file
     - a <fn>Contigs stats</fn> file
     - the velvet <fn>log</fn> file
+    - an assembly <fn>Last Graph</fn> file
 
 - Click on the View Data button ![Eye icon](images/image04.png) on each of the files.
 
@@ -135,7 +136,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
 ![Contigs stats output](images/image11.png)
 
 - We will summarise the information in the <fn>log</fn> file.
-- Go to <ss>Basic Tools &rarr; NGS Common Toolsets &rarr; FASTA manipulation &rarr; Fasta statistics</ss>
+- Go to <ss>NGS Common Toolsets &rarr; FASTA manipulation &rarr; Fasta statistics</ss>
 - For the required input file, choose the velvet <fn>Contigs</fn> file.
 - Click <ss>Execute</ss>.
 - A new file will appear called <fn>Fasta summary stats</fn>

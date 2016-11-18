@@ -114,7 +114,7 @@ From Snippy, there are 10 output files in various formats.
 
 - A new file will be created, called <fn>JBrowse on data XX and data XX - Complete</fn>. Click on the eye icon next to the file name. The JBrowse window will appear in the centre Galaxy panel.
 
-- On the left, tick boxes display the tracks
+- On the left, tick boxes to display the tracks
 
 - Use the minus button to zoom out to see:
     - sequence reads and their coverage (the grey graph)

@@ -79,7 +79,8 @@ Now that we have annotated the draft genome sequence, we would like to view the 
 
 - Under <ss>Reference genome to display</ss> choose *Use a genome from history*.
 
-- Under <ss>Fasta sequences</ss> choose <fn>Prokka on data XX:fna</fn>. This sequence will be the reference against which annotations are displayed.
+
+- Under <ss>Fasta sequences</ss> choose <fn>Prokka on data XX:fna</fn>. This .fna sequence is the fasta nucleotide sequence, and will be the reference against which annotations are displayed.
 
 - For <ss>Produce a Standalone Instance</ss> select *Yes*.
 
@@ -95,6 +96,7 @@ Now that we have annotated the draft genome sequence, we would like to view the 
 
 - For <ss>GFF/GFF3/BED Track Data</ss> select <fn>Prokka on data XX:gff</fn>  [Note: not wildtype.gff]
 
+
 - Under <ss>JBrowse Track Type[Advanced]</ss> select *Canvas Features*.
 
 - Click on <ss>JBrowse Styling Options <Advanced]</ss>
@@ -106,6 +108,9 @@ Now that we have annotated the draft genome sequence, we would like to view the 
 Your tool interface should look like this:
 
 ![JBrowse interface](images/jbrowse_interface.png)
+
+<!--
+![JBrowse interface](images/jbrowse_oldversion.png) -->
 
 - Click <ss>Execute</ss>
 
@@ -125,7 +130,7 @@ Zoomed in view:
 
 ![JBrowse](images/jbrowse4.png)
 
-- Click on a gene/feature annotation (the bars on the annotation track) to see more information.
+- Right click on a gene/feature annotation (the bars on the annotation track), then select <ss>View Details</ss> to see more information.
     - gene name
     - product name
     - you can download the FASTA sequence by clicking on the disk icon.
