@@ -97,13 +97,16 @@ Ask your demonstrator if you would like to know the difference between contigs a
 - Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; velvet</ss>
 - Set the following parameters (leave other settings as they are):
 
-    - <ss>K-mer</ss>: choose a value for k between 21 and 95
+    - <ss>K-mer</ss>: Enter the value for *k* that you have been assigned in the spreadsheet.
+
+    <!-- choose a value for k between 21 and 95 -->
+
     - <ss>Input file type</ss>: Fastq
     - <ss>Single or paired end reads</ss>: Paired
     - <ss> Select first set of reads</ss>: <fn>mutant_R1.fastq</fn>  
     - <ss> Select second set of reads</ss>: <fn>mutant_R2.fastq</fn>
 
-- Your tool interface should look like this:
+- Your tool interface should look like this (you will most likely have a different value for k):
 
 ![velvet interface](images/image09.png)
 
@@ -145,6 +148,37 @@ Ask your demonstrator if you would like to know the difference between contigs a
     - *num_bp*: the number of assembled bases. Roughly proportional to genome size.
     - *len_max*: the biggest contig.  
     - *len_N50*: N50 is a contig size. If contigs were ordered from small to large, half of all the nucleotides will be in contigs this size or larger.
+
+
+
+###Now copy the relevant data back into the k-mer spreadsheet on your line.
+
+Along with the demonstrator, have a look at the effect of the k-mer size on the output metrics of the assembly. Note that there are local maxima and minima in the charts.
+
+<!--In next week's lecture, this will be discussed in detail. -->
+
+## Assembly with Velvet Optimiser
+
+Now that we have seen the effect of k-mer size on the assembly, we will run the Velvet Optimiser to automatically choose the best k-mer size for us. It will use the "n50" to determine the best k-mer value to use. It then performs the further graph cleaning steps and automatically chooses a bunch of other parameters for velvet. We should get a much better assembly result than we did with our attempts with Velvet alone.
+
+- Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; Velvet Optimiser</ss>
+    - Set the following parameters (leave other settings as they are):
+
+        - <ss>Start k-mer size</ss>: 45
+        - <ss>End k-mer size</ss>: 73
+        - <ss>Input file type</ss>: Fastq
+        - <ss>Single or paired end reads</ss>: Paired
+        - <ss> Select first set of reads</ss>: <fn>mutant_R1.fastq</fn>  
+        - <ss> Select second set of reads</ss>: <fn>mutant_R2.fastq</fn>
+
+        -  Click <ss>Execute</ss>
+
+### Look at the fasta statistics for the Velvet Optimiser contigs
+
+Use the Fasta Statistics tool you used earlier to summarise the Velvet Optimiser output. Examine the resulting table. What are the main differences?
+
+
+
 
 <!-- ## What next?
 
