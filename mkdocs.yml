@@ -13,8 +13,8 @@ extra_css:
     - css/sepsis.css
 pages:
 - Home: index.md
-- Genomics:
-    #- Overview: genomics.md
+- Genomics Workshop:
+    - Workshop overview: modules/workshop_overview/index.md
     #- Using Galaxy: modules/galaxy/index.md
     - Starting with Galaxy: modules/galaxy/index.md
     - Training dataset: modules/data-dna/index.md
@@ -24,6 +24,9 @@ pages:
     - Genome assembly with Spades: modules/spades/index.md
     - Genome annotation: modules/prokka/index.md
     - Variant finding: modules/snippy/index.md
+
+- More Genomics:
+    - From public data to annotation: modules/access_data/index.md
 
 
 - PacBio assembly:
@@ -38,6 +41,7 @@ pages:
 #  #- Read trimming: modules/trimmomatic/index.md
 #  - Transcriptome assembly: modules/stringtie/index.md
      - Differential gene expression: modules/dge/index.md
+     - Salmon: modules/salmon/index.md
 #- Advanced:
     #- Differential Gene Expression: intro/dge/index.md
     #- Pan genome: intro/roary/index.md
