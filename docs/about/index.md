@@ -18,6 +18,8 @@ genomic, transcriptomic, proteomic and metabolomic data. The data platform will 
 
 ![Dom](dom.jpg) Dominique Gorse
 
+![Mike](mike.jpg) Mike Thang
+
 ## Support
 
 * [Research Data Services](http://omics.data.edu.au/)
