@@ -1,49 +1,32 @@
 # Dataset
 
-This page contains data for the tutorials.
+This page contains data for the tutorials. The tutorials will specify whether to import a whole history (URLs listed in the first section) or an individual file (URLs listed in the second section).
 
-## Individual input files
+## Galaxy histories: URLs
 
-###Wildtype reference
+* Galaxy history of input files
 
-* [wildtype.fna](wildtype.fna)
-* [wildtype.gbk](wildtype.gbk)
-* [wildtype.gff](wildtype.gff)
+<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy_history_input_files.tar.gz</tt>
 
-### Mutant Illumina sequence
+* Galaxy history: FastQC
 
-* [mutant_R1.fastq.gz](mutant_R1.fastq.gz)
-* [mutant_R2.fastq.gz](mutant_R2.fastq.gz)
+<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/FastQChistory.tar.gz</tt>
 
-###Assembled contigs
-* [SPAdes_contigs.fasta](SPAdes_contigs.fasta)
+* Galaxy history: Spades
 
-### Upload to Galaxy
+<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Spadeshistory.tar.gz</tt>
 
--  Download required file(s) to your computer.
--  From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  
--  Click the <ss>Choose local file</ss> button  
--  Find and select the <fn>file</fn> you downloaded and click <ss>Open</ss>  
--  Set the <ss>Type</ss> correctly.  
--  Click the <ss>Start</ss> button.  
--  Once the progress bar reaches 100%, click the <ss>Close</ss> button  
-- The file will now upload to your current history.
+* Galaxy history: Prokka
 
+<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Prokkahistory.tar.gz</tt>
 
+* Galaxy history: Snippy
 
+<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Snippyhistory.tar.gz</tt>
 
-## Galaxy histories
+**To get the saved tutorial history (a set of files) into Galaxy:**
 
-* [Galaxy history of input files](Data.tar.gz)
-* [Galaxy history: FastQC](FastQChistory.tar.gz)
-* [Galaxy history: Spades](Spadeshistory.tar.gz)
-* [Galaxy history: Prokka](Prokkahistory.tar.gz)
-* [Galaxy history: Snippy](Snippyhistory.tar.gz)
-
-
-To get the saved tutorial history (a set of files) into Galaxy:
-
-- Right-click on <fn>Galaxy history of input files</fn> above and copy link address.
+- Copy the link address.
 - Go to your Galaxy instance. Make sure you are registered and logged in. Refresh the page.
 - Click on the <ss>History</ss> cog ![cog icon](images/image02.png)
 - Select <ss>Import from File</ss>
@@ -60,6 +43,62 @@ To get the saved tutorial history (a set of files) into Galaxy:
 - You should now have a list of five files in your current history.
 
 ![files in galaxy history](images/datafiles.png)
+
+## Individual input files
+
+###Wildtype reference
+
+* wildtype.fna
+
+<tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/wildtype.fna</tt>
+
+* wildtype.gbk
+
+<tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/wildtype.gbk</tt>
+
+* wildtype.gff
+
+<tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/wildtype.gff</tt>
+
+### Mutant Illumina sequence
+
+* mutant_R1.fastq.gz
+
+<tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/mutant_R1.fastq.gz</tt>
+
+* mutant_R2.fastq.gz
+
+<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/mutant_R2.fastq.gz</tt>
+
+###Assembled contigs
+
+* SPAdes_contigs.fasta
+
+<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/SPAdes_contigs.fasta</tt>
+
+### Upload to Galaxy
+
+There are two ways to upload these files to Galaxy. You can either download to your local computer and upload to Galaxy, or you can tell Galaxy to directly upload the file from an external source.
+
+Download and upload:
+
+-  Download required file(s) to your computer.
+-  From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  
+-  Click the <ss>Choose local file</ss> button  
+-  Find and select the <fn>file</fn> you downloaded and click <ss>Open</ss>  
+-  Set the <ss>Type</ss> correctly.  
+-  Click the <ss>Start</ss> button.  
+-  Once the progress bar reaches 100%, click the <ss>Close</ss> button  
+- The file will now upload to your current history.
+
+Or, tell Galaxy to find the file from an external source:
+
+-  From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  
+-  Click the <ss>Paste/Fetch data</ss> button  
+-  Paste the URL into the box.
+-  Click the <ss>Start</ss> button.  
+-  Once the progress bar reaches 100%, click the <ss>Close</ss> button  
+- The file will now upload to your current history.
 
 <!-- ## What next?
 
