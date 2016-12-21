@@ -51,4 +51,7 @@ pages:
 - Proteomics:
   - Protein Identification: modules/xtandem/index.md
 
+- Pathway Tools:
+  - Pathway annotation and prediction: modules/pathway_tools/annotation/index.md
+
 - About: about/index.md
