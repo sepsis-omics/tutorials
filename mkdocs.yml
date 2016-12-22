@@ -25,8 +25,8 @@ pages:
     - Genome annotation: modules/prokka/index.md
     - Variant finding: modules/snippy/index.md
 
-- More Genomics:
-    - From public data to annotation: modules/access_data/index.md
+- #More Genomics:
+    #- From public data to annotation: modules/access_data/index.md
 
 
 - PacBio assembly:
@@ -41,7 +41,7 @@ pages:
 #  #- Read trimming: modules/trimmomatic/index.md
 #  - Transcriptome assembly: modules/stringtie/index.md
      - Differential gene expression: modules/dge/index.md
-     - Salmon: modules/salmon/index.md
+     #- Salmon: modules/salmon/index.md
 #- Advanced:
     #- Differential Gene Expression: intro/dge/index.md
     #- Pan genome: intro/roary/index.md
