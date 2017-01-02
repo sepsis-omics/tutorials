@@ -1,5 +1,5 @@
 
-Protein indentification using X!Tandem
+Protein identification using X!Tandem
 ==================================
 
 Introduction
@@ -8,7 +8,7 @@ The high-throughput nature of proteomics mass spectrometry is enabled by a produ
 
 ![Protein Identification Workflow](images/training_Workflow_1v3.png)
 
-> **Figure 1** --- *General overview of the experimental steps and flow of data in protein identification using shotgun proteomics experiment.*[^figure1]. 
+> **Figure 1** --- *General overview of the experimental steps and flow of data in protein identification using shotgun proteomics experiment.*[^figure1].
 
 **Figure 1** shows a general overview of the experimental steps in protein identification. Sample proteins are first cleaved into peptides, which are then separated using chromatography (e.g. HPLC). The peptides are then ionised and then selected ions are fragmented to produce signature tandem mass spectrometry (MS/MS) spectra. Peptides are identified from the MS/MS spectra by using programs such as X!Tandem, which search against a database of known peptides. Sequences of the identified peptides are used to infer which proteins are present in the original sample.
 
@@ -24,13 +24,13 @@ The high-throughput nature of proteomics mass spectrometry is enabled by a produ
 > **Figure 2** --- *Schema of High Pressure Liquid Chromatography (HPLC)[^figure3].* Compounds of the mixture are separated in the HPLC column according to various parameters (polarity, charge, affinity etc). The type of separation depends on the column being used). A detector flow cell is used to detect the separated compounds band.
 
 
-**Mass spectrometry** (MS) -- see **Figure 3** -- has been widely used to analyse biological samples and has evolved into an indispensable tool for proteomics research. Fundamentally, MS measures the mass-to-charge ratio (m/z) of gas-phase ions. Mass spectrometers consist of an ion source that converts analyte molecules into gas-phase ions, a mass analyser that separates ionised analytes on the basis of m/z ratio and a detector that records the number of ions at each m/z value. 
+**Mass spectrometry** (MS) -- see **Figure 3** -- has been widely used to analyse biological samples and has evolved into an indispensable tool for proteomics research. Fundamentally, MS measures the mass-to-charge ratio (m/z) of gas-phase ions. Mass spectrometers consist of an ion source that converts analyte molecules into gas-phase ions, a mass analyser that separates ionised analytes on the basis of m/z ratio and a detector that records the number of ions at each m/z value.
 
 ![Mass Spectrometry](images/training_MS.png)
 
 > **Figure 3** --- *Schema of mass specter*. "A mass spectrometer consists of three components: an ion source, a mass analyzer, and a detector. The ionizer converts a portion of the sample into ions. There is a wide variety of ionization techniques, depending on the phase (solid, liquid, gas) of the sample and the efficiency of various ionization mechanisms for the unknown species. An extraction system removes ions from the sample, which are then targeted through the mass analyzer and onto the detector. The differences in masses of the fragments allows the mass analyzer to sort the ions by their mass-to-charge ratio. The detector measures the value of an indicator quantity and thus provides data for calculating the abundances of each ion present." [^figure4]
 
-**Tandem mass spectrometry** (MS/MS) -- see **Figure 4** -- is a key technique for protein or peptide sequencing and post-translational modifications analysis. Collision-induced dissociation (CID) has been the most widely used MS/MS technique in proteomics research. In this method, gas-phase peptide/protein cations are internally heated by multiple collisions with rare gas atoms. The result is fragmented ions that, after the detection phase and reconstitution, reveal the amino-acid chains. 
+**Tandem mass spectrometry** (MS/MS) -- see **Figure 4** -- is a key technique for protein or peptide sequencing and post-translational modifications analysis. Collision-induced dissociation (CID) has been the most widely used MS/MS technique in proteomics research. In this method, gas-phase peptide/protein cations are internally heated by multiple collisions with rare gas atoms. The result is fragmented ions that, after the detection phase and reconstitution, reveal the amino-acid chains.
 
 ![LC-MS/MS](images/training_LC-MSMS_2.png)
 
@@ -53,8 +53,8 @@ For this tutorial we will focus on the "Informatics Analysis" part using the fol
 
 ![MGF example](images/training_MGF.png)
 
-> **Figure 6** --- *Sample of a MGF file*. MGF files are used for enconding MS results, multiple spectra can be enconded in one MGF. Every spectrum begins with the *BEGINS IONS* assessment and finishes with *END IONS*. MGF files can be divided in 2 parts : 
-	-- The header : containing information about the embedded Search Parameters. 
+> **Figure 6** --- *Sample of a MGF file*. MGF files are used for enconding MS results, multiple spectra can be enconded in one MGF. Every spectrum begins with the *BEGINS IONS* assessment and finishes with *END IONS*. MGF files can be divided in 2 parts :
+	-- The header : containing information about the embedded Search Parameters.
 	-- Ions information : the first figure is the ion mass, the second is the ion charge.
 
 ### X!Tandem
@@ -125,7 +125,7 @@ Original source : [http://www.marcottelab.org/MSdata/](http://www.marcottelab.or
 ![GALAXY History Name](images/training_history.png)
 
 * Next, <ss>import</ss> data into GALAXY. On the left panel <ss>click</ss> on the upload button as shown below:
- 
+
 ![GALAXY Upload Data Button](images/training_upload_0.png)
 
 * A new window will open, where you can select a method to upload your data: Choose local file, Choose FTP file, Paste/Fetch data. <ss>Click</ss> on <ss>Paste/Fetch data</ss> then copy and paste the URL of the mass spectrometer file: into the textbox: EColi_K12_MS_Spectra.mgf
@@ -133,7 +133,7 @@ Original source : [http://www.marcottelab.org/MSdata/](http://www.marcottelab.or
 > **Tip** : You can also use the <ss>Get Data &rarr; Upload file</ss> tool to obtain the same result. Here you want to upload your MS/MS spectra.
 
 ![GALAXY Upload Data Fetch](images/training_upload_2.png)
- 
+
 > **Warning** : X!Tandem only accepts mgf files in GALAXY.  Other file formats have to be converted beforehand. A useful tool for that is msconvert[^msconvert](download : [here](http://proteowizard.sourceforge.net/downloads.shtml). This tool only working on Windows).
 
 ### STEP 2: Import Reference Data
@@ -158,10 +158,10 @@ We will first use the UniProt Database as our reference data to search against.
 
 ###STEP 3: X!Tandem MS/MS Search
 
-This part of the tutorial is to perform the X!Tandem MS/MS search. 
+This part of the tutorial is to perform the X!Tandem MS/MS search.
 
 * The tool can be found in the left panel under the section <ss>Proteomics Tools &rarr; X!Tandem MSMS Search</ss>
-* In the central section, you should see the following options. Below the key parameters are explained in detail. 
+* In the central section, you should see the following options. Below the key parameters are explained in detail.
 
 ![X!Tandem Options](images/training_Xtandem.png)
 
@@ -179,7 +179,7 @@ X!Tandem proposes many options, the key options of interest are:
 In this tutorial, we are using the following parameters:
 
 | Parameters Name       | Value          | Default Value |
-| :------------- | -------------|-------------:| 
+| :------------- | -------------|-------------:|
 | Uploaded FASTA file     | EColi_K12_UniProt_Database | -- |
 | MSMS File    | EColi_K12_MS_Spectra.mgf     |  -- |
 | Variable Modifications | Oxidation M      | -- |
@@ -200,7 +200,7 @@ In this tutorial, we are using the following parameters:
 
 * You can view the output by click on the name in the history panel.
 
-###STEP 4: Convert X!Tandem XML to Table 
+###STEP 4: Convert X!Tandem XML to Table
 
 The output of X!Tandem is an XML format, which is not easy to decipher. In order to get a more readable file, we will convert the XML format to a table. This is a two step process:
 
@@ -241,7 +241,7 @@ After the X!Tandem search we obtain a list of proteins present in the sample dat
 
 [^xtand]: X!Tandem website: http://www.thegpm.org/tandem/. X!Tandem documentation : http://www.thegpm.org/TANDEM/api/. Craig, R., and R. C. Beavis. 2004. *“TANDEM: matching proteins with tandem mass spectra.”* Bioinformatics 20, no. 9 (June): 1466-67. http://dx.doi.org/10.1093/bioinformatics/bth092.
 
-[^figure1]: Nesvizhskii, Alexey I. *"Protein Identification By Tandem Mass Spectrometry And Sequence Database Searching"*. Mass Spectrometry Data Analysis in Proteomics 87-120. 
+[^figure1]: Nesvizhskii, Alexey I. *"Protein Identification By Tandem Mass Spectrometry And Sequence Database Searching"*. Mass Spectrometry Data Analysis in Proteomics 87-120.
  --- [Mass Spectrometry Data Analysis in Proteomics](http://www.springerprotocols.com/BookToc/doi/10.1385/1597452750)
 
 [^galaxy]: GALAXY platform : https://usegalaxy.org/. You can also find a more extensive documentation here : https://galaxyproject.org/.

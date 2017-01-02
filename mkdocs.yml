@@ -25,7 +25,7 @@ pages:
     - Genome annotation: modules/prokka/index.md
     - Variant finding: modules/snippy/index.md
 
-- #More Genomics:
+#More Genomics:
     #- From public data to annotation: modules/access_data/index.md
 
 
@@ -40,7 +40,7 @@ pages:
 #  #- Quality control: modules/fastqc/index.md
 #  #- Read trimming: modules/trimmomatic/index.md
 #  - Transcriptome assembly: modules/stringtie/index.md
-     - Differential gene expression: modules/dge/index.md
+    - Differential gene expression: modules/dge/index.md
      #- Salmon: modules/salmon/index.md
 #- Advanced:
     #- Differential Gene Expression: intro/dge/index.md
@@ -49,9 +49,9 @@ pages:
     #- JBrowse: modules/jbrowse/index.md
 
 - Proteomics:
-  - Protein Identification: modules/xtandem/index.md
+    - Protein Identification: modules/xtandem/index.md
 
 - Pathway Tools:
-  - Pathway annotation and prediction: modules/pathway_tools/annotation/index.md
+    - Pathway annotation and prediction: modules/pathway_tools/annotation/index.md
 
 - About: about/index.md
