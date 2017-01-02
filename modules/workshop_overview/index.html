@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="favicon.ico">
         
 
-	<title>Training dataset - ABRPI Training 2016</title>
+	<title>Workshop overview - ABRPI Training 2016</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -63,8 +63,8 @@
                     <ul class="dropdown-menu">
                     
                         
-<li >
-    <a href="../workshop_overview/">Workshop overview</a>
+<li class="active">
+    <a href="./">Workshop overview</a>
 </li>
 
                     
@@ -75,8 +75,8 @@
 
                     
                         
-<li class="active">
-    <a href="./">Training dataset</a>
+<li >
+    <a href="../data-dna/">Training dataset</a>
 </li>
 
                     
@@ -190,12 +190,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../galaxy/">
+                    <a rel="next" href="../..">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../velvet/">
+                    <a rel="prev" href="../galaxy/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -209,114 +209,41 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#dataset">Dataset</a></li>
+        <li class="main active"><a href="#genomics-workshop-overview">Genomics workshop overview</a></li>
         
-            <li><a href="#galaxy-histories-urls">Galaxy histories: URLs</a></li>
-        
-            <li><a href="#individual-input-files">Individual input files</a></li>
+            <li><a href="#overview">Overview</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="dataset">Dataset</h1>
-<p>This page contains data for the tutorials. The tutorials will specify whether to import a whole history (URLs listed in the first section) or an individual file (URLs listed in the second section).</p>
-<h2 id="galaxy-histories-urls">Galaxy histories: URLs</h2>
+<h1 id="genomics-workshop-overview">Genomics workshop overview</h1>
 <ul>
-<li>Galaxy history of input files</li>
+<li>
+<p>The modules in this workshop cover microbial genomics, from assembly to annotation and variant calling.</p>
+</li>
+<li>
+<p>The analyses are conducted on the Galaxy platform, and links to training data are provided.</p>
+</li>
+<li>
+<p>These modules can be delivered to a group workshop or used online independently.</p>
+</li>
+<li>
+<p>If you have not yet used the Galaxy platform, we recommend following the modules in order.</p>
+</li>
+<li>
+<p>If you are using these tutorials outside of a workshop and need access to Galaxy, you can follow the instructions on the homepage <a href="../..">here</a> to obtain your own mGVL instance with Galaxy and command line tools.</p>
+</li>
 </ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy_history_input_files.tar.gz</tt></p>
+<h2 id="overview">Overview</h2>
 <ul>
-<li>Galaxy history: FastQC</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/FastQChistory.tar.gz</tt></p>
-<ul>
-<li>Galaxy history: Spades</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Spadeshistory.tar.gz</tt></p>
-<ul>
-<li>Galaxy history: Prokka</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Prokkahistory.tar.gz</tt></p>
-<ul>
-<li>Galaxy history: Snippy</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Snippyhistory.tar.gz</tt></p>
-<p><strong>To get the saved tutorial history (a set of files) into Galaxy:</strong></p>
-<ul>
-<li>Copy the link address.</li>
-<li>Go to your Galaxy instance. Make sure you are registered and logged in. Refresh the page.</li>
-<li>Click on the <ss>History</ss> cog <img alt="cog icon" src="./images/image02.png" /></li>
-<li>Select <ss>Import from File</ss></li>
-</ul>
-<p><img alt="history options" src="./images/image03.png" /></p>
-<ul>
-<li>In the box called <ss>Archived History URL</ss>, paste in the link address to the Galaxy history.</li>
-<li>Click <ss>Submit</ss></li>
-<li>Wait a few seconds.</li>
-<li>Click on the &ldquo;view all histories&rdquo; button <img alt="histories icon" src="./images/image11.png" /></li>
-<li>See if the Galaxy history has been imported: it will be called <fn>imported from archive: Data</fn></li>
-<li>Above that pane, click on the <ss>Switch to</ss> button.</li>
-<li>Then click <ss>Done</ss> (in the top left corner).</li>
-<li>You should now have a list of five files in your current history.</li>
-</ul>
-<p><img alt="files in galaxy history" src="./images/datafiles.png" /></p>
-<h2 id="individual-input-files">Individual input files</h2>
-<h3 id="wildtype-reference">Wildtype reference</h3>
-<ul>
-<li>wildtype.fna</li>
-</ul>
-<p><tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/wildtype.fna</tt></p>
-<ul>
-<li>wildtype.gbk</li>
-</ul>
-<p><tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/wildtype.gbk</tt></p>
-<ul>
-<li>wildtype.gff</li>
-</ul>
-<p><tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/wildtype.gff</tt></p>
-<h3 id="mutant-illumina-sequence">Mutant Illumina sequence</h3>
-<ul>
-<li>mutant_R1.fastq.gz</li>
-</ul>
-<p><tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/mutant_R1.fastq.gz</tt></p>
-<ul>
-<li>mutant_R2.fastq.gz</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/mutant_R2.fastq.gz</tt></p>
-<h3 id="assembled-contigs">Assembled contigs</h3>
-<ul>
-<li>SPAdes_contigs.fasta</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/SPAdes_contigs.fasta</tt></p>
-<h3 id="upload-to-galaxy">Upload to Galaxy</h3>
-<p>There are two ways to upload these files to Galaxy. You can either download to your local computer and upload to Galaxy, or you can tell Galaxy to directly upload the file from an external source.</p>
-<p>Download and upload:</p>
-<ul>
-<li>Download required file(s) to your computer.</li>
-<li>From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  </li>
-<li>Click the <ss>Choose local file</ss> button  </li>
-<li>Find and select the <fn>file</fn> you downloaded and click <ss>Open</ss>  </li>
-<li>Set the <ss>Type</ss> correctly.  </li>
-<li>Click the <ss>Start</ss> button.  </li>
-<li>Once the progress bar reaches 100%, click the <ss>Close</ss> button  </li>
-<li>The file will now upload to your current history.</li>
-</ul>
-<p>Or, tell Galaxy to find the file from an external source:</p>
-<ul>
-<li>From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  </li>
-<li>Click the <ss>Paste/Fetch data</ss> button  </li>
-<li>Paste the URL into the box.</li>
-<li>Click the <ss>Start</ss> button.  </li>
-<li>Once the progress bar reaches 100%, click the <ss>Close</ss> button  </li>
-<li>The file will now upload to your current history.</li>
-</ul>
-<!-- ## What next?
-
-- If you are are working through the tutorials in a different order or want to see the completed history for another section, additional Galaxy histories are available above.
-- Next: [Learn about quality control](../fastqc/index.md).
---></div>
+<li>Starting with Galaxy</li>
+<li>Training dataset</li>
+<li>Genome assembly with two tools - Velvet and Spades</li>
+<li>Genome annotation</li>
+<li>Variant finding</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">

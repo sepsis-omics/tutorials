@@ -7,7 +7,7 @@
         
         <meta name="author" content="Anna Syme, Torsten Seemann">
         
-        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="shortcut icon" href="favicon.ico">
         
 
 	<title>Protein Identification - ABRPI Training 2016</title>
@@ -59,8 +59,14 @@
             
             
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics Workshop <b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../workshop_overview/">Workshop overview</a>
+</li>
+
                     
                         
 <li >
@@ -154,6 +160,21 @@
             
             
             
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pathway Tools <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../pathway_tools/annotation/">Pathway annotation and prediction</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
                 <li >
                     <a href="../../about/">About</a>
                 </li>
@@ -174,7 +195,7 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../../about/">
+                    <a rel="prev" href="../pathway_tools/annotation/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -188,7 +209,7 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#protein-indentification-using-xtandem">Protein indentification using X!Tandem</a></li>
+        <li class="main active"><a href="#protein-identification-using-xtandem">Protein identification using X!Tandem</a></li>
         
             <li><a href="#introduction">Introduction</a></li>
         
@@ -203,12 +224,12 @@
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="protein-indentification-using-xtandem">Protein indentification using X!Tandem</h1>
+<h1 id="protein-identification-using-xtandem">Protein identification using X!Tandem</h1>
 <h2 id="introduction">Introduction</h2>
 <p>The high-throughput nature of proteomics mass spectrometry is enabled by a productive combination of data acquisition protocols and the computational tools used to interpret the resulting spectra (list of peaks). One of the key components in mainstream protocols is the generation of tandem mass (MS/MS) spectra by peptide fragmentation. This approach is currently used in the large majority of proteomics experiments to routinely identify hundreds to thousands of proteins from single mass spectrometry runs. In order to do that multiple tools have to be employed: <strong>LC-MS/MS</strong> to segregate components of proteomic samples associated with <em>protein identification</em> (see <strong>Figure 1</strong>) softwares, <strong>X!Tandem</strong>[^xtand], <strong>Mascot</strong> or <strong>SEQUEST</strong> all of which perform protein identification but with different algorithms.</p>
 <p><img alt="Protein Identification Workflow" src="./images/training_Workflow_1v3.png" /></p>
 <blockquote>
-<p><strong>Figure 1</strong> &mdash; <em>General overview of the experimental steps and flow of data in protein identification using shotgun proteomics experiment.</em>[^figure1]. </p>
+<p><strong>Figure 1</strong> &mdash; <em>General overview of the experimental steps and flow of data in protein identification using shotgun proteomics experiment.</em>[^figure1].</p>
 </blockquote>
 <p><strong>Figure 1</strong> shows a general overview of the experimental steps in protein identification. Sample proteins are first cleaved into peptides, which are then separated using chromatography (e.g. HPLC). The peptides are then ionised and then selected ions are fragmented to produce signature tandem mass spectrometry (MS/MS) spectra. Peptides are identified from the MS/MS spectra by using programs such as X!Tandem, which search against a database of known peptides. Sequences of the identified peptides are used to infer which proteins are present in the original sample.</p>
 <h2 id="background">Background</h2>
@@ -218,12 +239,12 @@
 <blockquote>
 <p><strong>Figure 2</strong> &mdash; <em>Schema of High Pressure Liquid Chromatography (HPLC)[^figure3].</em> Compounds of the mixture are separated in the HPLC column according to various parameters (polarity, charge, affinity etc). The type of separation depends on the column being used). A detector flow cell is used to detect the separated compounds band.</p>
 </blockquote>
-<p><strong>Mass spectrometry</strong> (MS) &ndash; see <strong>Figure 3</strong> &ndash; has been widely used to analyse biological samples and has evolved into an indispensable tool for proteomics research. Fundamentally, MS measures the mass-to-charge ratio (m/z) of gas-phase ions. Mass spectrometers consist of an ion source that converts analyte molecules into gas-phase ions, a mass analyser that separates ionised analytes on the basis of m/z ratio and a detector that records the number of ions at each m/z value. </p>
+<p><strong>Mass spectrometry</strong> (MS) &ndash; see <strong>Figure 3</strong> &ndash; has been widely used to analyse biological samples and has evolved into an indispensable tool for proteomics research. Fundamentally, MS measures the mass-to-charge ratio (m/z) of gas-phase ions. Mass spectrometers consist of an ion source that converts analyte molecules into gas-phase ions, a mass analyser that separates ionised analytes on the basis of m/z ratio and a detector that records the number of ions at each m/z value.</p>
 <p><img alt="Mass Spectrometry" src="./images/training_MS.png" /></p>
 <blockquote>
 <p><strong>Figure 3</strong> &mdash; <em>Schema of mass specter</em>. &ldquo;A mass spectrometer consists of three components: an ion source, a mass analyzer, and a detector. The ionizer converts a portion of the sample into ions. There is a wide variety of ionization techniques, depending on the phase (solid, liquid, gas) of the sample and the efficiency of various ionization mechanisms for the unknown species. An extraction system removes ions from the sample, which are then targeted through the mass analyzer and onto the detector. The differences in masses of the fragments allows the mass analyzer to sort the ions by their mass-to-charge ratio. The detector measures the value of an indicator quantity and thus provides data for calculating the abundances of each ion present.&rdquo; [^figure4]</p>
 </blockquote>
-<p><strong>Tandem mass spectrometry</strong> (MS/MS) &ndash; see <strong>Figure 4</strong> &ndash; is a key technique for protein or peptide sequencing and post-translational modifications analysis. Collision-induced dissociation (CID) has been the most widely used MS/MS technique in proteomics research. In this method, gas-phase peptide/protein cations are internally heated by multiple collisions with rare gas atoms. The result is fragmented ions that, after the detection phase and reconstitution, reveal the amino-acid chains. </p>
+<p><strong>Tandem mass spectrometry</strong> (MS/MS) &ndash; see <strong>Figure 4</strong> &ndash; is a key technique for protein or peptide sequencing and post-translational modifications analysis. Collision-induced dissociation (CID) has been the most widely used MS/MS technique in proteomics research. In this method, gas-phase peptide/protein cations are internally heated by multiple collisions with rare gas atoms. The result is fragmented ions that, after the detection phase and reconstitution, reveal the amino-acid chains.</p>
 <p><img alt="LC-MS/MS" src="./images/training_LC-MSMS_2.png" /></p>
 <blockquote>
 <p><strong>Figure 4</strong> &mdash; <em>Schema of a tandem mass spectrometry associated with liquid chromatography (LC-MS/MS)</em>. This technique combine separation form liquid chromatography and m/z ratio analyse of the tandem mass spectrometry in order to generate spectra.</p>
@@ -240,8 +261,8 @@
 </ul>
 <p><img alt="MGF example" src="./images/training_MGF.png" /></p>
 <blockquote>
-<p><strong>Figure 6</strong> &mdash; <em>Sample of a MGF file</em>. MGF files are used for enconding MS results, multiple spectra can be enconded in one MGF. Every spectrum begins with the <em>BEGINS IONS</em> assessment and finishes with <em>END IONS</em>. MGF files can be divided in 2 parts : 
-    &ndash; The header : containing information about the embedded Search Parameters. 
+<p><strong>Figure 6</strong> &mdash; <em>Sample of a MGF file</em>. MGF files are used for enconding MS results, multiple spectra can be enconded in one MGF. Every spectrum begins with the <em>BEGINS IONS</em> assessment and finishes with <em>END IONS</em>. MGF files can be divided in 2 parts :
+    &ndash; The header : containing information about the embedded Search Parameters.
     &ndash; Ions information : the first figure is the ion mass, the second is the ion charge.</p>
 </blockquote>
 <h3 id="xtandem">X!Tandem</h3>
@@ -330,10 +351,10 @@
 </ul>
 <p><img alt="Data Rename" src="./images/training_Data_Rename.png" /></p>
 <h3 id="step-3-xtandem-msms-search">STEP 3: X!Tandem MS/MS Search</h3>
-<p>This part of the tutorial is to perform the X!Tandem MS/MS search. </p>
+<p>This part of the tutorial is to perform the X!Tandem MS/MS search.</p>
 <ul>
 <li>The tool can be found in the left panel under the section <ss>Proteomics Tools &rarr; X!Tandem MSMS Search</ss></li>
-<li>In the central section, you should see the following options. Below the key parameters are explained in detail. </li>
+<li>In the central section, you should see the following options. Below the key parameters are explained in detail.</li>
 </ul>
 <p><img alt="X!Tandem Options" src="./images/training_Xtandem.png" /></p>
 <p>X!Tandem proposes many options, the key options of interest are:</p>
@@ -351,49 +372,49 @@
 <table>
 <thead>
 <tr>
-<th>Parameters Name</th>
+<th align="left">Parameters Name</th>
 <th>Value</th>
 <th align="right">Default Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Uploaded FASTA file</td>
+<td align="left">Uploaded FASTA file</td>
 <td>EColi_K12_UniProt_Database</td>
 <td align="right">&ndash;</td>
 </tr>
 <tr>
-<td>MSMS File</td>
+<td align="left">MSMS File</td>
 <td>EColi_K12_MS_Spectra.mgf</td>
 <td align="right">&ndash;</td>
 </tr>
 <tr>
-<td>Variable Modifications</td>
+<td align="left">Variable Modifications</td>
 <td>Oxidation M</td>
 <td align="right">&ndash;</td>
 </tr>
 <tr>
-<td>Fixed Modifications</td>
+<td align="left">Fixed Modifications</td>
 <td>Carbamidomethyl C</td>
 <td align="right">&ndash;</td>
 </tr>
 <tr>
-<td>Missed Cleavages Allowed</td>
+<td align="left">Missed Cleavages Allowed</td>
 <td>2</td>
 <td align="right">2</td>
 </tr>
 <tr>
-<td>Enzyme</td>
+<td align="left">Enzyme</td>
 <td>Trypsin</td>
 <td align="right">Trypsin</td>
 </tr>
 <tr>
-<td>Fragment ion tolerance</td>
+<td align="left">Fragment ion tolerance</td>
 <td>0.5</td>
 <td align="right">0.5</td>
 </tr>
 <tr>
-<td>Precursor ion tolerance</td>
+<td align="left">Precursor ion tolerance</td>
 <td>10 ppm</td>
 <td align="right">10 ppm</td>
 </tr>
@@ -429,59 +450,59 @@
 <table>
 <thead>
 <tr>
-<th>Tabular name</th>
+<th align="left">Tabular name</th>
 <th>Tandem file XML designation</th>
 <th align="right">Definition</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Protein</td>
+<td align="left">Protein</td>
 <td>label</td>
 <td align="right">Protein name according to the database used for the MS/MS search</td>
 </tr>
 <tr>
-<td>Peptide</td>
+<td align="left">Peptide</td>
 <td>seq</td>
 <td align="right">Peptide sequence</td>
 </tr>
 <tr>
-<td>Assumed_charge</td>
+<td align="left">Assumed_charge</td>
 <td>z</td>
 <td align="right">Parent ion mass (plus a proton) from the spectrum</td>
 </tr>
 <tr>
-<td>Calc_neutral_pep_mass</td>
+<td align="left">Calc_neutral_pep_mass</td>
 <td>mh (+mass of a proton)</td>
 <td align="right">Parent ion mass calculated from the spectrum</td>
 </tr>
 <tr>
-<td>Neutral_mass</td>
+<td align="left">Neutral_mass</td>
 <td>mh (+mass of a proton)</td>
 <td align="right">Calculated peptide mass (plus a proton)</td>
 </tr>
 <tr>
-<td>Retention_time</td>
+<td align="left">Retention_time</td>
 <td>rt</td>
 <td align="right">Length of time between injection and position of the target compound peak.[^rt]</td>
 </tr>
 <tr>
-<td>Start_scan</td>
+<td align="left">Start_scan</td>
 <td>id</td>
 <td align="right">id of the group treated (where the analysis starts)</td>
 </tr>
 <tr>
-<td>End_scan</td>
+<td align="left">End_scan</td>
 <td>id</td>
 <td align="right">id of the domain treated (usually the same as start_scan, no consideration of the doted name in the original XML file)</td>
 </tr>
 <tr>
-<td>Search_engine</td>
+<td align="left">Search_engine</td>
 <td><em>&mdash;</em></td>
 <td align="right">Name of the search engine used, in our case X!Tandem (associated with the scoring method : <em>k-score</em>)</td>
 </tr>
 <tr>
-<td>Raw_score</td>
+<td align="left">Raw_score</td>
 <td>expect</td>
 <td align="right">Expectation value for the top ranked protein identified with this spectrum</td>
 </tr>
@@ -497,7 +518,7 @@
 <hr />
 <h2 id="references">References</h2>
 <p>[^xtand]: X!Tandem website: http://www.thegpm.org/tandem/. X!Tandem documentation : http://www.thegpm.org/TANDEM/api/. Craig, R., and R. C. Beavis. 2004. <em>“TANDEM: matching proteins with tandem mass spectra.”</em> Bioinformatics 20, no. 9 (June): 1466-67. http://dx.doi.org/10.1093/bioinformatics/bth092.</p>
-<p>[^figure1]: Nesvizhskii, Alexey I. <em>&ldquo;Protein Identification By Tandem Mass Spectrometry And Sequence Database Searching&rdquo;</em>. Mass Spectrometry Data Analysis in Proteomics 87-120. 
+<p>[^figure1]: Nesvizhskii, Alexey I. <em>&ldquo;Protein Identification By Tandem Mass Spectrometry And Sequence Database Searching&rdquo;</em>. Mass Spectrometry Data Analysis in Proteomics 87-120.
  &mdash; <a href="http://www.springerprotocols.com/BookToc/doi/10.1385/1597452750">Mass Spectrometry Data Analysis in Proteomics</a></p>
 <p>[^galaxy]: GALAXY platform : https://usegalaxy.org/. You can also find a more extensive documentation here : https://galaxyproject.org/.
 Afgan, Enis et al. <em>&ldquo;The Galaxy Platform For Accessible, Reproducible And Collaborative Biomedical Analyses: 2016 Update&rdquo;</em>. Nucleic Acids Res 44.W1 (2016): W3-W10.
