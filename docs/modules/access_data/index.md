@@ -6,9 +6,9 @@
 * Download a readset from a public database
 * Check the quality of the data and filter
 * Assemble the reads into a draft genome
+* Find antibiotic resistance genes
 * Annotate the genome
 * Find the sequence type (the MLST)
-* Find antibiotic resistance genes
 
 ##Background
 
@@ -35,7 +35,7 @@ It is VERY important to check that what you find in the readset makes sense!
     ![Galaxy new history](images/galaxy1.png)
 
 - Choose an accession number.
-    - If you are working on this tutorial in a workshop: Assign yourself a readset from the table of isolates provided. Put your name in Column H. The accession number for the readset that relates to each isolate is located in Column A. ERR019289 will be used in this demonstration. <!-- <https://docs.google.com/spreadsheets/d/12X68SEXXcEY2EASjvvZe6w__60_1w3onqCIu1RZMYcg/edit#gid=0>. -->
+    - If you are working on this tutorial in a workshop: assign yourself a readset from the table of isolates provided. Put your name in Column B. The accession number for the readset that relates to each isolate is located in Column A. ERR019289 will be used in this demonstration. <!-- <https://docs.google.com/spreadsheets/d/12X68SEXXcEY2EASjvvZe6w__60_1w3onqCIu1RZMYcg/edit#gid=0>. -->
     - Alternatively, use accession number ERR019289. This is *Vibrio cholerae*.
 
 - In Galaxy, go to the Tools panel on the left, select <ss>Get Data &rarr; EBI SRA</ss>.
@@ -72,11 +72,11 @@ We will run FastQC on the pair of fastq files.
 - Click <ss>Execute</ss>  
 - The output (4 files) will appear at the top of your Galaxy history.
 - Click on the eye icon next to <fn>FastQC on data 1: Web page</fn>
-- Scroll through the results. Take note of the maximum read length (e.g. 54).
+- Scroll through the results. Take note of the maximum read length (*e.g.* 54 bp).
 
 ##Trim
 
-In this step we will remove adapters and trim low quality sequence from the reads.
+In this step we will remove adapters and trim low-quality sequence from the reads.
 
 - In the Galaxy tools panel, go to <ss>NGS Analysis: NGS QC and manipulation: Trimmomatic</ss>
 - Leave settings as they are except for:
@@ -86,7 +86,7 @@ In this step we will remove adapters and trim low quality sequence from the read
     - Under <ss>Adapter sequences to use</ss> choose *Nextera(paired-ended)*
     - This trims particular adapters from the sequences.
 - Under <ss>Trimmomatic Operation</ss> leave the settings as they are.
-     - We will use the average quality across a 4 base sliding window to identify and delete bad sequence (and the flanking bases to the start or end of the sequences - whichever is nearest to the patch of poor quality sequence)
+     - We will use the average quality across a 4-base sliding window to identify and delete bad sequence (and the flanking bases to the start or end of the sequences - whichever is nearest to the patch of poor quality sequence)
 
 Your tool interface should look like this:
 
@@ -103,15 +103,15 @@ There are four output files.
 
 We will assemble the trimmed reads.
 
-In the left hand tools panel, go to NGS Analysis: NGS Assembly: spades
+In the left hand tools panel, go to <ss>NGS Analysis: NGS Assembly: spades</ss>.
 
 Leave the parameters as their defaults except:
 
 - <ss>Careful correction?</ss> *No*
 - <ss>Kmers to use, separated by commas:</ss> *21,33,51*
-    - chosen kmers must be shorter than the read lengths (see the FastQC output: sequence length)
+    - chosen kmers must be **shorter** than the maximum read length (see the FastQC output: sequence length)
 - <ss>Coverage Cutoff:</ss> *Off*
-    - using a coverage cutoff might cause a problem if there are high copy number plasmids
+    - using a coverage cutoff might cause a problem if there are high-copy-number plasmids
 - <ss>Forward reads:</ss> ERR019289_T1.fastq.gz
 - <ss>Reverse reads:</ss> ERR019289_T2.fastq.gz
 
@@ -122,55 +122,61 @@ Your tool interface should look like this:
 - Click <ss>Execute</ss>  
 
 There are five output files.
-- SPAdes contigs (fasta) & SPAdes scaffolds (fasta) - these should be identical with the conditions used here. Either file can be used as the draft genome sequence. Each multifasta file has an associated stats file that provides an overview of the sequence in the multifasta file (SPAdes contig stats & SPAdes scaffold stats).
-- A summary of the assembly run is found in SPAdes log.
 
+- <fn>SPAdes contigs (fasta)</fn> & <fn>SPAdes scaffolds (fasta)</fn>: The draft genome assembly. (These should be identical with the conditions used here.)
+- <fn>SPAdes contig stats</fn> & <fn>SPAdes scaffold stats</fn>: A list of all the contigs and sizes in each of these files.
+- <fn>SPAdes log</fn>: A summary of the assembly run.
 
-- Rename SPAdes contigs (fasta) to something like ERR019289.fasta
-- Check the size of your draft genome sequence (view SPAdes contig stats)
-   - Is it similar to other genomes of the same species?
-   - Look at the table of genomes for your species at the NCBI website: Genome
-<https://www.ncbi.nlm.nih.gov/genome/?term=>
+Rename <fn>SPAdes contigs (fasta)</fn> to something like <fn>ERR019289.fasta</fn>.
 
+**Check the size of your draft genome sequence**
+
+- If you only have a few contigs, you can estimate the size from the <fn>SPAdes contig stats</fn> file by adding together the contig sizes.
+- Alternatively, go to <ss>NGS Common Toolsets: Fasta Statistics</ss> and input the <fn>SPAdes contigs (fasta)</fn> file. Click <ss>Execute</ss>. The output will show the draft genome size next to  <ss>num_bp</ss>.
+
+**Compare your assembly size to others of the same species**
+
+ - Go to the [NCBI website: Genome](https://www.ncbi.nlm.nih.gov/genome/?term=)
+ - Next to <ss> Genome </ss>, enter the name of your species; *e.g. Vibrio cholerae*.
+ - Click on <ss>Genome ASsembly and Annotation report</ss>
+ - View the table. Click on the <ss>Size</ss> column to sort by size. (Check for additional pages at the bottom right.)
+ - Is your assembly size similar?
 
 ## Find antibiotic resistance genes
 
-Now that we have our assembled draft genome sequence, we can search it for particular genes.
+Now that we have our draft genome sequence, we can search for particular genes.
 
-We will use the tool called ABRicate <https://github.com/tseemann/abricate> to find antibiotic resistance genes in the genome. ABRicate uses a database of these genes called ResFinder https://cge.cbs.dtu.dk/services/ResFinder ; database https://cge.cbs.dtu.dk/services/data.php
+- We will use the tool called [ABRicate](https://github.com/tseemann/abricate) to find antibiotic resistance genes in the genome.
+- ABRicate uses a [database](https://cge.cbs.dtu.dk/services/data.php) of these genes called [ResFinder](https://cge.cbs.dtu.dk/services/ResFinder).
 
-In the tools panel, go to NGS Analysis: NGS Annotation: ABRicate
+In the tools panel, go to <ss>NGS Analysis: NGS Annotation: ABRicate</ss>.
 
-For <ss>Select fasta file</ss> choose <fn>SPAdes contigs (fasta)</fn> or whatever you renamed it (e.g. ERR019289.fasta).
-
-Click <ss>Execute</ss>.
+- For <ss>Select fasta file</ss> choose <fn>SPAdes contigs (fasta)</fn> or whatever you renamed it (e.g. ERR019289.fasta).
+- Click <ss>Execute</ss>.
 
 There is one output file. Click on the eye icon to view.
 
-- A table with one line for each antibiotic resistance gene found.
+- This shows a table with one line for each antibiotic resistance gene found, in which contig, at which position, and the % coverage.
 
 ![abricate results](images/abricate.png)
 
 
 ## Find the sequence type (MLST)
 
-Bacterial samples (isolates) are often assigned a "sequence type". This is a number that defines the particular combination of alleles for several genes, e.g. ST248.
+Bacterial samples (isolates) are often assigned a "sequence type". This is a number that defines the particular combination of alleles in that isolate, *e.g.* ST248.
 
-Because several genes (loci) are used, this is termed Multi-Locus Sequence Typing (MLST).
+- Because several genes (loci) are used, this is termed Multi-Locus Sequence Typing (MLST).
+- There are different MLST schemes for different groups of bacteria.
 
-There are different MLST schemes for different groups of bacteria.
+In the tools panel, go to <ss>NGS Analysis: NGS Annotation: MLST</ss>
 
-In the tools panel, go to NGS Analysis: NGS Annotation: MLST
-
-Under <ss>input_file</ss> choose choose <fn>SPAdes contigs (fasta)</fn> or whatever you renamed it (e.g. ERR019289.fasta).
-
-Note: a specific MLST scheme can be specified if you wish, but by default all schemes are searched
-
-Click <ss>Execute</ss>.
+- Under <ss>input_file</ss> choose choose <fn>SPAdes contigs (fasta)</fn> or whatever you renamed it (e.g. ERR019289.fasta).
+- Note: a specific MLST scheme can be specified if you wish, but by default all schemes are searched
+- Click <ss>Execute</ss>.
 
 There is one output file. Click on the eye icon to view.
 
-There is a one line output.
+- There is a one line output.
 
 ![MLST result](images/MLST.png)
 
@@ -184,7 +190,7 @@ Some symbols are used to describe missing or inexact matches to alleles:
 
 ## Annotate
 
-We have found a list of resistance genes in the draft sequence, but we can also annotate the genome to find all the genes present.
+We have found a list of resistance genes in the draft sequence, but we can also annotate the whole genome to find all the genes present.
 
 In the tools panel, go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Annotation &rarr; Prokka</ss>  
 
@@ -198,32 +204,33 @@ Set the following parameters (leave everything else unchanged):
 
 There are several output files:
 
-gff-This is the master annotation in GFF format, containing both sequences and annotations
+- <fn>gff</fn>: the master annotation in GFF format, containing both sequences and annotations
 
-gbk-This is a standard GenBank file derived from the master .gff . If the input to prokka was a multi-FASTA, then this will be a multi-GenBank, with one record for each sequence
+- <fn>gbk</fn>: a standard GenBank file derived from the master .gff. If the input to prokka was a multi-FASTA, then this will be a multi-GenBank, with one record for each sequence
 
-fna-Nucleotide FASTA file of the input contig sequences
+- <fn>fna</fn>: nucleotide FASTA file of the input contig sequences
 
-faa-Protein FASTA file of the translated CDS sequences
+- <fn>faa</fn>: protein FASTA file of the translated CDS sequences
 
-ffn-Nucleotide FASTA file of all the annotated sequences, not just CDS
+- <fn>ffn</fn>: nucleotide FASTA file of all the annotated sequences, not just CDS
 
-sqn-An ASN1 format "Sequin" file for submission to GenBank. It needs to be edited to set the correct taxonomy, authors, related publication, etc.
+- <fn>sqn</fn>: an ASN1 format "Sequin" file for submission to GenBank. It needs to be edited to set the correct taxonomy, authors, related publication, etc.
 
-fsa-Nucleotide FASTA file of the input contig sequences, used by "tbl2asn" to create the .sqn file. It is mostly the same as the .fna file, but with extra Sequin tags in the sequence description lines
+- <fn>fsa</fn>: nucleotide FASTA file of the input contig sequences, used by "tbl2asn" to create the .sqn file. It is mostly the same as the .fna file, but with extra Sequin tags in the sequence description lines
 
-tbl-Feature Table file, used by "tbl2asn" to create the .sqn file
+- <fn>tbl</fn>: Feature Table file, used by "tbl2asn" to create the .sqn file
 
-err-Unacceptable annotations - the NCBI discrepancy report
+- <fn>err</fn>: unacceptable annotations - the NCBI discrepancy report
 
-log-Contains all the output that Prokka produced during its run
+- <fn>log</fn>: contains all the output that Prokka produced during its run
 
-txt-Statistics relating to the annotated features found
+- <fn>txt</fn>: statistics relating to the annotated features found
 
-Tabulate
+**Tabulate**
+If you are working on this tutorial as part of a class workshop:
 
-Collect information about each readset and assembly and add the information to your row in the isolate isolate table (link)
+- Go to the table of isolates and add information about genome size, GC content, and number of contigs.
 
-View
+##Next
 
-Can view the gff3 file in Artemis.
+- View the annotated genome in Artemis or JBrowse.
