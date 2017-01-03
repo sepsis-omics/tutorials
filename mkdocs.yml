@@ -24,15 +24,14 @@ pages:
     - Genome assembly with Spades: modules/spades/index.md
     - Genome annotation: modules/prokka/index.md
     - Variant finding: modules/snippy/index.md
-
-#More Genomics:
-    #- From public data to annotation: modules/access_data/index.md
+    - Assembly and annotation from public data: modules/access_data/index.md
 
 
-- PacBio assembly:
-    - Assembly with SMRT portal: modules/pacbio/index.md
-    - Assembly and finishing with command line tools: modules/cmdline_assembly/index.md
+- Genomics:
+    - PacBio assembly with SMRT portal: modules/pacbio/index.md
+    - PacBio assembly with command line tools: modules/cmdline_assembly/index.md
     #- Annotation using command line tools: modules/cmdline_prokka/index.md
+
 
 - Transcriptomics:
 #  - Overview: modules/transcriptomics.md

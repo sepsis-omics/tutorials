@@ -17,3 +17,4 @@
 - Genome assembly with two tools - Velvet and Spades
 - Genome annotation
 - Variant finding
+- Accessing public data: assembly to annotation
