@@ -159,7 +159,7 @@ less 06.fixstart.log
 ```
 What are the trimmed contig sizes:
 ```text
-fa -f 06.fixstart.fasta
+infoseq 06.fixstart.fasta
 ```
 The trimmed contigs are in the file called <fn>06.fixstart.fasta</fn>. Re-name it <fn>contig_1_2.fa</fn>:
 ```text
