@@ -1,3 +1,4 @@
+<br>
 # Variant calling with Snippy
 
 Keywords: variant calling, SNP, Snippy, JBrowse, Galaxy, Microbial Genomics Virtual Lab

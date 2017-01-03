@@ -24,7 +24,7 @@ pages:
     - Genome assembly with Spades: modules/spades/index.md
     - Genome annotation: modules/prokka/index.md
     - Variant finding: modules/snippy/index.md
-    - Assembly and annotation from public data: modules/access_data/index.md
+    - Public data &rarr; assembly, annotation: modules/access_data/index.md
 
 
 - Genomics:
