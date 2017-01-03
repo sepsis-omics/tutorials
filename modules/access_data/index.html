@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Anna Syme, Torsten Seemann">
+        
+        <link rel="shortcut icon" href="favicon.ico">
+        
+
+	<title>Public data &rarr; assembly, annotation - ABRPI Training 2016</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/sepsis.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">ABRPI Training 2016</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics Workshop <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../workshop_overview/">Workshop overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../galaxy/">Starting with Galaxy</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../data-dna/">Training dataset</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../velvet/">Genome assembly with Velvet</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../spades/">Genome assembly with Spades</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../prokka/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../snippy/">Variant finding</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">Public data &rarr; assembly, annotation</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../pacbio/">PacBio assembly with SMRT portal</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../cmdline_assembly/">PacBio assembly with command line tools</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transcriptomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../dge/">Differential gene expression</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proteomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../xtandem/">Protein Identification</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pathway Tools <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../pathway_tools/annotation/">Pathway annotation and prediction</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../snippy/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../pacbio/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#public-data-assembly-annotation-mlst">Public data &rarr; assembly, annotation, MLST</a></li>
+        
+            <li><a href="#overview">Overview</a></li>
+        
+            <li><a href="#background">Background</a></li>
+        
+            <li><a href="#import-data">Import data</a></li>
+        
+            <li><a href="#evaluate-quality">Evaluate quality</a></li>
+        
+            <li><a href="#trim">Trim</a></li>
+        
+            <li><a href="#assemble">Assemble</a></li>
+        
+            <li><a href="#find-antibiotic-resistance-genes">Find antibiotic resistance genes</a></li>
+        
+            <li><a href="#find-the-sequence-type-mlst">Find the sequence type (MLST)</a></li>
+        
+            <li><a href="#annotate">Annotate</a></li>
+        
+            <li><a href="#next">Next</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<p><br></p>
+<h1 id="public-data-assembly-annotation-mlst">Public data &rarr; assembly, annotation, MLST</h1>
+<h2 id="overview">Overview</h2>
+<ul>
+<li>Download a readset from a public database</li>
+<li>Check the quality of the data and filter</li>
+<li>Assemble the reads into a draft genome</li>
+<li>Find antibiotic resistance genes</li>
+<li>Annotate the genome</li>
+<li>Find the sequence type (the MLST)</li>
+</ul>
+<h2 id="background">Background</h2>
+<p>Sequencing reads (readsets) for more than 100,000 isolates are available on public molecular sequence databases (GenBank/ENA/DDJB):</p>
+<ul>
+<li>Most of these have been produced using the Illumina sequencing platform.</li>
+<li>Most of these have no corresponding draft assembly.</li>
+</ul>
+<p>Not all readsets are of high quality:</p>
+<ul>
+<li>There may be insufficient reads (usually ~x20 is the minimum read coverage needed).</li>
+<li>The reads could be from a mixed colony.</li>
+<li>The classification could be incorrect (both genus and species).</li>
+</ul>
+<p>It is VERY important to check that what you find in the readset makes sense!</p>
+<h2 id="import-data">Import data</h2>
+<ul>
+<li>Go to your Galaxy instance.</li>
+<li>
+<p>Set up a new History for this Activity.</p>
+<ul>
+<li>In the History panel, click on the cog icon, select <ss>Create New</ss>.</li>
+<li>A new empty history should appear; click on <fn>Unnamed history</fn> and re-name it (e.g. ENA Activity).</li>
+</ul>
+<p><img alt="Galaxy new history" src="./images/galaxy1.png" /></p>
+</li>
+<li>
+<p>Choose an accession number.</p>
+<ul>
+<li>If you are working on this tutorial in a workshop: assign yourself a readset from the table of isolates provided. Put your name in Column B. The accession number for the readset that relates to each isolate is located in Column A. ERR019289 will be used in this demonstration. <!-- <a href="https://docs.google.com/spreadsheets/d/12X68SEXXcEY2EASjvvZe6w__60_1w3onqCIu1RZMYcg/edit#gid=0">https://docs.google.com/spreadsheets/d/12X68SEXXcEY2EASjvvZe6w__60_1w3onqCIu1RZMYcg/edit#gid=0</a>. --></li>
+<li>Alternatively, use accession number ERR019289. This is <em>Vibrio cholerae</em>.</li>
+</ul>
+</li>
+<li>
+<p>In Galaxy, go to the Tools panel on the left, select <ss>Get Data &rarr; EBI SRA</ss>.</p>
+<ul>
+<li>This causes the ENA website to open.</li>
+<li>Enter the accession number in the ENA search bar.
+<img alt="ENA search bar" src="./images/ENA.png" /></li>
+</ul>
+</li>
+<li>
+<p>(The search may find reads under Experiment and Run. If so, click on the Accession number under &ldquo;Run&rdquo;.)</p>
+</li>
+<li>
+<p>Find the column called <ss>Fastq files (galaxy)</ss>. Click on <fn>File 1</fn>.</p>
+</li>
+</ul>
+<p><img alt="ENA fastq" src="./images/ENA_fastq.png" /></p>
+<p>This file will download to your Galaxy history, and will return you to the Galaxy page.</p>
+<ul>
+<li>
+<p>Repeat the above steps for <ss>Get Data &rarr; EBI SRA</ss> and download <fn>File 2</fn>.</p>
+</li>
+<li>
+<p>The files should now be in your Galaxy history.</p>
+</li>
+<li>Click on the pencil icon next to File 1.<ul>
+<li>Re-name it <fn>ERR019289_1.fastq.gz</fn>. <ss>Save</ss></li>
+<li>Change the datatype to <strong>fastqsanger</strong> (note: not fastqCsanger). <ss> Save</ss></li>
+</ul>
+</li>
+<li>Repeat for File 2 (name it <fn>ERR019289_2.fastq.gz</fn>).</li>
+</ul>
+<h2 id="evaluate-quality">Evaluate quality</h2>
+<p>We will run FastQC on the pair of fastq files.</p>
+<ul>
+<li>In the Galaxy tools panel, go to <ss>NGS Analysis: NGS QC and manipulation: FastQC</ss>.</li>
+<li>Choose the <ss>Multiple datasets</ss> icon and then select both <fn>fastq</fn> files.</li>
+<li>Your Galaxy window should look like this:</li>
+</ul>
+<p><img alt="galaxy window" src="./images/galaxy2.png" /></p>
+<ul>
+<li>Click <ss>Execute</ss>  </li>
+<li>The output (4 files) will appear at the top of your Galaxy history.</li>
+<li>Click on the eye icon next to <fn>FastQC on data 1: Web page</fn></li>
+<li>Scroll through the results. Take note of the maximum read length (<em>e.g.</em> 54 bp).</li>
+</ul>
+<h2 id="trim">Trim</h2>
+<p>In this step we will remove adapters and trim low-quality sequence from the reads.</p>
+<ul>
+<li>In the Galaxy tools panel, go to <ss>NGS Analysis: NGS QC and manipulation: Trimmomatic</ss></li>
+<li>Leave settings as they are except for:<ul>
+<li><ss>Input FASTQ file R1</ss> - check this is File 1</li>
+<li><ss>Input FASTQ file R2</ss> - check this is File 2</li>
+</ul>
+</li>
+<li>Under <ss>Perform initial ILLUMINACLIP step</ss> choose <em>Yes</em><ul>
+<li>Under <ss>Adapter sequences to use</ss> choose <em>Nextera(paired-ended)</em></li>
+<li>This trims particular adapters from the sequences.</li>
+</ul>
+</li>
+<li>Under <ss>Trimmomatic Operation</ss> leave the settings as they are.<ul>
+<li>We will use the average quality across a 4-base sliding window to identify and delete bad sequence (and the flanking bases to the start or end of the sequences - whichever is nearest to the patch of poor quality sequence)</li>
+</ul>
+</li>
+</ul>
+<p>Your tool interface should look like this:</p>
+<p><img alt="trimmomatic tool interface" src="./images/trimmomatic.png" /></p>
+<ul>
+<li>Click <ss>Execute</ss>  </li>
+</ul>
+<p>There are four output files.</p>
+<ul>
+<li>Because trimmomatic might have trimmed some reads to zero, there are now some reads reads with no pair. These are in the <em>unpaired</em> output files. These can be deleted (with the cross button).</li>
+<li>Re-name the other two output files, e.g. as <fn>ERRxxxxx_T1.fastq.gz</fn> &amp; <fn>ERRxxxxx_T2.fastq.gz</fn>. These properly paired fastq files will be the input for the Spades assembly.  </li>
+</ul>
+<h2 id="assemble">Assemble</h2>
+<p>We will assemble the trimmed reads.</p>
+<p>In the left hand tools panel, go to <ss>NGS Analysis: NGS Assembly: spades</ss>.</p>
+<p>Leave the parameters as their defaults except:</p>
+<ul>
+<li><ss>Careful correction?</ss> <em>No</em></li>
+<li><ss>Kmers to use, separated by commas:</ss> <em>21,33,51</em><ul>
+<li>chosen kmers must be <strong>shorter</strong> than the maximum read length (see the FastQC output: sequence length)</li>
+</ul>
+</li>
+<li><ss>Coverage Cutoff:</ss> <em>Off</em><ul>
+<li>using a coverage cutoff might cause a problem if there are high-copy-number plasmids</li>
+</ul>
+</li>
+<li><ss>Forward reads:</ss> ERR019289_T1.fastq.gz</li>
+<li><ss>Reverse reads:</ss> ERR019289_T2.fastq.gz</li>
+</ul>
+<p>Your tool interface should look like this:</p>
+<p><img alt="spades tool interface" src="./images/spades.png" /></p>
+<ul>
+<li>Click <ss>Execute</ss>  </li>
+</ul>
+<p>There are five output files.</p>
+<ul>
+<li><fn>SPAdes contigs (fasta)</fn> &amp; <fn>SPAdes scaffolds (fasta)</fn>: The draft genome assembly. (These should be identical with the conditions used here.)</li>
+<li><fn>SPAdes contig stats</fn> &amp; <fn>SPAdes scaffold stats</fn>: A list of all the contigs and sizes in each of these files.</li>
+<li><fn>SPAdes log</fn>: A summary of the assembly run.</li>
+</ul>
+<p>Rename <fn>SPAdes contigs (fasta)</fn> to something like <fn>ERR019289.fasta</fn>.</p>
+<p><strong>Check the size of your draft genome sequence</strong></p>
+<ul>
+<li>If you only have a few contigs, you can estimate the size from the <fn>SPAdes contig stats</fn> file by adding together the contig sizes.</li>
+<li>Alternatively, go to <ss>NGS Common Toolsets: Fasta Statistics</ss> and input the <fn>SPAdes contigs (fasta)</fn> file. Click <ss>Execute</ss>. The output will show the draft genome size next to  <ss>num_bp</ss>.</li>
+</ul>
+<p><strong>Compare your assembly size to others of the same species</strong></p>
+<ul>
+<li>Go to the <a href="https://www.ncbi.nlm.nih.gov/genome/?term=">NCBI website: Genome</a></li>
+<li>Next to <ss> Genome </ss>, enter the name of your species; <em>e.g. Vibrio cholerae</em>.</li>
+<li>Click on <ss>Genome ASsembly and Annotation report</ss></li>
+<li>View the table. Click on the <ss>Size</ss> column to sort by size. (Check for additional pages at the bottom right.)</li>
+<li>Is your assembly size similar?</li>
+</ul>
+<h2 id="find-antibiotic-resistance-genes">Find antibiotic resistance genes</h2>
+<p>Now that we have our draft genome sequence, we can search for particular genes.</p>
+<ul>
+<li>We will use the tool called <a href="https://github.com/tseemann/abricate">ABRicate</a> to find antibiotic resistance genes in the genome.</li>
+<li>ABRicate uses a <a href="https://cge.cbs.dtu.dk/services/data.php">database</a> of these genes called <a href="https://cge.cbs.dtu.dk/services/ResFinder">ResFinder</a>.</li>
+</ul>
+<p>In the tools panel, go to <ss>NGS Analysis: NGS Annotation: ABRicate</ss>.</p>
+<ul>
+<li>For <ss>Select fasta file</ss> choose <fn>SPAdes contigs (fasta)</fn> or whatever you renamed it (e.g. ERR019289.fasta).</li>
+<li>Click <ss>Execute</ss>.</li>
+</ul>
+<p>There is one output file. Click on the eye icon to view.</p>
+<ul>
+<li>This shows a table with one line for each antibiotic resistance gene found, in which contig, at which position, and the % coverage.</li>
+</ul>
+<p><img alt="abricate results" src="./images/abricate.png" /></p>
+<h2 id="find-the-sequence-type-mlst">Find the sequence type (MLST)</h2>
+<p>Bacterial samples (isolates) are often assigned a &ldquo;sequence type&rdquo;. This is a number that defines the particular combination of alleles in that isolate, <em>e.g.</em> ST248.</p>
+<ul>
+<li>Because several genes (loci) are used, this is termed Multi-Locus Sequence Typing (MLST).</li>
+<li>There are different MLST schemes for different groups of bacteria.</li>
+</ul>
+<p>In the tools panel, go to <ss>NGS Analysis: NGS Annotation: MLST</ss></p>
+<ul>
+<li>Under <ss>input_file</ss> choose choose <fn>SPAdes contigs (fasta)</fn> or whatever you renamed it (e.g. ERR019289.fasta).</li>
+<li>Note: a specific MLST scheme can be specified if you wish, but by default all schemes are searched</li>
+<li>Click <ss>Execute</ss>.</li>
+</ul>
+<p>There is one output file. Click on the eye icon to view.</p>
+<ul>
+<li>There is a one line output.</li>
+</ul>
+<p><img alt="MLST result" src="./images/MLST.png" /></p>
+<p>Some symbols are used to describe missing or inexact matches to alleles:</p>
+<ul>
+<li>n: Exact intact allele</li>
+<li>~n : Novel allele similar to n</li>
+<li>n,m : Multiple alleles</li>
+<li>- : Allele missing</li>
+</ul>
+<h2 id="annotate">Annotate</h2>
+<p>We have found a list of resistance genes in the draft sequence, but we can also annotate the whole genome to find all the genes present.</p>
+<p>In the tools panel, go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Annotation &rarr; Prokka</ss>  </p>
+<p>Set the following parameters (leave everything else unchanged):</p>
+<ul>
+<li><ss>Contigs to annotate</ss>: <fn>SPAdes contigs (fasta)</fn> (or equivalent)</li>
+<li><ss>Locus tag prefix (&ndash;locustag)</ss>: P</li>
+<li><ss>Force GenBank/ENA/DDJB compliance (&ndash;compliant)</ss>: <em>No</em></li>
+<li><ss>Sequencing Centre ID (&ndash;centre)</ss>: V</li>
+<li>Click <ss>Execute</ss>  </li>
+</ul>
+<p>There are several output files:</p>
+<ul>
+<li>
+<p><fn>gff</fn>: the master annotation in GFF format, containing both sequences and annotations</p>
+</li>
+<li>
+<p><fn>gbk</fn>: a standard GenBank file derived from the master .gff. If the input to prokka was a multi-FASTA, then this will be a multi-GenBank, with one record for each sequence</p>
+</li>
+<li>
+<p><fn>fna</fn>: nucleotide FASTA file of the input contig sequences</p>
+</li>
+<li>
+<p><fn>faa</fn>: protein FASTA file of the translated CDS sequences</p>
+</li>
+<li>
+<p><fn>ffn</fn>: nucleotide FASTA file of all the annotated sequences, not just CDS</p>
+</li>
+<li>
+<p><fn>sqn</fn>: an ASN1 format &ldquo;Sequin&rdquo; file for submission to GenBank. It needs to be edited to set the correct taxonomy, authors, related publication, etc.</p>
+</li>
+<li>
+<p><fn>fsa</fn>: nucleotide FASTA file of the input contig sequences, used by &ldquo;tbl2asn&rdquo; to create the .sqn file. It is mostly the same as the .fna file, but with extra Sequin tags in the sequence description lines</p>
+</li>
+<li>
+<p><fn>tbl</fn>: Feature Table file, used by &ldquo;tbl2asn&rdquo; to create the .sqn file</p>
+</li>
+<li>
+<p><fn>err</fn>: unacceptable annotations - the NCBI discrepancy report</p>
+</li>
+<li>
+<p><fn>log</fn>: contains all the output that Prokka produced during its run</p>
+</li>
+<li>
+<p><fn>txt</fn>: statistics relating to the annotated features found</p>
+</li>
+</ul>
+<p><strong>Tabulate</strong>
+If you are working on this tutorial as part of a class workshop:</p>
+<ul>
+<li>Go to the table of isolates and add information about genome size, GC content, and number of contigs.</li>
+</ul>
+<h2 id="next">Next</h2>
+<ul>
+<li>View the annotated genome in Artemis or JBrowse.</li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="favicon.ico">
         
 
-	<title>Assembly and finishing with command line tools - ABRPI Training 2016</title>
+	<title>PacBio assembly with command line tools - ABRPI Training 2016</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -104,24 +104,30 @@
 </li>
 
                     
+                        
+<li >
+    <a href="../access_data/">Public data &rarr; assembly, annotation</a>
+</li>
+
+                    
                     </ul>
                 </li>
             
             
             
                 <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">PacBio assembly <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../pacbio/">Assembly with SMRT portal</a>
+    <a href="../pacbio/">PacBio assembly with SMRT portal</a>
 </li>
 
                     
                         
 <li class="active">
-    <a href="./">Assembly and finishing with command line tools</a>
+    <a href="./">PacBio assembly with command line tools</a>
 </li>
 
                     
@@ -232,6 +238,7 @@
 </div></div>
             <div class="col-md-9" role="main">
 
+<p><br></p>
 <h1 id="pacbio-reads-assembly-with-command-line-tools">Pacbio reads: assembly with command line tools</h1>
 <p>Keywords: de novo assembly, PacBio, PacificBiosciences, Illumina, command line, Canu, Circlator, BWA, Spades, Pilon, Microbial Genomics Virtual Laboratory</p>
 <p>This tutorial demonstrates how to use long Pacbio sequence reads to assemble a bacterial genome and plasmids, including correcting the assembly with short Illumina reads.</p>
@@ -420,7 +427,7 @@ Find information about read lengths:
 </code></pre>
 
 <p>What are the trimmed contig sizes:</p>
-<pre><code class="text">fa -f 06.fixstart.fasta
+<pre><code class="text">infoseq 06.fixstart.fasta
 </code></pre>
 
 <p>The trimmed contigs are in the file called <fn>06.fixstart.fasta</fn>. Re-name it <fn>contig_1_2.fa</fn>:</p>
