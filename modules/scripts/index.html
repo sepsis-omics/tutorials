@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="favicon.ico">
         
 
-	<title>Training dataset - ABRPI Training 2016</title>
+	<title>Bash scripts - ABRPI Training 2016</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -58,7 +58,7 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics Workshop <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
@@ -75,8 +75,8 @@
 
                     
                         
-<li class="active">
-    <a href="./">Training dataset</a>
+<li >
+    <a href="../data-dna/">Training dataset</a>
 </li>
 
                     
@@ -121,7 +121,7 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
@@ -138,8 +138,8 @@
 
                     
                         
-<li >
-    <a href="../scripts/">Bash scripts</a>
+<li class="active">
+    <a href="./">Bash scripts</a>
 </li>
 
                     
@@ -208,12 +208,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../galaxy/">
+                    <a rel="next" href="../cmdline_assembly/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../velvet/">
+                    <a rel="prev" href="../dge/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -227,11 +227,13 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#dataset">Dataset</a></li>
+        <li class="main active"><a href="#bash-scripts">Bash scripts</a></li>
         
-            <li><a href="#galaxy-histories-urls">Galaxy histories: URLs</a></li>
+            <li><a href="#prepare-the-bash-script">Prepare the bash script</a></li>
         
-            <li><a href="#individual-input-files">Individual input files</a></li>
+            <li><a href="#edit-the-bash-script">Edit the bash script</a></li>
+        
+            <li><a href="#run">Run</a></li>
         
     
     </ul>
@@ -239,103 +241,201 @@
             <div class="col-md-9" role="main">
 
 <p><br></p>
-<h1 id="dataset">Dataset</h1>
-<p>This page contains data for the tutorials. The tutorials will specify whether to import a whole history (URLs listed in the first section) or an individual file (URLs listed in the second section).</p>
-<h2 id="galaxy-histories-urls">Galaxy histories: URLs</h2>
+<h1 id="bash-scripts">Bash scripts</h1>
+<p>It is possible to put some commands into a script, to run automatically.</p>
+<p>Here, we will put commands for several tools into a bash script and use it to assemble a bacterial genome.</p>
+<p>Bash is a programming language, and we can run a bash script in the bash shell (e.g. the terminal).</p>
+<h2 id="prepare-the-bash-script">Prepare the bash script</h2>
 <ul>
-<li>Galaxy history of input files</li>
+<li>Open the terminal.</li>
+<li>Open a text editor, e.g., nano.</li>
 </ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy_history_input_files.tar.gz</tt></p>
-<ul>
-<li>Galaxy history: FastQC</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/FastQChistory.tar.gz</tt></p>
-<ul>
-<li>Galaxy history: Spades</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Spadeshistory.tar.gz</tt></p>
-<ul>
-<li>Galaxy history: Prokka</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Prokkahistory.tar.gz</tt></p>
-<ul>
-<li>Galaxy history: Snippy</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Snippyhistory.tar.gz</tt></p>
-<p><strong>To get the saved tutorial history (a set of files) into Galaxy:</strong></p>
-<ul>
-<li>Copy the link address.</li>
-<li>Go to your Galaxy instance. Make sure you are registered and logged in. Refresh the page.</li>
-<li>Click on the <ss>History</ss> cog <img alt="cog icon" src="./images/image02.png" /></li>
-<li>Select <ss>Import from File</ss></li>
-</ul>
-<p><img alt="history options" src="./images/image03.png" /></p>
-<ul>
-<li>In the box called <ss>Archived History URL</ss>, paste in the link address to the Galaxy history.</li>
-<li>Click <ss>Submit</ss></li>
-<li>Wait a few seconds.</li>
-<li>Click on the &ldquo;view all histories&rdquo; button <img alt="histories icon" src="./images/image11.png" /></li>
-<li>See if the Galaxy history has been imported: it will be called <fn>imported from archive: Data</fn></li>
-<li>Above that pane, click on the <ss>Switch to</ss> button.</li>
-<li>Then click <ss>Done</ss> (in the top left corner).</li>
-<li>You should now have a list of five files in your current history.</li>
-</ul>
-<p><img alt="files in galaxy history" src="./images/datafiles.png" /></p>
-<h2 id="individual-input-files">Individual input files</h2>
-<h3 id="wildtype-reference">Wildtype reference</h3>
-<ul>
-<li>wildtype.fna</li>
-</ul>
-<p><tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/wildtype.fna</tt></p>
-<ul>
-<li>wildtype.gbk</li>
-</ul>
-<p><tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/wildtype.gbk</tt></p>
-<ul>
-<li>wildtype.gff</li>
-</ul>
-<p><tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/wildtype.gff</tt></p>
-<h3 id="mutant-illumina-sequence">Mutant Illumina sequence</h3>
-<ul>
-<li>mutant_R1.fastq.gz</li>
-</ul>
-<p><tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/mutant_R1.fastq.gz</tt></p>
-<ul>
-<li>mutant_R2.fastq.gz</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/mutant_R2.fastq.gz</tt></p>
-<h3 id="assembled-contigs">Assembled contigs</h3>
-<ul>
-<li>SPAdes_contigs.fasta</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/SPAdes_contigs.fasta</tt></p>
-<h3 id="upload-to-galaxy">Upload to Galaxy</h3>
-<p>There are two ways to upload these files to Galaxy. You can either download to your local computer and upload to Galaxy, or you can tell Galaxy to directly upload the file from an external source.</p>
-<p>Download and upload:</p>
-<ul>
-<li>Download required file(s) to your computer.</li>
-<li>From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  </li>
-<li>Click the <ss>Choose local file</ss> button  </li>
-<li>Find and select the <fn>file</fn> you downloaded and click <ss>Open</ss>  </li>
-<li>Set the <ss>Type</ss> correctly.  </li>
-<li>Click the <ss>Start</ss> button.  </li>
-<li>Once the progress bar reaches 100%, click the <ss>Close</ss> button  </li>
-<li>The file will now upload to your current history.</li>
-</ul>
-<p>Or, tell Galaxy to find the file from an external source:</p>
-<ul>
-<li>From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  </li>
-<li>Click the <ss>Paste/Fetch data</ss> button  </li>
-<li>Paste the URL into the box.</li>
-<li>Click the <ss>Start</ss> button.  </li>
-<li>Once the progress bar reaches 100%, click the <ss>Close</ss> button  </li>
-<li>The file will now upload to your current history.</li>
-</ul>
-<!-- ## What next?
+<pre><code class="bash">nano myscript.sh
+</code></pre>
 
-- If you are are working through the tutorials in a different order or want to see the completed history for another section, additional Galaxy histories are available above.
-- Next: [Learn about quality control](../fastqc/index.md).
---></div>
+<ul>
+<li>We now have a script called myscript.sh</li>
+<li>In the script, write</li>
+</ul>
+<pre><code class="bash">#!/bin/bash  
+echo This is my assembly script
+</code></pre>
+
+<ul>
+<li>
+<p>Ctrl-X to exit nano.</p>
+</li>
+<li>
+<p>Make the script executable:</p>
+</li>
+</ul>
+<pre><code class="bash">chmod 755 myscript.sh
+</code></pre>
+
+<ul>
+<li>Run the script to test.</li>
+</ul>
+<pre><code class="bash">./myscript.sh
+</code></pre>
+
+<ul>
+<li>The text should print to the screen:</li>
+</ul>
+<pre><code class="bash">This is my assembly script
+</code></pre>
+
+<h2 id="edit-the-bash-script">Edit the bash script</h2>
+<ul>
+<li>Now we will add to the bash script.</li>
+<li>This will be a simple script that is designed to assemble, trim, and correct.</li>
+<li>It will likely only work in simple cases.</li>
+<li>Open nano</li>
+</ul>
+<pre><code class="bash">nano myscript.sh
+</code></pre>
+
+<ul>
+<li>and type in the following
+(#comments and echo statements are optional but probably useful):</li>
+</ul>
+<pre><code class="bash">#!/bin/bash
+#a script for assembling a bacterial genome
+
+#set a variable for the number of CPUS
+#this can then be easily changed if needed
+CPUS=16
+
+#this script requires 5 arguments
+#we will test whether 5 were entered
+if [ ! $# -eq 5 ] #if there are not 5 arguments
+then
+    echo &quot;ERROR: needs 5 arguments&quot;
+    echo &quot;usage: $0 outdir genomeSize (e.g. 2.1m) pacbio.fq R1.fq R2.fq&quot;
+    #the usage shows what arguments are required
+    exit 1 #exits
+fi
+
+#report back the arguments entered:
+#each argument is assigned a variable name from 1 to 5
+#these variables are referred to with the $ sign
+echo &quot;your directory with output is called $1&quot;
+echo &quot;your genomeSize is $2&quot;
+echo &quot;your pacbio reads are in file $3&quot;
+echo &quot;your R1 reads are in file $4&quot;
+echo &quot;your R2 reads are in file $5&quot;
+echo #echo on its own puts in a blank line on the screen
+
+#run canu to assemble the reads
+mkdir -p &quot;$1&quot;  #the p creates intermediate directories where required
+echo &quot;now running canu&quot;
+echo &quot;your canu output is in directory &quot;$1/canu&quot;&quot;
+nice canu -p canu -d &quot;$1/canu&quot; genomeSize=&quot;$2&quot; -pacbio-raw &quot;$3&quot;
+#commands are preceeded by 'nice' in this script for particular servers
+
+#test canu output: number of contigs
+#make a variable called num_contigs
+num_contigs=$(grep -c '&gt;' &quot;$1/canu/canu.contigs.fasta&quot;)
+echo &quot;number of contigs found by canu is: $num_contigs&quot;
+echo
+if [ $num_contigs -gt 10 ]
+then
+    echo &quot;there are more than 10 contigs&quot;
+    echo &quot;the analysis is stopping&quot;
+    exit 1
+#in more complex scripts, you can add the option to repeat the analysis with different parameters, etc.
+fi
+
+#run circlator to trim the contigs
+echo &quot;now running circlator to trim and orient contigs&quot;
+echo &quot;your circlator output is in directory &quot;$1/circlator&quot; &quot;
+nice circlator all --threads $CPUS --verbose &quot;$1/canu/canu.contigs.fasta&quot; &quot;$1/canu/canu.correctedReads.fasta.gz&quot; &quot;$1/circlator&quot;
+#in more complex scripts, you can add information about which contigs were merged; where contigs were oriented; how contigs were trimmed, etc.
+#rename the contigs file
+cp &quot;$1/circlator/06.fixstart.fasta&quot; &quot;$1/contigs.fa&quot;
+echo &quot;your contigs from circlator are now in the file called contigs.fa&quot;
+#note: in this case, these contigs may not have been trimmed.
+
+#find smaller plasmids
+echo &quot;now looking in illumina reads for small plasmids&quot;
+echo &quot;indexing the contigs.fa file&quot;
+nice bwa index &quot;$1/contigs.fa&quot;
+echo &quot;aligning illumina reads to the contigs.fa file&quot;
+nice bwa mem -t $CPUS &quot;$1/contigs.fa&quot; &quot;$4&quot; &quot;$5&quot; | samtools sort &gt; &quot;$1/aln.bam&quot;
+echo &quot;indexing the aln.bam file&quot;
+nice samtools index &quot;$1/aln.bam&quot;
+echo &quot;extracting the unmapped illumina reads&quot;
+samtools fastq -f 4 -1 &quot;$1/unmapped.R1.fastq&quot; -2 &quot;$1/unmapped.R2.fastq&quot; -s &quot;$1/unmapped.RS.fastq&quot; &quot;$1/aln.bam&quot;
+echo &quot;assembling the unmapped reads with spades&quot;
+echo
+nice spades.py -t $CPUS -1 &quot;$1/unmapped.R1.fastq&quot; -2 &quot;$1/unmapped.R2.fastq&quot; -s &quot;$1/unmapped.RS.fastq&quot; -o &quot;$1/spades_assembly&quot;
+echo
+echo &quot;your output is in the spades_assembly directory&quot;
+echo
+
+#check if any contigs are &gt; 1500bp
+seqtk seq -L 1500 &quot;$1/spades_assembly/contigs.fasta&quot; &gt; &quot;$1/illumina_contigs.fasta&quot;
+echo &quot;extracting contigs &gt; 1500bp into illumina_contigs.fasta&quot;
+echo
+#in more complex scripts, you can trim and orient these contigs, or do further investigation into whether they are true plasmids
+
+#join the canu pacbio contigs and the small plasmids
+cat &quot;$1/contigs.fa&quot; &quot;$1/illumina_contigs.fasta&quot; &gt; &quot;$1/allcontigs.fasta&quot;
+
+echo
+echo &quot;joining small contigs to the pacbio contigs as allcontigs.fasta&quot;
+echo
+
+#correct this assembly with Pilon
+echo &quot;preparing to correct contigs with illumina reads, using Pilon&quot;
+echo &quot;indexing allcontigs.fasta&quot;
+nice bwa index &quot;$1/allcontigs.fasta&quot;
+echo &quot;aligning illumina reads to allcontigs.fasta&quot;
+nice bwa mem -t $CPUS &quot;$1/allcontigs.fasta&quot; &quot;$4&quot; &quot;$5&quot; | samtools sort &gt; &quot;$1/aln.bam&quot;
+echo &quot;indexing aln.bam&quot;
+nice samtools index &quot;$1/aln.bam&quot;
+echo &quot;indexing allcontigs.fasta&quot;
+nice samtools faidx &quot;$1/allcontigs.fasta&quot;
+echo &quot;correcting with Pilon&quot;
+nice pilon --genome &quot;$1/allcontigs.fasta&quot; --frags &quot;$1/aln.bam&quot; --output &quot;$1/pilon1&quot; --fix all --mindepth 0.5 --changes --verbose --threads $CPUS
+echo
+echo &quot;Pilon finished&quot;
+echo
+
+#count how many changes were made
+pilon_changes=$(wc -l &lt; &quot;$1/pilon1.changes&quot;)
+echo &quot;there were $pilon_changes corrections made&quot;
+echo
+echo &quot;Assembly complete&quot;
+echo &quot;The sequence is saved as &quot;$1/pilon1.fasta&quot;&quot;
+
+exit 1
+</code></pre>
+
+<h2 id="run">Run</h2>
+<p>To run, type in</p>
+<pre><code class="bash">
+./myscript.sh outdir 1.9m subreads.fastq R1.fastq R2.fastq
+
+</code></pre>
+
+<ul>
+<li><strong>outdir</strong> is the name of the output directory</li>
+<li><strong>1.9m</strong> is the approximate genome size for the species</li>
+<li><strong>subreads.fastq</strong> is the name of the Pacbio reads file</li>
+<li><strong>R1.fastq</strong> is the name of the R1 Illumina reads file</li>
+<li>
+<p><strong>R2.fastq</strong> is the name of the R2 Illumina reads file</p>
+</li>
+<li>
+<p>If the Pacbio and Illumina reads files are not in the current directory, put in the whole path to those files</p>
+</li>
+<li>
+<p>The script should run to the end or may exit early if necessary (e.g. the canu assembly found too many contigs).</p>
+</li>
+<li>
+<p>There are many refinements and additions that could be made to this script, and some of these are noted as comments above.</p>
+</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Anna Syme, Torsten Seemann">
+        
+        <link rel="shortcut icon" href="favicon.ico">
+        
+
+	<title>Viral genome sequencing - ABRPI Training 2016</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/sepsis.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">ABRPI Training 2016</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics Workshop <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../workshop_overview/">Workshop overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../galaxy/">Starting with Galaxy</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../data-dna/">Training dataset</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../velvet/">Genome assembly with Velvet</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../spades/">Genome assembly with Spades</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../prokka/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../snippy/">Variant finding</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../access_data/">Public data &rarr; assembly, annotation</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">Viral genome sequencing</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../pacbio/">PacBio assembly with SMRT portal</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../cmdline_assembly/">PacBio assembly with command line tools</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../scripts/">Bash scripts</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transcriptomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../dge/">Differential gene expression</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proteomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../xtandem/">Protein Identification</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pathway Tools <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../pathway_tools/annotation/">Pathway annotation and prediction</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../access_data/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../pacbio/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#viral-genome-sequencing">Viral Genome Sequencing</a></li>
+        
+            <li><a href="#background">Background</a></li>
+        
+            <li><a href="#import-data">Import data</a></li>
+        
+            <li><a href="#snippy">Snippy</a></li>
+        
+            <li><a href="#artemis">Artemis</a></li>
+        
+            <li><a href="#producing-a-draft-genome-sequence">Producing a draft genome sequence</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<p><br></p>
+<h1 id="viral-genome-sequencing">Viral Genome Sequencing</h1>
+<p>This tutorial is about determining the genome sequence of a virus, using comparisons to a reference sequence.</p>
+<h2 id="background">Background</h2>
+<p>Murray Valley encephalitis virus is classified as part of the Flavivirus genus of viruses, all of which are positive strand RNA viruses. The type species for this genus is yellow fever virus, and the genus includes dengue virus, west nile virus and zika virus.</p>
+<p>Viruses from this genus have a single-segment genome of about 11 kb. Within this, there is a 10 kb open reading frame that encodes a polyprotein. Following translation, this protein is modified to yield the various, mature structural and non-structural viral proteins as illustrated in Fig. 1.</p>
+<p><img alt="flavivirus" src="./images/flavivirus.png" /></p>
+<p>Fig. 1 - An overview of a typical flavivirus genome and the viral proteins that are part of the viral polyprotein (from <a href="http://viralzone.expasy.org/all_by_species/24.html">Viralzone</a>).</p>
+<p>There are 14 complete Murray Valley encephalitis virus genome sequences available at NCBI Viral Genomes.</p>
+<ul>
+<li>Go to NCBI <a href="https://www.ncbi.nlm.nih.gov/genome/viruses/">Viral Genomes</a>.</li>
+<li>Select <ss>Browse viral genomes by family</ss> and click on the family <ss>Flaviviridae</ss>: <ss>Complete Genomes</ss></li>
+<li>Note: you may have to widen your screen to see all the columns of viral family names.</li>
+</ul>
+<p><img alt="ncbi_genomes" src="./images/ncbi.png" /></p>
+<ul>
+<li>Look at the row for Murray Valley encephelitis virus. In the Neigbours column, we can see there are 14.</li>
+</ul>
+<!--
+
+: click on the 14 and then Entrez Nucleotide
+
+![mvev_neighbours](images/mvev_seqs.png)
+
+This brings up a list of all the strains on NCBI.
+
+following seq though is not in this list?
+-->
+
+<p>In this tutorial we will use the prototype strain 1-151 as the reference genome sequence.</p>
+<ul>
+<li>This strain was isolated in the early 1950s - see, AF161266.</li>
+<li>[are we using this AF seq exactly? or if not, which seq]</li>
+<li>see <a href="https://www.ncbi.nlm.nih.gov/pubmed/10567642">https://www.ncbi.nlm.nih.gov/pubmed/10567642</a></li>
+<li>[This seq is not in the list of 14 &mdash; does this mean it is just more distant and therefore didn&rsquo;t align closely?]</li>
+</ul>
+<p>The isolate we are looking at has been sequenced using the Illumina platform.</p>
+<ul>
+<li>The genomic cDNA was prepared using random hexamers to prime the reverse transcription of the viral genomic RNA.</li>
+<li>After second strand synthesis, the cDNA was used to prepare an Illumina sequencing library and run on an Illumina MiSeq instrument.</li>
+</ul>
+<p>In this activity we will use a read mapping approach to determine the sequence of a new Murray Valley encephalitis virus isolate.</p>
+<h2 id="import-data">Import data</h2>
+<h3 id="section-overview">Section overview:</h3>
+<ul>
+<li>Log in to your Galaxy server</li>
+<li>Import files required for the activity</li>
+<li>View imported files</li>
+</ul>
+<h3 id="go-to-the-galaxy-page">Go to the Galaxy Page</h3>
+<ul>
+<li>Web address: <a href="http://phln.genome.edu.au/galaxy">http://phln.genome.edu.au/galaxy</a></li>
+<li><a href="https://docs.google.com/document/d/10meAZA7-OsD_PglLD2zL3m-EwkemFxVnRVUYGAmtOz4/pub">Remind me how to logon</a></li>
+</ul>
+<h3 id="import-files-to-galaxy">Import files to Galaxy</h3>
+<ul>
+<li>Click on the <ss>Analyze Data</ss> menu at the top of the page.</li>
+<li>Click on the <ss>History</ss> menu button (the <img alt="cog" src="./images/cog.png" /> on the top right of the history pane)</li>
+<li>Click <ss>Import from File</ss> (at the bottom of the list)</li>
+<li>A new page will appear with a text box for the URL of the history to import.</li>
+<li>Copy the following URL into the text box:</li>
+<li>
+<p><fn>http://phln.genome.edu.au/public/dieter/Galaxy-History-MVEVmapping.tar.gz</fn></p>
+</li>
+<li>
+<p>Click <ss>Submit</ss></p>
+</li>
+<li>Galaxy will download the data files from the internet and will be available as an additional history (takes about one minute).</li>
+</ul>
+<h3 id="to-make-the-newly-imported-history-appear-as-the-current-history">To make the newly imported history appear as the current history:</h3>
+<ul>
+<li>Click on the View all Histories button (the <img alt="Galaxy-histories" src="./images/Galaxy-histories.png" /> on the top right of the history pane.)</li>
+<li>If the history has finished downloading it will appear with the title:</li>
+<li><fn>“imported from archive: MVEVmapping“</fn></li>
+<li>Click on the <ss>Switch to</ss> button above this history and then the <ss>Done</ss> button.</li>
+</ul>
+<p>You should now have 4 files in the history pane as follows:</p>
+<p><img alt="mvev_files" src="./images/mvev_files.png" /></p>
+<p>Reference sequence files [from AF161266?]:</p>
+<ul>
+<li><fn>MVEV.gbk</fn> - genbank format</li>
+<li><fn>MVEV.fna</fn> - fasta format</li>
+</ul>
+<p>Illumina sequence reads (R1 and R2) from the new isolate:</p>
+<ul>
+<li><fn>MVE_R1.fq</fn> - forward reads</li>
+<li><fn>MVE_R2.fq</fn> - reverse reads</li>
+</ul>
+<h2 id="snippy">Snippy</h2>
+<h3 id="section-overview_1">Section overview:</h3>
+<ul>
+<li>Find variants in the isolate using the tool Snippy.</li>
+</ul>
+<p>Snippy is a fast bacterial [/viral?] variant caller for NGS reads. The software is available on GitHub at <a href="https://github.com/tseemann/snippy">https://github.com/tseemann/snippy</a>. For this activity, we are using Snippy as installed on Galaxy.</p>
+<h3 id="preliminary-activity">Preliminary Activity</h3>
+<ul>
+<li>
+<p>Run FastQC: How many reads in in each of the fastq files <fn>MVE_R1.fq</fn> and <fn>MVE_R2.fq</fn>?</p>
+</li>
+<li>
+<p><fn>MVEV.fna</fn> and <fn>MVEV.gbk</fn> each contain the genome sequence of Murray Valley encephalitis virus strain 1-151 - how many bases in the genome? (Hint: use Fasta Statistics)</p>
+</li>
+</ul>
+<h3 id="running-snippy">Running Snippy</h3>
+<p>Snippy maps reads from the new Murray Valley encephalitis virus isolate (the <fn>MVE_R1.fq</fn> and <fn>MVE_R2.fq</fn> reads) onto the genome sequence of Murray Valley encephalitis virus strain 1-151 (<fn>MVEV.fna</fn>). [or gbk? that&rsquo;s in the screenshot]</p>
+<ul>
+<li>Find Snippy in the tool menu (in  NGS: Variant Analysis)</li>
+<li>Select appropriate files (see screenshot below) and Execute (use default settings).</li>
+</ul>
+<p><img alt="snippy_window" src="./images/snippy.png" /></p>
+<h3 id="output">Output</h3>
+<p>Files cataloging SNP differences:</p>
+<ul>
+<li>9: <fn>snippy on data 4, data 3, and data 2 snps vcf file</fn></li>
+<li>10: <fn>snippy on data 4, data 3, and data 2 snps gff file</fn></li>
+<li>11: <fn>snippy on data 4, data 3, and data 2 snps table</fn></li>
+<li>12: <fn>snippy on data 4, data 3, and data 2 snps summary</fn></li>
+</ul>
+<p>A log of the progress of the run:</p>
+<ul>
+<li>13: <fn>snippy on data 4, data 3, and data 2 log file</fn></li>
+</ul>
+<p>Regions where reads aligned (NNNN &mdash;, indicate regions where there was low or no read data):</p>
+<ul>
+<li>14: <fn>snippy on data 4, data 3, and data 2 aligned fasta</fn></li>
+</ul>
+<p>A consensus genome sequence for the new isolate:</p>
+<ul>
+<li>15: <fn>snippy on data 4, data 3, and data 2 consensus fasta</fn></li>
+</ul>
+<p>Summary of the read depth:</p>
+<ul>
+<li>16: <fn>snippy on data 4, data 3, and data 2 mapping depth</fn></li>
+</ul>
+<p>A compressed version of the above files (and more that can be downloaded):</p>
+<ul>
+<li>17: <fn>snippy on data 4, data 3, and data 2 out dir</fn></li>
+</ul>
+<p>Download these files to your local computer (click on the file name and then the disk icon in the lower left hand corner):</p>
+<ul>
+<li>17: <fn>snippy on data 4, data 3, and data 2 out dir</fn> (and unzip)</li>
+<li>2: <fn>MVEV.gbk</fn></li>
+<li>1: <fn>MVEV.fna</fn></li>
+</ul>
+<p>Also download these bam files from these URLs (open each URL in a new tab and the file should download automatically):</p>
+<ul>
+<li><a href="http://phln.genome.edu.au/public/dieter/snps.bam">http://phln.genome.edu.au/public/dieter/snps.bam</a></li>
+<li><a href="http://phln.genome.edu.au/public/dieter/snps.bam.bai">http://phln.genome.edu.au/public/dieter/snps.bam.bai</a></li>
+<li><a href="http://phln.genome.edu.au/public/dieter/snps.depth.gz">http://phln.genome.edu.au/public/dieter/snps.depth.gz</a></li>
+<li><a href="http://phln.genome.edu.au/public/dieter/snps.depth.gz.tbi">http://phln.genome.edu.au/public/dieter/snps.depth.gz.tbi</a></li>
+</ul>
+<p>Note: if you have previously downloaded these files, the new downloads may be renamed. Remove any spaces in the names.</p>
+<p>[Should we explain why we have these four other files - where they are from, what they are needed for, etc - so if people are repeating this exercise on their own they can follow]</p>
+<h2 id="artemis">Artemis</h2>
+<h3 id="section-overview_2">Section overview:</h3>
+<ul>
+<li>View the reads from the new isolate mapped against the reference sequence, using the tool Artemis.</li>
+</ul>
+<p>Artemis is a tool to view genome sequences and mapped reads, including variants (SNPs).</p>
+<p>If Artemis is not installed, go to <a href="http://www.sanger.ac.uk/science/tools/artemis">http://www.sanger.ac.uk/science/tools/artemis</a>.</p>
+<h3 id="view-the-reference-sequence">View the reference sequence</h3>
+<ul>
+<li>Open Artemis.</li>
+<li>Go to <ss>File: Open</ss> and select <fn>MVEV.gbk</fn>. The file will probably have a &ldquo;Galaxy&rdquo; prefix, e.g. <fn>Galaxy2-[MVEV.gbk].genbank</fn>.</li>
+</ul>
+<h3 id="the-artemis-window">The Artemis window:</h3>
+<ul>
+<li>panes 1 and 2 are the same, but can be scaled differently</li>
+<li>each pane has the double-stranded sequence in the centre, with amino acid translations above and below</li>
+<li>there is a third lower pane with feature information</li>
+<li>coding sequences are highlighted in blue</li>
+<li>other features are highlighted in green</li>
+<li>clicking on one of these will select it in all panels</li>
+<li>black vertical lines are stop codons (when zoomed out)</li>
+<li>move left and right with horizontal scroll bar</li>
+<li>zoom in and out with right-hand scroll bar</li>
+</ul>
+<p><img alt="artemis_window" src="./images/artemis.png" /></p>
+<h3 id="add-a-plot">Add a plot</h3>
+<ul>
+<li>Go to <ss>Graph: Add User Plot</ss>, select <fn>snps.depth.gz</fn></li>
+<li>A graph should display at the top of the screen
+[is this depth of reads or depth of snps?]</li>
+</ul>
+<p><img alt="depth-plot" src="./images/depth-plot.png" /></p>
+<p>The file that is used to produce the graph is a 3 column table (part of the file is shown below)</p>
+<p>[what is the file name?]</p>
+<pre><code>             …
+</code></pre>
+<p>Column 1: the name of the sequence, Column 2: the position in the sequence, Column 1: the read depth at that position</p>
+<h2 id="producing-a-draft-genome-sequence">Producing a draft genome sequence</h2>
+<h3 id="section-overview_3">Section overview:</h3>
+<ul>
+<li>Produce draft genome sequence for the new viral isolate.</li>
+</ul>
+<h3 id="examine-the-mapped-reads">Examine the mapped reads</h3>
+<p>[or title]</p>
+<p>What is the minimum read depth used by Snippy to call a SNP?</p>
+<ul>
+<li>Hint: Go back to Snippy on Galaxy - look at the information below the ‘Execute’ button</li>
+</ul>
+<p>Would Snippy call a SNP at positions 1 → 5 ?</p>
+<p>What is the maximum read depth?</p>
+<p>What do we know about the sequence of the new isolate in the regions where there is low read coverage?</p>
+<p>[close first Artemis window?]</p>
+<ul>
+<li>Unzip <fn>17: snippy on data 4, data 3, and data 2 out dir</fn></li>
+<li>
+<p>This makes an &ldquo;out&rdquo; folder containing some files including the consensus file.</p>
+</li>
+<li>
+<p>In Artemis, open <fn>snps.consensus.fa</fn></p>
+</li>
+</ul>
+<p>This is a file that is based on the reference sequence and includes any confirmed SNPs called by Snippy.</p>
+<p>If we were going to use this sequence to produce the draft sequence of the new isolate, what bases would you have at positions 1→ 5?</p>
+<h3 id="getting-an-overview-of-the-difference-between-strain-1-151-and-our-new-isolate">Getting an Overview of the Difference between strain 1-151 and our new isolate</h3>
+<p>Simplest overview: view the bam file with Artemis</p>
+<p>Open <fn>MVEV.gbk</fn> in Artemis and load the <fn>snps.bam</fn> via the File menu to “Read BAM / VCF”</p>
+<p>Once loaded, differences between reads and the reference sequence can be highlighted by right/command click in the bam view window. Select ‘Show &gt; SNP marks’.</p>
+<p><img alt="bam" src="./images/bam.png" /></p>
+<h3 id="getting-more-detail-looking-at-the-table-of-snps">Getting more detail: looking at the table of SNPs</h3>
+<p>Located in the out folder there is a html file that contains a table with information about each of the SNPs called by Snippy.</p>
+<p>Included in the table is a column that provides a prediction about the impact each SNP will have on annotated protein coding regions. The genbank file provides the annotation information used by Snippy to make the predictions.</p>
+<p>A total of 790 SNP differences were call by Snippy</p>
+<p>Open snps.html in your web browser</p>
+<p>[screenshot]</p>
+<p>Summary: 663/790 SNPs do not result a difference in the encoded polyprotein</p>
+<p>Is this pattern of variable genome sequence and more conserved protein sequence normal in viruses? What might be the cause?</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
