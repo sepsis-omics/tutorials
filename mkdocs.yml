@@ -32,7 +32,7 @@ pages:
     - PacBio assembly with SMRT portal: modules/pacbio/index.md
     - PacBio assembly with command line tools: modules/cmdline_assembly/index.md
     #- Annotation using command line tools: modules/cmdline_prokka/index.md
-    - Bash scripts: modules/scripts/index.md
+    #- Bash scripts: modules/scripts/index.md
 
 
 - Transcriptomics:
