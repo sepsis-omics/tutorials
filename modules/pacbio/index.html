@@ -137,12 +137,6 @@
 </li>
 
                     
-                        
-<li >
-    <a href="../scripts/">Bash scripts</a>
-</li>
-
-                    
                     </ul>
                 </li>
             
@@ -237,9 +231,9 @@
         
             <li><a href="#results">Results</a></li>
         
-            <li><a href="#further-polishing">Further Polishing</a></li>
-        
             <li><a href="#output">Output</a></li>
+        
+            <li><a href="#correct-with-short-reads">Correct with short reads</a></li>
         
             <li><a href="#next">Next</a></li>
         
@@ -260,6 +254,7 @@
 - will students use existing SMRT portal registrations, or will each set up their own
 - PacBio data training data to be loaded into SMRT portal(s) -->
 
+<p>[How to get data =&gt; GVL]</p>
 <h2 id="start">Start</h2>
 <ul>
 <li>Open your mGVL dashboard.</li>
@@ -299,7 +294,7 @@
 <ul>
 <li>In the SMRT Portal, go to the top left tab, <ss>Design Job</ss>.</li>
 <li>Go to <ss>Create New</ss>.</li>
-<li>An <ss>Analysis</ss> window should appear. Check the box next to <ss>De novo assembly</ss>, then <ss>Next</ss>.</li>
+<li>An <ss>Analysis</ss> window should appear. Tick all the boxes, then <ss>Next</ss>.</li>
 <li>Under <ss>Job Name</ss> enter a name.</li>
 <li>To the right, under <ss>Groups</ss> choose <em>all</em>.</li>
 <li>Under <ss>Protocols</ss> choose <ss>RS_HGAP_Assembly.3</ss>.</li>
@@ -308,8 +303,16 @@
 <p><img alt="smrt portal screenshot" src="./images/setup.png" /></p>
 <p>This brings up the settings. Click on <ss>Assembly</ss>.</p>
 <ul>
-<li>For <ss>Compute Minimum Seed Read Length</ss>: ensure box is ticked</li>
-<li>For <ss>Number of Seed Read Chunks</ss>: enter <em>12</em></li>
+<li>
+<p>For <ss>Compute Minimum Seed Read Length</ss>: ensure box is ticked
+<!--
+Sarah Baines:
+("compute minimum seed read length"). While this protocol works ok, I have found that the longer the average seed read length (larger library cuts), the estimation protocol can get it really wrong, and frequently if the cell has low output this will cause Celera to fail very early on. Performing this estimation manually can be difficult (as you know!) but it may be worth adding a comment or something.
+--></p>
+</li>
+<li>
+<p>For <ss>Number of Seed Read Chunks</ss>: enter <em>12</em></p>
+</li>
 <li>Change the <ss>Genome Size</ss> to an approximately correct size for the species. For <em>S. pyogenes</em>, enter 1800000.</li>
 <li>For <ss>Target Coverage</ss>: enter <em>10</em></li>
 <li>For <ss>Overlapper Error Rate</ss>: enter <em>0.04</em></li>
@@ -339,7 +342,8 @@
 <p><img alt="smrt portal screenshot" src="./images/smrt6.png" /></p>
 <h3 id="inputs-and-outputs">Inputs and Outputs</h3>
 <p>The connections between the names of assembly stages and outputs is not always clear. This flowchart shows how each stage of the HGAP process corresponds to protocol window names and outputs:</p>
-<p><img alt="inputs and outputs" src="./images/inputs_outputs.png" /></p>
+<p><img alt="inputs and outputs" src="./images/inputs_outputs.png" />
+<!-- upload a better res image? --></p>
 <h2 id="results">Results</h2>
 <p>If the job is still running, click on the centre tab <ss>Monitor Jobs</ss>. Otherwise, click on the top right tab, <ss>View Data</ss>.</p>
 <ul>
@@ -373,9 +377,8 @@
 </ul>
 <p><strong>Assembly: Top Corrections</strong></p>
 <p>This is a list of all the corrections made.</p>
-<ul>
-<li>If more than two corrections (with confidence &gt; 50), repeat polishing (see next section &ldquo;Further polishing&rdquo;).</li>
-</ul>
+<!-- - If more than two corrections (with confidence > 50), repeat polishing (see next section "Further polishing"). -->
+
 <p><strong>Resequencing: Coverage</strong></p>
 <p>Coverage across reference:</p>
 <ul>
@@ -392,28 +395,29 @@
 <li>max contig length</li>
 <li>graph: confidence vs depth. multi-copy plasmids may have higher coverage.</li>
 </ul>
-<h2 id="further-polishing">Further Polishing</h2>
-<p>During polishing, raw reads are used to correct the assembly.
-During HGAP, the assembly was polished once but may need further corrections.</p>
-<ul>
-<li>From the previous step, Go to <ss>Data &rarr; Assembly &rarr; Polished Assembly</ss> and download the FASTA file by clicking on it.<ul>
-<li>Unzip the .gz file</li>
-</ul>
-</li>
-<li>Go to <ss>Design Job &rarr; Import and Manage</ss> and click <ss>New</ss> on the bottom right hand side. Then, select that FASTA assembly file to upload.<ul>
-<li>creates a new reference.</li>
-</ul>
-</li>
-<li>Go to <ss>Design Job &rarr; Create New</ss><ul>
-<li>choose reference-based</li>
-<li>Select protocol: RS_Resequencing.1</li>
-<li>Leave all settings.</li>
-<li>Select your reference from the drop down menu.</li>
-<li>Click <ss>Save</ss> and <ss>Start</ss>.</li>
-</ul>
-</li>
-<li>Examine the output assembly and repeat if necessary (e.g. if &gt; 2 corrections with &gt;50 confidence).</li>
-</ul>
+<!--
+Sarah Baines: I have found with our data that there is no point in repeating quiver more than once after HGAP, and especially if we are going to polish the assembly with short read data later. A third run has never made a significant improvement to any of the genomes I have worked with, and after a few runs quiver starts to cycle - where is makes a correction then corrects it back to the original call in the subsequent run and so on.
+
+- therefore I have hidden this section for now - AS.
+
+## Further Polishing
+
+During polishing, raw reads are used to correct the assembly.
+During HGAP, the assembly was polished once but may need further corrections.
+
+- From the previous step, Go to <ss>Data &rarr; Assembly &rarr; Polished Assembly</ss> and download the FASTA file by clicking on it.
+    - Unzip the .gz file
+- Go to <ss>Design Job &rarr; Import and Manage</ss> and click <ss>New</ss> on the bottom right hand side. Then, select that FASTA assembly file to upload.
+    - creates a new reference.
+- Go to <ss>Design Job &rarr; Create New</ss>
+    - choose reference-based
+    - Select protocol: RS_Resequencing.1
+    - Leave all settings.
+    - Select your reference from the drop down menu.
+    - Click <ss>Save</ss> and <ss>Start</ss>.
+- Examine the output assembly and repeat if necessary (e.g. if > 2 corrections with >50 confidence).
+-->
+
 <h2 id="output">Output</h2>
 <p>The polished assembly as a FASTA file.</p>
 <ul>
@@ -421,12 +425,47 @@ During HGAP, the assembly was polished once but may need further corrections.</p
 <li>open file in (GVL) Galaxy; or</li>
 <li>open file in GVL command line: and perform further analysis.</li>
 </ul>
+<h2 id="correct-with-short-reads">Correct with short reads</h2>
+<p>If you have Illumina reads for the same sample, the assembly can be further polished.</p>
+<ul>
+<li>Download the FASTA assembly to your computer.</li>
+<li>Open Galaxy</li>
+<li>Upload the FASTA assembly</li>
+<li>Upload the Illumina reads to galaxy</li>
+<li>change datatype to fastqsanger
+ngs mapping - map with bwa mem</li>
+<li>
+<p>use genome from history - the smrt portal fasta file
+R1 and R2 files
+execute
+refresh</p>
+</li>
+<li>
+<p>Polish with Pilon.</p>
+</li>
+</ul>
+<p>pilon
+use a genome from history : the smrt portal fasta file
+input bam file - from step above
+variant calling mode - no
+create changes file - yes
+advanced options:
+paired end : yes
+fix - select all
+mindepth 0.5</p>
+<p>output = polished assembly</p>
 <h2 id="next">Next</h2>
 <p>Further options:</p>
 <ul>
-<li>correct with Illumina reads</li>
-<li>circularise</li>
-<li>annotate</li>
+<li>circularise eg with circlator</li>
+<li>trims off overhang</li>
+<li>
+<p>this would be best done before the pilon polishing step</p>
+</li>
+<li>
+<p>annotate the polished assembly</p>
+</li>
+<li>eg with Prokka</li>
 </ul>
 <h2 id="links-to-more-information">Links to more information</h2>
 <p><a href="https://github.com/PacificBiosciences/DevNet/wiki/E.-coli-Bacterial-Assembly">PacBio <em>E. coli</em> data set</a></p>
