@@ -65,7 +65,7 @@ First, enable *Scratchbook* in Galaxy - this allows you to view several windows 
 
 Once Prokka has finished, examine each of its output files.
 
-- The GFF and GBK files contain all of the information about the features annotated (in different formats.)
+- The <fn>GFF</fn> and <fn>GBK</fn> files contain all of the information about the features annotated (in different formats.)
 - The <fn>.txt</fn> file contains a summary of the number of features annotated.
 - The <fn>.faa</fn> file contains the protein sequences of the genes annotated.
 - The <fn>.ffn</fn> file contains the nucleotide sequences of the genes annotated.

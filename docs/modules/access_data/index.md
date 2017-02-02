@@ -227,6 +227,7 @@ There are several output files:
 - <fn>txt</fn>: statistics relating to the annotated features found
 
 **Tabulate**
+
 If you are working on this tutorial as part of a class workshop:
 
 - Go to the table of isolates and add information about genome size, GC content, and number of contigs.

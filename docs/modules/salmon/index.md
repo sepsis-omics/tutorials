@@ -7,15 +7,13 @@ Not yet available in mGVL Galaxy.
 What does Salmon do?
 
 * quantifies transcripts from RNA-seq data
-* uses "quasi-mapping" yo map reads to reference - more detail [here](http://bioinformatics.oxfordjournals.org/content/32/12/i192.full)
-
-
+* uses "quasi-mapping" to map reads to reference - more detail [here](http://bioinformatics.oxfordjournals.org/content/32/12/i192.full)
 
 
 ##Start
 
 Open a terminal.
-Log in to the mGVL. [is Salmon on the general mGVL?]
+Log in to the ABRPI mGVL.
 Make a folder called RNA_seq
 ```text
 mkdir salmon
@@ -27,14 +25,14 @@ cd salmon
 ##Input
 
 * RNA-seq reads in FASTA/FASTQ format
-* Reference in FASTA format -- need to get the ecoli transcriptome - containing genes and RNAs
+* Reference in FASTA format -- need to get the Ecoli transcriptome - containing genes and RNAs
 
 how to get?
 
 
 ```genbank2fasta.pl < file.gbk > file.ffn
 ```
- 
+
 
 get these files from [Nectar container] - how to scp these in using terminal
 

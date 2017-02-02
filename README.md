@@ -23,7 +23,7 @@ The tutorials have been deployed here: http://sepsis-omics.github.io/tutorials/
 ```
 % mkdocs serve
 ```
-Open your web browser to http://127.0.0.1:8000/ and leave it open. 
+Open your web browser to http://127.0.0.1:8000/ and leave it open.
 This will update automatically as you make changes to the documenation.
 
 ### The master document is a YAML file
@@ -38,8 +38,8 @@ index.md about.md     # some pages
 dna/ prot/ rna/ met/  # some folders with more pages
 media/                # folder for images
 ```
-To add a new page, say a page on the 'Minia' genome assembler, find the right location and create a page. 
-In this case it would be `docs/dna/denovo/minia.md`. Write the tutorial in that file, and then add the file to the 
+To add a new page, say a page on the 'Minia' genome assembler, find the right location and create a page.
+In this case it would be `docs/dna/denovo/minia.md`. Write the tutorial in that file, and then add the file to the
 master document `mkdocs.yml` in the correct section.
 
 ### When you are happy, add it the repo
@@ -55,7 +55,7 @@ Your private local web version  http://127.0.0.1:8000/ will also update.
 mkdocs gh-deploy --clean --message "Added minia"
 ```
 This first builds a web HTML version of our Markdown hierarchy into the `site/` folder, then pushes it to a special
-branch of the github repo called `gh-pages` which GitHub makes available at the public URL 
+branch of the github repo called `gh-pages` which GitHub makes available at the public URL
 http://sepsis-omics.github.io/tutorials/
 
 ## Authors
@@ -64,4 +64,6 @@ http://sepsis-omics.github.io/tutorials/
 * Anna Syme
 * Simon Gladman
 * Dieter Bulach
-
+* Dominique Gorse
+* Xin-Yi Chua
+* Mike Thang

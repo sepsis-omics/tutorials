@@ -12,6 +12,10 @@ This tutorial will show you how to assemble a bacterial genome *de novo*, using 
 - PacBio data training data to be loaded into SMRT portal(s) -->
 
 
+
+[How to get data => GVL]
+
+
 ## Start
 - Open your mGVL dashboard.
 - You should see SMRT Portal as one of the instance services on your GVL dashboard.
@@ -36,6 +40,8 @@ Otherwise:
 ![smrt portal screenshot](images/image04.png)
 - Work out where you put the data on your GVL, and make sure the file path is showing.
     - If not, click <ss>Add</ss> and enter the file path to the data.
+    - A SMRT cell is the collection of data from a particular cell in the machine. It includes .bax.h5 files.
+
 - Click on the file path and then <ss>Scan</ss> to check for new data.
 
 
@@ -51,8 +57,9 @@ We will use the Hierarchical Genome Assembly Process (HGAP). This flowchart show
 
 - In the SMRT Portal, go to the top left tab, <ss>Design Job</ss>.
 - Go to <ss>Create New</ss>.
-- An <ss>Analysis</ss> window should appear. Check the box next to <ss>De novo assembly</ss>, then <ss>Next</ss>.
+- An <ss>Analysis</ss> window should appear. Tick all the boxes, then <ss>Next</ss>.
 - Under <ss>Job Name</ss> enter a name.
+- To the right, under <ss>Groups</ss> choose *all*.
 - Under <ss>Protocols</ss> choose <ss>RS_HGAP_Assembly.3</ss>.
 - There is an ellipsis underneath <ss>Protocols</ss> - click on the ellipsis.
 
@@ -61,6 +68,11 @@ We will use the Hierarchical Genome Assembly Process (HGAP). This flowchart show
 This brings up the settings. Click on <ss>Assembly</ss>.
 
 - For <ss>Compute Minimum Seed Read Length</ss>: ensure box is ticked
+<!--
+Sarah Baines:
+("compute minimum seed read length"). While this protocol works ok, I have found that the longer the average seed read length (larger library cuts), the estimation protocol can get it really wrong, and frequently if the cell has low output this will cause Celera to fail very early on. Performing this estimation manually can be difficult (as you know!) but it may be worth adding a comment or something.
+-->
+
 - For <ss>Number of Seed Read Chunks</ss>: enter *12*
 - Change the <ss>Genome Size</ss> to an approximately correct size for the species. For *S. pyogenes*, enter 1800000.
 - For <ss>Target Coverage</ss>: enter *10*
@@ -75,6 +87,7 @@ This brings up the settings. Click on <ss>Assembly</ss>.
 - Click <ss>Ok</ss>.  
 
 - In the <ss>SMRT Cells Available</ss> window, select the file to be used. Click on the arrow to transfer these files to the SMRT Cells in Job window.
+- You can drag the column widths of the "Url" column so that you can see the URLs of the file paths better.
 
 ![smrt portal screenshot](images/smrt3.png)
 
@@ -90,7 +103,7 @@ This brings up the settings. Click on <ss>Assembly</ss>.
 The connections between the names of assembly stages and outputs is not always clear. This flowchart shows how each stage of the HGAP process corresponds to protocol window names and outputs:
 
 ![inputs and outputs](images/inputs_outputs.png)
-
+<!-- upload a better res image? -->
 
 ## Results
 
@@ -130,7 +143,7 @@ Graph: corrections across reference:
 
 This is a list of all the corrections made.
 
-- If more than two corrections (with confidence > 50), repeat polishing (see next section "Further polishing").
+<!-- - If more than two corrections (with confidence > 50), repeat polishing (see next section "Further polishing"). -->
 
 **Resequencing: Coverage**
 
@@ -151,6 +164,11 @@ Graph: Depth of Coverage:
 - max contig length
 - graph: confidence vs depth. multi-copy plasmids may have higher coverage.
 
+<!--
+Sarah Baines: I have found with our data that there is no point in repeating quiver more than once after HGAP, and especially if we are going to polish the assembly with short read data later. A third run has never made a significant improvement to any of the genomes I have worked with, and after a few runs quiver starts to cycle - where is makes a correction then corrects it back to the original call in the subsequent run and so on.
+
+- therefore I have hidden this section for now - AS.
+
 ## Further Polishing
 
 During polishing, raw reads are used to correct the assembly.
@@ -167,6 +185,7 @@ During HGAP, the assembly was polished once but may need further corrections.
     - Select your reference from the drop down menu.
     - Click <ss>Save</ss> and <ss>Start</ss>.
 - Examine the output assembly and repeat if necessary (e.g. if > 2 corrections with >50 confidence).
+-->
 
 ##Output
 
@@ -176,12 +195,49 @@ The polished assembly as a FASTA file.
 - open file in (GVL) Galaxy; or
 - open file in GVL command line: and perform further analysis.
 
+##Correct with short reads
+
+If you have Illumina reads for the same sample, the assembly can be further polished.
+
+- Download the FASTA assembly to your computer.
+- Open Galaxy
+- Upload the FASTA assembly
+- Upload the Illumina reads to galaxy
+- change datatype to fastqsanger
+ngs mapping - map with bwa mem
+-  use genome from history - the smrt portal fasta file
+R1 and R2 files
+execute
+refresh
+
+- Polish with Pilon.
+
+pilon
+use a genome from history : the smrt portal fasta file
+input bam file - from step above
+variant calling mode - no
+create changes file - yes
+advanced options:
+paired end : yes
+fix - select all
+mindepth 0.5
+
+
+
+output = polished assembly
+
+
+
+
 ##Next
 Further options:
 
-- correct with Illumina reads
-- circularise
-- annotate
+- circularise eg with circlator
+  - trims off overhang
+  - this would be best done before the pilon polishing step
+
+- annotate the polished assembly
+  - eg with Prokka
 
 ## Links to more information
 
