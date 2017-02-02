@@ -26,9 +26,17 @@ At the end of this tutorial you should be able to:
 
 See [here](/modules/galaxy/index.md) for information about how to start with Galaxy.
 
+### Import files
+
 To import the files for this tutorial:
 
 - Go to your Galaxy instance. Make sure you are registered and logged in. Refresh the page.
+- In the centre of the top panel, select <ss>Shared Data: Histories</ss>
+- Select <fn>Microbial-assembly-start-history</fn> and then in the top right corner click on <ss>Import history</ss>.
+- This should now be your current history (the right hand panel) with five files.
+
+Alternatively:
+
 - Click on the <ss>History</ss> cog ![cog icon](images/image02.png)
 - Select <ss>Import from File</ss>
 - In the box called <ss>Archived History URL</ss>, paste in this link address to the Galaxy history of input files:
@@ -43,7 +51,7 @@ To import the files for this tutorial:
 - Then click <ss>Done</ss> (in the top left corner).
 - You should now have a list of five files in your current history.
 
-
+### The data
 
 The read set for today is from an imaginary *Staphylococcus aureus* bacterium with a miniature genome. The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.
 
