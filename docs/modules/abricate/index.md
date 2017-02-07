@@ -41,6 +41,8 @@ There is one output file. Click on the eye icon to view. It should look like thi
 
 ![abricate results](images/abricate.png)
 
-<!-- ## Next
+## Next
 
-Column 5 has the list of ABR gene names. Some of these may be complete, exact matches, and some may have a gap/mutation in the match which can affect whether that protein is actually expressed. This can be examined in more detail by ... -->
+In the output from Abricate, column 5 has the list of the antibiotic-resistant gene names. Some of these may be complete, exact matches, and some may have a gap/mutation in their sequence which can affect whether that protein is actually expressed.
+
+To find out more about what type of ABR genes these are, you can search [Genbank](https://www.ncbi.nlm.nih.gov/gene/) with the gene name (e.g. aadD). 
