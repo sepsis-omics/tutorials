@@ -90,6 +90,10 @@ fq subreads.fastq.gz
 -->
 - In this tutorial we will use *Staphylococcus aureus* sample 25745.
 
+### Sample information
+
+The sample used in this tutorial is a gram-positive bacteria called *Staphylococcus aureus*. Some strains of *S. aureus* are resistant to antibiotics. For example, methicillin-resistant *S. aureus* (or MRSA) cannot be treated with the antibiotic methicillin (a type of penicillin). The sample used here however is a methicillin-sensitive (MSSA). It was isolated from (human) blood and caused bacteraemia, an infection of the blood. 
+
 ##Assemble<a name="assemble"></a>
 - We will use the assembly software called [Canu](http://canu.readthedocs.io/en/stable/).
 - Run Canu with these commands:
@@ -450,6 +454,7 @@ If there are more than 2 changes, run Pilon again, using the pilon1.fasta file a
 **Final output:**
 
 - the corrected genome assembly of *Staphylococcus aureus* in .fasta format, containing three contigs: chromosome, large plasmid and small plasmid.  
+
 
 ##Next
 

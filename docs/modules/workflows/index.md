@@ -259,7 +259,7 @@ You can extract a workflow from an existing Galaxy history.
 
 We have been using the top Workflow tab. There is another tab at the bottom of the tool panel called Workflows. Click on <ss>Workflows: All Workflows</ss>. This gives a similar view with a list of workflows, and you can also click on the top right tab "switch to workflow management view".
 
-To return to the main galaxy window click on the Analyze Data tab in the top panel.
+To return to the main Galaxy window click on the Analyze Data tab in the top panel.
 
 ### Links
 
