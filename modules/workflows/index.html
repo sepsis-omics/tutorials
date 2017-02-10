@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Anna Syme, Torsten Seemann">
+        
+        <link rel="shortcut icon" href="favicon.ico">
+        
+
+	<title>Galaxy workflows - ABRPI Training 2017</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/sepsis.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">ABRPI Training 2017</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics Workshop <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../workshop_overview/">Workshop overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../galaxy/">Starting with Galaxy</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../data-dna/">Training dataset</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../velvet/">Genome assembly with Velvet</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../spades/">Genome assembly with Spades</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../prokka/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../snippy/">Variant finding</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../access_data/">Public data &rarr; assembly, annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../viral_genomes/">Viral genome sequencing</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../abricate/">Finding antibiotic-resistant genes</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">Galaxy workflows</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../pacbio/">PacBio assembly with SMRT portal</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../cmdline_assembly/">PacBio assembly with command line tools</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transcriptomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../dge/">Differential gene expression</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proteomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../xtandem/">Protein Identification</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pathway Tools <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../pathway_tools/annotation/">Pathway annotation and prediction</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../abricate/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../pacbio/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#galaxy-workflows">Galaxy workflows</a></li>
+        
+            <li><a href="#start">Start</a></li>
+        
+            <li><a href="#build-a-workflow">Build a workflow</a></li>
+        
+            <li><a href="#add-to-the-worfklow">Add to the worfklow</a></li>
+        
+            <li><a href="#add-more-to-the-workflow">Add more to the workflow</a></li>
+        
+            <li><a href="#summary">Summary</a></li>
+        
+            <li><a href="#other-workflow-options">Other workflow options</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<p><br></p>
+<h1 id="galaxy-workflows">Galaxy workflows</h1>
+<p>This tutorial assumes you have used Galaxy before.</p>
+<p>Although we can use tools in Galaxy to analyse data and create a history, there is also a way to create a workflow of files, tools, settings and outputs. You can then input different datasets and run the workflow.</p>
+<p>This tutorial covers building a workflow to analyse a bacterial genome, from input Fastq sequencing reads to assembly, annotation, and visualization.</p>
+<h2 id="start">Start</h2>
+<p>Go to your Galaxy instance and Register/Login.</p>
+<p>Import a history of data files:</p>
+<ul>
+<li>Click on the <ss>History</ss> cog <img alt="cog icon" src="./images/image02.png" /></li>
+<li>Select <ss>Import from File</ss></li>
+<li>In the box called <ss>Archived History URL</ss>, paste in this link address to the Galaxy history of input files:</li>
+</ul>
+<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy_history_input_files.tar.gz</tt></p>
+<ul>
+<li>Click <ss>Submit</ss></li>
+<li>Wait a few seconds.</li>
+<li>Click on the &ldquo;View all histories&rdquo; button <img alt="histories icon" src="./images/histories.png" /></li>
+<li>See if the Galaxy history has been imported: it will be called <fn>imported from archive: Data</fn></li>
+<li>Above that pane, click on the <ss>Switch to</ss> button.</li>
+<li>Then click <ss>Done</ss> (in the top left corner).</li>
+<li>
+<p>You should now have a list of five files in your current history.</p>
+</li>
+<li>
+<p>Re-name this history &ldquo;Workflows&rdquo;.</p>
+</li>
+</ul>
+<h2 id="build-a-workflow">Build a workflow</h2>
+<p>We will first write a workflow for genome assembly.</p>
+<ul>
+<li>In the top menu bar in Galaxy, click on &ldquo;Workflow&rdquo;.</li>
+</ul>
+<p><img alt="workflowmenu" src="./images/workflow_menu.png" /></p>
+<ul>
+<li>Click on <ss>Create new workflow</ss></li>
+</ul>
+<p><img alt="createnew" src="./images/create_new.png" /></p>
+<ul>
+<li>
+<p>Under <ss>Workflow Name:</ss> put in &ldquo;Reads to Annotation&rdquo;.</p>
+</li>
+<li>
+<p>Click <ss>Create</ss></p>
+</li>
+<li>
+<p>This will bring up the &ldquo;Workflow Canvas&rdquo;, a grid where you can arrange the workflow.</p>
+</li>
+</ul>
+<h3 id="add-inputs">Add inputs</h3>
+<ul>
+<li>
+<p>In the Tools panel, click <ss>Inputs: Input datset</ss> twice (at the very top of the list).</p>
+</li>
+<li>
+<p>A box will appear: drag it to the left and there will be another box underneath it. Drag this also to the left. Your workflow canvas should look like this:</p>
+</li>
+</ul>
+<p><img alt="inputs" src="./images/inputs.png" /></p>
+<ul>
+<li>Click on the first box. Look in the right hand panel (now called &ldquo;Details&rdquo;) and change the name of the Input dataset to <fn>R1.fastq</fn>. Press Enter for the change to be saved.</li>
+</ul>
+<p><img alt="input_name" src="./images/R1fastq.png" /></p>
+<ul>
+<li>Repeat for the second input dataset box, naming that one <fn>R2.fastq</fn>.</li>
+</ul>
+<h3 id="add-the-tool-spades">Add the tool &ldquo;spades&rdquo;</h3>
+<ul>
+<li>In the tools panel, click on <ss>NGS Analysis: NGS Assembly: spades</ss>.
+This puts the spades box onto the workflow canvas.</li>
+</ul>
+<p><img alt="spades" src="./images/spades.png" /></p>
+<ul>
+<li>
+<p>Click on the spades box and look in the Details pane on the right. This shows all the options in spades. Choose:</p>
+</li>
+<li>
+<p><ss>Run only Assembly</ss>: <em>Yes</em> [the <em>Yes</em> button should be darker grey]</p>
+</li>
+<li><ss>Kmers to use separated by commas:</ss> <em>33,55,91</em>  [note: no spaces]  </li>
+<li><ss>Coverage cutoff:</ss> <em>auto</em>  </li>
+</ul>
+<h3 id="join-inputs-to-the-tool">Join inputs to the tool</h3>
+<p>Now tell spades which input files to use.</p>
+<ul>
+<li>
+<p>Look at the input dataset box called <fn>R1.fastq</fn> and find the small arrow: &gt;</p>
+</li>
+<li>
+<p>Click on this and drag the arrow over to the spades box input arrow &gt; next to &ldquo;Libraries 1 &gt; Files 1 &gt; Forward reads&rdquo;.</p>
+</li>
+</ul>
+<p><img alt="join boxes" src="./images/join.png" /></p>
+<ul>
+<li>Repeat for the dataset box <fn>R2.fastq</fn>, joining to the spades box next to &ldquo;Libraries 1 &gt; Files 1 &gt; Reverse reads&rdquo;.</li>
+</ul>
+<h3 id="save-it-and-run">Save it and run</h3>
+<ul>
+<li>Click on the cog at the top right of the workflow canvas and &ldquo;Save&rdquo;.</li>
+</ul>
+<p><img alt="save workflow" src="./images/save.png" /></p>
+<ul>
+<li>
+<p>Click the cog again and choose &ldquo;Run&rdquo;.</p>
+</li>
+<li>
+<p>This brings up a window where you specify the input datasets to use in the workflow.</p>
+<ul>
+<li>Under <ss>Step1: Input dataset</ss> choose <fn>mutant_R1.fastq</fn>.</li>
+<li>Under <ss>Step2: Input dataset</ss> choose <fn>mutant_R2.fastq</fn>.</li>
+</ul>
+</li>
+<li>
+<p>Click <ss>Run workflow</ss>.</p>
+</li>
+</ul>
+<p>This will run the workflow (spades) and save the output to the top of your current history in the right hand panel.</p>
+<ul>
+<li>View some of the output files with the eye icon to check that the workflow (in this case, just spades) ran correctly.</li>
+</ul>
+<h2 id="add-to-the-worfklow">Add to the worfklow</h2>
+<p>We will add another tool to the workflow.</p>
+<ul>
+<li>
+<p>Go to the top Galaxy panel and click &ldquo;Workflow&rdquo;.</p>
+</li>
+<li>
+<p>Your workflow <fn>Reads to Annotation</fn> should be in the list. Click on the drop-down arrow next to this workflow and choose <ss>Edit</ss>.</p>
+</li>
+<li>
+<p>This will bring up the Workflow Canvas where we can add more inputs and tools.</p>
+</li>
+<li>
+<p>In the Tools panel, click on <ss>NGS Annotation: Prokka</ss>. This will add a Prokka box to the workflow canvas.</p>
+</li>
+<li>
+<p>We need to tell Prokka which genome assembly) to annotate. Join the spades output called <fn>out_contigs(fasta)</fn> to the Prokka input called <fn>Contigs to annotate</fn>.</p>
+</li>
+</ul>
+<p><img alt="join spades to prokka" src="./images/prokka.png" /></p>
+<ul>
+<li>
+<p>Click on the Prokka box and change some of the settings in the right hand Details panel:</p>
+<ul>
+<li>Set the following parameters (leave everything else unchanged):</li>
+<li><ss>Locus tag prefix (&ndash;locustag)</ss>: P</li>
+<li><ss>Force GenBank/ENA/DDJB compliance (&ndash;compliant)</ss>: <em>No</em></li>
+<li><ss>Sequencing Centre ID (&ndash;centre)</ss>: V</li>
+<li><ss>Use genus-specific BLAST database</ss> <em>No</em>  </li>
+</ul>
+</li>
+<li>
+<p>Click on the cog to the top right of the workflow canvas to save.</p>
+</li>
+<li>
+<p>Click on the cog again to run.</p>
+<ul>
+<li>Again, choose the input files: <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>, and then click <ss>Run workflow</ss>.</li>
+</ul>
+</li>
+<li>
+<p>The output from the workflow (files from spades and prokka) will appear at the top of the History panel.</p>
+</li>
+<li>
+<p>Click on the eye icon for some files to verify the workflow ran correctly.      </p>
+</li>
+</ul>
+<h2 id="add-more-to-the-workflow">Add more to the workflow</h2>
+<p>We will add a visualization tool to view the genome annotation.</p>
+<ul>
+<li>
+<p>Go to the top Galaxy panel and click &ldquo;Workflow&rdquo;.</p>
+</li>
+<li>
+<p>Your workflow <fn>Reads to Annotation</fn> should be in the list. Click on the drop-down arrow next to this workflow and choose <ss>Edit</ss>.</p>
+</li>
+<li>
+<p>This will bring up the Workflow Canvas where we can add more inputs and tools.</p>
+</li>
+<li>
+<p>In the Tools panel, click on <ss>Statistics and Visualisation: Graph/Display Data: JBrowse</ss>. This will add a JBrowse box to the workflow canvas.</p>
+</li>
+<li>
+<p>Click on the JBrowse box. In the Details pane:</p>
+<ul>
+<li>
+<p>Under <ss>JBrowse-in-Galaxy Action</ss> choose <em>New JBrowse Instance</em>.</p>
+</li>
+<li>
+<p>Under <ss>Reference genome to display</ss> choose <em>Use a genome from history</em>.</p>
+</li>
+<li>
+<p>For <ss>Produce a Standalone Instance</ss> select <em>Yes</em>.</p>
+</li>
+<li>
+<p>For <ss>Genetic Code</ss> choose <em>11: The Bacterial, Archaeal and Plant Plastid Code</em>.</p>
+</li>
+<li>
+<p>Click <ss>Insert Track Group</ss></p>
+</li>
+<li>
+<p>Under <ss>Track Category</ss> type in <em>gene annotations</em>.</p>
+</li>
+<li>
+<p>Click <ss>Insert Annotation Track</ss></p>
+</li>
+<li>
+<p>For <ss>Track Type</ss> choose <em>GFF/GFF3/BED/GBK Features</em></p>
+</li>
+<li>
+<p>Under <ss>JBrowse Track Type[Advanced]</ss> select <em>Canvas Features</em>.</p>
+</li>
+<li>
+<p>Click on <ss>JBrowse Styling Options <Advanced]</ss></p>
+</li>
+<li>
+<p>Under <ss>JBrowse style.label</ss> correct the word &ldquo;prodcut&rdquo; to &ldquo;product&rdquo;.</p>
+</li>
+<li>
+<p>Under <ss>Track Visibility</ss> choose <em>On for new users</em>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Now we need to tell JBrowse the input files to use.</p>
+<ul>
+<li>
+<p>Join the Prokka output <fn>out_fna (fasta)</fn> to the JBrowse input <fn>Fasta sequences</fn></p>
+</li>
+<li>
+<p>Join the Prokka output <fn>out_gff (gff)</fn> to the JBrowse input <fn>Track Group 1&hellip;</fn></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="jbrowse" src="./images/jbrowse.png" /></p>
+<ul>
+<li>
+<p>Click on the cog to save; again to run; choose input files; <ss>Run workflow</ss>; examine output files in current history.</p>
+</li>
+<li>
+<p>The workflow will now assemble and annotate the genome, and create a JBrowse view of the annotations.</p>
+</li>
+<li>
+<p>JBrowse will produce one output file.</p>
+<ul>
+<li>Click on the eye icon to view.</li>
+<li>In the centre drop down box, choose contig 6.</li>
+<li>Under &ldquo;Available Tracks&rdquo; on the left, tick the boxes.</li>
+<li>Zoom in and out with the plus and minus icons.</li>
+<li>The blue blocks are the genome annotations.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="annotations" src="./images/annotations.png" /></p>
+<!--  ## Extension section
+
+Create a new workflow for variant calling.
+- inputs:
+- tools:
+- jbrowse:
+
+-->
+
+<h2 id="summary">Summary</h2>
+<ul>
+<li>
+<p>Our workflow is now:</p>
+<ul>
+<li><fn>Fastq</fn> sequence reads to Spades for assembly</li>
+<li>Spades <fn>contigs fasta file</fn> to Prokka for annotation</li>
+<li>Prokka <fn>fasta file</fn> and <fn>.gff file</fn> to JBrowse for visualisation.</li>
+</ul>
+</li>
+<li>
+<p>We can re-run this workflow with different input Fastq files.</p>
+</li>
+</ul>
+<h2 id="other-workflow-options">Other workflow options</h2>
+<h3 id="saving-outputs">Saving outputs</h3>
+<p>To save only some output files:</p>
+<ul>
+<li>Go to the workflow canvas.</li>
+<li>Find the star next to the outputs.</li>
+<li>Click on the star for any outputs you want to save.</li>
+</ul>
+<p><img alt="star" src="./images/star.png" /></p>
+<p>To save these starred files from the workflow output as a new history:</p>
+<ul>
+<li>Before you click <ss>Run workflow</ss>, tick the box above to <ss>Send results to a new history</ss>.</li>
+</ul>
+<h3 id="import-a-workflow">Import a workflow</h3>
+<p>To import an existing Galaxy Workflow:</p>
+<ul>
+<li>Go to the Workflow tab in the top panel.</li>
+<li>At the top right, click on <ss>Upload or import workflow</ss>.</li>
+</ul>
+<h3 id="extract-a-workflow">Extract a workflow</h3>
+<p>You can extract a workflow from an existing Galaxy history.</p>
+<ul>
+<li>Go to your Galaxy history</li>
+<li>Click on the History cog icon and choose &ldquo;Extract Workflow&rdquo;.</li>
+<li>Give it a name and click <ss>Create Workflow</ss>.</li>
+<li>To edit, go to the Workflow tab, select the workflow, and choose &ldquo;Edit&rdquo; from the drop down menu. You can then edit the steps on the Workflow Canvas.</li>
+</ul>
+<h3 id="a-note-on-workflow-tabs">A note on workflow tabs</h3>
+<p>We have been using the top Workflow tab. There is another tab at the bottom of the tool panel called Workflows. Click on <ss>Workflows: All Workflows</ss>. This gives a similar view with a list of workflows, and you can also click on the top right tab &ldquo;switch to workflow management view&rdquo;.</p>
+<p>To return to the main galaxy window click on the Analyze Data tab in the top panel.</p>
+<h3 id="links">Links</h3>
+<p>Introduction to workflows:
+<a href="https://wiki.galaxyproject.org/Learn/AdvancedWorkflow">https://wiki.galaxyproject.org/Learn/AdvancedWorkflow</a></p>
+<p>Another tutorial on workflows:
+<a href="http://vlsci.github.io/lscc_docs/tutorials/galaxy-workflows/galaxy-workflows/">http://vlsci.github.io/lscc_docs/tutorials/galaxy-workflows/galaxy-workflows/</a></p>
+<p>Galaxy published workflows:
+<a href="https://usegalaxy.org/workflow/list_published">https://usegalaxy.org/workflow/list_published</a></p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
