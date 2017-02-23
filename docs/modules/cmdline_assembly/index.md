@@ -6,13 +6,21 @@ Keywords: de novo assembly, PacBio, PacificBiosciences, Illumina, command line, 
 This tutorial demonstrates how to use long Pacbio sequence reads to assemble a bacterial genome and plasmids, including correcting the assembly with short Illumina reads.
 
 ## Learning objectives
-At the end of this tutorial, be able to use command line tools to produce a bacterial genome assembly using the following workflow:
+<!--At the end of this tutorial, be able to use command line tools to produce a bacterial genome assembly using the following workflow:
+
 
 1. get data
 2. assemble long (Pacbio) reads
 3. trim overhangs and circularise
 4. search for smaller plasmids
 5. correct with short (Illumina) reads
+-->
+
+At the end of this tutorial, be able to:
+
+1. Assemble, circularise and polish PacBio data for a prokaryote
+2. Retrieve small plasmids missed by long read sequencing, using Illumina data
+3. Learn which data sets are appropriate for polishing assembled sequences.
 
 ##Overview
 
@@ -92,7 +100,7 @@ fq subreads.fastq.gz
 
 ### Sample information
 
-The sample used in this tutorial is a gram-positive bacteria called *Staphylococcus aureus*. Some strains of *S. aureus* are resistant to antibiotics. For example, methicillin-resistant *S. aureus* (or MRSA) cannot be treated with the antibiotic methicillin (a type of penicillin). The sample used here however is a methicillin-sensitive (MSSA). It was isolated from (human) blood and caused bacteraemia, an infection of the blood. 
+The sample used in this tutorial is a gram-positive bacteria called *Staphylococcus aureus*. Some strains of *S. aureus* are resistant to antibiotics. For example, methicillin-resistant *S. aureus* (or MRSA) cannot be treated with the antibiotic methicillin (a type of penicillin). The sample used here however is a methicillin-sensitive (MSSA). It was isolated from (human) blood and caused bacteraemia, an infection of the blood.
 
 ##Assemble<a name="assemble"></a>
 - We will use the assembly software called [Canu](http://canu.readthedocs.io/en/stable/).
