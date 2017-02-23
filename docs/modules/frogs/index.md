@@ -1,49 +1,38 @@
+<br>
 #Metagenomics
-
--microbial only?
-
-Data: 16S rRNA
-
-
-Tool:FROGS
-
-Find Rapidly OTU with Galaxy Solution
-
-##Metagenomics background
-
+- aim: to find taxa and/or genes(infer functions) in sample/s
 - uses environmental samples (not cultured)
 - uses 16S rRNA if classifying bacteria in sample
 - uses WGS if trying to use DNA to identify the functions of genes (and to see what pathways are happening)
-
-
-- if just using 16S, uses "amplicons"
-
-
-##notes
-
-swarm clustering is hierarchical
-
-why frogs is a good way to do this
-
-look up frogs at galaxy last years conf
+- compare microbial communities from different environments: do this by comparing the metagenome: e.g. GC-content, k-mers, size, how many spp, functions of genes
+- eg for function, can compare to a database (COG or KEGG) and see whether metagenomes differ (statistically test) -
+- More about 16S rRNA: The 16S sequence is RNA that makes up part of the bacterial ribosome (together with other rRNA and protein). The operon is 16S, 23S, 5S - and there may be many copies of the operon (7 in E coli).
 
 ## Overview of FROGS
 
-There are five steps:
-
-- Get data
-- Pre-process
-- Cluster the sequences
-- Remove chimera
-- Affiliation (assign identity)
+- Tool: FROGS (in Galaxy) - Find Rapidly OTU with Galaxy Solution
+- uses a different way of clustering similar sequences into OTUs.
 
 ##Get data
 
+- The data: paired-end Illumina reads from ?two ?environmental samples
+- Data location: ...<https://drive.google.com/open?id=0B-DKulJTTftlT2djQmJ4aTN6Q1U>
+(or put in public.html folder or swift)
+- Upload tar.gz or unzip first?
 
+- Note: change file type to fastqsanger for each of the input reads
 
-##Pre-process
+- In Galaxy:
+  - how to upload the files into current history
+
+- In the Galaxy tools panel, in the top search bar, type FROGS.
+- This will bring up the various tools available.
+- We will be using 6 of these tools.
+
+##1. Pre-process
 
 What it does:
+
 - if data is not contiged, will overlap read1 and read2 (allows some mismatch in overlapping region)
 - filters out contigs that are too big or small
 - if using illumina standard protocol: looks for those primers (primers provided?) - filters out contigs without primers. cuts primer seqs.
@@ -52,44 +41,57 @@ What it does:
 
 Input: R1 and R2 reads (multiple samples).
 
-Sequencer - Illumina
-Input type - Files by samples
-Reads alread contiged? - No
-Samples - Name - sample1
-Reads1 - 01R1.fq
-Reads2 - 01R2.fq
-Click plus sign for Insert Samples
-Reads1 - 02R1.fq
-Reads2 - 02R2.fq
-Reads 1 size - 250
-Reads 2 size - 250
-Expected amplicon size - 420
-Minimum amplicon size - 380
-Maximum amplicon size - 460
-Sequencing protocol - Illumina standard
-5' primer - GGCGVACGGGTGAGTAA
-3' primer - GTGCCAGCNGCNGCGG //note needs to be in 5' to 3' orientation
-Execute
+- <ss>Sequencer</ss> - Illumina
+- <ss>Input type</ss> - Files by samples
+- <ss>Reads alread contiged?</ss> - No
+- <ss>Samples</ss> - Name - sample1 --note no spaces
+- <ss>Reads1</ss> - <fn>01R1.fq</fn>
+- <ss>Reads2</ss> - <fn>01R2.fq</fn>
+- <ss>Insert Samples</ss>- click plus sign
+- <ss>Samples</ss> - Name - sample2 --note no spaces
+- <ss>Reads1</ss> - <fn>02R1.fq</fn>
+- <ss>Reads2</ss> - <fn>02R2.fq</fn>
+- <ss>Reads 1 size</ss> - 250
+- <ss>Reads 2 size</ss> - 250
+- <ss>Expected amplicon size</ss> - 420
+- <ss>Minimum amplicon size</ss> - 380
+- <ss>Maximum amplicon size</ss> - 460
+- <ss>Sequencing protocol</ss> - Illumina standard
+- <ss>5' primer</ss> - GGCGVACGGGTGAGTAA
+- <ss>3' primer</ss> - GTGCCAGCNGCNGCGG //note needs to be in 5' to 3' orientation
+- <ss>Execute</ss>
+
+![pre-process](images/pre-process.png)
+
 
 Output: 3 files
-deprelicated.fasta
-count.tsv
-report.html
+<fn>deprelicated.fasta</fn>
+<fn>count.tsv</fn>
+<fn>report.html</fn>
 
-1. report.html
+1. <fn>report.html</fn>
 
 - shows how samples were filtered. eg. the number of reads kept at each filtering stage.
 - (what would be a problem to see here? lots of reads removed at a particular filtering stage?) -- e.g. if many (>20%) are lost at the overlapping stage the data could be poor quality.
+- so any of these bars low compared to first bar is bad
 
-2. counts.tsv
+compare display amplicon lengths before and after
+
+
+also:
+eg one sample might be bad compared to other samples
+
+
+
+2. <fn>counts.tsv</fn>
 
 - number of (the same seq) in sample 1 and sample 2
 
-3. dereplicated.fasta
+3. <fn>dereplicated.fasta</fn>
 this is the sequences (just one copy if there are dups)
 
 
-##Clustering swarm
+##2. Clustering swarm
 
 Sequences are clustered into groups using Swarm.
 
@@ -103,17 +105,21 @@ Cluster the pre-clusters using Swarm and a user-specified distance.
 
 settings:
 
-Aggregation distance: 3
-Perform deionising clustering step?: Yes
-Execute
+- <ss>Sequences files</ss>: dereplicated_file from step 1
+- <ss>Counts file</ss>: counts file from step 1
+- <ss>Aggregation distance</ss>: 3
+- <ss>Perform deionising clustering step?</ss>: Yes
+- <ss>Execute</ss>
+
+![clustering](images/clustering.png)
 
 Outputs:
 
-- abundance file in biom format
-- seed_sequences.fasta - the cluster (OTU) representative sequence
-- swarms.composition.tsv - what is in each cluster.
+- abundance <fn>file</fn> in biom format
+- <fn>seed_sequences.fasta</fn> - the cluster (OTU) representative sequence
+- <fn>swarms.composition.tsv</fn> - what is in each cluster.
 
-##Remove chimera
+##3. Remove chimera
 
 Closely-related sequences may form chimeras (mixed sequences) during PCR (libray prep). This step removes these sequences.
 
@@ -124,12 +130,13 @@ uses vsearch to find chimeras in each sample
 removes these
 
 
-Sequences file: seed_sequences.fasta
-Abundance type: BIOM file
-Abundance file: abundance.biom
-Execute
+- <ss>Sequences file</ss>: <fn>seed_sequences.fasta</fn>
+- <ss>Abundance type</ss>: <fn>BIOM file</fn>
+- <ss>Abundance file</ss>: <fn>abundance.biom</fn>
+- <ss>Execute</ss>
 
 
+![chimera](images/chimera.png)
 
 Outputs:
 
@@ -137,23 +144,27 @@ A filtered file containing no chimeras non_chimera.fasta
 A filtered abundance file containing no chimeras non_chimera.biom
 Summary  report.html
 
-seems to be a lot removed?
+seems to be a lot removed? - yes a lot of clusters were removed but still 70% of actual reads.
 
-## Filters
+
+
+##4. Filters
 
 The OTUs have now been clustered.
 In this step, we will filter out some of the OTUs. (? we have set 2 samples per OTU - i.e. OTU must be in both sample? OTU must contain at least 0.005 percent of all the seqs?)
 
-Sequences file: non_chimera.fasta
-Abundance file:  non_chimera_abundance.biom
-*** THE FILTERS ON OTUS IN SAMPLES, OTUS SIZE and SEQUENCE PERCENTAGE: Apply filters
-Minimum number of samples: 2
-Minimum proportion/number of sequences to keep OTU: 0.00005
-N biggest OTU: leave blank?
-*** THE FILTERS ON RDP: No filters
-*** THE FILTERS ON BLAST: No filters
-*** THE FILTERS ON CONTAMINATIONS: No filters
-Execute
+- <ss>Sequences file</ss>: <fn>non_chimera.fasta</fn>
+- <ss>Abundance file</ss>:  <fn>non_chimera_abundance.biom</fn>
+- <ss>*** THE FILTERS ON OTUS IN SAMPLES, OTUS SIZE and SEQUENCE PERCENTAGE</ss>: Apply filters
+- <ss>Minimum number of samples</ss>: 2
+- <ss>Minimum proportion/number of sequences to keep OTU</ss>: 0.00005
+- <ss>N biggest OTU</ss>: leave blank
+- <ss>*** THE FILTERS ON RDP</ss>: No filters
+- <ss>*** THE FILTERS ON BLAST</ss>: No filters
+- <ss>*** THE FILTERS ON CONTAMINATIONS</ss>: No filters
+- <ss>Execute</ss>
+
+![filters](images/filters.png)]
 
 Outputs:
 a filtered abundance and fasta file
@@ -161,10 +172,16 @@ an excluded.txt
 a report.html
 
 only kept %20 of OTUs?
+this is ok
+kept most of the sequences (the abundance pie)
+
+
+We should do 3+ samples
+Then could click on Venn diagram here and see intersection.
 
 
 
-##Affliations OTU
+##5. Affliations OTU
 OTUs- Operation Taxonomic Unit
 - this is a cluster of sequences.
 - this step adds the taxonomy to the abundance file. (why?)
@@ -172,74 +189,51 @@ OTUs- Operation Taxonomic Unit
 - this step uses blastn+ to align each OTU against seqs in the dbase, keeping the best.
 - It can return multi-affiliation - see notes below tool panel.
 
-Using reference database: silva123
-Also perform RDP assignation: No
-OTU seed sequence: output.fasta from step 4
-Abundance file: output.biom from step 4
-Execute
+- <ss>Using reference database</ss>: silva123
+- <ss>Also perform RDP assignation</ss>: No
+- <ss>OTU seed sequence</ss>: output.fasta from step 4
+- <ss>Abundance file</ss>: output.biom from step 4
+- <ss>Execute</ss>
+
+![otu](images/otu.png)
 
 Outputs:
-abundance file with affiliation   affiliation.biom - note this biom file is not human-readable. You can convert it with the frogs biom to tsv tool.
+abundance file with affiliation   <fn>affiliation.biom</fn> - note this biom file is not human-readable. You can convert it with the frogs biom to tsv tool.
 
 report.html
 
 
-##Affiliations stat
+##6. Affiliations stat
 - Computes some statistics
 - generates a report of the OTUs/taxonomy found
 
-Abundance file: affiliation.biom from step 5
-Rarefaction ranks: Class Order Family Genus Species
-Affiliation processed: FROGS blast
-Execute
+- <ss>Abundance file</ss>: <fn>affiliation.biom</fn>from step 5
+- <ss>Rarefaction ranks</ss>: Class Order Family Genus Species
+- <ss>Affiliation processed</ss>: FROGS blast
+- <ss>Execute</ss>
+
+![otu-stat](images/otu-stat.png)
+
 
 Outputs:
-summary.html
+<fn>summary.html</fn>
 
-- click on Display global distribution
+- click on Display global distribution - this is the pooled info
+
 - Pie chart thing - how to read - start in the centre. major groups each have a segment by colour. then more detail as you go outwards.
 - click cross to exit
-- but does this show sample 1 and sample 2 combines? 
 
-- tick the boxes next to the samples
+
+- tick the boxes next to the samples - or one at a time
 - then with selection order - click Display rarefaction
-- Rarefaction curve - what does it mean
-
-
-
-
-## Comparative metagenomics
-
-compare microbial communities from different environments
-
-do this by comparing the metagenome.
-e.g. GC-content, k-mers, size, how many spp, functions of genes
-
-
-
-eg for function, can compare to a database (COG or KEGG) and see whether metagenomes differ (statistically test) -
-
-
-
-## Other software
-
-QIIME
-UPARSE
-MOTHUR
-MG-RAST
-
-
+- Rarefaction curve - what does it mean - x axis is diversity (eg number of classes). y axes is how many samples processes. So it shows how many samples you need to process before you are covering the diversity. ie whether you have adequately covered the diversity.
+- or click Display Distribution
 
 ##Links
-Slides by LeBras Yvan
-
-https://f1000research.com/slides/5-1832
-
-
-The SILVA database
-https://www.arb-silva.de/
-
-SILVA paper 10.1093/nar/gks1219
-
-More about 16S rRNA:
-The 16S sequence is RNA that makes up part of the bacterial ribosome (together with other rRNA and protein). The operon is 16S, 23S, 5S - and there may be many copies of the operon (7 in E coli).
+- FROGS slides by Yvan Le Bras <https://f1000research.com/slides/5-1832>
+- The SILVA database: <https://www.arb-silva.de/>
+- Other metagenomics software:
+    - QIIME: <http://qiime.org/>    
+    - UPARSE: <http://www.drive5.com/uparse/>
+    - MOTHUR: <https://www.mothur.org/>
+    - MG-RAST: <http://metagenomics.anl.gov/>
