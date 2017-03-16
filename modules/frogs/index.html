@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Anna Syme, Torsten Seemann">
+        
+        <link rel="shortcut icon" href="favicon.ico">
+        
+
+	<title>Metagenomics - ABRPI Training 2017</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/sepsis.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">ABRPI Training 2017</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics Workshop <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../workshop_overview/">Workshop overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../galaxy/">Starting with Galaxy</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../data-dna/">Training dataset</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../velvet/">Genome assembly with Velvet</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../spades/">Genome assembly with Spades</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../prokka/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../snippy/">Variant finding</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../access_data/">Public data &rarr; assembly, annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../viral_genomes/">Viral genome sequencing</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../abricate/">Finding antibiotic-resistant genes</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../workflows/">Galaxy workflows</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">Metagenomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../pacbio/">PacBio assembly with SMRT portal</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../cmdline_assembly/">PacBio assembly with command line tools</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transcriptomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../dge/">Differential gene expression using Galaxy and Degust</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../kallisto/">Differential gene expression using Kallisto and Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proteomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../xtandem/">Protein Identification</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pathway Tools <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../pathway_tools/annotation/">Pathway annotation and prediction</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../workflows/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../pacbio/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#metagenomics">Metagenomics</a></li>
+        
+            <li><a href="#overview-of-frogs">Overview of FROGS</a></li>
+        
+            <li><a href="#get-data">Get data</a></li>
+        
+            <li><a href="#1-pre-process">1. Pre-process</a></li>
+        
+            <li><a href="#2-clustering-swarm">2. Clustering swarm</a></li>
+        
+            <li><a href="#3-remove-chimera">3. Remove chimera</a></li>
+        
+            <li><a href="#4-filters">4. Filters</a></li>
+        
+            <li><a href="#5-affliations-otu">5. Affliations OTU</a></li>
+        
+            <li><a href="#6-affiliations-stat">6. Affiliations stat</a></li>
+        
+            <li><a href="#links">Links</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<p><br></p>
+<h1 id="metagenomics">Metagenomics</h1>
+<ul>
+<li>aim: to find taxa and/or genes(infer functions) in sample/s</li>
+<li>uses environmental samples (not cultured)</li>
+<li>uses 16S rRNA if classifying bacteria in sample</li>
+<li>uses WGS if trying to use DNA to identify the functions of genes (and to see what pathways are happening)</li>
+<li>compare microbial communities from different environments: do this by comparing the metagenome: e.g. GC-content, k-mers, size, how many spp, functions of genes</li>
+<li>eg for function, can compare to a database (COG or KEGG) and see whether metagenomes differ (statistically test) -</li>
+<li>More about 16S rRNA: The 16S sequence is RNA that makes up part of the bacterial ribosome (together with other rRNA and protein). The operon is 16S, 23S, 5S - and there may be many copies of the operon (7 in E coli).</li>
+</ul>
+<h2 id="overview-of-frogs">Overview of FROGS</h2>
+<ul>
+<li>Tool: FROGS (in Galaxy) - Find Rapidly OTU with Galaxy Solution</li>
+<li>uses a different way of clustering similar sequences into OTUs.</li>
+</ul>
+<h2 id="get-data">Get data</h2>
+<ul>
+<li>The data: paired-end Illumina reads from ?two ?environmental samples</li>
+<li>Data location: &hellip;<a href="https://drive.google.com/open?id=0B-DKulJTTftlT2djQmJ4aTN6Q1U">https://drive.google.com/open?id=0B-DKulJTTftlT2djQmJ4aTN6Q1U</a>
+(or put in public.html folder or swift)</li>
+<li>
+<p>Upload tar.gz or unzip first?</p>
+</li>
+<li>
+<p>Note: change file type to fastqsanger for each of the input reads</p>
+</li>
+<li>
+<p>In Galaxy:</p>
+</li>
+<li>
+<p>how to upload the files into current history</p>
+</li>
+<li>
+<p>In the Galaxy tools panel, in the top search bar, type FROGS.</p>
+</li>
+<li>This will bring up the various tools available.</li>
+<li>We will be using 6 of these tools.</li>
+</ul>
+<h2 id="1-pre-process">1. Pre-process</h2>
+<p>What it does:</p>
+<ul>
+<li>if data is not contiged, will overlap read1 and read2 (allows some mismatch in overlapping region)</li>
+<li>filters out contigs that are too big or small</li>
+<li>if using illumina standard protocol: looks for those primers (primers provided?) - filters out contigs without primers. cuts primer seqs.</li>
+<li>filter out seqs that are too small or poor qual.</li>
+<li>de-replication - remove duplicates but keep a copy of the number of counts for each duplicate</li>
+</ul>
+<p>Input: R1 and R2 reads (multiple samples).</p>
+<ul>
+<li><ss>Sequencer</ss> - Illumina</li>
+<li><ss>Input type</ss> - Files by samples</li>
+<li><ss>Reads alread contiged?</ss> - No</li>
+<li><ss>Samples</ss> - Name - sample1 &ndash;note no spaces</li>
+<li><ss>Reads1</ss> - <fn>01R1.fq</fn></li>
+<li><ss>Reads2</ss> - <fn>01R2.fq</fn></li>
+<li><ss>Insert Samples</ss>- click plus sign</li>
+<li><ss>Samples</ss> - Name - sample2 &ndash;note no spaces</li>
+<li><ss>Reads1</ss> - <fn>02R1.fq</fn></li>
+<li><ss>Reads2</ss> - <fn>02R2.fq</fn></li>
+<li><ss>Reads 1 size</ss> - 250</li>
+<li><ss>Reads 2 size</ss> - 250</li>
+<li><ss>Expected amplicon size</ss> - 420</li>
+<li><ss>Minimum amplicon size</ss> - 380</li>
+<li><ss>Maximum amplicon size</ss> - 460</li>
+<li><ss>Sequencing protocol</ss> - Illumina standard</li>
+<li><ss>5&rsquo; primer</ss> - GGCGVACGGGTGAGTAA</li>
+<li><ss>3&rsquo; primer</ss> - GTGCCAGCNGCNGCGG //note needs to be in 5&rsquo; to 3&rsquo; orientation</li>
+<li><ss>Execute</ss></li>
+</ul>
+<p><img alt="pre-process" src="./images/pre-process.png" /></p>
+<p>Output: 3 files
+<fn>deprelicated.fasta</fn>
+<fn>count.tsv</fn>
+<fn>report.html</fn></p>
+<ol>
+<li>
+<p><fn>report.html</fn></p>
+</li>
+<li>
+<p>shows how samples were filtered. eg. the number of reads kept at each filtering stage.</p>
+</li>
+<li>(what would be a problem to see here? lots of reads removed at a particular filtering stage?) &ndash; e.g. if many (&gt;20%) are lost at the overlapping stage the data could be poor quality.</li>
+<li>so any of these bars low compared to first bar is bad</li>
+</ol>
+<p>compare display amplicon lengths before and after</p>
+<p>also:
+eg one sample might be bad compared to other samples</p>
+<ol>
+<li>
+<p><fn>counts.tsv</fn></p>
+</li>
+<li>
+<p>number of (the same seq) in sample 1 and sample 2</p>
+</li>
+<li>
+<p><fn>dereplicated.fasta</fn>
+this is the sequences (just one copy if there are dups)</p>
+</li>
+</ol>
+<h2 id="2-clustering-swarm">2. Clustering swarm</h2>
+<p>Sequences are clustered into groups using Swarm.</p>
+<p>Input: the fasta and counts file from pre-processing.</p>
+<p>What it does:
+Sorts reads by abundance.
+Clusters the reads into pre-clusters using Swarm and distance parameter of 1.
+Sorts these pre-clusters by abundance.
+Cluster the pre-clusters using Swarm and a user-specified distance.</p>
+<p>settings:</p>
+<ul>
+<li><ss>Sequences files</ss>: dereplicated_file from step 1</li>
+<li><ss>Counts file</ss>: counts file from step 1</li>
+<li><ss>Aggregation distance</ss>: 3</li>
+<li><ss>Perform deionising clustering step?</ss>: Yes</li>
+<li><ss>Execute</ss></li>
+</ul>
+<p><img alt="clustering" src="./images/clustering.png" /></p>
+<p>Outputs:</p>
+<ul>
+<li>abundance <fn>file</fn> in biom format</li>
+<li><fn>seed_sequences.fasta</fn> - the cluster (OTU) representative sequence</li>
+<li><fn>swarms.composition.tsv</fn> - what is in each cluster.</li>
+</ul>
+<h2 id="3-remove-chimera">3. Remove chimera</h2>
+<p>Closely-related sequences may form chimeras (mixed sequences) during PCR (libray prep). This step removes these sequences.</p>
+<p>How it works:
+splits input data into samples
+uses vsearch to find chimeras in each sample
+removes these</p>
+<ul>
+<li><ss>Sequences file</ss>: <fn>seed_sequences.fasta</fn></li>
+<li><ss>Abundance type</ss>: <fn>BIOM file</fn></li>
+<li><ss>Abundance file</ss>: <fn>abundance.biom</fn></li>
+<li><ss>Execute</ss></li>
+</ul>
+<p><img alt="chimera" src="./images/chimera.png" /></p>
+<p>Outputs:</p>
+<p>A filtered file containing no chimeras non_chimera.fasta
+A filtered abundance file containing no chimeras non_chimera.biom
+Summary  report.html</p>
+<p>seems to be a lot removed? - yes a lot of clusters were removed but still 70% of actual reads.</p>
+<h2 id="4-filters">4. Filters</h2>
+<p>The OTUs have now been clustered.
+In this step, we will filter out some of the OTUs. (? we have set 2 samples per OTU - i.e. OTU must be in both sample? OTU must contain at least 0.005 percent of all the seqs?)</p>
+<ul>
+<li><ss>Sequences file</ss>: <fn>non_chimera.fasta</fn></li>
+<li><ss>Abundance file</ss>:  <fn>non_chimera_abundance.biom</fn></li>
+<li><ss>*** THE FILTERS ON OTUS IN SAMPLES, OTUS SIZE and SEQUENCE PERCENTAGE</ss>: Apply filters</li>
+<li><ss>Minimum number of samples</ss>: 2</li>
+<li><ss>Minimum proportion/number of sequences to keep OTU</ss>: 0.00005</li>
+<li><ss>N biggest OTU</ss>: leave blank</li>
+<li><ss>*** THE FILTERS ON RDP</ss>: No filters</li>
+<li><ss>*** THE FILTERS ON BLAST</ss>: No filters</li>
+<li><ss>*** THE FILTERS ON CONTAMINATIONS</ss>: No filters</li>
+<li><ss>Execute</ss></li>
+</ul>
+<p><img alt="filters" src="./images/filters.png" />]</p>
+<p>Outputs:
+a filtered abundance and fasta file
+an excluded.txt
+a report.html</p>
+<p>only kept %20 of OTUs?
+this is ok
+kept most of the sequences (the abundance pie)</p>
+<p>We should do 3+ samples
+Then could click on Venn diagram here and see intersection.</p>
+<h2 id="5-affliations-otu">5. Affliations OTU</h2>
+<p>OTUs- Operation Taxonomic Unit
+- this is a cluster of sequences.
+- this step adds the taxonomy to the abundance file. (why?)
+- uses the SILVA database for rRNA- that has been filtered for only (16S or all 30S?), non-redundant, keeping certain taxonomic levels, and split into pro and eukaryotes.
+- this step uses blastn+ to align each OTU against seqs in the dbase, keeping the best.
+- It can return multi-affiliation - see notes below tool panel.</p>
+<ul>
+<li><ss>Using reference database</ss>: silva123</li>
+<li><ss>Also perform RDP assignation</ss>: No</li>
+<li><ss>OTU seed sequence</ss>: output.fasta from step 4</li>
+<li><ss>Abundance file</ss>: output.biom from step 4</li>
+<li><ss>Execute</ss></li>
+</ul>
+<p><img alt="otu" src="./images/otu.png" /></p>
+<p>Outputs:
+abundance file with affiliation   <fn>affiliation.biom</fn> - note this biom file is not human-readable. You can convert it with the frogs biom to tsv tool.</p>
+<p>report.html</p>
+<h2 id="6-affiliations-stat">6. Affiliations stat</h2>
+<ul>
+<li>Computes some statistics</li>
+<li>
+<p>generates a report of the OTUs/taxonomy found</p>
+</li>
+<li>
+<p><ss>Abundance file</ss>: <fn>affiliation.biom</fn>from step 5</p>
+</li>
+<li><ss>Rarefaction ranks</ss>: Class Order Family Genus Species</li>
+<li><ss>Affiliation processed</ss>: FROGS blast</li>
+<li><ss>Execute</ss></li>
+</ul>
+<p><img alt="otu-stat" src="./images/otu-stat.png" /></p>
+<p>Outputs:
+<fn>summary.html</fn></p>
+<ul>
+<li>
+<p>click on Display global distribution - this is the pooled info</p>
+</li>
+<li>
+<p>Pie chart thing - how to read - start in the centre. major groups each have a segment by colour. then more detail as you go outwards.</p>
+</li>
+<li>
+<p>click cross to exit</p>
+</li>
+<li>
+<p>tick the boxes next to the samples - or one at a time</p>
+</li>
+<li>then with selection order - click Display rarefaction</li>
+<li>Rarefaction curve - what does it mean - x axis is diversity (eg number of classes). y axes is how many samples processes. So it shows how many samples you need to process before you are covering the diversity. ie whether you have adequately covered the diversity.</li>
+<li>or click Display Distribution</li>
+</ul>
+<h2 id="links">Links</h2>
+<ul>
+<li>FROGS slides by Yvan Le Bras <a href="https://f1000research.com/slides/5-1832">https://f1000research.com/slides/5-1832</a></li>
+<li>The SILVA database: <a href="https://www.arb-silva.de/">https://www.arb-silva.de/</a></li>
+<li>Other metagenomics software:<ul>
+<li>QIIME: <a href="http://qiime.org/">http://qiime.org/</a>    </li>
+<li>UPARSE: <a href="http://www.drive5.com/uparse/">http://www.drive5.com/uparse/</a></li>
+<li>MOTHUR: <a href="https://www.mothur.org/">https://www.mothur.org/</a></li>
+<li>MG-RAST: <a href="http://metagenomics.anl.gov/">http://metagenomics.anl.gov/</a></li>
+</ul>
+</li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -139,6 +139,12 @@
                     
                         
 <li >
+    <a href="../frogs/">Metagenomics</a>
+</li>
+
+                    
+                        
+<li >
     <a href="../pacbio/">PacBio assembly with SMRT portal</a>
 </li>
 
@@ -160,7 +166,13 @@
                     
                         
 <li >
-    <a href="../dge/">Differential gene expression</a>
+    <a href="../dge/">Differential gene expression using Galaxy and Degust</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../kallisto/">Differential gene expression using Kallisto and Degust</a>
 </li>
 
                     
@@ -261,13 +273,20 @@
 <p>Keywords: de novo assembly, PacBio, PacificBiosciences, Illumina, command line, Canu, Circlator, BWA, Spades, Pilon, Microbial Genomics Virtual Laboratory</p>
 <p>This tutorial demonstrates how to use long Pacbio sequence reads to assemble a bacterial genome and plasmids, including correcting the assembly with short Illumina reads.</p>
 <h2 id="learning-objectives">Learning objectives</h2>
-<p>At the end of this tutorial, be able to use command line tools to produce a bacterial genome assembly using the following workflow:</p>
+<p>&lt;!&ndash;At the end of this tutorial, be able to use command line tools to produce a bacterial genome assembly using the following workflow:</p>
 <ol>
 <li>get data</li>
 <li>assemble long (Pacbio) reads</li>
 <li>trim overhangs and circularise</li>
 <li>search for smaller plasmids</li>
-<li>correct with short (Illumina) reads</li>
+<li>correct with short (Illumina) reads
+&ndash;&gt;</li>
+</ol>
+<p>At the end of this tutorial, be able to:</p>
+<ol>
+<li>Assemble, circularise and polish PacBio data for a prokaryote</li>
+<li>Retrieve small plasmids missed by long read sequencing, using Illumina data</li>
+<li>Learn which data sets are appropriate for polishing assembled sequences.</li>
 </ol>
 <h2 id="overview">Overview</h2>
 <p>Simplified version of workflow:</p>
@@ -364,6 +383,8 @@ Find information about read lengths:
 <ul>
 <li>In this tutorial we will use <em>Staphylococcus aureus</em> sample 25745.</li>
 </ul>
+<h3 id="sample-information">Sample information</h3>
+<p>The sample used in this tutorial is a gram-positive bacteria called <em>Staphylococcus aureus</em>. Some strains of <em>S. aureus</em> are resistant to antibiotics. For example, methicillin-resistant <em>S. aureus</em> (or MRSA) cannot be treated with the antibiotic methicillin (a type of penicillin). The sample used here however is a methicillin-sensitive (MSSA). It was isolated from (human) blood and caused bacteraemia, an infection of the blood.</p>
 <h2 id="assemble">Assemble<a name="assemble"></a></h2>
 <ul>
 <li>We will use the assembly software called <a href="http://canu.readthedocs.io/en/stable/">Canu</a>.</li>
