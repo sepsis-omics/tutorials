@@ -5,6 +5,7 @@ Keywords: de novo assembly, PacBio, PacificBiosciences, Illumina, command line, 
 
 This tutorial demonstrates how to use long Pacbio sequence reads to assemble a bacterial genome and plasmids, including correcting the assembly with short Illumina reads.
 
+
 ## Learning objectives
 <!--At the end of this tutorial, be able to use command line tools to produce a bacterial genome assembly using the following workflow:
 

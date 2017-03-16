@@ -12,6 +12,10 @@ What does Salmon do?
 
 ##Start
 
+Note: testing on MDU first.
+
+
+
 Open a terminal.
 Log in to the ABRPI mGVL.
 Make a folder called RNA_seq
