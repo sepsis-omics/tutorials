@@ -30,6 +30,12 @@
     </url>
         
     <url>
+     <loc>/modules/fastqc/</loc>
+     <lastmod>2017-03-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/modules/velvet/</loc>
      <lastmod>2017-03-19</lastmod>
      <changefreq>daily</changefreq>
@@ -77,6 +83,12 @@
         
     <url>
      <loc>/modules/workflows/</loc>
+     <lastmod>2017-03-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/modules/frogs/</loc>
      <lastmod>2017-03-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
