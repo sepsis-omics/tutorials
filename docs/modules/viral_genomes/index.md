@@ -36,9 +36,11 @@ following seq though is not in this list?
 
 In this tutorial we will use the prototype strain 1-151 as the reference genome sequence.
 
-- This strain was isolated in the early 1950s - see, AF161266.
+- This strain was isolated in the early 1950s - see [AF161266](https://www.ncbi.nlm.nih.gov/pubmed/10567642).
+
+
 - [are we using this AF seq exactly? or if not, which seq]
-- see <https://www.ncbi.nlm.nih.gov/pubmed/10567642>
+
 - [This seq is not in the list of 14 --- does this mean it is just more distant and therefore didn't align closely?]
 
 The isolate we are looking at has been sequenced using the Illumina platform.
@@ -101,7 +103,7 @@ Illumina sequence reads (R1 and R2) from the new isolate:
 
 - Find variants in the isolate using the tool Snippy.
 
-Snippy is a fast bacterial [/viral?] variant caller for NGS reads. The software is available on GitHub at <https://github.com/tseemann/snippy>. For this activity, we are using Snippy as installed on Galaxy.
+Snippy is a fast variant caller for haploid genomes. The software is available on GitHub at <https://github.com/tseemann/snippy>. For this activity, we are using Snippy as installed on Galaxy.
 
 ###Preliminary Activity###
 
