@@ -15,6 +15,7 @@
 
 - Starting with Galaxy
 - Training dataset
+- Quality control
 - Genome assembly with two tools - Velvet and Spades
 - Genome annotation
 - Variant finding
