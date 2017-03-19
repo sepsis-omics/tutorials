@@ -18,7 +18,7 @@ pages:
     #- Using Galaxy: modules/galaxy/index.md
     - Starting with Galaxy: modules/galaxy/index.md
     - Training dataset: modules/data-dna/index.md
-    #- Quality control: modules/fastqc/index.md
+    - Quality control: modules/fastqc/index.md
     #- Read trimming: modules/trimmomatic/index.md
     - Genome assembly with Velvet: modules/velvet/index.md
     - Genome assembly with Spades: modules/spades/index.md
