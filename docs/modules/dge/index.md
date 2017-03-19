@@ -151,7 +151,7 @@ Degust is a tool on the web that can analyse the counts files produced in the st
 
 ###Upload counts file
 
-Go to the [Degust web page](http://vicbioinformatics.com/degust/index.html). Click <ss>Get Started</ss>.
+Go to the [Degust web page](http://degust.erc.monash.edu/). Click <ss>Get Started</ss>.
 
 ![Degust webpage image](images/image04.png)
 
