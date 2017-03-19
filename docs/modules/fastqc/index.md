@@ -1,3 +1,4 @@
+<br>
 # FastQC in Galaxy
 
 <!---
@@ -16,9 +17,10 @@ At the end of this tutorial you should be able to:
 
 ## Input files
 
+See [here](/modules/galaxy/index.md) for information about how to start with Galaxy, and [here](/modules/data-dna/index.md) for the link to import the "Galaxy history of input files" for this tutorial, if you don't already have them in your history.
+
 - We will use the paired-end read set from our Galaxy history.
 - These are the files <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.
-- If you don't have these FASTQ files in your current Galaxy history see how to get them [here](/modules/galaxy/index.md).
 - FASTQ is a file format for sequence reads that displays quality scores for each of the sequenced nucleotides. For more information about FASTQ format see this [link](https://en.wikipedia.org/wiki/FASTQ_format).
 - We will evaluate the <fn>mutant_R1.fastq</fn> reads using the FastQC tool.
 
@@ -30,7 +32,7 @@ At the end of this tutorial you should be able to:
 
 - for <ss>Short read data from your current history</ss>: <fn>mutant_R1.fastq</fn>
 - Click <ss>Execute</ss>
-- In the History pane, click on the "refresh" icon to see if the analysis has finished. 
+- In the History pane, click on the "refresh" icon to see if the analysis has finished.
 
 ## Examine output files
 Once finished, examine the output called <fn>FastQC on data1:webpage</fn> (Hint: click the eye icon). It has a summary at the top of the page and a number of graphs.
