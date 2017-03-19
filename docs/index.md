@@ -5,6 +5,11 @@
 
 ### Antibiotic Resistant Pathogens Initiative
 
+- The Food and Health Flagship is an [RDS-funded](http://omics.data.edu.au/) project to provide cloud-based data services and tools
+for Australian Life Science Researchers to combine, analyse and interpret
+genomic, transcriptomic, proteomic and metabolomic data. The data platform will incorporate the [Bioplatforms Australia Antibiotic Resistant Pathogens Initiative (ABRPI)](http://www.bioplatforms.com/antibiotic-resistant-pathogens/).
+
+
 - This site contains tutorials for using the ABRPI
 [Microbial Genomics Virtual Lab](http://genome.edu.au/) (the mGVL) to perform bioinformatics
 tasks on bacterial "omics" data, either on the Unix command line or using

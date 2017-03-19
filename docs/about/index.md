@@ -1,9 +1,9 @@
 <br>
 # About
 
-The Food and Health Flagship is an RDS-funded project to provide cloud-based data services and tools
+The Food and Health Flagship is an [RDS-funded](http://omics.data.edu.au/) project to provide cloud-based data services and tools
 for Australian Life Science Researchers to combine, analyse and interpret
-genomic, transcriptomic, proteomic and metabolomic data. The data platform will incorporate the Bioplatforms Australia Antibiotic Resistant Pathogens Initiative (ABRPI).
+genomic, transcriptomic, proteomic and metabolomic data. The data platform will incorporate the [Bioplatforms Australia Antibiotic Resistant Pathogens Initiative (ABRPI)](http://www.bioplatforms.com/antibiotic-resistant-pathogens/).
 
 ## Authors
 
