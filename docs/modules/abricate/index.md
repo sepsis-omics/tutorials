@@ -4,14 +4,14 @@
 ##Overview
 
 - Import an assembled bacterial genome
-- Find antibiotic-resistant (ABR) genes
+- Find antibiotic-resistance (AMR) genes
 
 ##Import data
 
 - Go to your Galaxy instance.
 - Set up a new History for this Activity.
     - In the History panel, click on the cog icon, select <ss>Create New</ss>.
-    - A new empty history should appear; click on <fn>Unnamed history</fn> and re-name it (e.g. ABR genes).
+    - A new empty history should appear; click on <fn>Unnamed history</fn> and re-name it (e.g. AMR genes).
 
     ![Galaxy new history](images/galaxy1.png)
 
@@ -45,4 +45,4 @@ There is one output file. Click on the eye icon to view. It should look like thi
 
 In the output from Abricate, column 5 has the list of the antibiotic-resistant gene names. Some of these may be complete, exact matches, and some may have a gap/mutation in their sequence which can affect whether that protein is actually expressed.
 
-To find out more about what type of ABR genes these are, you can search [Genbank](https://www.ncbi.nlm.nih.gov/gene/) with the gene name (e.g. aadD). 
+To find out more about what type of AMR genes these are, you can search [Genbank](https://www.ncbi.nlm.nih.gov/gene/) with the gene name (e.g. aadD).
