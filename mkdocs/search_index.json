@@ -457,7 +457,7 @@
         },
         {
             "location": "/modules/abricate/",
-            "text": "Finding antibiotic-resistant genes\n\n\nOverview\n\n\n\n\nImport an assembled bacterial genome\n\n\nFind antibiotic-resistant (ABR) genes\n\n\n\n\nImport data\n\n\n\n\nGo to your Galaxy instance.\n\n\n\n\nSet up a new History for this Activity.\n\n\n\n\nIn the History panel, click on the cog icon, select \nCreate New\n.\n\n\nA new empty history should appear; click on \nUnnamed history\n and re-name it (e.g. ABR genes).\n\n\n\n\n\n\n\n\n\n\nImport an assembled genome (or use one from your history).\n\n\n\n\nCopy this URL for a previously-assembled genome:  \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/SPAdes_contigs.fasta\n\n\nFrom the Galaxy tool panel, click on \nGet Data \u2192 Upload File\n  \n\n\nClick the \nPaste/Fetch data\n button  \n\n\nPaste the URL into the box.\n\n\nClick the \nStart\n button.  \n\n\nOnce the progress bar reaches 100%, click the \nClose\n button  \n\n\nThe file will now upload to your current history.\n\n\nRe-name it with the pencil icon to \ncontigs.fasta\n.\n\n\n\n\n\n\n\n\nFind antibiotic-resistance genes\n\n\n\n\nWe will use the tool called \nABRicate\n to find antibiotic resistance genes in the (draft) genome.\n\n\nABRicate uses a \ndatabase\n of these genes called \nResFinder\n.\n\n\n\n\nIn the tools panel, go to \nNGS Analysis: NGS Annotation: ABRicate\n.\n\n\n\n\nFor \nSelect fasta file\n choose \ncontigs.fasta\n (or the name of your own assembly file.)\n\n\nClick \nExecute\n.\n\n\n\n\nThere is one output file. Click on the eye icon to view. It should look like this, although likely with a different number of rows.\n\n\n\n\nThis shows a table with one line for each antibiotic resistance gene found, in which contig, at which position, and the % coverage.\n\n\n\n\n\n\nNext\n\n\nIn the output from Abricate, column 5 has the list of the antibiotic-resistant gene names. Some of these may be complete, exact matches, and some may have a gap/mutation in their sequence which can affect whether that protein is actually expressed.\n\n\nTo find out more about what type of ABR genes these are, you can search \nGenbank\n with the gene name (e.g. aadD).",
+            "text": "Finding antibiotic-resistant genes\n\n\nOverview\n\n\n\n\nImport an assembled bacterial genome\n\n\nFind antibiotic-resistance (AMR) genes\n\n\n\n\nImport data\n\n\n\n\nGo to your Galaxy instance.\n\n\n\n\nSet up a new History for this Activity.\n\n\n\n\nIn the History panel, click on the cog icon, select \nCreate New\n.\n\n\nA new empty history should appear; click on \nUnnamed history\n and re-name it (e.g. AMR genes).\n\n\n\n\n\n\n\n\n\n\nImport an assembled genome (or use one from your history).\n\n\n\n\nCopy this URL for a previously-assembled genome:  \nhttps://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/SPAdes_contigs.fasta\n\n\nFrom the Galaxy tool panel, click on \nGet Data \u2192 Upload File\n  \n\n\nClick the \nPaste/Fetch data\n button  \n\n\nPaste the URL into the box.\n\n\nClick the \nStart\n button.  \n\n\nOnce the progress bar reaches 100%, click the \nClose\n button  \n\n\nThe file will now upload to your current history.\n\n\nRe-name it with the pencil icon to \ncontigs.fasta\n.\n\n\n\n\n\n\n\n\nFind antibiotic-resistance genes\n\n\n\n\nWe will use the tool called \nABRicate\n to find antibiotic resistance genes in the (draft) genome.\n\n\nABRicate uses a \ndatabase\n of these genes called \nResFinder\n.\n\n\n\n\nIn the tools panel, go to \nNGS Analysis: NGS Annotation: ABRicate\n.\n\n\n\n\nFor \nSelect fasta file\n choose \ncontigs.fasta\n (or the name of your own assembly file.)\n\n\nClick \nExecute\n.\n\n\n\n\nThere is one output file. Click on the eye icon to view. It should look like this, although likely with a different number of rows.\n\n\n\n\nThis shows a table with one line for each antibiotic resistance gene found, in which contig, at which position, and the % coverage.\n\n\n\n\n\n\nNext\n\n\nIn the output from Abricate, column 5 has the list of the antibiotic-resistant gene names. Some of these may be complete, exact matches, and some may have a gap/mutation in their sequence which can affect whether that protein is actually expressed.\n\n\nTo find out more about what type of AMR genes these are, you can search \nGenbank\n with the gene name (e.g. aadD).",
             "title": "Finding antibiotic-resistant genes"
         },
         {
@@ -467,12 +467,12 @@
         },
         {
             "location": "/modules/abricate/#overview",
-            "text": "Import an assembled bacterial genome  Find antibiotic-resistant (ABR) genes",
+            "text": "Import an assembled bacterial genome  Find antibiotic-resistance (AMR) genes",
             "title": "Overview"
         },
         {
             "location": "/modules/abricate/#import-data",
-            "text": "Go to your Galaxy instance.   Set up a new History for this Activity.   In the History panel, click on the cog icon, select  Create New .  A new empty history should appear; click on  Unnamed history  and re-name it (e.g. ABR genes).      Import an assembled genome (or use one from your history).   Copy this URL for a previously-assembled genome:   https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/SPAdes_contigs.fasta  From the Galaxy tool panel, click on  Get Data \u2192 Upload File     Click the  Paste/Fetch data  button    Paste the URL into the box.  Click the  Start  button.    Once the progress bar reaches 100%, click the  Close  button    The file will now upload to your current history.  Re-name it with the pencil icon to  contigs.fasta .",
+            "text": "Go to your Galaxy instance.   Set up a new History for this Activity.   In the History panel, click on the cog icon, select  Create New .  A new empty history should appear; click on  Unnamed history  and re-name it (e.g. AMR genes).      Import an assembled genome (or use one from your history).   Copy this URL for a previously-assembled genome:   https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/SPAdes_contigs.fasta  From the Galaxy tool panel, click on  Get Data \u2192 Upload File     Click the  Paste/Fetch data  button    Paste the URL into the box.  Click the  Start  button.    Once the progress bar reaches 100%, click the  Close  button    The file will now upload to your current history.  Re-name it with the pencil icon to  contigs.fasta .",
             "title": "Import data"
         },
         {
@@ -482,7 +482,7 @@
         },
         {
             "location": "/modules/abricate/#next",
-            "text": "In the output from Abricate, column 5 has the list of the antibiotic-resistant gene names. Some of these may be complete, exact matches, and some may have a gap/mutation in their sequence which can affect whether that protein is actually expressed.  To find out more about what type of ABR genes these are, you can search  Genbank  with the gene name (e.g. aadD).",
+            "text": "In the output from Abricate, column 5 has the list of the antibiotic-resistant gene names. Some of these may be complete, exact matches, and some may have a gap/mutation in their sequence which can affect whether that protein is actually expressed.  To find out more about what type of AMR genes these are, you can search  Genbank  with the gene name (e.g. aadD).",
             "title": "Next"
         },
         {
@@ -568,61 +568,6 @@
         {
             "location": "/modules/workflows/#links",
             "text": "Introduction to workflows: https://wiki.galaxyproject.org/Learn/AdvancedWorkflow  Another tutorial on workflows: http://vlsci.github.io/lscc_docs/tutorials/galaxy-workflows/galaxy-workflows/  Galaxy published workflows: https://usegalaxy.org/workflow/list_published",
-            "title": "Links"
-        },
-        {
-            "location": "/modules/frogs/",
-            "text": "Metagenomics\n\n\n\n\naim: to find taxa and/or genes(infer functions) in sample/s\n\n\nuses environmental samples (not cultured)\n\n\nuses 16S rRNA if classifying bacteria in sample\n\n\nuses WGS if trying to use DNA to identify the functions of genes (and to see what pathways are happening)\n\n\ncompare microbial communities from different environments: do this by comparing the metagenome: e.g. GC-content, k-mers, size, how many spp, functions of genes\n\n\neg for function, can compare to a database (COG or KEGG) and see whether metagenomes differ (statistically test) -\n\n\nMore about 16S rRNA: The 16S sequence is RNA that makes up part of the bacterial ribosome (together with other rRNA and protein). The operon is 16S, 23S, 5S - and there may be many copies of the operon (7 in E coli).\n\n\n\n\nOverview of FROGS\n\n\n\n\nTool: FROGS (in Galaxy) - Find Rapidly OTU with Galaxy Solution\n\n\nuses a different way of clustering similar sequences into OTUs.\n\n\n\n\nGet data\n\n\n\n\nThe data: paired-end Illumina reads from ?two ?environmental samples\n\n\nData location: \u2026\nhttps://drive.google.com/open?id=0B-DKulJTTftlT2djQmJ4aTN6Q1U\n\n(or put in public.html folder or swift)\n\n\n\n\nUpload tar.gz or unzip first?\n\n\n\n\n\n\nNote: change file type to fastqsanger for each of the input reads\n\n\n\n\n\n\nIn Galaxy:\n\n\n\n\n\n\nhow to upload the files into current history\n\n\n\n\n\n\nIn the Galaxy tools panel, in the top search bar, type FROGS.\n\n\n\n\nThis will bring up the various tools available.\n\n\nWe will be using 6 of these tools.\n\n\n\n\n1. Pre-process\n\n\nWhat it does:\n\n\n\n\nif data is not contiged, will overlap read1 and read2 (allows some mismatch in overlapping region)\n\n\nfilters out contigs that are too big or small\n\n\nif using illumina standard protocol: looks for those primers (primers provided?) - filters out contigs without primers. cuts primer seqs.\n\n\nfilter out seqs that are too small or poor qual.\n\n\nde-replication - remove duplicates but keep a copy of the number of counts for each duplicate\n\n\n\n\nInput: R1 and R2 reads (multiple samples).\n\n\n\n\nSequencer\n - Illumina\n\n\nInput type\n - Files by samples\n\n\nReads alread contiged?\n - No\n\n\nSamples\n - Name - sample1 \u2013note no spaces\n\n\nReads1\n - \n01R1.fq\n\n\nReads2\n - \n01R2.fq\n\n\nInsert Samples\n- click plus sign\n\n\nSamples\n - Name - sample2 \u2013note no spaces\n\n\nReads1\n - \n02R1.fq\n\n\nReads2\n - \n02R2.fq\n\n\nReads 1 size\n - 250\n\n\nReads 2 size\n - 250\n\n\nExpected amplicon size\n - 420\n\n\nMinimum amplicon size\n - 380\n\n\nMaximum amplicon size\n - 460\n\n\nSequencing protocol\n - Illumina standard\n\n\n5\u2019 primer\n - GGCGVACGGGTGAGTAA\n\n\n3\u2019 primer\n - GTGCCAGCNGCNGCGG //note needs to be in 5\u2019 to 3\u2019 orientation\n\n\nExecute\n\n\n\n\n\n\nOutput: 3 files\n\ndeprelicated.fasta\n\n\ncount.tsv\n\n\nreport.html\n\n\n\n\n\n\nreport.html\n\n\n\n\n\n\nshows how samples were filtered. eg. the number of reads kept at each filtering stage.\n\n\n\n\n(what would be a problem to see here? lots of reads removed at a particular filtering stage?) \u2013 e.g. if many (>20%) are lost at the overlapping stage the data could be poor quality.\n\n\nso any of these bars low compared to first bar is bad\n\n\n\n\ncompare display amplicon lengths before and after\n\n\nalso:\neg one sample might be bad compared to other samples\n\n\n\n\n\n\ncounts.tsv\n\n\n\n\n\n\nnumber of (the same seq) in sample 1 and sample 2\n\n\n\n\n\n\ndereplicated.fasta\n\nthis is the sequences (just one copy if there are dups)\n\n\n\n\n\n\n2. Clustering swarm\n\n\nSequences are clustered into groups using Swarm.\n\n\nInput: the fasta and counts file from pre-processing.\n\n\nWhat it does:\nSorts reads by abundance.\nClusters the reads into pre-clusters using Swarm and distance parameter of 1.\nSorts these pre-clusters by abundance.\nCluster the pre-clusters using Swarm and a user-specified distance.\n\n\nsettings:\n\n\n\n\nSequences files\n: dereplicated_file from step 1\n\n\nCounts file\n: counts file from step 1\n\n\nAggregation distance\n: 3\n\n\nPerform deionising clustering step?\n: Yes\n\n\nExecute\n\n\n\n\n\n\nOutputs:\n\n\n\n\nabundance \nfile\n in biom format\n\n\nseed_sequences.fasta\n - the cluster (OTU) representative sequence\n\n\nswarms.composition.tsv\n - what is in each cluster.\n\n\n\n\n3. Remove chimera\n\n\nClosely-related sequences may form chimeras (mixed sequences) during PCR (libray prep). This step removes these sequences.\n\n\nHow it works:\nsplits input data into samples\nuses vsearch to find chimeras in each sample\nremoves these\n\n\n\n\nSequences file\n: \nseed_sequences.fasta\n\n\nAbundance type\n: \nBIOM file\n\n\nAbundance file\n: \nabundance.biom\n\n\nExecute\n\n\n\n\n\n\nOutputs:\n\n\nA filtered file containing no chimeras non_chimera.fasta\nA filtered abundance file containing no chimeras non_chimera.biom\nSummary  report.html\n\n\nseems to be a lot removed? - yes a lot of clusters were removed but still 70% of actual reads.\n\n\n4. Filters\n\n\nThe OTUs have now been clustered.\nIn this step, we will filter out some of the OTUs. (? we have set 2 samples per OTU - i.e. OTU must be in both sample? OTU must contain at least 0.005 percent of all the seqs?)\n\n\n\n\nSequences file\n: \nnon_chimera.fasta\n\n\nAbundance file\n:  \nnon_chimera_abundance.biom\n\n\n*** THE FILTERS ON OTUS IN SAMPLES, OTUS SIZE and SEQUENCE PERCENTAGE\n: Apply filters\n\n\nMinimum number of samples\n: 2\n\n\nMinimum proportion/number of sequences to keep OTU\n: 0.00005\n\n\nN biggest OTU\n: leave blank\n\n\n*** THE FILTERS ON RDP\n: No filters\n\n\n*** THE FILTERS ON BLAST\n: No filters\n\n\n*** THE FILTERS ON CONTAMINATIONS\n: No filters\n\n\nExecute\n\n\n\n\n]\n\n\nOutputs:\na filtered abundance and fasta file\nan excluded.txt\na report.html\n\n\nonly kept %20 of OTUs?\nthis is ok\nkept most of the sequences (the abundance pie)\n\n\nWe should do 3+ samples\nThen could click on Venn diagram here and see intersection.\n\n\n5. Affliations OTU\n\n\nOTUs- Operation Taxonomic Unit\n- this is a cluster of sequences.\n- this step adds the taxonomy to the abundance file. (why?)\n- uses the SILVA database for rRNA- that has been filtered for only (16S or all 30S?), non-redundant, keeping certain taxonomic levels, and split into pro and eukaryotes.\n- this step uses blastn+ to align each OTU against seqs in the dbase, keeping the best.\n- It can return multi-affiliation - see notes below tool panel.\n\n\n\n\nUsing reference database\n: silva123\n\n\nAlso perform RDP assignation\n: No\n\n\nOTU seed sequence\n: output.fasta from step 4\n\n\nAbundance file\n: output.biom from step 4\n\n\nExecute\n\n\n\n\n\n\nOutputs:\nabundance file with affiliation   \naffiliation.biom\n - note this biom file is not human-readable. You can convert it with the frogs biom to tsv tool.\n\n\nreport.html\n\n\n6. Affiliations stat\n\n\n\n\nComputes some statistics\n\n\n\n\ngenerates a report of the OTUs/taxonomy found\n\n\n\n\n\n\nAbundance file\n: \naffiliation.biom\nfrom step 5\n\n\n\n\nRarefaction ranks\n: Class Order Family Genus Species\n\n\nAffiliation processed\n: FROGS blast\n\n\nExecute\n\n\n\n\n\n\nOutputs:\n\nsummary.html\n\n\n\n\n\n\nclick on Display global distribution - this is the pooled info\n\n\n\n\n\n\nPie chart thing - how to read - start in the centre. major groups each have a segment by colour. then more detail as you go outwards.\n\n\n\n\n\n\nclick cross to exit\n\n\n\n\n\n\ntick the boxes next to the samples - or one at a time\n\n\n\n\nthen with selection order - click Display rarefaction\n\n\nRarefaction curve - what does it mean - x axis is diversity (eg number of classes). y axes is how many samples processes. So it shows how many samples you need to process before you are covering the diversity. ie whether you have adequately covered the diversity.\n\n\nor click Display Distribution\n\n\n\n\nLinks\n\n\n\n\nFROGS slides by Yvan Le Bras \nhttps://f1000research.com/slides/5-1832\n\n\nThe SILVA database: \nhttps://www.arb-silva.de/\n\n\nOther metagenomics software:\n\n\nQIIME: \nhttp://qiime.org/\n    \n\n\nUPARSE: \nhttp://www.drive5.com/uparse/\n\n\nMOTHUR: \nhttps://www.mothur.org/\n\n\nMG-RAST: \nhttp://metagenomics.anl.gov/",
-            "title": "Metagenomics"
-        },
-        {
-            "location": "/modules/frogs/#metagenomics",
-            "text": "aim: to find taxa and/or genes(infer functions) in sample/s  uses environmental samples (not cultured)  uses 16S rRNA if classifying bacteria in sample  uses WGS if trying to use DNA to identify the functions of genes (and to see what pathways are happening)  compare microbial communities from different environments: do this by comparing the metagenome: e.g. GC-content, k-mers, size, how many spp, functions of genes  eg for function, can compare to a database (COG or KEGG) and see whether metagenomes differ (statistically test) -  More about 16S rRNA: The 16S sequence is RNA that makes up part of the bacterial ribosome (together with other rRNA and protein). The operon is 16S, 23S, 5S - and there may be many copies of the operon (7 in E coli).",
-            "title": "Metagenomics"
-        },
-        {
-            "location": "/modules/frogs/#overview-of-frogs",
-            "text": "Tool: FROGS (in Galaxy) - Find Rapidly OTU with Galaxy Solution  uses a different way of clustering similar sequences into OTUs.",
-            "title": "Overview of FROGS"
-        },
-        {
-            "location": "/modules/frogs/#get-data",
-            "text": "The data: paired-end Illumina reads from ?two ?environmental samples  Data location: \u2026 https://drive.google.com/open?id=0B-DKulJTTftlT2djQmJ4aTN6Q1U \n(or put in public.html folder or swift)   Upload tar.gz or unzip first?    Note: change file type to fastqsanger for each of the input reads    In Galaxy:    how to upload the files into current history    In the Galaxy tools panel, in the top search bar, type FROGS.   This will bring up the various tools available.  We will be using 6 of these tools.",
-            "title": "Get data"
-        },
-        {
-            "location": "/modules/frogs/#1-pre-process",
-            "text": "What it does:   if data is not contiged, will overlap read1 and read2 (allows some mismatch in overlapping region)  filters out contigs that are too big or small  if using illumina standard protocol: looks for those primers (primers provided?) - filters out contigs without primers. cuts primer seqs.  filter out seqs that are too small or poor qual.  de-replication - remove duplicates but keep a copy of the number of counts for each duplicate   Input: R1 and R2 reads (multiple samples).   Sequencer  - Illumina  Input type  - Files by samples  Reads alread contiged?  - No  Samples  - Name - sample1 \u2013note no spaces  Reads1  -  01R1.fq  Reads2  -  01R2.fq  Insert Samples - click plus sign  Samples  - Name - sample2 \u2013note no spaces  Reads1  -  02R1.fq  Reads2  -  02R2.fq  Reads 1 size  - 250  Reads 2 size  - 250  Expected amplicon size  - 420  Minimum amplicon size  - 380  Maximum amplicon size  - 460  Sequencing protocol  - Illumina standard  5\u2019 primer  - GGCGVACGGGTGAGTAA  3\u2019 primer  - GTGCCAGCNGCNGCGG //note needs to be in 5\u2019 to 3\u2019 orientation  Execute    Output: 3 files deprelicated.fasta  count.tsv  report.html    report.html    shows how samples were filtered. eg. the number of reads kept at each filtering stage.   (what would be a problem to see here? lots of reads removed at a particular filtering stage?) \u2013 e.g. if many (>20%) are lost at the overlapping stage the data could be poor quality.  so any of these bars low compared to first bar is bad   compare display amplicon lengths before and after  also:\neg one sample might be bad compared to other samples    counts.tsv    number of (the same seq) in sample 1 and sample 2    dereplicated.fasta \nthis is the sequences (just one copy if there are dups)",
-            "title": "1. Pre-process"
-        },
-        {
-            "location": "/modules/frogs/#2-clustering-swarm",
-            "text": "Sequences are clustered into groups using Swarm.  Input: the fasta and counts file from pre-processing.  What it does:\nSorts reads by abundance.\nClusters the reads into pre-clusters using Swarm and distance parameter of 1.\nSorts these pre-clusters by abundance.\nCluster the pre-clusters using Swarm and a user-specified distance.  settings:   Sequences files : dereplicated_file from step 1  Counts file : counts file from step 1  Aggregation distance : 3  Perform deionising clustering step? : Yes  Execute    Outputs:   abundance  file  in biom format  seed_sequences.fasta  - the cluster (OTU) representative sequence  swarms.composition.tsv  - what is in each cluster.",
-            "title": "2. Clustering swarm"
-        },
-        {
-            "location": "/modules/frogs/#3-remove-chimera",
-            "text": "Closely-related sequences may form chimeras (mixed sequences) during PCR (libray prep). This step removes these sequences.  How it works:\nsplits input data into samples\nuses vsearch to find chimeras in each sample\nremoves these   Sequences file :  seed_sequences.fasta  Abundance type :  BIOM file  Abundance file :  abundance.biom  Execute    Outputs:  A filtered file containing no chimeras non_chimera.fasta\nA filtered abundance file containing no chimeras non_chimera.biom\nSummary  report.html  seems to be a lot removed? - yes a lot of clusters were removed but still 70% of actual reads.",
-            "title": "3. Remove chimera"
-        },
-        {
-            "location": "/modules/frogs/#4-filters",
-            "text": "The OTUs have now been clustered.\nIn this step, we will filter out some of the OTUs. (? we have set 2 samples per OTU - i.e. OTU must be in both sample? OTU must contain at least 0.005 percent of all the seqs?)   Sequences file :  non_chimera.fasta  Abundance file :   non_chimera_abundance.biom  *** THE FILTERS ON OTUS IN SAMPLES, OTUS SIZE and SEQUENCE PERCENTAGE : Apply filters  Minimum number of samples : 2  Minimum proportion/number of sequences to keep OTU : 0.00005  N biggest OTU : leave blank  *** THE FILTERS ON RDP : No filters  *** THE FILTERS ON BLAST : No filters  *** THE FILTERS ON CONTAMINATIONS : No filters  Execute   ]  Outputs:\na filtered abundance and fasta file\nan excluded.txt\na report.html  only kept %20 of OTUs?\nthis is ok\nkept most of the sequences (the abundance pie)  We should do 3+ samples\nThen could click on Venn diagram here and see intersection.",
-            "title": "4. Filters"
-        },
-        {
-            "location": "/modules/frogs/#5-affliations-otu",
-            "text": "OTUs- Operation Taxonomic Unit\n- this is a cluster of sequences.\n- this step adds the taxonomy to the abundance file. (why?)\n- uses the SILVA database for rRNA- that has been filtered for only (16S or all 30S?), non-redundant, keeping certain taxonomic levels, and split into pro and eukaryotes.\n- this step uses blastn+ to align each OTU against seqs in the dbase, keeping the best.\n- It can return multi-affiliation - see notes below tool panel.   Using reference database : silva123  Also perform RDP assignation : No  OTU seed sequence : output.fasta from step 4  Abundance file : output.biom from step 4  Execute    Outputs:\nabundance file with affiliation    affiliation.biom  - note this biom file is not human-readable. You can convert it with the frogs biom to tsv tool.  report.html",
-            "title": "5. Affliations OTU"
-        },
-        {
-            "location": "/modules/frogs/#6-affiliations-stat",
-            "text": "Computes some statistics   generates a report of the OTUs/taxonomy found    Abundance file :  affiliation.biom from step 5   Rarefaction ranks : Class Order Family Genus Species  Affiliation processed : FROGS blast  Execute    Outputs: summary.html    click on Display global distribution - this is the pooled info    Pie chart thing - how to read - start in the centre. major groups each have a segment by colour. then more detail as you go outwards.    click cross to exit    tick the boxes next to the samples - or one at a time   then with selection order - click Display rarefaction  Rarefaction curve - what does it mean - x axis is diversity (eg number of classes). y axes is how many samples processes. So it shows how many samples you need to process before you are covering the diversity. ie whether you have adequately covered the diversity.  or click Display Distribution",
-            "title": "6. Affiliations stat"
-        },
-        {
-            "location": "/modules/frogs/#links",
-            "text": "FROGS slides by Yvan Le Bras  https://f1000research.com/slides/5-1832  The SILVA database:  https://www.arb-silva.de/  Other metagenomics software:  QIIME:  http://qiime.org/       UPARSE:  http://www.drive5.com/uparse/  MOTHUR:  https://www.mothur.org/  MG-RAST:  http://metagenomics.anl.gov/",
             "title": "Links"
         },
         {
@@ -904,106 +849,6 @@
             "location": "/modules/dge/#more-information",
             "text": "Link to Degust.  Link to Voom paper.",
             "title": "More information"
-        },
-        {
-            "location": "/modules/kallisto/",
-            "text": "Kallisto\n\n\nThis tutorial is about differential gene expression in bacteria, using tools on the command-line tools (kallisto) and the web (Degust).\n\n\nBackground\n\n\nDifferential Gene Expression (DGE) is the process of determining whether any genes were expressed at a different level between two conditions. For example, the conditions could be wildtype versus mutant, or two growth conditions. Usually multiple biological replicates are done for each condition - these are needed to separate variation within the condition from that between the conditions.\n\n\nLearning Objectives\n\n\nAt the end of this tutorial you should be able to:\n\n\n\n\n(Pseudo-)align RNA-Seq data to a reference transcriptome and count: kallisto  \n\n\nPerform statistical analysis to obtain a list of differentially expressed genes: Degust\n\n\nVisualize and interpret the results\n\n\n\n\nPrepare workspace\n\n\ne.g. log in to the ABRPI mGVL or use your own workspace with kallisto installed.\n\n\n(check kallisto is on the abrpi)\n\n\nMake a folder for these analyses:\n\n\nmkdir E_coli_DGE\ncd E_coli_DGE\n\n\n\n\nGet data\n\n\nRNA-Seq reads\n\n\nA typical experiment will have 2 conditions each with 3 replicates, for a total of 6 samples.\n\n\n\n\nOur RNA-seq reads are from 6 samples in \nFASTQ\n format.\n\n\nWe have single-end reads; so one file per sample.\n\n\nData could also be paired-end reads, and there would be two files per sample.\n\n\n\n\n\n\nThese have been reduced to 1% of their original size for this tutorial.\n\n\nThe experiment used the bacteria \nE. coli\n grown in two conditions.\n\n\nFiles labelled \u201cLB\u201d are the wildtype\n\n\nFiles labelled \u201cMG\u201d have been exposed to 0.5% \u03b1MG - alpha methyglucoside (a sugar solution).\n\n\n\n\n\n\n\n\nReference transcriptome\n\n\nWe need to count the number of RNA-seq reads (that exist as fragments) that match different transcripts in the genome, including those for protein-coding sequences (such as genes) and RNA sequences (such as tRNA and mRNA).\n\n\nTherefore, we need a subset of the whole genome. We will use a genbank file for this sample and extract out all features for which a transcript could map to.\n\n\nGenerate the reference transcriptome:\n\n\nHere we use a custom python script called \u201cgenbank_to_kallisto.py\u201d. You also need to enter the name of an \ninput genbank file\n, and the names for two output files that will be generated: a \ntranscripts.fasta\n file and a \ntable.tsv\n file. We type in \u201cpython3\u201d at the start to run this script using python.\n\n\nGenbank file:\n\n\n(put this script on abrpi? genbank file needs to be in this folder?)\n\n\npython3 genbank_to_kallisto.py Ecoli.gbk Ecoli_transcripts.fasta Ecoli_table.tsv\n\n\n\n\nAlternatively, download the already-generated fasta and table.\n\n\nWhere to get the files for this tutorial\n\n\n(where to put - eg swift container? \u2013 how to upload)\n\n\n\n\n6 x RNA seq reads in fastq.gz\n\n\n1 x Ref transcriptome in .fasta\n\n\n1 x table of features for degust.\n\n\n\n\nRun Kallisto\n\n\nKallisto will count the reads per transcript.\n\n\nIndex the transcripts file\n\n\nkallisto index -i transcripts.idx [this is the output file] transcripts.ffn\n\n\n\n\nRun kallisto for every read set\n\n\nkallisto quant -i transcripts.idx -o output_LB1 -b 100 --single -l 100 -s 10 Ecoli1.fastq.gz\n\n\n\n\n estimated length (l) and s (SD) . need to check this \n\n\nCombine the counts\n\n\nWe need to combine all the counts into one table.\n\n\nExtract required columns\n\n\nFor first .tsv file: extract columns 1 (IDs) and 4 (counts)\n\n\ncut -f1,4 -d$'\\t' abundance.tsv > Lb1.tsv\n\n\n\n\nThen for other .tsv files, just extract column 4 (counts):\n\n\ncut -f4 -d$'\\t' abundance.tsv > condx_repx.tsv\n\n\n\n\nPaste together\n\n\npaste newfile1 newfile2 > counts.tsv\n\n\n\n\nRemove existing header\n\n\ntail -n +2 counts.tsv > headless.tsv\n\n\n\n\nAdd new header\n\n\necho -e \"gene\\tcondition1\\tcondition2\" | cat - headless.tsv > newtable.tsv\n\n\n\n\nExamine the file\n\n\nless newtable.tsv\n\n\n\n\nLook at columns 2 and 3 of the counts of reads against particular transcripts. Do any look much higher in a particular condition?\n\n\nTest for DGE\n\n\nDegust:\n\n\nupload counts file.\n\n\nName the file.\nInfo columns = gene\nAnalyze server side - tick\nMin gene read coutn - 10\nAdd condition - tick Lb1, Lb2, Lb3; condition will be named Lb\nAdd condition - tick Mg1, Mg2, Mg3; condition will be named Mg\nSave changes; view\n\n\nLinks\n\n\nKallisto paper\nhttp://www.nature.com.ezp.lib.unimelb.edu.au/nbt/journal/v34/n5/full/nbt.3519.html\n\n\nKallisto + sleuth paper\nhttp://biorxiv.org/content/biorxiv/early/2016/06/10/058164.full.pdf",
-            "title": "Differential gene expression using Kallisto and Degust"
-        },
-        {
-            "location": "/modules/kallisto/#kallisto",
-            "text": "This tutorial is about differential gene expression in bacteria, using tools on the command-line tools (kallisto) and the web (Degust).",
-            "title": "Kallisto"
-        },
-        {
-            "location": "/modules/kallisto/#background",
-            "text": "Differential Gene Expression (DGE) is the process of determining whether any genes were expressed at a different level between two conditions. For example, the conditions could be wildtype versus mutant, or two growth conditions. Usually multiple biological replicates are done for each condition - these are needed to separate variation within the condition from that between the conditions.",
-            "title": "Background"
-        },
-        {
-            "location": "/modules/kallisto/#learning-objectives",
-            "text": "At the end of this tutorial you should be able to:   (Pseudo-)align RNA-Seq data to a reference transcriptome and count: kallisto    Perform statistical analysis to obtain a list of differentially expressed genes: Degust  Visualize and interpret the results",
-            "title": "Learning Objectives"
-        },
-        {
-            "location": "/modules/kallisto/#prepare-workspace",
-            "text": "e.g. log in to the ABRPI mGVL or use your own workspace with kallisto installed.  (check kallisto is on the abrpi)  Make a folder for these analyses:  mkdir E_coli_DGE\ncd E_coli_DGE",
-            "title": "Prepare workspace"
-        },
-        {
-            "location": "/modules/kallisto/#get-data",
-            "text": "",
-            "title": "Get data"
-        },
-        {
-            "location": "/modules/kallisto/#rna-seq-reads",
-            "text": "A typical experiment will have 2 conditions each with 3 replicates, for a total of 6 samples.   Our RNA-seq reads are from 6 samples in  FASTQ  format.  We have single-end reads; so one file per sample.  Data could also be paired-end reads, and there would be two files per sample.    These have been reduced to 1% of their original size for this tutorial.  The experiment used the bacteria  E. coli  grown in two conditions.  Files labelled \u201cLB\u201d are the wildtype  Files labelled \u201cMG\u201d have been exposed to 0.5% \u03b1MG - alpha methyglucoside (a sugar solution).",
-            "title": "RNA-Seq reads"
-        },
-        {
-            "location": "/modules/kallisto/#reference-transcriptome",
-            "text": "We need to count the number of RNA-seq reads (that exist as fragments) that match different transcripts in the genome, including those for protein-coding sequences (such as genes) and RNA sequences (such as tRNA and mRNA).  Therefore, we need a subset of the whole genome. We will use a genbank file for this sample and extract out all features for which a transcript could map to.  Generate the reference transcriptome:  Here we use a custom python script called \u201cgenbank_to_kallisto.py\u201d. You also need to enter the name of an  input genbank file , and the names for two output files that will be generated: a  transcripts.fasta  file and a  table.tsv  file. We type in \u201cpython3\u201d at the start to run this script using python.  Genbank file:  (put this script on abrpi? genbank file needs to be in this folder?)  python3 genbank_to_kallisto.py Ecoli.gbk Ecoli_transcripts.fasta Ecoli_table.tsv  Alternatively, download the already-generated fasta and table.",
-            "title": "Reference transcriptome"
-        },
-        {
-            "location": "/modules/kallisto/#where-to-get-the-files-for-this-tutorial",
-            "text": "(where to put - eg swift container? \u2013 how to upload)   6 x RNA seq reads in fastq.gz  1 x Ref transcriptome in .fasta  1 x table of features for degust.",
-            "title": "Where to get the files for this tutorial"
-        },
-        {
-            "location": "/modules/kallisto/#run-kallisto",
-            "text": "Kallisto will count the reads per transcript.",
-            "title": "Run Kallisto"
-        },
-        {
-            "location": "/modules/kallisto/#index-the-transcripts-file",
-            "text": "kallisto index -i transcripts.idx [this is the output file] transcripts.ffn",
-            "title": "Index the transcripts file"
-        },
-        {
-            "location": "/modules/kallisto/#run-kallisto-for-every-read-set",
-            "text": "kallisto quant -i transcripts.idx -o output_LB1 -b 100 --single -l 100 -s 10 Ecoli1.fastq.gz   estimated length (l) and s (SD) . need to check this",
-            "title": "Run kallisto for every read set"
-        },
-        {
-            "location": "/modules/kallisto/#combine-the-counts",
-            "text": "We need to combine all the counts into one table.",
-            "title": "Combine the counts"
-        },
-        {
-            "location": "/modules/kallisto/#extract-required-columns",
-            "text": "For first .tsv file: extract columns 1 (IDs) and 4 (counts)  cut -f1,4 -d$'\\t' abundance.tsv > Lb1.tsv  Then for other .tsv files, just extract column 4 (counts):  cut -f4 -d$'\\t' abundance.tsv > condx_repx.tsv",
-            "title": "Extract required columns"
-        },
-        {
-            "location": "/modules/kallisto/#paste-together",
-            "text": "paste newfile1 newfile2 > counts.tsv",
-            "title": "Paste together"
-        },
-        {
-            "location": "/modules/kallisto/#remove-existing-header",
-            "text": "tail -n +2 counts.tsv > headless.tsv",
-            "title": "Remove existing header"
-        },
-        {
-            "location": "/modules/kallisto/#add-new-header",
-            "text": "echo -e \"gene\\tcondition1\\tcondition2\" | cat - headless.tsv > newtable.tsv",
-            "title": "Add new header"
-        },
-        {
-            "location": "/modules/kallisto/#examine-the-file",
-            "text": "less newtable.tsv  Look at columns 2 and 3 of the counts of reads against particular transcripts. Do any look much higher in a particular condition?",
-            "title": "Examine the file"
-        },
-        {
-            "location": "/modules/kallisto/#test-for-dge",
-            "text": "Degust:  upload counts file.  Name the file.\nInfo columns = gene\nAnalyze server side - tick\nMin gene read coutn - 10\nAdd condition - tick Lb1, Lb2, Lb3; condition will be named Lb\nAdd condition - tick Mg1, Mg2, Mg3; condition will be named Mg\nSave changes; view",
-            "title": "Test for DGE"
-        },
-        {
-            "location": "/modules/kallisto/#links",
-            "text": "Kallisto paper\nhttp://www.nature.com.ezp.lib.unimelb.edu.au/nbt/journal/v34/n5/full/nbt.3519.html  Kallisto + sleuth paper\nhttp://biorxiv.org/content/biorxiv/early/2016/06/10/058164.full.pdf",
-            "title": "Links"
         },
         {
             "location": "/modules/xtandem/",
