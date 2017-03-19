@@ -31,7 +31,7 @@ pages:
 - Genomics:
     - Finding antibiotic-resistant genes: modules/abricate/index.md
     - Galaxy workflows: modules/workflows/index.md
-    - Metagenomics: modules/frogs/index.md
+    #- Metagenomics: modules/frogs/index.md
     - PacBio assembly with SMRT portal: modules/pacbio/index.md
     - PacBio assembly with command line tools: modules/cmdline_assembly/index.md
     #- Annotation using command line tools: modules/cmdline_prokka/index.md
@@ -45,7 +45,7 @@ pages:
 #  #- Read trimming: modules/trimmomatic/index.md
 #  - Transcriptome assembly: modules/stringtie/index.md
     - Differential gene expression using Galaxy and Degust: modules/dge/index.md
-    - Differential gene expression using Kallisto and Degust: modules/kallisto/index.md
+    #- Differential gene expression using Kallisto and Degust: modules/kallisto/index.md
      #- Salmon: modules/salmon/index.md
 #- Advanced:
     #- Differential Gene Expression: intro/dge/index.md
