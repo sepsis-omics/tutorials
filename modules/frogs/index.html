@@ -247,8 +247,6 @@
     
         <li class="main active"><a href="#metagenomics">Metagenomics</a></li>
         
-            <li><a href="#overview-of-frogs">Overview of FROGS</a></li>
-        
             <li><a href="#get-data">Get data</a></li>
         
             <li><a href="#1-pre-process">1. Pre-process</a></li>
@@ -259,7 +257,7 @@
         
             <li><a href="#4-filters">4. Filters</a></li>
         
-            <li><a href="#5-affliations-otu">5. Affliations OTU</a></li>
+            <li><a href="#5-affliation-otu">5. Affliation OTU</a></li>
         
             <li><a href="#6-affiliations-stat">6. Affiliations stat</a></li>
         
@@ -272,148 +270,145 @@
 
 <p><br></p>
 <h1 id="metagenomics">Metagenomics</h1>
-<ul>
-<li>aim: to find taxa and/or genes(infer functions) in sample/s</li>
-<li>uses environmental samples (not cultured)</li>
-<li>uses 16S rRNA if classifying bacteria in sample</li>
-<li>uses WGS if trying to use DNA to identify the functions of genes (and to see what pathways are happening)</li>
-<li>compare microbial communities from different environments: do this by comparing the metagenome: e.g. GC-content, k-mers, size, how many spp, functions of genes</li>
-<li>eg for function, can compare to a database (COG or KEGG) and see whether metagenomes differ (statistically test) -</li>
-<li>More about 16S rRNA: The 16S sequence is RNA that makes up part of the bacterial ribosome (together with other rRNA and protein). The operon is 16S, 23S, 5S - and there may be many copies of the operon (7 in E coli).</li>
-</ul>
-<h2 id="overview-of-frogs">Overview of FROGS</h2>
-<ul>
-<li>Tool: FROGS (in Galaxy) - Find Rapidly OTU with Galaxy Solution</li>
-<li>uses a different way of clustering similar sequences into OTUs.</li>
-</ul>
+<p>Metagenomics aims to compare microbial communities from different environments by using information from the metagenome. Typically, 16S rRNA is used when classifying taxa, and whole-genome sequencing when aiming to identify gene functions and pathways.</p>
+<!-- - compare microbial communities from different environments: do this by comparing the metagenome: e.g. GC-content, k-mers, size, how many spp, functions of genes
+- eg for function, can compare to a database (COG or KEGG) and see whether metagenomes differ (statistically test) -
+- More about 16S rRNA: The 16S sequence is RNA that makes up part of the bacterial ribosome (together with other rRNA and protein). The operon is 16S, 23S, 5S - and there may be many copies of the operon (7 in E coli).
+-->
+
+<p>This tutorial covers the tool called FROGS (in Galaxy): &ldquo;Find Rapidly OTU with Galaxy Solution&rdquo;.
+<!-- dental and phln only? --></p>
+<!-- - uses a different way of clustering similar sequences into OTUs. -->
+
 <h2 id="get-data">Get data</h2>
 <ul>
-<li>The data: paired-end Illumina reads from ?two ?environmental samples</li>
-<li>Data location: &hellip;<a href="https://drive.google.com/open?id=0B-DKulJTTftlT2djQmJ4aTN6Q1U">https://drive.google.com/open?id=0B-DKulJTTftlT2djQmJ4aTN6Q1U</a>
-(or put in public.html folder or swift)</li>
-<li>
-<p>Upload tar.gz or unzip first?</p>
-</li>
-<li>
-<p>Note: change file type to fastqsanger for each of the input reads</p>
-</li>
-<li>
-<p>In Galaxy:</p>
-</li>
-<li>
-<p>how to upload the files into current history</p>
-</li>
-<li>
-<p>In the Galaxy tools panel, in the top search bar, type FROGS.</p>
-</li>
+<li>The data: paired-end Illumina reads from two environmental samples. <!-- two env samples? dental microbiomes?--></li>
+</ul>
+<!-- uplod not working
+- In Galaxy, in the history panel, click on the cog item, and select "import from file". In the "Archived History URL:" box paste: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/16SmetaG_dataset.tar.gz
+
+-->
+
+<ul>
+<li>Download the <fn>.tar.gz</fn> file to your local computer using this link: <a href="https://drive.google.com/open?id=0B-DKulJTTftlT2djQmJ4aTN6Q1U">https://drive.google.com/open?id=0B-DKulJTTftlT2djQmJ4aTN6Q1U</a>.</li>
+<li>Click on the file to unzip it into four <fn>.gz</fn> files. These can stay zipped.</li>
+<li>In Galaxy, go to <ss>Get Data: Upload File</ss>. Choose the the four files, set their file type to &ldquo;fastqsanger&rdquo;, click start, then close.</li>
+<li>The four files should now be in your current history.</li>
+</ul>
+<!-- would be clearer to rename these files as something like microbiomeA_R1 and microbiomeB_R1 etc -->
+
+<ul>
+<li>In the Galaxy tools panel, in the top search bar, type FROGS.</li>
 <li>This will bring up the various tools available.</li>
 <li>We will be using 6 of these tools.</li>
 </ul>
+<p><img alt="frogs_tools" src="./images/frogs_tools.png" /></p>
 <h2 id="1-pre-process">1. Pre-process</h2>
-<p>What it does:</p>
+<p>This is the first step in the Frogs analysis. It takes in the forward and reverse sequencing reads (R1 and R2) from multiple samples (e.g. microbiome A and microbiome B) and performs the following steps:</p>
 <ul>
-<li>if data is not contiged, will overlap read1 and read2 (allows some mismatch in overlapping region)</li>
-<li>filters out contigs that are too big or small</li>
-<li>if using illumina standard protocol: looks for those primers (primers provided?) - filters out contigs without primers. cuts primer seqs.</li>
-<li>filter out seqs that are too small or poor qual.</li>
-<li>de-replication - remove duplicates but keep a copy of the number of counts for each duplicate</li>
+<li>If the data is not in contigs, read1 and read2 will be overlapped (allowing some mismatch in overlapping region).</li>
+<li>Contigs that are too big or too small will be filtered out. <!-- what's wrong with too big?--></li>
+<li>If using the Illumina standard protocol: will look for those primers, filter out contigs without primers, and cut the primer sequences.</li>
+<li>Sequences that are too small or of poor quality will be filtered out.</li>
+<li>Sequences will be de-replicated: duplicates will be removed but the number of duplicates will be recorded.</li>
 </ul>
-<p>Input: R1 and R2 reads (multiple samples).</p>
+<h3 id="run">Run</h3>
+<p>Go to <ss>FROGS Pre-process</ss> and select the following:</p>
 <ul>
-<li><ss>Sequencer</ss> - Illumina</li>
-<li><ss>Input type</ss> - Files by samples</li>
-<li><ss>Reads alread contiged?</ss> - No</li>
-<li><ss>Samples</ss> - Name - sample1 &ndash;note no spaces</li>
-<li><ss>Reads1</ss> - <fn>01R1.fq</fn></li>
-<li><ss>Reads2</ss> - <fn>01R2.fq</fn></li>
+<li><ss>Sequencer</ss>: Illumina</li>
+<li><ss>Input type</ss>: Files by samples</li>
+<li><ss>Reads alread contiged?</ss>: No</li>
+<li><ss>Samples</ss>:<ul>
+<li><ss>Name</ss>: microbiomeA &lt;<em>note: no spaces</em>&gt;</li>
+<li><ss>Reads1</ss>: <fn>microbiomeA_R1.fq</fn></li>
+<li><ss>Reads2</ss>: <fn>microbiomeA_R2.fq</fn></li>
 <li><ss>Insert Samples</ss>- click plus sign</li>
-<li><ss>Samples</ss> - Name - sample2 &ndash;note no spaces</li>
-<li><ss>Reads1</ss> - <fn>02R1.fq</fn></li>
-<li><ss>Reads2</ss> - <fn>02R2.fq</fn></li>
-<li><ss>Reads 1 size</ss> - 250</li>
-<li><ss>Reads 2 size</ss> - 250</li>
-<li><ss>Expected amplicon size</ss> - 420</li>
-<li><ss>Minimum amplicon size</ss> - 380</li>
-<li><ss>Maximum amplicon size</ss> - 460</li>
-<li><ss>Sequencing protocol</ss> - Illumina standard</li>
-<li><ss>5&rsquo; primer</ss> - GGCGVACGGGTGAGTAA</li>
-<li><ss>3&rsquo; primer</ss> - GTGCCAGCNGCNGCGG //note needs to be in 5&rsquo; to 3&rsquo; orientation</li>
+<li><ss>Name</ss>: microbiomeB</li>
+<li><ss>Reads1</ss>: <fn>microbiomeB_R1.fq</fn></li>
+<li><ss>Reads2</ss>: <fn>microbiomeB_R2.fq</fn></li>
+</ul>
+</li>
+<li><ss>Reads 1 size</ss>: 250</li>
+<li><ss>Reads 2 size</ss>: 250</li>
+<li><ss>Expected amplicon size</ss>: 420</li>
+<li><ss>Minimum amplicon size</ss>: 380</li>
+<li><ss>Maximum amplicon size</ss>: 460</li>
+<li><ss>Sequencing protocol</ss>: Illumina standard</li>
+<li><ss>5&rsquo; primer</ss>: GGCGVACGGGTGAGTAA</li>
+<li><ss>3&rsquo; primer</ss>: GTGCCAGCNGCNGCGG &lt;<em>note: needs to be in 5&rsquo; to 3&rsquo; orientation</em>&gt;</li>
 <li><ss>Execute</ss></li>
 </ul>
 <p><img alt="pre-process" src="./images/pre-process.png" /></p>
-<p>Output: 3 files
-<fn>deprelicated.fasta</fn>
-<fn>count.tsv</fn>
-<fn>report.html</fn></p>
-<ol>
-<li>
-<p><fn>report.html</fn></p>
-</li>
-<li>
-<p>shows how samples were filtered. eg. the number of reads kept at each filtering stage.</p>
-</li>
-<li>(what would be a problem to see here? lots of reads removed at a particular filtering stage?) &ndash; e.g. if many (&gt;20%) are lost at the overlapping stage the data could be poor quality.</li>
-<li>so any of these bars low compared to first bar is bad</li>
-</ol>
-<p>compare display amplicon lengths before and after</p>
-<p>also:
-eg one sample might be bad compared to other samples</p>
-<ol>
-<li>
-<p><fn>counts.tsv</fn></p>
-</li>
-<li>
-<p>number of (the same seq) in sample 1 and sample 2</p>
-</li>
-<li>
-<p><fn>dereplicated.fasta</fn>
-this is the sequences (just one copy if there are dups)</p>
-</li>
-</ol>
-<h2 id="2-clustering-swarm">2. Clustering swarm</h2>
-<p>Sequences are clustered into groups using Swarm.</p>
-<p>Input: the fasta and counts file from pre-processing.</p>
-<p>What it does:
-Sorts reads by abundance.
-Clusters the reads into pre-clusters using Swarm and distance parameter of 1.
-Sorts these pre-clusters by abundance.
-Cluster the pre-clusters using Swarm and a user-specified distance.</p>
-<p>settings:</p>
+<h3 id="output">Output</h3>
+<p>There are three output files. Click on the eye icon for each to see their contents.</p>
+<p>Report:</p>
 <ul>
-<li><ss>Sequences files</ss>: dereplicated_file from step 1</li>
-<li><ss>Counts file</ss>: counts file from step 1</li>
+<li>The <fn>report.html</fn> shows how samples were filtered. For example, in the bar chart called &ldquo;Filtering summary&rdquo;, the number of reads kept at each filtering stage is displayed. We would expect some decrease in some of these categories, but if many reads have been filtered at a particular stage it could indicate poor quality data.</li>
+</ul>
+<p><img alt="filtering_summary1" src="./images/filtering_summary1.png" /></p>
+<ul>
+<li>Below this chart, a table shows the statistics for each sample. Check the boxes next to &ldquo;microbiomeA&rdquo; and &ldquo;microbiomeB&rdquo; and then click <ss>Display amplicon lengths</ss> - shows amplicon distribution before filtering. Click <ss>Display preprocessed amplicon lengths</ss> - shows the distribution has been narrowed after filtering. Check if both samples are similar.</li>
+</ul>
+<p>Counts:</p>
+<ul>
+<li>The <fn>counts.tsv</fn> file is a list of sequences and their counts in the two samples.</li>
+</ul>
+<p>Fasta file:</p>
+<ul>
+<li>The <fn>dereplicated.fasta</fn> contains the sequences, without any duplicates.</li>
+</ul>
+<h2 id="2-clustering-swarm">2. Clustering swarm</h2>
+<p>In this step, sequences are clustered into groups using Swarm (more information about <a href="https://peerj.com/articles/593/">Swarm</a>). This takes the pre-processed <fn>fasta</fn> and <fn>counts</fn> files and does the following:</p>
+<ul>
+<li>Sorts reads by abundance.</li>
+<li>Clusters the reads into pre-clusters using Swarm and distance parameter of 1.</li>
+<li>Sorts these pre-clusters by abundance.</li>
+<li>Cluster the pre-clusters using Swarm and a user-specified distance.</li>
+</ul>
+<p>Go to <ss>FROGS Clustering swarm</ss> and select the following:</p>
+<ul>
+<li><ss>Sequences files</ss>: <fn>dereplicated.fasta</fn></li>
+<li><ss>Counts file</ss>: <fn>count.tsv</fn></li>
 <li><ss>Aggregation distance</ss>: 3</li>
 <li><ss>Perform deionising clustering step?</ss>: Yes</li>
 <li><ss>Execute</ss></li>
 </ul>
+<p><em>Note: Galaxy may say that the job submission has failed. Click Close, then click refresh in the top of the history panel. The job should be running.</em></p>
 <p><img alt="clustering" src="./images/clustering.png" /></p>
-<p>Outputs:</p>
+<h3 id="output_1">Output</h3>
+<p>There are three output files.</p>
 <ul>
-<li>abundance <fn>file</fn> in biom format</li>
-<li><fn>seed_sequences.fasta</fn> - the cluster (OTU) representative sequence</li>
-<li><fn>swarms.composition.tsv</fn> - what is in each cluster.</li>
+<li>The <fn>abundance.biom</fn> shows the abundance of each cluster.</li>
+<li>The <fn>seed_sequences.fasta</fn> contains the the cluster (OTU) representative sequences. <!-- the seqs used to start clustering? not the final clusterss? --></li>
+<li>The <fn>swarms.composition.tsv</fn> shows what is in each cluster.</li>
 </ul>
 <h2 id="3-remove-chimera">3. Remove chimera</h2>
-<p>Closely-related sequences may form chimeras (mixed sequences) during PCR (libray prep). This step removes these sequences.</p>
-<p>How it works:
-splits input data into samples
-uses vsearch to find chimeras in each sample
-removes these</p>
+<p>Closely-related sequences may form chimeras (mixed sequences) during PCR (libray prep). This step removes these sequences by the following method:</p>
+<ul>
+<li>Splits input data into samples</li>
+<li>Uses vsearch to find chimeras in each sample</li>
+<li>Removes chimeras</li>
+</ul>
+<p>Go to <ss>FROGS Remove chimera</ss> and select the following:</p>
 <ul>
 <li><ss>Sequences file</ss>: <fn>seed_sequences.fasta</fn></li>
 <li><ss>Abundance type</ss>: <fn>BIOM file</fn></li>
 <li><ss>Abundance file</ss>: <fn>abundance.biom</fn></li>
 <li><ss>Execute</ss></li>
 </ul>
+<p><em>Note: Galaxy may say that the job submission has failed. Click Close, then click refresh in the top of the history panel. The job should be running.</em></p>
 <p><img alt="chimera" src="./images/chimera.png" /></p>
-<p>Outputs:</p>
-<p>A filtered file containing no chimeras non_chimera.fasta
-A filtered abundance file containing no chimeras non_chimera.biom
-Summary  report.html</p>
-<p>seems to be a lot removed? - yes a lot of clusters were removed but still 70% of actual reads.</p>
+<h3 id="output_2">Output</h3>
+<p>There are three output files.</p>
+<ul>
+<li>The <fn>non_chimera.fasta</fn> is a filtered file containing no chimeras.</li>
+<li>The <fn>non_chimera_abundance.biom</fn> is a filtered abundance file containing no chimeras.</li>
+<li>The summary <fn>report.html</fn>. In this case, although almost 70% of the clusters were removed, more than 70% of the actual reads were kept.</li>
+</ul>
+<p><img alt="remove-summary" src="./images/remove_summary.png" /></p>
 <h2 id="4-filters">4. Filters</h2>
-<p>The OTUs have now been clustered.
-In this step, we will filter out some of the OTUs. (? we have set 2 samples per OTU - i.e. OTU must be in both sample? OTU must contain at least 0.005 percent of all the seqs?)</p>
+<p>The OTUs (Operational Taxonomic Units) have now been clustered. In this step, we will filter out some of the OTUs that are either not in both samples, and/or contain at least 0.005% of all the sequences.</p>
+<p>Go to <ss>FROGS Filters</ss> and select the following:</p>
 <ul>
 <li><ss>Sequences file</ss>: <fn>non_chimera.fasta</fn></li>
 <li><ss>Abundance file</ss>:  <fn>non_chimera_abundance.biom</fn></li>
@@ -427,22 +422,33 @@ In this step, we will filter out some of the OTUs. (? we have set 2 samples per 
 <li><ss>Execute</ss></li>
 </ul>
 <p><img alt="filters" src="./images/filters.png" />]</p>
-<p>Outputs:
-a filtered abundance and fasta file
-an excluded.txt
-a report.html</p>
-<p>only kept %20 of OTUs?
+<p><em>Note: Galaxy may say that the job submission has failed. Click Close, then click refresh in the top of the history panel. The job should be running.</em></p>
+<h3 id="output_3">Output</h3>
+<p>There are four output files.</p>
+<ul>
+<li><fn>sequences.fasta</fn> : the retained sequences.</li>
+<li><fn>abudance.biom</fn> : the abundance file.</li>
+<li><fn>excluded.tsv</fn></li>
+<li><fn>report.html</fn></li>
+</ul>
+<!--only kept %20 of OTUs?
 this is ok
-kept most of the sequences (the abundance pie)</p>
-<p>We should do 3+ samples
-Then could click on Venn diagram here and see intersection.</p>
-<h2 id="5-affliations-otu">5. Affliations OTU</h2>
-<p>OTUs- Operation Taxonomic Unit
-- this is a cluster of sequences.
-- this step adds the taxonomy to the abundance file. (why?)
-- uses the SILVA database for rRNA- that has been filtered for only (16S or all 30S?), non-redundant, keeping certain taxonomic levels, and split into pro and eukaryotes.
-- this step uses blastn+ to align each OTU against seqs in the dbase, keeping the best.
-- It can return multi-affiliation - see notes below tool panel.</p>
+kept most of the sequences (the abundance pie)
+
+We should do 3+ samples
+Then could click on Venn diagram here and see intersection.
+-->
+
+<h2 id="5-affliation-otu">5. Affliation OTU</h2>
+<p>An OTU is a cluster of sequences. This step adds the taxonomy to the abundance file. It uses the SILVA database for rRNA.</p>
+<!-- - that has been filtered for only (16S or all 30S?), non-redundant, keeping certain taxonomic levels, and split into pro and eukaryotes.
+
+blastn+ to align each OTU against seqs in the dbase, keeping the best.
+- It can return multi-affiliation - see notes below tool panel.
+
+-->
+
+<p>Go to <ss>FROGS Affiliation OTU</ss> and select:</p>
 <ul>
 <li><ss>Using reference database</ss>: silva123</li>
 <li><ss>Also perform RDP assignation</ss>: No</li>
@@ -451,8 +457,8 @@ Then could click on Venn diagram here and see intersection.</p>
 <li><ss>Execute</ss></li>
 </ul>
 <p><img alt="otu" src="./images/otu.png" /></p>
-<p>Outputs:
-abundance file with affiliation   <fn>affiliation.biom</fn> - note this biom file is not human-readable. You can convert it with the frogs biom to tsv tool.</p>
+<p>Outputs:</p>
+<p>abundance file with affiliation <fn>affiliation.biom</fn> - note this biom file is not human-readable. You can convert it with the frogs biom to tsv tool.</p>
 <p>report.html</p>
 <h2 id="6-affiliations-stat">6. Affiliations stat</h2>
 <ul>
@@ -483,9 +489,9 @@ abundance file with affiliation   <fn>affiliation.biom</fn> - note this biom fil
 <li>
 <p>tick the boxes next to the samples - or one at a time</p>
 </li>
-<li>then with selection order - click Display rarefaction</li>
-<li>Rarefaction curve - what does it mean - x axis is diversity (eg number of classes). y axes is how many samples processes. So it shows how many samples you need to process before you are covering the diversity. ie whether you have adequately covered the diversity.</li>
-<li>or click Display Distribution</li>
+<li>then with selection order - click Display rarefaction
+&lt;!&ndash; - Rarefaction curve - what does it mean - x axis is diversity (eg number of classes). y axes is how many samples processes. So it shows how many samples you need to process before you are covering the diversity. ie whether you have adequately covered the diversity.</li>
+<li>or click Display Distribution &ndash;&gt;</li>
 </ul>
 <h2 id="links">Links</h2>
 <ul>
