@@ -176,27 +176,19 @@ Go to <ss>FROGS Filters</ss> and select the following:
 
 There are four output files.
 
-- <fn>sequences.fasta</fn> : the retained sequences.
-- <fn>abudance.biom</fn> : the abundance file.
-- <fn>excluded.tsv</fn>
-- <fn>report.html</fn>
+- <fn>sequences.fasta</fn>: the retained sequences.
+- <fn>abudance.biom</fn>: the abundance file.
+- <fn>excluded.tsv</fn>: discarded OTUs
+- <fn>report.html</fn>: this shows the proportion of OTUs and the proportion of sequences kept. In this example, although most OTUs have been filtered out, most sequences have been retained.
 
-
-
-<!--only kept %20 of OTUs?
-this is ok
-kept most of the sequences (the abundance pie)
-
-
-We should do 3+ samples
+![filters_summary](images/filters_summary.png)
+<!-- We should do 3+ samples
 Then could click on Venn diagram here and see intersection.
 -->
 
+##5. Affiliation OTU
 
-
-##5. Affliation OTU
-
-An OTU is a cluster of sequences. This step adds the taxonomy to the abundance file. It uses the SILVA database for rRNA.
+An OTU is a cluster of sequences. This step adds the taxonomy to the abundance file. It uses the SILVA database for rRNA.<!--add more info about Silva-->
 
 <!-- - that has been filtered for only (16S or all 30S?), non-redundant, keeping certain taxonomic levels, and split into pro and eukaryotes.
 
@@ -209,44 +201,51 @@ Go to <ss>FROGS Affiliation OTU</ss> and select:
 
 - <ss>Using reference database</ss>: silva123
 - <ss>Also perform RDP assignation</ss>: No
-- <ss>OTU seed sequence</ss>: output.fasta from step 4
-- <ss>Abundance file</ss>: output.biom from step 4
+- <ss>OTU seed sequence</ss>: <fn>sequences.fasta</fn> from step 4
+- <ss>Abundance file</ss>: <fn>abundance.biom</fn> from step 4
 - <ss>Execute</ss>
 
 ![otu](images/otu.png)
 
-Outputs:
+*Note: Galaxy may say that the job submission has failed. Click Close, then click refresh in the top of the history panel. The job should be running.*
 
-abundance file with affiliation <fn>affiliation.biom</fn> - note this biom file is not human-readable. You can convert it with the frogs biom to tsv tool.
+<!-- can take 10 mins or so? -->
 
-report.html
+### Output
 
+There are two output files.
+
+- <fn>affiliation.biom</fn>: the abundance file with affiliation. Note: this <fn>.biom</fn> file is not human-readable. If you wish, you can convert it with the FROGS **biom to tsv** tool.
+
+- <fn>report.html</fn>: the report shows the proportion of OTUs and sequences affiliated to sequences in the database. Here we can see that almost all OTUs and sequences have been taxonomically assigned, but almost 10% of OTUs could be assigned to multiple species. <!--is that interpreation correct?-->
+
+![blast_summary](images/blast_affiliation.png)
 
 ##6. Affiliations stat
-- Computes some statistics
-- generates a report of the OTUs/taxonomy found
 
-- <ss>Abundance file</ss>: <fn>affiliation.biom</fn>from step 5
+This step computes some statistics from the analysis and generates a report of the OTUs/taxonomy found.
+
+Go to <ss>FROGS Affiliations stat</ss> and select:
+
+- <ss>Abundance file</ss>: <fn>affiliation.biom</fn> from step 5
 - <ss>Rarefaction ranks</ss>: Class Order Family Genus Species
 - <ss>Affiliation processed</ss>: FROGS blast
 - <ss>Execute</ss>
 
 ![otu-stat](images/otu-stat.png)
 
+### Output
 
-Outputs:
-<fn>summary.html</fn>
+There is one output file. Click on the eye icon next to <fn>summary.html</fn>:
 
-- click on Display global distribution - this is the pooled info
+- click on <ss>Display global distribution</ss>: this shows the taxonomy of the sample. Start at the centre; major groups each have a segment by colour; as you go outwards, taxonomic identification becomes more specific. <!-- this is the pooled info from both samples? --> Click on the cross in the top right corner to exit.
 
-- Pie chart thing - how to read - start in the centre. major groups each have a segment by colour. then more detail as you go outwards.
-- click cross to exit
+![taxa-distribution](images/taxa_distribution.png)
 
+- Next, we will look at the rarefaction curve, which is a measure of samples vs diversity. <!-- is that correct? In other words, how many samples do we have to take before we are covering the taxonomic diversity?--> Click on the boxes next to each of the samples (both, or one at a time) in the table (microbiomeA and microbiomeB). Click <ss>Display rarefaction</ss>.
 
-- tick the boxes next to the samples - or one at a time
-- then with selection order - click Display rarefaction
-<!-- - Rarefaction curve - what does it mean - x axis is diversity (eg number of classes). y axes is how many samples processes. So it shows how many samples you need to process before you are covering the diversity. ie whether you have adequately covered the diversity.
-- or click Display Distribution -->
+![rarefaction](images/rarefaction.png)
+
 
 ##Links
 - FROGS slides by Yvan Le Bras <https://f1000research.com/slides/5-1832>
