@@ -238,9 +238,11 @@ Go to <ss>FROGS Affiliations stat</ss> and select:
 
 There is one output file. Click on the eye icon next to <fn>summary.html</fn>:
 
-- click on <ss>Display global distribution</ss>: this shows the taxonomy of the sample. Start at the centre; major groups each have a segment by colour; as you go outwards, taxonomic identification becomes more specific. <!-- this is the pooled info from both samples? --> Click on the cross in the top right corner to exit.
+- click on <ss>Display global distribution</ss>: this shows the taxonomy of the sample. Start at the centre; major groups each have a segment by colour; as you go outwards, taxonomic identification becomes more specific. <!-- this is the pooled info from both samples? --> Click on a segment to display a table of statisics below. Click on the cross in the top right corner to exit.
 
 ![taxa-distribution](images/taxa_distribution.png)
+
+<!--is there a way to summarize this info across samples? eg sample 1 had lots of taxon A compared to sample 2 etc... or this taxon found only in sample B etc... (although I think these ones were filtered out)? -->
 
 - Next, we will look at the rarefaction curve, which is a measure of samples vs diversity. <!-- is that correct? In other words, how many samples do we have to take before we are covering the taxonomic diversity?--> Click on the boxes next to each of the samples (both, or one at a time) in the table (microbiomeA and microbiomeB). Click <ss>Display rarefaction</ss>.
 
