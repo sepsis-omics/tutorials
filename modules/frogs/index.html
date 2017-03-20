@@ -257,7 +257,7 @@
         
             <li><a href="#4-filters">4. Filters</a></li>
         
-            <li><a href="#5-affliation-otu">5. Affliation OTU</a></li>
+            <li><a href="#5-affiliation-otu">5. Affiliation OTU</a></li>
         
             <li><a href="#6-affiliations-stat">6. Affiliations stat</a></li>
         
@@ -426,21 +426,17 @@
 <h3 id="output_3">Output</h3>
 <p>There are four output files.</p>
 <ul>
-<li><fn>sequences.fasta</fn> : the retained sequences.</li>
-<li><fn>abudance.biom</fn> : the abundance file.</li>
-<li><fn>excluded.tsv</fn></li>
-<li><fn>report.html</fn></li>
+<li><fn>sequences.fasta</fn>: the retained sequences.</li>
+<li><fn>abudance.biom</fn>: the abundance file.</li>
+<li><fn>excluded.tsv</fn>: discarded OTUs</li>
+<li><fn>report.html</fn>: this shows the proportion of OTUs and the proportion of sequences kept. In this example, although most OTUs have been filtered out, most sequences have been retained.</li>
 </ul>
-<!--only kept %20 of OTUs?
-this is ok
-kept most of the sequences (the abundance pie)
-
-We should do 3+ samples
+<p><img alt="filters_summary" src="./images/filters_summary.png" />
+<!-- We should do 3+ samples
 Then could click on Venn diagram here and see intersection.
--->
-
-<h2 id="5-affliation-otu">5. Affliation OTU</h2>
-<p>An OTU is a cluster of sequences. This step adds the taxonomy to the abundance file. It uses the SILVA database for rRNA.</p>
+--></p>
+<h2 id="5-affiliation-otu">5. Affiliation OTU</h2>
+<p>An OTU is a cluster of sequences. This step adds the taxonomy to the abundance file. It uses the SILVA database for rRNA.<!--add more info about Silva--></p>
 <!-- - that has been filtered for only (16S or all 30S?), non-redundant, keeping certain taxonomic levels, and split into pro and eukaryotes.
 
 blastn+ to align each OTU against seqs in the dbase, keeping the best.
@@ -452,47 +448,45 @@ blastn+ to align each OTU against seqs in the dbase, keeping the best.
 <ul>
 <li><ss>Using reference database</ss>: silva123</li>
 <li><ss>Also perform RDP assignation</ss>: No</li>
-<li><ss>OTU seed sequence</ss>: output.fasta from step 4</li>
-<li><ss>Abundance file</ss>: output.biom from step 4</li>
+<li><ss>OTU seed sequence</ss>: <fn>sequences.fasta</fn> from step 4</li>
+<li><ss>Abundance file</ss>: <fn>abundance.biom</fn> from step 4</li>
 <li><ss>Execute</ss></li>
 </ul>
 <p><img alt="otu" src="./images/otu.png" /></p>
-<p>Outputs:</p>
-<p>abundance file with affiliation <fn>affiliation.biom</fn> - note this biom file is not human-readable. You can convert it with the frogs biom to tsv tool.</p>
-<p>report.html</p>
-<h2 id="6-affiliations-stat">6. Affiliations stat</h2>
+<p><em>Note: Galaxy may say that the job submission has failed. Click Close, then click refresh in the top of the history panel. The job should be running.</em></p>
+<!-- can take 10 mins or so? -->
+
+<h3 id="output_4">Output</h3>
+<p>There are two output files.</p>
 <ul>
-<li>Computes some statistics</li>
 <li>
-<p>generates a report of the OTUs/taxonomy found</p>
+<p><fn>affiliation.biom</fn>: the abundance file with affiliation. Note: this <fn>.biom</fn> file is not human-readable. If you wish, you can convert it with the FROGS <strong>biom to tsv</strong> tool.</p>
 </li>
 <li>
-<p><ss>Abundance file</ss>: <fn>affiliation.biom</fn>from step 5</p>
+<p><fn>report.html</fn>: the report shows the proportion of OTUs and sequences affiliated to sequences in the database. Here we can see that almost all OTUs and sequences have been taxonomically assigned, but almost 10% of OTUs could be assigned to multiple species. <!--is that interpreation correct?--></p>
 </li>
+</ul>
+<p><img alt="blast_summary" src="./images/blast_affiliation.png" /></p>
+<h2 id="6-affiliations-stat">6. Affiliations stat</h2>
+<p>This step computes some statistics from the analysis and generates a report of the OTUs/taxonomy found.</p>
+<p>Go to <ss>FROGS Affiliations stat</ss> and select:</p>
+<ul>
+<li><ss>Abundance file</ss>: <fn>affiliation.biom</fn> from step 5</li>
 <li><ss>Rarefaction ranks</ss>: Class Order Family Genus Species</li>
 <li><ss>Affiliation processed</ss>: FROGS blast</li>
 <li><ss>Execute</ss></li>
 </ul>
 <p><img alt="otu-stat" src="./images/otu-stat.png" /></p>
-<p>Outputs:
-<fn>summary.html</fn></p>
+<h3 id="output_5">Output</h3>
+<p>There is one output file. Click on the eye icon next to <fn>summary.html</fn>:</p>
 <ul>
-<li>
-<p>click on Display global distribution - this is the pooled info</p>
-</li>
-<li>
-<p>Pie chart thing - how to read - start in the centre. major groups each have a segment by colour. then more detail as you go outwards.</p>
-</li>
-<li>
-<p>click cross to exit</p>
-</li>
-<li>
-<p>tick the boxes next to the samples - or one at a time</p>
-</li>
-<li>then with selection order - click Display rarefaction
-&lt;!&ndash; - Rarefaction curve - what does it mean - x axis is diversity (eg number of classes). y axes is how many samples processes. So it shows how many samples you need to process before you are covering the diversity. ie whether you have adequately covered the diversity.</li>
-<li>or click Display Distribution &ndash;&gt;</li>
+<li>click on <ss>Display global distribution</ss>: this shows the taxonomy of the sample. Start at the centre; major groups each have a segment by colour; as you go outwards, taxonomic identification becomes more specific. <!-- this is the pooled info from both samples? --> Click on the cross in the top right corner to exit.</li>
 </ul>
+<p><img alt="taxa-distribution" src="./images/taxa_distribution.png" /></p>
+<ul>
+<li>Next, we will look at the rarefaction curve, which is a measure of samples vs diversity. <!-- is that correct? In other words, how many samples do we have to take before we are covering the taxonomic diversity?--> Click on the boxes next to each of the samples (both, or one at a time) in the table (microbiomeA and microbiomeB). Click <ss>Display rarefaction</ss>.</li>
+</ul>
+<p><img alt="rarefaction" src="./images/rarefaction.png" /></p>
 <h2 id="links">Links</h2>
 <ul>
 <li>FROGS slides by Yvan Le Bras <a href="https://f1000research.com/slides/5-1832">https://f1000research.com/slides/5-1832</a></li>
