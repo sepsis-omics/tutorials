@@ -125,10 +125,12 @@ Kallisto will count the reads per transcript.
 kallisto index -i transcripts.idx Ecoli_transcripts.fasta
 ```
 
-- transcripts.idx: the name of the output index file
-- transcripts.ffn: the name of the input fasta file file
+- <fn>transcripts.idx</fn>: the name of the output index file
+- <fn>transcripts.ffn</fn>: the name of the input fasta file file
 
 ### Run kallisto for every read set
+
+First, run kallisto for the <fn>LB1.fastq.gz</fn> reads:
 
 ```bash
 kallisto quant -i transcripts.idx -o LB1 --single -l 500 -s 50 LB1.fastq.gz
@@ -140,8 +142,9 @@ kallisto quant -i transcripts.idx -o LB1 --single -l 500 -s 50 LB1.fastq.gz
 - -s : estimated standard deviation of library fragments
 - <fn>LB1.fastq.gz</fn> : input FASTQ file
 
-Repeat for every FASTQ file.
+Repeat for every FASTQ file (LB2, LB3, MG1, MG2, MG3).
 
+- Run as above, but change the name of the output folder, and the file name at the end.
 - We then need to combine all the counts into one table.
 
 ### Extract required columns

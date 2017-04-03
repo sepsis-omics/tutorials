@@ -53,10 +53,14 @@ pages:
     #- Artemis: modules/artemis/index.md
     #- JBrowse: modules/jbrowse/index.md
 
-- Proteomics:
+- Proteomics and Pathways:
     - Protein Identification: modules/xtandem/index.md
-
-- Pathway Tools:
     - Pathway annotation and prediction: modules/pathway_tools/annotation/index.md
+
+- Metabolomics:
+    - Metabolite identification: modules/xcms/index.md
+    #- Draft: modules/xcms/metab_draft.md
+
+
 
 - About: about/index.md

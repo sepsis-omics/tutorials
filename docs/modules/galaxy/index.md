@@ -45,6 +45,8 @@ Click on <ss>User</ss> button on the right.
 
 - The history will now appear in your Current History pane, and the files are ready to use in Galaxy analyses.
 
+- *Note: if this history is not available in your version of Galaxy, please see the [following page](../data-dna/index.md) for links and information about uploading data.*
+
 ## Other ways to import data into Galaxy
 
 - Upload a file from your computer
