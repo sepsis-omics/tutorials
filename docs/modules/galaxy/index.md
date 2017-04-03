@@ -1,9 +1,9 @@
 <br>
-# Get Data into Galaxy
+# Starting with Galaxy
 
 Keywords: Galaxy, Microbial Genomics Virtual Lab
 
-## Galaxy Background
+## Background
 
 Galaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety of bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.
 
@@ -13,7 +13,7 @@ The Galaxy interface is separated into three parts. The <ss>Tools</ss> list on t
 
 ![galaxy overview screenshot](images/image05.png)
 
-## Register in Galaxy
+## Register
 
 Open a new tab or window on your web browser. Use Firefox or Chrome - please don’t use Internet Explorer or Safari.
 
@@ -36,8 +36,11 @@ Click on <ss>User</ss> button on the right.
 
 ![Shared histories](images/image10.png)
 
-- A list of published histories should appear. Click on the history that you want to use.
-- Click on <ss>Import history</ss>.
+- A list of published histories should appear. Click on the history that you want to use. For the Genomics Workshop, click on this one:
+
+![histories](images/pub_hist.png)
+
+- Then click on <ss>Import history</ss>.
 - An option will appear to re-name the history. We don't need to rename it, so click <ss>Import</ss>.
 
 - The history will now appear in your Current History pane, and the files are ready to use in Galaxy analyses.
@@ -46,4 +49,4 @@ Click on <ss>User</ss> button on the right.
 
 - Upload a file from your computer
 - Copy a link to a Galaxy history
-- For sample training data files to use, see the [next section.](../data-dna/index.md)
+- See the [next section](../data-dna/index.md) for more detailed information.

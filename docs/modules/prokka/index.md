@@ -59,9 +59,10 @@ Your tool interface should look like this:
 
 ## Examine the output
 
-First, enable *Scratchbook* in Galaxy - this allows you to view several windows simultaneously. Click on the 3&times;3 squares icon on the menu bar:
+<!-- First, enable *Scratchbook* in Galaxy - this allows you to view several windows simultaneously. Click on the 3&times;3 squares icon on the menu bar:
 
 ![scratchbook icon](images/scratchbook.png)
+-->
 
 Once Prokka has finished, examine each of its output files.
 

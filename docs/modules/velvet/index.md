@@ -21,9 +21,9 @@ At the end of this tutorial you should be able to:
 
 ## Import and view data
 
-If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/galaxy/index.md).
+If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/data-dna/index.md).
 
-Alternative ways to obtain the files:
+<!-- Alternative ways to obtain the files:
 
 - In the centre of the top Galaxy panel, select <ss>Shared Data: Histories</ss>
 - Select <fn>Microbial-assembly-start-history</fn> and then in the top right corner click on <ss>Import history</ss>.
@@ -44,6 +44,7 @@ Or:
 - Above that pane, click on the <ss>Switch to</ss> button.
 - Then click <ss>Done</ss> (in the top left corner).
 - You should now have a list of five files in your current history.
+-->
 
 ### The data
 

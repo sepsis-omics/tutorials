@@ -1,5 +1,5 @@
 <br>
-#Genomics workshop overview
+#Genomics workshop
 
 - The modules in this workshop cover microbial genomics, from assembly to annotation and variant calling.
 

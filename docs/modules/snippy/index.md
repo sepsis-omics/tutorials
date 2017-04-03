@@ -53,9 +53,11 @@ Your tool interface should look like this:
 
 ## Examine Snippy output
 
-First, enable "Scratchbook" in Galaxy - this allows you to view several windows simultaneously. Click on the squares:
+<!-- First, enable "Scratchbook" in Galaxy - this allows you to view several windows simultaneously. Click on the squares:
 
 ![scratchbook icon](images/scratchbook.png)
+
+-->
 
 From Snippy, there are 10 output files in various formats.
 
