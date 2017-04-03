@@ -253,9 +253,11 @@
     
         <li class="main active"><a href="#dataset">Dataset</a></li>
         
-            <li><a href="#galaxy-histories-urls">Galaxy histories: URLs</a></li>
+            <li><a href="#upload-a-galaxy-history">Upload a Galaxy history</a></li>
         
-            <li><a href="#individual-input-files">Individual input files</a></li>
+            <li><a href="#additional-galaxy-histories">Additional Galaxy histories</a></li>
+        
+            <li><a href="#additional-files">Additional files</a></li>
         
     
     </ul>
@@ -264,48 +266,44 @@
 
 <p><br></p>
 <h1 id="dataset">Dataset</h1>
-<p>This page contains data for the tutorials. The tutorials will specify whether to import a whole history (URLs listed in the first section) or an individual file (URLs listed in the second section).</p>
-<h2 id="galaxy-histories-urls">Galaxy histories: URLs</h2>
+<h2 id="upload-a-galaxy-history">Upload a Galaxy history</h2>
 <ul>
-<li>Galaxy history of input files</li>
+<li>
+<p>Copy this link:</p>
+<ul>
+<li><strong><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy_history_input_files.tar.gz</tt></strong></li>
 </ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy_history_input_files.tar.gz</tt></p>
-<ul>
-<li>Galaxy history: FastQC</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/FastQChistory.tar.gz</tt></p>
-<ul>
-<li>Galaxy history: Spades</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Spadeshistory.tar.gz</tt></p>
-<ul>
-<li>Galaxy history: Prokka</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Prokkahistory.tar.gz</tt></p>
-<ul>
-<li>Galaxy history: Snippy</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Snippyhistory.tar.gz</tt></p>
-<p><strong>To get the saved tutorial history (a set of files) into Galaxy:</strong></p>
-<ul>
-<li>Copy the link address.</li>
-<li>Go to your Galaxy instance. Make sure you are registered and logged in. Refresh the page.</li>
+</li>
+<li>
+<p>Go to your Galaxy instance. Make sure you are registered and logged in. Refresh the page.</p>
+</li>
 <li>Click on the <ss>History</ss> cog <img alt="cog icon" src="./images/image02.png" /></li>
 <li>Select <ss>Import from File</ss></li>
 </ul>
 <p><img alt="history options" src="./images/image03.png" /></p>
 <ul>
-<li>In the box called <ss>Archived History URL</ss>, paste in the link address to the Galaxy history.</li>
+<li>In the box called <ss>Archived History URL</ss>, paste in the link address to the Galaxy history (that you copied above).</li>
 <li>Click <ss>Submit</ss></li>
 <li>Wait a few seconds.</li>
-<li>Click on the &ldquo;view all histories&rdquo; button <img alt="histories icon" src="./images/image11.png" /></li>
+<li>Click on the <ss>view all histories</ss> button <img alt="histories icon" src="./images/image11.png" /></li>
 <li>See if the Galaxy history has been imported: it will be called <fn>imported from archive: Data</fn></li>
 <li>Above that pane, click on the <ss>Switch to</ss> button.</li>
 <li>Then click <ss>Done</ss> (in the top left corner).</li>
-<li>You should now have a list of five files in your current history.</li>
+<li>You should now have a list of five files in your current history. We will use these for the Genomics Workshop; or see below for additional files.</li>
 </ul>
 <p><img alt="files in galaxy history" src="./images/datafiles.png" /></p>
-<h2 id="individual-input-files">Individual input files</h2>
+<h2 id="additional-galaxy-histories">Additional Galaxy histories</h2>
+<p>If you are using only part of the Genomics Workshop, you can upload any required histories listed here. Follow the instructions above.</p>
+<h3 id="galaxy-history-fastqc">Galaxy history: FastQC</h3>
+<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/FastQChistory.tar.gz</tt></p>
+<h3 id="galaxy-history-spades">Galaxy history: Spades</h3>
+<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Spadeshistory.tar.gz</tt></p>
+<h3 id="galaxy-history-prokka">Galaxy history: Prokka</h3>
+<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Prokkahistory.tar.gz</tt></p>
+<h3 id="galaxy-history-snippy">Galaxy history: Snippy</h3>
+<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Snippyhistory.tar.gz</tt></p>
+<h2 id="additional-files">Additional files</h2>
+<p>If you need individual files, you can upload any of the files listed here. The instructions are listed below.</p>
 <h3 id="wildtype-reference">Wildtype reference</h3>
 <ul>
 <li>wildtype.fna</li>
@@ -354,12 +352,7 @@
 <li>Click the <ss>Start</ss> button.  </li>
 <li>Once the progress bar reaches 100%, click the <ss>Close</ss> button  </li>
 <li>The file will now upload to your current history.</li>
-</ul>
-<!-- ## What next?
-
-- If you are are working through the tutorials in a different order or want to see the completed history for another section, additional Galaxy histories are available above.
-- Next: [Learn about quality control](../fastqc/index.md).
---></div>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
