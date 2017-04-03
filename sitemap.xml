@@ -131,12 +131,18 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/modules/pathway_tools/annotation/</loc>
+     <lastmod>2017-04-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
         
     <url>
-     <loc>/modules/pathway_tools/annotation/</loc>
+     <loc>/modules/xcms/</loc>
      <lastmod>2017-04-03</lastmod>
      <changefreq>daily</changefreq>
     </url>

@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="favicon.ico">
         
 
-	<title>Training dataset - ABRPI Training 2017</title>
+	<title>Metabolite identification - ABRPI Training 2017</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -58,7 +58,7 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics Workshop <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
@@ -75,8 +75,8 @@
 
                     
                         
-<li class="active">
-    <a href="./">Training dataset</a>
+<li >
+    <a href="../data-dna/">Training dataset</a>
 </li>
 
                     
@@ -208,13 +208,13 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Metabolomics <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
-<li >
-    <a href="../xcms/">Metabolite identification</a>
+<li class="active">
+    <a href="./">Metabolite identification</a>
 </li>
 
                     
@@ -238,12 +238,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../galaxy/">
+                    <a rel="next" href="../pathway_tools/annotation/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../fastqc/">
+                    <a rel="prev" href="../../about/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -257,13 +257,7 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#dataset">Dataset</a></li>
-        
-            <li><a href="#upload-a-galaxy-history">Upload a Galaxy history</a></li>
-        
-            <li><a href="#additional-galaxy-histories">Additional Galaxy histories</a></li>
-        
-            <li><a href="#additional-files">Additional files</a></li>
+        <li class="main active"><a href="#metabolomics">Metabolomics</a></li>
         
     
     </ul>
@@ -271,94 +265,8 @@
             <div class="col-md-9" role="main">
 
 <p><br></p>
-<h1 id="dataset">Dataset</h1>
-<h2 id="upload-a-galaxy-history">Upload a Galaxy history</h2>
-<ul>
-<li>
-<p>Copy this link:</p>
-<ul>
-<li><strong><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy_history_input_files.tar.gz</tt></strong></li>
-</ul>
-</li>
-<li>
-<p>Go to your Galaxy instance. Make sure you are registered and logged in. Refresh the page.</p>
-</li>
-<li>Click on the <ss>History</ss> cog <img alt="cog icon" src="./images/image02.png" /></li>
-<li>Select <ss>Import from File</ss></li>
-</ul>
-<p><img alt="history options" src="./images/image03.png" /></p>
-<ul>
-<li>In the box called <ss>Archived History URL</ss>, paste in the link address to the Galaxy history (that you copied above).</li>
-<li>Click <ss>Submit</ss></li>
-<li>Wait a few seconds.</li>
-<li>Click on the <ss>view all histories</ss> button <img alt="histories icon" src="./images/image11.png" /></li>
-<li>See if the Galaxy history has been imported: it will be called <fn>imported from archive: Data</fn></li>
-<li>Above that pane, click on the <ss>Switch to</ss> button.</li>
-<li>Then click <ss>Done</ss> (in the top left corner).</li>
-<li>You should now have a list of five files in your current history. We will use these for the Genomics Workshop; or see below for additional files.</li>
-</ul>
-<p><img alt="files in galaxy history" src="./images/datafiles.png" /></p>
-<h2 id="additional-galaxy-histories">Additional Galaxy histories</h2>
-<p>If you are using only part of the Genomics Workshop, you can upload any required histories listed here. Follow the instructions above.</p>
-<h3 id="galaxy-history-fastqc">Galaxy history: FastQC</h3>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/FastQChistory.tar.gz</tt></p>
-<h3 id="galaxy-history-spades">Galaxy history: Spades</h3>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Spadeshistory.tar.gz</tt></p>
-<h3 id="galaxy-history-prokka">Galaxy history: Prokka</h3>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Prokkahistory.tar.gz</tt></p>
-<h3 id="galaxy-history-snippy">Galaxy history: Snippy</h3>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Snippyhistory.tar.gz</tt></p>
-<h2 id="additional-files">Additional files</h2>
-<p>If you need individual files, you can upload any of the files listed here. The instructions are listed below.</p>
-<h3 id="wildtype-reference">Wildtype reference</h3>
-<ul>
-<li>wildtype.fna</li>
-</ul>
-<p><tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/wildtype.fna</tt></p>
-<ul>
-<li>wildtype.gbk</li>
-</ul>
-<p><tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/wildtype.gbk</tt></p>
-<ul>
-<li>wildtype.gff</li>
-</ul>
-<p><tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/wildtype.gff</tt></p>
-<h3 id="mutant-illumina-sequence">Mutant Illumina sequence</h3>
-<ul>
-<li>mutant_R1.fastq.gz</li>
-</ul>
-<p><tt> https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/mutant_R1.fastq.gz</tt></p>
-<ul>
-<li>mutant_R2.fastq.gz</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/mutant_R2.fastq.gz</tt></p>
-<h3 id="assembled-contigs">Assembled contigs</h3>
-<ul>
-<li>SPAdes_contigs.fasta</li>
-</ul>
-<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/SPAdes_contigs.fasta</tt></p>
-<h3 id="upload-to-galaxy">Upload to Galaxy</h3>
-<p>There are two ways to upload these files to Galaxy. You can either download to your local computer and upload to Galaxy, or you can tell Galaxy to directly upload the file from an external source.</p>
-<p>Download and upload:</p>
-<ul>
-<li>Download required file(s) to your computer.</li>
-<li>From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  </li>
-<li>Click the <ss>Choose local file</ss> button  </li>
-<li>Find and select the <fn>file</fn> you downloaded and click <ss>Open</ss>  </li>
-<li>Set the <ss>Type</ss> correctly.  </li>
-<li>Click the <ss>Start</ss> button.  </li>
-<li>Once the progress bar reaches 100%, click the <ss>Close</ss> button  </li>
-<li>The file will now upload to your current history.</li>
-</ul>
-<p>Or, tell Galaxy to find the file from an external source:</p>
-<ul>
-<li>From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  </li>
-<li>Click the <ss>Paste/Fetch data</ss> button  </li>
-<li>Paste the URL into the box.</li>
-<li>Click the <ss>Start</ss> button.  </li>
-<li>Once the progress bar reaches 100%, click the <ss>Close</ss> button  </li>
-<li>The file will now upload to your current history.</li>
-</ul></div>
+<h1 id="metabolomics">Metabolomics</h1>
+<p>Coming soon!</p></div>
         </div>
 
         <footer class="col-md-12">
