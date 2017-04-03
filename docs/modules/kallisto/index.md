@@ -42,14 +42,15 @@ A typical experiment will have 2 conditions each with 3 replicates, for a total 
     - Files labelled "MG" have been exposed to 0.5% &alpha;MG - alpha methyglucoside (a sugar solution).
 
 
-The files are from Study PRJNA194149 from EBI ENA. http://www.ebi.ac.uk/ena/data/view/PRJNA194149. We are using 3 fastq files from the control set (SRR794833-835) and 3 fastq files from the experimental condition set (SRR794848-850).
+The files are from [Study PRJNA194149 from EBI ENA](http://www.ebi.ac.uk/ena/data/view/PRJNA194149). We are using 3 FASTQ files from the control set (SRR794833-835) and 3 FASTQ files from the experimental condition set (SRR794848-850).
 
 ## Get data
 
 Login to your GVL. *e.g.*:
 
 ```
-ssh user@gvl.genome.edu.au
+ssh your_username@gvl.genome.edu.au
+<enter your password>
 ```
 
 
@@ -133,7 +134,7 @@ kallisto index -i transcripts.idx Ecoli_transcripts.fasta
 kallisto quant -i transcripts.idx -o LB1 --single -l 500 -s 50 LB1.fastq.gz
 ```
 
-- -o : name of the output folder produced from this analysis
+- -o LB1: LB1 will be name of the output folder produced from this analysis
 - --single : single-end reads
 - -l : estimated length of library fragments <!-- fragments? -->
 - -s : estimated standard deviation of library fragments
@@ -150,8 +151,9 @@ Each output folder includes an <fn>abundance.tsv</fn> file. For each of these fi
 ```bash
 cut -f4 -d$'\t' abundance.tsv | tail -n +2 > LB1_headless.tsv
 ```
+This cuts column 4, then removes the header, and saves as <fn>LB1_headless.tsv</fn>.
 
-then add header:
+Then add column heading "LB1" and saves as <fn>LB1.tsv</fn>:
 
 ```bash
 echo -e "LB1" | cat - LB1_headless.tsv > LB1.tsv
@@ -302,11 +304,8 @@ Next steps: Investigate the biochemical pathways involving the genes of interest
 
 ## Links
 
-- Kallisto paper
-http://www.nature.com.ezp.lib.unimelb.edu.au/nbt/journal/v34/n5/full/nbt.3519.html
+- [Kallisto paper](http://www.nature.com.ezp.lib.unimelb.edu.au/nbt/journal/v34/n5/full/nbt.3519.html)
 
-- Kallisto + sleuth paper
-http://biorxiv.org/content/biorxiv/early/2016/06/10/058164.full.pdf
+- [Kallisto + sleuth paper](http://biorxiv.org/content/biorxiv/early/2016/06/10/058164.full.pdf). Sleuth can test for differential gene expression.
 
-- [Link to Degust.](https://github.com/Victorian-Bioinformatics-Consortium/degust#degust-formerly-known-as-dge-vis)
-- [Link to Voom paper.]( https://genomebiology.biomedcen
+- [Link to Voom paper](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29)

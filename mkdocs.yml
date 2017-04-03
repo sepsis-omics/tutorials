@@ -45,7 +45,7 @@ pages:
 #  #- Read trimming: modules/trimmomatic/index.md
 #  - Transcriptome assembly: modules/stringtie/index.md
     - Differential gene expression using Galaxy and Degust: modules/dge/index.md
-    #- Differential gene expression using Kallisto and Degust: modules/kallisto/index.md
+    - Differential gene expression using Kallisto and Degust: modules/kallisto/index.md
      #- Salmon: modules/salmon/index.md
 #- Advanced:
     #- Differential Gene Expression: intro/dge/index.md
