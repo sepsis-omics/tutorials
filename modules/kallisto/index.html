@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="favicon.ico">
         
 
-	<title>Differential gene expression using Galaxy and Degust - ABRPI Training 2017</title>
+	<title>Differential gene expression using Kallisto and Degust - ABRPI Training 2017</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -171,14 +171,14 @@
                     <ul class="dropdown-menu">
                     
                         
-<li class="active">
-    <a href="./">Differential gene expression using Galaxy and Degust</a>
+<li >
+    <a href="../dge/">Differential gene expression using Galaxy and Degust</a>
 </li>
 
                     
                         
-<li >
-    <a href="../kallisto/">Differential gene expression using Kallisto and Degust</a>
+<li class="active">
+    <a href="./">Differential gene expression using Kallisto and Degust</a>
 </li>
 
                     
@@ -232,12 +232,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../cmdline_assembly/">
+                    <a rel="next" href="../dge/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../kallisto/">
+                    <a rel="prev" href="../xtandem/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -251,25 +251,23 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#differential-gene-expression">Differential Gene Expression</a></li>
+        <li class="main active"><a href="#dge-using-kallisto">DGE using kallisto</a></li>
         
             <li><a href="#background">Background</a></li>
         
             <li><a href="#learning-objectives">Learning Objectives</a></li>
         
-            <li><a href="#input-data-reads-and-reference">Input data: reads and reference</a></li>
+            <li><a href="#rna-seq-reads">RNA-Seq reads</a></li>
         
-            <li><a href="#align-reads-to-reference">Align reads to reference</a></li>
+            <li><a href="#get-data">Get data</a></li>
         
-            <li><a href="#count-reads-per-gene">Count reads per gene</a></li>
+            <li><a href="#generate-counts">Generate counts</a></li>
         
-            <li><a href="#dge-in-degust">DGE in Degust</a></li>
-        
-            <li><a href="#dge-in-galaxy">DGE in Galaxy</a></li>
+            <li><a href="#test-for-dge">Test for DGE</a></li>
         
             <li><a href="#what-next">What next?</a></li>
         
-            <li><a href="#more-information">More information</a></li>
+            <li><a href="#links">Links</a></li>
         
     
     </ul>
@@ -277,27 +275,35 @@
             <div class="col-md-9" role="main">
 
 <p><br></p>
-<h1 id="differential-gene-expression">Differential Gene Expression</h1>
-<p>Keywords: differential gene expression, DGE, RNA, RNA-Seq, transcriptomics, Degust, voom, limma, Galaxy, Microbial Genomics Virtual Laboratory.</p>
-<p>This tutorial is about differential gene expression in bacteria, using Galaxy tools and Degust (web).</p>
-<!-- **FIXME:**
-- Degust to be installed on mGVL Galaxy
-- (Fastq files have been shortened to 1% using seqtk)
-- Data files (Fastq reads and refs): link to swift URL? -- add correct link to the "input data" section - RNA-Seq data - and information about how to upload
--->
-
+<h1 id="dge-using-kallisto">DGE using kallisto</h1>
+<p>This tutorial is about differential gene expression in bacteria, using tools on the command-line tools (kallisto) and the web (Degust).</p>
 <h2 id="background">Background</h2>
-<p>Differential Gene Expression (DGE) is the process of determining whether any genes were expressed at a different level between two conditions. For example, the conditions could be wildtype versus mutant, or two growth conditions. Usually multiple biological replicates are done for each condition - these are needed to separate variation within the condition from that between the conditions.</p>
+<p>Differential Gene Expression (DGE) is the process of determining whether any genes were expressed at a different level between two conditions. For example, the conditions could be wildtype versus mutant, or the same sample from two growth conditions. Usually multiple biological replicates are done for each condition - these are needed to separate variation within the condition from that between the conditions.</p>
+<p>There are several ways to test for DGE. All involve these steps:</p>
+<ul>
+<li>map/align reads to transcripts</li>
+<li>count number of reads per transcript</li>
+<li>see if counts differ between conditions</li>
+</ul>
+<p>Some tools will combine two of these steps. For example, options include:</p>
+<ul>
+<li>
+<p>Map reads to reference genome with BWA-MEM, count reads per transcript with HTSeq-count, examine DGE using voom/limma (within Galaxy or Degust).</p>
+</li>
+<li>
+<p>Pseudo-align reads to a reference transcriptome and count, using kallisto, then examine DGE using voom/limma (within Galaxy or Degust).</p>
+</li>
+</ul>
+<!-- Alternatives: with R-subread, or salmon, or BWA+htfc --->
+
 <h2 id="learning-objectives">Learning Objectives</h2>
 <p>At the end of this tutorial you should be able to:</p>
 <ol>
-<li>Align RNA-Seq data to a reference genome  </li>
-<li>Count transcripts for each sample</li>
-<li>Perform statistical analysis to obtain a list of differentially expressed genes</li>
+<li>(Pseudo-)align RNA-Seq data to a reference transcriptome and count: kallisto  </li>
+<li>Perform statistical analysis to obtain a list of differentially expressed genes: Degust</li>
 <li>Visualize and interpret the results</li>
 </ol>
-<h2 id="input-data-reads-and-reference">Input data: reads and reference</h2>
-<p><strong>RNA-Seq reads</strong></p>
+<h2 id="rna-seq-reads">RNA-Seq reads</h2>
 <p>A typical experiment will have 2 conditions each with 3 replicates, for a total of 6 samples.</p>
 <ul>
 <li>Our RNA-seq reads are from 6 samples in <fn>FASTQ</fn> format.<ul>
@@ -312,106 +318,114 @@
 </ul>
 </li>
 </ul>
-<!--
-|             | Condition 1 | Condition 2 |
-|-------------|-------------|-------------|
-| Replicate 1 |     1       |      4      |
-| Replicate 2 |     2       |      5      |
-| Replicate 3 |     3       |      6      |
+<p>The files are from <a href="http://www.ebi.ac.uk/ena/data/view/PRJNA194149">Study PRJNA194149 from EBI ENA</a>. We are using 3 FASTQ files from the control set (SRR794833-835) and 3 FASTQ files from the experimental condition set (SRR794848-850).</p>
+<h2 id="get-data">Get data</h2>
+<p>Login to your GVL. <em>e.g.</em>:</p>
+<pre><code>ssh your_username@gvl.genome.edu.au
+&lt;enter your password&gt;
+</code></pre>
 
--->
+<p>Get the files:</p>
+<pre><code class="bash">wget https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Ecoli_kallisto_files.tar.gz
+</code></pre>
 
-<p><strong>Reference genome</strong></p>
-<p>The reference genomes is in <fn>FASTA</fn> format and the gene annotations are in <fn>GTF</fn> format.</p>
-<ul>
-<li>The <fn>FASTA</fn> file contains the DNA sequence(s) that make up the genome; e.g. the chromosome and any plasmids.</li>
-<li>The <fn>GTF</fn> file lists the coordinates (position) of each feature. Commonly-annotated features are genes, transcripts and protein-coding sequences.</li>
-</ul>
-<!--
-- Where is it and how to upload. e.g. [RNA-Seq data](/rna/data.md)
-- For the RNA-seq reads, change datatype to fastqsanger (not fastqCsanger)
-- For the reference genome in GTF format, change datatype to GTF (not GFF)
--->
+<p>Uncompress and extract the files:</p>
+<pre><code>tar -zxvf Ecoli_kallisto_files.tar.gz
+</code></pre>
 
-<p><strong>Upload files to Galaxy</strong></p>
+<p>Move into the new directory:</p>
+<pre><code>cd Ecoli_kallisto_files
+</code></pre>
+
+<p>You should have the following files:</p>
 <ul>
-<li>Log in to your Galaxy server.</li>
-<li>In the <ss>History</ss> pane, click on the cog<img alt="cog icon" src="./images/Galaxy-cog.png" />icon, and select <ss>Import from File</ss> (at the bottom of the list).</li>
-<li>Under <ss>Archived History URL</ss> paste:
-<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy-History-BacterialDGE.tar.gz</tt></li>
-<li>In the <ss>History</ss> pane, click on the view<img alt="view icon" src="./images/Galaxy-histories.png" />icon and find the uploaded history.<ul>
-<li>(This may take a minute. Refresh the page.)</li>
+<li>6 x RNA-seq reads in <fn>fastq.gz</fn></li>
+<li>1 x reference transcriptome in <fn>.fasta</fn></li>
+<li>1 x table of features in <fn>.tsv</fn></li>
 </ul>
-</li>
-<li>Click <ss>Switch to</ss> that history, then <ss>Done</ss>.</li>
-<li>The files should now be ready to use in your current History pane.</li>
-</ul>
-<p><img alt="Files for DGE" src="./images/image18.png" /></p>
-<h2 id="align-reads-to-reference">Align reads to reference</h2>
-<p>The RNA-Seq reads are fragmented and are not complete transcripts. To determine the transcripts from which the reads originated (and therefore, to which gene they correspond) we can map them to a reference genome.</p>
-<p>In Galaxy:</p>
+<p>The reference transcriptome and features table have been produced from a genbank file, using a custom <a href="https://github.com/AnnaSyme/genbank_to_kallisto.py">python script</a>.</p>
+<p>We need to count the number of RNA-seq reads (that exist as fragments) that match different transcripts in the genome, including those for protein-coding sequences (such as genes) and RNA sequences (such as tRNA and mRNA). Therefore, we need a subset of the whole genome - the reference transcriptome.  </p>
+<!-- Need biopython on ABRPI for this to work
+
+Download the E. coli genbank file:
+
+wzxhzdk:4
+
+
+Download the custom python script:
+
+wzxhzdk:5
+
+
+Generate the reference transcriptome: We will use the custom python script called "genbank_to_kallisto.py". You also need to enter the name of an <fn>input genbank file</fn>, and the names for two output files that will be generated: a <fn>transcripts.fasta</fn> file and a <fn>table.tsv</fn> file. We type in "python3" at the start to run this script using python.
+
+
+wzxhzdk:6
+
+
+Give table.tsv headers:
+
+first remove CRLF (the M symbols) in the file:
+(to type in the symbol, press ctrl-v ctrl-m)
+
+tr -d "^M" < Ecoli_table.tsv > Ecoli_table2.tsv
+
+then add header line
+
+
+wzxhzdk:7
+
+
+--->
+
+<h2 id="generate-counts">Generate counts</h2>
+<p>Kallisto will count the reads per transcript.</p>
+<h3 id="index-the-transcripts-file">Index the transcripts file</h3>
+<pre><code class="bash">kallisto index -i transcripts.idx Ecoli_transcripts.fasta
+</code></pre>
+
 <ul>
-<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Mapping &rarr; Map with BWA-MEM</ss></li>
-<li>Under <ss>Will you select a reference genome from your history or use a built-in index?</ss>: <em>Use a genome from history and build index</em></li>
-<li><ss>Use the following dataset as the reference sequence</ss>: <fn>Ecoli_k12.fasta</fn></li>
-<li><ss>Single or Paired-end reads</ss>: <em>single</em></li>
-<li><ss>Select fastq dataset</ss>:<ul>
-<li>Click on the <ss>Multiple Datasets</ss> icon in centre</li>
-<li>Select all 6 <fn>FASTQ</fn> files (they turn blue; use side-scroll bar to check all have been selected)</li>
-<li>This will map each set of reads to the reference genome</li>
+<li>transcripts.idx: the name of the output index file</li>
+<li>transcripts.ffn: the name of the input fasta file file</li>
 </ul>
-</li>
-</ul>
-<p>Your tool interface should look like this:</p>
-<p><img alt="BWA-MEM tool commands" src="./images/image02.png" /></p>
+<h3 id="run-kallisto-for-every-read-set">Run kallisto for every read set</h3>
+<pre><code class="bash">kallisto quant -i transcripts.idx -o LB1 --single -l 500 -s 50 LB1.fastq.gz
+</code></pre>
+
 <ul>
-<li>Click <ss>Execute</ss></li>
-<li>Click <ss>Refresh</ss> in the history pane to see if the analysis has finished.</li>
-<li>
-<p>Output: 6 <fn>bam</fn> files of reads mapped to the reference genome.</p>
-</li>
-<li>
-<p>Re-name the output files:</p>
+<li>-o LB1: LB1 will be name of the output folder produced from this analysis</li>
+<li>&ndash;single : single-end reads</li>
+<li>-l : estimated length of library fragments <!-- fragments? --></li>
+<li>-s : estimated standard deviation of library fragments</li>
+<li><fn>LB1.fastq.gz</fn> : input FASTQ file</li>
+</ul>
+<p>Repeat for every FASTQ file.</p>
 <ul>
-<li>These are called <fn>Map with BWA-MEM on data x and data x</fn>.</li>
-<li>Click on the pencil icon next to each of these and re-name them as their sample name (e.g. LB1, LB2 etc.).</li>
-<li>Click <ss>Save</ss>.</li>
+<li>We then need to combine all the counts into one table.</li>
 </ul>
-</li>
-</ul>
-<h2 id="count-reads-per-gene">Count reads per gene</h2>
-<p>We now need to count how many reads overlap with particular genes. The information about gene names is from the annotations in the GTF file.</p>
-<p>In Galaxy:</p>
-<ul>
-<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: RNA Analysis &rarr; SAM/BAM to count matrix</ss>.<ul>
-<li>Note: Don&rsquo;t select the tool called <em>htseq-count</em>. The <em>SAM/BAM to count matrix</em> also uses that tool but allows an input of multiple bam files, which is what we want.</li>
-</ul>
-</li>
-<li>For <ss>Gene model (GFF) file to count reads over from your current history</ss>, select the <fn>GTF</fn> file.</li>
-<li>For <ss>Reads are stranded</ss> select <em>Yes</em> (box turns dark grey)</li>
-<li>For <ss>GTF feature type for counting reads&hellip;</ss> select <em>transcript</em>.</li>
-<li>For <ss>bam/sam file from your history</ss> choose the 6 <fn>bam</fn> files.</li>
-</ul>
-<p>Your tool interface should look like this:</p>
-<p><img alt="HTSeq tool commands" src="./images/image08.png" /></p>
-<ul>
-<li>Click <ss>Execute</ss></li>
-<li>Click <ss>Refresh</ss> in the history pane to see if the analysis has finished.</li>
-</ul>
-<p>Output:</p>
-<ul>
-<li>There is one output file: <fn>bams to DGE count matrix</fn>.</li>
-<li>Click on the file name to expand the information in the History pane.</li>
-<li>Click on the file <img alt="File icon" src="./images/Galaxy-download.png" />icon underneath to download it to your computer for use later on in this tutorial.</li>
-<li>Click on the eye icon to see this file.</li>
-</ul>
-<p><img alt="counts file" src="./images/image09.png" /></p>
-<ul>
-<li>Each row is a gene (or feature) and each column is a sample, with counts against each gene.</li>
-<li>Have a look at how the counts vary between samples, per gene.</li>
-<li>We can&rsquo;t just compare the counts directly; they need to be normalized before comparison, and this will be done as part of the DGE analysis in the next step.</li>
-</ul>
-<h2 id="dge-in-degust">DGE in Degust</h2>
+<h3 id="extract-required-columns">Extract required columns</h3>
+<p>Each output folder includes an <fn>abundance.tsv</fn> file. For each of these files, extract the column of counts (column 4) and remove the table heading.</p>
+<pre><code class="bash">cut -f4 -d$'\t' abundance.tsv | tail -n +2 &gt; LB1_headless.tsv
+</code></pre>
+
+<p>This cuts column 4, then removes the header, and saves as <fn>LB1_headless.tsv</fn>.</p>
+<p>Then add column heading &ldquo;LB1&rdquo; and saves as <fn>LB1.tsv</fn>:</p>
+<pre><code class="bash">echo -e &quot;LB1&quot; | cat - LB1_headless.tsv &gt; LB1.tsv
+</code></pre>
+
+<p>Move <fn>LB1.tsv</fn> into the main analysis folder.</p>
+<p>Repeat with all the other <fn>abundance.tsv</fn> files from the kallisto analyses, giving the tables the correct LBx or MGx header.</p>
+<h3 id="paste-together-with-features-table">Paste together with features table</h3>
+<pre><code class="bash">paste LB1.tsv LB2.tsv LB3.tsv MG1.tsv MG2.tsv MG3.tsv Ecoli_features.tsv &gt; counts.tsv
+</code></pre>
+
+<p>Examine the file:</p>
+<pre><code>less counts.tsv
+</code></pre>
+
+<p>There should be a column for every set of RNA-Seq reads, and then several columns of information including feature, name and description.</p>
+<p>Download the <fn>counts.tsv</fn> file to your local computer.</p>
+<h2 id="test-for-dge">Test for DGE</h2>
 <p>Degust is a tool on the web that can analyse the counts files produced in the step above, to test for differential gene expression.</p>
 <p>(Degust can also display the results from DGE analyses performed elsewhere.)</p>
 <h3 id="upload-counts-file">Upload counts file</h3>
@@ -419,37 +433,37 @@
 <p><img alt="Degust webpage image" src="./images/image04.png" /></p>
 <ul>
 <li>Click on <ss>Choose File</ss>.</li>
-<li>Select the <fn>htseq output file. tabular</fn> (that you previously downloaded to your computer from Galaxy) and click <ss>Open</ss>.</li>
+<li>Select the <fn>counts.tsv</fn> and click <ss>Open</ss>.</li>
 <li>Click <ss>Upload</ss>.</li>
 </ul>
 <p>A Configuation page will appear.</p>
 <ul>
 <li>For <ss>Name</ss> type <em>DGE in E coli</em></li>
-<li>For <ss>Info columns</ss> select <em>Contig</em></li>
+<li>For <ss>Info columns</ss> select <em>name</em>  </li>
+<li>For <ss>EC Number column</ss> select <em>EC</em></li>
 <li>For <ss>Analyze server side</ss> leave box checked.</li>
-<li>For <ss>Min read count</ss> put <em>10</em>.</li>
+<li>For <ss>Min read count</ss> put <em>10</em></li>
 <li>Click <ss>Add condition</ss><ul>
-<li>Add a condition called &ldquo;Control&rdquo; and select the LB columns.</li>
-<li>Add a condition called &ldquo;Treament&rdquo; and select the MG columns.</li>
+<li>Under <ss> Replicates</ss>, select LB1, LB2, LB3.</li>
 </ul>
 </li>
+<li>Click <ss>Add condition</ss> again<ul>
+<li>Under <ss> Replicates</ss>, select MG1, MG2, MG3.</li>
 </ul>
-<p>Your Configuration page should look like this:</p>
-<p><img alt="Degust configuation" src="./images/image10.png" /></p>
-<ul>
-<li><ss>Save changes</ss></li>
+</li>
+<li><ss>Save changes</ss>  </li>
 <li><ss>View</ss> - this brings up the Degust viewing window.</li>
 </ul>
 <h3 id="overview-of-degust-sections">Overview of Degust sections</h3>
 <ul>
 <li>Top black panel with <ss>Configure</ss> settings at right.</li>
-<li>Left: Conditions: Control and Treatment.</li>
+<li>Left: Conditions: LB (control) and MG (treatment).</li>
 <li>Left: Method selection for DGE.</li>
 <li>Top centre: Plots, with options at right.</li>
 <li>When either of the expression plots are selected, a heatmap appears below.</li>
 <li>A table of genes (or features); expression in treatment relative to control (Treatment column); and significance (FDR column).  </li>
 </ul>
-<p><img alt="Degust overview" src="./images/image12.png" /></p>
+<p><img alt="Degust" src="./images/image12.png" /></p>
 <h3 id="analyze-gene-expression">Analyze gene expression</h3>
 <ul>
 <li>Under <ss>Method</ss>, make sure that <ss>Voom/Limma</ss> is selected.</li>
@@ -496,8 +510,8 @@
 <li>
 <p>Look at the Parallel Coordinates plot. There are two axes:</p>
 <ul>
-<li>Left: <strong>Control</strong>: Gene expression in the control samples. All values are set at zero.</li>
-<li>Right: <strong>Treatment</strong> Gene expression in the treatment samples, relative to expression in the control.</li>
+<li>Left: <strong>LB</strong>: Gene expression in the control samples. All values are set at zero.</li>
+<li>Right: <strong>MG</strong> Gene expression in the treatment samples, relative to expression in the control.</li>
 </ul>
 </li>
 <li>
@@ -515,50 +529,19 @@
 </ul>
 <h3 id="table-of-genes">Table of genes</h3>
 <ul>
-<li><strong>Contig</strong>: names of genes. Note that gene names are sometimes specific to a species, or they may be only named as a locus ID (a chromosomal location specified in the genome annotation).</li>
+<li><strong>name</strong>: names of genes. Note that gene names are sometimes specific to a species, or they may be only named as a locus ID (a chromosomal location specified in the genome annotation).</li>
 <li><strong>FDR</strong>: False Discovery Rate. This is an adjusted p value to show the significance of the difference in gene expression between two conditions. Click on column headings to sort. By default, this table is sorted by FDR.</li>
-<li><strong>Control</strong> and <strong>Treatment</strong>: log2(Fold Change) of gene expression. The default display is of fold change in the treatment relative to the control. Therefore, values in the &ldquo;Control&rdquo; column are zero. This can be changed in the <ss>Options</ss> panel at the top right.</li>
+<li><strong>LB</strong> and <strong>MG</strong>: log2(Fold Change) of gene expression. The default display is of fold change in the treatment (MG) relative to the control (LB). Therefore, values in the &ldquo;LB&rdquo; column are zero. This can be changed in the <ss>Options</ss> panel at the top right.</li>
 <li>In some cases, a large fold change will be meaningful but in others, even a small fold change can be important biologically.</li>
 </ul>
-<p>Table of genes and expression:</p>
-<p><img alt="gene table" src="./images/image15.png" /></p>
-<!--
-A pathway is a drawn network to show interaction between molecules, including some or all of genes, proteins, RNAs, chemical reactions. E.g.
-The Kegg pathway database: (Kyoto Encyclopedia of Genes and Genomes)
-numbers are EC numbers - enzyme commission ->  enzyme/s that catalyze a reaction (might be >1)
--->
-
-<h2 id="dge-in-galaxy">DGE in Galaxy</h2>
-<p>Differential gene expression can also be analyzed in Galaxy. The input is the count matrix produced by a tool such as HTSeq-Count (see section above: &ldquo;Count reads per gene&rdquo;).</p>
+<h3 id="kegg-pathway">Kegg Pathway</h3>
+<p>A pathway is a drawn network to show the interaction between molecules, including some or all of genes, proteins, RNAs, chemical reactions.</p>
 <ul>
-<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: RNA Analysis &rarr; Differential Count models</ss><ul>
-<li>This has options to use edgeR, DESeq, or Voom. Here we will use Voom.</li>
+<li>Click on Kegg Pathway, and select &ldquo;Glycolysis&rdquo;.</li>
 </ul>
-</li>
-<li>For <ss>Select an input matrix</ss> choose the <fn>count matrix</fn> file generated in the previous step.</li>
-<li>For <ss>Title for job outputs</ss> enter <em>DGE using voom</em>.</li>
-<li>For <ss>Select columns containing treatment</ss> tick boxes for the MG samples.</li>
-<li>For <ss>Select columns containing control</ss> tick boxes for the LB samples.</li>
-<li>Under <ss>Run this model using edgeR</ss> choose <em>Do not run edgeR</em>.</li>
-<li>Under <ss>Run the same model with DESeq2 and compare findings</ss> choose <em>Do not run DESeq2</em>.</li>
-<li>Under <ss>Run the same model with Voom/limma and compare findings</ss> choose <em>Run VOOM</em>.</li>
-</ul>
-<p>Your tool interface should look like this:</p>
-<p><img alt="DGE using voom" src="./images/image16.png" /></p>
+<p><img alt="kegg" src="./images/kegg.png" /></p>
 <ul>
-<li>Click <ss>Execute</ss>.</li>
-</ul>
-<p>There are two output files.</p>
-<p>View the file called <fn>DGEusingvoom.html</fn>.</p>
-<ul>
-<li>Scroll down to &ldquo;VOOM log output&rdquo; and &ldquo;#VOOM top 50&rdquo;.</li>
-<li>The &ldquo;Contig&rdquo; column has the gene names.</li>
-<li>Look at the &ldquo;adj.P.Val&rdquo; column. This is an adjusted p value to show the significance of the gene expression difference, accounting for the effect of multiple testing. Also known as False Discovery Rate. The table is ordered by the values in this column.</li>
-<li>Look at the &ldquo;logFC&rdquo; column. This is log2(Fold Change) of relative gene expression between the treatment samples and the control samples.</li>
-</ul>
-<p>View the file called <fn>DEGusingvoom_topTable_VOOM.xls</fn>.</p>
-<ul>
-<li>This is a list of all the genes that had transcripts mapped, and associated statistics.</li>
+<li>Genes in this pathway will be highlighted as you hover over them elsewhere in Degust (e.g., in the table).</li>
 </ul>
 <h2 id="what-next">What next?</h2>
 <p>To learn more about the differentially-expressed genes:</p>
@@ -571,43 +554,19 @@ numbers are EC numbers - enzyme commission ->  enzyme/s that catalyze a reaction
 </ul>
 </li>
 </ul>
-<p>Some of the most (statistically) significant differentially-expressed genes in this experiment are:</p>
-<ul>
-<li><a href="http://www.ncbi.nlm.nih.gov/gene/945651">ptsG</a>: a glucose-specific transporter.</li>
-<li><a href="http://www.ncbi.nlm.nih.gov/gene/944793">setA</a>: a sugar efflux transporter; is induced by glucose-phosphate stress.</li>
-<li><a href="http://www.ncbi.nlm.nih.gov/gene/945314">sucD</a>: the alpha subunit of the the gene for succinyl-CoA synthetase; involved in ATP production.</li>
-<li><a href="http://www.ncbi.nlm.nih.gov/gene/945307">sucB</a>: a component of the 2-oxoglutarate dehydrogenase complex; catalyzes a step in the Krebs cycle.</li>
-<li><a href="http://www.ncbi.nlm.nih.gov/gene/948902">deoC</a>: 2-deoxyribose-5-phosphate aldolase; binds selenium; may be involved in selenium transport.</li>
-</ul>
 <p>Next steps: Investigate the biochemical pathways involving the genes of interest.</p>
-<h2 id="more-information">More information</h2>
+<h2 id="links">Links</h2>
 <ul>
-<li><a href="https://github.com/Victorian-Bioinformatics-Consortium/degust#degust-formerly-known-as-dge-vis">Link to Degust.</a></li>
-<li><a href="https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29">Link to Voom paper.</a></li>
-</ul>
-<!-- If you have already run voom within Degust, continue from there. -->
-
-<!---
-Not sure if this is right: can't see MDS plot?
-
-Alternatively, to upload a file of DGE analysis results (e.g. from Galaxy):
-
-- Go to the [Degust web page](http://vicbioinformatics.com/degust/index.html). Click on <ss>Get Started</ss>.
-- Click on <ss>Choose File</ss>.
-- Select the <fn>voom output.tabular</fn> (that you previously downloaded to your computer from Galaxy) and click <ss>Open</ss>.
-- Click <ss>Upload</ss>.
-- A Configuation page will appear.
-- For <ss>Name</ss>, give it a name.
-- Leave other setting as they are except:
-- For <ss>Analyze server side</ss> uncheck box.
-- For <ss>Primary condition</ss> write "Control".
-- For <ss>FDR column</ss> click on the drop-down list and choose *adj.P.Val*
-- For <ss>Average expression column</ss> click on the drop-down list and choose *AveExpr*.
-- For <ss>Fold-change columns</ss> check the box next to *logFC*.
-    - this is the change in the treatment relative to the control (FIXME: check)
-- Click <ss>Save changes</ss>.
-- Click <ss>View</ss>.
----></div>
+<li>
+<p><a href="http://www.nature.com.ezp.lib.unimelb.edu.au/nbt/journal/v34/n5/full/nbt.3519.html">Kallisto paper</a></p>
+</li>
+<li>
+<p><a href="http://biorxiv.org/content/biorxiv/early/2016/06/10/058164.full.pdf">Kallisto + sleuth paper</a>. Sleuth can test for differential gene expression.</p>
+</li>
+<li>
+<p><a href="https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29">Link to Voom paper</a></p>
+</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
