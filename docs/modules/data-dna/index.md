@@ -43,6 +43,10 @@ If you are using only part of the Genomics Workshop, you can upload any required
 
 <tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Snippyhistory.tar.gz</tt>
 
+### Galaxy history: Workflows
+
+<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy-History-Workflows-history.tar.gz</tt>
+
 ## Additional files
 
 If you need individual files, you can upload any of the files listed here. The instructions are listed below.

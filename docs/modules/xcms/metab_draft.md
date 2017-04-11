@@ -18,7 +18,7 @@ identify features (ions with unique m/z and retention time)
 and then filter eg based on:
 - those that differ bn treatment and control with eg certain fold change (eg >3) and certain p value (eg < 0.0001)
 - then put these in a cloud plot. cloud plots:
-useful bc they display info about the biochemistry of the molecules. eg they show the m/z value and retention time (eg this differs for fat-soluble and water-soluble molecules). 
+useful bc they display info about the biochemistry of the molecules. eg they show the m/z value and retention time (eg this differs for fat-soluble and water-soluble molecules).
 
 
 
@@ -35,6 +35,10 @@ output: data converted to identified metabolites (via METLIN db?)
 data files:
 eg sample from ABR project (if not under embargo)
 eg public data (all v big though? make smaller?)
+
+
+
+
 
 ## Steps
 

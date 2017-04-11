@@ -29,6 +29,8 @@ Click on <ss>User</ss> button on the right.
 - Enter your email, choose a password, and choose a user name.
 - Click <ss>Submit</ss>
 
+- Login, and refresh the page.
+
 ## Import a history
 
 - In the menu options across the top, go to <ss>Shared Data</ss>.
@@ -36,13 +38,20 @@ Click on <ss>User</ss> button on the right.
 
 ![Shared histories](images/image10.png)
 
-- A list of published histories should appear. Click on the history that you want to use. For the Genomics Workshop, click on this one:
+- A list of published histories should appear. Click on the history that you want to use.
+
+<!--For the Genomics Workshop, click on this one:
 
 ![histories](images/pub_hist.png)
+-->
+
+- A useful starting history is a set of files containing sequencing reads and reference genomes.
+- Click on **Genomics-files**.
+
+<!--![fastq history](images/pub_hist_fastq.png) -->
 
 - Then click on <ss>Import history</ss>.
 - An option will appear to re-name the history. We don't need to rename it, so click <ss>Import</ss>.
-
 - The history will now appear in your Current History pane, and the files are ready to use in Galaxy analyses.
 
 - *Note: if this history is not available in your version of Galaxy, please see the [following page](../data-dna/index.md) for links and information about uploading data.*
