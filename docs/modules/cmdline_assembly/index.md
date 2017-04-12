@@ -7,7 +7,10 @@ This tutorial demonstrates how to use long Pacbio sequence reads to assemble a b
 
 
 ## Learning objectives
-<!--At the end of this tutorial, be able to use command line tools to produce a bacterial genome assembly using the following workflow:
+
+<!--
+At the end of this tutorial, be able to use command line tools to produce a bacterial genome assembly
+using the following workflow:
 
 
 1. get data
@@ -15,6 +18,7 @@ This tutorial demonstrates how to use long Pacbio sequence reads to assemble a b
 3. trim overhangs and circularise
 4. search for smaller plasmids
 5. correct with short (Illumina) reads
+
 -->
 
 At the end of this tutorial, be able to:
