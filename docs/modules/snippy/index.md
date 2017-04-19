@@ -8,6 +8,8 @@ Keywords: variant calling, SNP, Snippy, JBrowse, Galaxy, Microbial Genomics Virt
 Variant calling is the process of identifying differences between two genome samples.
 Usually differences are limited to single nucleotide polymorphisms (SNPs) and small insertions and deletions (indels). Larger structural variation such as inversions, duplications and large deletions are not typically covered by "variant calling".
 
+In this tutorial, we will use the tool "Snippy" (link to Snippy is [here](https://github.com/tseemann/snippy)). Snippy uses a tool to align the reads to a reference genome, and another tool to decide ("call") if the discrepancies are real variants.
+
 ## Learning Objectives
 
 1. Find variants between a reference genome and a set of reads
