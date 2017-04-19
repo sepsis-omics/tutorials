@@ -1,9 +1,9 @@
 <br>
-#Viral Genome Sequencing
+# Viral Genome Sequencing
 
 This tutorial is about determining the genome sequence of a virus, using comparisons to a reference sequence.
 
-##Background
+## Background
 Murray Valley encephalitis virus is classified as part of the Flavivirus genus of viruses, all of which are positive strand RNA viruses. The type species for this genus is yellow fever virus, and the genus includes dengue virus, west nile virus and zika virus.
 
 Viruses from this genus have a single-segment genome of about 11 kb. Within this, there is a 10 kb open reading frame that encodes a polyprotein. Following translation, this protein is modified to yield the various, mature structural and non-structural viral proteins as illustrated in Fig. 1.
@@ -39,9 +39,11 @@ In this tutorial we will use the prototype strain 1-151 as the reference genome 
 - This strain was isolated in the early 1950s - see [AF161266](https://www.ncbi.nlm.nih.gov/pubmed/10567642).
 
 
+<!-- Dieter
 - [are we using this AF seq exactly? or if not, which seq]
 
 - [This seq is not in the list of 14 --- does this mean it is just more distant and therefore didn't align closely?]
+-->
 
 The isolate we are looking at has been sequenced using the Illumina platform.
 
@@ -50,20 +52,20 @@ The isolate we are looking at has been sequenced using the Illumina platform.
 
 In this activity we will use a read mapping approach to determine the sequence of a new Murray Valley encephalitis virus isolate.
 
-##Import data
+## Import data
 
-###Section overview:###
+### Section overview:
 
 - Log in to your Galaxy server
 - Import files required for the activity
 - View imported files
 
-###Go to the Galaxy Page###
+### Go to the Galaxy Page
 
 - Web address: <http://phln.genome.edu.au/galaxy>
 - [Remind me how to logon](https://docs.google.com/document/d/10meAZA7-OsD_PglLD2zL3m-EwkemFxVnRVUYGAmtOz4/pub)
 
-###Import files to Galaxy###
+### Import files to Galaxy
 
 - Click on the <ss>Analyze Data</ss> menu at the top of the page.
 - Click on the <ss>History</ss> menu button (the ![cog](images/cog.png) on the top right of the history pane)
@@ -75,7 +77,7 @@ In this activity we will use a read mapping approach to determine the sequence o
 - Click <ss>Submit</ss>
 - Galaxy will download the data files from the internet and will be available as an additional history (takes about one minute).
 
-###To make the newly imported history appear as the current history:###
+### To make the newly imported history appear as the current history:
 
 - Click on the View all Histories button (the ![Galaxy-histories](images/Galaxy-histories.png) on the top right of the history pane.)
 - If the history has finished downloading it will appear with the title:
@@ -86,7 +88,7 @@ You should now have 4 files in the history pane as follows:
 
 ![mvev_files](images/mvev_files.png)
 
-Reference sequence files [from AF161266?]:
+Reference sequence files <!-- Dieter: [from AF161266?]--> :
 
 - <fn>MVEV.gbk</fn> - genbank format
 - <fn>MVEV.fna</fn> - fasta format
@@ -97,30 +99,30 @@ Illumina sequence reads (R1 and R2) from the new isolate:
 - <fn>MVE_R2.fq</fn> - reverse reads
 
 
-##Snippy
+## Snippy
 
-###Section overview:###
+### Section overview:
 
 - Find variants in the isolate using the tool Snippy.
 
 Snippy is a fast variant caller for haploid genomes. The software is available on GitHub at <https://github.com/tseemann/snippy>. For this activity, we are using Snippy as installed on Galaxy.
 
-###Preliminary Activity###
+### Preliminary Activity
 
 - Run FastQC: How many reads in in each of the fastq files <fn>MVE_R1.fq</fn> and <fn>MVE_R2.fq</fn>?
 
 - <fn>MVEV.fna</fn> and <fn>MVEV.gbk</fn> each contain the genome sequence of Murray Valley encephalitis virus strain 1-151 - how many bases in the genome? (Hint: use Fasta Statistics)
 
-###Running Snippy###
+### Running Snippy
 
-Snippy maps reads from the new Murray Valley encephalitis virus isolate (the <fn>MVE_R1.fq</fn> and <fn>MVE_R2.fq</fn> reads) onto the genome sequence of Murray Valley encephalitis virus strain 1-151 (<fn>MVEV.fna</fn>). [or gbk? that's in the screenshot]
+Snippy maps reads from the new Murray Valley encephalitis virus isolate (the <fn>MVE_R1.fq</fn> and <fn>MVE_R2.fq</fn> reads) onto the genome sequence of Murray Valley encephalitis virus strain 1-151 (<fn>MVEV.fna</fn>). <!-- Dieter: [or gbk? that's in the screenshot] -->
 
 - Find Snippy in the tool menu (in  NGS: Variant Analysis)
 - Select appropriate files (see screenshot below) and Execute (use default settings).
 
 ![snippy_window](images/snippy.png)
 
-###Output###
+### Output
 
 Files cataloging SNP differences:
 
@@ -164,7 +166,10 @@ Also download these bam files from these URLs (open each URL in a new tab and th
 
 Note: if you have previously downloaded these files, the new downloads may be renamed. Remove any spaces in the names.
 
+<!-- Dieter:
 [Should we explain why we have these four other files - where they are from, what they are needed for, etc - so if people are repeating this exercise on their own they can follow]
+
+-->
 
 ##Artemis
 
@@ -198,10 +203,12 @@ If Artemis is not installed, go to <http://www.sanger.ac.uk/science/tools/artemi
 ###Add a plot###
 
 - Go to <ss>Graph: Add User Plot</ss>, select <fn>snps.depth.gz</fn>
--  A graph should display at the top of the screen
-[is this depth of reads or depth of snps?]
+-  A graph should display at the top of the screen <!-- Dieter:  [is this depth of reads or depth of snps?] -->
 
 ![depth-plot](images/depth-plot.png)
+
+
+<!-- need to finish this bit :
 
 The file that is used to produce the graph is a 3 column table (part of the file is shown below)
 
@@ -210,15 +217,16 @@ The file that is used to produce the graph is a 3 column table (part of the file
                  …
 Column 1: the name of the sequence, Column 2: the position in the sequence, Column 1: the read depth at that position
 
+-->
 
-##Producing a draft genome sequence
+## Producing a draft genome sequence
 
-###Section overview:###
+### Section overview:
 
 - Produce draft genome sequence for the new viral isolate.
 
-###Examine the mapped reads###
-[or title]
+### Examine the mapped reads
+<!-- [or title for this section? ] -->
 
 What is the minimum read depth used by Snippy to call a SNP?
 
@@ -230,7 +238,7 @@ What is the maximum read depth?
 
 What do we know about the sequence of the new isolate in the regions where there is low read coverage?
 
-[close first Artemis window?]
+<!-- [close first Artemis window?] -->
 
 - Unzip <fn>17: snippy on data 4, data 3, and data 2 out dir</fn>
 - This makes an "out" folder containing some files including the consensus file.
@@ -242,7 +250,7 @@ This is a file that is based on the reference sequence and includes any confirme
  If we were going to use this sequence to produce the draft sequence of the new isolate, what bases would you have at positions 1→ 5?
 
 
-###Getting an Overview of the Difference between strain 1-151 and our new isolate###
+### Getting an Overview of the Difference between strain 1-151 and our new isolate
 
 Simplest overview: view the bam file with Artemis
 
@@ -252,7 +260,7 @@ Once loaded, differences between reads and the reference sequence can be highlig
 
 ![bam](images/bam.png)
 
-###Getting more detail: looking at the table of SNPs###
+### Getting more detail: looking at the table of SNPs
 
 Located in the out folder there is a html file that contains a table with information about each of the SNPs called by Snippy.
 
@@ -262,7 +270,7 @@ A total of 790 SNP differences were call by Snippy
 
 Open snps.html in your web browser
 
-[screenshot]
+<!-- [screenshot] -->
 
 Summary: 663/790 SNPs do not result a difference in the encoded polyprotein
 
