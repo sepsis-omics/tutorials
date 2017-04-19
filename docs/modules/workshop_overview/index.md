@@ -1,5 +1,11 @@
 <br>
-#Genomics workshop
+
+# Genomics
+
+The tutorials listed here under the Genomics tab include a set that can be run as a Genomics Workshop.
+
+
+## Genomics workshop
 
 - The modules in this workshop cover microbial genomics, from assembly to annotation and variant calling:
 
@@ -18,4 +24,6 @@
 
 - If you are using these tutorials outside of a workshop and need access to Galaxy, you can follow the instructions on the homepage [here](../../index.md) to obtain your own mGVL instance with Galaxy and command line tools.
 
-- *Note:* There are also additional tutorials listed under the "Genomics" tab (such as PacBio assembly), but these may require different data sets and tools.
+## Other Genomics tutorials
+
+- There are also additional tutorials listed under the "Genomics" tab (such as PacBio assembly), but these may require different data sets and tools.
