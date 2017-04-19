@@ -13,8 +13,8 @@ extra_css:
     - css/sepsis.css
 pages:
 - Home: index.md
-- Genomics Workshop:
-    - Workshop overview: modules/workshop_overview/index.md
+- Genomics:
+    - Genomics workshop overview: modules/workshop_overview/index.md
     #- Using Galaxy: modules/galaxy/index.md
     - Starting with Galaxy: modules/galaxy/index.md
     - Training dataset: modules/data-dna/index.md
@@ -25,11 +25,8 @@ pages:
     - Genome annotation: modules/prokka/index.md
     - Variant finding: modules/snippy/index.md
     - Public data &rarr; assembly, annotation: modules/access_data/index.md
-    - Viral genome sequencing: modules/viral_genomes/index.md
-
-
-- Genomics:
     - Finding antibiotic-resistant genes: modules/abricate/index.md
+    - Viral genome sequencing: modules/viral_genomes/index.md
     - Galaxy workflows: modules/workflows/index.md
     - Metagenomics: modules/frogs/index.md
     - PacBio assembly with SMRT portal: modules/pacbio/index.md
