@@ -17,21 +17,27 @@ This tutorial covers the tool called FROGS (in Galaxy): "Find Rapidly OTU with G
 
 - The data: paired-end Illumina reads from two environmental samples. <!-- two env samples? dental microbiomes?-->
 
-<!-- uplod not working
-- In Galaxy, in the history panel, click on the cog item, and select "import from file". In the "Archived History URL:" box paste: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/16SmetaG_dataset.tar.gz
 
--->
-- Download the <fn>.tar.gz</fn> file to your local computer using this link: <https://drive.google.com/open?id=0B-DKulJTTftlT2djQmJ4aTN6Q1U>.
+- In Galaxy, in the history panel, click on the cog item, and select "import from file".
+
+    - In the "Archived History URL:" box paste:
+    - <tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy-History-16S_metagenomics_dataset.tar.gz</tt>
+
+    - You should now have four files in your Galaxy history.
+
+
+<!-- - Download the <fn>.tar.gz</fn> file to your local computer using this link: <https://drive.google.com/open?id=0B-DKulJTTftlT2djQmJ4aTN6Q1U>.
 - Click on the file to unzip it into four <fn>.gz</fn> files. These can stay zipped.
 - In Galaxy, go to <ss>Get Data: Upload File</ss>. Choose the the four files, set their file type to "fastqsanger", click start, then close.
 - The four files should now be in your current history.
+-->
 
-<!-- would be clearer to rename these files as something like microbiomeA_R1 and microbiomeB_R1 etc -->
+<!-- I have renamed these files as microbiomeA_R1 and microbiomeB_R1 etc -->
 
 
 - In the Galaxy tools panel, in the top search bar, type FROGS.
-- This will bring up the various tools available.
-- We will be using 6 of these tools.
+    - This will bring up the various tools available.
+    - We will be using 6 of these tools.
 
 ![frogs_tools](images/frogs_tools.png)
 
