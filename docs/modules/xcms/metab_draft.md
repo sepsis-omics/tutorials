@@ -6,10 +6,11 @@
 Metabolomics is the study of metabolites: small molecules (smaller than proteins) produced by organisms. One technique to identify and quantify metabolites is mass spectrometry. Metabolites are ionized, which breaks them into charged fragments. Next, the abundance of each fragment is measured. A graph shows abundance peaks at various mass-to-charge ratios. This spectrum of peaks (the mass spectrum) is matched to a database of known spectra, to identify the metabolite from which it was produced.
 
 
--- do you just feed in one metabolite at a time, isolated from LC?
--- so you still get a spectrum from one molecule, as it can have multiple charges?
--- Metlin is for MS/MS? Not just single MS?
+LC separates the metabolites and then these are sent to MS.
 
+Molecular ions can have +1 or more charged, but we mainly look at the M+1
+
+This ion (what value - its mass?) is entered into Metlin.
 
 "each peak is associated with a mass-to-charge ratio, retention time,
 fold change, p-value, and relative intensity "
@@ -32,10 +33,20 @@ output: data converted to identified metabolites (via METLIN db?)
 
 ## Get data
 
+Data from Agilent (is this correct) is in .D format.
+
+Upload these to xcms, or convert these to .mzdata or .mzXML files first. (e.g. with Proteowizard (http://proteowizard.sourceforge.net/downloads.shtml)
+
+
+
+
 data files:
 eg sample from ABR project (if not under embargo)
 eg public data (all v big though? make smaller?)
 
+
+ABR project data:
+acquired on a HPLC/6545 Q-TOF
 
 
 
@@ -52,7 +63,8 @@ This is a pairwise comparison job.
 Select data files.  - What format are ABR files.
     -  Glu_1_1.mzData
     -  
-Select Instrument. - the instrument it was run on?
+Select Instrument. - the instrument it was run on or closest available.
+
 Select machine parameters -
 
 Stats:
