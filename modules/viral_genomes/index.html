@@ -59,12 +59,12 @@
             
             
                 <li class="dropdown active">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics Workshop <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
 <li >
-    <a href="../workshop_overview/">Workshop overview</a>
+    <a href="../workshop_overview/">Genomics workshop overview</a>
 </li>
 
                     
@@ -117,23 +117,14 @@
 
                     
                         
-<li class="active">
-    <a href="./">Viral genome sequencing</a>
+<li >
+    <a href="../abricate/">Finding antibiotic-resistant genes</a>
 </li>
 
                     
-                    </ul>
-                </li>
-            
-            
-            
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                    
                         
-<li >
-    <a href="../abricate/">Finding antibiotic-resistant genes</a>
+<li class="active">
+    <a href="./">Viral genome sequencing</a>
 </li>
 
                     
@@ -218,6 +209,12 @@
 </li>
 
                     
+                        
+<li >
+    <a href="../xcms/metab_draft/">Draft</a>
+</li>
+
+                    
                     </ul>
                 </li>
             
@@ -238,12 +235,12 @@
                     </a>
                 </li>
                 <li >
-                    <a rel="next" href="../access_data/">
+                    <a rel="next" href="../abricate/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../abricate/">
+                    <a rel="prev" href="../workflows/">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -305,16 +302,14 @@ following seq though is not in this list?
 
 <p>In this tutorial we will use the prototype strain 1-151 as the reference genome sequence.</p>
 <ul>
-<li>
-<p>This strain was isolated in the early 1950s - see <a href="https://www.ncbi.nlm.nih.gov/pubmed/10567642">AF161266</a>.</p>
-</li>
-<li>
-<p>[are we using this AF seq exactly? or if not, which seq]</p>
-</li>
-<li>
-<p>[This seq is not in the list of 14 &mdash; does this mean it is just more distant and therefore didn&rsquo;t align closely?]</p>
-</li>
+<li>This strain was isolated in the early 1950s - see <a href="https://www.ncbi.nlm.nih.gov/pubmed/10567642">AF161266</a>.</li>
 </ul>
+<!-- Dieter
+- [are we using this AF seq exactly? or if not, which seq]
+
+- [This seq is not in the list of 14 --- does this mean it is just more distant and therefore didn't align closely?]
+-->
+
 <p>The isolate we are looking at has been sequenced using the Illumina platform.</p>
 <ul>
 <li>The genomic cDNA was prepared using random hexamers to prime the reverse transcription of the viral genomic RNA.</li>
@@ -357,7 +352,7 @@ following seq though is not in this list?
 </ul>
 <p>You should now have 4 files in the history pane as follows:</p>
 <p><img alt="mvev_files" src="./images/mvev_files.png" /></p>
-<p>Reference sequence files [from AF161266?]:</p>
+<p>Reference sequence files <!-- Dieter: [from AF161266?]--> :</p>
 <ul>
 <li><fn>MVEV.gbk</fn> - genbank format</li>
 <li><fn>MVEV.fna</fn> - fasta format</li>
@@ -383,7 +378,7 @@ following seq though is not in this list?
 </li>
 </ul>
 <h3 id="running-snippy">Running Snippy</h3>
-<p>Snippy maps reads from the new Murray Valley encephalitis virus isolate (the <fn>MVE_R1.fq</fn> and <fn>MVE_R2.fq</fn> reads) onto the genome sequence of Murray Valley encephalitis virus strain 1-151 (<fn>MVEV.fna</fn>). [or gbk? that&rsquo;s in the screenshot]</p>
+<p>Snippy maps reads from the new Murray Valley encephalitis virus isolate (the <fn>MVE_R1.fq</fn> and <fn>MVE_R2.fq</fn> reads) onto the genome sequence of Murray Valley encephalitis virus strain 1-151 (<fn>MVEV.fna</fn>). <!-- Dieter: [or gbk? that's in the screenshot] --></p>
 <ul>
 <li>Find Snippy in the tool menu (in  NGS: Variant Analysis)</li>
 <li>Select appropriate files (see screenshot below) and Execute (use default settings).</li>
@@ -431,7 +426,11 @@ following seq though is not in this list?
 <li><a href="http://phln.genome.edu.au/public/dieter/snps.depth.gz.tbi">http://phln.genome.edu.au/public/dieter/snps.depth.gz.tbi</a></li>
 </ul>
 <p>Note: if you have previously downloaded these files, the new downloads may be renamed. Remove any spaces in the names.</p>
-<p>[Should we explain why we have these four other files - where they are from, what they are needed for, etc - so if people are repeating this exercise on their own they can follow]</p>
+<!-- Dieter:
+[Should we explain why we have these four other files - where they are from, what they are needed for, etc - so if people are repeating this exercise on their own they can follow]
+
+-->
+
 <h2 id="artemis">Artemis</h2>
 <h3 id="section-overview_2">Section overview:</h3>
 <ul>
@@ -460,22 +459,28 @@ following seq though is not in this list?
 <h3 id="add-a-plot">Add a plot</h3>
 <ul>
 <li>Go to <ss>Graph: Add User Plot</ss>, select <fn>snps.depth.gz</fn></li>
-<li>A graph should display at the top of the screen
-[is this depth of reads or depth of snps?]</li>
+<li>A graph should display at the top of the screen <!-- Dieter:  [is this depth of reads or depth of snps?] --></li>
 </ul>
 <p><img alt="depth-plot" src="./images/depth-plot.png" /></p>
-<p>The file that is used to produce the graph is a 3 column table (part of the file is shown below)</p>
-<p>[what is the file name?]</p>
-<pre><code>             …
-</code></pre>
-<p>Column 1: the name of the sequence, Column 2: the position in the sequence, Column 1: the read depth at that position</p>
+<!-- need to finish this bit :
+
+The file that is used to produce the graph is a 3 column table (part of the file is shown below)
+
+[what is the file name?]
+
+                 …
+Column 1: the name of the sequence, Column 2: the position in the sequence, Column 1: the read depth at that position
+
+-->
+
 <h2 id="producing-a-draft-genome-sequence">Producing a draft genome sequence</h2>
 <h3 id="section-overview_3">Section overview:</h3>
 <ul>
 <li>Produce draft genome sequence for the new viral isolate.</li>
 </ul>
 <h3 id="examine-the-mapped-reads">Examine the mapped reads</h3>
-<p>[or title]</p>
+<!-- [or title for this section? ] -->
+
 <p>What is the minimum read depth used by Snippy to call a SNP?</p>
 <ul>
 <li>Hint: Go back to Snippy on Galaxy - look at the information below the ‘Execute’ button</li>
@@ -483,7 +488,8 @@ following seq though is not in this list?
 <p>Would Snippy call a SNP at positions 1 → 5 ?</p>
 <p>What is the maximum read depth?</p>
 <p>What do we know about the sequence of the new isolate in the regions where there is low read coverage?</p>
-<p>[close first Artemis window?]</p>
+<!-- [close first Artemis window?] -->
+
 <ul>
 <li>Unzip <fn>17: snippy on data 4, data 3, and data 2 out dir</fn></li>
 <li>
@@ -505,7 +511,8 @@ following seq though is not in this list?
 <p>Included in the table is a column that provides a prediction about the impact each SNP will have on annotated protein coding regions. The genbank file provides the annotation information used by Snippy to make the predictions.</p>
 <p>A total of 790 SNP differences were call by Snippy</p>
 <p>Open snps.html in your web browser</p>
-<p>[screenshot]</p>
+<!-- [screenshot] -->
+
 <p>Summary: 663/790 SNPs do not result a difference in the encoded polyprotein</p>
 <p>Is this pattern of variable genome sequence and more conserved protein sequence normal in viruses? What might be the cause?</p></div>
         </div>

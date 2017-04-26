@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Anna Syme, Torsten Seemann">
+        
+        <link rel="shortcut icon" href="favicon.ico">
+        
+
+	<title>Draft - ABRPI Training 2017</title>
+
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link href="../../../css/sepsis.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../../..">ABRPI Training 2017</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../workshop_overview/">Genomics workshop overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../galaxy/">Starting with Galaxy</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-dna/">Training dataset</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../fastqc/">Quality control</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../velvet/">Genome assembly with Velvet</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../spades/">Genome assembly with Spades</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../prokka/">Genome annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../snippy/">Variant finding</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../access_data/">Public data &rarr; assembly, annotation</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../abricate/">Finding antibiotic-resistant genes</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../viral_genomes/">Viral genome sequencing</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../workflows/">Galaxy workflows</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../frogs/">Metagenomics</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../pacbio/">PacBio assembly with SMRT portal</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../cmdline_assembly/">PacBio assembly with command line tools</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transcriptomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../dge/">Differential gene expression using Galaxy and Degust</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../kallisto/">Differential gene expression using Kallisto and Degust</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Proteomics and Pathways <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../xtandem/">Protein Identification</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../pathway_tools/annotation/">Pathway annotation and prediction</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Metabolomics <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../">Metabolite identification</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">Draft</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../../about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../../about/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#metabolomics-with-xcms">Metabolomics with XCMS</a></li>
+        
+            <li><a href="#overview">Overview</a></li>
+        
+            <li><a href="#xcms">XCMS</a></li>
+        
+            <li><a href="#get-data">Get data</a></li>
+        
+            <li><a href="#upload-data">Upload data</a></li>
+        
+            <li><a href="#set-up-job">Set up job</a></li>
+        
+            <li><a href="#view-results">View results</a></li>
+        
+            <li><a href="#next">Next</a></li>
+        
+            <li><a href="#links">Links</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<p><br></p>
+<h1 id="metabolomics-with-xcms">Metabolomics with XCMS</h1>
+<h2 id="overview">Overview</h2>
+<p>Metabolomics is the study of metabolites: small molecules (smaller than proteins) produced by organisms. One technique to identify and quantify metabolites is LC/MS (liquid chromatography-mass spectrometry).</p>
+<ul>
+<li>The metabolites are separated by LC, then ionized (charged) and fired through a machine.</li>
+<li>They can be identified based on their mass, charge, and time they remain in part of the machine.</li>
+<li>Intensities are measured across time and across the ratios of mass/charge (m/z).  </li>
+<li>Each of these peaks is a feature: an ion with a unique m/z and retention time:</li>
+</ul>
+<p><img alt="peaks" src="../images/peaks.png" /></p>
+<p><em>image: Daniel Norena-Caro, Wikipedia.</em></p>
+<p>A common aim is to compare metabolites between two samples (e.g. 2 different bacterial strains), and from there, to understand which biological pathways may be up- or down-regulated.</p>
+<h2 id="xcms">XCMS</h2>
+<p>In this tutorial, we will use XCMS online to analyse metabolite data. This takes raw data from mass spectrometry, identifies the metabolites, and compares their abundances between samples.</p>
+<ul>
+<li>Go to: <a href="https://xcmsonline.scripps.edu">https://xcmsonline.scripps.edu</a> and sign up.</li>
+</ul>
+<p><img alt="startpage" src="../images/start_page.png" /></p>
+<h2 id="get-data">Get data</h2>
+<p>The data we will use today is from two bacterial strains of <em>Klebsiella pneumoniae</em> - strain AJ218 and strain KPC2. The raw data output from the mass spectrometer are points in a 3D graph: intensity, m/z, time (retention time).</p>
+<p>Download these to your local computer from swift.</p>
+<ul>
+<li>[add to swift and add link here - if data policy allows].</li>
+<li>Sample 1: 25817_SEP_MA_LC-MS_AJ218-1-813-28038_Bio21-LC-QTOF-001.d</li>
+<li>Sample 2: 25823_SEP_MA_LC-MS_KPC2-1-813-28033_Bio21-LC-QTOF-001.d</li>
+<li>Note: if using sepsis data: download the .tar.gz files, uncompress (by clicking on them). We do not need to unzip them.</li>
+</ul>
+<p>You should now have two <fn>.d folders</fn> on your computer.</p>
+<h2 id="upload-data">Upload data</h2>
+<p>In the top panel, go to <ss>Stored Datasets</ss>. We will upload some data here.</p>
+<p><img alt="datasets" src="../images/stored_data.png" /></p>
+<p>In the top right corner, click on <ss>Add Dataset(s)</ss>.
+<img src="../images/add_data.png" width="400" height ="200" /></p>
+<ul>
+<li>Drag the <fn>.d folder</fn> into the <ss>Drop Here</ss> box.</li>
+<li>(Don&rsquo;t select Browse.)</li>
+</ul>
+<p><img alt="drag folder" src="../images/drag.png" /></p>
+<ul>
+<li>Wait until all files have a green tick (scroll down to check all).</li>
+<li>Name the datset (e.g. Sample AJ218 or Sample KPC2) and click <ss>Save</ss>.</li>
+<li>Click <ss>Save Dataset &amp; Proceed</ss>.</li>
+</ul>
+<p><img alt="upload" src="../images/file_upload.png" /></p>
+<p>Repeat with the second <fn>.d folder</fn></p>
+<h2 id="set-up-job">Set up job</h2>
+<p>In the top panel, click on <ss>Create Job</ss> and select <ss>Pairwise Job</ss>.</p>
+<p><img alt="pairwise" src="../images/pairwise.png" /></p>
+<p>On the right hand side, under Job Summary, Job Name: enter job name.</p>
+<p>Under <ss>Dataset 1</ss> click on <ss>Select Dataset</ss>.</p>
+<ul>
+<li>Choose Sample AJ218.</li>
+</ul>
+<p>Under <ss>Dataset 2</ss> click on <ss>Select Dataset</ss>.</p>
+<ul>
+<li>Choose Sample KPC2.</li>
+</ul>
+<p>We now need to set parameters that correspond with the machine on which the data was generated.</p>
+<p>Under <ss>Parameters</ss> select HPLC / Q-TOF.</p>
+<ul>
+<li>Click <ss>View/Edit</ss>.</li>
+<li>This brings up a window to change some settings.</li>
+<li>First, click <ss>Create New</ss> in the bottom right hand corner. [add image]</li>
+<li>Give it a name. e.g. Agilent 6545</li>
+<li>See the tabs along the top: we will change some of these settings.</li>
+</ul>
+<p><img alt="parameters" src="../images/params1.png" /></p>
+<p><strong>General</strong></p>
+<ul>
+<li>Need to change polarity to negative?</li>
+<li>Need to change format to seconds?</li>
+</ul>
+<p><strong>Feature Detection</strong></p>
+<p>There are two sets of data we will customise here: centroid data and profile data.</p>
+<p>(or just use one set?)</p>
+<p>Data: Intensity vs m/z, at one time (RT) point.
+Profile data: all the data points.
+Centroid data: local maxima only.  </p>
+<p>(see fig4)</p>
+<p>Next to Method, click centWave (the centroid data).</p>
+<ul>
+<li>change these and also select view advanced options?</li>
+</ul>
+<p>Next to Method, click matchedFilter (the profile data)</p>
+<ul>
+<li>change these and also select view advanced options?</li>
+</ul>
+<p><strong>Retention Time Correction</strong></p>
+<p>This is to correct shift as run progresses? (ie still within one run?)</p>
+<p>We will change settings for obiwarp and peakgroups.</p>
+<p><strong>Alignment</strong></p>
+<p>Does this correct between runs?</p>
+<p><strong>Statistics</strong></p>
+<p>Choose Wilcoxon signed rank test?</p>
+<p><strong>Annotation</strong></p>
+<p>which settings</p>
+<p><strong>Identification</strong></p>
+<p>which settings
+also: biosource - choose a K pneumo?</p>
+<p><strong>Visualization</strong></p>
+<p>which settings</p>
+<p><strong>Miscellaneous</strong></p>
+<p>which settings</p>
+<p>Then:</p>
+<ul>
+<li><ss>Save Current</ss></li>
+<li><ss>Submit Job</ss></li>
+</ul>
+<p>This will now bring up the &ldquo;View Results&rdquo; page.</p>
+<ul>
+<li>The current job will be listed as &ldquo;Processing&rdquo; with a % completion bar.</li>
+</ul>
+<h2 id="view-results">View results</h2>
+<p>Click on <ss>View</ss>.</p>
+<p><strong>Graphs: Total Ion Chromatograms</strong></p>
+<p>All the ions detected. Their intensity vs retention time. Original and corrected. Also, a correction curve graph.</p>
+<p><strong>Results Table</strong></p>
+<p>A table of features (ion with unique m/z and retention time).</p>
+<p>sort by heading or click on a feature row.</p>
+<p>to filter, click on the magnifying glass at the top left.
+e.g. filter by p-value or fold change. (or multiple things)</p>
+<p>The headings mean:</p>
+<ul>
+<li><strong>fold</strong>: fold change (log?). ratio of mean intensities.</li>
+<li><strong>p-value</strong>: for whatever test was performed?</li>
+<li>no q value (or is this an option to toggle p value?)</li>
+<li><strong>updown</strong>: up or down regulated (compared to the other sample)</li>
+<li><strong>mzmed</strong>: median value for m/z</li>
+<li><strong>rtmed</strong>: median value for retention time</li>
+<li><strong>maxint</strong>: max intensity of the feature</li>
+<li><strong>dataset1_mean</strong>: average intensity of this feature in dataset1</li>
+<li><strong>isotopes</strong>: isotopes found (why not all have at least one? )</li>
+<li><strong>adducts</strong>: ? other things that formed?</li>
+<li><strong>peakgroup</strong>: abritrary number for different groups?  where from?</li>
+<li>no Metlin column?  only have as a graph to the right?</li>
+</ul>
+<p>Graphs to the right: (only have EIC ?)</p>
+<ul>
+<li>Extracted Ion Chromatogram (EIC): intensity vs. retention time</li>
+<li>Mass spectrum: intensivy vs. m/z</li>
+<li>Metlin IDs</li>
+</ul>
+<p>(how can you match to Metlin with only MS and not MS/MS data?)</p>
+<p>The <a href="https://metlin.scripps.edu/landing_page.php?pgcontent=mainPage">METLIN database</a> contains data on metabolites, their mass, their known and predicted fragment masses.</p>
+<p><strong>Metabolomic Cloud Plot</strong></p>
+<p>Cloud plot: m/z vs retention time
+What are the circles - abundance of metabolites?
+Can adjust:
+m/z
+retention time
+intensity
+&ndash; why can u adjust? is it for zooming in?  </p>
+<p><strong>Interactive Heatmap</strong></p>
+<p><strong>iPCA</strong></p>
+<p><strong>Conclusion</strong></p>
+<p>We found the metabolites A, B, C were upregulated in strain KPC2, and they are part of the XYZ pathway involved in <something>.</p>
+<h2 id="next">Next</h2>
+<p>More complex analyses: eg compare wildtype with 5 mutants. Metabolites in common to the 5 mutants identified; then investigate biochemical pathway and function.</p>
+<h2 id="links">Links</h2>
+<p><a href="https://xcmsonline.scripps.edu">XCMS Online</a></p>
+<p><a href="https://xcmsonline.scripps.edu/landing_page.php?pgcontent=documentation">&ldquo;XCMS Online&rdquo; documentation</a></p>
+<p>Smith, R. et al. (2014) Proteomics, lipidomics, metabolomics: a mass spectrometry tutorial from a computer scientist&rsquo;s point of view. <em>BMC Bioinformatics</em>. DOI: 10.1186/1471-2105-15-S7-S9.</p>
+<ul>
+<li>See Figure 2 for an excellent explanation of the various graphs produced from MS.</li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+        <script src="../../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
