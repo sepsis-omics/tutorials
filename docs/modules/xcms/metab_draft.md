@@ -3,59 +3,79 @@
 
 ## Overview
 
-Metabolomics is the study of metabolites: small molecules (smaller than proteins) produced by organisms. One technique to identify and quantify metabolites is mass spectrometry. Metabolites are ionized, which breaks them into charged fragments. Next, the abundance of each fragment is measured. A graph shows abundance peaks at various mass-to-charge ratios. This spectrum of peaks (the mass spectrum) is matched to a database of known spectra, to identify the metabolite from which it was produced.
+Metabolomics is the study of metabolites: small molecules (smaller than proteins) produced by organisms. One technique to identify and quantify metabolites is LC/MS (liquid chromatography-mass spectrometry).
+
+In liquid chromatography, metabolites are sent through a column and are separated by various chemical properties.
+
+- At each time point, the abundance of the particular group of metabolites is measured (the intensity).
+- This is called a chromatogram:
+
+<img src="../images/chrom.png" width="500" height ="300" />
+
+*image: C Wenger, Wikipedia*
+
+At each time point in this chromatogram, the group of metabolites is then ionized (charged) and fired through a mass spectrometer.
+
+- These are separated based on their mass-to-charge ratio.
+- This adds another dimension to the graph: an axis with the mass-to-charge ratio of the metabolites found at that time point, and their intensities.
+
+![peaks](images/peaks.png)
+
+*image: Daniel Norena-Caro, Wikipedia.*
 
 
-LC separates the metabolites and then these are sent to MS.
+Each of these peaks is a "feature": an ion with a unique m/z and retention time:
 
-Molecular ions can have +1 or more charged, but we mainly look at the M+1
+Mass spectra data is often simplified into a graph of peaks only (local maxima):
 
-This ion (what value - its mass?) is entered into Metlin.
+<img src="../images/centroid.png" width="600" height ="250" />
 
-"each peak is associated with a mass-to-charge ratio, retention time,
-fold change, p-value, and relative intensity "
+These masses can then be matched to a database to identify the metabolite.
 
-identify features (ions with unique m/z and retention time)
-and then filter eg based on:
-- those that differ bn treatment and control with eg certain fold change (eg >3) and certain p value (eg < 0.0001)
-- then put these in a cloud plot. cloud plots:
-useful bc they display info about the biochemistry of the molecules. eg they show the m/z value and retention time (eg this differs for fat-soluble and water-soluble molecules).
+To summarize:
+
+one chromatogram - from the LC
+multiple specta - from the MS
 
 
-Compare metabolites in two groups (e.g. 2 different bacterial strains).
-
+A common aim is to compare metabolites between two samples (e.g. two different bacterial strains), and from there, to understand which biological pathways may be up- or down-regulated.
 
 ## XCMS
 
-In this tutorial, we will use XCMS online.
+In this tutorial, we will use XCMS online to analyse metabolite data.
 
+- Input: raw data from mass spectrometry
+- Output: identifies the metabolites, and compares their abundances between samples.
 - Go to: <https://xcmsonline.scripps.edu> and sign up.
-
 
 ![startpage](images/start_page.png)
 
-More about XCMS online
-- inputs: raw data from mass spec
-- output: data converted to identified metabolites (via METLIN db?)
-
-
-
 ## Get data
 
-The data we will use today is from two bacterial strains of *Klebsiella pneumoniae* - strain AJ218 and strain KPC2.
+The data we will use today is from two bacterial strains of *Klebsiella pneumoniae*.
 
-Download these to your local computer from swift [add to swift and add link here - if data policy allows].
+- strain AJ218 (check AMR) - x6 replicates
+- strain KPC2 (antibiotic resistance) - x6 replicates
 
-Sample 1
-- 25817_SEP_MA_LC-MS_AJ218-1-813-28038_Bio21-LC-QTOF-001.d
+[Note: there may not be any metabolomic diffs between these. If not, look at Staph vs Klebs]
 
+The raw data output from the mass spectrometer are points in a 3D graph: intensity, m/z, time (retention time).
 
-Sample 2
-- 25823_SEP_MA_LC-MS_KPC2-1-813-28033_Bio21-LC-QTOF-001.d
+Download these to your local computer from swift.[if data release policy allows. upload to swift and put link here].
 
-Note: if using sepsis data: download the .tar.gz files, uncompress (by clicking on them). We do not need to unzip them.
+Data format:
+- We will use .mzML format. [this format is going to be uploaded to the Sepsis Data]
+- The machine used to produced this data originally produced .d files. These have been converted into .mzML format using the Proteowizard MSConvert program.
 
-You should now have two .d folders on your computer.
+To use Proteowizard: (Windows only)
+
+-  Download the program and open the MSConvert program.
+- Browse. Add files.
+- Change output format to .mzML
+- Leave default settings.
+- Click Start in the bottom right hand corner.
+
+An alternative is the commerially-available Qualitative Analysis Software.
 
 ## Upload data
 
@@ -66,10 +86,7 @@ In the top panel, go to <ss>Stored Datasets</ss>. We will upload some data here.
 In the top right corner, click on <ss>Add Dataset(s)</ss>.
 <img src="../images/add_data.png" width="400" height ="200" />
 
-- Drag the <fn>.d folder</fn> into the <ss>Drop Here</ss> box.
-- (Don't select Browse.)
-
-![drag folder](images/drag.png)
+- Drag the <fn>.mzML</fn> files into the <ss>Drop Here</ss> box. - 6 reps for each strain.
 
 - Wait until all files have a green tick (scroll down to check all).
 - Name the datset (e.g. Sample AJ218 or Sample KPC2) and click <ss>Save</ss>.
@@ -79,7 +96,7 @@ In the top right corner, click on <ss>Add Dataset(s)</ss>.
 ![upload](images/file_upload.png)
 
 
-Repeat with the second <fn>.d folder</fn>
+Repeat with the second strain.
 
 
 ## Set up job
@@ -88,7 +105,7 @@ In the top panel, click on <ss>Create Job</ss> and select <ss>Pairwise Job</ss>.
 
 ![pairwise](images/pairwise.png)
 
-On the right hand side, under Job Summary, Job Name: enter job name.
+On the right hand side, under Job Summary, Job Name: enter job name. e.g. Klebsiella metabolomics.
 
 Under <ss>Dataset 1</ss> click on <ss>Select Dataset</ss>.
 
@@ -100,68 +117,120 @@ Under <ss>Dataset 2</ss> click on <ss>Select Dataset</ss>.
 
 We now need to set parameters that correspond with the machine on which the data was generated.
 
-Under <ss>Parameters</ss> select HPLC / Q-TOF.
+In a typical analysis, we would look at the raw output files and examine the chromatograms and mass spectra to inform some of the settings. Here we have chosen appropirate settings for this data set.
 
-Click <ss>Create New</ss> in the bottom right hand corner.
+e.g. use SeeMS (part of proteowizard)
 
-Give it a name. e.g. Agilent 6545
+- internal standard - a known molecule added
+- e.g. a labelled standard (lablled with C13 etc)
+- use the expected and actual mass of labelled standard to calculate the appropriate error setting (ppm - setting )
 
-See the tabs along the top: we will change some of these settings.
 
+Under <ss>Parameters</ss> select HPLC / UHD Q-TOF (HILIC, neg. mode).
+
+- Click <ss>View/Edit</ss>.
+- This brings up a window to change some settings.
+- First, click <ss>Create New</ss> in the bottom right hand corner. [add image]
+- Give it a name. e.g. Agilent 6545
+- (Don't click Save Current yet).
+- See the tabs along the top: we will change some of these settings.
+
+- Note: even if you use an existing setup, some values will need to be re-set - e.g. Statistical test, View pairs (I set up as 1 matches 1 etc?); also biosource will need to be re-set. 
 
 ![parameters](images/params1.png)
 
-Need to change polarity to negative?
-Need to change format to seconds?
+**General**
+
+- Retention time format: seconds
+- Polarity: negative
 
 **Feature Detection**
 
-There are two sets of data we will customise here: centroid data and profile data.
+Method: centWave
 
-Next to Method, click centWave (the centroid data).
-- change these and also select view advanced options?
-
-Next to Method, click matchedFilter (the profile data)
-- change these and also select view advanced options?
-
+ppm: 50
+minimum peak width: 10
+maximum peak width: 50
 
 **Retention Time Correction**
 
-This is to correct shift as run progresses? (ie still within one run?)
+This is to correct shift as run progresses? yes.
+averages the RT for each feature. incl. min and max RTs
 
-We will change settings for obiwarp and peakgroups.
+Method: obiwarp
+profStep: 0.1
+
+
+
 
 **Alignment**
 
-Does this correct between runs?
+same as ret time correction
+
+mzwid: 0.5
+minfrac: 0.5
+bw: 20
+
 
 **Statistics**
 
-Choose Wilcoxon signed rank test?
+Statistical test: Paired non-parametric (Wilcoxon signed rank test)
+[this didn't keep previously set stats - are these ok? didn't change any thresholds etc]
 
 **Annotation**
 
-which settings
+Search for: isotopes + adducts
+m/z absolute error: 0.05
+ppm: 50
+
+
+
+can have diff adducts (eg NH44)
+
+helps with ID
+
+the adducts depend on the solvent used in LC
+
+
+
+
 
 **Identification**
 
-which settings
-also: biosource - choose a K pneumo?
+ppm: 50
+adducts: [M-H]-
+sample biosource: K. pneumo [then SELECT button on left]
+
+
+
+
+
+
+
+also: biosource - choose a K pneumo? yes. but would maybe jsut be for downstream pathway stuff.
+
+
+
+ppm - same as feature detection ppm eg 7
+
+
 
 **Visualization**
+
 which settings
+200 ok. jsut width of window for chromatogram.
 
 
 **Miscellaneous**
 
-which settings
+Bypass file sanity check: tick
 
+Then:
 
-<ss>Save Current</ss>
+- <ss>Save Current</ss>
+- <ss>Submit Job</ss>
 
-<ss>Submit Job</ss>
-
-Will now bring up the View Results page.
+This will now bring up the "View Results" page.
 
 - The current job will be listed as "Processing" with a % completion bar.
 
@@ -170,43 +239,48 @@ Will now bring up the View Results page.
 
 Click on <ss>View</ss>.
 
+**Graphs: Total Ion Chromatograms**
+
+All the ions detected. Their intensity vs retention time. Original and corrected. Also, a correction curve graph.
 
 
-Stats:
-- are 2 samples different? (is that right)
 
-Identification:
-- is this converting pattern to metabolite?
+**Results Table**
+
+A table of features (ion with unique m/z and retention time).
+
+sort by heading or click on a feature row.
+
+to filter, click on the magnifying glass at the top left.
+e.g. filter by p-value or fold change. (or multiple things)
+
+The headings mean:
+
+- **fold**: fold change (log?). ratio of mean intensities.
+- **p-value**: for whatever test was performed?
+- no q value (or is this an option to toggle p value?)
+- **updown**: up or down regulated (compared to the other sample)
+- **mzmed**: median value for m/z
+- **rtmed**: median value for retention time
+- **maxint**: max intensity of the feature
+- **dataset1_mean**: average intensity of this feature in dataset1
+- **isotopes**: isotopes found (why not all have at least one? )
+- **adducts**: ? other things that formed?
+- **peakgroup**: abritrary number for different groups?  where from?
+- no Metlin column?  only have as a graph to the right?
+
+Graphs to the right: (only have EIC ?)
+
+- Extracted Ion Chromatogram (EIC): intensity vs. retention time
+- Mass spectrum: intensivy vs. m/z
+- Metlin IDs
+
+(how can you match to Metlin with only MS and not MS/MS data?)
 
 
 The [METLIN database](https://metlin.scripps.edu/landing_page.php?pgcontent=mainPage) contains data on metabolites, their mass, their known and predicted fragment masses.
 
-Viz:
-- what is EIC width
-
-- The main result is a matrix of metabolite values. (amts?)
-
-
-Things to know: -- correct?
-
-
-Retention time: the gaseous, charged fragment will be retained in the detector chamber for longer if it is heavier. Thus, retention time is a proxy for the fragment's mass.  
-Peak: In a graph of mass vs ?, the peak is a detection of a fragment. Compare height of peaks between 2 groups. Just of the metabolite, prior to fragmentation?
-
-
-mass and the fragmentation data (MS/MS spectra) for each metabolite peak. ??
-
-
-
-GRAPHS
-Pairwise Jobs will have an initial results screen that provides a summary with the following graphs:
-
-Total Ion Chromatograms (TIC) Before retention time alignment
-
-Retention Time Deviation vs Retention Time
-
-Total Ion Chromatograms (TIC) post retention time correction
-
+**Metabolomic Cloud Plot**
 
 Cloud plot: m/z vs retention time
 What are the circles - abundance of metabolites?
@@ -217,23 +291,16 @@ intensity
 -- why can u adjust? is it for zooming in?  
 
 
-
-Multidimensional Scaling (MDS)
-
-
-
-Principal Component Analysis (PCA)
-- can re-scale? why?
-
-
-Optionally a MS/MS scan location plot if MS/MS data was included in file upload
-
-
-TABLE
-The View Results Table is different than the View Results page and can be found by clicking the “VIEW” button of a job. On the left side is a button named "View Results Table."
+**Interactive Heatmap**
 
 
 
+**iPCA**
+
+
+**Conclusion**
+
+We found the metabolites A, B, C were upregulated in strain KPC2, and they are part of the XYZ pathway involved in <something>.
 
 ## Next
 
@@ -245,3 +312,7 @@ More complex analyses: eg compare wildtype with 5 mutants. Metabolites in common
 [XCMS Online](https://xcmsonline.scripps.edu)
 
 ["XCMS Online" documentation](https://xcmsonline.scripps.edu/landing_page.php?pgcontent=documentation)
+
+Smith, R. et al. (2014) Proteomics, lipidomics, metabolomics: a mass spectrometry tutorial from a computer scientist's point of view. *BMC Bioinformatics*. DOI: 10.1186/1471-2105-15-S7-S9.
+
+- See Figure 2 for an excellent explanation of the various graphs produced from MS.
