@@ -63,7 +63,7 @@ Another window will appear while processing. Wait for processing to complete, un
 
 ### Specify Replicon details
 
-In this view, you provide the details of the annotated assembly. Each chromosome will have a separate entry. For each chromosome, you need to provide the __GBK__ and __FNA__ annotation files from Prooka.
+In this view, you provide the details of the annotated assembly. Each chromosome will have a separate entry. For each chromosome, you need to provide the __GBK__ and __FNA__ annotation files from Prokka.
 
 *	Name : <ss>1</ss> ( This is the chromosome name or number)
 *	Circular: <ss>checked</ss> if circulator was performed or leave it unchecked
