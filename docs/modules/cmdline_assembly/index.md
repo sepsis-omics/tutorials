@@ -1,89 +1,99 @@
 <br>
-#Pacbio reads: assembly with command line tools
+# Pacbio reads: assembly with command line tools
 
 Keywords: de novo assembly, PacBio, PacificBiosciences, Illumina, command line, Canu, Circlator, BWA, Spades, Pilon, Microbial Genomics Virtual Laboratory
 
 This tutorial demonstrates how to use long Pacbio sequence reads to assemble a bacterial genome and plasmids, including correcting the assembly with short Illumina reads.
 
+## Resources
+
+Tools (and versions) used in this tutorial include:
+
+- canu 1.5 [recently updated]
+- infoseq and sizeseq (part of EMBOSS) 6.6.0.0
+- circlator 1.5.1 [recently updated]
+- bwa 0.7.15
+- samtools 1.3.1
+- makeblastdb and blastn (part of blast) 2.4.0+
+- pilon 1.20
+
+<!-- check these are the correct version - updates? -->
 
 ## Learning objectives
-
-<!--
-At the end of this tutorial, be able to use command line tools to produce a bacterial genome assembly
-using the following workflow:
-
-
-1. get data
-2. assemble long (Pacbio) reads
-3. trim overhangs and circularise
-4. search for smaller plasmids
-5. correct with short (Illumina) reads
-
--->
 
 At the end of this tutorial, be able to:
 
 1. Assemble, circularise and polish PacBio data for a prokaryote
 2. Retrieve small plasmids missed by long read sequencing, using Illumina data
-3. Learn which data sets are appropriate for polishing assembled sequences.
+3. Explore the effect of polishing assembled sequences with a different data set.
 
-##Overview
+## Overview
 
 Simplified version of workflow:
 
 ![workflow](images/flowchart.png)
 
-##Get data
-- Open the mGVL command line
-- Navigate to or create the directory in which you want to work.
-e.g.
-```text
-mkdir staph
-cd staph
-```
-If you already have the files ready, skip forward to next section, [Assemble](#assemble).
+## Get data
 
-###Find the Pacbio files for this sample
+- Open the command line. <!-- own machine, mGVL or BPA VM -->
+- Navigate to or create the directory in which you want to work.
+- If you already have the files ready, skip forward to next section, [Assemble](#assemble).
+
+### Find the PacBio files for this sample
+
 - If the files are already on your server, you can symlink by using
+
 ```text
-ln -s real_file_path chosen_symlink_name
+ln -s real_file_path [e.g. data/sample_name/pacbio1.fastq.gz] chosen_symlink_name [e.g. pacbio1.fastq.gz]
 ```
+
 - Alternatively, obtain the input files from elsewhere, e.g. from the BPA portal. (You will need a password.)
-- Pacbio files are often stored in the format: Sample_name/Cell_name/Analysis_Results/long_file_name_1.fastq.gz
+
+- Pacbio files are often stored in the format:
+    - <fn>Sample_name/Cell_name/Analysis_Results/long_file_name_1.fastq.gz</fn>
+
 - We will use the <fn>longfilename.subreads.fastq.gz</fn> files.
+
 - The reads are usually split into three separate files because they are so large.
+
 - Right click on the first <fn>subreads.fastq.gz</fn> file and "copy link address".
+
 - In the command line, type:
+
 ```text
 wget --user username --password password [paste link URL for file]
 ```
 - Repeat for the other two <fn>subreads.fastq.gz</fn> files.
 
-###Join Pacbio fastq files
+### Join Pacbio fastq files
+
 - If the files are gzipped, type:
+
 ```text
-cat filepath/filep0.*.subreads.fastq.gz > subreads.fastq.gz
+cat pacbio*.fastq.gz > subreads.fastq.gz
 ```
+
 - If the files are not gzipped, type:
 ```text
-cat filepath/filep0.*.subreads.fastq | gzip > subreads.fastq.gz
+cat pacbio*.fastq | gzip > subreads.fastq.gz
 ```
+
 - We now have a file called <fn>subreads.fastq.gz</fn>.
-###Find the Illumina files for this sample
+
+### Find the Illumina files for this sample
+
 - We will also use 2 x Illumina (Miseq) fastq.gz files.
 - These are the <fn>R1.fastq.gz</fn> and <fn>R2.fastq.gz</fn> files.
-- Right click on the file name and "copy link address".
-- In the command line, type:
-```text
-wget --user username --password password [paste link URL for file]
-```
-- Repeat for the other read.fastq.gz file.
+- Symlink or "wget" these files as described above for PacBio files.
 - Shorten the name of each of these files:
+
 ```text
 mv longfilename_R1.fastq.gz R1.fastq.gz
 mv longfilename_R2.fastq.gz R2.fastq.gz
 ```
-###View files
+
+### View files
+
 - Type "ls" to display the folder contents.
 ```text
 ls
@@ -93,95 +103,172 @@ ls
     - <fn>R1.fastq.gz</fn> and <fn>R2.fastq.gz</fn> (the Illumina reads)
 
 <!--
-Find information about read lengths:
-
-```text
-fq subreads.fastq.gz
-```
-
+Find information about read lengths: fq subreads.fastq.gz
 - Look at the average and maximum lengths.
 -->
+
 - In this tutorial we will use *Staphylococcus aureus* sample 25745.
+
+or: sample 25747 (add details).
 
 ### Sample information
 
+Sample 25745:
 The sample used in this tutorial is a gram-positive bacteria called *Staphylococcus aureus*. Some strains of *S. aureus* are resistant to antibiotics. For example, methicillin-resistant *S. aureus* (or MRSA) cannot be treated with the antibiotic methicillin (a type of penicillin). The sample used here however is a methicillin-sensitive (MSSA). It was isolated from (human) blood and caused bacteraemia, an infection of the blood.
 
-##Assemble<a name="assemble"></a>
+## Assemble<a name="assemble"></a>
+
 - We will use the assembly software called [Canu](http://canu.readthedocs.io/en/stable/).
 - Run Canu with these commands:
+
 ```text
-canu -p staph -d output genomeSize=2.8m -pacbio-raw subreads.fastq
+canu -p canu -d canu_output genomeSize=2.8m -pacbio-raw subreads.fastq.gz
 ```
-- **staph** is the prefix given to output files
-- **output** is the name of the output directory
+
+- the first **canu** tells the program to run
+- **-p canu**: names prefix for output files ("canu")
+- **-d canu_output**: names output directory ("canu_output")
 - **genomeSize** only has to be approximate.
     - e.g. *Staphylococcus aureus*, 2.8m
     - e.g. *Streptococcus pyogenes*, 1.8m
 - the **reads** can be unzipped or .gz
 
 - Canu will correct, trim and assemble the reads.
+- Various output will be displayed on the screen.
 - This will take ~ 30 minutes.
 
-###Check the output
-```text
-cd output
-```
-- The <fn>staph.contigs.fasta</fn> are the assembled sequences.
-- The <fn>staph.unassembled.fasta</fn> are the reads that could not be assembled.
-- The <fn>staph.correctedReads.fasta.gz</fn> are the corrected Pacbio reads that were used in the assembly.
-- The <fn>staph.file.gfa</fn> is the graph of the assembly.
+### Check the output
+
+Move into the output directory and "ls" to see the output files.
+
+- The <fn>canu.contigs.fasta</fn> are the assembled sequences.
+- The <fn>canu.unassembled.fasta</fn> are the reads that could not be assembled.
+- The <fn>canu.correctedReads.fasta.gz</fn> are the corrected Pacbio reads that were used in the assembly.
+- The <fn>canu.file.gfa</fn> is the graph of the assembly.
 - Display summary information about the contigs:
 ```
-infoseq staph.contigs.fasta
+infoseq canu.contigs.fasta
 ```
 
 - (infoseq is a tool from [EMBOSS](http://emboss.sourceforge.net/index.html))
 
 - This will show the number of contigs, e.g.
+
 ```text
-    - tig00000000	dna	2746242
-    - tig00000001	dna	48500
+    - tig00000031	49397
+    - tig00000056	2748030
 ```
 
-###Change Canu parameters if required
+This looks like a chromosome of 2.7 million bases and a plasmid of 49 k bases.
+
+[explain some of these features: %GC content, len=49397 reads=61 covStat=3.95 gappedBases=no class=contig suggestRepeat=no suggestCircular=no]
+
+Or: Sample 25747:  tig00000001 2,851,895
+
+
+
+### Change Canu parameters if required
+
 - If the assembly is poor with many contigs, re-run Canu with extra sensitivity parameters; e.g.
 ```text
 canu -p prefix -d outdir corMhapSensitivity=high corMinCoverage=0 genomeSize=2.8m -pacbio-raw subreads.fastq
 ```
+
+## Questions
+
+Q: How do long- and short-read assembly methods differ? A: short reads: De Bruijn graphs; long reads: a move back towards simpler overlap-layout-consensus methods.
+
+Q: Where can we find out the what the approximate genome size should be for the species being assembled? A: NCBI Genomes - enter species name - click on Genome Assembly and Annotation report - sort table by clicking on the column header Size (Mb) - look at range of sizes in this column.
+
+Q: In the assembly output, what are the unassembled reads? Why are they there?
+
+Q: What are the corrected reads? How did canu correct the reads?
+
+Q: Where could you view the output .gfa and what would it show?
 
 ## Trim and circularise
 
 ### Run Circlator
 Circlator identifies and trims overhangs (on chromosomes and plasmids) and orients the start position at an appropriate gene (e.g. dnaA). It takes in the assembled contigs from Canu, as well as the corrected reads prepared by Canu.
 
+Move back into your main folder.
+
 To run:
+
 ```text
-circlator all --threads 8 --verbose --b2r_length_cutoff 20000 ../staph.contigs.fasta ../staph.corrected.reads.fastq.gz circlator_all_output
+circlator all --threads 8 --verbose canu_output/canu.contigs.fasta canu_output/canu.correctedReads.fasta.gz circlator_output
 ```
 - **&#45;&#45;threads** is the number of cores
 - **&#45;&#45;verbose** prints progress information to the screen
-- **&#45;&#45;b2r_length_cutoff** using approximately 2X average read length (could be omitted at first; if all contigs don't circularise, include this option to see if any improvement)
-- **<fn>../staph.contigs.fasta</fn>** is the file path to the input multi-fasta assembly
-- **<fn>../staph.corrected.reads.fastq.gz</fn>** is the file path to the corrected Pacbio reads
-- **circlator_all_output** is the name of the output directory.
 
-Check the output: were the contigs circularised:
+- **<fn>canu_output/canu.contigs.fasta</fn>** is the file path to the input multi-fasta assembly
+- **<fn>canu_output/canu.correctedReads.fasta.gz</fn>** is the file path to the corrected Pacbio reads - note, fasta not fastq
+- **circlator_output** is the name of the output directory.
+
+Some output will print to screen. When finished, it should say "Circularized x of x contig(s)".
+
+### Check the output
+
+Move into the circlator_output directory and "ls" to list files.
+
+*Were the contigs circularised?* :
+
 ```text
 less 04.merge.circularise.log
 ```
-Where were the contigs oriented (which gene):
+
+- Yes, both were circularised (last column).
+- Type "q" to exit.
+
+*Where were the contigs oriented (which gene)?* :
+
 ```text
 less 06.fixstart.log
 ```
-What are the trimmed contig sizes:
+- Look in the "gene_name" column.
+- Contig tig00000056 (the chromosome) has been oriented at tr|A0A090N2A8|A0A090N2A8_STAAU, which is another name for dnaA. <!-- (search swissprot - uniprot.org) -->
+- Contig tig00000031 (the plasmid) has been oriented at a gene predicted by prodigal.
+
+*What are the trimmed contig sizes?* :
+
 ```text
 infoseq 06.fixstart.fasta
 ```
-The trimmed contigs are in the file called <fn>06.fixstart.fasta</fn>. Re-name it <fn>contig_1_2.fa</fn>:
+
+- tig00000031 25012  (24835 bases trimmed - almost half)[explain why]
+
+- tig00000056 2725223 (22807 bases trimmed)
+
+or: sample 25747: 2,823,331 (28564 bases trimmed)
+
+*Re-name the contigs file*:
+
+- The trimmed contigs are in the file called <fn>06.fixstart.fasta</fn>.
+- Re-name it <fn>contig_1_2.fa</fn>:
+
+or: sample 25747: contig1.fa
+
 ```text
 mv 06.fixstart.fasta contig_1_2.fa
 ```
+
+to do: rename contig "chromosome.fasta" and in fasta file header here with nano. e.g. chromosome
+
+### Options:
+
+[explain this option better]
+
+**&#45;&#45;b2r_length_cutoff** using approximately 2X average read length (could be omitted at first; if all contigs don't circularise, include this option to see if any improvement)
+
+e.g. setting as: 20000
+
+
+## Questions
+
+Q: Were all the contigs circularised? Why/why not?
+
+Q: Circlator can set the start of the sequence at a particular gene. Which gene does it use? Is this appropriate for all contigs? A: Uses dnaA for the chromosomal contig. For other contigs, uses a centrally-located gene. However, ideally, plasmids would be oriented on a gene such as repA. It is possible to provide a file to Circlator to do this.
+
 
 ## Find smaller plasmids
 Pacbio reads are long, and may have been longer than small plasmids. We will look for any small plasmids using the Illumina reads.
@@ -191,7 +278,13 @@ This section involves several steps:
 1. Use the multifasta canu-circlator output of trimmed assembly contigs.
 2. Map all the Illumina reads against these Pacbio assembled contigs.
 3. Extract any reads that *didn't* map and assemble them together: this could be a plasmid, or part of a plasmid.
-5. Look for overhang: if found, trim. If not, continue:
+5. Look for overhang: if found, trim.
+
+
+**Optional**:
+
+If no overhang found in assembled contigs from the unmapped reads:
+
 6. Search Genbank for any matching proteins: a replication protein found.  
 7. Assemble all the Illumina reads and produce an assembly graph.
 8. Search the graph for a match to the replication protein and its adjoining regions.
@@ -199,13 +292,21 @@ This section involves several steps:
 10. Check for overhang in this plasmid and trim.
 
 
-###Align Illumina with BWA
+
+
+### Align Illumina reads to PacBio contigs
+
+- Copy the trimmed, circularised contigs from circlator back to your main folder.
 - Align illumina reads to these contigs
-- First, index the contigs file
+
+- First, index the contigs file. [explain what this does]
+
 ```text
 bwa index contig_1_2.fa
 ```
-- then, align using bwa mem
+
+- then, align using bwa mem:
+
 ```text
 bwa mem -t 8 contig_1_2.fa R1.fastq.gz R2.fastq.gz | samtools sort > aln.bam
 ```
@@ -216,7 +317,9 @@ bwa mem -t 8 contig_1_2.fa R1.fastq.gz R2.fastq.gz | samtools sort > aln.bam
 - ** | samtools sort** pipes the output to samtools to sort
 - **> aln.bam** sends the alignment to the file <fn>aln.bam</fn>
 
-###Extract unmapped Illumina reads
+
+### Extract unmapped Illumina reads
+
 - Index the alignment file
 ```text
 samtools index aln.bam
@@ -238,7 +341,8 @@ We now have three files of the unampped reads:
 - <fn> unmapped.R2.fastq</fn>
 - <fn> unmapped.RS.fastq</fn>
 
-###Assemble the unmapped reads
+### Assemble the unmapped reads
+
 - assemble with spades
 ```text
 spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq --careful --cov-cutoff auto -o spades_assembly
@@ -251,13 +355,15 @@ spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq --caref
 - **&#45;&#45; cov-cutoff auto** : computes the coverage threshold (rather than the default setting, "off")
 - **-o** is the output directory
 
+Look at the output:
+
 ```text
 cd spades_assembly
 infoseq contigs.fasta
 ```
-- shows how many assembled:
-    - e.g. no=135
-    - max = 2229
+- shows 11 contigs were assembled, with the max length of 2229.     
+
+<!--
 - sort fasta by size of seqs:
 ```text
 sizeseq
@@ -265,13 +371,17 @@ input sequence set: contigs.fasta
 return longest sequence first [N]: Y
 output sequence(s) [contigs.fasta]: sorted_contigs.fasta
 ```
+-->
+
 Print the first row of each seq to see coverage:
 ```text
-grep cov sorted_contigs.fasta  
+grep cov contigs.fasta  
 ```
-- result: NODE_1_length_2229_cov_610.583
+- result: NODE_1_length_2229_cov_610.298
     - longest contig is 2229 and high coverage
-- all the nodes are listed
+- all other contigs are short so we will disregard.
+
+<!--
 - see if any other nodes have high coverage
     - e.g. NODE_135_length_78_cov_579
 - look at the sequence of this contig:
@@ -279,14 +389,23 @@ grep cov sorted_contigs.fasta
 tail sorted_contigs.fasta
 ```
 - This is a homopolymer, so disregard.
+-->
+
+or sample 25747: NODE_1_length_2550_cov_496.613
+all other nodes are < 650kb
+
 - We will extract the first sequence (NODE_1):
 ```text
-samtools faidx sorted_contigs.fasta
-samtools faidx sorted_contigs.fasta NODE_1_length_2229_cov_610.583 > contig3.fa
+samtools faidx contigs.fasta
+samtools faidx contigs.fasta NODE_1_length_2229_cov_610.298 > contig3.fa
 ```
 - this is now saved as <fn>contig3.fa</fn>
-- open this file in nano, make the header ">contig3", save.
-###Investigate the small plasmid (contig3)
+- open this file in nano, make the header ">contig3", save (Ctrl-X).
+
+or sample 25747: extracted as plasmid.fa
+
+### Investigate the small plasmid (contig3)
+
 - Blast the start of contig3 against itself
 - Take the start of the contig:
 ```text
@@ -308,6 +427,32 @@ less contig3.bls
 - the first hit is against itself, as expected
 - there are no few further hits, so we assume there is no overhang that needs trimming.
 - however, the sequence is likely then to be longer than this.
+
+
+or: sample 25747:
+first hit at start
+second hit is at 2474 all the way to the end - 2550.
+so trim to 2473
+
+- Index the plasmid.fa file:
+```text
+samtools faidx plasmid.fa
+```
+- Trim:
+```text
+samtools faidx plasmid.fa plasmid:1-2473 > plasmid.fa.trimmed
+```
+- Open this file in nano and change the header to ">plasmid_trimmed", save.
+- We now have a trimmed plasmid.
+
+to do: end up with naming this plasmid.fasta
+
+to do: orient this at repA.
+
+
+
+-----------------------------
+or continuing on from sample 25745:
 
 ```text
 less contig3.fa
@@ -388,6 +533,23 @@ cat contig_1_2.fa contig3b.fa.trimmed > all_contigs.fa
 infoseq all_contigs.fa
 ```
 
+or with sample 25747: cat contig1 plasmid1 > contigs.fasta
+
+## Questions
+
+Q: Why is this section so complicated? A: Finding small plasmids is difficult for many reasons! This paper has a nice summary: On the (im)possibility to reconstruct plasmids from whole genome short-read sequencing data. doi: https://doi.org/10.1101/086744
+
+Q: Why can PacBio sequencing miss small plasmids? A: Library prep size selection
+
+Q: We extract unmapped Illumina reads and assemble these to find small plasmids. What could they be missing? A: Repeats that have mapped to the PacBio assembly.
+
+Q: How do you find a plasmid in a Bandage graph? A: It is probably circular, matches the size of a known plasmid, has a rep gene...
+
+Q: Are there easier ways to find plasmids? A: Possibly. One option is the program called Unicycler which may automate many of these steps. https://github.com/rrwick/Unicycler
+
+## Re-orient the plasmids at repA?
+
+
 ##Correct
 
 We will correct the Pacbio assembly with Illumina reads.
@@ -423,6 +585,8 @@ Look at how the illumina reads are aligned:
 samtools tview -p contig1 aln.bam contigs.fasta
 ```
 note: **contig1** is the name of the contig to view; e.g. tig00000000.
+
+[explain settings in tview - how to scroll, find]
 
 Run pilon:
 
@@ -464,9 +628,29 @@ infoseq pilon1.fasta
 
 If there are more than 2 changes, run Pilon again, using the pilon1.fasta file as the input assembly, and the Illumina reads to correct.
 
+
+
+eg sample 25747: ~ 10 changes. (compared to snippy  ~ 10 changes)
+re-ran pilon. only 2 changes made.
+saved pilon2.fasta as staph_assembly.fasta
+
+
+note: annotated with prokka. plasmid only has two proteins. ermC, and a hypothetical protein. protein blast genbank: matches a staph replication and maintenance protein. (rep?)
+
+
 **Final output:**
 
 - the corrected genome assembly of *Staphylococcus aureus* in .fasta format, containing three contigs: chromosome, large plasmid and small plasmid.  
+
+
+## Questions
+
+Q: Why don't we correct earlier in the assembly process? A: We need to circularise the contigs and trim overhangs first.
+
+Q: Why can we use some reads (Illumina) to correct other reads (PacBio) ? A: Illumina reads have higher accuracy
+
+Q: Could we just use PacBio reads to assemble the genome? A: Yes, if accuracy adequate.
+
 
 
 ##Next
