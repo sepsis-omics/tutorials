@@ -135,7 +135,7 @@ Under <ss>Parameters</ss> select HPLC / UHD Q-TOF (HILIC, neg. mode).
 - (Don't click Save Current yet).
 - See the tabs along the top: we will change some of these settings.
 
-- Note: even if you use an existing setup, some values will need to be re-set - e.g. Statistical test, View pairs (I set up as 1 matches 1 etc?); also biosource will need to be re-set. 
+- Note: even if you use an existing setup, some values will need to be re-set - e.g. Statistical test, View pairs (I set up as 1 matches 1 etc?); also biosource will need to be re-set.
 
 ![parameters](images/params1.png)
 
@@ -238,6 +238,10 @@ This will now bring up the "View Results" page.
 ## View results
 
 Click on <ss>View</ss>.
+
+First check samples are different enough? PCA and MDS? iPCA?
+
+
 
 **Graphs: Total Ion Chromatograms**
 
