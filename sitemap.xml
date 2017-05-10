@@ -3,7 +3,7 @@
 
     
     <url>
-     <loc>/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -12,107 +12,91 @@
     
         
     <url>
-     <loc>/modules/workshop_overview/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/workshop_overview/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/galaxy/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/galaxy/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/data-dna/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/data-dna/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/fastqc/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/fastqc/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/velvet/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/velvet/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/spades/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/spades/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/prokka/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/prokka/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/snippy/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/snippy/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/access_data/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/access_data/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/abricate/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/abricate/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/viral_genomes/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/viral_genomes/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/workflows/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/workflows/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/frogs/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/frogs/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/pacbio/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/pacbio/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/cmdline_assembly/</loc>
-     <lastmod>2017-05-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>/modules/dge/</loc>
-     <lastmod>2017-05-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/modules/kallisto/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/cmdline_assembly/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -122,13 +106,29 @@
     
         
     <url>
-     <loc>/modules/xtandem/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/dge/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/modules/pathway_tools/annotation/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/kallisto/</loc>
+     <lastmod>2017-05-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/xtandem/</loc>
+     <lastmod>2017-05-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/pathway_tools/annotation/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -138,7 +138,7 @@
     
         
     <url>
-     <loc>/modules/xcms/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/xcms/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -147,7 +147,7 @@
 
     
     <url>
-     <loc>/about/</loc>
+     <loc>http://sepsis-omics.github.io/tutorials//about/</loc>
      <lastmod>2017-05-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
