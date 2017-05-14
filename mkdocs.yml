@@ -2,7 +2,8 @@ site_name: ABRPI Training 2017
 site_description: Tutorials for analysing bacterial omics data
 site_author: Anna Syme, Torsten Seemann
 site_favicon: favicon.ico
-theme: yeti
+theme: material
+#theme: yeti
 #theme: united
 markdown_extensions:
     - admonition
