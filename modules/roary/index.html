@@ -9,7 +9,7 @@
         <meta name="description" content="Tutorials for analysing bacterial omics data">
       
       
-        <link rel="canonical" href="http://sepsis-omics.github.io/tutorials/modules/access_data/">
+        <link rel="canonical" href="http://sepsis-omics.github.io/tutorials/modules/roary/">
       
       
         <meta name="author" content="Anna Syme, Torsten Seemann">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Public data &rarr; assembly, annotation - ABRPI</title>
+        <title>Pangenomes with Roary - ABRPI</title>
       
     
     
@@ -86,7 +86,7 @@
                 </span>
               
             
-            Public data &rarr; assembly, annotation
+            Pangenomes with Roary
           
         </span>
       </div>
@@ -396,110 +396,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Public data &rarr; assembly, annotation
-      </label>
-    
-    <a href="./" title="Public data &rarr; assembly, annotation" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../access_data/" title="Public data &rarr; assembly, annotation" class="md-nav__link">
       Public data &rarr; assembly, annotation
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#background" title="Background" class="md-nav__link">
-    Background
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#import-data" title="Import data" class="md-nav__link">
-    Import data
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#evaluate-quality" title="Evaluate quality" class="md-nav__link">
-    Evaluate quality
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trim" title="Trim" class="md-nav__link">
-    Trim
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assemble" title="Assemble" class="md-nav__link">
-    Assemble
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#find-antibiotic-resistance-genes" title="Find antibiotic resistance genes" class="md-nav__link">
-    Find antibiotic resistance genes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#find-the-sequence-type-mlst" title="Find the sequence type (MLST)" class="md-nav__link">
-    Find the sequence type (MLST)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#annotate" title="Annotate" class="md-nav__link">
-    Annotate
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next" title="Next" class="md-nav__link">
-    Next
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -579,11 +480,115 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../roary/" title="Pangenomes with Roary" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Pangenomes with Roary
+      </label>
+    
+    <a href="./" title="Pangenomes with Roary" class="md-nav__link md-nav__link--active">
       Pangenomes with Roary
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-data" title="Get data" class="md-nav__link">
+    Get data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run" title="Run" class="md-nav__link">
+    Run
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-roary" title="Run roary" class="md-nav__link">
+    Run roary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-roary-do" title="What does Roary do" class="md-nav__link">
+    What does Roary do
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" title="Output" class="md-nav__link">
+    Output
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-and-pan-genes" title="Core and pan genes" class="md-nav__link">
+    Core and pan genes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gene-presenceabsence" title="Gene presence/absence" class="md-nav__link">
+    Gene presence/absence
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vizualize-with-phandango" title="Vizualize with Phandango" class="md-nav__link">
+    Vizualize with Phandango
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" title="Links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -757,71 +762,76 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
+  <a href="#get-data" title="Get data" class="md-nav__link">
+    Get data
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#background" title="Background" class="md-nav__link">
-    Background
+  <a href="#run" title="Run" class="md-nav__link">
+    Run
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-roary" title="Run roary" class="md-nav__link">
+    Run roary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-does-roary-do" title="What does Roary do" class="md-nav__link">
+    What does Roary do
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" title="Output" class="md-nav__link">
+    Output
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-and-pan-genes" title="Core and pan genes" class="md-nav__link">
+    Core and pan genes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gene-presenceabsence" title="Gene presence/absence" class="md-nav__link">
+    Gene presence/absence
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vizualize-with-phandango" title="Vizualize with Phandango" class="md-nav__link">
+    Vizualize with Phandango
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#import-data" title="Import data" class="md-nav__link">
-    Import data
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#evaluate-quality" title="Evaluate quality" class="md-nav__link">
-    Evaluate quality
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trim" title="Trim" class="md-nav__link">
-    Trim
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assemble" title="Assemble" class="md-nav__link">
-    Assemble
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#find-antibiotic-resistance-genes" title="Find antibiotic resistance genes" class="md-nav__link">
-    Find antibiotic resistance genes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#find-the-sequence-type-mlst" title="Find the sequence type (MLST)" class="md-nav__link">
-    Find the sequence type (MLST)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#annotate" title="Annotate" class="md-nav__link">
-    Annotate
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next" title="Next" class="md-nav__link">
-    Next
+  <a href="#links" title="Links" class="md-nav__link">
+    Links
   </a>
   
 </li>
@@ -841,259 +851,96 @@
               
                 
                 
-                <p><br></p>
-<h1 id="public-data-assembly-annotation-mlst">Public data &rarr; assembly, annotation, MLST</h1>
-<h2 id="overview">Overview</h2>
-<ul>
-<li>Download a readset from a public database</li>
-<li>Check the quality of the data and filter</li>
-<li>Assemble the reads into a draft genome</li>
-<li>Find antibiotic resistance genes</li>
-<li>Annotate the genome</li>
-<li>Find the sequence type (the MLST)</li>
-</ul>
-<h2 id="background">Background</h2>
-<p>Sequencing reads (readsets) for more than 100,000 isolates are available on public molecular sequence databases (GenBank/ENA/DDJB):</p>
-<ul>
-<li>Most of these have been produced using the Illumina sequencing platform.</li>
-<li>Most of these have no corresponding draft assembly.</li>
-</ul>
-<p>Not all readsets are of high quality:</p>
-<ul>
-<li>There may be insufficient reads (usually ~x20 is the minimum read coverage needed).</li>
-<li>The reads could be from a mixed colony.</li>
-<li>The classification could be incorrect (both genus and species).</li>
-</ul>
-<p>It is VERY important to check that what you find in the readset makes sense!</p>
-<h2 id="import-data">Import data</h2>
-<ul>
-<li>Go to your Galaxy instance.</li>
-<li>
-<p>Set up a new History for this Activity.</p>
-<ul>
-<li>In the History panel, click on the cog icon, select <ss>Create New</ss>.</li>
-<li>A new empty history should appear; click on <fn>Unnamed history</fn> and re-name it (e.g. ENA Activity).</li>
-</ul>
-<p><img alt="Galaxy new history" src="./images/galaxy1.png" /></p>
-</li>
-<li>
-<p>Choose an accession number.</p>
-<ul>
-<li>If you are working on this tutorial in a workshop: assign yourself a readset from the table of isolates provided. Put your name in Column B. The accession number for the readset that relates to each isolate is located in Column A. ERR019289 will be used in this demonstration. <!-- <a href="https://docs.google.com/spreadsheets/d/12X68SEXXcEY2EASjvvZe6w__60_1w3onqCIu1RZMYcg/edit#gid=0">https://docs.google.com/spreadsheets/d/12X68SEXXcEY2EASjvvZe6w__60_1w3onqCIu1RZMYcg/edit#gid=0</a>. --></li>
-<li>Alternatively, use accession number ERR019289. This is <em>Vibrio cholerae</em>.</li>
-</ul>
-</li>
-<li>
-<p>In Galaxy, go to the Tools panel on the left, select <ss>Get Data &rarr; EBI SRA</ss>.</p>
-<ul>
-<li>This causes the ENA website to open.</li>
-<li>Enter the accession number in the ENA search bar.
-<img alt="ENA search bar" src="./images/ENA.png" /></li>
-</ul>
-</li>
-<li>
-<p>(The search may find reads under Experiment and Run. If so, click on the Accession number under &ldquo;Run&rdquo;.)</p>
-</li>
-<li>
-<p>Find the column called <ss>Fastq files (galaxy)</ss>. Click on <fn>File 1</fn>.</p>
-</li>
-</ul>
-<p><img alt="ENA fastq" src="./images/ENA_fastq.png" /></p>
-<p>This file will download to your Galaxy history, and will return you to the Galaxy page.</p>
+                <h1 id="find-pan-genomes-using-roary">Find pan-genomes using Roary</h1>
+<p>A concept in comparative microbial genomics is core and pan genomes. If we analyse DNA from several bacterial strains, we may want to know which genes they have in common and which are unique to some strains.</p>
 <ul>
 <li>
-<p>Repeat the above steps for <ss>Get Data &rarr; EBI SRA</ss> and download <fn>File 2</fn>.</p>
+<p>The <em>core genome</em> is the group of genes shared by all strains in the clade of interest. Gene sequences are similar but not necessarily identical. &ldquo;Core genome SNPs&rdquo; are those SNPs found in the genes in the core genome; i.e. at a particular site, the nucleotide varies. We can use these SNPs to infer relationships between the strains.</p>
 </li>
 <li>
-<p>The files should now be in your Galaxy history.</p>
-</li>
-<li>Click on the pencil icon next to File 1.<ul>
-<li>Re-name it <fn>ERR019289_1.fastq.gz</fn>. <ss>Save</ss></li>
-<li>Change the datatype to <strong>fastqsanger</strong> (note: not fastqCsanger). <ss> Save</ss></li>
-</ul>
-</li>
-<li>Repeat for File 2 (name it <fn>ERR019289_2.fastq.gz</fn>).</li>
-</ul>
-<h2 id="evaluate-quality">Evaluate quality</h2>
-<p>We will run FastQC on the pair of fastq files.</p>
-<ul>
-<li>In the Galaxy tools panel, go to <ss>NGS Analysis: NGS QC and manipulation: FastQC</ss>.</li>
-<li>Choose the <ss>Multiple datasets</ss> icon and then select both <fn>fastq</fn> files.</li>
-<li>Your Galaxy window should look like this:</li>
-</ul>
-<p><img alt="galaxy window" src="./images/galaxy2.png" /></p>
-<ul>
-<li>Click <ss>Execute</ss>  </li>
-<li>The output (4 files) will appear at the top of your Galaxy history.</li>
-<li>Click on the eye icon next to <fn>FastQC on data 1: Web page</fn></li>
-<li>Scroll through the results. Take note of the maximum read length (<em>e.g.</em> 54 bp).</li>
-</ul>
-<h2 id="trim">Trim</h2>
-<p>In this step we will remove adapters and trim low-quality sequence from the reads.</p>
-<ul>
-<li>In the Galaxy tools panel, go to <ss>NGS Analysis: NGS QC and manipulation: Trimmomatic</ss></li>
-<li>Leave settings as they are except for:<ul>
-<li><ss>Input FASTQ file R1</ss> - check this is File 1</li>
-<li><ss>Input FASTQ file R2</ss> - check this is File 2</li>
-</ul>
-</li>
-<li>Under <ss>Perform initial ILLUMINACLIP step</ss> choose <em>Yes</em><ul>
-<li>Under <ss>Adapter sequences to use</ss> choose <em>Nextera(paired-ended)</em></li>
-<li>This trims particular adapters from the sequences.</li>
-</ul>
-</li>
-<li>Under <ss>Trimmomatic Operation</ss> leave the settings as they are.<ul>
-<li>We will use the average quality across a 4-base sliding window to identify and delete bad sequence (and the flanking bases to the start or end of the sequences - whichever is nearest to the patch of poor quality sequence)</li>
-</ul>
-</li>
-</ul>
-<p>Your tool interface should look like this:</p>
-<p><img alt="trimmomatic tool interface" src="./images/trimmomatic.png" /></p>
-<ul>
-<li>Click <ss>Execute</ss>  </li>
-</ul>
-<p>There are four output files.</p>
-<ul>
-<li>Because trimmomatic might have trimmed some reads to zero, there are now some reads reads with no pair. These are in the <em>unpaired</em> output files. These can be deleted (with the cross button).</li>
-<li>Re-name the other two output files, e.g. as <fn>ERRxxxxx_T1.fastq.gz</fn> &amp; <fn>ERRxxxxx_T2.fastq.gz</fn>. These properly paired fastq files will be the input for the Spades assembly.  </li>
-</ul>
-<h2 id="assemble">Assemble</h2>
-<p>We will assemble the trimmed reads.</p>
-<p>In the left hand tools panel, go to <ss>NGS Analysis: NGS Assembly: spades</ss>.</p>
-<p>Leave the parameters as their defaults except:</p>
-<ul>
-<li><ss>Careful correction?</ss> <em>No</em></li>
-<li><ss>Kmers to use, separated by commas:</ss> <em>21,33,51</em><ul>
-<li>chosen kmers must be <strong>shorter</strong> than the maximum read length (see the FastQC output: sequence length)</li>
-</ul>
-</li>
-<li><ss>Coverage Cutoff:</ss> <em>Off</em><ul>
-<li>using a coverage cutoff might cause a problem if there are high-copy-number plasmids</li>
-</ul>
-</li>
-<li><ss>Forward reads:</ss> ERR019289_T1.fastq.gz</li>
-<li><ss>Reverse reads:</ss> ERR019289_T2.fastq.gz</li>
-</ul>
-<p>Your tool interface should look like this:</p>
-<p><img alt="spades tool interface" src="./images/spades.png" /></p>
-<ul>
-<li>Click <ss>Execute</ss>  </li>
-</ul>
-<p>There are five output files.</p>
-<ul>
-<li><fn>SPAdes contigs (fasta)</fn> &amp; <fn>SPAdes scaffolds (fasta)</fn>: The draft genome assembly. (These should be identical with the conditions used here.)</li>
-<li><fn>SPAdes contig stats</fn> &amp; <fn>SPAdes scaffold stats</fn>: A list of all the contigs and sizes in each of these files.</li>
-<li><fn>SPAdes log</fn>: A summary of the assembly run.</li>
-</ul>
-<p>Rename <fn>SPAdes contigs (fasta)</fn> to something like <fn>ERR019289.fasta</fn>.</p>
-<p><strong>Check the size of your draft genome sequence</strong></p>
-<ul>
-<li>If you only have a few contigs, you can estimate the size from the <fn>SPAdes contig stats</fn> file by adding together the contig sizes.</li>
-<li>Alternatively, go to <ss>NGS Common Toolsets: Fasta Statistics</ss> and input the <fn>SPAdes contigs (fasta)</fn> file. Click <ss>Execute</ss>. The output will show the draft genome size next to  <ss>num_bp</ss>.</li>
-</ul>
-<p><strong>Compare your assembly size to others of the same species</strong></p>
-<ul>
-<li>Go to the <a href="https://www.ncbi.nlm.nih.gov/genome/?term=">NCBI website: Genome</a></li>
-<li>Next to <ss> Genome </ss>, enter the name of your species; <em>e.g. Vibrio cholerae</em>.</li>
-<li>Click on <ss>Genome ASsembly and Annotation report</ss></li>
-<li>View the table. Click on the <ss>Size</ss> column to sort by size. (Check for additional pages at the bottom right.)</li>
-<li>Is your assembly size similar?</li>
-</ul>
-<h2 id="find-antibiotic-resistance-genes">Find antibiotic resistance genes</h2>
-<p>Now that we have our draft genome sequence, we can search for particular genes.</p>
-<ul>
-<li>We will use the tool called <a href="https://github.com/tseemann/abricate">ABRicate</a> to find antibiotic resistance genes in the genome.</li>
-<li>ABRicate uses a <a href="https://cge.cbs.dtu.dk/services/data.php">database</a> of these genes called <a href="https://cge.cbs.dtu.dk/services/ResFinder">ResFinder</a>.</li>
-</ul>
-<p>In the tools panel, go to <ss>NGS Analysis: NGS Annotation: ABRicate</ss>.</p>
-<ul>
-<li>For <ss>Select fasta file</ss> choose <fn>SPAdes contigs (fasta)</fn> or whatever you renamed it (e.g. ERR019289.fasta).</li>
-<li>Click <ss>Execute</ss>.</li>
-</ul>
-<p>There is one output file. Click on the eye icon to view.</p>
-<ul>
-<li>This shows a table with one line for each antibiotic resistance gene found, in which contig, at which position, and the % coverage.</li>
-</ul>
-<p><img alt="abricate results" src="./images/abricate.png" /></p>
-<h2 id="find-the-sequence-type-mlst">Find the sequence type (MLST)</h2>
-<p>Bacterial samples (isolates) are often assigned a &ldquo;sequence type&rdquo;. This is a number that defines the particular combination of alleles in that isolate, <em>e.g.</em> ST248.</p>
-<ul>
-<li>Because several genes (loci) are used, this is termed Multi-Locus Sequence Typing (MLST).</li>
-<li>There are different MLST schemes for different groups of bacteria.</li>
-</ul>
-<p>In the tools panel, go to <ss>NGS Analysis: NGS Annotation: MLST</ss></p>
-<ul>
-<li>Under <ss>input_file</ss> choose choose <fn>SPAdes contigs (fasta)</fn> or whatever you renamed it (e.g. ERR019289.fasta).</li>
-<li>Note: a specific MLST scheme can be specified if you wish, but by default all schemes are searched</li>
-<li>Click <ss>Execute</ss>.</li>
-</ul>
-<p>There is one output file. Click on the eye icon to view.</p>
-<ul>
-<li>There is a one line output.</li>
-</ul>
-<p><img alt="MLST result" src="./images/MLST.png" /></p>
-<p>Some symbols are used to describe missing or inexact matches to alleles:</p>
-<ul>
-<li>n: Exact intact allele</li>
-<li>~n : Novel allele similar to n</li>
-<li>n,m : Multiple alleles</li>
-<li>- : Allele missing</li>
-</ul>
-<h2 id="annotate">Annotate</h2>
-<p>We have found a list of resistance genes in the draft sequence, but we can also annotate the whole genome to find all the genes present.</p>
-<p>In the tools panel, go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Annotation &rarr; Prokka</ss>  </p>
-<p>Set the following parameters (leave everything else unchanged):</p>
-<ul>
-<li><ss>Contigs to annotate</ss>: <fn>SPAdes contigs (fasta)</fn> (or equivalent)</li>
-<li><ss>Locus tag prefix (&ndash;locustag)</ss>: P</li>
-<li><ss>Force GenBank/ENA/DDJB compliance (&ndash;compliant)</ss>: <em>No</em></li>
-<li><ss>Sequencing Centre ID (&ndash;centre)</ss>: V</li>
-<li>Click <ss>Execute</ss>  </li>
-</ul>
-<p>There are several output files:</p>
-<ul>
-<li>
-<p><fn>gff</fn>: the master annotation in GFF format, containing both sequences and annotations</p>
+<p>The <em>accessory genome</em> is the group of genes that are not in all the strains. These genes may be in one or more strain.</p>
 </li>
 <li>
-<p><fn>gbk</fn>: a standard GenBank file derived from the master .gff. If the input to prokka was a multi-FASTA, then this will be a multi-GenBank, with one record for each sequence</p>
-</li>
-<li>
-<p><fn>fna</fn>: nucleotide FASTA file of the input contig sequences</p>
-</li>
-<li>
-<p><fn>faa</fn>: protein FASTA file of the translated CDS sequences</p>
-</li>
-<li>
-<p><fn>ffn</fn>: nucleotide FASTA file of all the annotated sequences, not just CDS</p>
-</li>
-<li>
-<p><fn>sqn</fn>: an ASN1 format &ldquo;Sequin&rdquo; file for submission to GenBank. It needs to be edited to set the correct taxonomy, authors, related publication, etc.</p>
-</li>
-<li>
-<p><fn>fsa</fn>: nucleotide FASTA file of the input contig sequences, used by &ldquo;tbl2asn&rdquo; to create the .sqn file. It is mostly the same as the .fna file, but with extra Sequin tags in the sequence description lines</p>
-</li>
-<li>
-<p><fn>tbl</fn>: Feature Table file, used by &ldquo;tbl2asn&rdquo; to create the .sqn file</p>
-</li>
-<li>
-<p><fn>err</fn>: unacceptable annotations - the NCBI discrepancy report</p>
-</li>
-<li>
-<p><fn>log</fn>: contains all the output that Prokka produced during its run</p>
-</li>
-<li>
-<p><fn>txt</fn>: statistics relating to the annotated features found</p>
+<p>The <em>pan genome</em> is the sum of the core and accessory genomes. That is, a combination of <em>all</em> the genes that are found in the clade of interest.</p>
 </li>
 </ul>
-<p><strong>Tabulate</strong></p>
-<p>If you are working on this tutorial as part of a class workshop:</p>
+<p>Bacteria can horizontally-transfer genes to other bacteria via plasmids, and so their accessory genome can be large relative to those of eurkaryotes. Bacterial accessory genomes often house genes for drug resistance.</p>
+<p>This tutorial demonstrates how to calculate the pan and core genomes of a set of input bacterial samples, using the tool <a href="https://sanger-pathogens.github.io/Roary/">Roary</a>.</p>
+<h2 id="get-data">Get data</h2>
+<p>Input:</p>
 <ul>
-<li>Go to the table of isolates and add information about genome size, GC content, and number of contigs.</li>
+<li>annotated genome in GFF3 format, per sample (<em>e.g.</em> output from Prokka)</li>
+<li>samples must be from same species</li>
 </ul>
-<h2 id="next">Next</h2>
+<p>Our data:
+<!-- location: mdu server/roary_tutorial: the 5 staph aureus samples from the sepsis-done folder. i.e. these genomes and annotations might have since been updated --></p>
+<!-- note: BPA data upload split genomes into chromosome and plasmids. The ones here are combined and not necessarily identical to those in the BPA set -->
+
 <ul>
-<li>View the annotated genome in Artemis or JBrowse.</li>
+<li>Five strains of <em>Staphylococcus aureus</em>, in .gff format.
+<!-- note: I don't know if these all have unique locus tags for the gene IDs. Could re-run in prokka with this locus tag, e.g.:
+prokka --kingdom Bacteria --outdir prokka_GCA_000008285 --genus Listeria --locustag GCA_000008285 GCA_000008285.1_ASM828v1_genomic.fna
+--></li>
+</ul>
+<h2 id="run">Run</h2>
+<h3 id="run-roary">Run roary</h3>
+<div class="codehilite"><pre><span></span>roary -e --mafft -p 8 *.gff
+</pre></div>
+
+
+<ul>
+<li><code>-e --mafft</code> aligns the core genes using the tool MAFFT</li>
+<li><code>-p 8</code> uses 8 threads</li>
+</ul>
+<h3 id="what-does-roary-do">What does Roary do</h3>
+<ul>
+<li>converts coding sequences into protein sequences</li>
+<li>clustered these protein sequences by several methods</li>
+<li>further refines clusters into orthologous genes</li>
+<li>for each sample, determines if gene is present/absent: produces <fn>gene_presence_absence.csv</fn></li>
+<li>uses this gene p/a information to build a tree, using FastTree: produces <fn>accessory_binary_genes.fa.newick</fn></li>
+<li>overall, calculates number of genes that are shared, and unique: produces <fn>summary_statistics.txt</fn></li>
+<li>aligns the core genes (if option used, as above) for downstream analyses</li>
+</ul>
+<h2 id="output">Output</h2>
+<h3 id="core-and-pan-genes">Core and pan genes</h3>
+<p>Open the summary file:</p>
+<p><code>less summary_statistics.txt</code></p>
+<p>This shows a table of counts of shared genes (core genome) and total genes (pan genome).</p>
+<p><img alt="stats" src="./images/summary.png" /></p>
+<p>What are the core genes?</p>
+<p><code>query_pan_genome -a intersection -o core_genome_results *.gff</code></p>
+<p>What are the accessory genes?</p>
+<p><code>query_pan_genome -a complement -o accessory_genome_results *.gff</code></p>
+<p>What are the pan genes?</p>
+<p><code>query_pan_genome -a union -o pan_genome_results *.gff</code></p>
+<p>View: <em>e.g.</em></p>
+<p><code>less core_genome_results | column -t</code></p>
+<h3 id="gene-presenceabsence">Gene presence/absence</h3>
+<p>Transfer the file <fn>gene_presence_absence.csv</fn> to your local computer and view in spreadsheet software.</p>
+<ul>
+<li>Search for the gene that confers methicillin resistance. It is only found in some of the strains.</li>
+</ul>
+<!-- ### Optional: Build a tree of core genome SNPs
+- core genes only: the snps can be used to build a tree
+FastTree? -->
+
+<h2 id="vizualize-with-phandango">Vizualize with Phandango</h2>
+<p>Copy these files to your local computer:</p>
+<ul>
+<li><fn>accessory_binary_genes.fa.newick</fn></li>
+<li><fn>gene_presence_absence.csv</fn></li>
+</ul>
+<p>Go to <a href="http://phandango.net">http://phandango.net</a></p>
+<ul>
+<li>drag and drop the two files onto the landing page.</li>
+<li>view the tree of samples and their core and pan genomes</li>
+</ul>
+<p><img alt="phandango" src="./images/phandango.png" /></p>
+<h2 id="links">Links</h2>
+<ul>
+<li>Roary: <a href="https://sanger-pathogens.github.io/Roary/">https://sanger-pathogens.github.io/Roary/</a></li>
+<li>Roary publication: <a href="http://bioinformatics.oxfordjournals.org/content/31/22/3691">http://bioinformatics.oxfordjournals.org/content/31/22/3691</a></li>
 </ul>
                 
                   
@@ -1113,7 +960,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../snippy/" title="Variant finding" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../cmdline_assembly/" title="PacBio assembly with command line tools" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1122,19 +969,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Variant finding
+                PacBio assembly with command line tools
               </span>
             </div>
           </a>
         
         
-          <a href="../abricate/" title="Finding antibiotic-resistant genes" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../dge/" title="Differential gene expression using Galaxy and Degust" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Finding antibiotic-resistant genes
+                Differential gene expression using Galaxy and Degust
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
