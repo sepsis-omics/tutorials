@@ -17,7 +17,7 @@ extra:
         tabs: true
     social:
         - type: 'coffee'
-          link: 'https://http://omics.data.edu.au/'
+          link: 'https://omics.data.edu.au/'
         - type: 'github'
           link: 'https://github.com/sepsis-omics/tutorials'
         - type: 'bug'
