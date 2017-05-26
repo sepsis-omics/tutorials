@@ -84,7 +84,7 @@ In the top panel, go to <ss>Stored Datasets</ss>. We will upload some data here.
 
 ![datasets](images/stored_data.png)
 
-- Drag the <fn>.mzML</fn> files into the <ss>Drop Here</ss> box - 6 reps for each strain.
+- Drag the <fn>.mzML</fn> files into the <ss>Drop Here</ss> box - 6 replicates for each strain.
 
 - Wait until all files have a green tick (scroll down to check all).
 - Name the datset (e.g. Sample AJ218 or Sample KPC2) and click <ss>Save</ss>.
@@ -267,7 +267,7 @@ To filter the table, click on the small magnifying glass:
 ![search](images/magnifying.png)
 
 - Filter by p-value or fold change (or both).
-- e.g. pvalue less or equal to 0.01, fold greater than 30
+- e.g. p-value less or equal to 0.01, fold change greater than 30
 - Investigate these features and the identified matches in the Metlin database.
 
 <!-- this table can be exported into other statistical packages -->
@@ -278,7 +278,7 @@ In the results pane on the left, click on Metabolomic Cloud Plot.
 
 - A cloud plot shows the features (m/z and retention time) as dots/circles.
 - The size of the circles is relative to their fold change.
-- Features are shown as either up- or down-regulated, by their position above the 0-axis.
+- Features are shown as either up- or down-regulated, by their position above or below the 0-axis.
 - Adjust p-value and fold change, and click <ss>Regenerate Cloud Plot</ss>.
 - Click on a feature to see its associated graphs in the left hand panel.
 

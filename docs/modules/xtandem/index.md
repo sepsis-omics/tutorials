@@ -42,7 +42,7 @@ The high-throughput nature of proteomics mass spectrometry is enabled by a produ
 
 
 
-**File formats** : During a full proteomics analysis, as seen in **Figure 5**, many files are created. Every step has it's own multiples files formats :
+**File formats** : During a full proteomics analysis, as seen in **Figure 5**, many files are created. Every step has its own multiple file formats:
 
 ![Files_Created](images/training_files.png)
 
