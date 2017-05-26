@@ -165,8 +165,6 @@ This is to align spectra after retention time correction.
 - <ss>minfrac</ss>: 0.5
 - <ss>bw</ss>: 20
 
-
-
 ### Statistics
 
 Set up the statistical test for the metabolites from two strains.
@@ -190,12 +188,11 @@ Set up the statistical test for the metabolites from two strains.
 
 ### Visualization
 
-- EIC width: 200
+- <ss>EIC width</ss>: 200
 
 ### Miscellaneous
 
-- Bypass file sanity check: tick
-
+- <ss>Bypass file sanity check</ss>: tick
 
 ### Next
 
@@ -211,26 +208,39 @@ This will now bring up the "View Results" page.
 
 Click on <ss>View</ss>.
 
-First check samples are different enough? PCA and MDS? iPCA?
+There are six graphs, and options for other results in the left hand panel.
 
+![results](images/graphs.png)
 
+### Ions detected
 
-**Graphs: Total Ion Chromatograms**
+Look at the top three graphs.
 
-All the ions detected. Their intensity vs retention time. Original and corrected. Also, a correction curve graph.
+- Graph 1: Total ion Chromatograms (original):
 
+    - All the ions detected. Their intensity vs retention time.
 
+- Graph 2: Retention Time Deviation vs. Retention Time:
 
-**Results Table**
+    - A graph showing the correction curve.
 
-A table of features (ion with unique m/z and retention time).
+- Graph 3: Total ion Chromatograms (corrected):
 
-sort by heading or click on a feature row.
+    - A corrected version of graph 1.
 
-to filter, click on the magnifying glass at the top left.
-e.g. filter by p-value or fold change. (or multiple things)
+### Sample information
 
-The headings mean:
+- Graphs 5 and 6 show MDS (Multi-dimensional Scaling) and PCA (Principal Components Analysis) results.
+
+    - Are the samples separated well?
+    - Samples (or conditions) should be separated into two groups.
+    - For a more detailed examination, click on "iPCA" in the left hand panel.
+
+### Results Table
+
+Click on the Results Table in the left hand panel. This is a table of "features" - a feature is an ion with unique m/z and retention time.
+
+<!-- The table headings mean:
 
 - **fold**: fold change (log?). ratio of mean intensities.
 - **p-value**: for whatever test was performed?
@@ -244,43 +254,42 @@ The headings mean:
 - **adducts**: ? other things that formed?
 - **peakgroup**: abritrary number for different groups?  where from?
 - no Metlin column?  only have as a graph to the right?
+-->
 
-Graphs to the right: (only have EIC ?)
+- Click on a row (a feature) to display associated graphs in the right-hand panel.
 
-- Extracted Ion Chromatogram (EIC): intensity vs. retention time
-- Mass spectrum: intensivy vs. m/z
-- Metlin IDs
+![results](images/results.png)
 
-(how can you match to Metlin with only MS and not MS/MS data?)
+- The [METLIN database](https://metlin.scripps.edu/landing_page.php?pgcontent=mainPage) contains data on metabolites, their mass, and their known and predicted fragment masses.
 
+To filter the table, click on the small magnifying glass:
 
-The [METLIN database](https://metlin.scripps.edu/landing_page.php?pgcontent=mainPage) contains data on metabolites, their mass, their known and predicted fragment masses.
+![search](images/magnifying.png)
 
-**Metabolomic Cloud Plot**
+- Filter by p-value or fold change (or both).
+- e.g. pvalue less or equal to 0.01, fold greater than 30
+- Investigate these features and the identified matches in the Metlin database.
 
-Cloud plot: m/z vs retention time
-What are the circles - abundance of metabolites?
-Can adjust:
-m/z
-retention time
-intensity
--- why can u adjust? is it for zooming in?  
+<!-- this table can be exported into other statistical packages -->
 
+### Cloud plot
 
-**Interactive Heatmap**
+In the results pane on the left, click on Metabolomic Cloud Plot.
 
+- A cloud plot shows the features (m/z and retention time) as dots/circles.
+- The size of the circles is relative to their fold change.
+- Features are shown as either up- or down-regulated, by their position above the 0-axis.
+- Adjust p-value and fold change, and click <ss>Regenerate Cloud Plot</ss>.
+- Click on a feature to see its associated graphs in the left hand panel.
 
+![cloud plot](images/cloud.png)
 
-**iPCA**
+### Activity network
 
+This shows the pathways that correspond to the identified metabolites. The table under the image shows the "Top pathways" - these are ordered by their p-values.
 
-**Conclusion**
-
-We found the metabolites A, B, C were upregulated in strain KPC2, and they are part of the XYZ pathway involved in <something>.
-
-## Next
-
-More complex analyses: eg compare wildtype with 5 mutants. Metabolites in common to the 5 mutants identified; then investigate biochemical pathway and function.
+<!-- Next :More complex analyses: eg compare wildtype with 5 mutants. Metabolites in common to the 5 mutants identified; then investigate biochemical pathway and function.
+-->
 
 
 ## Links
@@ -289,9 +298,13 @@ More complex analyses: eg compare wildtype with 5 mutants. Metabolites in common
 
 [Documentation](https://xcmsonline.scripps.edu/landing_page.php?pgcontent=documentation)
 
-Smith, R. et al. (2014) Proteomics, lipidomics, metabolomics: a mass spectrometry tutorial from a computer scientist's point of view. *BMC Bioinformatics*. DOI: 10.1186/1471-2105-15-S7-S9.
+Tautenhahn, R. et al. (2012) XCMS Online: A Web-Based Platform to Process Untargeted Metabolomic Data. *Analytical Chemistry*. DOI: 10.1021/ac300698c
 
-- See Figure 2 for an excellent explanation of the various graphs produced from MS.
+Smith, R. et al. (2014) Proteomics, lipidomics, metabolomics: a mass spectrometry tutorial from a computer scientist's point of view. *BMC Bioinformatics*. DOI: 10.1186/1471-2105-15-S7-S9. *See Figure 2 for an excellent explanation of the various graphs produced from MS.*
+
+Patti, G. J. et al. (2013) A View from Above: Cloud Plots to Visualize Global Metabolomic Data. *Analytical Chemistry*. DOI: 10.1021/ac3029745
+
+
 
 
 
