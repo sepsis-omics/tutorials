@@ -8,16 +8,18 @@ LI {
 
 H1 {
   font-size: 3em;
+  font-weight: normal;
 }
 
 H2 {
   border-bottom: 1px solid grey;
-  font-weight: bolder;
+  font-weight: normal;
+
 }
 
 H3 {
 
-  font-weight: bold;
+  font-weight: 900;
   font-size: 1em;
 
 
