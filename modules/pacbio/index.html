@@ -547,13 +547,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#correct-with-short-reads" title="Correct with short reads" class="md-nav__link">
-    Correct with short reads
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#next" title="Next" class="md-nav__link">
     Next
   </a>
@@ -832,13 +825,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#correct-with-short-reads" title="Correct with short reads" class="md-nav__link">
-    Correct with short reads
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#next" title="Next" class="md-nav__link">
     Next
   </a>
@@ -877,7 +863,8 @@
 - will students use existing SMRT portal registrations, or will each set up their own
 - PacBio data training data to be loaded into SMRT portal(s) -->
 
-<p>[How to get data =&gt; GVL]</p>
+<!-- [How to get data => GVL] -->
+
 <h2 id="start">Start</h2>
 <ul>
 <li>Open your mGVL dashboard.</li>
@@ -1014,9 +1001,9 @@ Sarah Baines:
 <p><em>Number</em> of reference regions vs coverage. <!-- Should be roughly normal? --></p>
 <p><strong>Assembly: Polished Assembly</strong></p>
 <ul>
-<li>number of contigs</li>
-<li>max contig length</li>
-<li>graph: confidence vs depth. multi-copy plasmids may have higher coverage.</li>
+<li>Number of contigs</li>
+<li>Max contig length</li>
+<li>Graph: confidence vs depth. Multi-copy plasmids may have higher coverage.</li>
 </ul>
 <!--
 Sarah Baines: I have found with our data that there is no point in repeating quiver more than once after HGAP, and especially if we are going to polish the assembly with short read data later. A third run has never made a significant improvement to any of the genomes I have worked with, and after a few runs quiver starts to cycle - where is makes a correction then corrects it back to the original call in the subsequent run and so on.
@@ -1046,28 +1033,26 @@ During HGAP, the assembly was polished once but may need further corrections.
 <ul>
 <li>download to local computer; or</li>
 <li>open file in (GVL) Galaxy; or</li>
-<li>open file in GVL command line: and perform further analysis.</li>
+<li>open file in GVL command line and perform further analysis.</li>
 </ul>
-<h2 id="correct-with-short-reads">Correct with short reads</h2>
-<p>If you have Illumina reads for the same sample, the assembly can be further polished.</p>
-<ul>
-<li>Download the FASTA assembly to your computer.</li>
-<li>Open Galaxy</li>
-<li>Upload the FASTA assembly</li>
-<li>Upload the Illumina reads to galaxy</li>
-<li>change datatype to fastqsanger
-ngs mapping - map with bwa mem</li>
-<li>
-<p>use genome from history - the smrt portal fasta file
+<!-- ## Correct with short reads
+
+If you have Illumina reads for the same sample, the assembly can be further polished.
+
+- Download the FASTA assembly to your computer.
+- Open Galaxy
+- Upload the FASTA assembly
+- Upload the Illumina reads to galaxy
+- change datatype to fastqsanger
+ngs mapping - map with bwa mem
+-  use genome from history - the smrt portal fasta file
 R1 and R2 files
 execute
-refresh</p>
-</li>
-<li>
-<p>Polish with Pilon.</p>
-</li>
-</ul>
-<p>pilon
+refresh
+
+- Polish with Pilon.
+
+pilon
 use a genome from history : the smrt portal fasta file
 input bam file - from step above
 variant calling mode - no
@@ -1075,20 +1060,25 @@ create changes file - yes
 advanced options:
 paired end : yes
 fix - select all
-mindepth 0.5</p>
-<p>output = polished assembly</p>
+mindepth 0.5
+
+
+
+output = polished assembly
+-->
+
 <h2 id="next">Next</h2>
 <p>Further options:</p>
 <ul>
-<li>circularise eg with circlator</li>
-<li>trims off overhang</li>
 <li>
-<p>this would be best done before the pilon polishing step</p>
+<p>Circularise the contigs; e.g. with Circlator.</p>
 </li>
 <li>
-<p>annotate the polished assembly</p>
+<p>Polish the assembly using Illumina data; e.g. with Pilon.</p>
 </li>
-<li>eg with Prokka</li>
+<li>
+<p>Annotate the polished assembly; e.g. with Prokka.</p>
+</li>
 </ul>
 <h2 id="links-to-more-information">Links to more information</h2>
 <p><a href="https://github.com/PacificBiosciences/DevNet/wiki/E.-coli-Bacterial-Assembly">PacBio <em>E. coli</em> data set</a></p>
