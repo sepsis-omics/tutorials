@@ -27,6 +27,8 @@ There are multiple mass spectra. Each spectrum is often simplified into a graph 
 
 <img src="images/centroid.png" width="600" height ="250" />
 
+*image: Wikipedia.*
+
 - Each of these peaks is a "feature": an ion with a unique m/z and retention time.
 - These masses can then be matched to a database to identify the metabolites.
 
