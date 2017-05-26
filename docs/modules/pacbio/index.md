@@ -229,15 +229,14 @@ output = polished assembly
 
 
 ## Next
+
 Further options:
 
-- Circularise the contigs; e.g. with Circlator
-  - This trims off overhang
-  - Orient the contigs correctly
+- Circularise the contigs; e.g. with Circlator.
 
-- Polish the assembly using Illumina data; e.g. with Pilon
+- Polish the assembly using Illumina data; e.g. with Pilon.
 
-- Annotate the polished assembly; e.g. with Prokka
+- Annotate the polished assembly; e.g. with Prokka.
 
 
 ## Links to more information
