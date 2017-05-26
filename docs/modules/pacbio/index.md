@@ -1,5 +1,5 @@
 <br>
-#Assembly with PacBio data and SMRT Portal
+# Assembly with PacBio data and SMRT Portal
 
 Keywords: de novo assembly, PacBio, PacificBiosciences, HGAP, SMRT Portal, Microbial Genomics Virtual Laboratory
 
@@ -11,10 +11,7 @@ This tutorial will show you how to assemble a bacterial genome *de novo*, using 
 - will students use existing SMRT portal registrations, or will each set up their own
 - PacBio data training data to be loaded into SMRT portal(s) -->
 
-
-
-[How to get data => GVL]
-
+<!-- [How to get data => GVL] -->
 
 ## Start
 - Open your mGVL dashboard.
@@ -47,13 +44,13 @@ Otherwise:
 
 ## Assembly
 
-###HGAP process overview
+### HGAP process overview
 
 We will use the Hierarchical Genome Assembly Process (HGAP). This flowchart shows the steps in the process:
 
 ![flowchart of HGAP process](images/flowchart.png)
 
-###Set up job
+### Set up job
 
 - In the SMRT Portal, go to the top left tab, <ss>Design Job</ss>.
 - Go to <ss>Create New</ss>.
@@ -98,9 +95,10 @@ Sarah Baines:
 
 ![smrt portal screenshot](images/smrt6.png)
 
-###Inputs and Outputs
+### Inputs and Outputs
 
 The connections between the names of assembly stages and outputs is not always clear. This flowchart shows how each stage of the HGAP process corresponds to protocol window names and outputs:
+
 
 ![inputs and outputs](images/inputs_outputs.png)
 <!-- upload a better res image? -->
@@ -160,9 +158,9 @@ Graph: Depth of Coverage:
 
 **Assembly: Polished Assembly**
 
-- number of contigs
-- max contig length
-- graph: confidence vs depth. multi-copy plasmids may have higher coverage.
+- Number of contigs
+- Max contig length
+- Graph: confidence vs depth. Multi-copy plasmids may have higher coverage.
 
 <!--
 Sarah Baines: I have found with our data that there is no point in repeating quiver more than once after HGAP, and especially if we are going to polish the assembly with short read data later. A third run has never made a significant improvement to any of the genomes I have worked with, and after a few runs quiver starts to cycle - where is makes a correction then corrects it back to the original call in the subsequent run and so on.
@@ -187,15 +185,15 @@ During HGAP, the assembly was polished once but may need further corrections.
 - Examine the output assembly and repeat if necessary (e.g. if > 2 corrections with >50 confidence).
 -->
 
-##Output
+## Output
 
 The polished assembly as a FASTA file.
 
 - download to local computer; or
 - open file in (GVL) Galaxy; or
-- open file in GVL command line: and perform further analysis.
+- open file in GVL command line and perform further analysis.
 
-##Correct with short reads
+<!-- ## Correct with short reads
 
 If you have Illumina reads for the same sample, the assembly can be further polished.
 
@@ -225,19 +223,22 @@ mindepth 0.5
 
 
 output = polished assembly
+-->
 
 
 
 
-##Next
+## Next
 Further options:
 
-- circularise eg with circlator
-  - trims off overhang
-  - this would be best done before the pilon polishing step
+- Circularise the contigs; e.g. with Circlator
+  - This trims off overhang
+  - Orient the contigs correctly
 
-- annotate the polished assembly
-  - eg with Prokka
+- Polish the assembly using Illumina data; e.g. with Pilon
+
+- Annotate the polished assembly; e.g. with Prokka
+
 
 ## Links to more information
 
