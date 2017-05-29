@@ -61,7 +61,9 @@ roary -e --mafft -p 8 *.gff
 
 Open the summary file:
 
-`less summary_statistics.txt`
+```
+less summary_statistics.txt
+```
 
 This shows a table of counts of shared genes (core genome) and total genes (pan genome).
 
@@ -70,20 +72,28 @@ This shows a table of counts of shared genes (core genome) and total genes (pan 
 
 What are the core genes?
 
-`query_pan_genome -a intersection -o core_genome_results *.gff`
+```
+query_pan_genome -a intersection -o core_genome_results *.gff
+```
 
 What are the accessory genes?
 
-`query_pan_genome -a complement -o accessory_genome_results *.gff`
+```
+query_pan_genome -a complement -o accessory_genome_results *.gff
+```
 
 What are the pan genes?
 
-`query_pan_genome -a union -o pan_genome_results *.gff`
+```
+query_pan_genome -a union -o pan_genome_results *.gff
+```
 
 
 View: *e.g.*
 
-`less core_genome_results | column -t`
+```
+less core_genome_results | column -t
+```
 
 
 ### Gene presence/absence
