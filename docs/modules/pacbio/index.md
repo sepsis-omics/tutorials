@@ -117,15 +117,21 @@ Things to look at:
 - number of reads post-filter
 - read length (=average)
 
+![filtering results](images/filtering_results.png)
+
 **General: Subread Filtering (subreads)**
 
 - number of reads post-filter
 - read length (average)
 
+![subreads results](images/subreads_results.png)
+
 **Assembly: Pre-Assembly (pre-assembled reads)**
 
 - length cutoff (the computed minimum seed read length)
 - read length (average)
+
+![preassembly results](images/preassembly_results.png)
 
 **Assembly: Corrections**
 
@@ -137,9 +143,17 @@ Graph: corrections across reference:
 
 - With the first run of polishing, we expect a lot of corrections but they should be randomly distributed.
 
+![corrections results](images/corrections_results.png)
+
+*Note: only unitigs 0 and 1 shown.*
+
 **Assembly: Top Corrections**
 
 This is a list of all the corrections made.
+
+![top corrections results](images/topcorrections_results.png)
+
+*Note: only first 15 shown.*
 
 <!-- - If more than two corrections (with confidence > 50), repeat polishing (see next section "Further polishing"). -->
 
@@ -152,15 +166,23 @@ Coverage across reference:
 - spikes could be collapsed repeats.
 - valleys could be mis-assembly - e.g. draft assembly was incorrect and so remapped reads didn't support this part of the assembly.
 
+![resequencing coverage results](images/reseq_coverage_results.png)
+
+*Note: only unitigs 0 and 1 shown.*
+
 Graph: Depth of Coverage:
 
-*Number* of reference regions vs coverage. <!-- Should be roughly normal? -->
+The is the *number* of reference regions vs. coverage. <!-- Should be roughly normal? -->
+
+![depth coverage results](images/depth_coverage_results.png)
 
 **Assembly: Polished Assembly**
 
 - Number of contigs
 - Max contig length
 - Graph: confidence vs depth. Multi-copy plasmids may have higher coverage.
+
+![polished assembly results](images/polished_assembly_results.png)
 
 <!--
 Sarah Baines: I have found with our data that there is no point in repeating quiver more than once after HGAP, and especially if we are going to polish the assembly with short read data later. A third run has never made a significant improvement to any of the genomes I have worked with, and after a few runs quiver starts to cycle - where is makes a correction then corrects it back to the original call in the subsequent run and so on.
@@ -188,6 +210,8 @@ During HGAP, the assembly was polished once but may need further corrections.
 ## Output
 
 The polished assembly as a FASTA file.
+
+![output fasta file](images/output_fasta.png)
 
 - download to local computer; or
 - open file in (GVL) Galaxy; or
