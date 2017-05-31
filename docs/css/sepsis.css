@@ -88,6 +88,12 @@ These are for "info boxes" in mkdocs
      This is a note.
 */
 
+
+
+/*
+
+I commented these out for now, to use the default question and answer formatting (= "note" and "sucess")
+
 .admonition {
   border: solid black thin;
   margin: 1ex 0;
@@ -101,7 +107,8 @@ These are for "info boxes" in mkdocs
   //font-style: italic;
 }
 
-.hint {
+
+ .hint {
   background-color: green;
 }
 .note {
@@ -110,3 +117,4 @@ These are for "info boxes" in mkdocs
 .warning {
   background-color: red;
 }
+*/
