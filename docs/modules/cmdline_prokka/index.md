@@ -32,6 +32,10 @@ Prokka requires assembled contigs.
 prokka --outdir mydir --prefix staph contigs.fa
 ```
 
+note: add --fast
+
+
+
 output:
 - 10 files
 

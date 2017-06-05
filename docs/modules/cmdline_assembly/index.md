@@ -14,6 +14,7 @@ Tools (and versions) used in this tutorial include:
 - circlator 1.5.1 [recently updated]
 - bwa 0.7.15
 - samtools 1.3.1
+- spades 3.10.1
 - makeblastdb and blastn (part of blast) 2.4.0+
 - pilon 1.20
 
