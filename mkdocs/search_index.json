@@ -721,46 +721,6 @@
             "title": "Links"
         }, 
         {
-            "location": "/modules/kraken/", 
-            "text": "Species identification with Kraken\n\n\nKraken: a tool to taxonomically identify the sample from sequence reads, or a mixed set of sequence reads.\n\n\nThis can be used to confirm the species identification, or for metagenomics.\n\n\n\n\n\n\ne.g. reads from one sample \n kraken \n \nStaphylococcus aureus\n\n\n\n\n\n\ne.g. mixed reads \n kraken \n 50% from \nStaphylococcus aureus\n, 40% from \nCampylobacter concisus\n, 10% from Genus \nRothia\n, unidentified species.\n\n\n\n\n\n\nis this a proportion of reads?\nis proportion of reads a proxy for relative abundance?\n(e.g. something might not sequence well - be truly abundant but rare in the sample)\n\n\nWe will use Kraken to confirm the identify of reads from one bacterial isolate.\n\n\nGet data\n\n\nR1 and R2  fastq.\n\n\nRun Kraken\n\n\nGalaxy / Kraken\n\n\nHow it works\n\n\nGenerally: compare sequence to database of known sequence identities.\n\n\nIn detail:\n\n\n\n\nuses k-mers (default k = 31)\n\n\nuser to specify a library of genomes\n\n\nquery database for each k-mer in a sequence\n\n\nsummarize the hits for all the k-mers from a seq to give the ID\n\n\nif seq has no kmers in dbase, it is left unclassified.\n\n\n\n\nView results\n\n\nPie chart\n\n\nNext\n\n\nLinks\n\n\nKraken paper", 
-            "title": "Species identification with Kraken"
-        }, 
-        {
-            "location": "/modules/kraken/#species-identification-with-kraken", 
-            "text": "Kraken: a tool to taxonomically identify the sample from sequence reads, or a mixed set of sequence reads.  This can be used to confirm the species identification, or for metagenomics.    e.g. reads from one sample   kraken    Staphylococcus aureus    e.g. mixed reads   kraken   50% from  Staphylococcus aureus , 40% from  Campylobacter concisus , 10% from Genus  Rothia , unidentified species.    is this a proportion of reads?\nis proportion of reads a proxy for relative abundance?\n(e.g. something might not sequence well - be truly abundant but rare in the sample)  We will use Kraken to confirm the identify of reads from one bacterial isolate.", 
-            "title": "Species identification with Kraken"
-        }, 
-        {
-            "location": "/modules/kraken/#get-data", 
-            "text": "R1 and R2  fastq.", 
-            "title": "Get data"
-        }, 
-        {
-            "location": "/modules/kraken/#run-kraken", 
-            "text": "Galaxy / Kraken", 
-            "title": "Run Kraken"
-        }, 
-        {
-            "location": "/modules/kraken/#how-it-works", 
-            "text": "Generally: compare sequence to database of known sequence identities.  In detail:   uses k-mers (default k = 31)  user to specify a library of genomes  query database for each k-mer in a sequence  summarize the hits for all the k-mers from a seq to give the ID  if seq has no kmers in dbase, it is left unclassified.", 
-            "title": "How it works"
-        }, 
-        {
-            "location": "/modules/kraken/#view-results", 
-            "text": "Pie chart", 
-            "title": "View results"
-        }, 
-        {
-            "location": "/modules/kraken/#next", 
-            "text": "", 
-            "title": "Next"
-        }, 
-        {
-            "location": "/modules/kraken/#links", 
-            "text": "Kraken paper", 
-            "title": "Links"
-        }, 
-        {
             "location": "/modules/pacbio/", 
             "text": "Assembly with PacBio data and SMRT Portal\n\n\nKeywords: de novo assembly, PacBio, PacificBiosciences, HGAP, SMRT Portal, Microbial Genomics Virtual Laboratory\n\n\nThis tutorial will show you how to assemble a bacterial genome \nde novo\n, using the PacBio SMRT Portal on the mGVL. We will use an analysis pipeline called HGAP, the Hierarchical Genome Assembly Process.\n\n\n\n\n\n\n\n\nStart\n\n\n\n\nOpen your mGVL dashboard.\n\n\nYou should see SMRT Portal as one of the instance services on your GVL dashboard.\n\n\nOpen up the SMRT portal web link (to the right) and register/log on.\n\n\n\n\nInput\n\n\n\n\n\nWe will use a dataset from a \nStreptococcus pyogenes\n bacteria.\n\n\nIf this has already been loaded onto SMRT portal (e.g. for use during a workshop), proceed to the next step (\nAssembly\n).\n\n\nOtherwise:\n\n\n\n\nLoad the PacBio data (your own, or the training dataset) onto your GVL.\n\n\nIn the SMRT Portal, go to \nDesign Job\n, the top left tab.\n\n\nGo to \nImport and Manage\n.\n\n\n\nClick \nImport SMRT cells\n.\n\n\n\n\n\nWork out where you put the data on your GVL, and make sure the file path is showing.\n\n\n\n\nIf not, click \nAdd\n and enter the file path to the data.\n\n\nA SMRT cell is the collection of data from a particular cell in the machine. It includes .bax.h5 files.\n\n\n\n\n\n\n\n\nClick on the file path and then \nScan\n to check for new data.\n\n\n\n\n\n\nAssembly\n\n\nHGAP process overview\n\n\nWe will use the Hierarchical Genome Assembly Process (HGAP). This flowchart shows the steps in the process:\n\n\n\n\nSet up job\n\n\n\n\nIn the SMRT Portal, go to the top left tab, \nDesign Job\n.\n\n\nGo to \nCreate New\n.\n\n\nAn \nAnalysis\n window should appear. Tick all the boxes, then \nNext\n.\n\n\nUnder \nJob Name\n enter a name.\n\n\nTo the right, under \nGroups\n choose \nall\n.\n\n\nUnder \nProtocols\n choose \nRS_HGAP_Assembly.3\n.\n\n\nThere is an ellipsis underneath \nProtocols\n - click on the ellipsis.\n\n\n\n\n\n\nThis brings up the settings. Click on \nAssembly\n.\n\n\n\n\n\n\nFor \nCompute Minimum Seed Read Length\n: ensure box is ticked\n\n\n\n\n\n\n\nFor \nNumber of Seed Read Chunks\n: enter \n12\n\n\n\n\nChange the \nGenome Size\n to an approximately correct size for the species. For \nS. pyogenes\n, enter 1800000.\n\n\nFor \nTarget Coverage\n: enter \n10\n\n\nFor \nOverlapper Error Rate\n: enter \n0.04\n\n\nLeave all other settings as they are.\n\n\nClick \nApply\n\n\n\n\nYour protocol window should look like this:\n\n\n\n\n\n\n\n\nClick \nOk\n.  \n\n\n\n\n\n\nIn the \nSMRT Cells Available\n window, select the file to be used. Click on the arrow to transfer these files to the SMRT Cells in Job window.\n\n\n\n\nYou can drag the column widths of the \nUrl\n column so that you can see the URLs of the file paths better.\n\n\n\n\n\n\n\n\nClick \nSave\n (bottom right hand side).\n\n\nNext to \nSave\n, click \nStart\n.\n\n\nThe \nMonitor Jobs\n window should open.\n\n\nAs each step proceeds, new items will appear under the \nReports\n and \nData\n tabs on the left.\n\n\n\n\n\n\n\n\n\n\nInputs and Outputs\n\n\nThe connections between the names of assembly stages and outputs is not always clear. This flowchart shows how each stage of the HGAP process corresponds to protocol window names and outputs:\n\n\n\n\n\n\nResults\n\n\nIf the job is still running, click on the centre tab \nMonitor Jobs\n. Otherwise, click on the top right tab, \nView Data\n.\n\n\n\n\nDouble click on the job name to open its reports.\n\n\nClick on different \nReports\n in the left hand panel.\n\n\n\n\nThings to look at:\n\n\nGeneral: Filtering (polymerase reads)\n\n\n\n\nnumber of reads post-filter\n\n\nread length (=average)\n\n\n\n\n\n\nGeneral: Subread Filtering (subreads)\n\n\n\n\nnumber of reads post-filter\n\n\nread length (average)\n\n\n\n\n\n\nAssembly: Pre-Assembly (pre-assembled reads)\n\n\n\n\nlength cutoff (the computed minimum seed read length)\n\n\nread length (average)\n\n\n\n\n\n\nAssembly: Corrections\n\n\nConsensus calling results:\n\n\n\n\nConsensus concordance should be \n 99%.\n\n\n\n\nGraph: corrections across reference:\n\n\n\n\nWith the first run of polishing, we expect a lot of corrections but they should be randomly distributed.\n\n\n\n\n\n\nNote: only unitigs 0 and 1 shown.\n\n\nAssembly: Top Corrections\n\n\nThis is a list of all the corrections made.\n\n\n\n\nNote: only first 15 shown.\n\n\n\n\n\nResequencing: Coverage\n\n\nCoverage across reference:\n\n\n\n\ndiscard contigs \n20X coverage\n\n\nothers should have fairly consistent coverage.\n\n\nspikes could be collapsed repeats.\n\n\nvalleys could be mis-assembly - e.g. draft assembly was incorrect and so remapped reads didn\nt support this part of the assembly.\n\n\n\n\n\n\nNote: only unitigs 0 and 1 shown.\n\n\nGraph: Depth of Coverage:\n\n\nThe is the \nnumber\n of reference regions vs. coverage. \n\n\n\n\nAssembly: Polished Assembly\n\n\n\n\nNumber of contigs\n\n\nMax contig length\n\n\nGraph: confidence vs depth. Multi-copy plasmids may have higher coverage.\n\n\n\n\n\n\n\n\n\nOutput\n\n\nThe polished assembly as a FASTA file.\n\n\n\n\n\n\ndownload to local computer; or\n\n\nopen file in (GVL) Galaxy; or\n\n\nopen file in GVL command line and perform further analysis.\n\n\n\n\n\n\n\nNext\n\n\nFurther options:\n\n\n\n\n\n\nCircularise the contigs; e.g. with Circlator.\n\n\n\n\n\n\nPolish the assembly using Illumina data; e.g. with Pilon.\n\n\n\n\n\n\nAnnotate the polished assembly; e.g. with Prokka.\n\n\n\n\n\n\nLinks to more information\n\n\nPacBio \nE. coli\n data set\n\n\nHGAP overview\n\n\nA full ist of reports and terminology\n\n\nVideo overview of HGAP on SMRT portal\n\n\nMore about the SMRT bell template", 
             "title": "PacBio assembly with SMRT portal"
@@ -1004,41 +964,6 @@
             "location": "/modules/cmdline_assembly/#next", 
             "text": "Further analyses:   Annotate with Prokka.  Comparative genomics, e.g. with Roary.   Links:   Details of bas.h5 files  Canu  manual  and  gitub repository  Circlator  article  and  github repository  Pilon  article  and  github repository  Notes on  finishing  and  evaluating  assemblies.", 
             "title": "Next"
-        }, 
-        {
-            "location": "/modules/spades_cmdline/", 
-            "text": "Spades - commandline\n\n\nThis tutorial follows on from \nPacBio assembly with commandline tools\n.\n\n\nShort-read assembly: a comparison\n\n\nSo far, we have assembled the long PacBio reads into one contig (the chromosome) and found an additional plasmid in the Illumina short reads.\n\n\nIf we only had Illumina reads, we could also assemble these using the tool Spades.\n\n\nYou can try this here or try it later on your own data.\n\n\nGet data\n\n\nWe will use the same Illumina data as we used above:\n\n\n\n\nillumina_R1.fastq.gz\n: the Illumina forward reads\n\n\nillumina_R2.fastq.gz\n: the Illumina reverse reads\n\n\n\n\nAssemble\n\n\nRun Spades:\n\n\nspades.py -1 illumina_R1.fastq.gz -2 illumina_R2.fastq.gz --careful --cov-cutoff auto -o spades_assembly_all_illumina\n\n\n\n\n\n\n\n-1\n is input file of forward reads\n\n\n-2\n is input file of reverse reads\n\n\n--careful\n minimizes mismatches and short indels\n\n\n--cov-cutoff auto\n computes the coverage threshold (rather than the default setting, \noff\n)\n\n\n-o\n is the output directory\n\n\n\n\nResults\n\n\nMove into the output directory and look at the contigs:\n\n\ninfoseq contigs.fasta\n\n\n\n\n\nQuestions\n\n\nHow many contigs were found by Spades?\n\n\n\n\nmany\n\n\n\n\nHow does this compare to the number of contigs found by assembling the long read data with Canu?\n\n\n\n\nmany more.\n\n\n\n\nDoes it matter that an assembly is in many contigs?\n\n\n\n\n\n\nYes\n\n\n\n\n\n\nbroken genes =\n missing/incorrect annotations\n\n\n\n\n\n\nless information about structure: e.g. number of plasmids\n\n\n\n\n\n\nNo\n\n\n\n\n\n\nMany or all genes may still be annotated\n\n\n\n\nGene location is useful (e.g. chromosome, plasmid1) but not always essential (e.g. presence/absence of particular resistance genes)\n\n\n\n\nHow can we get more information about the assembly from Spades?\n\n\n\n\nLook at the assembly graph \nassembly_graph.fastg\n, e.g. in the program Bandage. This shows how contigs are related, albeit with ambiguity in some places.", 
-            "title": "Spades assembly - commandline"
-        }, 
-        {
-            "location": "/modules/spades_cmdline/#spades-commandline", 
-            "text": "This tutorial follows on from  PacBio assembly with commandline tools .", 
-            "title": "Spades - commandline"
-        }, 
-        {
-            "location": "/modules/spades_cmdline/#short-read-assembly-a-comparison", 
-            "text": "So far, we have assembled the long PacBio reads into one contig (the chromosome) and found an additional plasmid in the Illumina short reads.  If we only had Illumina reads, we could also assemble these using the tool Spades.  You can try this here or try it later on your own data.", 
-            "title": "Short-read assembly: a comparison"
-        }, 
-        {
-            "location": "/modules/spades_cmdline/#get-data", 
-            "text": "We will use the same Illumina data as we used above:   illumina_R1.fastq.gz : the Illumina forward reads  illumina_R2.fastq.gz : the Illumina reverse reads", 
-            "title": "Get data"
-        }, 
-        {
-            "location": "/modules/spades_cmdline/#assemble", 
-            "text": "Run Spades:  spades.py -1 illumina_R1.fastq.gz -2 illumina_R2.fastq.gz --careful --cov-cutoff auto -o spades_assembly_all_illumina   -1  is input file of forward reads  -2  is input file of reverse reads  --careful  minimizes mismatches and short indels  --cov-cutoff auto  computes the coverage threshold (rather than the default setting,  off )  -o  is the output directory", 
-            "title": "Assemble"
-        }, 
-        {
-            "location": "/modules/spades_cmdline/#results", 
-            "text": "Move into the output directory and look at the contigs:  infoseq contigs.fasta", 
-            "title": "Results"
-        }, 
-        {
-            "location": "/modules/spades_cmdline/#questions", 
-            "text": "How many contigs were found by Spades?   many   How does this compare to the number of contigs found by assembling the long read data with Canu?   many more.   Does it matter that an assembly is in many contigs?    Yes    broken genes =  missing/incorrect annotations    less information about structure: e.g. number of plasmids    No    Many or all genes may still be annotated   Gene location is useful (e.g. chromosome, plasmid1) but not always essential (e.g. presence/absence of particular resistance genes)   How can we get more information about the assembly from Spades?   Look at the assembly graph  assembly_graph.fastg , e.g. in the program Bandage. This shows how contigs are related, albeit with ambiguity in some places.", 
-            "title": "Questions"
         }, 
         {
             "location": "/modules/roary/", 
