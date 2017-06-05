@@ -52,10 +52,10 @@ pages:
     - Viral genome sequencing: modules/viral_genomes/index.md
     - Galaxy workflows: modules/workflows/index.md
     - Metagenomic with FROGS: modules/frogs/index.md
-    - Species identification with Kraken: modules/kraken/index.md
+    #- Species identification with Kraken: modules/kraken/index.md
     - PacBio assembly with SMRT portal: modules/pacbio/index.md
     - PacBio assembly with command line tools: modules/cmdline_assembly/index.md
-    - Spades assembly - commandline: modules/spades_cmdline/index.md
+    #- Spades assembly - commandline: modules/spades_cmdline/index.md
     #- Genome annotation - commandline:
     - Pangenomes with Roary: modules/roary/index.md
     #- Annotation using command line tools: modules/cmdline_prokka/index.md
