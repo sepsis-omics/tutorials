@@ -446,8 +446,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../frogs/" title="Metagenomics" class="md-nav__link">
-      Metagenomics
+    <a href="../frogs/" title="Metagenomic with FROGS" class="md-nav__link">
+      Metagenomic with FROGS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../kraken/" title="Species identification with Kraken" class="md-nav__link">
+      Species identification with Kraken
     </a>
   </li>
 
@@ -577,6 +589,18 @@
   <li class="md-nav__item">
     <a href="../cmdline_assembly/" title="PacBio assembly with command line tools" class="md-nav__link">
       PacBio assembly with command line tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../spades_cmdline/" title="Spades assembly - commandline" class="md-nav__link">
+      Spades assembly - commandline
     </a>
   </li>
 
@@ -966,16 +990,19 @@ Sarah Baines:
 <li>number of reads post-filter</li>
 <li>read length (=average)</li>
 </ul>
+<p><img alt="filtering results" src="./images/filtering_results.png" /></p>
 <p><strong>General: Subread Filtering (subreads)</strong></p>
 <ul>
 <li>number of reads post-filter</li>
 <li>read length (average)</li>
 </ul>
+<p><img alt="subreads results" src="./images/subreads_results.png" /></p>
 <p><strong>Assembly: Pre-Assembly (pre-assembled reads)</strong></p>
 <ul>
 <li>length cutoff (the computed minimum seed read length)</li>
 <li>read length (average)</li>
 </ul>
+<p><img alt="preassembly results" src="./images/preassembly_results.png" /></p>
 <p><strong>Assembly: Corrections</strong></p>
 <p>Consensus calling results:</p>
 <ul>
@@ -985,8 +1012,12 @@ Sarah Baines:
 <ul>
 <li>With the first run of polishing, we expect a lot of corrections but they should be randomly distributed.</li>
 </ul>
+<p><img alt="corrections results" src="./images/corrections_results.png" /></p>
+<p><em>Note: only unitigs 0 and 1 shown.</em></p>
 <p><strong>Assembly: Top Corrections</strong></p>
 <p>This is a list of all the corrections made.</p>
+<p><img alt="top corrections results" src="./images/topcorrections_results.png" /></p>
+<p><em>Note: only first 15 shown.</em></p>
 <!-- - If more than two corrections (with confidence > 50), repeat polishing (see next section "Further polishing"). -->
 
 <p><strong>Resequencing: Coverage</strong></p>
@@ -997,14 +1028,18 @@ Sarah Baines:
 <li>spikes could be collapsed repeats.</li>
 <li>valleys could be mis-assembly - e.g. draft assembly was incorrect and so remapped reads didn&rsquo;t support this part of the assembly.</li>
 </ul>
+<p><img alt="resequencing coverage results" src="./images/reseq_coverage_results.png" /></p>
+<p><em>Note: only unitigs 0 and 1 shown.</em></p>
 <p>Graph: Depth of Coverage:</p>
-<p><em>Number</em> of reference regions vs coverage. <!-- Should be roughly normal? --></p>
+<p>The is the <em>number</em> of reference regions vs. coverage. <!-- Should be roughly normal? --></p>
+<p><img alt="depth coverage results" src="./images/depth_coverage_results.png" /></p>
 <p><strong>Assembly: Polished Assembly</strong></p>
 <ul>
 <li>Number of contigs</li>
 <li>Max contig length</li>
 <li>Graph: confidence vs depth. Multi-copy plasmids may have higher coverage.</li>
 </ul>
+<p><img alt="polished assembly results" src="./images/polished_assembly_results.png" /></p>
 <!--
 Sarah Baines: I have found with our data that there is no point in repeating quiver more than once after HGAP, and especially if we are going to polish the assembly with short read data later. A third run has never made a significant improvement to any of the genomes I have worked with, and after a few runs quiver starts to cycle - where is makes a correction then corrects it back to the original call in the subsequent run and so on.
 
@@ -1030,6 +1065,7 @@ During HGAP, the assembly was polished once but may need further corrections.
 
 <h2 id="output">Output</h2>
 <p>The polished assembly as a FASTA file.</p>
+<p><img alt="output fasta file" src="./images/output_fasta.png" /></p>
 <ul>
 <li>download to local computer; or</li>
 <li>open file in (GVL) Galaxy; or</li>
@@ -1104,7 +1140,7 @@ output = polished assembly
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../frogs/" title="Metagenomics" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../kraken/" title="Species identification with Kraken" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1113,7 +1149,7 @@ output = polished assembly
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Metagenomics
+                Species identification with Kraken
               </span>
             </div>
           </a>
@@ -1173,6 +1209,8 @@ output = polished assembly
     
       <script src="../../assets/javascripts/application-6b599127bc.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="../../js/details.js"></script>
       
     
     

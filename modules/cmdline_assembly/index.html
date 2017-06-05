@@ -446,8 +446,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../frogs/" title="Metagenomics" class="md-nav__link">
-      Metagenomics
+    <a href="../frogs/" title="Metagenomic with FROGS" class="md-nav__link">
+      Metagenomic with FROGS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../kraken/" title="Species identification with Kraken" class="md-nav__link">
+      Species identification with Kraken
     </a>
   </li>
 
@@ -783,6 +795,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../spades_cmdline/" title="Spades assembly - commandline" class="md-nav__link">
+      Spades assembly - commandline
+    </a>
   </li>
 
         
@@ -1275,6 +1299,7 @@
 <li>circlator 1.5.1 [recently updated]</li>
 <li>bwa 0.7.15</li>
 <li>samtools 1.3.1</li>
+<li>spades 3.10.1</li>
 <li>makeblastdb and blastn (part of blast) 2.4.0+</li>
 <li>pilon 1.20</li>
 </ul>
@@ -1424,11 +1449,26 @@ Find information about read lengths: fq subreads.fastq.gz
 
 
 <h3 id="questions">Questions</h3>
-<p>Q: How do long- and short-read assembly methods differ? A: short reads: De Bruijn graphs; long reads: a move back towards simpler overlap-layout-consensus methods.</p>
-<p>Q: Where can we find out the what the approximate genome size should be for the species being assembled? A: NCBI Genomes - enter species name - click on Genome Assembly and Annotation report - sort table by clicking on the column header Size (Mb) - look at range of sizes in this column.</p>
-<p>Q: In the assembly output, what are the unassembled reads? Why are they there?</p>
-<p>Q: What are the corrected reads? How did canu correct the reads?</p>
-<p>Q: Where could you view the output .gfa and what would it show?</p>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>How do long- and short-read assembly methods differ?</p>
+<details><summary>Answer</summary><p>short reads: De Bruijn graphs; long reads: a move back towards simpler overlap-layout-consensus methods.</p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Where can we find out the what the approximate genome size should be for the species being assembled?</p>
+<details><summary>Answer</summary><p>NCBI Genomes - enter species name - click on Genome Assembly and Annotation report - sort table by clicking on the column header Size (Mb) - look at range of sizes in this column.</p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>In the assembly output, what are the unassembled reads? Why are they there?</p>
+<details><summary>Answer</summary></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>What are the corrected reads? How did canu correct the reads?</p>
+<details><summary>Answer</summary></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Where could you view the output .gfa and what would it show?</p>
+<details><summary>Answer</summary></details></div>
 <h2 id="trim-and-circularise">Trim and circularise</h2>
 <h3 id="run-circlator">Run Circlator</h3>
 <p>Circlator identifies and trims overhangs (on chromosomes and plasmids) and orients the start position at an appropriate gene (e.g. dnaA). It takes in the assembled contigs from Canu, as well as the corrected reads prepared by Canu.</p>
@@ -1492,8 +1532,14 @@ Find information about read lengths: fq subreads.fastq.gz
 <h3 id="options">Options</h3>
 <p>If all the contigs have not circularised with Circlator, an option is to change the <code>--b2r_length_cutoff</code> setting to approximately 2X the average read depth.</p>
 <h3 id="questions_1">Questions</h3>
-<p>Q: Were all the contigs circularised? Why/why not?</p>
-<p>Q: Circlator can set the start of the sequence at a particular gene. Which gene does it use? Is this appropriate for all contigs? A: Uses dnaA for the chromosomal contig. For other contigs, uses a centrally-located gene. However, ideally, plasmids would be oriented on a gene such as repA. It is possible to provide a file to Circlator to do this.</p>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Were all the contigs circularised? Why/why not?</p>
+<details><summary>Answer</summary></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Circlator can set the start of the sequence at a particular gene. Which gene does it use? Is this appropriate for all contigs?</p>
+<details><summary>Answer</summary><p>Uses dnaA for the chromosomal contig. For other contigs, uses a centrally-located gene. However, ideally, plasmids would be oriented on a gene such as repA. It is possible to provide a file to Circlator to do this.</p></details></div>
 <h2 id="find-smaller-plasmids">Find smaller plasmids</h2>
 <p>Pacbio reads are long, and may have been longer than small plasmids. We will look for any small plasmids using the Illumina reads.</p>
 <p>This section involves several steps:</p>
@@ -1698,11 +1744,26 @@ Find information about read lengths: fq subreads.fastq.gz
 <li>plasmid: 2473</li>
 </ul>
 <h3 id="questions_2">Questions</h3>
-<p>Q: Why is this section so complicated? A: Finding small plasmids is difficult for many reasons! This paper has a nice summary: On the (im)possibility to reconstruct plasmids from whole genome short-read sequencing data. doi: https://doi.org/10.1101/086744</p>
-<p>Q: Why can PacBio sequencing miss small plasmids? A: Library prep size selection</p>
-<p>Q: We extract unmapped Illumina reads and assemble these to find small plasmids. What could they be missing? A: Repeats that have mapped to the PacBio assembly.</p>
-<p>Q: How do you find a plasmid in a Bandage graph? A: It is probably circular, matches the size of a known plasmid, has a rep gene&hellip;</p>
-<p>Q: Are there easier ways to find plasmids? A: Possibly. One option is the program called Unicycler which may automate many of these steps. https://github.com/rrwick/Unicycler</p>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Why is this section so complicated?</p>
+<details><summary>Answer</summary><p>Finding small plasmids is difficult for many reasons! This paper has a nice summary: On the (im)possibility to reconstruct plasmids from whole genome short-read sequencing data. doi: https://doi.org/10.1101/086744</p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Why can PacBio sequencing miss small plasmids?</p>
+<details><summary>Answer</summary><p>Library prep size selection</p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>We extract unmapped Illumina reads and assemble these to find small plasmids. What could they be missing?</p>
+<details><summary>Answer</summary><p>Repeats that have mapped to the PacBio assembly.</p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>How do you find a plasmid in a Bandage graph?</p>
+<details><summary>Answer</summary><p>It is probably circular, matches the size of a known plasmid, and has a rep gene.</p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Are there easier ways to find plasmids?</p>
+<details><summary>Answer</summary><p>Possibly. One option is the program called Unicycler which may automate many of these steps. https://github.com/rrwick/Unicycler</p></details></div>
 <h2 id="correct">Correct</h2>
 <p>We will correct the Pacbio assembly with Illumina reads.</p>
 <!--
@@ -1800,9 +1861,19 @@ note: **contig1** is the name of the contig to view; e.g. tig00000000.
 <li>We now have the corrected genome assembly of <em>Staphylococcus aureus</em> in .fasta format, containing a chromosome and a small plasmid.  </li>
 </ul>
 <h3 id="questions_3">Questions</h3>
-<p>Q: Why don&rsquo;t we correct earlier in the assembly process? A: We need to circularise the contigs and trim overhangs first.</p>
-<p>Q: Why can we use some reads (Illumina) to correct other reads (PacBio) ? A: Illumina reads have higher accuracy</p>
-<p>Q: Could we just use PacBio reads to assemble the genome? A: Yes, if accuracy adequate.</p>
+<p>Q:</p>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Why don&rsquo;t we correct earlier in the assembly process?</p>
+<details><summary>Answer</summary><p>We need to circularise the contigs and trim overhangs first.</p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Why can we use some reads (Illumina) to correct other reads (PacBio) ?</p>
+<details><summary>Answer</summary><p>Illumina reads have higher accuracy.</p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Could we just use PacBio reads to assemble the genome?</p>
+<details><summary>Answer</summary><p>Yes, if accuracy adequate.</p></details></div>
 <h2 id="advanced-analysis">Advanced analysis</h2>
 <p>This example shows a more complex analysis where many more steps are involved in the finding the small plasmid. The sample used is <em>Staphylococcus aureus</em> (sample number 25745).</p>
 <h3 id="assemble_1">Assemble</h3>
@@ -2024,13 +2095,13 @@ samtools faidx genome.fasta
           </a>
         
         
-          <a href="../roary/" title="Pangenomes with Roary" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../spades_cmdline/" title="Spades assembly - commandline" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Pangenomes with Roary
+                Spades assembly - commandline
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -2078,6 +2149,8 @@ samtools faidx genome.fasta
     
       <script src="../../assets/javascripts/application-6b599127bc.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="../../js/details.js"></script>
       
     
     

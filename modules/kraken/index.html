@@ -9,7 +9,7 @@
         <meta name="description" content="Tutorials for analysing bacterial omics data">
       
       
-        <link rel="canonical" href="http://sepsis-omics.github.io/tutorials/modules/velvet/">
+        <link rel="canonical" href="http://sepsis-omics.github.io/tutorials/modules/kraken/">
       
       
         <meta name="author" content="Anna Syme, Torsten Seemann">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Genome assembly with Velvet - ABRPI</title>
+        <title>Species identification with Kraken - ABRPI</title>
       
     
     
@@ -86,7 +86,7 @@
                 </span>
               
             
-            Genome assembly with Velvet
+            Species identification with Kraken
           
         </span>
       </div>
@@ -348,121 +348,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Genome assembly with Velvet
-      </label>
-    
-    <a href="./" title="Genome assembly with Velvet" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../velvet/" title="Genome assembly with Velvet" class="md-nav__link">
       Genome assembly with Velvet
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#background" title="Background" class="md-nav__link">
-    Background
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#learning-objectives" title="Learning objectives" class="md-nav__link">
-    Learning objectives
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#import-and-view-data" title="Import and view data" class="md-nav__link">
-    Import and view data
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-data" title="The data" class="md-nav__link">
-    The data
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assemble-reads-with-velvet" title="Assemble reads with Velvet" class="md-nav__link">
-    Assemble reads with Velvet
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examine-the-output" title="Examine the output" class="md-nav__link">
-    Examine the output
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#now-copy-the-relevant-data-back-into-the-k-mer-spreadsheet-on-your-line" title="Now copy the relevant data back into the k-mer spreadsheet on your line." class="md-nav__link">
-    Now copy the relevant data back into the k-mer spreadsheet on your line.
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assembly-with-velvet-optimiser" title="Assembly with Velvet Optimiser" class="md-nav__link">
-    Assembly with Velvet Optimiser
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#look-at-the-fasta-statistics-for-the-velvet-optimiser-contigs" title="Look at the fasta statistics for the Velvet Optimiser contigs" class="md-nav__link">
-    Look at the fasta statistics for the Velvet Optimiser contigs
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -566,11 +456,88 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../kraken/" title="Species identification with Kraken" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Species identification with Kraken
+      </label>
+    
+    <a href="./" title="Species identification with Kraken" class="md-nav__link md-nav__link--active">
       Species identification with Kraken
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-data" title="Get data" class="md-nav__link">
+    Get data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-kraken" title="Run Kraken" class="md-nav__link">
+    Run Kraken
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" title="How it works" class="md-nav__link">
+    How it works
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-results" title="View results" class="md-nav__link">
+    View results
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" title="Next" class="md-nav__link">
+    Next
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" title="Links" class="md-nav__link">
+    Links
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -792,30 +759,23 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#background" title="Background" class="md-nav__link">
-    Background
+  <a href="#get-data" title="Get data" class="md-nav__link">
+    Get data
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#learning-objectives" title="Learning objectives" class="md-nav__link">
-    Learning objectives
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#import-and-view-data" title="Import and view data" class="md-nav__link">
-    Import and view data
+  <a href="#run-kraken" title="Run Kraken" class="md-nav__link">
+    Run Kraken
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-data" title="The data" class="md-nav__link">
-    The data
+  <a href="#how-it-works" title="How it works" class="md-nav__link">
+    How it works
   </a>
   
 </li>
@@ -826,49 +786,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#assemble-reads-with-velvet" title="Assemble reads with Velvet" class="md-nav__link">
-    Assemble reads with Velvet
+  <a href="#view-results" title="View results" class="md-nav__link">
+    View results
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#examine-the-output" title="Examine the output" class="md-nav__link">
-    Examine the output
+  <a href="#next" title="Next" class="md-nav__link">
+    Next
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#now-copy-the-relevant-data-back-into-the-k-mer-spreadsheet-on-your-line" title="Now copy the relevant data back into the k-mer spreadsheet on your line." class="md-nav__link">
-    Now copy the relevant data back into the k-mer spreadsheet on your line.
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#assembly-with-velvet-optimiser" title="Assembly with Velvet Optimiser" class="md-nav__link">
-    Assembly with Velvet Optimiser
+  <a href="#links" title="Links" class="md-nav__link">
+    Links
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#look-at-the-fasta-statistics-for-the-velvet-optimiser-contigs" title="Look at the fasta statistics for the Velvet Optimiser contigs" class="md-nav__link">
-    Look at the fasta statistics for the Velvet Optimiser contigs
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -887,226 +821,40 @@
               
                 
                 
-                <p><br></p>
-<h1 id="assembly-using-velvet">Assembly using Velvet</h1>
-<p>Keywords: de novo assembly, Velvet, Galaxy, Microbial Genomics Virtual Lab</p>
-<h2 id="background">Background</h2>
-<p>Velvet is one of a number of <em>de novo</em> assemblers that use short read sets as input (e.g. Illumina Reads), and the assembly method is based on de Bruijn graphs. For information about Velvet see this <a href="https://en.wikipedia.org/wiki/Velvet_assembler">link</a>.</p>
-<!---
-A protocol for assembling with Velvet (another *de novo* assembler) is available [here](https://docs.google.com/document/d/1xs-TI5MejQARqo0pcocGlymsXldwJbJII890gnmjI0o/pub).
---->
-
-<p>In this activity, we will perform a <em>de novo</em> assembly of a short read set using the Velvet assembler.</p>
-<h2 id="learning-objectives">Learning objectives</h2>
-<p>At the end of this tutorial you should be able to:</p>
-<ol>
-<li>assemble the reads using Velvet, and</li>
-<li>examine the output assembly.</li>
-</ol>
-<h2 id="import-and-view-data">Import and view data</h2>
-<p>If you have completed the previous tutorial on <a href="../fastqc/">Quality Control</a>, you should already have the required files in your current Galaxy history. If not, see how to get them <a href="../data-dna/">here</a>.</p>
-<!-- Alternative ways to obtain the files:
-
-- In the centre of the top Galaxy panel, select <ss>Shared Data: Histories</ss>
-- Select <fn>Microbial-assembly-start-history</fn> and then in the top right corner click on <ss>Import history</ss>.
-- This should now be your current history (the right hand panel) with five files.
-
-Or:
-
-- Click on the <ss>History</ss> cog ![cog icon](images/image02.png)
-- Select <ss>Import from File</ss>
-- In the box called <ss>Archived History URL</ss>, paste in this link address to the Galaxy history of input files:
-
-<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy_history_input_files.tar.gz</tt>
-
-- Click <ss>Submit</ss>
-- Wait a few seconds.
-- Click on the "view all histories" button ![histories icon](images/histories.png)
-- See if the Galaxy history has been imported: it will be called <fn>imported from archive: Data</fn>
-- Above that pane, click on the <ss>Switch to</ss> button.
-- Then click <ss>Done</ss> (in the top left corner).
-- You should now have a list of five files in your current history.
--->
-
-<h3 id="the-data">The data</h3>
-<p>The read set for today is from an imaginary <em>Staphylococcus aureus</em> bacterium with a miniature genome. The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.</p>
+                <h1 id="species-identification-with-kraken">Species identification with Kraken</h1>
+<p>Kraken: a tool to taxonomically identify the sample from sequence reads, or a mixed set of sequence reads.</p>
+<p>This can be used to confirm the species identification, or for metagenomics.</p>
 <ul>
-<li>The files we need for assembly are the <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.</li>
 <li>
-<p>(We don&rsquo;t need the reference genome sequences for this tutorial).</p>
+<p>e.g. reads from one sample &rarr; kraken &rarr; <em>Staphylococcus aureus</em></p>
 </li>
 <li>
-<p>The reads are paired-end.</p>
-</li>
-<li>
-<p>Each read is 150 bases long. <!--(before trimming)--></p>
-</li>
-<li>
-<p>The number of bases sequenced is equivalent to 19x the genome sequence of the wildtype strain. (Read coverage 19x - rather low!).</p>
+<p>e.g. mixed reads &rarr; kraken &rarr; 50% from <em>Staphylococcus aureus</em>, 40% from <em>Campylobacter concisus</em>, 10% from Genus <em>Rothia</em>, unidentified species.</p>
 </li>
 </ul>
-<!--
-- <fn>wildtype.fna</fn>: the reference genome sequence of the wildtype strain in fasta format (a header line, then the nucleotide sequence of the genome)
-
-- <fn>wildtype.gff</fn>: the reference genome sequence of the wildtype strain in general feature format (a list of features - one feature per line, then the nucleotide sequence of the genome).
-
-- <fn>wildtype.gbk</fn>: the reference genome sequence in genbank format.
---->
-
+<p>is this a proportion of reads?
+is proportion of reads a proxy for relative abundance?
+(e.g. something might not sequence well - be truly abundant but rare in the sample)</p>
+<p>We will use Kraken to confirm the identify of reads from one bacterial isolate.</p>
+<h2 id="get-data">Get data</h2>
+<p>R1 and R2  fastq.</p>
+<h2 id="run-kraken">Run Kraken</h2>
+<p>Galaxy / Kraken</p>
+<h3 id="how-it-works">How it works</h3>
+<p>Generally: compare sequence to database of known sequence identities.</p>
+<p>In detail:</p>
 <ul>
-<li>Click on the View Data button (the <img alt="Eye icon" src="./images/image04.png" />) next to one of the FASTQ sequence files.</li>
+<li>uses k-mers (default k = 31)</li>
+<li>user to specify a library of genomes</li>
+<li>query database for each k-mer in a sequence</li>
+<li>summarize the hits for all the k-mers from a seq to give the ID</li>
+<li>if seq has no kmers in dbase, it is left unclassified.</li>
 </ul>
-<!--
-- The gff file should look like this:
-- Brief Discussion about the GFF format (FIXME: add)
-![GFF format](images/image08.png)
-
-## Evaluate the input reads
-
-Questions you might ask about your input reads include:
-
-- How good is my read set?
-- Do I need to ask for a new sequencing run?  
-- Is it suitable for the analysis I need to do?
-
-We will evaluate the input reads using the FastQC tool.
-
-- This runs a standard series of tests on your read set and returns a relatively easy-to-interpret report.
-- We will use the FastQC tool in Galaxy to evaluate the quality of one of our FASTQ files.
-- Go to <ss>Tools &rarr; NGS:Analysis &rarr; NGS: QC and Manipulation &rarr; FastQC</ss>
-- Select <fn>mutant_R1.fastq</fn>
-- <ss>Execute</ss>
-- Once finished, examine the output called <fn>FastQC on data1:webpage</fn> (Hint:![Eye icon](./images/image04.png)). It has a summary at the top of
-the page and a number of graphs.
-
-Some of the important outputs of FastQC for our purposes are:
-
--   <ss>Basic Statistics: Sequence length</ss>: will be important in setting maximum k-mer size value for assembly
--   <ss>Basic Statistics: Encoding</ss>: Quality encoding type: important for quality trimming software
--   <ss>Basic Statistics: % GC</ss>: high GC organisms don’t tend to assemble well and may have an uneven read coverage distribution.
--   <ss>Basic Statistics: Total sequences</ss>: Total number of reads: gives you an idea of coverage.
--   <ss>Per base sequence quality</ss>: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run.
--   <ss>Per base N content</ss>: Presence of large numbers of Ns in reads: may point to poor quality sequencing run. You would need to trim these reads to remove Ns.
--   <ss>Kmer content</ss>: Presence of highly recurring k-mers: may point to contamination of reads with barcodes or adapter sequences.
-
-Although we have warnings for two outputs (per base sequence content; Kmer content), we can ignore these for now. For a fuller discussion of FastQC outputs and warnings, see the [FastQC website link](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/), including the section on each of the output [reports](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/), and examples of ["good"](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) and ["bad"](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html) Illumina data. We won’t be doing anything to these data to clean it up as there isn’t much need. Therefore we will get on with the assembly!
-
--->
-
-<h2 id="assemble-reads-with-velvet">Assemble reads with Velvet</h2>
-<ul>
-<li>We will perform a <em>de novo</em> assembly of the mutant FASTQ reads into long contiguous sequences (in FASTA format.)</li>
-<li>Velvet requires the user to input a value of <em>k</em> for the assembly process. K-mers are fragments of sequence reads. Small k-mers will give greater connectivity, but large k-mers will give better specificity.</li>
-</ul>
-<!---
-- velvet produces both contigs and scaffolds.
-Ask your demonstrator if you would like to know the difference between contigs and scaffolds.
---->
-
-<ul>
-<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; velvet</ss></li>
-<li>
-<p>Set the following parameters (leave other settings as they are):</p>
-<ul>
-<li><ss>K-mer</ss>: Enter the value for <em>k</em> that you have been assigned in the spreadsheet.</li>
-</ul>
-<!-- choose a value for k between 21 and 95 -->
-
-<ul>
-<li><ss>Input file type</ss>: Fastq</li>
-<li><ss>Single or paired end reads</ss>: Paired</li>
-<li><ss> Select first set of reads</ss>: <fn>mutant_R1.fastq</fn>  </li>
-<li><ss> Select second set of reads</ss>: <fn>mutant_R2.fastq</fn></li>
-</ul>
-</li>
-<li>
-<p>Your tool interface should look like this (you will most likely have a different value for k):</p>
-</li>
-</ul>
-<p><img alt="velvet interface" src="./images/image09.png" /></p>
-<ul>
-<li>Click <ss>Execute</ss></li>
-</ul>
-<h2 id="examine-the-output">Examine the output</h2>
-<ul>
-<li>Galaxy is now running velvet on the reads for you.</li>
-<li>Press the refresh button in the history pane to see if it has finished.</li>
-<li>
-<p>When it is finished, you will have four new files in your history.  </p>
-<ul>
-<li>a <fn>Contigs</fn> file</li>
-<li>a <fn>Contigs stats</fn> file</li>
-<li>the velvet <fn>log</fn> file</li>
-<li>an assembly <fn>Last Graph</fn> file</li>
-</ul>
-</li>
-<li>
-<p>Click on the View Data button <img alt="Eye icon" src="./images/image04.png" /> on each of the files.</p>
-</li>
-<li>
-<p>The <fn>Contigs</fn> file will show each contig with the <em>k-mer length</em> and <em>k-mer coverage</em> listed as part of the header (however, these are just called <em>length</em> and <em>coverage</em>).</p>
-<ul>
-<li><em>K-mer length</em>: For the value of k chosen in the assembly, a measure of how many k-mers overlap (by 1 bp each overlap) to give this length.</li>
-<li><em>K-mer coverage</em>: For the value of k chosen in the assembly, a measure of how many k-mers overlap each base position (in the assembly).</li>
-</ul>
-</li>
-</ul>
-<p><img alt="Contigs output" src="./images/image10.png" /></p>
-<ul>
-<li>The <fn>Contigs stats</fn> file will show a list of these k-mer lengths and k-mer coverages.</li>
-</ul>
-<p><img alt="Contigs stats output" src="./images/image11.png" /></p>
-<ul>
-<li>We will summarise the information in the <fn>log</fn> file.</li>
-<li>Go to <ss>NGS Common Toolsets &rarr; FASTA manipulation &rarr; Fasta statistics</ss></li>
-<li>For the required input file, choose the velvet <fn>Contigs</fn> file.</li>
-<li>Click <ss>Execute</ss>.</li>
-<li>A new file will appear called <fn>Fasta summary stats</fn></li>
-<li>Click the eye icon to look at this file.</li>
-</ul>
-<p><img alt="Fasta stats" src="./images/image12.png" /></p>
-<ul>
-<li>Look at:<ul>
-<li><em>num_seq</em>: the number of contigs in the FASTA file.</li>
-<li><em>num_bp</em>: the number of assembled bases. Roughly proportional to genome size.</li>
-<li><em>len_max</em>: the biggest contig.  </li>
-<li><em>len_N50</em>: N50 is a contig size. If contigs were ordered from small to large, half of all the nucleotides will be in contigs this size or larger.</li>
-</ul>
-</li>
-</ul>
-<h3 id="now-copy-the-relevant-data-back-into-the-k-mer-spreadsheet-on-your-line">Now copy the relevant data back into the k-mer spreadsheet on your line.</h3>
-<p>Along with the demonstrator, have a look at the effect of the k-mer size on the output metrics of the assembly. Note that there are local maxima and minima in the charts.</p>
-<!--In next week's lecture, this will be discussed in detail. -->
-
-<h2 id="assembly-with-velvet-optimiser">Assembly with Velvet Optimiser</h2>
-<p>Now that we have seen the effect of k-mer size on the assembly, we will run the Velvet Optimiser to automatically choose the best k-mer size for us. It will use the &ldquo;n50&rdquo; to determine the best k-mer value to use. It then performs the further graph cleaning steps and automatically chooses other parameters for velvet. We should get a much better assembly result than we did with our attempts with Velvet alone.</p>
-<ul>
-<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; Velvet Optimiser</ss><ul>
-<li>
-<p>Set the following parameters (leave other settings as they are):</p>
-<ul>
-<li><ss>Start k-mer size</ss>: 45</li>
-<li><ss>End k-mer size</ss>: 73</li>
-<li><ss>Input file type</ss>: Fastq</li>
-<li><ss>Single or paired end reads</ss>: Paired</li>
-<li><ss> Select first set of reads</ss>: <fn>mutant_R1.fastq</fn>  </li>
-<li>
-<p><ss> Select second set of reads</ss>: <fn>mutant_R2.fastq</fn></p>
-</li>
-<li>
-<p>Click <ss>Execute</ss></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="look-at-the-fasta-statistics-for-the-velvet-optimiser-contigs">Look at the fasta statistics for the Velvet Optimiser contigs</h3>
-<p>Use the Fasta Statistics tool you used earlier to summarise the Velvet Optimiser output. Examine the resulting table. What are the main differences?</p>
-<!-- ## What next?
-
-- [Annotate the genome using Prokka.](/modules/prokka/index.md)
--->
+<h2 id="view-results">View results</h2>
+<p>Pie chart</p>
+<h2 id="next">Next</h2>
+<h2 id="links">Links</h2>
+<p><a href="https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-3-r46">Kraken paper</a></p>
                 
                   
                 
@@ -1125,7 +873,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../fastqc/" title="Quality control" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../frogs/" title="Metagenomic with FROGS" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1134,19 +882,19 @@ Ask your demonstrator if you would like to know the difference between contigs a
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Quality control
+                Metagenomic with FROGS
               </span>
             </div>
           </a>
         
         
-          <a href="../spades/" title="Genome assembly with Spades" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../pacbio/" title="PacBio assembly with SMRT portal" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Genome assembly with Spades
+                PacBio assembly with SMRT portal
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
