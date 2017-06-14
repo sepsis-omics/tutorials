@@ -105,14 +105,15 @@ Go to <ss>Tools &rarr; NGS Analysis &rarr; Metagenomic analyses &rarr; Kraken-re
 The output file is called <fn>Kraken-report on data x</fn>.
 
 - Click on the eye icon to view.
-
-![kraken report](images/kraken_output.png)
-
 - Column 1 is the percentage of reads in the clade/taxon in Column 6
 - Column 2 is the number of reads in the clade.
 - Column 3 is the number of reads in the clade but not further classified.
 - Column 4 is a code indicating the rank of the classification: (U)nclassified, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, (S)pecies).
 - Column 5 is the NCBI taxonomy ID.
+
+![kraken report](images/kraken_output.png)
+
+
 
 Approximately 95% of reads were classified as *Staphylococcus aureus*, confirming the correct identity of our bacterial sample.
 
@@ -147,7 +148,7 @@ Re-run Kraken with another sample.
 
 - 63% are classified to the genus *Enterococcus*, and most of these to *E. faecalis*.
 
-- However, if we scroll down the table of results, we see that 31% are classified to the genus *Mycobacterium*, mostly *M. abscessus*. These are not the in same phylum as *Enterococcus*.
+- However, if we scroll down the table of results, we see that 31% are classified to the genus *Mycobacterium*, mostly *M. abscessus*. These are not in the same phylum as *Enterococcus*.
 
 ![output2](images/sample2_2.png)
 
