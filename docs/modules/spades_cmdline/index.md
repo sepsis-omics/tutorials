@@ -3,23 +3,24 @@
 This tutorial follows on from "PacBio assembly with commandline tools".
 
 
-
 ## Short-read assembly: a comparison
 
 So far, we have assembled the long PacBio reads into one contig (the chromosome) and found an additional plasmid in the Illumina short reads.
 
 If we only had Illumina reads, we could also assemble these using the tool Spades.
 
-You can try this here or try it later on your own data.
+You can try this here, or try it later on your own data.
 
-### Get data
+## Get data
 
 We will use the same Illumina data as we used above:
 
 - <fn>illumina_R1.fastq.gz</fn>: the Illumina forward reads
 - <fn>illumina_R2.fastq.gz</fn>: the Illumina reverse reads
 
-### Assemble
+This is from Sample 25747.
+
+## Assemble
 
 Run Spades:
 
@@ -33,7 +34,7 @@ spades.py -1 illumina_R1.fastq.gz -2 illumina_R2.fastq.gz --careful --cov-cutoff
 - `--cov-cutoff auto` computes the coverage threshold (rather than the default setting, "off")
 - `-o` is the output directory
 
-### Results
+## Results
 
 Move into the output directory and look at the contigs:
 
@@ -41,7 +42,7 @@ Move into the output directory and look at the contigs:
 infoseq contigs.fasta
 ```
 
-### Questions
+<!-- ### Questions
 
 How many contigs were found by Spades?
 
@@ -66,3 +67,8 @@ Does it matter that an assembly is in many contigs?
 How can we get more information about the assembly from Spades?
 
 - Look at the assembly graph <fn>assembly_graph.fastg</fn>, e.g. in the program Bandage. This shows how contigs are related, albeit with ambiguity in some places.
+-->
+
+## Next
+
+Run "Prokka" to annotate the contigs.
