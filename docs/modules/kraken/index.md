@@ -139,8 +139,8 @@ The output of kraken-report is tab-delimited, with one line per taxon. The field
 Re-run Kraken with another sample.
 
 - Use the files <fn>MT14_2929_R1.fq</fn> and <fn>MT14_2929_R2.fq</fn>.
-- Run kraken with these files. These are paired-end reads.
-- With the <fn>Classification</fn> file from kraken, run kraken-report.
+- Run Kraken with these files. These are paired-end reads.
+- With the <fn>Classification</fn> file from Kraken, run Kraken-report.
 - Cick on the eye icon to view the <fn>Kraken-report</fn> file.
 
 ![output 1](images/sample2_1.png)
