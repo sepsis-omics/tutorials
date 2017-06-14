@@ -108,6 +108,12 @@
     </url>
         
     <url>
+     <loc>http://sepsis-omics.github.io/tutorials//modules/spades_cmdline/</loc>
+     <lastmod>2017-06-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://sepsis-omics.github.io/tutorials//modules/roary/</loc>
      <lastmod>2017-06-14</lastmod>
      <changefreq>daily</changefreq>

@@ -1006,6 +1006,41 @@
             "title": "Next"
         }, 
         {
+            "location": "/modules/spades_cmdline/", 
+            "text": "Spades - commandline\n\n\nThis tutorial follows on from \nPacBio assembly with commandline tools\n.\n\n\nShort-read assembly: a comparison\n\n\nSo far, we have assembled the long PacBio reads into one contig (the chromosome) and found an additional plasmid in the Illumina short reads.\n\n\nIf we only had Illumina reads, we could also assemble these using the tool Spades.\n\n\nYou can try this here, or try it later on your own data.\n\n\nGet data\n\n\nWe will use the same Illumina data as we used above:\n\n\n\n\nillumina_R1.fastq.gz\n: the Illumina forward reads\n\n\nillumina_R2.fastq.gz\n: the Illumina reverse reads\n\n\n\n\nThis is from Sample 25747.\n\n\nAssemble\n\n\nRun Spades:\n\n\nspades.py -1 illumina_R1.fastq.gz -2 illumina_R2.fastq.gz --careful --cov-cutoff auto -o spades_assembly_all_illumina\n\n\n\n\n\n\n\n-1\n is input file of forward reads\n\n\n-2\n is input file of reverse reads\n\n\n--careful\n minimizes mismatches and short indels\n\n\n--cov-cutoff auto\n computes the coverage threshold (rather than the default setting, \noff\n)\n\n\n-o\n is the output directory\n\n\n\n\nResults\n\n\nMove into the output directory and look at the contigs:\n\n\ninfoseq contigs.fasta\n\n\n\n\n\n\n\n\nNext\n\n\nRun \nProkka\n to annotate the contigs.", 
+            "title": "Spades assembly - commandline"
+        }, 
+        {
+            "location": "/modules/spades_cmdline/#spades-commandline", 
+            "text": "This tutorial follows on from  PacBio assembly with commandline tools .", 
+            "title": "Spades - commandline"
+        }, 
+        {
+            "location": "/modules/spades_cmdline/#short-read-assembly-a-comparison", 
+            "text": "So far, we have assembled the long PacBio reads into one contig (the chromosome) and found an additional plasmid in the Illumina short reads.  If we only had Illumina reads, we could also assemble these using the tool Spades.  You can try this here, or try it later on your own data.", 
+            "title": "Short-read assembly: a comparison"
+        }, 
+        {
+            "location": "/modules/spades_cmdline/#get-data", 
+            "text": "We will use the same Illumina data as we used above:   illumina_R1.fastq.gz : the Illumina forward reads  illumina_R2.fastq.gz : the Illumina reverse reads   This is from Sample 25747.", 
+            "title": "Get data"
+        }, 
+        {
+            "location": "/modules/spades_cmdline/#assemble", 
+            "text": "Run Spades:  spades.py -1 illumina_R1.fastq.gz -2 illumina_R2.fastq.gz --careful --cov-cutoff auto -o spades_assembly_all_illumina   -1  is input file of forward reads  -2  is input file of reverse reads  --careful  minimizes mismatches and short indels  --cov-cutoff auto  computes the coverage threshold (rather than the default setting,  off )  -o  is the output directory", 
+            "title": "Assemble"
+        }, 
+        {
+            "location": "/modules/spades_cmdline/#results", 
+            "text": "Move into the output directory and look at the contigs:  infoseq contigs.fasta", 
+            "title": "Results"
+        }, 
+        {
+            "location": "/modules/spades_cmdline/#next", 
+            "text": "Run  Prokka  to annotate the contigs.", 
+            "title": "Next"
+        }, 
+        {
             "location": "/modules/roary/", 
             "text": "Find pan-genomes using Roary\n\n\nA concept in comparative microbial genomics is core and pan genomes. If we analyse DNA from several bacterial strains, we may want to know which genes they have in common and which are unique to some strains.\n\n\n\n\n\n\nThe \ncore genome\n is the group of genes shared by all strains in the clade of interest. Gene sequences are similar but not necessarily identical. \nCore genome SNPs\n are those SNPs found in the genes in the core genome; i.e. at a particular site, the nucleotide varies. We can use these SNPs to infer relationships between the strains.\n\n\n\n\n\n\nThe \naccessory genome\n is the group of genes that are not in all the strains. These genes may be in one or more strain.\n\n\n\n\n\n\nThe \npan genome\n is the sum of the core and accessory genomes. That is, a combination of \nall\n the genes that are found in the clade of interest.\n\n\n\n\n\n\nBacteria can horizontally-transfer genes to other bacteria via plasmids, and so their accessory genome can be large relative to those of eurkaryotes. Bacterial accessory genomes often house genes for drug resistance.\n\n\nThis tutorial demonstrates how to calculate the pan and core genomes of a set of input bacterial samples, using the tool \nRoary\n.\n\n\nGet data\n\n\nInput:\n\n\n\n\nannotated genome in GFF3 format, per sample (\ne.g.\n output from Prokka)\n\n\nsamples must be from same species\n\n\n\n\nOur data:\n\n\n\n\n\n\n\n\nFive strains of \nStaphylococcus aureus\n, in .gff format.\n\n\n\n\n\nRun\n\n\nRun roary\n\n\nroary -e --mafft -p 8 *.gff\n\n\n\n\n\n\n\n-e --mafft\n aligns the core genes using the tool MAFFT\n\n\n-p 8\n uses 8 threads\n\n\n\n\nWhat does Roary do\n\n\n\n\nconverts coding sequences into protein sequences\n\n\nclustered these protein sequences by several methods\n\n\nfurther refines clusters into orthologous genes\n\n\nfor each sample, determines if gene is present/absent: produces \ngene_presence_absence.csv\n\n\nuses this gene p/a information to build a tree, using FastTree: produces \naccessory_binary_genes.fa.newick\n\n\noverall, calculates number of genes that are shared, and unique: produces \nsummary_statistics.txt\n\n\naligns the core genes (if option used, as above) for downstream analyses\n\n\n\n\nOutput\n\n\nCore and pan genes\n\n\nOpen the summary file:\n\n\nless summary_statistics.txt\n\n\n\n\n\nThis shows a table of counts of shared genes (core genome) and total genes (pan genome).\n\n\n\n\nWhat are the core genes?\n\n\nquery_pan_genome -a intersection -o core_genome_results *.gff\n\n\n\n\n\nWhat are the accessory genes?\n\n\nquery_pan_genome -a complement -o accessory_genome_results *.gff\n\n\n\n\n\nWhat are the pan genes?\n\n\nquery_pan_genome -a union -o pan_genome_results *.gff\n\n\n\n\n\nView: \ne.g.\n\n\nless core_genome_results | column -t\n\n\n\n\n\nGene presence/absence\n\n\nTransfer the file \ngene_presence_absence.csv\n to your local computer and view in spreadsheet software.\n\n\n\n\nSearch for the gene that confers methicillin resistance. It is only found in some of the strains.\n\n\n\n\n\n\n\nVizualize with Phandango\n\n\nCopy these files to your local computer:\n\n\n\n\naccessory_binary_genes.fa.newick\n\n\ngene_presence_absence.csv\n\n\n\n\nGo to \nhttp://phandango.net\n\n\n\n\ndrag and drop the two files onto the landing page.\n\n\nview the tree of samples and their core and pan genomes\n\n\n\n\n\n\nLinks\n\n\n\n\nRoary: \nhttps://sanger-pathogens.github.io/Roary/\n\n\nRoary publication: \nhttp://bioinformatics.oxfordjournals.org/content/31/22/3691", 
             "title": "Pangenomes with Roary"
