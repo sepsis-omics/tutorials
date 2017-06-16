@@ -118,8 +118,8 @@ The output file is called <fn>Kraken-report on data x</fn>.
 
 Approximately 95% of reads were classified as *Staphylococcus aureus*, confirming the correct identity of our bacterial sample.
 
-- Of these reads, roughly half were uniquely present in *S. aureus* subsp. *aureus*, and most of those were uniquely present strain HO 5096 0412.
-- The sequence strain is therefore most related to the HO 5096 0412 strain.
+- Of these reads, roughly half were uniquely present in *S. aureus* subsp. *aureus*, and most of those were uniquely present in strain HO 5096 0412.
+- The sample strain is therefore most related to the HO 5096 0412 strain.
 
 The remaining reads within the *S. aureus* clade were classified into various taxa.
 
