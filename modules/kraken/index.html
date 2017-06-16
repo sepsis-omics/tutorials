@@ -923,7 +923,8 @@ Each sequence classified by Kraken results in a single line of output. Output li
 <p><img alt="kraken report" src="./images/kraken_output2.png" /></p>
 <p>Approximately 95% of reads were classified as <em>Staphylococcus aureus</em>, confirming the correct identity of our bacterial sample.</p>
 <ul>
-<li>Of these reads, roughly half were further identified to <em>S. aureus aureus</em>, and most of those were further identified to strain HO 5096 0412.</li>
+<li>Of these reads, roughly half were uniquely present in <em>S. aureus</em> subsp. <em>aureus</em>, and most of those were uniquely present strain HO 5096 0412.</li>
+<li>The sequence strain is therefore most related to the HO 5096 0412 strain.</li>
 </ul>
 <p>The remaining reads within the <em>S. aureus</em> clade were classified into various taxa.</p>
 <ul>
@@ -942,7 +943,7 @@ The output of kraken-report is tab-delimited, with one line per taxon. The field
 6. Indented scientific name -->
 
 <h2 id="next">Next</h2>
-<p>Re-run Kraken with another sample.</p>
+<p>Re-run Kraken with another sample. This sample should be <em>Enterococcus faecalis</em>.</p>
 <ul>
 <li>Use the files <fn>ent_R1.fq</fn> and <fn>ent_R2.fq</fn>.</li>
 <li>Run <ss>Kraken</ss> with these files. These are paired-end reads.</li>
