@@ -116,10 +116,10 @@ The output file is called <fn>Kraken-report on data x</fn>.
 ![kraken report](images/kraken_output2.png)
 
 
-
 Approximately 95% of reads were classified as *Staphylococcus aureus*, confirming the correct identity of our bacterial sample.
 
-- Of these reads, roughly half were further identified to *S. aureus aureus*, and most of those were further identified to strain HO 5096 0412.
+- Of these reads, roughly half were uniquely present in *S. aureus* subsp. *aureus*, and most of those were uniquely present strain HO 5096 0412.
+- The sequence strain is therefore most related to the HO 5096 0412 strain.
 
 The remaining reads within the *S. aureus* clade were classified into various taxa.
 
@@ -139,7 +139,7 @@ The output of kraken-report is tab-delimited, with one line per taxon. The field
 
 ## Next
 
-Re-run Kraken with another sample.
+Re-run Kraken with another sample. This sample should be *Enterococcus faecalis*.
 
 - Use the files <fn>ent_R1.fq</fn> and <fn>ent_R2.fq</fn>.
 - Run <ss>Kraken</ss> with these files. These are paired-end reads.
