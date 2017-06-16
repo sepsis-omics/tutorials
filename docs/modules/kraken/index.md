@@ -14,11 +14,11 @@ In this tutorial we will use Kraken to confirm the identify of reads from a bact
 
 ## Get data
 
-In Galaxy, go to "Shared Data" in the top panel, and click on the history named "Kraken data". In the top right, click "Switch to this history".
+In Galaxy, go to <ss>Shared Data</ss> in the top panel, and click on the history named <fn>Kraken data</fn>. In the top right, click <ss>Switch to this history</ss>.
 
-You current history should now contain four files. If you are using the tutorial independently of a workshop, at this stage you can upload your read files into the current history.
+Your current history should now contain four files. If you are using the tutorial independently of a workshop, at this stage you can upload your FASTQ files into the current history.
 
-![galaxy history](images/files.png)
+![galaxy history](images/files2.png)
 
 <!-- used ERR019289_1 and 2 from EBI. see public data tutorial.
 rename and change datatypes. -- not working -->
@@ -27,7 +27,7 @@ rename and change datatypes. -- not working -->
 
 We have a sample that should be *Staphylococcus aureus*. The paired-end FASTQ read files are:
 
-- <fn>25747_R1.fq</fn> and <fn>25747_R2.fq</fn>.
+- <fn>staph_R1.fq</fn> and <fn>staph_R2.fq</fn>.
 
 (We will look at the other set of files later on in the tutorial).
 
@@ -36,13 +36,13 @@ We have a sample that should be *Staphylococcus aureus*. The paired-end FASTQ re
 - Set the following parameters:
 
     - <ss>Single or paired reads</ss>: *Paired*
-    - <ss>Forward strand:</ss> <fn>25747_R1.fq</fn>
-    - <ss>Reverse strand:</ss> <fn>25747_R2.fq</fn>
+    - <ss>Forward strand:</ss> <fn>staph_R1.fq</fn>
+    - <ss>Reverse strand:</ss> <fn>staph_R2.fq</fn>
     - leave other settings as they are
 
 - Your tool interface should look like this:
 
-![tool interface](images/tool_interface.png)
+![tool interface](images/tool_interface2.png)
 
 -  Click <ss>Execute</ss>
 
@@ -69,10 +69,12 @@ Click <ss>Refresh</ss> if the file hasn't yet turned green.
 
 When the file is green, click on the eye icon to view.
 
-- We will turn this output into something easier to read.
+- We will turn this output into something easier to read in the next step.
 - Column 2 is the sequence ID.
-- Column 3 is the taxon ID.
-- Column 5 is a summary of all the taxon IDs that each kmer in the sequence matched to (taxon:number of kmers).  
+- Column 3 is the taxon ID (from NCBI).
+- Column 5 is a summary of all the taxon IDs that each k-mer in the sequence matched to (taxon ID:number of k-mers).  
+
+![classification](images/classification.png)
 
 
 <!-- Output Format
@@ -105,13 +107,13 @@ Go to <ss>Tools &rarr; NGS Analysis &rarr; Metagenomic analyses &rarr; Kraken-re
 The output file is called <fn>Kraken-report on data x</fn>.
 
 - Click on the eye icon to view.
-- Column 1 is the percentage of reads in the clade/taxon in Column 6
-- Column 2 is the number of reads in the clade.
-- Column 3 is the number of reads in the clade but not further classified.
-- Column 4 is a code indicating the rank of the classification: (U)nclassified, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, (S)pecies).
-- Column 5 is the NCBI taxonomy ID.
+- Column 1: percentage of reads in the clade/taxon in Column 6
+- Column 2: number of reads in the clade.
+- Column 3: number of reads in the clade but not further classified.
+- Column 4: code indicating the rank of the classification: (U)nclassified, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, (S)pecies).
+- Column 5: NCBI taxonomy ID.
 
-![kraken report](images/kraken_output.png)
+![kraken report](images/kraken_output2.png)
 
 
 
@@ -139,9 +141,9 @@ The output of kraken-report is tab-delimited, with one line per taxon. The field
 
 Re-run Kraken with another sample.
 
-- Use the files <fn>MT14_2929_R1.fq</fn> and <fn>MT14_2929_R2.fq</fn>.
-- Run Kraken with these files. These are paired-end reads.
-- With the <fn>Classification</fn> file from Kraken, run Kraken-report.
+- Use the files <fn>ent_R1.fq</fn> and <fn>ent_R2.fq</fn>.
+- Run <ss>Kraken</ss> with these files. These are paired-end reads.
+- With the <fn>Classification</fn> file from Kraken, run <ss>Kraken-report</ss>.
 - Cick on the eye icon to view the <fn>Kraken-report</fn> file.
 
 ![output 1](images/sample2_1.png)
@@ -157,3 +159,5 @@ Re-run Kraken with another sample.
 ## Links
 
 [Kraken paper](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-3-r46)
+
+[Kraken software](http://ccb.jhu.edu/software/kraken/)
