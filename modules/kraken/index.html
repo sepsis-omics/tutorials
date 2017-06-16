@@ -825,16 +825,16 @@
 
 <p>In this tutorial we will use Kraken to confirm the identify of reads from a bacterial isolate.</p>
 <h2 id="get-data">Get data</h2>
-<p>In Galaxy, go to &ldquo;Shared Data&rdquo; in the top panel, and click on the history named &ldquo;Kraken data&rdquo;. In the top right, click &ldquo;Switch to this history&rdquo;.</p>
-<p>You current history should now contain four files. If you are using the tutorial independently of a workshop, at this stage you can upload your read files into the current history.</p>
-<p><img alt="galaxy history" src="./images/files.png" /></p>
+<p>In Galaxy, go to <ss>Shared Data</ss> in the top panel, and click on the history named <fn>Kraken data</fn>. In the top right, click <ss>Switch to this history</ss>.</p>
+<p>Your current history should now contain four files. If you are using the tutorial independently of a workshop, at this stage you can upload your FASTQ files into the current history.</p>
+<p><img alt="galaxy history" src="./images/files2.png" /></p>
 <!-- used ERR019289_1 and 2 from EBI. see public data tutorial.
 rename and change datatypes. -- not working -->
 
 <h2 id="run-kraken">Run Kraken</h2>
 <p>We have a sample that should be <em>Staphylococcus aureus</em>. The paired-end FASTQ read files are:</p>
 <ul>
-<li><fn>25747_R1.fq</fn> and <fn>25747_R2.fq</fn>.</li>
+<li><fn>staph_R1.fq</fn> and <fn>staph_R2.fq</fn>.</li>
 </ul>
 <p>(We will look at the other set of files later on in the tutorial).</p>
 <ul>
@@ -845,8 +845,8 @@ rename and change datatypes. -- not working -->
 <p>Set the following parameters:</p>
 <ul>
 <li><ss>Single or paired reads</ss>: <em>Paired</em></li>
-<li><ss>Forward strand:</ss> <fn>25747_R1.fq</fn></li>
-<li><ss>Reverse strand:</ss> <fn>25747_R2.fq</fn></li>
+<li><ss>Forward strand:</ss> <fn>staph_R1.fq</fn></li>
+<li><ss>Reverse strand:</ss> <fn>staph_R2.fq</fn></li>
 <li>leave other settings as they are</li>
 </ul>
 </li>
@@ -854,7 +854,7 @@ rename and change datatypes. -- not working -->
 <p>Your tool interface should look like this:</p>
 </li>
 </ul>
-<p><img alt="tool interface" src="./images/tool_interface.png" /></p>
+<p><img alt="tool interface" src="./images/tool_interface2.png" /></p>
 <ul>
 <li>Click <ss>Execute</ss></li>
 </ul>
@@ -877,11 +877,12 @@ In detail:
 <p><img alt="refresh" src="./images/refresh.png" /></p>
 <p>When the file is green, click on the eye icon to view.</p>
 <ul>
-<li>We will turn this output into something easier to read.</li>
+<li>We will turn this output into something easier to read in the next step.</li>
 <li>Column 2 is the sequence ID.</li>
-<li>Column 3 is the taxon ID.</li>
-<li>Column 5 is a summary of all the taxon IDs that each kmer in the sequence matched to (taxon:number of kmers).  </li>
+<li>Column 3 is the taxon ID (from NCBI).</li>
+<li>Column 5 is a summary of all the taxon IDs that each k-mer in the sequence matched to (taxon ID:number of k-mers).  </li>
 </ul>
+<p><img alt="classification" src="./images/classification.png" /></p>
 <!-- Output Format
 
 Each sequence classified by Kraken results in a single line of output. Output lines contain five tab-delimited fields; from left to right, they are:
@@ -913,13 +914,13 @@ Each sequence classified by Kraken results in a single line of output. Output li
 <p>The output file is called <fn>Kraken-report on data x</fn>.</p>
 <ul>
 <li>Click on the eye icon to view.</li>
-<li>Column 1 is the percentage of reads in the clade/taxon in Column 6</li>
-<li>Column 2 is the number of reads in the clade.</li>
-<li>Column 3 is the number of reads in the clade but not further classified.</li>
-<li>Column 4 is a code indicating the rank of the classification: (U)nclassified, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, (S)pecies).</li>
-<li>Column 5 is the NCBI taxonomy ID.</li>
+<li>Column 1: percentage of reads in the clade/taxon in Column 6</li>
+<li>Column 2: number of reads in the clade.</li>
+<li>Column 3: number of reads in the clade but not further classified.</li>
+<li>Column 4: code indicating the rank of the classification: (U)nclassified, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, (S)pecies).</li>
+<li>Column 5: NCBI taxonomy ID.</li>
 </ul>
-<p><img alt="kraken report" src="./images/kraken_output.png" /></p>
+<p><img alt="kraken report" src="./images/kraken_output2.png" /></p>
 <p>Approximately 95% of reads were classified as <em>Staphylococcus aureus</em>, confirming the correct identity of our bacterial sample.</p>
 <ul>
 <li>Of these reads, roughly half were further identified to <em>S. aureus aureus</em>, and most of those were further identified to strain HO 5096 0412.</li>
@@ -943,9 +944,9 @@ The output of kraken-report is tab-delimited, with one line per taxon. The field
 <h2 id="next">Next</h2>
 <p>Re-run Kraken with another sample.</p>
 <ul>
-<li>Use the files <fn>MT14_2929_R1.fq</fn> and <fn>MT14_2929_R2.fq</fn>.</li>
-<li>Run Kraken with these files. These are paired-end reads.</li>
-<li>With the <fn>Classification</fn> file from Kraken, run Kraken-report.</li>
+<li>Use the files <fn>ent_R1.fq</fn> and <fn>ent_R2.fq</fn>.</li>
+<li>Run <ss>Kraken</ss> with these files. These are paired-end reads.</li>
+<li>With the <fn>Classification</fn> file from Kraken, run <ss>Kraken-report</ss>.</li>
 <li>Cick on the eye icon to view the <fn>Kraken-report</fn> file.</li>
 </ul>
 <p><img alt="output 1" src="./images/sample2_1.png" /></p>
@@ -963,6 +964,7 @@ The output of kraken-report is tab-delimited, with one line per taxon. The field
 </ul>
 <h2 id="links">Links</h2>
 <p><a href="https://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-3-r46">Kraken paper</a></p>
+<p><a href="http://ccb.jhu.edu/software/kraken/">Kraken software</a></p>
                 
                   
                 
