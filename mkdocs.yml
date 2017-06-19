@@ -51,7 +51,7 @@ pages:
     - Finding antibiotic-resistant genes: modules/abricate/index.md
     - Viral genome sequencing: modules/viral_genomes/index.md
     - Galaxy workflows: modules/workflows/index.md
-    - Metagenomic with FROGS: modules/frogs/index.md
+    - Metagenomics with FROGS: modules/frogs/index.md
     - Sample identification with Kraken: modules/kraken/index.md
     - PacBio assembly with SMRT portal: modules/pacbio/index.md
     - PacBio assembly with command line tools: modules/cmdline_assembly/index.md
