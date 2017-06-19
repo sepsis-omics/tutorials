@@ -172,8 +172,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
     - *len_N50*: N50 is a contig size. If contigs were ordered from small to large, half of all the nucleotides will be in contigs this size or larger.
 
 
-
-###Now copy the relevant data back into the k-mer spreadsheet on your line.
+Now copy the relevant data back into the k-mer spreadsheet on your line.
 
 Along with the demonstrator, have a look at the effect of the k-mer size on the output metrics of the assembly. Note that there are local maxima and minima in the charts.
 
@@ -195,9 +194,7 @@ Now that we have seen the effect of k-mer size on the assembly, we will run the 
 
         -  Click <ss>Execute</ss>
 
-### Look at the fasta statistics for the Velvet Optimiser contigs
-
-Use the Fasta Statistics tool you used earlier to summarise the Velvet Optimiser output. Examine the resulting table. What are the main differences?
+Use the Fasta Statistics tool you used earlier to summarise the Velvet Optimiser <fn>Contigs</fn> output. Examine the resulting table. What are the main differences?
 
 
 
