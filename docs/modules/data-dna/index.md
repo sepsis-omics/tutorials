@@ -1,7 +1,7 @@
 <br>
 # Dataset
 
-## Upload a Galaxy history
+## Import a Galaxy history
 
 Copy this link:
 
