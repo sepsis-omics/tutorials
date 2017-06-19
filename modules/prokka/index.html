@@ -517,8 +517,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../frogs/" title="Metagenomic with FROGS" class="md-nav__link">
-      Metagenomic with FROGS
+    <a href="../frogs/" title="Metagenomics with FROGS" class="md-nav__link">
+      Metagenomics with FROGS
     </a>
   </li>
 
@@ -879,22 +879,22 @@ We will import a history from Galaxy:
 <p>Now that we have annotated the draft genome sequence, we would like to view the sequence in the JBrowse genome viewer.</p>
 <ul>
 <li>
-<p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss> (choose the top listed one; version 0.5.2).</p>
-</li>
-<li>
-<p>Under <ss>JBrowse-in-Galaxy Action</ss> choose <em>New JBrowse Instance</em>.</p>
+<p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse genome browser</ss>.</p>
 </li>
 <li>
 <p>Under <ss>Reference genome to display</ss> choose <em>Use a genome from history</em>.</p>
 </li>
 <li>
-<p>Under <ss>Fasta sequences</ss> choose <fn>Prokka on data XX:fna</fn>. This .fna sequence is the fasta nucleotide sequence, and will be the reference against which annotations are displayed.</p>
+<p>Under <ss>Select the reference genome</ss> choose <fn>Prokka on data XX:fna</fn>. This .fna sequence is the fasta nucleotide sequence, and will be the reference against which annotations are displayed.</p>
 </li>
 <li>
 <p>For <ss>Produce a Standalone Instance</ss> select <em>Yes</em>.</p>
 </li>
 <li>
 <p>For <ss>Genetic Code</ss> choose <em>11: The Bacterial, Archaeal and Plant Plastid Code</em>.</p>
+</li>
+<li>
+<p>Under <ss>JBrowse-in-Galaxy Action</ss> choose <em>New JBrowse Instance</em>.</p>
 </li>
 <li>
 <p>Click <ss>Insert Track Group</ss></p>
@@ -918,14 +918,14 @@ We will import a history from Galaxy:
 <p>Click on <ss>JBrowse Styling Options <Advanced]</ss></p>
 </li>
 <li>
-<p>Under <ss>JBrowse style.label</ss> correct the word &ldquo;prodcut&rdquo; to &ldquo;product&rdquo;.</p>
+<p>Under <ss>JBrowse style.label</ss> add in <em>product</em>.</p>
 </li>
 <li>
 <p>Under <ss>Track Visibility</ss> choose <em>On for new users</em>.</p>
 </li>
 </ul>
 <p>Your tool interface should look like this:</p>
-<p><img alt="JBrowse interface" src="./images/jbrowse_interface.png" /></p>
+<p><img alt="JBrowse interface" src="./images/jbrowse_int.png" /></p>
 <!--
 ![JBrowse interface](images/jbrowse_oldversion.png) -->
 
@@ -940,10 +940,10 @@ We will import a history from Galaxy:
 <p>Under <ss>Available Tracks</ss> on the left, tick the box for <fn>Prokka on data XX:gff</fn>.</p>
 </li>
 <li>
-<p>Select contig 6 in the drop down box. You can only see one contig displayed at a time.</p>
+<p>Select contig 1 in the drop down box. You can only see one contig displayed at a time.</p>
 </li>
 </ul>
-<p><img alt="JBrowse" src="./images/jbrowse_01.png" /></p>
+<p><img alt="JBrowse" src="./images/jbrowse5.png" /></p>
 <ul>
 <li>
 <p>Use the plus and minus buttons to zoom in and out, and the arrows to move left or right (or click and drag within the window to move left or right).</p>
@@ -953,7 +953,7 @@ We will import a history from Galaxy:
 </li>
 </ul>
 <p>Zoomed in view:</p>
-<p><img alt="JBrowse" src="./images/jbrowse4.png" /></p>
+<p><img alt="JBrowse" src="./images/jbrowse6.png" /></p>
 <ul>
 <li>Right click on a gene/feature annotation (the bars on the annotation track), then select <ss>View Details</ss> to see more information.<ul>
 <li>gene name</li>

@@ -503,8 +503,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../frogs/" title="Metagenomic with FROGS" class="md-nav__link">
-      Metagenomic with FROGS
+    <a href="../frogs/" title="Metagenomics with FROGS" class="md-nav__link">
+      Metagenomics with FROGS
     </a>
   </li>
 
@@ -791,7 +791,9 @@
 <p><img alt="galaxy overview screenshot" src="./images/image05.png" /></p>
 <h2 id="register">Register</h2>
 <p>Open a new tab or window on your web browser. Use Firefox or Chrome - please don’t use Internet Explorer or Safari.</p>
-<p>In the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.</p>
+<p>In the address bar, type in the address of your galaxy server.</p>
+<!--Alternatively, you can access galaxy via the dashboard of your mGVL. -->
+
 <p><img alt="Galaxy URL" src="./images/image09.png" /></p>
 <p>Click on <ss>User</ss> button on the right.</p>
 <p><img alt="Register or Login screenshot" src="./images/image04.png" /></p>
@@ -806,39 +808,50 @@
 </li>
 </ul>
 <h2 id="import-a-history">Import a history</h2>
-<ul>
-<li>In the menu options across the top, go to <ss>Shared Data</ss>.</li>
-<li>Click on <ss>Histories</ss>.</li>
-</ul>
-<p><img alt="Shared histories" src="./images/image10.png" /></p>
-<ul>
-<li>A list of published histories should appear. Click on the history that you want to use.</li>
-</ul>
+<!-- - In the menu options across the top, go to <ss>Shared Data</ss>.
+- Click on <ss>Histories</ss>.
+
+![Shared histories](images/image10.png)
+
+- A list of published histories should appear. Click on the history that you want to use.
+
 <!--For the Genomics Workshop, click on this one:
 
 ![histories](images/pub_hist.png)
+
+
+- A useful starting history is a set of files containing sequencing reads and reference genomes.
+- Click on **Genomics-files**.
+
+- Then click on <ss>Import history</ss>.
+- An option will appear to re-name the history. We don't need to rename it, so click <ss>Import</ss>.
+- The history will now appear in your Current History pane, and the files are ready to use in Galaxy analyses.
+
+- *Note: if this history is not available in your version of Galaxy, please see the [following page](../data-dna/index.md) for links and information about uploading data.*
 -->
 
+<p>Copy this link:</p>
+<p><tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy_history_input_files.tar.gz</tt></p>
 <ul>
-<li>A useful starting history is a set of files containing sequencing reads and reference genomes.</li>
-<li>Click on <strong>Genomics-files</strong>.</li>
+<li>Click on the <ss>History</ss> cog <img alt="cog icon" src="./images/image02.png" /></li>
+<li>Select <ss>Import from File</ss></li>
 </ul>
-<!--![fastq history](images/pub_hist_fastq.png) -->
-
+<p><img alt="history options" src="./images/import_from_file.png" /></p>
 <ul>
-<li>Then click on <ss>Import history</ss>.</li>
-<li>An option will appear to re-name the history. We don&rsquo;t need to rename it, so click <ss>Import</ss>.</li>
-<li>
-<p>The history will now appear in your Current History pane, and the files are ready to use in Galaxy analyses.</p>
-</li>
-<li>
-<p><em>Note: if this history is not available in your version of Galaxy, please see the <a href="../data-dna/">following page</a> for links and information about uploading data.</em></p>
-</li>
+<li>In the box called <ss>Archived History URL</ss>, paste in the link address to the Galaxy history (that you copied above).</li>
+<li>Click <ss>Submit</ss></li>
+<li>Wait a few seconds.</li>
+<li>Click on the <ss>view all histories</ss> button <img alt="histories icon" src="./images/view_all_hist.png" /></li>
+<li>See if the Galaxy history has been imported: it will be called <fn>imported from archive: Data</fn></li>
+<li>Above that pane, click on the <ss>Switch to</ss> button.</li>
+<li>Then click <ss>Done</ss> (in the top left corner).</li>
+<li>You should now have a list of five files in your current history. We will use these for the Genomics Workshop; or see below for additional files.</li>
 </ul>
+<p><img alt="files in galaxy history" src="./images/datafiles.png" /></p>
 <h2 id="other-ways-to-import-data-into-galaxy">Other ways to import data into Galaxy</h2>
 <ul>
 <li>Upload a file from your computer</li>
-<li>Copy a link to a Galaxy history</li>
+<li>Import a shared history</li>
 <li>See the <a href="../data-dna/">next section</a> for more detailed information.</li>
 </ul>
                 

@@ -517,8 +517,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../frogs/" title="Metagenomic with FROGS" class="md-nav__link">
-      Metagenomic with FROGS
+    <a href="../frogs/" title="Metagenomics with FROGS" class="md-nav__link">
+      Metagenomics with FROGS
     </a>
   </li>
 
@@ -869,22 +869,22 @@ Usually differences are limited to single nucleotide polymorphisms (SNPs) and sm
 <h2 id="view-snippy-output-in-jbrowse">View Snippy output in JBrowse</h2>
 <ul>
 <li>
-<p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss> (choose the top listed one; version 0.5.2).</p>
-</li>
-<li>
-<p>Under <ss>JBrowse-in-Galaxy Action</ss> choose <em>New JBrowse Instance</em>.</p>
+<p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse genome browser</ss>.</p>
 </li>
 <li>
 <p>Under <ss>Reference genome to display</ss> choose <em>Use a genome from history</em>.</p>
 </li>
 <li>
-<p>Under <ss>Fasta Sequence(s)</ss> choose <fn>wildtype.fna</fn>. This sequence will be the reference against which annotations are displayed.</p>
+<p>Under <ss>Select the reference genome</ss> choose <fn>wildtype.fna</fn>. This sequence will be the reference against which annotations are displayed.</p>
 </li>
 <li>
 <p>For <ss>Produce a Standalone Instance</ss> select <em>Yes</em>.</p>
 </li>
 <li>
 <p>For <ss>Genetic Code</ss> choose <em>11: The Bacterial, Archaeal and Plant Plastid Code</em>.</p>
+</li>
+<li>
+<p>Under <ss>JBrowse-in-Galaxy Action</ss> choose <em>New JBrowse Instance</em>.</p>
 </li>
 <li>
 <p>We will now set up three different tracks - these are datasets displayed underneath the reference sequence (which is displayed as nucleotides in FASTA format). We will choose to display the sequence reads (the .bam file), the variants found by snippy (the .gff file) and the annotated reference genome (the wildtype.gff)</p>
@@ -906,7 +906,7 @@ Usually differences are limited to single nucleotide polymorphisms (SNPs) and sm
 <li>For <ss>Track Category</ss> name it &ldquo;variants&rdquo;</li>
 <li>Click <ss>Insert Annotation Track</ss></li>
 <li>For <ss>Track Type</ss> choose <em>GFF/GFF3/BED/GBK Features</em></li>
-<li>For <ss>SNP Track Data</ss> select <fn>the snippy snps gff file</fn></li>
+<li>For <ss>Track Data</ss> select <fn>the snippy snps gff file</fn></li>
 <li>Under <ss>Track Visibility</ss> choose <em>On for new users</em>.</li>
 </ul>
 <p><em>Track 3 - annotated reference</em></p>
@@ -915,11 +915,11 @@ Usually differences are limited to single nucleotide polymorphisms (SNPs) and sm
 <li>For <ss> Track Category</ss> name it &ldquo;annotated reference&rdquo;</li>
 <li>Click <ss>Insert Annotation Track</ss></li>
 <li>For <ss>Track Type</ss> choose <em>GFF/GFF3/BED/GBK Features</em></li>
-<li>For <ss>SNP Track Data</ss> select <fn>wildtype.gff</fn></li>
+<li>For <ss>Track Data</ss> select <fn>wildtype.gff</fn></li>
 <li>Under <ss>JBrowse Track Type[Advanced]</ss> select <em>Canvas Features</em>.</li>
 <li>Click on <ss>JBrowse Styling Options <Advanced]</ss></li>
-<li>Under <ss>JBrowse style.label</ss> correct the word &ldquo;prodcut&rdquo; to &ldquo;product&rdquo;.</li>
-<li>Under <ss>JBrowse style.description</ss> type in <em>product,note,description</em></li>
+<li>Under <ss>JBrowse style.label</ss> add in the word <em>product</em>.</li>
+<li>Under <ss>JBrowse style.description</ss> add in the word <em>product</em>.</li>
 <li>
 <p>Under <ss>Track Visibility</ss> choose <em>On for new users</em>.</p>
 </li>
