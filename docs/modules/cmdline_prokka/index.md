@@ -1,4 +1,4 @@
-# Genome annotation using Prokka on the command line
+# Prokka - commandline
 
 ## Background
 

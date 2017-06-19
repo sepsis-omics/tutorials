@@ -3,8 +3,10 @@
 
 ## Upload a Galaxy history
 
-- Copy this link:
-    - **<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy_history_input_files.tar.gz</tt>**
+Copy this link:
+
+<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy_history_input_files.tar.gz</tt>
+
 
 - Go to your Galaxy instance. Make sure you are registered and logged in. Refresh the page.
 - Click on the <ss>History</ss> cog ![cog icon](images/image02.png)
