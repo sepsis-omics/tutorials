@@ -8,16 +8,18 @@ LI {
 
 H1 {
   font-size: 3em;
+  font-weight: normal;
 }
 
 H2 {
   border-bottom: 1px solid grey;
-  font-weight: bolder;
+  font-weight: normal;
+
 }
 
 H3 {
 
-  font-weight: bold;
+  font-weight: 900;
   font-size: 1em;
 
 
@@ -70,15 +72,27 @@ IMG {
   padding: 1em 1em;
 }
 
+
 .navbar-brand {
   font-weight: bolder;
 }
+
+
+
+
+
 /*
 These are for "info boxes" in mkdocs
 
  !!! note
      This is a note.
 */
+
+
+
+/*
+
+I commented these out for now, to use the default question and answer formatting (= "note" and "sucess")
 
 .admonition {
   border: solid black thin;
@@ -93,7 +107,8 @@ These are for "info boxes" in mkdocs
   //font-style: italic;
 }
 
-.hint {
+
+ .hint {
   background-color: green;
 }
 .note {
@@ -102,3 +117,4 @@ These are for "info boxes" in mkdocs
 .warning {
   background-color: red;
 }
+*/

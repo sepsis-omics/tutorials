@@ -1,3 +1,4 @@
+<br>
 #Assembly using Velvet
 
 Keywords: de novo assembly, Velvet, Galaxy, Microbial Genomics Virtual Lab
@@ -20,14 +21,34 @@ At the end of this tutorial you should be able to:
 
 ## Import and view data
 
-<!-- If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/galaxy/index.md).
+If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/data-dna/index.md).
+
+<!-- Alternative ways to obtain the files:
+
+- In the centre of the top Galaxy panel, select <ss>Shared Data: Histories</ss>
+- Select <fn>Microbial-assembly-start-history</fn> and then in the top right corner click on <ss>Import history</ss>.
+- This should now be your current history (the right hand panel) with five files.
+
+Or:
+
+- Click on the <ss>History</ss> cog ![cog icon](images/image02.png)
+- Select <ss>Import from File</ss>
+- In the box called <ss>Archived History URL</ss>, paste in this link address to the Galaxy history of input files:
+
+<tt>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/Microbial_tutorials/Galaxy_history_input_files.tar.gz</tt>
+
+- Click <ss>Submit</ss>
+- Wait a few seconds.
+- Click on the "view all histories" button ![histories icon](images/histories.png)
+- See if the Galaxy history has been imported: it will be called <fn>imported from archive: Data</fn>
+- Above that pane, click on the <ss>Switch to</ss> button.
+- Then click <ss>Done</ss> (in the top left corner).
+- You should now have a list of five files in your current history.
 -->
 
-See [here](/modules/galaxy/index.md) for information about how to start with Galaxy, and [here](/modules/data-dna/index.md) for the link to import the "Galaxy history of input files" for this tutorial, if you don't already have them in your history.
+### The data
 
-- The read set for today is from an imaginary *Staphylococcus aureus* bacterium with a miniature genome.
-- The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.
-
+The read set for today is from an imaginary *Staphylococcus aureus* bacterium with a miniature genome. The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.
 
 - The files we need for assembly are the <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.
 - (We don't need the reference genome sequences for this tutorial).
@@ -116,7 +137,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
 
 - Galaxy is now running velvet on the reads for you.
 - Press the refresh button in the history pane to see if it has finished.
-- When it is finished, you will have three new files in your history.  
+- When it is finished, you will have four new files in your history.  
 
     - a <fn>Contigs</fn> file
     - a <fn>Contigs stats</fn> file
@@ -151,8 +172,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
     - *len_N50*: N50 is a contig size. If contigs were ordered from small to large, half of all the nucleotides will be in contigs this size or larger.
 
 
-
-###Now copy the relevant data back into the k-mer spreadsheet on your line.
+Now copy the relevant data back into the k-mer spreadsheet on your line.
 
 Along with the demonstrator, have a look at the effect of the k-mer size on the output metrics of the assembly. Note that there are local maxima and minima in the charts.
 
@@ -160,7 +180,7 @@ Along with the demonstrator, have a look at the effect of the k-mer size on the 
 
 ## Assembly with Velvet Optimiser
 
-Now that we have seen the effect of k-mer size on the assembly, we will run the Velvet Optimiser to automatically choose the best k-mer size for us. It will use the "n50" to determine the best k-mer value to use. It then performs the further graph cleaning steps and automatically chooses a bunch of other parameters for velvet. We should get a much better assembly result than we did with our attempts with Velvet alone.
+Now that we have seen the effect of k-mer size on the assembly, we will run the Velvet Optimiser to automatically choose the best k-mer size for us. It will use the "n50" to determine the best k-mer value to use. It then performs the further graph cleaning steps and automatically chooses other parameters for velvet. We should get a much better assembly result than we did with our attempts with Velvet alone.
 
 - Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; Velvet Optimiser</ss>
     - Set the following parameters (leave other settings as they are):
@@ -174,10 +194,7 @@ Now that we have seen the effect of k-mer size on the assembly, we will run the 
 
         -  Click <ss>Execute</ss>
 
-### Look at the fasta statistics for the Velvet Optimiser contigs
-
-Use the Fasta Statistics tool you used earlier to summarise the Velvet Optimiser output. Examine the resulting table. What are the main differences?
-
+Use the Fasta Statistics tool you used earlier to summarise the Velvet Optimiser <fn>Contigs</fn> output. Examine the resulting table. What are the main differences?
 
 
 

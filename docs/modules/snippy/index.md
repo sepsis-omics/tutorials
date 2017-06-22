@@ -1,3 +1,4 @@
+<br>
 # Variant calling with Snippy
 
 Keywords: variant calling, SNP, Snippy, JBrowse, Galaxy, Microbial Genomics Virtual Lab
@@ -6,6 +7,8 @@ Keywords: variant calling, SNP, Snippy, JBrowse, Galaxy, Microbial Genomics Virt
 
 Variant calling is the process of identifying differences between two genome samples.
 Usually differences are limited to single nucleotide polymorphisms (SNPs) and small insertions and deletions (indels). Larger structural variation such as inversions, duplications and large deletions are not typically covered by "variant calling".
+
+In this tutorial, we will use the tool "Snippy" (link to Snippy is [here](https://github.com/tseemann/snippy)). Snippy uses a tool to align the reads to a reference genome, and another tool to decide ("call") if the discrepancies are real variants.
 
 ## Learning Objectives
 
@@ -52,9 +55,11 @@ Your tool interface should look like this:
 
 ## Examine Snippy output
 
-First, enable "Scratchbook" in Galaxy - this allows you to view several windows simultaneously. Click on the squares:
+<!-- First, enable "Scratchbook" in Galaxy - this allows you to view several windows simultaneously. Click on the squares:
 
 ![scratchbook icon](images/scratchbook.png)
+
+-->
 
 From Snippy, there are 10 output files in various formats.
 
@@ -64,17 +69,17 @@ From Snippy, there are 10 output files in various formats.
 
 ## View Snippy output in JBrowse
 
-- Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss> (choose the top listed one; version 0.5.2).
-
-- Under <ss>JBrowse-in-Galaxy Action</ss> choose *New JBrowse Instance*.
+- Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse genome browser</ss>.
 
 - Under <ss>Reference genome to display</ss> choose *Use a genome from history*.
 
-- Under <ss>Fasta Sequence(s)</ss> choose <fn>wildtype.fna</fn>. This sequence will be the reference against which annotations are displayed.
+- Under <ss>Select the reference genome</ss> choose <fn>wildtype.fna</fn>. This sequence will be the reference against which annotations are displayed.
 
 - For <ss>Produce a Standalone Instance</ss> select *Yes*.
 
 - For <ss>Genetic Code</ss> choose *11: The Bacterial, Archaeal and Plant Plastid Code*.
+
+- Under <ss>JBrowse-in-Galaxy Action</ss> choose *New JBrowse Instance*.
 
 - We will now set up three different tracks - these are datasets displayed underneath the reference sequence (which is displayed as nucleotides in FASTA format). We will choose to display the sequence reads (the .bam file), the variants found by snippy (the .gff file) and the annotated reference genome (the wildtype.gff)
 
@@ -94,7 +99,7 @@ From Snippy, there are 10 output files in various formats.
 - For <ss>Track Category</ss> name it "variants"
 - Click <ss>Insert Annotation Track</ss>
 - For <ss>Track Type</ss> choose *GFF/GFF3/BED/GBK Features*
-- For <ss>SNP Track Data</ss> select <fn>the snippy snps gff file</fn>
+- For <ss>Track Data</ss> select <fn>the snippy snps gff file</fn>
 - Under <ss>Track Visibility</ss> choose *On for new users*.
 
 *Track 3 - annotated reference*
@@ -103,11 +108,11 @@ From Snippy, there are 10 output files in various formats.
 - For <ss> Track Category</ss> name it "annotated reference"
 - Click <ss>Insert Annotation Track</ss>
 - For <ss>Track Type</ss> choose *GFF/GFF3/BED/GBK Features*
-- For <ss>SNP Track Data</ss> select <fn>wildtype.gff</fn>
+- For <ss>Track Data</ss> select <fn>wildtype.gff</fn>
 - Under <ss>JBrowse Track Type[Advanced]</ss> select *Canvas Features*.
 - Click on <ss>JBrowse Styling Options <Advanced]</ss>
-- Under <ss>JBrowse style.label</ss> correct the word "prodcut" to "product".
-- Under <ss>JBrowse style.description</ss> type in *product,note,description*
+- Under <ss>JBrowse style.label</ss> add in the word *product*.
+- Under <ss>JBrowse style.description</ss> add in the word *product*.
 - Under <ss>Track Visibility</ss> choose *On for new users*.
 
 - Click <ss>Execute</ss>

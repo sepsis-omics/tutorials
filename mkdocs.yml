@@ -1,38 +1,65 @@
-site_name: ABRPI Training 2016
+site_name: ABRPI
 site_description: Tutorials for analysing bacterial omics data
 site_author: Anna Syme, Torsten Seemann
 site_favicon: favicon.ico
-theme: yeti
-#theme: united
+
+site_url: 'http://sepsis-omics.github.io/tutorials/'
+
+repo_name: 'sepsis-omics/tutorials'
+repo_url: 'https://github.com/sepsis-omics/tutorials'
+
+copyright: '&copy; The authors; 2016-'
+
+#theme: yeti
+theme: material
+extra:
+    feature:
+        tabs: true
+    social:
+        - type: 'coffee'
+          link: 'https://omics.data.edu.au/'
+        - type: 'github'
+          link: 'https://github.com/sepsis-omics/tutorials'
+        - type: 'bug'
+          link: 'https://github.com/sepsis-omics/tutorials/issues'
+
+
 markdown_extensions:
     - admonition
     - smarty
     - tables
     - markdown_include.include
+    - codehilite
+    - pymdownx.details
 extra_css:
     - css/sepsis.css
+
 pages:
 - Home: index.md
-- Genomics Workshop:
-    - Workshop overview: modules/workshop_overview/index.md
+- Genomics:
+    - Genomics workshop overview: modules/workshop_overview/index.md
     #- Using Galaxy: modules/galaxy/index.md
     - Starting with Galaxy: modules/galaxy/index.md
     - Training dataset: modules/data-dna/index.md
-    #- Quality control: modules/fastqc/index.md
+    - Quality control: modules/fastqc/index.md
     #- Read trimming: modules/trimmomatic/index.md
     - Genome assembly with Velvet: modules/velvet/index.md
     - Genome assembly with Spades: modules/spades/index.md
     - Genome annotation: modules/prokka/index.md
     - Variant finding: modules/snippy/index.md
-
-- More Genomics:
-    - From public data to annotation: modules/access_data/index.md
-
-
-- PacBio assembly:
-    - Assembly with SMRT portal: modules/pacbio/index.md
-    - Assembly and finishing with command line tools: modules/cmdline_assembly/index.md
+    - Public data &rarr; assembly, annotation: modules/access_data/index.md
+    - Finding antibiotic-resistant genes: modules/abricate/index.md
+    - Viral genome sequencing: modules/viral_genomes/index.md
+    - Galaxy workflows: modules/workflows/index.md
+    - Metagenomics with FROGS: modules/frogs/index.md
+    - Sample identification with Kraken: modules/kraken/index.md
+    - PacBio assembly with SMRT portal: modules/pacbio/index.md
+    - PacBio assembly with command line tools: modules/cmdline_assembly/index.md
+    - Spades assembly - commandline: modules/spades_cmdline/index.md
+    #- Genome annotation - commandline:
+    - Pangenomes with Roary: modules/roary/index.md
     #- Annotation using command line tools: modules/cmdline_prokka/index.md
+    #- Bash scripts: modules/scripts/index.md
 
 - Transcriptomics:
 #  - Overview: modules/transcriptomics.md
@@ -40,8 +67,9 @@ pages:
 #  #- Quality control: modules/fastqc/index.md
 #  #- Read trimming: modules/trimmomatic/index.md
 #  - Transcriptome assembly: modules/stringtie/index.md
-     - Differential gene expression: modules/dge/index.md
-     - Salmon: modules/salmon/index.md
+    - Differential gene expression using Galaxy and Degust: modules/dge/index.md
+    - Differential gene expression using Kallisto and Degust: modules/kallisto/index.md
+     #- Salmon: modules/salmon/index.md
 #- Advanced:
     #- Differential Gene Expression: intro/dge/index.md
     #- Pan genome: intro/roary/index.md
@@ -49,9 +77,11 @@ pages:
     #- JBrowse: modules/jbrowse/index.md
 
 - Proteomics:
-  - Protein Identification: modules/xtandem/index.md
+    - Protein Identification: modules/xtandem/index.md
+    - Pathway annotation and prediction: modules/pathway_tools/annotation/index.md
 
-- Pathway Tools:
-  - Pathway annotation and prediction: modules/pathway_tools/annotation/index.md
+- Metabolomics:
+    - Metabolite identification: modules/xcms/index.md
+    #- Draft: modules/xcms/metab_draft.md
 
 - About: about/index.md

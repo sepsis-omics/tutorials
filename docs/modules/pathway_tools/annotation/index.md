@@ -1,4 +1,5 @@
-0# Pathway prediction and annotations for new organisms
+<br>
+# Pathway prediction and annotations for new organisms
 
 ## Connect to mGVL using VNC
 
@@ -62,7 +63,7 @@ Another window will appear while processing. Wait for processing to complete, un
 
 ### Specify Replicon details
 
-In this view, you provide the details of the annotated assembly. Each chromosome will have a separate entry. For each chromosome, you need to provide the __GBK__ and __FNA__ annotation files from Prooka.
+In this view, you provide the details of the annotated assembly. Each chromosome will have a separate entry. For each chromosome, you need to provide the __GBK__ and __FNA__ annotation files from Prokka.
 
 *	Name : <ss>1</ss> ( This is the chromosome name or number)
 *	Circular: <ss>checked</ss> if circulator was performed or leave it unchecked
@@ -114,20 +115,20 @@ To see this newly created database in the Pathway Tools web-application, start u
 
 * You can close all the windows, to exit Pathway Tools
 * If the web server is not already running, click on the <ss>Pathway Tool Web server</ss> from the desktop, this is the third icon.
-* Open an internet brwoser and go to http://your-mgvl-ip-address:1555 
+* Open an internet brwoser and go to http://your-mgvl-ip-address:1555
 
 ![pathway-tools-site](images/pathwaytools-website.png)
 
 ### Using the new database in Pathway Tools Web service
 
-*	On the main screen, click on <ss>change organism database</ss> at the top right corner, under the search box. 
+*	On the main screen, click on <ss>change organism database</ss> at the top right corner, under the search box.
 *	A new window will appear, select the newly created species from the list
 *	Click <ss>OK</ss>
 
 ![pathway-change-database](images/changeDatabase.png)
 ![pathway-select-database](images/selectDatabase.png)
- 
-A statistic table of the species will be available for overview. 
+
+A statistic table of the species will be available for overview.
 
 ![statTable](images/statTable.png)
 
@@ -135,17 +136,16 @@ Click on the <ss>Pathways</ss> link in the table, which will show the list of al
 
 ![pathway-list](images/pathwayList.png)
 
-You can navigate through the list of pathways and highlight a pathway of interest. For example, 
+You can navigate through the list of pathways and highlight a pathway of interest. For example,
 
 * Click on the <ss>+</ss> symbol next to __Detoxification__
 * Click on the <ss>+</ss> symbol again next to __Antibiotic Resistance__
 * Click on <ss>peptidoglycan biosynthesis V (beta-lactam resistance)</ss> which will bring up the pathway view  
 
 ![antibioticResistancePathway](images/antibioticResistancePathway.png)
- 
+
 Go back to the previous screen with the statistics summary table and this time click on the <ss>1</ss> under the __Replicon__ heading in the top table. The following genome browser will be shown.
- 
+
 ![genomeBrowser](images/genomeBrowser.png)
 
 From here forward the user can explore using the Pathway Tools webservice.
-

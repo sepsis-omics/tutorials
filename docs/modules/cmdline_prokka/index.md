@@ -1,4 +1,4 @@
-# Genome annotation using Prokka on the command line
+# Prokka - commandline
 
 ## Background
 
@@ -31,6 +31,10 @@ Prokka requires assembled contigs.
 ```bash
 prokka --outdir mydir --prefix staph contigs.fa
 ```
+
+note: add --fast
+
+
 
 output:
 - 10 files

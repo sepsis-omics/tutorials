@@ -1,3 +1,4 @@
+<br>
 # Genome annotation using Prokka
 
 Keywords: annotation, Prokka, JBrowse, Galaxy, Microbial Genomics Virtual Lab
@@ -58,13 +59,14 @@ Your tool interface should look like this:
 
 ## Examine the output
 
-First, enable *Scratchbook* in Galaxy - this allows you to view several windows simultaneously. Click on the 3&times;3 squares icon on the menu bar:
+<!-- First, enable *Scratchbook* in Galaxy - this allows you to view several windows simultaneously. Click on the 3&times;3 squares icon on the menu bar:
 
 ![scratchbook icon](images/scratchbook.png)
+-->
 
 Once Prokka has finished, examine each of its output files.
 
-- The GFF and GBK files contain all of the information about the features annotated (in different formats.)
+- The <fn>GFF</fn> and <fn>GBK</fn> files contain all of the information about the features annotated (in different formats.)
 - The <fn>.txt</fn> file contains a summary of the number of features annotated.
 - The <fn>.faa</fn> file contains the protein sequences of the genes annotated.
 - The <fn>.ffn</fn> file contains the nucleotide sequences of the genes annotated.
@@ -73,18 +75,20 @@ Once Prokka has finished, examine each of its output files.
 
 Now that we have annotated the draft genome sequence, we would like to view the sequence in the JBrowse genome viewer.
 
-- Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse</ss> (choose the top listed one; version 0.5.2).
+- Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse genome browser</ss>.
 
-- Under <ss>JBrowse-in-Galaxy Action</ss> choose *New JBrowse Instance*.
+
 
 - Under <ss>Reference genome to display</ss> choose *Use a genome from history*.
 
 
-- Under <ss>Fasta sequences</ss> choose <fn>Prokka on data XX:fna</fn>. This .fna sequence is the fasta nucleotide sequence, and will be the reference against which annotations are displayed.
+- Under <ss>Select the reference genome</ss> choose <fn>Prokka on data XX:fna</fn>. This .fna sequence is the fasta nucleotide sequence, and will be the reference against which annotations are displayed.
 
 - For <ss>Produce a Standalone Instance</ss> select *Yes*.
 
 - For <ss>Genetic Code</ss> choose *11: The Bacterial, Archaeal and Plant Plastid Code*.
+
+- Under <ss>JBrowse-in-Galaxy Action</ss> choose *New JBrowse Instance*.
 
 - Click <ss>Insert Track Group</ss>
 
@@ -96,18 +100,17 @@ Now that we have annotated the draft genome sequence, we would like to view the 
 
 - For <ss>GFF/GFF3/BED Track Data</ss> select <fn>Prokka on data XX:gff</fn>  [Note: not wildtype.gff]
 
-
 - Under <ss>JBrowse Track Type[Advanced]</ss> select *Canvas Features*.
 
 - Click on <ss>JBrowse Styling Options <Advanced]</ss>
 
-- Under <ss>JBrowse style.label</ss> correct the word "prodcut" to "product".
+- Under <ss>JBrowse style.label</ss> add in *product*.
 
 - Under <ss>Track Visibility</ss> choose *On for new users*.
 
 Your tool interface should look like this:
 
-![JBrowse interface](images/jbrowse_interface.png)
+![JBrowse interface](images/jbrowse_int.png)
 
 <!--
 ![JBrowse interface](images/jbrowse_oldversion.png) -->
@@ -118,9 +121,9 @@ Your tool interface should look like this:
 
 - Under <ss>Available Tracks</ss> on the left, tick the box for <fn>Prokka on data XX:gff</fn>.
 
-- Select contig 6 in the drop down box. You can only see one contig displayed at a time.
+- Select contig 1 in the drop down box. You can only see one contig displayed at a time.
 
-![JBrowse](images/jbrowse_01.png)
+![JBrowse](images/jbrowse5.png)
 
 - Use the plus and minus buttons to zoom in and out, and the arrows to move left or right (or click and drag within the window to move left or right).
 
@@ -128,7 +131,7 @@ Your tool interface should look like this:
 
 Zoomed in view:
 
-![JBrowse](images/jbrowse4.png)
+![JBrowse](images/jbrowse6.png)
 
 - Right click on a gene/feature annotation (the bars on the annotation track), then select <ss>View Details</ss> to see more information.
     - gene name
