@@ -116,9 +116,15 @@ This tutorial uses the following open source tools:
 * Trans Proteomic Pipeline[^tpp]
 * GALAXY platform with tools already installed
 
-This tutorial uses an *E. Coli* MS/MS spectra dataset that can be downloaded from: [EColi K12 Dataset](images/)
+This tutorial uses an *E. Coli* MS/MS spectra dataset "s1-000.RAW.gz" that can be downloaded from: [EColi K12 Dataset](http://www.marcottelab.org/MSdata/Data_03/ecoli-6-18-07/s1-000.RAW.gz)
 
 Original source : [http://www.marcottelab.org/MSdata/](http://www.marcottelab.org/MSdata/)
+
+The RAW data is required to be converted to "mgf" before it can be used in galaxy platform.
+* Download and Install [ProteoWizard](http://proteowizard.sourceforge.net/downloads.shtml) on your local computer. (Note: version - Windows 64-bit installer(able to convert vendor files except T2D)
+* Start the ProteoWizard software on your local computer with windows operating system.
+* Upload the raw file and convert to mgf format
+
 
 ###STEP 1: Data import
 
