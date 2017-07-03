@@ -57,7 +57,8 @@ pages:
     - PacBio assembly with command line tools: modules/cmdline_assembly/index.md
     - Spades assembly - commandline: modules/spades_cmdline/index.md
     #- Genome annotation - commandline:
-    - Pangenomes with Roary: modules/roary/index.md
+    - Pangenomes with Roary/Phandango - command line: modules/roary/index.md
+    - Pangenomes with Roary/Phandango - Galaxy: modules/roary-galaxy/index.md
     #- Annotation using command line tools: modules/cmdline_prokka/index.md
     #- Bash scripts: modules/scripts/index.md
 
