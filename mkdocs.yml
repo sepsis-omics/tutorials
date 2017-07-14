@@ -42,11 +42,15 @@ pages:
     - Starting with Galaxy: modules/galaxy/index.md
     - Training dataset: modules/data-dna/index.md
     - Quality control: modules/fastqc/index.md
-    #- Read trimming: modules/trimmomatic/index.md
+    - Merge reads with Pear: modules/pear/index.md
+    # - Read trimming: modules/trimmomatic/index.md
+    # - Workflow - merge and trim: modules/workflow-pear-trim/index.md
     - Genome assembly with Velvet: modules/velvet/index.md
     - Genome assembly with Spades: modules/spades/index.md
     - Genome annotation: modules/prokka/index.md
     - Variant finding: modules/snippy/index.md
+    # Snippy core
+    # Gubbins
     - Public data &rarr; assembly, annotation: modules/access_data/index.md
     - Finding antibiotic-resistant genes: modules/abricate/index.md
     - Viral genome sequencing: modules/viral_genomes/index.md
