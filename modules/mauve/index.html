@@ -9,7 +9,7 @@
         <meta name="description" content="Tutorials for analysing bacterial omics data">
       
       
-        <link rel="canonical" href="http://sepsis-omics.github.io/tutorials/modules/fastqc/">
+        <link rel="canonical" href="http://sepsis-omics.github.io/tutorials/modules/mauve/">
       
       
         <meta name="author" content="Anna Syme, Torsten Seemann">
@@ -21,7 +21,7 @@
     
     
       
-        <title>Quality control - ABRPI</title>
+        <title>Genome alignment with Mauve - ABRPI</title>
       
     
     
@@ -86,7 +86,7 @@
                 </span>
               
             
-            Quality control
+            Genome alignment with Mauve
           
         </span>
       </div>
@@ -336,75 +336,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Quality control
-      </label>
-    
-    <a href="./" title="Quality control" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../fastqc/" title="Quality control" class="md-nav__link">
       Quality control
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#learning-objectives" title="Learning Objectives" class="md-nav__link">
-    Learning Objectives
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#input-files" title="Input files" class="md-nav__link">
-    Input files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-fastqc" title="Run FastQC" class="md-nav__link">
-    Run FastQC
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examine-output-files" title="Examine output files" class="md-nav__link">
-    Examine output files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-next" title="What Next?" class="md-nav__link">
-    What Next?
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -580,11 +516,54 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../mauve/" title="Genome alignment with Mauve" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Genome alignment with Mauve
+      </label>
+    
+    <a href="./" title="Genome alignment with Mauve" class="md-nav__link md-nav__link--active">
       Genome alignment with Mauve
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mauve-align-three-strains" title="Mauve - align three strains" class="md-nav__link">
+    Mauve - align three strains
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mauve-align-two-assemblies-from-the-same-sample" title="Mauve - align two assemblies from the same sample" class="md-nav__link">
+    Mauve - align two assemblies from the same sample
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -782,36 +761,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#learning-objectives" title="Learning Objectives" class="md-nav__link">
-    Learning Objectives
+  <a href="#mauve-align-three-strains" title="Mauve - align three strains" class="md-nav__link">
+    Mauve - align three strains
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#input-files" title="Input files" class="md-nav__link">
-    Input files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-fastqc" title="Run FastQC" class="md-nav__link">
-    Run FastQC
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examine-output-files" title="Examine output files" class="md-nav__link">
-    Examine output files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-next" title="What Next?" class="md-nav__link">
-    What Next?
+  <a href="#mauve-align-two-assemblies-from-the-same-sample" title="Mauve - align two assemblies from the same sample" class="md-nav__link">
+    Mauve - align two assemblies from the same sample
   </a>
   
 </li>
@@ -831,89 +789,91 @@
               
                 
                 
-                <p><br></p>
-<h1 id="fastqc-in-galaxy">FastQC in Galaxy</h1>
-<!---
-FIXME: include screenshots
-FIXME: include file location and/or choose different input.
---->
-
-<p>After sequencing, the reads should be checked for their quality. This tutorial demonstrates how to use the tool called FastQC to examine bacterial paired-end Illumina sequence reads. The FastQC website is <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">here.</a></p>
-<h2 id="learning-objectives">Learning Objectives</h2>
-<p>At the end of this tutorial you should be able to:</p>
-<ol>
-<li>run FastQC on input sequence reads, and</li>
-<li>examine the FastQC output.</li>
-</ol>
-<h2 id="input-files">Input files</h2>
-<p>See <a href="../galaxy/">here</a> for information about how to start with Galaxy, and <a href="../data-dna/">here</a> for the link to import the &ldquo;Galaxy history of input files&rdquo; for this tutorial, if you don&rsquo;t already have them in your history.</p>
+                <h1 id="mauve">Mauve</h1>
+<p>Mauve is a program to align multiple genomes.</p>
+<p>Documentation: <a href="http://darlinglab.org/mauve/mauve.html">http://darlinglab.org/mauve/mauve.html</a></p>
+<p>What it does:</p>
 <ul>
-<li>We will use the paired-end read set from our Galaxy history.</li>
-<li>These are the files <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.</li>
-<li>FASTQ is a file format for sequence reads that displays quality scores for each of the sequenced nucleotides. For more information about FASTQ format see this <a href="https://en.wikipedia.org/wiki/FASTQ_format">link</a>.</li>
-<li>We will evaluate the <fn>mutant_R1.fastq</fn> reads using the FastQC tool.</li>
+<li>aligns genomes and identifies homologous blocks</li>
+<li>these are likely from a common ancestor or gained via horizontal transfer</li>
+<li>blocks may have moved or been inverted in the genome</li>
 </ul>
-<h2 id="run-fastqc">Run FastQC</h2>
-<ul>
-<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: QC and Manipulation &rarr; FastQC</ss></li>
-</ul>
-<p><img alt="FastQC selection" src="./images/image04.png" /></p>
-<ul>
-<li>for <ss>Short read data from your current history</ss>: <fn>mutant_R1.fastq</fn></li>
-<li>Click <ss>Execute</ss></li>
-<li>In the History pane, click on the &ldquo;refresh&rdquo; icon to see if the analysis has finished.</li>
-</ul>
-<h2 id="examine-output-files">Examine output files</h2>
-<p>Once finished, examine the output called <fn>FastQC on data1:webpage</fn> (Hint: click the eye icon). It has a summary at the top of the page and a number of graphs.</p>
-<p>Look at:</p>
-<ul>
-<li>
-<p><ss>Basic Statistics</ss></p>
-<ul>
-<li><ss>Sequence length</ss>: will be important in setting maximum k-mer size value for assembly.</li>
-<li><ss>Encoding</ss>: The quality encoding type is important for quality trimming software.</li>
-<li><ss>% GC</ss>: high GC organisms don’t tend to assemble well and may have an uneven read coverage distribution.</li>
-<li><ss>Total sequences</ss>: Total number of reads: gives you an idea of coverage.</li>
-</ul>
-</li>
-<li>
-<p><ss>Per base sequence quality</ss>: Dips in quality near the beginning, middle or end of the reads: determines possible trimming/cleanup methods and parameters and may indicate technical problems with the sequencing process/machine run. In this case, all the reads are of relatively high quality across their length (150 bp).</p>
-</li>
-</ul>
-<p><img alt="sequence quality graph" src="./images/seq_quality.png" /></p>
-<ul>
-<li>
-<p><ss>Per base N content</ss>: Presence of large numbers of Ns in reads may point to a poor quality sequencing run. You would need to trim these reads to remove Ns.</p>
-</li>
-<li>
-<p><ss>Kmer content</ss>: Presence of highly recurring k-mers: may point to contamination of reads with barcodes, adapter sequences etc. In this case, we have spikes in two types of kmers. <!-- explain why?
+<h2 id="mauve-align-three-strains">Mauve - align three strains</h2>
+<p>We will align three genomes of <em>Streptococcus pneumoniae</em>.
+<!--from sepsis-done - post prokka annotations
+SP18015
+SP1802
+SP4496
+.gbk
 --></p>
+<p>Open Mauve.</p>
+<ul>
+<li>Go to <ss>File</ss>: <ss>Align with Progressive Mauve</ss></li>
+</ul>
+<p><img alt="mauve" src="./images/mauve1.png" /></p>
+<ul>
+<li>
+<p><ss>Add Sequence</ss></p>
+</li>
+<li>
+<p>select the sequence(s)</p>
+</li>
+<li>
+<p><ss>Align</ss></p>
 </li>
 </ul>
-<p><img alt="kmer content graph" src="./images/kmer_content.png" /></p>
-<p>We have warnings for two outputs (per base sequence content; Kmer content). This would warrant more investigation.</p>
-<p>General questions you might ask about your input reads include:</p>
+<p><img alt="mauve" src="./images/mauve2.png" /></p>
 <ul>
-<li>How good is my read set?</li>
-<li>Do I need to ask for a new sequencing run?  </li>
-<li>Is it suitable for the analysis I need to do?</li>
+<li>
+<p>Specify a name for the alignment.  </p>
+</li>
+<li>
+<p><ss>Save</ss></p>
+</li>
 </ul>
-<p>For a fuller discussion of FastQC outputs and warnings, see the <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC website link</a>, including the section on each of the output <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/">reports</a>, and examples of <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html">&ldquo;good&rdquo;</a> and <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html">&ldquo;bad&rdquo;</a> Illumina data.</p>
-<h2 id="what-next">What Next?</h2>
-<p><a href="../spades/">Assemble the reads into a draft genome sequence</a>.</p>
-<!--
-- Trim reads with [Trimmomatic.](../trimmomatic/index.md)
--->
-
-<!---
-FIXME: include these?
-
-- link to a fastqc protocol:
-http://vlsci.github.io/lscc_docs/tutorials/assembly/assembly-protocol/#section-1-read-quality-control
-
-- more detailed information:
-https://docs.google.com/document/pub?id=16GwPmwYW7o_r-ZUgCu8-oSBBY1gC97TfTTinGDk98Ws
---->
+<p>A console window will open and show the progress of the run.</p>
+<p><img alt="mauve" src="./images/mauve3.png" /></p>
+<p>When finished, the alignment will open:</p>
+<p><img alt="mauve" src="./images/mauve4.png" /></p>
+<p>Each row is a genome. Each coloured block is genetically similar.</p>
+<p>For a different view, go to <ss>View: Style: Solid LCB colouring</ss></p>
+<p><img alt="mavue" src="./images/mauve5.png" /></p>
+<ul>
+<li>Click on a block to align all genomes around that block.</li>
+<li>The blue block is inverted in genome 3 (i.e., the reverse complement).</li>
+</ul>
+<h2 id="mauve-align-two-assemblies-from-the-same-sample">Mauve - align two assemblies from the same sample</h2>
+<p>In this example, we will align two genomes from the same sample that have been assembled with different tools.</p>
+<ul>
+<li>Genome 1: Assembled from long reads; corrected with short reads.</li>
+<li>Genome 2: Assembled from short reads.</li>
+</ul>
+<p>Align the genomes:</p>
+<ul>
+<li>Go to <ss>File</ss>: <ss>Align with Progressive Mauve</ss></li>
+<li>Add sequences</li>
+<li><ss>Align</ss></li>
+<li>Name</li>
+<li><ss>Save</ss></li>
+</ul>
+<p>View the alignment:</p>
+<p><img alt="mauve" src="./images/mauve6.png" /></p>
+<p>Genome 2 has many contigs as it has been assembled using short reads.</p>
+<ul>
+<li>These have been laid out in the order in which they appear in the file.</li>
+<li>We need to re-arrange these contigs to align with the reference genome (Genome 1).</li>
+</ul>
+<p>Re-order the contigs in Genome 2:</p>
+<ul>
+<li>Go to <ss>Tools</ss>: <ss>Move Contigs</ss></li>
+<li>Specify output folder</li>
+<li>Add sequences</li>
+<li><ss>Start</ss></li>
+</ul>
+<p>The Mauve Console window will show the progress.</p>
+<p>The re-ordered contigs will then be displayed:</p>
+<p><img alt="mauve" src="./images/mauve7.png" /></p>
+<p>Most of the contigs in Genome 2 can be aligned to one (red) section of Genome 1.</p>
                 
                   
                 
@@ -932,7 +892,7 @@ https://docs.google.com/document/pub?id=16GwPmwYW7o_r-ZUgCu8-oSBBY1gC97TfTTinGDk
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../data-dna/" title="Training dataset" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../spades_cmdline/" title="Spades assembly - commandline" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -941,19 +901,19 @@ https://docs.google.com/document/pub?id=16GwPmwYW7o_r-ZUgCu8-oSBBY1gC97TfTTinGDk
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Training dataset
+                Spades assembly - commandline
               </span>
             </div>
           </a>
         
         
-          <a href="../pear/" title="Merge reads with Pear" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../roary/" title="Pangenomes with Roary/Phandango - command line" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Merge reads with Pear
+                Pangenomes with Roary/Phandango - command line
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
