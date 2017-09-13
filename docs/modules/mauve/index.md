@@ -28,7 +28,9 @@ Open Mauve.
 
 - <ss>Add Sequence</ss>
 
-  - select the sequence(s)
+  - select the sequence(s). Use .fasta or .gbk files.
+  - if using a reference sequence, add that first.
+
 
 - <ss>Align</ss>
 
@@ -46,7 +48,8 @@ When finished, the alignment will open:
 
 ![mauve](images/mauve4.png)
 
-Each row is a genome. Each coloured block is genetically similar.
+- Each row is a genome. Each coloured block is genetically similar.
+- If you are using annotated genomes, zoom in (with the magnifying glass) to see annotations. 
 
 For a different view, go to <ss>View: Style: Solid LCB colouring</ss>
 
@@ -54,6 +57,7 @@ For a different view, go to <ss>View: Style: Solid LCB colouring</ss>
 
 - Click on a block to align all genomes around that block.
 - The blue block is inverted in genome 3 (i.e., the reverse complement).
+
 
 ## Mauve - align two assemblies from the same sample
 
@@ -65,7 +69,7 @@ In this example, we will align two genomes from the same sample that have been a
 Align the genomes:
 
 - Go to <ss>File</ss>: <ss>Align with Progressive Mauve</ss>
-- Add sequences
+- Add sequences. Add the long-read assembly sequence first.
 - <ss>Align</ss>
 - Name
 - <ss>Save</ss>
@@ -83,7 +87,7 @@ Re-order the contigs in Genome 2:
 
 - Go to <ss>Tools</ss>: <ss>Move Contigs</ss>
 - Specify output folder
-- Add sequences
+- Add sequences (add the long-read assembly first)
 - <ss>Start</ss>
 
 The Mauve Console window will show the progress.

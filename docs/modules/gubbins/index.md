@@ -9,7 +9,8 @@ In Galaxy:
 
 ## Input
 
-A set of whole genome sequences of bacteria
+An alignment of whole genome sequences of bacteria
+
 
 ## Run Gubbins
 
