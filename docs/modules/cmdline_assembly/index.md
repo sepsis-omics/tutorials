@@ -5,11 +5,13 @@
 
 This tutorial demonstrates how to use long Pacbio sequence reads to assemble a bacterial genome, including correcting the assembly with short Illumina reads.
 
+Note: this tutorial uses canu v1.5. 
+
 ## Resources
 
 Tools (and versions) used in this tutorial include:
 
-- canu 1.5 [recently updated]
+- canu 1.5 
 - infoseq and sizeseq (part of EMBOSS) 6.6.0.0
 - circlator 1.5.1 [recently updated]
 - bwa 0.7.15
