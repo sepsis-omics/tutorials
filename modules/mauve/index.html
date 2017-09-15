@@ -21,7 +21,7 @@
     
     
       
-        <title>Genome alignment with Mauve - ABRPI</title>
+        <title>Genome alignment with Mauve - ABRPI-Training</title>
       
     
     
@@ -69,7 +69,7 @@
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <a href="http://sepsis-omics.github.io/tutorials/" title="ABRPI" class="md-icon md-icon--home md-header-nav__button">
+          <a href="http://sepsis-omics.github.io/tutorials/" title="ABRPI-Training" class="md-icon md-icon--home md-header-nav__button">
           </a>
         
       </div>
@@ -236,7 +236,7 @@
     
       <i class="md-icon md-icon--home md-nav__button"></i>
     
-    ABRPI
+    ABRPI-Training
   </label>
   
     <div class="md-nav__source">
@@ -816,7 +816,10 @@ SP4496
 <p><ss>Add Sequence</ss></p>
 </li>
 <li>
-<p>select the sequence(s)</p>
+<p>select the sequence(s). Use .fasta or .gbk files.</p>
+</li>
+<li>
+<p>if using a reference sequence, add that first.</p>
 </li>
 <li>
 <p><ss>Align</ss></p>
@@ -835,7 +838,10 @@ SP4496
 <p><img alt="mauve" src="./images/mauve3.png" /></p>
 <p>When finished, the alignment will open:</p>
 <p><img alt="mauve" src="./images/mauve4.png" /></p>
-<p>Each row is a genome. Each coloured block is genetically similar.</p>
+<ul>
+<li>Each row is a genome. Each coloured block is genetically similar.</li>
+<li>If you are using annotated genomes, zoom in (with the magnifying glass) to see annotations. </li>
+</ul>
 <p>For a different view, go to <ss>View: Style: Solid LCB colouring</ss></p>
 <p><img alt="mavue" src="./images/mauve5.png" /></p>
 <ul>
@@ -851,7 +857,7 @@ SP4496
 <p>Align the genomes:</p>
 <ul>
 <li>Go to <ss>File</ss>: <ss>Align with Progressive Mauve</ss></li>
-<li>Add sequences</li>
+<li>Add sequences. Add the long-read assembly sequence first.</li>
 <li><ss>Align</ss></li>
 <li>Name</li>
 <li><ss>Save</ss></li>
@@ -867,7 +873,7 @@ SP4496
 <ul>
 <li>Go to <ss>Tools</ss>: <ss>Move Contigs</ss></li>
 <li>Specify output folder</li>
-<li>Add sequences</li>
+<li>Add sequences (add the long-read assembly first)</li>
 <li><ss>Start</ss></li>
 </ul>
 <p>The Mauve Console window will show the progress.</p>
