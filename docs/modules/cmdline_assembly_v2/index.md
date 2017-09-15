@@ -1,32 +1,8 @@
 <br>
 # Pacbio reads: assembly with command line tools
 
-*Keywords: de novo assembly, PacBio, PacificBiosciences, Illumina, command line, Canu, Circlator, BWA, Spades, Pilon, Microbial Genomics Virtual Laboratory*
-
 This tutorial demonstrates how to use long Pacbio sequence reads to assemble a bacterial genome, including correcting the assembly with short Illumina reads.
 
-## Resources
-
-Tools (and versions) used in this tutorial include:
-
-- canu 1.5 [recently updated]
-- infoseq and sizeseq (part of EMBOSS) 6.6.0.0
-- circlator 1.5.1 [recently updated]
-- bwa 0.7.15
-- samtools 1.3.1
-- spades 3.10.1
-- makeblastdb and blastn (part of blast) 2.4.0+
-- pilon 1.20
-
-<!-- check these are the correct version - updates? -->
-
-## Learning objectives
-
-At the end of this tutorial, be able to:
-
-1. Assemble and circularise a bacterial genome from PacBio sequence data.
-2. Recover small plasmids missed by long read sequencing, using Illumina data
-3. Explore the effect of polishing assembled sequences with a different data set.
 
 ## Overview
 
@@ -42,69 +18,11 @@ The files we need are:
 - <fn>illumina_R1.fastq.gz</fn>: the Illumina forward reads
 - <fn>illumina_R2.fastq.gz</fn>: the Illumina reverse reads
 
-If you already have the files, skip forward to next section, [Assemble](#assemble).
-
-Otherwise, this section has information about how to find and move the files:
-
-### PacBio files
-
-- Open the command line. <!-- own machine, mGVL or BPA VM -->
-- Navigate to or create the directory in which you want to work.
-- If the files are already on your server, you can symlink by using
-
-```text
-ln -s real_file_path [e.g. data/sample_name/pacbio1.fastq.gz] chosen_symlink_name [e.g. pacbio1.fastq.gz]
-```
-
-- Alternatively, obtain the input files from elsewhere, e.g. from the BPA portal. (You will need a password.)
-
-- Pacbio files are often stored in the format:
-    - <fn>Sample_name/Cell_name/Analysis_Results/long_file_name_1.fastq.gz</fn>
-
-- We will use the <fn>longfilename.subreads.fastq.gz</fn> files.
-
-- The reads are usually split into three separate files because they are so large.
-
-- Right click on the first <fn>subreads.fastq.gz</fn> file and "copy link address".
-
-- In the command line, type:
-
-```text
-wget --user username --password password [paste link URL for file]
-```
-- Repeat for the other two <fn>subreads.fastq.gz</fn> files.
-- Join the files:
-```text
-cat pacbio*.fastq.gz > pacbio.fastq.gz
-```
-- If the files are not gzipped, type:
-```text
-cat pacbio*.fastq | gzip > pacbio.fastq.gz
-```
-
-### Illumina files
-
-- We will also use 2 x Illumina (Miseq) fastq.gz files.
-- These are the <fn>R1.fastq.gz</fn> and <fn>R2.fastq.gz</fn> files.
-- Symlink or "wget" these files as described above for PacBio files.
-- Shorten the name of each of these files:
-
-```text
-mv longfilename_R1.fastq.gz illumina_R1.fastq.gz
-mv longfilename_R2.fastq.gz illumina_R2.fastq.gz
-```
-<!--
-Find information about read lengths: fq subreads.fastq.gz
-- Look at the average and maximum lengths.
--->
-
-### Sample information
-
 The sample used in this tutorial is a gram-positive bacteria called *Staphylococcus aureus* (sample number 25747). This particular sample is from a strain that is resistant to the antibiotic methicillin (a type of penicillin). It is also called MRSA: methicillin-resistant *Staphylococcus aureus*. It was isolated from (human) blood and caused bacteraemia, an infection of the bloodstream.
 
 ## Assemble<a name="assemble"></a>
 
-- We will use the assembly software called [Canu](http://canu.readthedocs.io/en/stable/).
+- We will use the assembly software called [Canu](http://canu.readthedocs.io/en/stable/), version 1.6.
 - Run Canu with these commands:
 
 ```text
