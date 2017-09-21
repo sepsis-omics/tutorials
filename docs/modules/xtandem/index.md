@@ -116,9 +116,15 @@ This tutorial uses the following open source tools:
 * Trans Proteomic Pipeline[^tpp]
 * GALAXY platform with tools already installed
 
-This tutorial uses an *E. Coli* MS/MS spectra dataset that can be downloaded from: [EColi K12 Dataset](images/)
+This tutorial uses an *E. Coli* MS/MS spectra dataset "s1-000.RAW.gz" that can be downloaded from: [EColi K12 Dataset](https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/EColi_K12_MS_Spectra.mgf)
 
-Original source : [http://www.marcottelab.org/MSdata/](http://www.marcottelab.org/MSdata/)
+Original source : [http://www.marcottelab.org/MSdata/](http://www.marcottelab.org/MSdata/Data_03/ecoli-6-18-07/s1-000.RAW.gz)
+
+The RAW data is required to be converted to "mgf" before it can be used in galaxy platform.
+* Download and Install [ProteoWizard](http://proteowizard.sourceforge.net/downloads.shtml) on your local computer. (Note: version - Windows 64-bit installer(able to convert vendor files except T2D)
+* Start the ProteoWizard software on your local computer with windows operating system.
+* Upload the raw file and convert to mgf format
+
 
 ###STEP 1: Data import
 
@@ -151,7 +157,7 @@ We will first use the UniProt Database as our reference data to search against.
 
 ![Data Imported](images/training_Data_importation_1.png)
 
-* Rename your "Protein Database" by clicking on <i class="icon-pencil"></i> icon.
+* Rename your "Protein Database" by clicking on pencil <i class="icon-pencil"></i> icon.
 * Select <ss>Edit Attributes</ss>
 * In **Name**, type in <fn>EColi_K12_UniProt_Database</fn>
 * Click <ss>Save</ss>
@@ -241,7 +247,7 @@ After the X!Tandem search we obtain a list of proteins present in the sample dat
 
 ##References
 
-[^xtand]: X!Tandem website: http://www.thegpm.org/tandem/. X!Tandem documentation : http://www.thegpm.org/TANDEM/api/. Craig, R., and R. C. Beavis. 2004. *“TANDEM: matching proteins with tandem mass spectra.”* Bioinformatics 20, no. 9 (June): 1466-67. http://dx.doi.org/10.1093/bioinformatics/bth092.
+[^xtand]: [X!Tandem website](http://www.thegpm.org/tandem/) and [X!Tandem documentation](http://www.thegpm.org/TANDEM/api/). Craig, R., and R. C. Beavis. 2004. *“TANDEM: matching proteins with tandem mass spectra.”* Bioinformatics 20, no. 9 (June): 1466-67. http://dx.doi.org/10.1093/bioinformatics/bth092.
 
 [^figure1]: Nesvizhskii, Alexey I. *"Protein Identification By Tandem Mass Spectrometry And Sequence Database Searching"*. Mass Spectrometry Data Analysis in Proteomics 87-120.
  --- [Mass Spectrometry Data Analysis in Proteomics](http://www.springerprotocols.com/BookToc/doi/10.1385/1597452750)
