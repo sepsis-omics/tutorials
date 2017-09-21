@@ -1,4 +1,4 @@
-# Find pan-genomes using Roary
+# Find pan-genomes using Roary (using the commandline)
 
 A concept in comparative microbial genomics is core and pan genomes. If we analyse DNA from several bacterial strains, we may want to know which genes they have in common and which are unique to some strains.
 

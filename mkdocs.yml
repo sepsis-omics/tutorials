@@ -1,4 +1,4 @@
-site_name: ABRPI
+site_name: ABRPI-Training
 site_description: Tutorials for analysing bacterial omics data
 site_author: Anna Syme, Torsten Seemann
 site_favicon: favicon.ico
@@ -43,11 +43,15 @@ pages:
     - Starting with Galaxy: modules/galaxy/index.md
     - Training dataset: modules/data-dna/index.md
     - Quality control: modules/fastqc/index.md
-    #- Read trimming: modules/trimmomatic/index.md
+    - Merge reads with Pear: modules/pear/index.md
+    # - Read trimming: modules/trimmomatic/index.md
+    # - Workflow - merge and trim: modules/workflow-pear-trim/index.md
     - Genome assembly with Velvet: modules/velvet/index.md
     - Genome assembly with Spades: modules/spades/index.md
     - Genome annotation: modules/prokka/index.md
     - Variant finding: modules/snippy/index.md
+    # Snippy core
+    # Gubbins
     - Public data &rarr; assembly, annotation: modules/access_data/index.md
     - Finding antibiotic-resistant genes: modules/abricate/index.md
     - Viral genome sequencing: modules/viral_genomes/index.md
@@ -57,8 +61,9 @@ pages:
     - PacBio assembly with SMRT portal: modules/pacbio/index.md
     - PacBio assembly with command line tools: modules/cmdline_assembly/index.md
     - Spades assembly - commandline: modules/spades_cmdline/index.md
-    #- Genome annotation - commandline:
-    - Pangenomes with Roary: modules/roary/index.md
+    - Genome alignment with Mauve: modules/mauve/index.md
+    - Pangenomes with Roary/Phandango - command line: modules/roary/index.md
+    - Pangenomes with Roary/Phandango - Galaxy: modules/roary-galaxy/index.md
     #- Annotation using command line tools: modules/cmdline_prokka/index.md
     #- Bash scripts: modules/scripts/index.md
 

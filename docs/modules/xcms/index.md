@@ -298,7 +298,7 @@ This shows the pathways that correspond to the identified metabolites. The table
 
 [XCMS Online](https://xcmsonline.scripps.edu)
 
-[Documentation](https://xcmsonline.scripps.edu/landing_page.php?pgcontent=documentation)
+[XCMS Documentation](https://xcmsonline.scripps.edu/landing_page.php?pgcontent=documentation)
 
 Tautenhahn, R. et al. (2012) XCMS Online: A Web-Based Platform to Process Untargeted Metabolomic Data. *Analytical Chemistry*. DOI: 10.1021/ac300698c
 
