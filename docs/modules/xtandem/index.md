@@ -239,9 +239,6 @@ After the X!Tandem search we obtain a list of proteins present in the sample dat
 > **Note:** You can find all the details on the X!Tandem output file here: [The file format for X! series search engines](http://www.thegpm.org/docs/X_series_output_form.pdf). The tandem XML file contains more information than the tabular format which can also be of further use (e.i. the score for the different ions *x, y, z, a, b, c* ...)
 
 
-### Exercise
-> Repeat the tutorial but instead of uploading a UniProt database in Step 2, upload your own database. You can use the *E. Coli* dataset : [E. Coli Annotated Genome](images/EColi_K12_Annoted_Genome.fasta) and compare the two outputs.
-
 ---
 
 ## References
