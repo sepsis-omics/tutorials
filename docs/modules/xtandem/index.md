@@ -116,7 +116,7 @@ This tutorial uses the following open source tools:
 * Trans Proteomic Pipeline[^tpp]
 * GALAXY platform with tools already installed
 
-This tutorial uses an *E. Coli* MS/MS spectra dataset "s1-000.RAW.gz" that has already been converted to MGF format for use in the Galaxy. The MGF data can be downloaded from: [EColi K12 Dataset](https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/EColi_K12_MS_Spectra.mgf). 
+This tutorial uses an *E. Coli* MS/MS spectra dataset "s1-000.RAW.gz" that has already been converted to MGF format for use in the Galaxy. The MGF data file is over 200MB, instead of downloading it to your computer, you can upload this file into Galaxy directly. Copy this link (https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/EColi_K12_MS_Spectra.mgf) and follow the instructions below.
 
 > *Note*
 > If you downloaded the RAW data (which can be obtained from [here](http://www.marcottelab.org/MSdata/Data_03/ecoli-6-18-07/s1-000.RAW.gz)), you will need to manually convert it to "MGF" before it can be used in Galaxy. To convert the file, follow the following steps:
@@ -127,15 +127,15 @@ This tutorial uses an *E. Coli* MS/MS spectra dataset "s1-000.RAW.gz" that has a
 
 ### STEP 1: Data import
 
-* Before importing data, <ss>Name</ss> your history. <ss>Click</ss> on the "Unnamed history" on the top of the right panel until you get the cursor. <ss>Delete</ss> and <ss>type</ss> in "Protein Identificaiton E.coli K12" or a more meaningful name. You **must** <ss>hit Enter</ss>, otherwise the name will not be saved.
+* Before importing data, <ss>Name</ss> your history. Click on the <ss>Unnamed history</ss> on the top of the right panel until you get the cursor. <ss>Delete</ss> and <ss>type</ss> in "Protein Identificaiton E.coli K12" or a more meaningful name. You **must** <ss>hit Enter</ss>, otherwise the name will not be saved.
 
 ![GALAXY History Name](images/training_history.png)
 
-* Next, <ss>import</ss> data into GALAXY. On the left panel <ss>click</ss> on the upload button as shown below:
+* Next, import data into GALAXY. On the left panel click on the <ss>upload button</ss> as shown below:
 
 ![GALAXY Upload Data Button](images/training_upload_0.png)
 
-* A new window will open, where you can select a method to upload your data: Choose local file, Choose FTP file, Paste/Fetch data. <ss>Click</ss> on <ss>Paste/Fetch data</ss> then copy and paste the URL of the mass spectrometer file: into the textbox: EColi_K12_MS_Spectra.mgf
+* A new window will open, where you can select a method to upload your data: *Choose local file*, *Choose FTP file* or *Paste/Fetch data*. Click on <ss>Paste/Fetch data</ss> then copy and paste the URL of the mass spectrometer file into the textbox.
 
 > **Tip** : You can also use the <ss>Get Data &rarr; Upload file</ss> tool to obtain the same result. Here you want to upload your MS/MS spectra.
 
