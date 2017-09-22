@@ -116,17 +116,16 @@ This tutorial uses the following open source tools:
 * Trans Proteomic Pipeline[^tpp]
 * GALAXY platform with tools already installed
 
-This tutorial uses an *E. Coli* MS/MS spectra dataset "s1-000.RAW.gz" that can be downloaded from: [EColi K12 Dataset](https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/EColi_K12_MS_Spectra.mgf)
+This tutorial uses an *E. Coli* MS/MS spectra dataset "s1-000.RAW.gz" that has already been converted to MGF format for use in the Galaxy. The MGF data can be downloaded from: [EColi K12 Dataset](https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/EColi_K12_MS_Spectra.mgf). 
 
-Original source : [http://www.marcottelab.org/MSdata/](http://www.marcottelab.org/MSdata/Data_03/ecoli-6-18-07/s1-000.RAW.gz)
+> *Note*
+> If you downloaded the RAW data (which can be obtained from [here](http://www.marcottelab.org/MSdata/Data_03/ecoli-6-18-07/s1-000.RAW.gz)), you will need to manually convert it to "MGF" before it can be used in Galaxy. To convert the file, follow the following steps:
+> * Download and Install [ProteoWizard](http://proteowizard.sourceforge.net/downloads.shtml) on your local computer. (Note: version - Windows 64-bit installer(able to convert vendor files except T2D)
+> * Start the ProteoWizard software on your local computer with windows operating system.
+>* Upload the raw file and convert to mgf format
 
-The RAW data is required to be converted to "mgf" before it can be used in galaxy platform.
-* Download and Install [ProteoWizard](http://proteowizard.sourceforge.net/downloads.shtml) on your local computer. (Note: version - Windows 64-bit installer(able to convert vendor files except T2D)
-* Start the ProteoWizard software on your local computer with windows operating system.
-* Upload the raw file and convert to mgf format
 
-
-###STEP 1: Data import
+### STEP 1: Data import
 
 * Before importing data, <ss>Name</ss> your history. <ss>Click</ss> on the "Unnamed history" on the top of the right panel until you get the cursor. <ss>Delete</ss> and <ss>type</ss> in "Protein Identificaiton E.coli K12" or a more meaningful name. You **must** <ss>hit Enter</ss>, otherwise the name will not be saved.
 
@@ -164,7 +163,7 @@ We will first use the UniProt Database as our reference data to search against.
 
 ![Data Rename](images/training_Data_Rename.png)
 
-###STEP 3: X!Tandem MS/MS Search
+### STEP 3: X!Tandem MS/MS Search
 
 This part of the tutorial is to perform the X!Tandem MS/MS search.
 
@@ -208,7 +207,7 @@ In this tutorial, we are using the following parameters:
 
 * You can view the output by click on the name in the history panel.
 
-###STEP 4: Convert X!Tandem XML to Table
+### STEP 4: Convert X!Tandem XML to Table
 
 The output of X!Tandem is an XML format, which is not easy to decipher. In order to get a more readable file, we will convert the XML format to a table. This is a two step process:
 
@@ -245,7 +244,7 @@ After the X!Tandem search we obtain a list of proteins present in the sample dat
 
 ---
 
-##References
+## References
 
 [^xtand]: [X!Tandem website](http://www.thegpm.org/tandem/) and [X!Tandem documentation](http://www.thegpm.org/TANDEM/api/). Craig, R., and R. C. Beavis. 2004. *“TANDEM: matching proteins with tandem mass spectra.”* Bioinformatics 20, no. 9 (June): 1466-67. http://dx.doi.org/10.1093/bioinformatics/bth092.
 
