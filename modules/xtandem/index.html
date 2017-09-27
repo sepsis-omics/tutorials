@@ -736,13 +736,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#exercise" title="Exercise" class="md-nav__link">
-    Exercise
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -933,13 +926,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#exercise" title="Exercise" class="md-nav__link">
-    Exercise
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -970,10 +956,10 @@
                 <p><br></p>
 <h1 id="protein-identification-using-xtandem">Protein identification using X!Tandem</h1>
 <h2 id="introduction">Introduction</h2>
-<p>The high-throughput nature of proteomics mass spectrometry is enabled by a productive combination of data acquisition protocols and the computational tools used to interpret the resulting spectra (list of peaks). One of the key components in mainstream protocols is the generation of tandem mass (MS/MS) spectra by peptide fragmentation. This approach is currently used in the large majority of proteomics experiments to routinely identify hundreds to thousands of proteins from single mass spectrometry runs. In order to do that multiple tools have to be employed: <strong>LC-MS/MS</strong> to segregate components of proteomic samples associated with <em>protein identification</em> (see <strong>Figure 1</strong>) softwares, <strong>X!Tandem</strong>[^xtand], <strong>Mascot</strong> or <strong>SEQUEST</strong> all of which perform protein identification but with different algorithms.</p>
+<p>The high-throughput nature of proteomics mass spectrometry is enabled by a productive combination of data acquisition protocols and the computational tools used to interpret the resulting spectra (list of peaks). One of the key components in mainstream protocols is the generation of tandem mass (MS/MS) spectra by peptide fragmentation. This approach is currently used in the large majority of proteomics experiments to routinely identify hundreds to thousands of proteins from single mass spectrometry runs. In order to do that multiple tools have to be employed: <strong>LC-MS/MS</strong> to segregate components of proteomic samples associated with <em>protein identification</em> (see <strong>Figure 1</strong>) softwares, <strong>X!Tandem</strong><sup id="fnref:xtand"><a class="footnote-ref" href="#fn:xtand" rel="footnote">1</a></sup>, <strong>Mascot</strong> or <strong>SEQUEST</strong> all of which perform protein identification but with different algorithms.</p>
 <p><img alt="Protein Identification Workflow" src="./images/training_Workflow_1v3.png" /></p>
 <blockquote>
-<p><strong>Figure 1</strong> &mdash; <em>General overview of the experimental steps and flow of data in protein identification using shotgun proteomics experiment.</em>[^figure1].</p>
+<p><strong>Figure 1</strong> &mdash; <em>General overview of the experimental steps and flow of data in protein identification using shotgun proteomics experiment.</em><sup id="fnref2:figure1"><a class="footnote-ref" href="#fn:figure1" rel="footnote">2</a></sup>.</p>
 </blockquote>
 <p><strong>Figure 1</strong> shows a general overview of the experimental steps in protein identification. Sample proteins are first cleaved into peptides, which are then separated using chromatography (e.g. HPLC). The peptides are then ionised and then selected ions are fragmented to produce signature tandem mass spectrometry (MS/MS) spectra. Peptides are identified from the MS/MS spectra by using programs such as X!Tandem, which search against a database of known peptides. Sequences of the identified peptides are used to infer which proteins are present in the original sample.</p>
 <h2 id="background">Background</h2>
@@ -981,12 +967,12 @@
 <p><strong>Liquid Chromatography</strong> (LC) is a technique used to separate molecules in the solvent (mobile phase). Nowadays liquid chromatography utilising high pressure to force the solvent through the columns packed with porous particles (stationary phase) is referred as High Pressure Liquid Chromatography (HPLC) &ndash; see <strong>Figure 2</strong>. After purifying the proteomic cell content, LC is able to separate the different proteins which are injected in the mass spectrometer. Each peak from the results will be analysed by mass spectrometry.</p>
 <p><img alt="HPLC Schema" src="./images/training_HPLC_1.png" /></p>
 <blockquote>
-<p><strong>Figure 2</strong> &mdash; <em>Schema of High Pressure Liquid Chromatography (HPLC)[^figure3].</em> Compounds of the mixture are separated in the HPLC column according to various parameters (polarity, charge, affinity etc). The type of separation depends on the column being used). A detector flow cell is used to detect the separated compounds band.</p>
+<p><strong>Figure 2</strong> &mdash; <em>Schema of High Pressure Liquid Chromatography (HPLC)<sup id="fnref:figure3"><a class="footnote-ref" href="#fn:figure3" rel="footnote">5</a></sup>.</em> Compounds of the mixture are separated in the HPLC column according to various parameters (polarity, charge, affinity etc). The type of separation depends on the column being used). A detector flow cell is used to detect the separated compounds band.</p>
 </blockquote>
 <p><strong>Mass spectrometry</strong> (MS) &ndash; see <strong>Figure 3</strong> &ndash; has been widely used to analyse biological samples and has evolved into an indispensable tool for proteomics research. Fundamentally, MS measures the mass-to-charge ratio (m/z) of gas-phase ions. Mass spectrometers consist of an ion source that converts analyte molecules into gas-phase ions, a mass analyser that separates ionised analytes on the basis of m/z ratio and a detector that records the number of ions at each m/z value.</p>
 <p><img alt="Mass Spectrometry" src="./images/training_MS.png" /></p>
 <blockquote>
-<p><strong>Figure 3</strong> &mdash; <em>Schema of mass specter</em>. &ldquo;A mass spectrometer consists of three components: an ion source, a mass analyzer, and a detector. The ionizer converts a portion of the sample into ions. There is a wide variety of ionization techniques, depending on the phase (solid, liquid, gas) of the sample and the efficiency of various ionization mechanisms for the unknown species. An extraction system removes ions from the sample, which are then targeted through the mass analyzer and onto the detector. The differences in masses of the fragments allows the mass analyzer to sort the ions by their mass-to-charge ratio. The detector measures the value of an indicator quantity and thus provides data for calculating the abundances of each ion present.&rdquo; [^figure4]</p>
+<p><strong>Figure 3</strong> &mdash; <em>Schema of mass specter</em>. &ldquo;A mass spectrometer consists of three components: an ion source, a mass analyzer, and a detector. The ionizer converts a portion of the sample into ions. There is a wide variety of ionization techniques, depending on the phase (solid, liquid, gas) of the sample and the efficiency of various ionization mechanisms for the unknown species. An extraction system removes ions from the sample, which are then targeted through the mass analyzer and onto the detector. The differences in masses of the fragments allows the mass analyzer to sort the ions by their mass-to-charge ratio. The detector measures the value of an indicator quantity and thus provides data for calculating the abundances of each ion present.&rdquo; <sup id="fnref:figure4"><a class="footnote-ref" href="#fn:figure4" rel="footnote">6</a></sup></p>
 </blockquote>
 <p><strong>Tandem mass spectrometry</strong> (MS/MS) &ndash; see <strong>Figure 4</strong> &ndash; is a key technique for protein or peptide sequencing and post-translational modifications analysis. Collision-induced dissociation (CID) has been the most widely used MS/MS technique in proteomics research. In this method, gas-phase peptide/protein cations are internally heated by multiple collisions with rare gas atoms. The result is fragmented ions that, after the detection phase and reconstitution, reveal the amino-acid chains.</p>
 <p><img alt="LC-MS/MS" src="./images/training_LC-MSMS_2.png" /></p>
@@ -996,12 +982,12 @@
 <p><strong>File formats</strong> : During a full proteomics analysis, as seen in <strong>Figure 5</strong>, many files are created. Every step has its own multiple file formats:</p>
 <p><img alt="Files_Created" src="./images/training_files.png" /></p>
 <blockquote>
-<p><strong>Figure 5</strong> &mdash; <em>Multiple formats during MS treatment</em>[^MS file format]. From the sample processing to the final file, various file formats can be used. This schema shows the different processes and file formats that are generated during a full MS experiment.</p>
+<p><strong>Figure 5</strong> &mdash; <em>Multiple formats during MS treatment</em><sup id="fnref:MS file format"><a class="footnote-ref" href="#fn:MS file format" rel="footnote">7</a></sup>. From the sample processing to the final file, various file formats can be used. This schema shows the different processes and file formats that are generated during a full MS experiment.</p>
 </blockquote>
 <p>For this tutorial we will focus on the &ldquo;Informatics Analysis&rdquo; part using the following file formats:</p>
 <ul>
 <li><strong>fasta</strong>: fasta files are mainly used for representing either nucleotide sequences or peptide sequences, using single-letter codes.</li>
-<li><strong>MGF</strong> : Mascot Generic Format (MGF) file is the most common format for MS/MS data encoding in the form of a peak list[^MGF]. This file encodes multiple MS/MS spectra in a single file listing the [m/z, intensity] pairs separated by headers &ndash; see <strong>Figure 6</strong>. More precisely each query represents a complete MS/MS spectrum delimited by BEGIN IONS and END IONS statements. Embedded parameters[^embedded_parameters] can be found after each BEGIN IONS statement. An example entry is shown in the figure below:</li>
+<li><strong>MGF</strong> : Mascot Generic Format (MGF) file is the most common format for MS/MS data encoding in the form of a peak list<sup id="fnref:MGF"><a class="footnote-ref" href="#fn:MGF" rel="footnote">8</a></sup>. This file encodes multiple MS/MS spectra in a single file listing the [m/z, intensity] pairs separated by headers &ndash; see <strong>Figure 6</strong>. More precisely each query represents a complete MS/MS spectrum delimited by BEGIN IONS and END IONS statements. Embedded parameters<sup id="fnref:embedded_parameters"><a class="footnote-ref" href="#fn:embedded_parameters" rel="footnote">9</a></sup> can be found after each BEGIN IONS statement. An example entry is shown in the figure below:</li>
 </ul>
 <p><img alt="MGF example" src="./images/training_MGF.png" /></p>
 <blockquote>
@@ -1014,10 +1000,10 @@
 <p>The X!Tandem search engine calculates a statistical confidence (expectation value) for all of the individual spectrum-to-sequence assignments. Some spectra might map to more than one protein, in this case X!Tandem will pick the best match with the highest confidence score (see <strong>Figure 7</strong>). The output is a lists all of the high confidence assignments.</p>
 <p><img alt="xtandem Analysis" src="./images/training_xtandemAnalyse_3.png" /></p>
 <blockquote>
-<p><strong>Figure 7</strong> &mdash; <em>Schema of the X!Tandem analysis</em>[^figure1]. After LC-MS/MS analysis the experimental spectrum is compared to a theoretical spectrum made from a protein database. This comparison leads to a list of peptide match ranked by score.</p>
+<p><strong>Figure 7</strong> &mdash; <em>Schema of the X!Tandem analysis</em><sup id="fnref:figure1"><a class="footnote-ref" href="#fn:figure1" rel="footnote">2</a></sup>. After LC-MS/MS analysis the experimental spectrum is compared to a theoretical spectrum made from a protein database. This comparison leads to a list of peptide match ranked by score.</p>
 </blockquote>
 <h3 id="galaxy">GALAXY</h3>
-<p>GALAXY[^galaxy] is an open source, web-based platform for biomedical research. GALAXY allows users to perform multi-omics data analyses: genomics, proteomics, transcriptomics and more. Numerous tools are available to achieve various analyses. This tutorial will focus on proteomics identification: matching the experimental data, spectra from LC-MS/MS analysis against data from a protein database using X!Tandem.</p>
+<p>GALAXY<sup id="fnref:galaxy"><a class="footnote-ref" href="#fn:galaxy" rel="footnote">3</a></sup> is an open source, web-based platform for biomedical research. GALAXY allows users to perform multi-omics data analyses: genomics, proteomics, transcriptomics and more. Numerous tools are available to achieve various analyses. This tutorial will focus on proteomics identification: matching the experimental data, spectra from LC-MS/MS analysis against data from a protein database using X!Tandem.</p>
 <p>Before starting, a quick overview of the GALAXY interface &ndash; see <strong>Figure 8</strong>. The interface is divided into three parts:</p>
 <ul>
 <li><strong>Left panel</strong>:  List the tools that are available.  A search textbox is at the top of the panel in order to find the tool you want.</li>
@@ -1035,7 +1021,7 @@
 <h3 id="objectives">Objectives</h3>
 <p>The objective of this tutorial is to perform protein identification from MS/MS spectra data using the X!Tandem tool in GALAXY &ndash; see <strong>Figure 9</strong>. The basic steps involved are:</p>
 <ul>
-<li>Loading UniProt[^uniprot] proteome data in GALAXY (fasta file format)</li>
+<li>Loading UniProt<sup id="fnref:uniprot"><a class="footnote-ref" href="#fn:uniprot" rel="footnote">4</a></sup> proteome data in GALAXY (fasta file format)</li>
 <li>Loading your MS/MS spectra in GALAXY</li>
 <li>Run X!Tandem proteomics search</li>
 <li>Sorting and analysing the results</li>
@@ -1049,29 +1035,35 @@
 <p>This tutorial uses the following open source tools:</p>
 <ul>
 <li>X!Tandem search engine</li>
-<li>Trans Proteomic Pipeline[^tpp]</li>
+<li>Trans Proteomic Pipeline<sup id="fnref:tpp"><a class="footnote-ref" href="#fn:tpp" rel="footnote">11</a></sup></li>
 <li>GALAXY platform with tools already installed</li>
 </ul>
-<p>This tutorial uses an <em>E. Coli</em> MS/MS spectra dataset that can be downloaded from: <a href="./images/">EColi K12 Dataset</a></p>
-<p>Original source : <a href="http://www.marcottelab.org/MSdata/">http://www.marcottelab.org/MSdata/</a></p>
+<p>This tutorial uses an <em>E. Coli</em> MS/MS spectra dataset &ldquo;s1-000.RAW.gz&rdquo; that has already been converted to MGF format for use in the Galaxy. The MGF data file is over 200MB, instead of downloading it to your computer, you can upload this file into Galaxy directly. Copy this link (https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/EColi_K12_MS_Spectra.mgf) and follow the instructions below.</p>
+<blockquote>
+<p><em>Note</em>
+If you downloaded the RAW data (which can be obtained from <a href="http://www.marcottelab.org/MSdata/Data_03/ecoli-6-18-07/s1-000.RAW.gz">here</a>), you will need to manually convert it to &ldquo;MGF&rdquo; before it can be used in Galaxy. To convert the file, follow the following steps:
+<em> Download and Install <a href="http://proteowizard.sourceforge.net/downloads.shtml">ProteoWizard</a> on your local computer. (Note: version - Windows 64-bit installer(able to convert vendor files except T2D)
+</em> Start the ProteoWizard software on your local computer with windows operating system.
+* Upload the raw file and convert to mgf format</p>
+</blockquote>
 <h3 id="step-1-data-import">STEP 1: Data import</h3>
 <ul>
-<li>Before importing data, <ss>Name</ss> your history. <ss>Click</ss> on the &ldquo;Unnamed history&rdquo; on the top of the right panel until you get the cursor. <ss>Delete</ss> and <ss>type</ss> in &ldquo;Protein Identificaiton E.coli K12&rdquo; or a more meaningful name. You <strong>must</strong> <ss>hit Enter</ss>, otherwise the name will not be saved.</li>
+<li>Before importing data, <ss>Name</ss> your history. Click on the <ss>Unnamed history</ss> on the top of the right panel until you get the cursor. <ss>Delete</ss> and <ss>type</ss> in &ldquo;Protein Identificaiton E.coli K12&rdquo; or a more meaningful name. You <strong>must</strong> <ss>hit Enter</ss>, otherwise the name will not be saved.</li>
 </ul>
 <p><img alt="GALAXY History Name" src="./images/training_history.png" /></p>
 <ul>
-<li>Next, <ss>import</ss> data into GALAXY. On the left panel <ss>click</ss> on the upload button as shown below:</li>
+<li>Next, import data into GALAXY. On the left panel click on the <ss>upload button</ss> as shown below:</li>
 </ul>
 <p><img alt="GALAXY Upload Data Button" src="./images/training_upload_0.png" /></p>
 <ul>
-<li>A new window will open, where you can select a method to upload your data: Choose local file, Choose FTP file, Paste/Fetch data. <ss>Click</ss> on <ss>Paste/Fetch data</ss> then copy and paste the URL of the mass spectrometer file: into the textbox: EColi_K12_MS_Spectra.mgf</li>
+<li>A new window will open, where you can select a method to upload your data: <em>Choose local file</em>, <em>Choose FTP file</em> or <em>Paste/Fetch data</em>. Click on <ss>Paste/Fetch data</ss> then copy and paste the URL of the mass spectrometer file into the textbox.</li>
 </ul>
 <blockquote>
 <p><strong>Tip</strong> : You can also use the <ss>Get Data &rarr; Upload file</ss> tool to obtain the same result. Here you want to upload your MS/MS spectra.</p>
 </blockquote>
 <p><img alt="GALAXY Upload Data Fetch" src="./images/training_upload_2.png" /></p>
 <blockquote>
-<p><strong>Warning</strong> : X!Tandem only accepts mgf files in GALAXY.  Other file formats have to be converted beforehand. A useful tool for that is msconvert<a href="./download : [here](http://proteowizard.sourceforge.net/downloads.shtml). This tool only working on Windows">^msconvert</a>.</p>
+<p><strong>Warning</strong> : X!Tandem only accepts mgf files in GALAXY.  Other file formats have to be converted beforehand. A useful tool for that is msconvert<sup id="fnref:msconvert"><a class="footnote-ref" href="#fn:msconvert" rel="footnote">12</a></sup>(download : <a href="http://proteowizard.sourceforge.net/downloads.shtml">here</a>. This tool only working on Windows).</p>
 </blockquote>
 <h3 id="step-2-import-reference-data">STEP 2: Import Reference Data</h3>
 <p>We will first use the UniProt Database as our reference data to search against.</p>
@@ -1088,7 +1080,7 @@
 </ul>
 <p><img alt="Data Imported" src="./images/training_Data_importation_1.png" /></p>
 <ul>
-<li>Rename your &ldquo;Protein Database&rdquo; by clicking on <i class="icon-pencil"></i> icon.</li>
+<li>Rename your &ldquo;Protein Database&rdquo; by clicking on pencil <i class="icon-pencil"></i> icon.</li>
 <li>Select <ss>Edit Attributes</ss></li>
 <li>In <strong>Name</strong>, type in <fn>EColi_K12_UniProt_Database</fn></li>
 <li>Click <ss>Save</ss></li>
@@ -1228,7 +1220,7 @@
 <tr>
 <td align="left">Retention_time</td>
 <td>rt</td>
-<td align="right">Length of time between injection and position of the target compound peak.[^rt]</td>
+<td align="right">Length of time between injection and position of the target compound peak.<sup id="fnref:rt"><a class="footnote-ref" href="#fn:rt" rel="footnote">10</a></sup></td>
 </tr>
 <tr>
 <td align="left">Start_scan</td>
@@ -1255,36 +1247,61 @@
 <blockquote>
 <p><strong>Note:</strong> You can find all the details on the X!Tandem output file here: <a href="http://www.thegpm.org/docs/X_series_output_form.pdf">The file format for X! series search engines</a>. The tandem XML file contains more information than the tabular format which can also be of further use (e.i. the score for the different ions <em>x, y, z, a, b, c</em> &hellip;)</p>
 </blockquote>
-<h3 id="exercise">Exercise</h3>
-<blockquote>
-<p>Repeat the tutorial but instead of uploading a UniProt database in Step 2, upload your own database. You can use the <em>E. Coli</em> dataset : <a href="./images/EColi_K12_Annoted_Genome.fasta">E. Coli Annotated Genome</a> and compare the two outputs.</p>
-</blockquote>
 <hr />
 <h2 id="references">References</h2>
-<p>[^xtand]: X!Tandem website: http://www.thegpm.org/tandem/. X!Tandem documentation : http://www.thegpm.org/TANDEM/api/. Craig, R., and R. C. Beavis. 2004. <em>“TANDEM: matching proteins with tandem mass spectra.”</em> Bioinformatics 20, no. 9 (June): 1466-67. http://dx.doi.org/10.1093/bioinformatics/bth092.</p>
-<p>[^figure1]: Nesvizhskii, Alexey I. <em>&ldquo;Protein Identification By Tandem Mass Spectrometry And Sequence Database Searching&rdquo;</em>. Mass Spectrometry Data Analysis in Proteomics 87-120.
- &mdash; <a href="http://www.springerprotocols.com/BookToc/doi/10.1385/1597452750">Mass Spectrometry Data Analysis in Proteomics</a></p>
-<p>[^galaxy]: GALAXY platform : https://usegalaxy.org/. You can also find a more extensive documentation here : https://galaxyproject.org/.
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:xtand">
+<p><a href="http://www.thegpm.org/tandem/">X!Tandem website</a> and <a href="http://www.thegpm.org/TANDEM/api/">X!Tandem documentation</a>. Craig, R., and R. C. Beavis. 2004. <em>“TANDEM: matching proteins with tandem mass spectra.”</em> Bioinformatics 20, no. 9 (June): 1466-67. http://dx.doi.org/10.1093/bioinformatics/bth092.&#160;<a class="footnote-backref" href="#fnref:xtand" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:figure1">
+<p>Nesvizhskii, Alexey I. <em>&ldquo;Protein Identification By Tandem Mass Spectrometry And Sequence Database Searching&rdquo;</em>. Mass Spectrometry Data Analysis in Proteomics 87-120.
+ &mdash; <a href="http://www.springerprotocols.com/BookToc/doi/10.1385/1597452750">Mass Spectrometry Data Analysis in Proteomics</a>&#160;<a class="footnote-backref" href="#fnref:figure1" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:figure1" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:galaxy">
+<p>GALAXY platform : https://usegalaxy.org/. You can also find a more extensive documentation here : https://galaxyproject.org/.
 Afgan, Enis et al. <em>&ldquo;The Galaxy Platform For Accessible, Reproducible And Collaborative Biomedical Analyses: 2016 Update&rdquo;</em>. Nucleic Acids Res 44.W1 (2016): W3-W10.
- &mdash; <a href="http://www.ncbi.nlm.nih.gov/pubmed/27137889">The Galaxy platform for accessible, reproducible and collaborative biomedical analyses: 2016 update</a></p>
-<p>[^uniprot]: UniProt : http://www.uniprot.org/. Apweiler, R. <em>&ldquo;Uniprot: The Universal Protein Knowledgebase&rdquo;</em>. Nucleic Acids Research 32.90001 (2004): 115D-119.
- &mdash; <a href="http://www.ncbi.nlm.nih.gov/pubmed/14681372">UniProt: the Universal Protein knowledgebase</a></p>
-<p>[^figure3]: High-performance liquid chromatography (HPLC): <a href="http://www.waters.com/waters/en_AU/How-Does-High-Performance-Liquid-Chromatography-Work%3F/nav.htm?cid=10049055&amp;locale=en_AU">How Does High Performance Liquid Chromatography Work ?</a> Mant, Colin T. et al. <em>&ldquo;HPLC Analysis And Purification Of Peptides&rdquo;</em>. Peptide Characterization and Application Protocols (2007): 3-55.</p>
-<p>[^figure4]: Aebersold, Ruedi and Matthias Mann. <em>&ldquo;Mass Spectrometry-Based Proteomics&rdquo;</em>. Nature 422.6928 (2003): 198-207.
- &mdash; <a href="http://www.ncbi.nlm.nih.gov/pubmed/12634793">Mass Spectrometry-Based Proteomics</a></p>
-<p>[^MS file format]: Deutsch, E. W. <em>&ldquo;File Formats Commonly Used In Mass Spectrometry Proteomics&rdquo;</em>. Molecular &amp; Cellular Proteomics 11.12 (2012): 1612-1621.
- &mdash; <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3518119/">File Formats Commonly Used in Mass Spectrometry Proteomics</a></p>
-<p>[^MGF]: Mascot Generic Format (MGF) file is likely the most common text format for MS/MS data encoding in the form of a peak list. This file encodes multiple MS/MS spectra in a single file via m/z, intensity pairs separated by headers.
- &mdash; <a href="http://www.matrixscience.com/help/data_file_help.html">MGF file format</a></p>
-<p>[^embedded_parameters]: The MGF format allows parameters that can be found after the BEGIN IONS statement.
- &mdash; <a href="http://www.matrixscience.com/help/data_file_help.html#PARAMS">Embedded Parameters</a></p>
-<p>[^rt]: The retention time of a peak can be used as means of qualitative identification. The length of time between injection and position of the target compound peak.
+ &mdash; <a href="http://www.ncbi.nlm.nih.gov/pubmed/27137889">The Galaxy platform for accessible, reproducible and collaborative biomedical analyses: 2016 update</a>&#160;<a class="footnote-backref" href="#fnref:galaxy" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:uniprot">
+<p>UniProt : http://www.uniprot.org/. Apweiler, R. <em>&ldquo;Uniprot: The Universal Protein Knowledgebase&rdquo;</em>. Nucleic Acids Research 32.90001 (2004): 115D-119.
+ &mdash; <a href="http://www.ncbi.nlm.nih.gov/pubmed/14681372">UniProt: the Universal Protein knowledgebase</a>&#160;<a class="footnote-backref" href="#fnref:uniprot" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:figure3">
+<p>High-performance liquid chromatography (HPLC): <a href="http://www.waters.com/waters/en_AU/How-Does-High-Performance-Liquid-Chromatography-Work%3F/nav.htm?cid=10049055&amp;locale=en_AU">How Does High Performance Liquid Chromatography Work ?</a> Mant, Colin T. et al. <em>&ldquo;HPLC Analysis And Purification Of Peptides&rdquo;</em>. Peptide Characterization and Application Protocols (2007): 3-55.&#160;<a class="footnote-backref" href="#fnref:figure3" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:figure4">
+<p>Aebersold, Ruedi and Matthias Mann. <em>&ldquo;Mass Spectrometry-Based Proteomics&rdquo;</em>. Nature 422.6928 (2003): 198-207.
+ &mdash; <a href="http://www.ncbi.nlm.nih.gov/pubmed/12634793">Mass Spectrometry-Based Proteomics</a>&#160;<a class="footnote-backref" href="#fnref:figure4" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:MS file format">
+<p>Deutsch, E. W. <em>&ldquo;File Formats Commonly Used In Mass Spectrometry Proteomics&rdquo;</em>. Molecular &amp; Cellular Proteomics 11.12 (2012): 1612-1621.
+ &mdash; <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3518119/">File Formats Commonly Used in Mass Spectrometry Proteomics</a>&#160;<a class="footnote-backref" href="#fnref:MS file format" rev="footnote" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:MGF">
+<p>Mascot Generic Format (MGF) file is likely the most common text format for MS/MS data encoding in the form of a peak list. This file encodes multiple MS/MS spectra in a single file via m/z, intensity pairs separated by headers.
+ &mdash; <a href="http://www.matrixscience.com/help/data_file_help.html">MGF file format</a>&#160;<a class="footnote-backref" href="#fnref:MGF" rev="footnote" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:embedded_parameters">
+<p>The MGF format allows parameters that can be found after the BEGIN IONS statement.
+ &mdash; <a href="http://www.matrixscience.com/help/data_file_help.html#PARAMS">Embedded Parameters</a>&#160;<a class="footnote-backref" href="#fnref:embedded_parameters" rev="footnote" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:rt">
+<p>The retention time of a peak can be used as means of qualitative identification. The length of time between injection and position of the target compound peak.
  &mdash; <a href="http://www.shimadzu.com/an/retentiontime_parameters.html">Retention Time Parameters</a>
- &mdash; <a href="http://www.scientific.org/tutorials/articles/gcms.html">Retention Time explained for GC/MS</a></p>
-<p>[^tpp]: The Trans-Proteomic Pipeline (TPP) website : http://tools.proteomecenter.org/wiki/index.php?title=Software:TPP. Deutsch, Eric W. et al. <em>&ldquo;A Guided Tour Of The Trans-Proteomic Pipeline&rdquo;</em>. Proteomics 10.6 (2010): 1150-1159.
- &mdash; <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3017125/">A Guided Tour of the Trans-Proteomic Pipeline</a></p>
-<p>[^msconvert]: ProteoWizard Tools website : http://proteowizard.sourceforge.net/tools.shtml. Holman, Jerry D., David L. Tabb, and Parag Mallick. <em>&ldquo;Employing Proteowizard To Convert Raw Mass Spectrometry Data&rdquo;</em>. Current Protocols in Bioinformatics (2014): 13.24.1-13.24.9.
-&mdash; <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4113728/">Employing ProteoWizard to Convert Raw Mass Spectrometry Data</a></p>
+ &mdash; <a href="http://www.scientific.org/tutorials/articles/gcms.html">Retention Time explained for GC/MS</a>&#160;<a class="footnote-backref" href="#fnref:rt" rev="footnote" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:tpp">
+<p>The Trans-Proteomic Pipeline (TPP) website : http://tools.proteomecenter.org/wiki/index.php?title=Software:TPP. Deutsch, Eric W. et al. <em>&ldquo;A Guided Tour Of The Trans-Proteomic Pipeline&rdquo;</em>. Proteomics 10.6 (2010): 1150-1159.
+ &mdash; <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3017125/">A Guided Tour of the Trans-Proteomic Pipeline</a>&#160;<a class="footnote-backref" href="#fnref:tpp" rev="footnote" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+<li id="fn:msconvert">
+<p>ProteoWizard Tools website : http://proteowizard.sourceforge.net/tools.shtml. Holman, Jerry D., David L. Tabb, and Parag Mallick. <em>&ldquo;Employing Proteowizard To Convert Raw Mass Spectrometry Data&rdquo;</em>. Current Protocols in Bioinformatics (2014): 13.24.1-13.24.9.
+&mdash; <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4113728/">Employing ProteoWizard to Convert Raw Mass Spectrometry Data</a>&#160;<a class="footnote-backref" href="#fnref:msconvert" rev="footnote" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 
