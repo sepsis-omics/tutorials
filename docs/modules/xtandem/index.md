@@ -116,21 +116,26 @@ This tutorial uses the following open source tools:
 * Trans Proteomic Pipeline[^tpp]
 * GALAXY platform with tools already installed
 
-This tutorial uses an *E. Coli* MS/MS spectra dataset that can be downloaded from: [EColi K12 Dataset](images/)
+This tutorial uses an *E. Coli* MS/MS spectra dataset "s1-000.RAW.gz" that has already been converted to MGF format for use in the Galaxy. The MGF data file is over 200MB, instead of downloading it to your computer, you can upload this file into Galaxy directly. Copy this link (https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/EColi_K12_MS_Spectra.mgf) and follow the instructions below.
 
-Original source : [http://www.marcottelab.org/MSdata/](http://www.marcottelab.org/MSdata/)
+> *Note*
+> If you downloaded the RAW data (which can be obtained from [here](http://www.marcottelab.org/MSdata/Data_03/ecoli-6-18-07/s1-000.RAW.gz)), you will need to manually convert it to "MGF" before it can be used in Galaxy. To convert the file, follow the following steps:
+> * Download and Install [ProteoWizard](http://proteowizard.sourceforge.net/downloads.shtml) on your local computer. (Note: version - Windows 64-bit installer(able to convert vendor files except T2D)
+> * Start the ProteoWizard software on your local computer with windows operating system.
+>* Upload the raw file and convert to mgf format
 
-###STEP 1: Data import
 
-* Before importing data, <ss>Name</ss> your history. <ss>Click</ss> on the "Unnamed history" on the top of the right panel until you get the cursor. <ss>Delete</ss> and <ss>type</ss> in "Protein Identificaiton E.coli K12" or a more meaningful name. You **must** <ss>hit Enter</ss>, otherwise the name will not be saved.
+### STEP 1: Data import
+
+* Before importing data, <ss>Name</ss> your history. Click on the <ss>Unnamed history</ss> on the top of the right panel until you get the cursor. <ss>Delete</ss> and <ss>type</ss> in "Protein Identificaiton E.coli K12" or a more meaningful name. You **must** <ss>hit Enter</ss>, otherwise the name will not be saved.
 
 ![GALAXY History Name](images/training_history.png)
 
-* Next, <ss>import</ss> data into GALAXY. On the left panel <ss>click</ss> on the upload button as shown below:
+* Next, import data into GALAXY. On the left panel click on the <ss>upload button</ss> as shown below:
 
 ![GALAXY Upload Data Button](images/training_upload_0.png)
 
-* A new window will open, where you can select a method to upload your data: Choose local file, Choose FTP file, Paste/Fetch data. <ss>Click</ss> on <ss>Paste/Fetch data</ss> then copy and paste the URL of the mass spectrometer file: into the textbox: EColi_K12_MS_Spectra.mgf
+* A new window will open, where you can select a method to upload your data: *Choose local file*, *Choose FTP file* or *Paste/Fetch data*. Click on <ss>Paste/Fetch data</ss> then copy and paste the URL of the mass spectrometer file into the textbox.
 
 > **Tip** : You can also use the <ss>Get Data &rarr; Upload file</ss> tool to obtain the same result. Here you want to upload your MS/MS spectra.
 
@@ -151,14 +156,14 @@ We will first use the UniProt Database as our reference data to search against.
 
 ![Data Imported](images/training_Data_importation_1.png)
 
-* Rename your "Protein Database" by clicking on <i class="icon-pencil"></i> icon.
+* Rename your "Protein Database" by clicking on pencil <i class="icon-pencil"></i> icon.
 * Select <ss>Edit Attributes</ss>
 * In **Name**, type in <fn>EColi_K12_UniProt_Database</fn>
 * Click <ss>Save</ss>
 
 ![Data Rename](images/training_Data_Rename.png)
 
-###STEP 3: X!Tandem MS/MS Search
+### STEP 3: X!Tandem MS/MS Search
 
 This part of the tutorial is to perform the X!Tandem MS/MS search.
 
@@ -202,7 +207,7 @@ In this tutorial, we are using the following parameters:
 
 * You can view the output by click on the name in the history panel.
 
-###STEP 4: Convert X!Tandem XML to Table
+### STEP 4: Convert X!Tandem XML to Table
 
 The output of X!Tandem is an XML format, which is not easy to decipher. In order to get a more readable file, we will convert the XML format to a table. This is a two step process:
 
@@ -234,14 +239,11 @@ After the X!Tandem search we obtain a list of proteins present in the sample dat
 > **Note:** You can find all the details on the X!Tandem output file here: [The file format for X! series search engines](http://www.thegpm.org/docs/X_series_output_form.pdf). The tandem XML file contains more information than the tabular format which can also be of further use (e.i. the score for the different ions *x, y, z, a, b, c* ...)
 
 
-### Exercise
-> Repeat the tutorial but instead of uploading a UniProt database in Step 2, upload your own database. You can use the *E. Coli* dataset : [E. Coli Annotated Genome](images/EColi_K12_Annoted_Genome.fasta) and compare the two outputs.
-
 ---
 
-##References
+## References
 
-[^xtand]: X!Tandem website: http://www.thegpm.org/tandem/. X!Tandem documentation : http://www.thegpm.org/TANDEM/api/. Craig, R., and R. C. Beavis. 2004. *“TANDEM: matching proteins with tandem mass spectra.”* Bioinformatics 20, no. 9 (June): 1466-67. http://dx.doi.org/10.1093/bioinformatics/bth092.
+[^xtand]: [X!Tandem website](http://www.thegpm.org/tandem/) and [X!Tandem documentation](http://www.thegpm.org/TANDEM/api/). Craig, R., and R. C. Beavis. 2004. *“TANDEM: matching proteins with tandem mass spectra.”* Bioinformatics 20, no. 9 (June): 1466-67. http://dx.doi.org/10.1093/bioinformatics/bth092.
 
 [^figure1]: Nesvizhskii, Alexey I. *"Protein Identification By Tandem Mass Spectrometry And Sequence Database Searching"*. Mass Spectrometry Data Analysis in Proteomics 87-120.
  --- [Mass Spectrometry Data Analysis in Proteomics](http://www.springerprotocols.com/BookToc/doi/10.1385/1597452750)
