@@ -64,8 +64,10 @@ pages:
     - Genome alignment with Mauve: modules/mauve/index.md
     - Pangenomes with Roary/Phandango - command line: modules/roary/index.md
     - Pangenomes with Roary/Phandango - Galaxy: modules/roary-galaxy/index.md
+    - Long read assembly workshop: modules/cmdline_assembly_v2/index.md
     #- Annotation using command line tools: modules/cmdline_prokka/index.md
     #- Bash scripts: modules/scripts/index.md
+
 
 - Transcriptomics:
 #  - Overview: modules/transcriptomics.md
