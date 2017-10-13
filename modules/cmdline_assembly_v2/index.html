@@ -772,8 +772,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-summary" title="8. Summary" class="md-nav__link">
-    8. Summary
+  <a href="#8-comparative-genomics" title="8. Comparative Genomics" class="md-nav__link">
+    8. Comparative Genomics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assemblies" title="Assemblies" class="md-nav__link">
+    Assemblies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annotations" title="Annotations" class="md-nav__link">
+    Annotations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-summary" title="9. Summary" class="md-nav__link">
+    9. Summary
   </a>
   
 </li>
@@ -1148,8 +1175,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-summary" title="8. Summary" class="md-nav__link">
-    8. Summary
+  <a href="#8-comparative-genomics" title="8. Comparative Genomics" class="md-nav__link">
+    8. Comparative Genomics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assemblies" title="Assemblies" class="md-nav__link">
+    Assemblies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#annotations" title="Annotations" class="md-nav__link">
+    Annotations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-summary" title="9. Summary" class="md-nav__link">
+    9. Summary
   </a>
   
 </li>
@@ -1252,23 +1306,23 @@
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>How do long- and short-read assembly methods differ?</p>
-<details><summary>Answer</summary><p>short reads: De Bruijn graphs; long reads: a move back towards simpler overlap-layout-consensus methods.</p></details></div>
+<details><summary>Answer</summary><p>Short reads are usually assembled with De Bruijn graphs. For long reads, there is a move back towards simpler overlap-layout-consensus methods.</p></details></div>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>Where can we find out the what the approximate genome size should be for the species being assembled?</p>
-<details><summary>Answer</summary><p>NCBI Genomes - enter species name - click on Genome Assembly and Annotation report - sort table by clicking on the column header Size (Mb) - look at range of sizes in this column.</p></details></div>
+<details><summary>Answer</summary><p>Go to NCBI Genomes, enter species name, click on Genome Assembly and Annotation report, sort table by clicking on the column header Size (Mb), look at range of sizes in this column.</p></details></div>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>In the assembly output, what are the unassembled reads? Why are they there?</p>
-<details><summary>Answer</summary></details></div>
+<details><summary>Answer</summary><p>Reads and low-coverage contigs that were not used in the assembly. </p></details></div>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>What are the corrected reads? How did canu correct the reads?</p>
-<details><summary>Answer</summary></details></div>
+<details><summary>Answer</summary><p>Canu builds overlaps between reads. The consensus is used to correct the reads. </p></details></div>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>Where could you view the output .gfa and what would it show?</p>
-<details><summary>Answer</summary></details></div>
+<details><summary>Answer</summary><p>A useful program is <a href="https://rrwick.github.io/Bandage/">Bandage</a>. If the assembly has multiple contigs, the assembly graph shows how these are connected. </p></details></div>
 <h2 id="5-trim-and-circularise">5. Trim and circularise</h2>
 <p>Bacteria have circular chromosomes. </p>
 <ul>
@@ -1313,12 +1367,12 @@ infoseq 06.fixstart.fasta</code></p>
 <h3 id="questions_1">Questions</h3>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
-<p>Were all the contigs circularised? Why/why not?</p>
-<details><summary>Answer</summary></details></div>
+<p>Were all the contigs circularised? </p>
+<details><summary>Answer</summary><p>In this example, yes, the contig was circularised. </p></details></div>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>Circlator can set the start of the sequence at a particular gene. Which gene does it use? Is this appropriate for all contigs?</p>
-<details><summary>Answer</summary><p>Uses dnaA for the chromosomal contig. For other contigs, uses a centrally-located gene. However, ideally, plasmids would be oriented on a gene such as repA. It is possible to provide a file to Circlator to do this.</p></details></div>
+<details><summary>Answer</summary><p>Circlator uses dnaA (if present) for the chromosomal contig. For other contigs, uses a centrally-located gene. However, ideally, plasmids would be oriented on a gene such as repA. It is possible to provide a file to Circlator to do this.</p></details></div>
 <h2 id="6-find-smaller-plasmids">6. Find smaller plasmids</h2>
 <p>Pacbio reads are long, and may have been longer than small plasmids. We will look for any small plasmids using the Illumina reads.</p>
 <p>This section involves several steps:</p>
@@ -1452,7 +1506,7 @@ infoseq 06.fixstart.fasta</code></p>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>Why can PacBio sequencing miss small plasmids?</p>
-<details><summary>Answer</summary><p>Library prep size selection</p></details></div>
+<details><summary>Answer</summary><p>Library prep size selection.</p></details></div>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>We extract unmapped Illumina reads and assemble these to find small plasmids. What could they be missing?</p>
@@ -1529,12 +1583,97 @@ samtools faidx genome.fasta
 <p class="admonition-title">Question</p>
 <p>Could we just use PacBio reads to assemble the genome?</p>
 <details><summary>Answer</summary><p>Yes, if accuracy adequate.</p></details></div>
-<h2 id="8-summary">8. Summary</h2>
-<p>If time permits: Demonstration: comparative genomics</p>
+<h2 id="8-comparative-genomics">8. Comparative Genomics</h2>
+<p>In the workshop so far, we used a partial bacterial genome so that the exercises could run in the time available. As a demonstration, to better see the effect of long and short reads on the assembly, we will examine complete bacterial genome. </p>
+<h3 id="assemblies">Assemblies</h3>
+<p>This bacterial genome has been assembled from either long PacBio reads (using Canu) or shorter Illumina reads (using Spades). </p>
+<p>Assembly graphs:</p>
+<p>Look at the assembly graph (usually has a suffix .gfa), in the program <a href="https://rrwick.github.io/Bandage/">Bandage</a>. This shows how contigs are related, albeit with ambiguity in some places.</p>
+<p>The assembly graph from Illumina reads (Spades assembly):</p>
+<p><img alt="spades assembly graph" src="./images/25747_spades_illumina_graph.png" /></p>
+<p>The assembly graph from PacBio reads (Canu assembly) - this is missing the small plasmid:</p>
+<p><img alt="canu assembly graph" src="./images/25747_canu_pacbio_graph.png" /></p>
+<p>Here we can see that the long read data results in a more contiguous assembly - one complete chromosome versus many smaller contigs with ambiguous placement. </p>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Does it matter that an assembly is in many contigs?</p>
+<details><summary>Answer</summary><p>Yes and No. Yes: broken genes can lead to missing/incorrect annotations; fragmented assemblies provide less information about the genomic structure (<em>e.g.</em> the number of plasmids) and the location of genes of interest (<em>e.g.</em> gene A is located on plasmid X). No: many or all genes may still be annotated correctly. Gene location is useful (e.g. chromosome, plasmid1) but not always essential (e.g. presence/absence of particular resistance genes may be enough information).</p></details></div>
+<h3 id="annotations">Annotations</h3>
+<p>Genomic features such as genes can be identified with annotation tools. We have used a tool called <a href="https://github.com/tseemann/prokka">Prokka</a> to annotate the two genomes described above. </p>
+<p>Some of the output data is displayed here:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th>assembly:</th>
+<th align="right">PacBio</th>
+<th align="right">Illumina</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>size</td>
+<td align="right">2,825,804</td>
+<td align="right">2,792,905</td>
+</tr>
+<tr>
+<td>contigs</td>
+<td align="right">2</td>
+<td align="right">123</td>
+</tr>
+<tr>
+<td>CDS</td>
+<td align="right">2614</td>
+<td align="right">2575</td>
+</tr>
+<tr>
+<td>tRNA</td>
+<td align="right">61</td>
+<td align="right">65</td>
+</tr>
+<tr>
+<td>rRNA</td>
+<td align="right">19</td>
+<td align="right">4</td>
+</tr>
+</tbody>
+</table>
+<p></center></p>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Why are there more CDS identified in the PacBio assembly? </p>
+<details><summary>Answer</summary><p>The PacBio assembly may have errors (usually a one base indel) which will cause a frame shift, which can result in three things: a longer CDS, a shorter CDS, or a shorter CDS plus an additional CDS. In addition, the Illumina assembly is about 33 kb smaller than the PacBio assembly. In bacteria, a rule of thumb is that 1 kb is roughly equal to one gene. Thus, we would probably expect about 33 fewer identified genes, which fits with these results.  </p></details></div>
+<div class="admonition note">
+<p class="admonition-title">Question</p>
+<p>Why are there more rRNA identified in the PacBio assembly? </p>
+<details><summary>Answer</summary><p>There may be multiple copies of the rRNAs and these could have been collapsed as repeats in the Illumina assembly. </p></details></div>
+<h2 id="9-summary">9. Summary</h2>
+<p>In this workshop, we used bacterial sequencing data from long and short reads to produce a polished genome. </p>
+<p>Procedure and tools: </p>
 <ul>
-<li>Assemble Illumina reads with Spades</li>
-<li>Compare Illumina assembly to Canu assembly</li>
-<li>Annotate both assemblies; compare annotations</li>
+<li>Canu to assemble long-read PacBio data</li>
+<li>Circlator to trim and circularise contigs</li>
+<li>BWA-MEM to map shorter Illumina reads to the PacBio assembly</li>
+<li>Spades to assemble any unmapped, leftover Illumina reads (the plasmid)</li>
+<li>Pilon to correct the PacBio assembly with the more accurate Illumina reads</li>
+</ul>
+<p>We also looked at comparative genomics:</p>
+<ul>
+<li>Bandage to examine assembly graphs</li>
+<li>Prokka to annotate genomes with features such as genes</li>
+</ul>
+<p>Further research:</p>
+<ul>
+<li>Align genomes with Mauve: <a href="http://sepsis-omics.github.io/tutorials/modules/mauve/">tutorial link</a></li>
+<li>Find core and pan genomes with Roary and Phandango: <a href="http://sepsis-omics.github.io/tutorials/modules/roary/">tutorial link</a></li>
+</ul>
+<p>Melbourne Bioinformatics tutorials:</p>
+<ul>
+<li>https://www.melbournebioinformatics.org.au/tutorials/</li>
+</ul>
+<p>Additional microbial genomics tutorials:</p>
+<ul>
+<li>http://sepsis-omics.github.io/tutorials/</li>
 </ul>
                 
                   
