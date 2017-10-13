@@ -9,7 +9,7 @@
         <meta name="description" content="Tutorials for analysing bacterial omics data">
       
       
-        <link rel="canonical" href="http://sepsis-omics.github.io/tutorials/modules/cmdline_assembly/">
+        <link rel="canonical" href="http://sepsis-omics.github.io/tutorials/modules/cmdline_assembly_v2/">
       
       
         <meta name="author" content="Anna Syme, Torsten Seemann">
@@ -21,7 +21,7 @@
     
     
       
-        <title>PacBio assembly with command line tools - ABRPI-Training</title>
+        <title>Long read assembly workshop - ABRPI-Training</title>
       
     
     
@@ -86,7 +86,7 @@
                 </span>
               
             
-            PacBio assembly with command line tools
+            Long read assembly workshop
           
         </span>
       </div>
@@ -492,321 +492,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        PacBio assembly with command line tools
-      </label>
-    
-    <a href="./" title="PacBio assembly with command line tools" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../cmdline_assembly/" title="PacBio assembly with command line tools" class="md-nav__link">
       PacBio assembly with command line tools
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" title="Resources" class="md-nav__link">
-    Resources
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#learning-objectives" title="Learning objectives" class="md-nav__link">
-    Learning objectives
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-data" title="Get data" class="md-nav__link">
-    Get data
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pacbio-files" title="PacBio files" class="md-nav__link">
-    PacBio files
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#illumina-files" title="Illumina files" class="md-nav__link">
-    Illumina files
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sample-information" title="Sample information" class="md-nav__link">
-    Sample information
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assemble" title="Assemble" class="md-nav__link">
-    Assemble
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#check-the-output" title="Check the output" class="md-nav__link">
-    Check the output
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#change-canu-parameters-if-required" title="Change Canu parameters if required" class="md-nav__link">
-    Change Canu parameters if required
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#questions" title="Questions" class="md-nav__link">
-    Questions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#trim-and-circularise" title="Trim and circularise" class="md-nav__link">
-    Trim and circularise
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#run-circlator" title="Run Circlator" class="md-nav__link">
-    Run Circlator
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check-the-output_1" title="Check the output" class="md-nav__link">
-    Check the output
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#options" title="Options" class="md-nav__link">
-    Options
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#questions_1" title="Questions" class="md-nav__link">
-    Questions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#find-smaller-plasmids" title="Find smaller plasmids" class="md-nav__link">
-    Find smaller plasmids
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#align-illumina-reads-to-the-pacbio-contig" title="Align Illumina reads to the PacBio contig" class="md-nav__link">
-    Align Illumina reads to the PacBio contig
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#extract-unmapped-illumina-reads" title="Extract unmapped Illumina reads" class="md-nav__link">
-    Extract unmapped Illumina reads
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assemble-the-unmapped-reads" title="Assemble the unmapped reads" class="md-nav__link">
-    Assemble the unmapped reads
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#trim-the-plasmid" title="Trim the plasmid" class="md-nav__link">
-    Trim the plasmid
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plasmid-contig-orientation" title="Plasmid contig orientation" class="md-nav__link">
-    Plasmid contig orientation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collect-contigs" title="Collect contigs" class="md-nav__link">
-    Collect contigs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#questions_2" title="Questions" class="md-nav__link">
-    Questions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#correct" title="Correct" class="md-nav__link">
-    Correct
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#make-an-alignment-file" title="Make an alignment file" class="md-nav__link">
-    Make an alignment file
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-pilon" title="Run Pilon" class="md-nav__link">
-    Run Pilon
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#genome-output" title="Genome output" class="md-nav__link">
-    Genome output
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#questions_3" title="Questions" class="md-nav__link">
-    Questions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#advanced-analysis" title="Advanced analysis" class="md-nav__link">
-    Advanced analysis
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#assemble_1" title="Assemble" class="md-nav__link">
-    Assemble
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#trim-and-circularise_1" title="Trim and circularise" class="md-nav__link">
-    Trim and circularise
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#find-smaller-plasmids_1" title="Find smaller plasmids" class="md-nav__link">
-    Find smaller plasmids
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#correct_1" title="Correct" class="md-nav__link">
-    Correct
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next" title="Next" class="md-nav__link">
-    Next
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -862,11 +552,238 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../cmdline_assembly_v2/" title="Long read assembly workshop" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Long read assembly workshop
+      </label>
+    
+    <a href="./" title="Long read assembly workshop" class="md-nav__link md-nav__link--active">
       Long read assembly workshop
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-get-started" title="1. Get started" class="md-nav__link">
+    1. Get started
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mac-users" title="Mac users" class="md-nav__link">
+    Mac users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-users" title="Windows users" class="md-nav__link">
+    Windows users
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-get-data" title="2. Get data" class="md-nav__link">
+    2. Get data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-assemble" title="3. Assemble" class="md-nav__link">
+    3. Assemble
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-check-assembly-output" title="4. Check assembly output" class="md-nav__link">
+    4. Check assembly output
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#questions" title="Questions" class="md-nav__link">
+    Questions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-trim-and-circularise" title="5. Trim and circularise" class="md-nav__link">
+    5. Trim and circularise
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-circlator" title="Run Circlator" class="md-nav__link">
+    Run Circlator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-output" title="Check the output" class="md-nav__link">
+    Check the output
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questions_1" title="Questions" class="md-nav__link">
+    Questions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-find-smaller-plasmids" title="6. Find smaller plasmids" class="md-nav__link">
+    6. Find smaller plasmids
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#align-illumina-reads-to-the-pacbio-contig" title="Align Illumina reads to the PacBio contig" class="md-nav__link">
+    Align Illumina reads to the PacBio contig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extract-unmapped-illumina-reads" title="Extract unmapped Illumina reads" class="md-nav__link">
+    Extract unmapped Illumina reads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assemble-the-unmapped-reads" title="Assemble the unmapped reads" class="md-nav__link">
+    Assemble the unmapped reads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trim-the-plasmid" title="Trim the plasmid" class="md-nav__link">
+    Trim the plasmid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collect-contigs" title="Collect contigs" class="md-nav__link">
+    Collect contigs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questions_2" title="Questions" class="md-nav__link">
+    Questions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-correct-the-assembly" title="7. Correct the assembly" class="md-nav__link">
+    7. Correct the assembly
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#make-an-alignment-file" title="Make an alignment file" class="md-nav__link">
+    Make an alignment file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-pilon" title="Run Pilon" class="md-nav__link">
+    Run Pilon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#questions_3" title="Questions" class="md-nav__link">
+    Questions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-summary" title="8. Summary" class="md-nav__link">
+    8. Summary
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1040,20 +957,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#resources" title="Resources" class="md-nav__link">
-    Resources
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#learning-objectives" title="Learning objectives" class="md-nav__link">
-    Learning objectives
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#overview" title="Overview" class="md-nav__link">
     Overview
   </a>
@@ -1061,30 +964,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get-data" title="Get data" class="md-nav__link">
-    Get data
+  <a href="#1-get-started" title="1. Get started" class="md-nav__link">
+    1. Get started
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pacbio-files" title="PacBio files" class="md-nav__link">
-    PacBio files
+  <a href="#mac-users" title="Mac users" class="md-nav__link">
+    Mac users
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#illumina-files" title="Illumina files" class="md-nav__link">
-    Illumina files
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sample-information" title="Sample information" class="md-nav__link">
-    Sample information
+  <a href="#windows-users" title="Windows users" class="md-nav__link">
+    Windows users
   </a>
   
 </li>
@@ -1095,26 +991,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#assemble" title="Assemble" class="md-nav__link">
-    Assemble
+  <a href="#2-get-data" title="2. Get data" class="md-nav__link">
+    2. Get data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-assemble" title="3. Assemble" class="md-nav__link">
+    3. Assemble
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-check-assembly-output" title="4. Check assembly output" class="md-nav__link">
+    4. Check assembly output
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#check-the-output" title="Check the output" class="md-nav__link">
-    Check the output
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#change-canu-parameters-if-required" title="Change Canu parameters if required" class="md-nav__link">
-    Change Canu parameters if required
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#questions" title="Questions" class="md-nav__link">
@@ -1129,8 +1025,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#trim-and-circularise" title="Trim and circularise" class="md-nav__link">
-    Trim and circularise
+  <a href="#5-trim-and-circularise" title="5. Trim and circularise" class="md-nav__link">
+    5. Trim and circularise
   </a>
   
     <nav class="md-nav">
@@ -1144,15 +1040,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#check-the-output_1" title="Check the output" class="md-nav__link">
+  <a href="#check-the-output" title="Check the output" class="md-nav__link">
     Check the output
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#options" title="Options" class="md-nav__link">
-    Options
   </a>
   
 </li>
@@ -1170,8 +1059,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#find-smaller-plasmids" title="Find smaller plasmids" class="md-nav__link">
-    Find smaller plasmids
+  <a href="#6-find-smaller-plasmids" title="6. Find smaller plasmids" class="md-nav__link">
+    6. Find smaller plasmids
   </a>
   
     <nav class="md-nav">
@@ -1206,13 +1095,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#plasmid-contig-orientation" title="Plasmid contig orientation" class="md-nav__link">
-    Plasmid contig orientation
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#collect-contigs" title="Collect contigs" class="md-nav__link">
     Collect contigs
   </a>
@@ -1232,8 +1114,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#correct" title="Correct" class="md-nav__link">
-    Correct
+  <a href="#7-correct-the-assembly" title="7. Correct the assembly" class="md-nav__link">
+    7. Correct the assembly
   </a>
   
     <nav class="md-nav">
@@ -1254,13 +1136,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#genome-output" title="Genome output" class="md-nav__link">
-    Genome output
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#questions_3" title="Questions" class="md-nav__link">
     Questions
   </a>
@@ -1273,49 +1148,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-analysis" title="Advanced analysis" class="md-nav__link">
-    Advanced analysis
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#assemble_1" title="Assemble" class="md-nav__link">
-    Assemble
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#trim-and-circularise_1" title="Trim and circularise" class="md-nav__link">
-    Trim and circularise
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#find-smaller-plasmids_1" title="Find smaller plasmids" class="md-nav__link">
-    Find smaller plasmids
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#correct_1" title="Correct" class="md-nav__link">
-    Correct
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next" title="Next" class="md-nav__link">
-    Next
+  <a href="#8-summary" title="8. Summary" class="md-nav__link">
+    8. Summary
   </a>
   
 </li>
@@ -1335,121 +1169,51 @@
               
                 
                 
-                <p><br></p>
-<h1 id="pacbio-reads-assembly-with-command-line-tools">Pacbio reads: assembly with command line tools</h1>
-<p><em>Keywords: de novo assembly, PacBio, PacificBiosciences, Illumina, command line, Canu, Circlator, BWA, Spades, Pilon, Microbial Genomics Virtual Laboratory</em></p>
-<p>This tutorial demonstrates how to use long Pacbio sequence reads to assemble a bacterial genome, including correcting the assembly with short Illumina reads.</p>
-<p>Note: this tutorial uses canu v1.5. </p>
-<h2 id="resources">Resources</h2>
-<p>Tools (and versions) used in this tutorial include:</p>
-<ul>
-<li>canu 1.5 </li>
-<li>infoseq and sizeseq (part of EMBOSS) 6.6.0.0</li>
-<li>circlator 1.5.1 [recently updated]</li>
-<li>bwa 0.7.15</li>
-<li>samtools 1.3.1</li>
-<li>spades 3.10.1</li>
-<li>makeblastdb and blastn (part of blast) 2.4.0+</li>
-<li>pilon 1.20</li>
-</ul>
-<!-- check these are the correct version - updates? -->
-
-<h2 id="learning-objectives">Learning objectives</h2>
-<p>At the end of this tutorial, be able to:</p>
-<ol>
-<li>Assemble and circularise a bacterial genome from PacBio sequence data.</li>
-<li>Recover small plasmids missed by long read sequencing, using Illumina data</li>
-<li>Explore the effect of polishing assembled sequences with a different data set.</li>
-</ol>
+                <h1 id="long-read-assembly-workshop">Long read assembly workshop</h1>
+<p>This is a tutorial for a workshop on long-read (PacBio) genome assembly. </p>
+<p>It demonstrates how to use long PacBio sequencing reads to assemble a bacterial genome, and includes additional steps for circularising, trimming, finding plasmids, and correcting the assembly with short-read Illumina data. </p>
 <h2 id="overview">Overview</h2>
 <p>Simplified version of workflow:</p>
 <p><img alt="workflow" src="./images/flowchart.png" /></p>
-<h2 id="get-data">Get data</h2>
+<h2 id="1-get-started">1. Get started</h2>
+<p>Your workshop trainers will provide you with the address of a virtual machine. </p>
+<h3 id="mac-users">Mac users</h3>
+<p>Open the Terminal. </p>
+<ul>
+<li>Type in <code>ssh researcher@[your virtual machine address]</code></li>
+<li>Type in the password provided. </li>
+</ul>
+<h3 id="windows-users">Windows users</h3>
+<p>If you are using Windows 10, you might be able to use the Ubuntu Subsystem. Otherwise, install and open Putty. </p>
+<ul>
+<li>Download putty <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">here</a>.</li>
+<li>Open. A configuration window will appear. </li>
+<li>Under &ldquo;Host Name (or IP address)&rdquo; enter in the address of your virtual machine. </li>
+<li>Under &ldquo;Port&rdquo; type in 6022</li>
+<li>Under &ldquo;Connection Type&rdquo; select &ldquo;SSH&rdquo;</li>
+<li>Click &ldquo;Open&rdquo;</li>
+<li>Under &ldquo;Login as:&rdquo; enter &ldquo;researcher&rdquo;</li>
+<li>Type in the password provided. </li>
+</ul>
+<h2 id="2-get-data">2. Get data</h2>
+<p>The sample used in this tutorial is from a bacteria called <em>Staphylococcus aureus</em>. We have used a small section of its real genome so that the programs can run in the workshop time. </p>
 <p>The files we need are:</p>
 <ul>
-<li><fn>pacbio.fastq.gz</fn> : the PacBio reads</li>
-<li><fn>illumina_R1.fastq.gz</fn>: the Illumina forward reads</li>
-<li><fn>illumina_R2.fastq.gz</fn>: the Illumina reverse reads</li>
+<li><fn>pacbio.fq</fn>: the PacBio reads</li>
+<li><fn>R1.fq</fn>: the Illumina forward reads</li>
+<li><fn>R2.fq</fn>: the Illumina reverse reads</li>
 </ul>
-<p>If you already have the files, skip forward to next section, <a href="#assemble">Assemble</a>.</p>
-<p>Otherwise, this section has information about how to find and move the files:</p>
-<h3 id="pacbio-files">PacBio files</h3>
+<p>In a new tab, go to <a href="https://doi.org/10.5281/zenodo.1009308">https://doi.org/10.5281/zenodo.1009308</a>. </p>
 <ul>
-<li>Open the command line. <!-- own machine, mGVL or BPA VM --></li>
-<li>Navigate to or create the directory in which you want to work.</li>
-<li>If the files are already on your server, you can symlink by using</li>
+<li>Next to the first file, right-click the &ldquo;Download&rdquo; button, and select &ldquo;Copy link address&rdquo;.</li>
+<li>Back in your terminal, enter <code>wget [paste link address here]</code></li>
+<li>The file should download. </li>
+<li>Repeat this for the other two files. </li>
 </ul>
-<div class="codehilite"><pre><span></span>ln -s real_file_path [e.g. data/sample_name/pacbio1.fastq.gz] chosen_symlink_name [e.g. pacbio1.fastq.gz]
-</pre></div>
-
-
-<ul>
-<li>
-<p>Alternatively, obtain the input files from elsewhere, e.g. from the BPA portal. (You will need a password.)</p>
-</li>
-<li>
-<p>Pacbio files are often stored in the format:</p>
-<ul>
-<li><fn>Sample_name/Cell_name/Analysis_Results/long_file_name_1.fastq.gz</fn></li>
-</ul>
-</li>
-<li>
-<p>We will use the <fn>longfilename.subreads.fastq.gz</fn> files.</p>
-</li>
-<li>
-<p>The reads are usually split into three separate files because they are so large.</p>
-</li>
-<li>
-<p>Right click on the first <fn>subreads.fastq.gz</fn> file and &ldquo;copy link address&rdquo;.</p>
-</li>
-<li>
-<p>In the command line, type:</p>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span>wget --user username --password password [paste link URL for file]
-</pre></div>
-
-
-<ul>
-<li>Repeat for the other two <fn>subreads.fastq.gz</fn> files.</li>
-<li>Join the files:</li>
-</ul>
-<div class="codehilite"><pre><span></span>cat pacbio*.fastq.gz &gt; pacbio.fastq.gz
-</pre></div>
-
-
-<ul>
-<li>If the files are not gzipped, type:</li>
-</ul>
-<div class="codehilite"><pre><span></span>cat pacbio*.fastq | gzip &gt; pacbio.fastq.gz
-</pre></div>
-
-
-<h3 id="illumina-files">Illumina files</h3>
-<ul>
-<li>We will also use 2 x Illumina (Miseq) fastq.gz files.</li>
-<li>These are the <fn>R1.fastq.gz</fn> and <fn>R2.fastq.gz</fn> files.</li>
-<li>Symlink or &ldquo;wget&rdquo; these files as described above for PacBio files.</li>
-<li>Shorten the name of each of these files:</li>
-</ul>
-<div class="codehilite"><pre><span></span>mv longfilename_R1.fastq.gz illumina_R1.fastq.gz
-mv longfilename_R2.fastq.gz illumina_R2.fastq.gz
-</pre></div>
-
-
-<!--
-Find information about read lengths: fq subreads.fastq.gz
-- Look at the average and maximum lengths.
--->
-
-<h3 id="sample-information">Sample information</h3>
-<p>The sample used in this tutorial is a gram-positive bacteria called <em>Staphylococcus aureus</em> (sample number 25747). This particular sample is from a strain that is resistant to the antibiotic methicillin (a type of penicillin). It is also called MRSA: methicillin-resistant <em>Staphylococcus aureus</em>. It was isolated from (human) blood and caused bacteraemia, an infection of the bloodstream.</p>
-<h2 id="assemble">Assemble<a name="assemble"></a></h2>
-<ul>
-<li>We will use the assembly software called <a href="http://canu.readthedocs.io/en/stable/">Canu</a>.</li>
-<li>Run Canu with these commands:</li>
-</ul>
-<div class="codehilite"><pre><span></span>canu -p canu -d canu_outdir genomeSize=2.8m -pacbio-raw pacbio.fastq.gz
+<h2 id="3-assemble">3. Assemble<a name="assemble"></a></h2>
+<p>We will use the assembly software called <a href="http://canu.readthedocs.io/en/stable/">Canu</a>, version 1.6.</p>
+<p>Run Canu with these commands:</p>
+<div class="codehilite"><pre><span></span>canu -p canu -d canu_outdir genomeSize=0.03m -pacbio-raw pacbio.fq
 </pre></div>
 
 
@@ -1457,27 +1221,21 @@ Find information about read lengths: fq subreads.fastq.gz
 <li>the first <code>canu</code> tells the program to run</li>
 <li><code>-p canu</code> names prefix for output files (&ldquo;canu&rdquo;)</li>
 <li><code>-d canu_outdir</code> names output directory (&ldquo;canu_outdir&rdquo;)</li>
-<li>
-<p><code>genomeSize</code> only has to be approximate.</p>
-<ul>
-<li>e.g. <em>Staphylococcus aureus</em>, 2.8m</li>
-<li>e.g. <em>Streptococcus pyogenes</em>, 1.8m</li>
-</ul>
-</li>
-<li>
-<p>Canu will correct, trim and assemble the reads.</p>
-</li>
+<li><code>genomeSize</code> only has to be approximate. (In this case we are using a partial genome of expected size 30,000 base pairs). </li>
+<li>Canu will correct, trim and assemble the reads.</li>
 <li>Various output will be displayed on the screen.</li>
+<li><em>Note</em>: Canu could say &ldquo;Finished&rdquo; but may still be running. Type <code>squeue</code> to see if jobs are still running. </li>
 </ul>
-<h3 id="check-the-output">Check the output</h3>
-<p>Move into <fn>canu_outdir</fn> and <code>ls</code> to see the output files.</p>
+<h2 id="4-check-assembly-output">4. Check assembly output</h2>
+<p>Move into the canu output folder: <code>cd canu_outdir</code></p>
+<p>View the list of files: <code>ls</code></p>
 <ul>
 <li>The <fn>canu.contigs.fasta</fn> are the assembled sequences.</li>
 <li>The <fn>canu.unassembled.fasta</fn> are the reads that could not be assembled.</li>
 <li>The <fn>canu.correctedReads.fasta.gz</fn> are the corrected Pacbio reads that were used in the assembly.</li>
-<li>The <fn>canu.file.gfa</fn> is the graph of the assembly.</li>
-<li>Display summary information about the contigs: (<code>infoseq</code> is a tool from <a href="http://emboss.sourceforge.net/index.html">EMBOSS</a>)</li>
+<li>The <fn>canu.contigs.gfa</fn> is the graph of the assembly.</li>
 </ul>
+<p>Display summary information about the contigs: (<code>infoseq</code> is a tool from <a href="http://emboss.sourceforge.net/index.html">EMBOSS</a>)</p>
 <div class="codehilite"><pre><span></span>infoseq canu.contigs.fasta
 </pre></div>
 
@@ -1485,18 +1243,11 @@ Find information about read lengths: fq subreads.fastq.gz
 <ul>
 <li>This will show the contigs found by Canu. e.g.,</li>
 </ul>
-<div class="codehilite"><pre><span></span>    - tig00000001   2851805
+<div class="codehilite"><pre><span></span>    - tig00000001   39136
 </pre></div>
 
 
-<p>This looks like a chromosome of approximately 2.8 million bases.</p>
-<p>This matches what we would expect for this sample. For other data, Canu may not be able to join all the reads into one contig, so there may be several contigs in the output. Also, the sample may contain some plasmids and these may be found full or partially by Canu as additional contigs.  </p>
-<h3 id="change-canu-parameters-if-required">Change Canu parameters if required</h3>
-<p>If the assembly is poor with many contigs, re-run Canu with extra sensitivity parameters; e.g.</p>
-<div class="codehilite"><pre><span></span>canu -p prefix -d outdir corMhapSensitivity=high corMinCoverage=0 genomeSize=2.8m -pacbio-raw pacbio.fastq.gz
-</pre></div>
-
-
+<p>This matches what we were expecting for this sample (approximately 30,000 base pairs). For other data, Canu may not be able to join all the reads into one contig, so there may be several contigs in the output. </p>
 <h3 id="questions">Questions</h3>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
@@ -1518,68 +1269,47 @@ Find information about read lengths: fq subreads.fastq.gz
 <p class="admonition-title">Question</p>
 <p>Where could you view the output .gfa and what would it show?</p>
 <details><summary>Answer</summary></details></div>
-<h2 id="trim-and-circularise">Trim and circularise</h2>
-<h3 id="run-circlator">Run Circlator</h3>
-<p>Circlator identifies and trims overhangs (on chromosomes and plasmids) and orients the start position at an appropriate gene (e.g. dnaA). It takes in the assembled contigs from Canu, as well as the corrected reads prepared by Canu.</p>
-<p>Overhangs are shown in blue:</p>
+<h2 id="5-trim-and-circularise">5. Trim and circularise</h2>
+<p>Bacteria have circular chromosomes. </p>
+<ul>
+<li>Because of sequencing errors, there may be some &ldquo;overhang&rdquo; in the assembled linear sequence. </li>
+<li>Our assembly may have some overhang because it is 9000 bases longer than expected. </li>
+</ul>
 <p><img alt="circlator" src="./images/circlator_diagram.png" />
 <em>Adapted from Figure 1. Hunt et al. Genome Biology 2015</em></p>
-<p>Move back into your main analysis folder.</p>
-<p>Run Circlator:</p>
-<div class="codehilite"><pre><span></span>circlator all --threads 8 --verbose canu_outdir/canu.contigs.fasta canu_outdir/canu.correctedReads.fasta.gz circlator_outdir
+<p>A tool called <a href="http://sanger-pathogens.github.io/circlator/">Circlator</a> identifies and trims overhangs (on chromosomes and plasmids). It takes in the assembled contigs from Canu, as well as the corrected reads prepared by Canu.</p>
+<p>Move back into your main analysis folder: <code>cd ..</code></p>
+<h3 id="run-circlator">Run Circlator</h3>
+<div class="codehilite"><pre><span></span>circlator all --threads 4 --verbose canu_outdir/canu.contigs.fasta canu_outdir/canu.correctedReads.fasta.gz circlator_outdir
 </pre></div>
 
 
 <ul>
-<li><code>--threads</code> is the number of cores: change this to an appropriate number</li>
+<li><code>--threads</code> is the number of cores</li>
 <li><code>--verbose</code> prints progress information to the screen</li>
 <li><code>canu_outdir/canu.contigs.fasta</code> is the file path to the input Canu assembly</li>
 <li><code>canu_outdir/canu.correctedReads.fasta.gz</code> is the file path to the corrected Pacbio reads - note, fastA not fastQ</li>
 <li><code>circlator_outdir</code> is the name of the output directory.</li>
 </ul>
 <p>Some output will print to screen. When finished, it should say &ldquo;Circularized x of x contig(s)&rdquo;.</p>
-<h3 id="check-the-output_1">Check the output</h3>
-<p>Move into the <fn>circlator_outdir</fn> directory and <code>ls</code> to list files.</p>
-<p><em>Were the contigs circularised?</em> :</p>
-<div class="codehilite"><pre><span></span>less 04.merge.circularise.log
-</pre></div>
-
-
+<h3 id="check-the-output">Check the output</h3>
+<p>Move into the Circlator output directory: <code>cd circlator_outdir</code></p>
+<p>List the files: <code>ls</code></p>
+<p><em>Were the contigs circularised?</em> <code>less 04.merge.circularise.log</code></p>
 <ul>
+<li>&ldquo;less&rdquo; is a command to display the file on the screen.</li>
 <li>Yes, the contig was circularised (last column).</li>
 <li>Type &ldquo;q&rdquo; to exit.</li>
 </ul>
-<p><em>Where were the contigs oriented (which gene)?</em> :</p>
-<div class="codehilite"><pre><span></span>less 06.fixstart.log
-</pre></div>
-
-
+<p>What are the trimmed contig sizes? <code>text
+infoseq 06.fixstart.fasta</code></p>
 <ul>
-<li>Look in the &ldquo;gene_name&rdquo; column.</li>
-<li>The contig has been oriented at tr|A0A090N2A8|A0A090N2A8_STAAU, which is another name for dnaA. <!-- (search swissprot - uniprot.org) --> This is typically used as the start of bacterial chromosome sequences.</li>
+<li>tig00000001 30019 </li>
 </ul>
-<p><em>What are the trimmed contig sizes?</em> :</p>
-<div class="codehilite"><pre><span></span>infoseq 06.fixstart.fasta
-</pre></div>
-
-
-<ul>
-<li>tig00000001 2823331 (28564 bases trimmed)</li>
-</ul>
-<p>This trimmed part is the overlap.</p>
-<p><em>Re-name the contigs file</em>:</p>
-<ul>
-<li>The trimmed contigs are in the file called <fn>06.fixstart.fasta</fn>.</li>
-<li>Re-name it <fn>contig1.fasta</fn>:</li>
-</ul>
-<div class="codehilite"><pre><span></span>mv 06.fixstart.fasta contig1.fasta
-</pre></div>
-
-
-<p>Open this file in a text editor (e.g. nano: <code>nano contig1.fasta</code>) and change the header to &ldquo;&gt;chromosome&rdquo;.</p>
-<p>Move the file back into the main folder (<code>mv contig1.fasta ../</code>).</p>
-<h3 id="options">Options</h3>
-<p>If all the contigs have not circularised with Circlator, an option is to change the <code>--b2r_length_cutoff</code> setting to approximately 2X the average read depth.</p>
+<p>About 9000 bases (the overhang) have been trimmed. </p>
+<p>Re-name the contigs file: <code>mv 06.fixstart.fasta contig1.fasta</code></p>
+<p>Move the file back into the main folder: <code>mv contig1.fasta ../</code></p>
+<p>Move back into the main folder: <code>cd ..</code></p>
 <h3 id="questions_1">Questions</h3>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
@@ -1589,7 +1319,7 @@ Find information about read lengths: fq subreads.fastq.gz
 <p class="admonition-title">Question</p>
 <p>Circlator can set the start of the sequence at a particular gene. Which gene does it use? Is this appropriate for all contigs?</p>
 <details><summary>Answer</summary><p>Uses dnaA for the chromosomal contig. For other contigs, uses a centrally-located gene. However, ideally, plasmids would be oriented on a gene such as repA. It is possible to provide a file to Circlator to do this.</p></details></div>
-<h2 id="find-smaller-plasmids">Find smaller plasmids</h2>
+<h2 id="6-find-smaller-plasmids">6. Find smaller plasmids</h2>
 <p>Pacbio reads are long, and may have been longer than small plasmids. We will look for any small plasmids using the Illumina reads.</p>
 <p>This section involves several steps:</p>
 <ol>
@@ -1609,15 +1339,15 @@ Find information about read lengths: fq subreads.fastq.gz
 <ul>
 <li>Align Illumina reads using using bwa mem:</li>
 </ul>
-<div class="codehilite"><pre><span></span>bwa mem -t 8 contig1.fasta illumina_R1.fastq.gz illumina_R2.fastq.gz | samtools sort &gt; aln.bam
+<div class="codehilite"><pre><span></span>bwa mem -t 4 contig1.fasta R1.fq R2.fq | samtools sort &gt; aln.bam
 </pre></div>
 
 
 <ul>
 <li><code>bwa mem</code> is the alignment tool</li>
-<li><code>-t 8</code> is the number of cores: choose an appropriate number</li>
+<li><code>-t 4</code> is the number of cores</li>
 <li><code>contig1.fasta</code> is the input assembly file</li>
-<li><code>illumina_R1.fastq.gz illumina_R2.fastq.gz</code> are the Illumina reads</li>
+<li><code>R1.fq R2.fq</code> are the Illumina reads</li>
 <li><code>| samtools sort</code> pipes the output to samtools to sort</li>
 <li><code>&gt; aln.bam</code> sends the alignment to the file <fn>aln.bam</fn></li>
 </ul>
@@ -1661,136 +1391,58 @@ Find information about read lengths: fq subreads.fastq.gz
 <li><code>--cov-cutoff auto</code> computes the coverage threshold (rather than the default setting, &ldquo;off&rdquo;)</li>
 <li><code>-o</code> is the output directory</li>
 </ul>
-<p>Move into the output directory (<fn>spades_assembly</fn>) and look at the contigs:</p>
-<div class="codehilite"><pre><span></span>infoseq contigs.fasta
-</pre></div>
-
-
+<p>Move into the output directory: <code>cd spades_assembly</code></p>
+<p>Look at the contigs: <code>infoseq contigs.fasta</code></p>
 <ul>
-<li>78 contigs were assembled, with the max length of 2250 (the first contig).  </li>
-<li>All other nodes are &lt; 650kb so we will disregard as they are unlikely to be plasmids.</li>
-<li>Type &ldquo;q&rdquo; to exit.</li>
-<li>We will extract the first sequence (NODE_1):</li>
+<li>1 contig has been assembled with a length of 2359 bases. </li>
 </ul>
-<div class="codehilite"><pre><span></span>samtools faidx contigs.fasta
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>samtools faidx contigs.fasta NODE_1_length_2550_cov_496.613 &gt; contig2.fasta
-</pre></div>
-
-
-<ul>
-<li>This is now saved as <fn>contig2.fasta</fn></li>
-<li>Open in nano and change header to &ldquo;&gt;plasmid&rdquo;.</li>
-</ul>
+<p>Re-name it: <code>mv contigs.fasta contig2.fasta</code></p>
 <h3 id="trim-the-plasmid">Trim the plasmid</h3>
 <p>To trim any overhang on this plasmid, we will blast the start of contig2 against itself.</p>
 <ul>
-<li>Take the start of the contig:</li>
+<li>
+<p>Take the start of the contig: <code>head -n 10 contig2.fasta &gt; contig2.fa.head</code></p>
+</li>
+<li>
+<p>We want to see if it matches the end (overhang).</p>
+</li>
+<li>Format the assembly file for blast: <code>makeblastdb -in contig2.fasta -dbtype nucl</code></li>
+<li>Blast the start of the assembly (.head file) against all of the assembly: <code>blastn -query contig2.fa.head -db contig2.fasta -evalue 1e-3 -dust no -out contig2.bls</code></li>
 </ul>
-<div class="codehilite"><pre><span></span>head -n 10 contig2.fasta &gt; contig2.fa.head
-</pre></div>
-
-
-<ul>
-<li>We want to see if it matches the end (overhang).</li>
-<li>Format the assembly file for blast:</li>
-</ul>
-<div class="codehilite"><pre><span></span>makeblastdb -in contig2.fasta -dbtype nucl
-</pre></div>
-
-
-<ul>
-<li>Blast the start of the assembly (.head file) against all of the assembly:</li>
-</ul>
-<div class="codehilite"><pre><span></span>blastn -query contig2.fa.head -db contig2.fasta -evalue 1e-3 -dust no -out contig2.bls
-</pre></div>
-
-
-<ul>
-<li>Look at <fn>contig2.bls</fn> to see hits:</li>
-</ul>
-<div class="codehilite"><pre><span></span>less contig2.bls
-</pre></div>
-
-
+<p>Look at the hits: <code>less contig2.bls</code></p>
 <ul>
 <li>The first hit is at start, as expected.</li>
-<li>The second hit is at 2474 all the way to the end - 2550.</li>
+<li>The second hit is at 2253 all the way to the end - 2359.</li>
 <li>This is the overhang.</li>
-<li>Trim to position 2473.</li>
-<li>Index the plasmid.fa file:</li>
-</ul>
-<div class="codehilite"><pre><span></span>samtools faidx contig2.fasta
-</pre></div>
-
-
-<ul>
-<li>Trim:</li>
-</ul>
-<div class="codehilite"><pre><span></span>samtools faidx contig2.fasta plasmid:1-2473 &gt; plasmid.fa.trimmed
-</pre></div>
-
-
-<ul>
+<li>We will trim to position 2252.</li>
 <li>
-<p><code>plasmid</code> is the name of the contig, and we want the sequence from 1-2473.</p>
+<p>Type <code>q</code> to exit. </p>
 </li>
 <li>
-<p>Open this file in nano (<code>nano plasmid.fa.trimmed</code>) and change the header to &ldquo;&gt;plasmid&rdquo;, save.</p>
+<p>Open this file in nano (<code>nano contig2.fasta</code>) and change the header to &ldquo;&gt;contig2&rdquo;, save.</p>
 </li>
+<li>Index the file: <code>samtools faidx contig2.fasta</code></li>
+</ul>
+<p>Trim: <code>samtools faidx contig2.fasta contig2:1-2252 &gt; plasmid.fasta</code></p>
+<ul>
 <li>We now have a trimmed plasmid.</li>
-<li>Move file back into main folder:</li>
+<li>Move file back into main folder: <code>cp plasmid.fasta ../</code></li>
+<li>Move into the main folder: <code>cd ..</code></li>
 </ul>
-<div class="codehilite"><pre><span></span>cp plasmid.fa.trimmed ../
-</pre></div>
-
-
-<ul>
-<li>Move into the main folder.</li>
-</ul>
-<h3 id="plasmid-contig-orientation">Plasmid contig orientation</h3>
-<p>The bacterial chromosome was oriented at the gene dnaA. Plasmids are often oriented at the replication gene, but this is highly variable and there is no established convention. Here we will orient the plasmid at a gene found by Prodigal, in Circlator:</p>
-<div class="codehilite"><pre><span></span>circlator fixstart plasmid.fa.trimmed plasmid_fixstart
-</pre></div>
-
-
-<ul>
-<li><code>fixstart</code> is an option in Circlator just to orient a sequence.</li>
-<li><code>plasmid.fa.trimmed</code> is our small plasmid.</li>
-<li><code>plasmid_fixstart</code> is the prefix for the output files.</li>
-</ul>
-<p>View the output:</p>
-<div class="codehilite"><pre><span></span>less plasmid_fixstart.log
-</pre></div>
-
-
-<ul>
-<li>The plasmid has been oriented at a gene predicted by Prodigal, and the break-point is at position 1200.</li>
-<li>Change the file name:</li>
-</ul>
-<div class="codehilite"><pre><span></span>cp plasmid_fixstart.fasta contig2.fasta
-</pre></div>
-
-
-<!-- note: annotated with prokka. plasmid only has two proteins. ermC, and a hypothetical protein. protein blast genbank: matches a staph replication and maintenance protein. -->
-
 <h3 id="collect-contigs">Collect contigs</h3>
-<div class="codehilite"><pre><span></span>cat contig1.fasta contig2.fasta &gt; genome.fasta
+<p>Join the chromosome to the plasmid in one file: </p>
+<div class="codehilite"><pre><span></span>cat contig1.fasta plasmid.fasta &gt; genome.fasta
 </pre></div>
 
 
-<ul>
-<li>See the contigs and sizes:</li>
-</ul>
+<p>See the contigs and sizes:</p>
 <div class="codehilite"><pre><span></span>infoseq genome.fasta
 </pre></div>
 
 
 <ul>
-<li>chromosome: 2823331</li>
-<li>plasmid: 2473</li>
+<li>chromosome: 30019</li>
+<li>plasmid: 2252</li>
 </ul>
 <h3 id="questions_2">Questions</h3>
 <div class="admonition note">
@@ -1813,60 +1465,33 @@ Find information about read lengths: fq subreads.fastq.gz
 <p class="admonition-title">Question</p>
 <p>Are there easier ways to find plasmids?</p>
 <details><summary>Answer</summary><p>Possibly. One option is the program called Unicycler which may automate many of these steps. https://github.com/rrwick/Unicycler</p></details></div>
-<h2 id="correct">Correct</h2>
-<p>We will correct the Pacbio assembly with Illumina reads.</p>
-<!--
-First, we will change some of the mGVL settings so that we can use a worker node with more CPUs.
-
-Type in
-
-
-wzxhzdk:34
-
-
-(To later exit out of this worker node, if you want to, type in "exit").
---->
-
+<h2 id="7-correct-the-assembly">7. Correct the assembly</h2>
+<p>Sequences from PacBio can have more errors than those from Illumina. Therefore, although it is useful to use the long PacBio reads to assemble the genome, we can also use the shorter and more accurate Illumina reads to correct errors in the PacBio assembly. </p>
 <h3 id="make-an-alignment-file">Make an alignment file</h3>
 <ul>
 <li>Align the Illumina reads (R1 and R2) to the draft PacBio assembly, e.g. <fn>genome.fasta</fn>:</li>
 </ul>
 <div class="codehilite"><pre><span></span>bwa index genome.fasta
-bwa mem -t 32 genome.fasta illumina_R1.fastq.gz illumina_R2.fastq.gz | samtools sort &gt; aln.bam
+bwa mem -t 4 genome.fasta R1.fq R2.fq | samtools sort &gt; pilon_aln.bam
 </pre></div>
 
 
 <ul>
-<li>
-<p><code>-t</code> is the number of cores: set this to an appropriate number. (To find out how many you have, <code>grep -c processor /proc/cpuinfo</code>).</p>
-</li>
-<li>
-<p>Index the files:</p>
-</li>
+<li>Index the files:</li>
 </ul>
-<div class="codehilite"><pre><span></span>samtools index aln.bam
+<div class="codehilite"><pre><span></span>samtools index pilon_aln.bam
 samtools faidx genome.fasta
 </pre></div>
 
 
 <ul>
-<li>Now we have an alignment file to use in Pilon: <fn>aln.bam</fn></li>
+<li>Now we have an alignment file to use  with the tool <a href="https://github.com/broadinstitute/pilon/wiki">Pilon</a>: <fn>pilon_aln.bam</fn></li>
 </ul>
-<!--
-Look at how the illumina reads are aligned:
-
-wzxhzdk:37
-
-note: **contig1** is the name of the contig to view; e.g. tig00000000.
-
-[explain settings in tview - how to scroll, find]
--->
-
 <h3 id="run-pilon">Run Pilon</h3>
 <ul>
 <li>Run:</li>
 </ul>
-<div class="codehilite"><pre><span></span>pilon --genome genome.fasta --frags aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --verbose --threads 32
+<div class="codehilite"><pre><span></span>pilon --genome genome.fasta --frags pilon_aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --verbose --threads 4
 </pre></div>
 
 
@@ -1878,39 +1503,20 @@ note: **contig1** is the name of the contig to view; e.g. tig00000000.
 <li><code>--mindepth</code> gives a minimum read depth to use</li>
 <li><code>--changes</code> produces an output file of the changes made</li>
 <li><code>--verbose</code> prints information to the screen during the run</li>
-<li><code>--threads</code> : set this to an appropriate number</li>
+<li><code>--threads</code>: number of cores</li>
 </ul>
-<p>Look at the changes file:</p>
-<div class="codehilite"><pre><span></span>less pilon1.changes
-</pre></div>
-
-
+<p>Look at the changes file: <code>less pilon1.changes</code></p>
 <p><em>Example:</em></p>
 <p><img alt="pilon" src="./images/pilon.png" /></p>
-<p>Look at the details of the fasta file:</p>
-<div class="codehilite"><pre><span></span>infoseq pilon1.fasta
-</pre></div>
-
-
+<p>We can see lots of cases where a deletion (represented by a dot) has been corrected to a base. </p>
+<p>Look at the details of the fasta file: <code>infoseq pilon1.fasta</code></p>
 <ul>
-<li>chromosome - 2823340 (net +9 bases)</li>
-<li>plasmid - 2473 (no change)</li>
+<li>chromosome - 30060 (net +41 bases)</li>
+<li>plasmid - 2252 (no change)</li>
 </ul>
-<p><strong>Option:</strong></p>
-<p>If there are many changes, run Pilon again, using the <fn>pilon1.fasta</fn> file as the input assembly, and the Illumina reads to correct.</p>
-<h3 id="genome-output">Genome output</h3>
-<ul>
-<li>Change the file name:</li>
-</ul>
-<div class="codehilite"><pre><span></span>cp pilon1.fasta assembly.fasta
-</pre></div>
-
-
-<ul>
-<li>We now have the corrected genome assembly of <em>Staphylococcus aureus</em> in .fasta format, containing a chromosome and a small plasmid.  </li>
-</ul>
+<p>Change the file name: <code>cp pilon1.fasta assembly.fasta</code></p>
+<p>We now have the corrected genome assembly of <em>Staphylococcus aureus</em> in .fasta format, containing a chromosome and a small plasmid.  </p>
 <h3 id="questions_3">Questions</h3>
-<p>Q:</p>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>Why don&rsquo;t we correct earlier in the assembly process?</p>
@@ -1923,193 +1529,12 @@ note: **contig1** is the name of the contig to view; e.g. tig00000000.
 <p class="admonition-title">Question</p>
 <p>Could we just use PacBio reads to assemble the genome?</p>
 <details><summary>Answer</summary><p>Yes, if accuracy adequate.</p></details></div>
-<h2 id="advanced-analysis">Advanced analysis</h2>
-<p>This example shows a more complex analysis where many more steps are involved in the finding the small plasmid. The sample used is <em>Staphylococcus aureus</em> (sample number 25745).</p>
-<h3 id="assemble_1">Assemble</h3>
-<div class="codehilite"><pre><span></span>canu -p canu -d canu_outdir genomeSize=2.8m -pacbio-raw pacbio.fastq.gz
-</pre></div>
-
-
+<h2 id="8-summary">8. Summary</h2>
+<p>If time permits: Demonstration: comparative genomics</p>
 <ul>
-<li>Output: 2 contigs, likely to be the chromosome (2748030) and a large plasmid (49397).</li>
-</ul>
-<h3 id="trim-and-circularise_1">Trim and circularise</h3>
-<div class="codehilite"><pre><span></span>circlator all --threads 16 --verbose canu_outdir/canu.contigs.fasta canu_outdir/canu.correctedReads.fasta.gz circlator_outdir
-</pre></div>
-
-
-<ul>
-<li>Look at the information about circularisation, orientation, and trimmed sizes.</li>
-<li>Re-name the file <fn>contigs_1_2.fasta</fn> and move it into the main folder.</li>
-</ul>
-<h3 id="find-smaller-plasmids_1">Find smaller plasmids</h3>
-<ul>
-<li>Align Illumina reads to the PacBio assembly:</li>
-</ul>
-<div class="codehilite"><pre><span></span>bwa index contigs_1_2.fasta
-bwa mem -t 8 contigs_1_2.fasta illumina_R1.fastq.gz illumina_R2.fastq.gz | samtools sort &gt; aln.bam
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>samtools index aln.bam
-samtools fastq -f 4 -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq aln.bam
-spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq --careful --cov-cutoff auto -o spades_assembly
-</pre></div>
-
-
-<ul>
-<li>Look at the output:</li>
-</ul>
-<div class="codehilite"><pre><span></span>cd spades_assembly
-infoseq contigs.fasta
-</pre></div>
-
-
-<ul>
-<li>Extract the first node:</li>
-</ul>
-<div class="codehilite"><pre><span></span>samtools faidx contigs.fasta
-samtools faidx contigs.fasta NODE_1_length_2229_cov_610.298 &gt; contig3.fasta
-</pre></div>
-
-
-<ul>
-<li>Open in Nano and change header to &ldquo;plasmid&rdquo;.</li>
-<li>Look for overhang by blasting start of plamsid against itself:</li>
-</ul>
-<div class="codehilite"><pre><span></span>head -n 10 contig3.fasta &gt; contig3.fa.head
-makeblastdb -in contig3.fasta -dbtype nucl
-blastn -query contig3.fa.head -db contig3.fasta -evalue 1e-3 -dust no -out contig3.bls
-less contig3.bls
-</pre></div>
-
-
-<ul>
-<li>There is only one hit, to the start of the plasmid. No overhang is found.</li>
-<li>Search Genbank for any matching proteins: Copy the sequence</li>
-<li>Go to NCBI: <tt>https://blast.ncbi.nlm.nih.gov/Blast.cgi</tt>; choose blastx</li>
-<li>Paste the sequence from <fn>contig3.fasta</fn></li>
-<li>Choose genetic code = 11</li>
-<li>Blast</li>
-<li>This hits a replication (plasmid) protein. Hypothesise that   this is a small plasmid; search for the entire sequence within the assembly of all the Illumina reads (next step).</li>
-<li>Copy <fn>contig3.fasta</fn> into the main folder.</li>
-<li>Assemble all the Illumina reads and produce an assembly graph.</li>
-</ul>
-<div class="codehilite"><pre><span></span>spades.py -1 illumina_R1.fastq.gz -2 illumina_R2.fastq.gz --careful --cov-cutoff auto -o spades_assembly_all_illumina
-</pre></div>
-
-
-<ul>
-<li>Navigate to the output and find the <fn>assembly_graph.fastg</fn>.</li>
-<li>Transfer this file to your local computer (e.g. using the file transfer program <a href="https://cyberduck.io/?l=en">Cyberduck</a>).</li>
-<li>Examine the assembly in the program <a href="https://rrwick.github.io/Bandage/">Bandage</a>.<ul>
-<li>File: Load graph: <fn>assembly_graph.fastg</fn></li>
-<li>In the left hand panel, click &ldquo;Draw graph&rdquo;</li>
-<li>Your assembly graph may look like this:
-<img alt="bandage pic" src="./images/illumina_assembly_bandage.png" /></li>
-</ul>
-</li>
-<li>
-<p>Blast the small plasmid sequence in this assembly</p>
-<ul>
-<li>In the left hand panel: Blast: create/view BLAST search</li>
-<li>Build blast database</li>
-<li>Paste in the sequence of contig3.fasta</li>
-<li>Run Blast search</li>
-<li>There are two hits around a node (in this case, node 249).</li>
-</ul>
-</li>
-<li>
-<p>Go to the main Bandage window</p>
-<ul>
-<li>In the right hand panel, enter the node number.</li>
-<li>Click &ldquo;Find nodes&rdquo;</li>
-<li>This node is a circular contig in the graph, and is slightly longer (2329) than our contig3 (2229): this could be the plasmid.</li>
-<li>Extract this node in fasta format: In the top panel, go to Output: Save selected node sequences; save as <fn>contig3b.fasta</fn></li>
-</ul>
-</li>
-<li>
-<p>Move this file back to the analysis folder.</p>
-</li>
-<li>Open this file in nano and change the header to &ldquo;&gt;contig3b&rdquo;, save.</li>
-<li>Take the start of the sequence and see if it matches the end:</li>
-</ul>
-<div class="codehilite"><pre><span></span>head -n 10 contig3b.fasta &gt; contig3b.fa.head
-makeblastdb -in contig3b.fasta -dbtype nucl
-blastn -query contig3b.fa.head -db contig3b.fasta -evalue 1e-3 -dust no -out contig3b.bls
-less contig3b.bls
-</pre></div>
-
-
-<ul>
-<li>The first hit is against the start of the chromosome, as expected.</li>
-<li>The last hit starts at position 2253; we will trim the plasmid to position 2252</li>
-<li>Index and trim the contig3b.fa file:</li>
-</ul>
-<div class="codehilite"><pre><span></span>samtools faidx contig3b.fasta
-samtools faidx contig3b.fasta contig3b:1-2252 &gt; contig3b.fa.trimmed
-</pre></div>
-
-
-<ul>
-<li>Open this file in nano and change the header to &ldquo;&gt;contig3b&rdquo;, save.</li>
-<li>We now have a trimmed contig3b.</li>
-<li>Join all contigs:</li>
-</ul>
-<div class="codehilite"><pre><span></span>cat contigs_1_2.fasta contig3b.fa.trimmed &gt; genome.fasta
-</pre></div>
-
-
-<h3 id="correct_1">Correct</h3>
-<div class="codehilite"><pre><span></span>bwa index genome.fasta
-bwa mem -t 32 genome.fasta illumina_R1.fastq.gz illumina_R2.fastq.gz | samtools sort &gt; aln.bam
-samtools index aln.bam
-samtools faidx genome.fasta
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>pilon --genome genome.fasta --frags aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --verbose --threads 32
-</pre></div>
-
-
-<ul>
-<li>Look at the <fn>pilon1.changes</fn> file.</li>
-<li>Change the file name.</li>
-</ul>
-<div class="codehilite"><pre><span></span>cp pilon1.fasta assembly.fasta
-</pre></div>
-
-
-<ul>
-<li>Look at the final assembly:</li>
-</ul>
-<div class="codehilite"><pre><span></span>infoseq assembly.fasta
-</pre></div>
-
-
-<ul>
-<li>
-<p>Assembly details:</p>
-<ul>
-<li>Chromosome: 2725222</li>
-<li>Large plasmid: 25012</li>
-<li>Small plasmid: 2252</li>
-</ul>
-</li>
-</ul>
-<h2 id="next">Next</h2>
-<p><strong>Further analyses:</strong></p>
-<ul>
-<li>Annotate with Prokka.</li>
-<li>Comparative genomics, e.g. with Roary.</li>
-</ul>
-<p><strong>Links:</strong></p>
-<ul>
-<li><a href="https://s3.amazonaws.com/files.pacb.com/software/instrument/2.0.0/bas.h5+Reference+Guide.pdf">Details of bas.h5 files</a></li>
-<li>Canu <a href="http://canu.readthedocs.io/en/stable/quick-start.html">manual</a> and <a href="https://github.com/marbl/canu">gitub repository</a></li>
-<li>Circlator <a href="http://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0849-0">article</a> and <a href="http://sanger-pathogens.github.io/circlator/">github repository</a></li>
-<li>Pilon <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0112963">article</a> and <a href="https://github.com/broadinstitute/pilon/wiki">github repository</a></li>
-<li>Notes on <a href="https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Finishing-Bacterial-Genomes">finishing</a> and <a href="https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/Evaluating-Assemblies">evaluating</a> assemblies.</li>
+<li>Assemble Illumina reads with Spades</li>
+<li>Compare Illumina assembly to Canu assembly</li>
+<li>Annotate both assemblies; compare annotations</li>
 </ul>
                 
                   
@@ -2129,7 +1554,7 @@ samtools faidx genome.fasta
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../pacbio/" title="PacBio assembly with SMRT portal" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../roary-galaxy/" title="Pangenomes with Roary/Phandango - Galaxy" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2138,19 +1563,19 @@ samtools faidx genome.fasta
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                PacBio assembly with SMRT portal
+                Pangenomes with Roary/Phandango - Galaxy
               </span>
             </div>
           </a>
         
         
-          <a href="../spades_cmdline/" title="Spades assembly - commandline" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../dge/" title="Differential gene expression using Galaxy and Degust" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Spades assembly - commandline
+                Differential gene expression using Galaxy and Degust
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
