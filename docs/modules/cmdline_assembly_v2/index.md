@@ -35,6 +35,32 @@ If you are using Windows 10, you might be able to use the Ubuntu Subsystem. Othe
 - Under "Login as:" enter "researcher"
 - Type in the password provided. 
 
+### Create a new working directory on your remote computer.
+
+Because we are starting a new analysis it is always good practice to start in a new empty directory. Therefore, we will create a new directory and change to it for the rest of the workshop.
+
+In your terminal:
+
+- Create a new directory called "PacBioWorkshop"
+
+```
+mkdir PacBioWorkshop
+```
+
+- Change to that directory
+
+```
+cd PacBioWorkshop
+```
+
+**NOTE: Everytime you open a new terminal or Putty session, you will need to make sure you are in this directory again.**
+
+The current directory can be obtained with the linux command:
+
+```
+pwd
+```
+
 
 ## 2. Get data
 
