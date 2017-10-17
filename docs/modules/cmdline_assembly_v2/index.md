@@ -18,7 +18,12 @@ Your workshop trainers will provide you with the address of a virtual machine.
 ### Mac users
 Open the Terminal. 
 
-- Type in `ssh researcher@[your virtual machine address]`
+- Type in 
+
+```
+ssh researcher@[your virtual machine address]
+```
+
 - Type in the password provided. 
 
 
@@ -35,6 +40,32 @@ If you are using Windows 10, you might be able to use the Ubuntu Subsystem. Othe
 - Under "Login as:" enter "researcher"
 - Type in the password provided. 
 
+### Create a new working directory on your remote computer.
+
+Because we are starting a new analysis it is always good practice to start in a new empty directory. Therefore, we will create a new directory and change to it for the rest of the workshop.
+
+In your terminal:
+
+- Create a new directory called "PacBioWorkshop"
+
+```text
+mkdir PacBioWorkshop
+```
+
+- Change to that directory
+
+```text
+cd PacBioWorkshop
+```
+
+**NOTE: Everytime you open a new terminal or Putty session, you will need to make sure you are in this directory again.**
+
+The current directory can be obtained with the linux command:
+
+```text
+pwd
+```
+
 
 ## 2. Get data
 
@@ -48,8 +79,11 @@ The files we need are:
 
 In a new tab, go to [https://doi.org/10.5281/zenodo.1009308](https://doi.org/10.5281/zenodo.1009308). 
 
-- Next to the first file, right-click (or control-click) the "Download" button, and select "Copy link address".
-- Back in your terminal, enter `wget [paste link address here]`
+- Next to the first file, right-click the "Download" button, and select "Copy link address".
+- Back in your terminal, enter 
+```text
+wget [paste link address here]
+```
 - The file should download. 
 - Repeat this for the other two files. 
 
@@ -72,18 +106,35 @@ canu -p canu -d canu_outdir genomeSize=0.03m -pacbio-raw pacbio.fq
 - Various output will be displayed on the screen.
 - *Note*: Canu could say "Finished" but may still be running. In this case, type `squeue` to see if jobs are still running. 
 
+If you run `squeue` you will see something like this:
+
+```text
+$ squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 6      main canu_can research PD       0:00      1 (Dependency)
+               5_1      main cormhap_ research  R       0:29      1 master
+```
+
+You will know if **Canu** has completely finished when `squeue` shows no jobs are running.
 
 ## 4. Check assembly output
 
-Move into the canu output folder: `cd canu_outdir`
+Move into the canu output folder: 
+```
+cd canu_outdir
+```
 
-View the list of files: `ls`
+View the list of files: 
+```
+ls
+```
 
 
 - The <fn>canu.contigs.fasta</fn> are the assembled sequences.
 - The <fn>canu.unassembled.fasta</fn> are the reads that could not be assembled.
 - The <fn>canu.correctedReads.fasta.gz</fn> are the corrected Pacbio reads that were used in the assembly.
 - The <fn>canu.contigs.gfa</fn> is the graph of the assembly.
+- The <fn>canu.report</fn> file is a summary of all of the steps Canu performed with information about the reads used, how they were handled and a whole lot of summary information about the assembly.
 
 Display summary information about the contigs: (`infoseq` is a tool from [EMBOSS](http://emboss.sourceforge.net/index.html))
 
@@ -97,7 +148,16 @@ infoseq canu.contigs.fasta
     - tig00000001	39136
 ```
 
-This matches what we were expecting for this sample (approximately 30,000 base pairs). For other data, Canu may not be able to join all the reads into one contig, so there may be several contigs in the output. 
+This matches what we were expecting for this sample (approximately 30,000 base pairs). For other data, Canu may not be able to join all the reads into one contig, so there may be several contigs in the output.
+
+We should also look at the <fn>canu.report</fn>. To do this:
+
+```
+less canu.report
+```
+
+You will see lots of histograms of read lengths before and after processing, final contig construction etc.
+
  
 ### Questions
 
@@ -146,7 +206,10 @@ Bacteria have circular chromosomes.
 
 A tool called [Circlator](http://sanger-pathogens.github.io/circlator/) identifies and trims overhangs (on chromosomes and plasmids). It takes in the assembled contigs from Canu, as well as the corrected reads prepared by Canu.
 
-Move back into your main analysis folder: `cd ..`
+Move back into your main analysis folder: 
+```
+cd ..
+```
 
 
 ### Run Circlator
@@ -165,27 +228,48 @@ Some output will print to screen. When finished, it should say "Circularized x o
 
 ### Check the output
 
-Move into the Circlator output directory: `cd circlator_outdir`
+Move into the Circlator output directory: 
 
-List the files: `ls`
+```
+cd circlator_outdir
+```
 
-*Were the contigs circularised?* `less 04.merge.circularise.log`
+List the files: 
+```
+ls
+```
+
+*Were the contigs circularised?* 
+
+```
+less 04.merge.circularise.log
+```
 
 - "less" is a command to display the file on the screen.
 - Yes, the contig was circularised (last column).
 - Type "q" to exit.
 
-What are the trimmed contig sizes? `infoseq 06.fixstart.fasta`
+What are the trimmed contig sizes? 
+```
+infoseq 06.fixstart.fasta
+```
 
+```text
 - tig00000001 30019 
+```
 
-About 9000 bases (the overhang) have been trimmed. 
+The length of the contig is now about 9000 bases shorter than before circularisation. This was the "overhang" and has now been trimmed. 
 
-Re-name the contigs file: `mv 06.fixstart.fasta contig1.fasta`
+Copy the circularised contigs file to the main analysis directory with a new name:
 
-Move the file back into the main folder: `mv contig1.fasta ../`
+```
+cp 06.fixstart.fasta ../contig1.fasta
+```
 
-Move back into the main folder: `cd ..`
+Move back into the main folder: 
+```
+cd ..
+```
 
 ### Questions
 
@@ -271,25 +355,45 @@ spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq --caref
 - `--cov-cutoff auto` computes the coverage threshold (rather than the default setting, "off")
 - `-o` is the output directory
 
-Move into the output directory: `cd spades_assembly`
+Move into the output directory: 
+```
+cd spades_assembly
+```
 
-Look at the contigs: `infoseq contigs.fasta`
+Look at the contigs: 
+```
+infoseq contigs.fasta
+```
 
 - 1 contig has been assembled with a length of 2359 bases. 
 
-Re-name it: `mv contigs.fasta contig2.fasta`
+Copy it to a new file: 
+```
+cp contigs.fasta contig2.fasta
+```
 
 ### Trim the plasmid
 
 To trim any overhang on this plasmid, we will blast the start of contig2 against itself.
 
-- Take the start of the contig: `head -n 10 contig2.fasta > contig2.fa.head`
-
+- Take the start of the contig: 
+```
+head -n 10 contig2.fasta > contig2.fa.head
+```
 - We want to see if it matches the end (overhang).
-- Format the assembly file for blast: `makeblastdb -in contig2.fasta -dbtype nucl`
-- Blast the start of the assembly (.head file) against all of the assembly: `blastn -query contig2.fa.head -db contig2.fasta -evalue 1e-3 -dust no -out contig2.bls`
+- Format the assembly file for blast: 
+```
+makeblastdb -in contig2.fasta -dbtype nucl
+```
+- Blast the start of the assembly (.head file) against all of the assembly: 
+```
+blastn -query contig2.fa.head -db contig2.fasta -evalue 1e-3 -dust no -out contig2.bls
+```
 
-Look at the hits: `less contig2.bls`
+Look at the hits: 
+```
+less contig2.bls
+```
 
 
 - The first hit is at start, as expected.
@@ -300,18 +404,32 @@ Look at the hits: `less contig2.bls`
  
 
 - Open this file in nano (`nano contig2.fasta`) and change the header to ">contig2", save.
-- Index the file: `samtools faidx contig2.fasta`
 
-Trim: `samtools faidx contig2.fasta contig2:1-2252 > plasmid.fasta`
+- Index the file (this will allow samtools to edit the file as it will have an index): 
+```
+samtools faidx contig2.fasta
+```
+
+Trim the contig using samtools to length 2252: 
+
+```
+samtools faidx contig2.fasta contig2:1-2252 > plasmid.fasta
+```
 
 - We now have a trimmed plasmid.
-- Move file back into main folder: `cp plasmid.fasta ../`
-- Move into the main folder: `cd ..`
+- Move file back into main folder: 
+```
+cp plasmid.fasta ../
+```
+- Move back into the main folder: 
+```
+cd ..
+```
 
 
 ### Collect contigs
 
-Join the chromosome to the plasmid in one file: 
+Collect the chromosome and the plasmid in one fasta file (they will be 2 records in the file): 
 
 ```text
 cat contig1.fasta plasmid.fasta > genome.fasta
@@ -406,7 +524,10 @@ pilon --genome genome.fasta --frags pilon_aln.bam --output pilon1 --fix all --mi
 - `--threads`: number of cores
 
 
-Look at the changes file: `less pilon1.changes`
+Look at the changes file: 
+```
+less pilon1.changes
+```
 
 *Example:*
 
@@ -416,13 +537,19 @@ Look at the changes file: `less pilon1.changes`
 We can see lots of cases where a deletion (represented by a dot) has been corrected to a base.  Type `q` to exit. 
 
 
-Look at the details of the fasta file: `infoseq pilon1.fasta`
+Look at the details of the fasta file: 
+```
+infoseq pilon1.fasta
+```
 
 - chromosome - 30060 (net +41 bases)
 - plasmid - 2252 (no change)
 
 
-Change the file name: `cp pilon1.fasta assembly.fasta`
+Change the file name: 
+```
+cp pilon1.fasta assembly.fasta
+```
 
 We now have the corrected genome assembly of *Staphylococcus aureus* in .fasta format, containing a chromosome and a small plasmid.  
 
