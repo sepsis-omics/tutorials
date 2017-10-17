@@ -48,7 +48,7 @@ The files we need are:
 
 In a new tab, go to [https://doi.org/10.5281/zenodo.1009308](https://doi.org/10.5281/zenodo.1009308). 
 
-- Next to the first file, right-click the "Download" button, and select "Copy link address".
+- Next to the first file, right-click (or control-click) the "Download" button, and select "Copy link address".
 - Back in your terminal, enter `wget [paste link address here]`
 - The file should download. 
 - Repeat this for the other two files. 
@@ -70,7 +70,7 @@ canu -p canu -d canu_outdir genomeSize=0.03m -pacbio-raw pacbio.fq
 - `genomeSize` only has to be approximate. (In this case we are using a partial genome of expected size 30,000 base pairs). 
 - Canu will correct, trim and assemble the reads.
 - Various output will be displayed on the screen.
-- *Note*: Canu could say "Finished" but may still be running. Type `squeue` to see if jobs are still running. 
+- *Note*: Canu could say "Finished" but may still be running. In this case, type `squeue` to see if jobs are still running. 
 
 
 ## 4. Check assembly output
@@ -175,8 +175,7 @@ List the files: `ls`
 - Yes, the contig was circularised (last column).
 - Type "q" to exit.
 
-What are the trimmed contig sizes? `text
-infoseq 06.fixstart.fasta`
+What are the trimmed contig sizes? `infoseq 06.fixstart.fasta`
 
 - tig00000001 30019 
 
@@ -370,6 +369,9 @@ Sequences from PacBio can have more errors than those from Illumina. Therefore, 
 
 ```text
 bwa index genome.fasta
+```
+
+```text
 bwa mem -t 4 genome.fasta R1.fq R2.fq | samtools sort > pilon_aln.bam
 ```
 
@@ -377,6 +379,9 @@ bwa mem -t 4 genome.fasta R1.fq R2.fq | samtools sort > pilon_aln.bam
 
 ```text
 samtools index pilon_aln.bam
+```
+
+```text
 samtools faidx genome.fasta
 ```
 
@@ -408,7 +413,8 @@ Look at the changes file: `less pilon1.changes`
 ![pilon](images/pilon.png)
 
 
-We can see lots of cases where a deletion (represented by a dot) has been corrected to a base. 
+We can see lots of cases where a deletion (represented by a dot) has been corrected to a base.  Type `q` to exit. 
+
 
 Look at the details of the fasta file: `infoseq pilon1.fasta`
 
