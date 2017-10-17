@@ -5,6 +5,7 @@
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Tutorials for analysing bacterial omics data">
       
@@ -17,7 +18,7 @@
       
         <link rel="shortcut icon" href="../../favicon.ico">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.1">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.10.3">
     
     
       
@@ -25,10 +26,10 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
+      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-4d0d3f2fbf.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-9011e2d3f8.css">
       
     
     
@@ -68,10 +69,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <a href="http://sepsis-omics.github.io/tutorials/" title="ABRPI-Training" class="md-icon md-icon--home md-header-nav__button">
-          </a>
-        
+        <a href="http://sepsis-omics.github.io/tutorials/" title="ABRPI-Training" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon md-icon--home"></i>
+          
+        </a>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
@@ -94,17 +96,17 @@
         
           <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
           
-<div class="md-search" data-md-component="search">
+<div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="search"></label>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="" data-md-lang-tokenizer="[\s\-]+">
           <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
             Type to start searching
           </div>
@@ -116,9 +118,9 @@
 </div>
         
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-          
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
             
 
 
@@ -138,14 +140,15 @@
     </div>
   </a>
 
-          
+          </div>
         </div>
-      </div>
+      
     </div>
   </nav>
 </header>
     
     <div class="md-container">
+      
       
       
         
@@ -233,9 +236,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="drawer">
-    
-      <i class="md-icon md-icon--home md-nav__button"></i>
-    
+    <div class="md-nav__button md-logo">
+      
+        <i class="md-icon md-icon--home"></i>
+      
+    </div>
     ABRPI-Training
   </label>
   
@@ -605,6 +610,13 @@
           <li class="md-nav__item">
   <a href="#windows-users" title="Windows users" class="md-nav__link">
     Windows users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-working-directory-on-your-remote-computer" title="Create a new working directory on your remote computer." class="md-nav__link">
+    Create a new working directory on your remote computer.
   </a>
   
 </li>
@@ -1012,6 +1024,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#create-a-new-working-directory-on-your-remote-computer" title="Create a new working directory on your remote computer." class="md-nav__link">
+    Create a new working directory on your remote computer.
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1234,7 +1253,13 @@
 <h3 id="mac-users">Mac users</h3>
 <p>Open the Terminal. </p>
 <ul>
-<li>Type in <code>ssh researcher@[your virtual machine address]</code></li>
+<li>Type in </li>
+</ul>
+<div class="codehilite"><pre><span></span>ssh researcher@[your virtual machine address]
+</pre></div>
+
+
+<ul>
 <li>Type in the password provided. </li>
 </ul>
 <h3 id="windows-users">Windows users</h3>
@@ -1249,6 +1274,29 @@
 <li>Under &ldquo;Login as:&rdquo; enter &ldquo;researcher&rdquo;</li>
 <li>Type in the password provided. </li>
 </ul>
+<h3 id="create-a-new-working-directory-on-your-remote-computer">Create a new working directory on your remote computer.</h3>
+<p>Because we are starting a new analysis it is always good practice to start in a new empty directory. Therefore, we will create a new directory and change to it for the rest of the workshop.</p>
+<p>In your terminal:</p>
+<ul>
+<li>Create a new directory called &ldquo;PacBioWorkshop&rdquo;</li>
+</ul>
+<div class="codehilite"><pre><span></span>mkdir PacBioWorkshop
+</pre></div>
+
+
+<ul>
+<li>Change to that directory</li>
+</ul>
+<div class="codehilite"><pre><span></span>cd PacBioWorkshop
+</pre></div>
+
+
+<p><strong>NOTE: Everytime you open a new terminal or Putty session, you will need to make sure you are in this directory again.</strong></p>
+<p>The current directory can be obtained with the linux command:</p>
+<div class="codehilite"><pre><span></span>pwd
+</pre></div>
+
+
 <h2 id="2-get-data">2. Get data</h2>
 <p>The sample used in this tutorial is from a bacteria called <em>Staphylococcus aureus</em>. We have used a small section of its real genome so that the programs can run in the workshop time. </p>
 <p>The files we need are:</p>
@@ -1260,7 +1308,13 @@
 <p>In a new tab, go to <a href="https://doi.org/10.5281/zenodo.1009308">https://doi.org/10.5281/zenodo.1009308</a>. </p>
 <ul>
 <li>Next to the first file, right-click the &ldquo;Download&rdquo; button, and select &ldquo;Copy link address&rdquo;.</li>
-<li>Back in your terminal, enter <code>wget [paste link address here]</code></li>
+<li>Back in your terminal, enter </li>
+</ul>
+<div class="codehilite"><pre><span></span>wget [paste link address here]
+</pre></div>
+
+
+<ul>
 <li>The file should download. </li>
 <li>Repeat this for the other two files. </li>
 </ul>
@@ -1278,16 +1332,34 @@
 <li><code>genomeSize</code> only has to be approximate. (In this case we are using a partial genome of expected size 30,000 base pairs). </li>
 <li>Canu will correct, trim and assemble the reads.</li>
 <li>Various output will be displayed on the screen.</li>
-<li><em>Note</em>: Canu could say &ldquo;Finished&rdquo; but may still be running. Type <code>squeue</code> to see if jobs are still running. </li>
+<li><em>Note</em>: Canu could say &ldquo;Finished&rdquo; but may still be running. In this case, type <code>squeue</code> to see if jobs are still running. </li>
 </ul>
+<p>If you run <code>squeue</code> you will see something like this:</p>
+<div class="codehilite"><pre><span></span>$ squeue
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                 6      main canu_can research PD       0:00      1 (Dependency)
+               5_1      main cormhap_ research  R       0:29      1 master
+</pre></div>
+
+
+<p>You will know if <strong>Canu</strong> has completely finished when <code>squeue</code> shows no jobs are running.</p>
 <h2 id="4-check-assembly-output">4. Check assembly output</h2>
-<p>Move into the canu output folder: <code>cd canu_outdir</code></p>
-<p>View the list of files: <code>ls</code></p>
+<p>Move into the canu output folder: </p>
+<div class="codehilite"><pre><span></span>cd canu_outdir
+</pre></div>
+
+
+<p>View the list of files: </p>
+<div class="codehilite"><pre><span></span>ls
+</pre></div>
+
+
 <ul>
 <li>The <fn>canu.contigs.fasta</fn> are the assembled sequences.</li>
 <li>The <fn>canu.unassembled.fasta</fn> are the reads that could not be assembled.</li>
 <li>The <fn>canu.correctedReads.fasta.gz</fn> are the corrected Pacbio reads that were used in the assembly.</li>
 <li>The <fn>canu.contigs.gfa</fn> is the graph of the assembly.</li>
+<li>The <fn>canu.report</fn> file is a summary of all of the steps Canu performed with information about the reads used, how they were handled and a whole lot of summary information about the assembly.</li>
 </ul>
 <p>Display summary information about the contigs: (<code>infoseq</code> is a tool from <a href="http://emboss.sourceforge.net/index.html">EMBOSS</a>)</p>
 <div class="codehilite"><pre><span></span>infoseq canu.contigs.fasta
@@ -1301,7 +1373,13 @@
 </pre></div>
 
 
-<p>This matches what we were expecting for this sample (approximately 30,000 base pairs). For other data, Canu may not be able to join all the reads into one contig, so there may be several contigs in the output. </p>
+<p>This matches what we were expecting for this sample (approximately 30,000 base pairs). For other data, Canu may not be able to join all the reads into one contig, so there may be several contigs in the output.</p>
+<p>We should also look at the <fn>canu.report</fn>. To do this:</p>
+<div class="codehilite"><pre><span></span>less canu.report
+</pre></div>
+
+
+<p>You will see lots of histograms of read lengths before and after processing, final contig construction etc.</p>
 <h3 id="questions">Questions</h3>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
@@ -1332,7 +1410,11 @@
 <p><img alt="circlator" src="./images/circlator_diagram.png" />
 <em>Adapted from Figure 1. Hunt et al. Genome Biology 2015</em></p>
 <p>A tool called <a href="http://sanger-pathogens.github.io/circlator/">Circlator</a> identifies and trims overhangs (on chromosomes and plasmids). It takes in the assembled contigs from Canu, as well as the corrected reads prepared by Canu.</p>
-<p>Move back into your main analysis folder: <code>cd ..</code></p>
+<p>Move back into your main analysis folder: </p>
+<div class="codehilite"><pre><span></span>cd ..
+</pre></div>
+
+
 <h3 id="run-circlator">Run Circlator</h3>
 <div class="codehilite"><pre><span></span>circlator all --threads 4 --verbose canu_outdir/canu.contigs.fasta canu_outdir/canu.correctedReads.fasta.gz circlator_outdir
 </pre></div>
@@ -1347,23 +1429,46 @@
 </ul>
 <p>Some output will print to screen. When finished, it should say &ldquo;Circularized x of x contig(s)&rdquo;.</p>
 <h3 id="check-the-output">Check the output</h3>
-<p>Move into the Circlator output directory: <code>cd circlator_outdir</code></p>
-<p>List the files: <code>ls</code></p>
-<p><em>Were the contigs circularised?</em> <code>less 04.merge.circularise.log</code></p>
+<p>Move into the Circlator output directory: </p>
+<div class="codehilite"><pre><span></span>cd circlator_outdir
+</pre></div>
+
+
+<p>List the files: </p>
+<div class="codehilite"><pre><span></span>ls
+</pre></div>
+
+
+<p><em>Were the contigs circularised?</em> </p>
+<div class="codehilite"><pre><span></span>less 04.merge.circularise.log
+</pre></div>
+
+
 <ul>
 <li>&ldquo;less&rdquo; is a command to display the file on the screen.</li>
 <li>Yes, the contig was circularised (last column).</li>
 <li>Type &ldquo;q&rdquo; to exit.</li>
 </ul>
-<p>What are the trimmed contig sizes? <code>text
-infoseq 06.fixstart.fasta</code></p>
-<ul>
-<li>tig00000001 30019 </li>
-</ul>
-<p>About 9000 bases (the overhang) have been trimmed. </p>
-<p>Re-name the contigs file: <code>mv 06.fixstart.fasta contig1.fasta</code></p>
-<p>Move the file back into the main folder: <code>mv contig1.fasta ../</code></p>
-<p>Move back into the main folder: <code>cd ..</code></p>
+<p>What are the trimmed contig sizes? </p>
+<div class="codehilite"><pre><span></span>infoseq 06.fixstart.fasta
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>- tig00000001 30019 
+</pre></div>
+
+
+<p>The length of the contig is now about 9000 bases shorter than before circularisation. This was the &ldquo;overhang&rdquo; and has now been trimmed. </p>
+<p>Copy the circularised contigs file to the main analysis directory with a new name:</p>
+<div class="codehilite"><pre><span></span>cp 06.fixstart.fasta ../contig1.fasta
+</pre></div>
+
+
+<p>Move back into the main folder: </p>
+<div class="codehilite"><pre><span></span>cd ..
+</pre></div>
+
+
 <h3 id="questions_1">Questions</h3>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
@@ -1445,25 +1550,53 @@ infoseq 06.fixstart.fasta</code></p>
 <li><code>--cov-cutoff auto</code> computes the coverage threshold (rather than the default setting, &ldquo;off&rdquo;)</li>
 <li><code>-o</code> is the output directory</li>
 </ul>
-<p>Move into the output directory: <code>cd spades_assembly</code></p>
-<p>Look at the contigs: <code>infoseq contigs.fasta</code></p>
+<p>Move into the output directory: </p>
+<div class="codehilite"><pre><span></span>cd spades_assembly
+</pre></div>
+
+
+<p>Look at the contigs: </p>
+<div class="codehilite"><pre><span></span>infoseq contigs.fasta
+</pre></div>
+
+
 <ul>
 <li>1 contig has been assembled with a length of 2359 bases. </li>
 </ul>
-<p>Re-name it: <code>mv contigs.fasta contig2.fasta</code></p>
+<p>Copy it to a new file: </p>
+<div class="codehilite"><pre><span></span>cp contigs.fasta contig2.fasta
+</pre></div>
+
+
 <h3 id="trim-the-plasmid">Trim the plasmid</h3>
 <p>To trim any overhang on this plasmid, we will blast the start of contig2 against itself.</p>
 <ul>
-<li>
-<p>Take the start of the contig: <code>head -n 10 contig2.fasta &gt; contig2.fa.head</code></p>
-</li>
-<li>
-<p>We want to see if it matches the end (overhang).</p>
-</li>
-<li>Format the assembly file for blast: <code>makeblastdb -in contig2.fasta -dbtype nucl</code></li>
-<li>Blast the start of the assembly (.head file) against all of the assembly: <code>blastn -query contig2.fa.head -db contig2.fasta -evalue 1e-3 -dust no -out contig2.bls</code></li>
+<li>Take the start of the contig: </li>
 </ul>
-<p>Look at the hits: <code>less contig2.bls</code></p>
+<div class="codehilite"><pre><span></span>head -n 10 contig2.fasta &gt; contig2.fa.head
+</pre></div>
+
+
+<ul>
+<li>We want to see if it matches the end (overhang).</li>
+<li>Format the assembly file for blast: </li>
+</ul>
+<div class="codehilite"><pre><span></span>makeblastdb -in contig2.fasta -dbtype nucl
+</pre></div>
+
+
+<ul>
+<li>Blast the start of the assembly (.head file) against all of the assembly: </li>
+</ul>
+<div class="codehilite"><pre><span></span>blastn -query contig2.fa.head -db contig2.fasta -evalue 1e-3 -dust no -out contig2.bls
+</pre></div>
+
+
+<p>Look at the hits: </p>
+<div class="codehilite"><pre><span></span>less contig2.bls
+</pre></div>
+
+
 <ul>
 <li>The first hit is at start, as expected.</li>
 <li>The second hit is at 2253 all the way to the end - 2359.</li>
@@ -1475,16 +1608,36 @@ infoseq 06.fixstart.fasta</code></p>
 <li>
 <p>Open this file in nano (<code>nano contig2.fasta</code>) and change the header to &ldquo;&gt;contig2&rdquo;, save.</p>
 </li>
-<li>Index the file: <code>samtools faidx contig2.fasta</code></li>
+<li>
+<p>Index the file (this will allow samtools to edit the file as it will have an index): </p>
+</li>
 </ul>
-<p>Trim: <code>samtools faidx contig2.fasta contig2:1-2252 &gt; plasmid.fasta</code></p>
+<div class="codehilite"><pre><span></span>samtools faidx contig2.fasta
+</pre></div>
+
+
+<p>Trim the contig using samtools to length 2252: </p>
+<div class="codehilite"><pre><span></span>samtools faidx contig2.fasta contig2:1-2252 &gt; plasmid.fasta
+</pre></div>
+
+
 <ul>
 <li>We now have a trimmed plasmid.</li>
-<li>Move file back into main folder: <code>cp plasmid.fasta ../</code></li>
-<li>Move into the main folder: <code>cd ..</code></li>
+<li>Move file back into main folder: </li>
 </ul>
+<div class="codehilite"><pre><span></span>cp plasmid.fasta ../
+</pre></div>
+
+
+<ul>
+<li>Move back into the main folder: </li>
+</ul>
+<div class="codehilite"><pre><span></span>cd ..
+</pre></div>
+
+
 <h3 id="collect-contigs">Collect contigs</h3>
-<p>Join the chromosome to the plasmid in one file: </p>
+<p>Collect the chromosome and the plasmid in one fasta file (they will be 2 records in the file): </p>
 <div class="codehilite"><pre><span></span>cat contig1.fasta plasmid.fasta &gt; genome.fasta
 </pre></div>
 
@@ -1526,7 +1679,10 @@ infoseq 06.fixstart.fasta</code></p>
 <li>Align the Illumina reads (R1 and R2) to the draft PacBio assembly, e.g. <fn>genome.fasta</fn>:</li>
 </ul>
 <div class="codehilite"><pre><span></span>bwa index genome.fasta
-bwa mem -t 4 genome.fasta R1.fq R2.fq | samtools sort &gt; pilon_aln.bam
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>bwa mem -t 4 genome.fasta R1.fq R2.fq | samtools sort &gt; pilon_aln.bam
 </pre></div>
 
 
@@ -1534,7 +1690,10 @@ bwa mem -t 4 genome.fasta R1.fq R2.fq | samtools sort &gt; pilon_aln.bam
 <li>Index the files:</li>
 </ul>
 <div class="codehilite"><pre><span></span>samtools index pilon_aln.bam
-samtools faidx genome.fasta
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>samtools faidx genome.fasta
 </pre></div>
 
 
@@ -1559,16 +1718,28 @@ samtools faidx genome.fasta
 <li><code>--verbose</code> prints information to the screen during the run</li>
 <li><code>--threads</code>: number of cores</li>
 </ul>
-<p>Look at the changes file: <code>less pilon1.changes</code></p>
+<p>Look at the changes file: </p>
+<div class="codehilite"><pre><span></span>less pilon1.changes
+</pre></div>
+
+
 <p><em>Example:</em></p>
 <p><img alt="pilon" src="./images/pilon.png" /></p>
-<p>We can see lots of cases where a deletion (represented by a dot) has been corrected to a base. </p>
-<p>Look at the details of the fasta file: <code>infoseq pilon1.fasta</code></p>
+<p>We can see lots of cases where a deletion (represented by a dot) has been corrected to a base.  Type <code>q</code> to exit. </p>
+<p>Look at the details of the fasta file: </p>
+<div class="codehilite"><pre><span></span>infoseq pilon1.fasta
+</pre></div>
+
+
 <ul>
 <li>chromosome - 30060 (net +41 bases)</li>
 <li>plasmid - 2252 (no change)</li>
 </ul>
-<p>Change the file name: <code>cp pilon1.fasta assembly.fasta</code></p>
+<p>Change the file name: </p>
+<div class="codehilite"><pre><span></span>cp pilon1.fasta assembly.fasta
+</pre></div>
+
+
 <p>We now have the corrected genome assembly of <em>Staphylococcus aureus</em> in .fasta format, containing a chromosome and a small plasmid.  </p>
 <h3 id="questions_3">Questions</h3>
 <div class="admonition note">
@@ -1760,7 +1931,9 @@ samtools faidx genome.fasta
       
     </div>
     
-      <script src="../../assets/javascripts/application-6b599127bc.js"></script>
+      <script src="../../assets/javascripts/application-f3ab9e5ff8.js"></script>
+      
+      
       <script>app.initialize({url:{base:"../.."}})</script>
       
         <script src="../../js/details.js"></script>
