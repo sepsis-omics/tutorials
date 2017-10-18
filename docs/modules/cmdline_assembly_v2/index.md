@@ -34,7 +34,7 @@ If you are using Windows 10, you might be able to use the Ubuntu Subsystem. Othe
 - Download putty [here](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - Open. A configuration window will appear. 
 - Under "Host Name (or IP address)" enter in the address of your virtual machine. 
-- Under "Port" type in 6022
+- Under "Port" type in 22
 - Under "Connection Type" select "SSH"
 - Click "Open"
 - Under "Login as:" enter "researcher"
