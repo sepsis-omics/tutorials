@@ -156,7 +156,9 @@ We should also look at the <fn>canu.report</fn>. To do this:
 less canu.report
 ```
 
-You will see lots of histograms of read lengths before and after processing, final contig construction etc.
+You will see lots of histograms of read lengths before and after processing, final contig construction etc. 
+
+For a description of the outputs that Canu produces, see: [http://canu.readthedocs.io/en/latest/tutorial.html#outputs](http://canu.readthedocs.io/en/latest/tutorial.html#outputs)
 
  
 ### Questions
