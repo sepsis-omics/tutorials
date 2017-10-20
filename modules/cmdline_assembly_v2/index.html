@@ -1493,16 +1493,12 @@
 <li>Look for overhang: if found, trim.</li>
 </ol>
 <h3 id="align-illumina-reads-to-the-pacbio-contig">Align Illumina reads to the PacBio contig</h3>
-<ul>
-<li>Index the contigs file:</li>
-</ul>
+<p>Index the contigs file:</p>
 <div class="codehilite"><pre><span></span>bwa index contig1.fasta
 </pre></div>
 
 
-<ul>
-<li>Align Illumina reads using using bwa mem:</li>
-</ul>
+<p>Align Illumina reads using using bwa mem:</p>
 <div class="codehilite"><pre><span></span>bwa mem -t 4 contig1.fasta R1.fq R2.fq | samtools sort &gt; aln.bam
 </pre></div>
 
@@ -1516,16 +1512,12 @@
 <li><code>&gt; aln.bam</code> sends the alignment to the file <fn>aln.bam</fn></li>
 </ul>
 <h3 id="extract-unmapped-illumina-reads">Extract unmapped Illumina reads</h3>
-<ul>
-<li>Index the alignment file:</li>
-</ul>
+<p>Index the alignment file:</p>
 <div class="codehilite"><pre><span></span>samtools index aln.bam
 </pre></div>
 
 
-<ul>
-<li>Extract the fastq files from the bam alignment - those reads that were unmapped to the Pacbio alignment - and save them in various &ldquo;unmapped&rdquo; files:</li>
-</ul>
+<p>Extract the fastq files from the bam alignment - those reads that were unmapped to the Pacbio alignment - and save them in various &ldquo;unmapped&rdquo; files:</p>
 <div class="codehilite"><pre><span></span>samtools fastq -f 4 -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq aln.bam
 </pre></div>
 
@@ -1540,9 +1532,7 @@
 </ul>
 <p>We now have three files of the unampped reads: <fn> unmapped.R1.fastq</fn>, <fn> unmapped.R2.fastq</fn>, <fn> unmapped.RS.fastq</fn>.</p>
 <h3 id="assemble-the-unmapped-reads">Assemble the unmapped reads</h3>
-<ul>
-<li>Assemble with Spades:</li>
-</ul>
+<p>Assemble with Spades:</p>
 <div class="codehilite"><pre><span></span>spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq --careful --cov-cutoff auto -o spades_assembly
 </pre></div>
 
@@ -1624,9 +1614,9 @@
 
 
 <ul>
-<li>The first hit is at start, as expected. We can see that &ldquo;Query 1&rdquo; is aligned to &ldquo;Sbject 1&rdquo;, for the first 540 bases.</li>
+<li>The first hit is at the start, as expected. We can see that &ldquo;Query 1&rdquo; (the start of the contig) is aligned to &ldquo;Sbject 1&rdquo; (the whole contig), for the first 540 bases.</li>
 <li>Scroll down with the down arrow. </li>
-<li>The second hit shows &ldquo;Query 1&rdquo; (the start of the contig) matches to &ldquo;Sbject 1&rdquo; (the whole contig) at position 2253, all the way to the end, position 2359. </li>
+<li>The second hit shows &ldquo;Query 1&rdquo; (the start of the contig) also matches to &ldquo;Sbject 1&rdquo; (the whole contig) at position 2253, all the way to the end, position 2359. </li>
 </ul>
 <p><img alt="blast" src="./images/blasthits.png" /></p>
 <ul>
@@ -1645,8 +1635,8 @@
 <li>At the first line, delete the text, which will be something like &ldquo;&gt;NODE_1_length_2359_cov_3.320333&rdquo;</li>
 <li>Type in &ldquo;&gt;contig2&rdquo; </li>
 <li>Don&rsquo;t forget the <code>&gt;</code> symbol</li>
-<li>Type Control-X</li>
-<li>&ldquo;Save modified buffer ?&rdquo; - type Y</li>
+<li>Press Control-X</li>
+<li>&ldquo;Save modified buffer ?&rdquo; - type <code>Y</code></li>
 <li>Press the Enter key</li>
 </ul>
 <p>Index the file (this will allow samtools to edit the file as it will have an index): </p>
@@ -1771,7 +1761,10 @@
 
 <p><em>Example:</em></p>
 <p><img alt="pilon" src="./images/pilon.png" /></p>
-<p>We can see lots of cases where a deletion (represented by a dot) has been corrected to a base.  Type <code>q</code> to exit. </p>
+<ul>
+<li>We can see lots of cases where a deletion (represented by a dot) has been corrected to a base.  </li>
+<li>Type <code>q</code> to exit. </li>
+</ul>
 <p>Look at the details of the fasta file: </p>
 <div class="codehilite"><pre><span></span>infoseq pilon1.fasta
 </pre></div>
