@@ -5,7 +5,6 @@
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Tutorials for analysing bacterial omics data">
       
@@ -18,7 +17,7 @@
       
         <link rel="shortcut icon" href="../../favicon.ico">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.10.3">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.1">
     
     
       
@@ -26,10 +25,10 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr-e826f8942a.js"></script>
+      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-9011e2d3f8.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-4d0d3f2fbf.css">
       
     
     
@@ -69,11 +68,10 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://sepsis-omics.github.io/tutorials/" title="ABRPI-Training" class="md-header-nav__button md-logo">
-          
-            <i class="md-icon md-icon--home"></i>
-          
-        </a>
+        
+          <a href="http://sepsis-omics.github.io/tutorials/" title="ABRPI-Training" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
@@ -96,17 +94,17 @@
         
           <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
           
-<div class="md-search" data-md-component="search" role="dialog">
+<div class="md-search" data-md-component="search">
   <label class="md-search__overlay" for="search"></label>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
       <label class="md-icon md-search__icon" for="search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result" data-md-lang-search="" data-md-lang-tokenizer="[\s\-]+">
+        <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
             Type to start searching
           </div>
@@ -118,9 +116,9 @@
 </div>
         
       </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
             
 
 
@@ -140,15 +138,14 @@
     </div>
   </a>
 
-          </div>
+          
         </div>
-      
+      </div>
     </div>
   </nav>
 </header>
     
     <div class="md-container">
-      
       
       
         
@@ -236,11 +233,9 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="drawer">
-    <div class="md-nav__button md-logo">
-      
-        <i class="md-icon md-icon--home"></i>
-      
-    </div>
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
     ABRPI-Training
   </label>
   
@@ -1278,16 +1273,16 @@
 <p>Because we are starting a new analysis it is always good practice to start in a new empty directory. Therefore, we will create a new directory and change to it for the rest of the workshop.</p>
 <p>In your terminal:</p>
 <ul>
-<li>Create a new directory called &ldquo;PacBioWorkshop&rdquo;</li>
+<li>Create a new directory called &ldquo;Workshop&rdquo;</li>
 </ul>
-<div class="codehilite"><pre><span></span>mkdir PacBioWorkshop
+<div class="codehilite"><pre><span></span>mkdir Workshop
 </pre></div>
 
 
 <ul>
 <li>Change to that directory</li>
 </ul>
-<div class="codehilite"><pre><span></span>cd PacBioWorkshop
+<div class="codehilite"><pre><span></span>cd Workshop
 </pre></div>
 
 
@@ -1307,15 +1302,16 @@
 </ul>
 <p>In a new tab, go to <a href="https://doi.org/10.5281/zenodo.1009308">https://doi.org/10.5281/zenodo.1009308</a>. </p>
 <ul>
-<li>Next to the first file, right-click the &ldquo;Download&rdquo; button, and select &ldquo;Copy link address&rdquo;.</li>
+<li>Next to the first file, right-click (or control-click) the &ldquo;Download&rdquo; button, and select &ldquo;Copy link address&rdquo;.</li>
 <li>Back in your terminal, enter </li>
 </ul>
-<div class="codehilite"><pre><span></span>wget [paste link address here]
+<div class="codehilite"><pre><span></span>wget [paste file link here]
 </pre></div>
 
 
 <ul>
 <li>The file should download. </li>
+<li><em>Note:</em> paste the link to the file, not to the webpage.</li>
 <li>Repeat this for the other two files. </li>
 </ul>
 <h2 id="3-assemble">3. Assemble<a name="assemble"></a></h2>
@@ -1335,14 +1331,13 @@
 <li><em>Note</em>: Canu could say &ldquo;Finished&rdquo; but may still be running. In this case, type <code>squeue</code> to see if jobs are still running. </li>
 </ul>
 <p>If you run <code>squeue</code> you will see something like this:</p>
-<div class="codehilite"><pre><span></span>$ squeue
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+<div class="codehilite"><pre><span></span>             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  6      main canu_can research PD       0:00      1 (Dependency)
                5_1      main cormhap_ research  R       0:29      1 master
 </pre></div>
 
 
-<p>You will know if <strong>Canu</strong> has completely finished when <code>squeue</code> shows no jobs are running.</p>
+<p>You will know if <strong>Canu</strong> has completely finished when <code>squeue</code> shows no jobs listed under the header row. </p>
 <h2 id="4-check-assembly-output">4. Check assembly output</h2>
 <p>Move into the canu output folder: </p>
 <div class="codehilite"><pre><span></span>cd canu_outdir
@@ -1367,20 +1362,23 @@
 
 
 <ul>
-<li>This will show the contigs found by Canu. e.g.,</li>
+<li>This will show the contigs found by Canu. e.g.,  tig00000001  39136</li>
+<li>&ldquo;tig00000001&rdquo; is the name given to the contig</li>
+<li>&ldquo;39136&rdquo; is the number of base pairs in that contig.</li>
 </ul>
-<div class="codehilite"><pre><span></span>    - tig00000001   39136
-</pre></div>
-
-
 <p>This matches what we were expecting for this sample (approximately 30,000 base pairs). For other data, Canu may not be able to join all the reads into one contig, so there may be several contigs in the output.</p>
 <p>We should also look at the <fn>canu.report</fn>. To do this:</p>
 <div class="codehilite"><pre><span></span>less canu.report
 </pre></div>
 
 
-<p>You will see lots of histograms of read lengths before and after processing, final contig construction etc. </p>
-<p>For a description of the outputs that Canu produces, see: <a href="http://canu.readthedocs.io/en/latest/tutorial.html#outputs">http://canu.readthedocs.io/en/latest/tutorial.html#outputs</a></p>
+<ul>
+<li>&ldquo;less&rdquo; is a command to display the file on the screen.</li>
+<li>Use the up and down arrows to scroll up and down. </li>
+<li>You will see lots of histograms of read lengths before and after processing, final contig construction, etc. </li>
+<li>For a description of the outputs that Canu produces, see: <a href="http://canu.readthedocs.io/en/latest/tutorial.html#outputs">http://canu.readthedocs.io/en/latest/tutorial.html#outputs</a></li>
+<li>Type <code>q</code> to exit viewing the report. </li>
+</ul>
 <h3 id="questions">Questions</h3>
 <div class="admonition note">
 <p class="admonition-title">Question</p>
@@ -1422,7 +1420,12 @@
 
 
 <ul>
-<li><code>--threads</code> is the number of cores</li>
+<li>
+<p>(Click on the dark grey slider bar above and move it to the right, to see all the way to the end of the line.)</p>
+</li>
+<li>
+<p><code>--threads</code> is the number of cores</p>
+</li>
 <li><code>--verbose</code> prints progress information to the screen</li>
 <li><code>canu_outdir/canu.contigs.fasta</code> is the file path to the input Canu assembly</li>
 <li><code>canu_outdir/canu.correctedReads.fasta.gz</code> is the file path to the corrected Pacbio reads - note, fastA not fastQ</li>
@@ -1440,26 +1443,27 @@
 </pre></div>
 
 
-<p><em>Were the contigs circularised?</em> </p>
+<p>Circlator has named the output files with numbers as prefixes. </p>
+<p>Were the contigs circularised?</p>
 <div class="codehilite"><pre><span></span>less 04.merge.circularise.log
 </pre></div>
 
 
 <ul>
 <li>&ldquo;less&rdquo; is a command to display the file on the screen.</li>
+<li><fn>04.merge.circularise.log</fn> is the name of the file. </li>
 <li>Yes, the contig was circularised (last column).</li>
-<li>Type &ldquo;q&rdquo; to exit.</li>
+<li>Type <code>q</code> to exit.</li>
 </ul>
 <p>What are the trimmed contig sizes? </p>
 <div class="codehilite"><pre><span></span>infoseq 06.fixstart.fasta
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>- tig00000001 30019 
-</pre></div>
-
-
-<p>The length of the contig is now about 9000 bases shorter than before circularisation. This was the &ldquo;overhang&rdquo; and has now been trimmed. </p>
+<ul>
+<li>The contig &ldquo;tig00000001&rdquo; has a length of 30019.</li>
+<li>This is about 9000 bases shorter than before circularisation. This was the &ldquo;overhang&rdquo; and has now been trimmed. </li>
+</ul>
 <p>Copy the circularised contigs file to the main analysis directory with a new name:</p>
 <div class="codehilite"><pre><span></span>cp 06.fixstart.fasta ../contig1.fasta
 </pre></div>
@@ -1478,7 +1482,7 @@
 <div class="admonition note">
 <p class="admonition-title">Question</p>
 <p>Circlator can set the start of the sequence at a particular gene. Which gene does it use? Is this appropriate for all contigs?</p>
-<details><summary>Answer</summary><p>Circlator uses dnaA (if present) for the chromosomal contig. For other contigs, uses a centrally-located gene. However, ideally, plasmids would be oriented on a gene such as repA. It is possible to provide a file to Circlator to do this.</p></details></div>
+<details><summary>Answer</summary><p>Circlator uses dnaA (if present) for the chromosomal contig. For other contigs, it uses a centrally-located gene. However, ideally, plasmids would be oriented on a gene such as repA. It is possible to provide a file to Circlator to do this.</p></details></div>
 <h2 id="6-find-smaller-plasmids">6. Find smaller plasmids</h2>
 <p>Pacbio reads are long, and may have been longer than small plasmids. We will look for any small plasmids using the Illumina reads.</p>
 <p>This section involves several steps:</p>
@@ -1544,7 +1548,12 @@
 
 
 <ul>
-<li><code>-1</code> is input file forward</li>
+<li>
+<p>(Click on the dark grey slider bar above and move it to the right, to see all the way to the end of the line.)</p>
+</li>
+<li>
+<p><code>-1</code> is input file forward</p>
+</li>
 <li><code>-2</code> is input file reverse</li>
 <li><code>-s</code> is unpaired</li>
 <li><code>--careful</code> minimizes mismatches and short indels</li>
@@ -1571,68 +1580,103 @@
 
 <h3 id="trim-the-plasmid">Trim the plasmid</h3>
 <p>To trim any overhang on this plasmid, we will blast the start of contig2 against itself.</p>
-<ul>
-<li>Take the start of the contig: </li>
-</ul>
+<p>Take the start of the contig: </p>
 <div class="codehilite"><pre><span></span>head -n 10 contig2.fasta &gt; contig2.fa.head
 </pre></div>
 
 
 <ul>
-<li>We want to see if it matches the end (overhang).</li>
-<li>Format the assembly file for blast: </li>
+<li><code>head -n 10</code> takes the first ten lines of <fn>contig2.fasta</fn></li>
+<li>
+<p><code>&gt;</code> sends that output to a new file called <fn>contig2.fa.head</fn></p>
+</li>
+<li>
+<p>We want to see if the start of the contig matches the end (overhang).</p>
+</li>
 </ul>
+<p>Format the assembly file for blast: </p>
 <div class="codehilite"><pre><span></span>makeblastdb -in contig2.fasta -dbtype nucl
 </pre></div>
 
 
 <ul>
-<li>Blast the start of the assembly (.head file) against all of the assembly: </li>
+<li><code>makeblastdb</code> makes a database for the tool Blast</li>
+<li>This will generate three new files in the directory with suffixes .nhr, .nin and .nsq</li>
+<li><code>-in</code> sets the input file as <fn> contig2.fasta</fn></li>
+<li><code>-dbtype nucl</code> sets the type to nucleotide (rather than protein)</li>
 </ul>
+<p>Blast the start of the assembly (.head file) against all of the assembly: </p>
 <div class="codehilite"><pre><span></span>blastn -query contig2.fa.head -db contig2.fasta -evalue 1e-3 -dust no -out contig2.bls
 </pre></div>
 
 
-<p>Look at the hits: </p>
+<ul>
+<li><code>blastn</code> is the tool Blast, set as blast<strong>n</strong> to compare sequences of nucleotides to each other</li>
+<li><code>-query</code> sets the input sequence as <fn>contig2.fa.head</fn></li>
+<li><code>-db</code> sets the database as that of the original sequence <fn>contig2.fasta</fn>. We don&rsquo;t have to specify the other files that were created when we formatted this file, but they need to present in our current directory. </li>
+<li><code>-evalue</code> is the number of hits expected by chance, here set as 1e-3</li>
+<li><code>-dust no</code> turns off the masking of low-complexity regions</li>
+<li><code>-out</code> sets the output file as <fn>contig2.bls</fn></li>
+</ul>
+<p>Look at the hits (the matches): </p>
 <div class="codehilite"><pre><span></span>less contig2.bls
 </pre></div>
 
 
 <ul>
-<li>The first hit is at start, as expected.</li>
-<li>The second hit is at 2253 all the way to the end - 2359.</li>
-<li>This is the overhang.</li>
-<li>We will trim to position 2252.</li>
-<li>
-<p>Type <code>q</code> to exit. </p>
-</li>
-<li>
-<p>Open this file in nano (<code>nano contig2.fasta</code>) and change the header to &ldquo;&gt;contig2&rdquo;, save.</p>
-</li>
-<li>
-<p>Index the file (this will allow samtools to edit the file as it will have an index): </p>
-</li>
+<li>The first hit is at start, as expected. We can see that &ldquo;Query 1&rdquo; is aligned to &ldquo;Sbject 1&rdquo;, for the first 540 bases.</li>
+<li>Scroll down with the down arrow. </li>
+<li>The second hit shows &ldquo;Query 1&rdquo; (the start of the contig) matches to &ldquo;Sbject 1&rdquo; (the whole contig) at position 2253, all the way to the end, position 2359. </li>
 </ul>
+<p><img alt="blast" src="./images/blasthits.png" /></p>
+<ul>
+<li>This is the overhang.</li>
+<li>Therefore, in the next step, we need to trim the contig to position 2252.</li>
+<li>Type <code>q</code> to exit. </li>
+</ul>
+<p>First, change the name of the contig within the file:</p>
+<div class="codehilite"><pre><span></span>nano contig2.fasta
+</pre></div>
+
+
+<ul>
+<li><code>nano</code> opens up a text editor. </li>
+<li>Use the arrow keys to navigate. (The mouse won&rsquo;t work.)</li>
+<li>At the first line, delete the text, which will be something like &ldquo;&gt;NODE_1_length_2359_cov_3.320333&rdquo;</li>
+<li>Type in &ldquo;&gt;contig2&rdquo; </li>
+<li>Don&rsquo;t forget the <code>&gt;</code> symbol</li>
+<li>Type Control-X</li>
+<li>&ldquo;Save modified buffer ?&rdquo; - type Y</li>
+<li>Press the Enter key</li>
+</ul>
+<p>Index the file (this will allow samtools to edit the file as it will have an index): </p>
 <div class="codehilite"><pre><span></span>samtools faidx contig2.fasta
 </pre></div>
 
 
-<p>Trim the contig using samtools to length 2252: </p>
+<ul>
+<li><code>faidx</code> means index the fasta file</li>
+</ul>
+<p>Trim the contig:</p>
 <div class="codehilite"><pre><span></span>samtools faidx contig2.fasta contig2:1-2252 &gt; plasmid.fasta
 </pre></div>
 
 
 <ul>
-<li>We now have a trimmed plasmid.</li>
-<li>Move file back into main folder: </li>
+<li>this extracts contig2 from position 1-2252</li>
+<li>
+<p><code>&gt; plasmid.fasta</code> sends the extracted section to a new file</p>
+</li>
+<li>
+<p>We now have a trimmed plasmid.</p>
+</li>
 </ul>
+<p>Copy the plasmid file into the main folder: </p>
 <div class="codehilite"><pre><span></span>cp plasmid.fasta ../
 </pre></div>
 
 
-<ul>
-<li>Move back into the main folder: </li>
-</ul>
+<p>Move file back into main folder: </p>
 <div class="codehilite"><pre><span></span>cd ..
 </pre></div>
 
@@ -1676,20 +1720,23 @@
 <h2 id="7-correct-the-assembly">7. Correct the assembly</h2>
 <p>Sequences from PacBio can have more errors than those from Illumina. Therefore, although it is useful to use the long PacBio reads to assemble the genome, we can also use the shorter and more accurate Illumina reads to correct errors in the PacBio assembly. </p>
 <h3 id="make-an-alignment-file">Make an alignment file</h3>
-<ul>
-<li>Align the Illumina reads (R1 and R2) to the draft PacBio assembly, e.g. <fn>genome.fasta</fn>:</li>
-</ul>
+<p>Index the fasta file:</p>
 <div class="codehilite"><pre><span></span>bwa index genome.fasta
 </pre></div>
 
 
+<p>Align the Illumina reads:</p>
 <div class="codehilite"><pre><span></span>bwa mem -t 4 genome.fasta R1.fq R2.fq | samtools sort &gt; pilon_aln.bam
 </pre></div>
 
 
 <ul>
-<li>Index the files:</li>
+<li>Aligns Illumina <fn>R1.fq</fn> and <fn>R2.fq</fn> to the PacBio assembly <fn>genome.fasta</fn>. </li>
+<li>This produces a .bam file</li>
+<li><code>|</code> pipes the output to samtools to sort (required for downstream processing)</li>
+<li><code>&gt; pilon_aln.bam</code> redirects the sorted bam to this file</li>
 </ul>
+<p>Index the files:</p>
 <div class="codehilite"><pre><span></span>samtools index pilon_aln.bam
 </pre></div>
 
@@ -1702,9 +1749,7 @@
 <li>Now we have an alignment file to use  with the tool <a href="https://github.com/broadinstitute/pilon/wiki">Pilon</a>: <fn>pilon_aln.bam</fn></li>
 </ul>
 <h3 id="run-pilon">Run Pilon</h3>
-<ul>
-<li>Run:</li>
-</ul>
+<p>Run:</p>
 <div class="codehilite"><pre><span></span>pilon --genome genome.fasta --frags pilon_aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --verbose --threads 4
 </pre></div>
 
@@ -1932,9 +1977,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application-f3ab9e5ff8.js"></script>
-      
-      
+      <script src="../../assets/javascripts/application-6b599127bc.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
         <script src="../../js/details.js"></script>
