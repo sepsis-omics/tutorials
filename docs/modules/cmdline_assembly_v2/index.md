@@ -46,16 +46,16 @@ Because we are starting a new analysis it is always good practice to start in a 
 
 In your terminal:
 
-- Create a new directory called "PacBioWorkshop"
+- Create a new directory called "Workshop"
 
 ```text
-mkdir PacBioWorkshop
+mkdir Workshop
 ```
 
 - Change to that directory
 
 ```text
-cd PacBioWorkshop
+cd Workshop
 ```
 
 **NOTE: Everytime you open a new terminal or Putty session, you will need to make sure you are in this directory again.**
@@ -79,12 +79,13 @@ The files we need are:
 
 In a new tab, go to [https://doi.org/10.5281/zenodo.1009308](https://doi.org/10.5281/zenodo.1009308). 
 
-- Next to the first file, right-click the "Download" button, and select "Copy link address".
+- Next to the first file, right-click (or control-click) the "Download" button, and select "Copy link address".
 - Back in your terminal, enter 
 ```text
-wget [paste link address here]
+wget [paste file link here]
 ```
 - The file should download. 
+- *Note:* paste the link to the file, not to the webpage.
 - Repeat this for the other two files. 
 
 
@@ -109,13 +110,12 @@ canu -p canu -d canu_outdir genomeSize=0.03m -pacbio-raw pacbio.fq
 If you run `squeue` you will see something like this:
 
 ```text
-$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  6      main canu_can research PD       0:00      1 (Dependency)
                5_1      main cormhap_ research  R       0:29      1 master
 ```
 
-You will know if **Canu** has completely finished when `squeue` shows no jobs are running.
+You will know if **Canu** has completely finished when `squeue` shows no jobs listed under the header row. 
 
 ## 4. Check assembly output
 
@@ -142,11 +142,9 @@ Display summary information about the contigs: (`infoseq` is a tool from [EMBOSS
 infoseq canu.contigs.fasta
 ```
 
-- This will show the contigs found by Canu. e.g.,
-
-```text
-    - tig00000001	39136
-```
+- This will show the contigs found by Canu. e.g.,  tig00000001	39136
+- "tig00000001" is the name given to the contig
+- "39136" is the number of base pairs in that contig.
 
 This matches what we were expecting for this sample (approximately 30,000 base pairs). For other data, Canu may not be able to join all the reads into one contig, so there may be several contigs in the output.
 
@@ -156,10 +154,11 @@ We should also look at the <fn>canu.report</fn>. To do this:
 less canu.report
 ```
 
-You will see lots of histograms of read lengths before and after processing, final contig construction etc. 
-
-For a description of the outputs that Canu produces, see: [http://canu.readthedocs.io/en/latest/tutorial.html#outputs](http://canu.readthedocs.io/en/latest/tutorial.html#outputs)
-
+* "less" is a command to display the file on the screen.
+* Use the up and down arrows to scroll up and down. 
+* You will see lots of histograms of read lengths before and after processing, final contig construction, etc. 
+* For a description of the outputs that Canu produces, see: [http://canu.readthedocs.io/en/latest/tutorial.html#outputs](http://canu.readthedocs.io/en/latest/tutorial.html#outputs)
+* Type `q` to exit viewing the report. 
  
 ### Questions
 
@@ -220,6 +219,8 @@ cd ..
 circlator all --threads 4 --verbose canu_outdir/canu.contigs.fasta canu_outdir/canu.correctedReads.fasta.gz circlator_outdir
 ```
 
+- (Click on the dark grey slider bar above and move it to the right, to see all the way to the end of the line.)
+
 - `--threads` is the number of cores
 - `--verbose` prints progress information to the screen
 - `canu_outdir/canu.contigs.fasta` is the file path to the input Canu assembly
@@ -241,26 +242,26 @@ List the files:
 ls
 ```
 
-*Were the contigs circularised?* 
+Circlator has named the output files with numbers as prefixes. 
+
+Were the contigs circularised?
 
 ```
 less 04.merge.circularise.log
 ```
 
 - "less" is a command to display the file on the screen.
+- <fn>04.merge.circularise.log</fn> is the name of the file. 
 - Yes, the contig was circularised (last column).
-- Type "q" to exit.
+- Type `q` to exit.
 
 What are the trimmed contig sizes? 
 ```
 infoseq 06.fixstart.fasta
 ```
 
-```text
-- tig00000001 30019 
-```
-
-The length of the contig is now about 9000 bases shorter than before circularisation. This was the "overhang" and has now been trimmed. 
+* The contig "tig00000001" has a length of 30019.
+* This is about 9000 bases shorter than before circularisation. This was the "overhang" and has now been trimmed. 
 
 Copy the circularised contigs file to the main analysis directory with a new name:
 
@@ -285,7 +286,7 @@ cd ..
     Circlator can set the start of the sequence at a particular gene. Which gene does it use? Is this appropriate for all contigs?
 
     ??? "Answer"
-        Circlator uses dnaA (if present) for the chromosomal contig. For other contigs, uses a centrally-located gene. However, ideally, plasmids would be oriented on a gene such as repA. It is possible to provide a file to Circlator to do this.
+        Circlator uses dnaA (if present) for the chromosomal contig. For other contigs, it uses a centrally-located gene. However, ideally, plasmids would be oriented on a gene such as repA. It is possible to provide a file to Circlator to do this.
 
 
 ## 6. Find smaller plasmids
@@ -350,6 +351,8 @@ We now have three files of the unampped reads: <fn> unmapped.R1.fastq</fn>, <fn>
 spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq --careful --cov-cutoff auto -o spades_assembly
 ```
 
+- (Click on the dark grey slider bar above and move it to the right, to see all the way to the end of the line.)
+
 - `-1` is input file forward
 - `-2` is input file reverse
 - `-s` is unpaired
@@ -378,52 +381,101 @@ cp contigs.fasta contig2.fasta
 
 To trim any overhang on this plasmid, we will blast the start of contig2 against itself.
 
-- Take the start of the contig: 
+
+Take the start of the contig: 
+
 ```
 head -n 10 contig2.fasta > contig2.fa.head
 ```
-- We want to see if it matches the end (overhang).
-- Format the assembly file for blast: 
+- `head -n 10` takes the first ten lines of <fn>contig2.fasta</fn>
+- `>` sends that output to a new file called <fn>contig2.fa.head</fn>
+
+- We want to see if the start of the contig matches the end (overhang).
+
+
+Format the assembly file for blast: 
 ```
 makeblastdb -in contig2.fasta -dbtype nucl
 ```
-- Blast the start of the assembly (.head file) against all of the assembly: 
+- `makeblastdb` makes a database for the tool Blast
+- This will generate three new files in the directory with suffixes .nhr, .nin and .nsq
+- `-in` sets the input file as <fn> contig2.fasta</fn>
+- `-dbtype nucl` sets the type to nucleotide (rather than protein)
+
+
+Blast the start of the assembly (.head file) against all of the assembly: 
 ```
 blastn -query contig2.fa.head -db contig2.fasta -evalue 1e-3 -dust no -out contig2.bls
 ```
 
-Look at the hits: 
+- `blastn` is the tool Blast, set as blast**n** to compare sequences of nucleotides to each other
+- `-query` sets the input sequence as <fn>contig2.fa.head</fn>
+- `-db` sets the database as that of the original sequence <fn>contig2.fasta</fn>. We don't have to specify the other files that were created when we formatted this file, but they need to present in our current directory. 
+- `-evalue` is the number of hits expected by chance, here set as 1e-3
+- `-dust no` turns off the masking of low-complexity regions
+- `-out` sets the output file as <fn>contig2.bls</fn>
+
+
+Look at the hits (the matches): 
 ```
 less contig2.bls
 ```
 
+- The first hit is at start, as expected. We can see that "Query 1" is aligned to "Sbject 1", for the first 540 bases.
+- Scroll down with the down arrow. 
+- The second hit shows "Query 1" (the start of the contig) matches to "Sbject 1" (the whole contig) at position 2253, all the way to the end, position 2359. 
 
-- The first hit is at start, as expected.
-- The second hit is at 2253 all the way to the end - 2359.
+![blast](images/blasthits.png)
+
+
 - This is the overhang.
-- We will trim to position 2252.
+- Therefore, in the next step, we need to trim the contig to position 2252.
 - Type `q` to exit. 
  
+First, change the name of the contig within the file:
 
-- Open this file in nano (`nano contig2.fasta`) and change the header to ">contig2", save.
+```
+nano contig2.fasta
+```
 
-- Index the file (this will allow samtools to edit the file as it will have an index): 
+- `nano` opens up a text editor. 
+- Use the arrow keys to navigate. (The mouse won't work.)
+- At the first line, delete the text, which will be something like ">NODE_1_length_2359_cov_3.320333"
+- Type in ">contig2" 
+- Don't forget the `>` symbol
+- Type Control-X
+- "Save modified buffer ?" - type Y
+- Press the Enter key
+
+Index the file (this will allow samtools to edit the file as it will have an index): 
+
 ```
 samtools faidx contig2.fasta
 ```
 
-Trim the contig using samtools to length 2252: 
+- `faidx` means index the fasta file
+
+Trim the contig:
 
 ```
 samtools faidx contig2.fasta contig2:1-2252 > plasmid.fasta
 ```
 
+- this extracts contig2 from position 1-2252
+- `> plasmid.fasta` sends the extracted section to a new file
+
+
 - We now have a trimmed plasmid.
-- Move file back into main folder: 
+
+
+Copy the plasmid file into the main folder: 
+
 ```
 cp plasmid.fasta ../
 ```
-- Move back into the main folder: 
+
+Move file back into main folder: 
+
 ```
 cd ..
 ```
@@ -485,17 +537,25 @@ Sequences from PacBio can have more errors than those from Illumina. Therefore, 
 
 ### Make an alignment file
 
-- Align the Illumina reads (R1 and R2) to the draft PacBio assembly, e.g. <fn>genome.fasta</fn>:
+Index the fasta file:
 
 ```text
 bwa index genome.fasta
 ```
 
+Align the Illumina reads:
+
 ```text
 bwa mem -t 4 genome.fasta R1.fq R2.fq | samtools sort > pilon_aln.bam
 ```
 
-- Index the files:
+- Aligns Illumina <fn>R1.fq</fn> and <fn>R2.fq</fn> to the PacBio assembly <fn>genome.fasta</fn>. 
+- This produces a .bam file
+- `| ` pipes the output to samtools to sort (required for downstream processing)
+- `> pilon_aln.bam` redirects the sorted bam to this file
+
+
+Index the files:
 
 ```text
 samtools index pilon_aln.bam
@@ -510,7 +570,7 @@ samtools faidx genome.fasta
 
 ### Run Pilon
 
-- Run:
+Run:
 
 ```text
 pilon --genome genome.fasta --frags pilon_aln.bam --output pilon1 --fix all --mindepth 0.5 --changes --verbose --threads 4
