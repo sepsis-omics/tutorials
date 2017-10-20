@@ -301,13 +301,13 @@ This section involves several steps:
 
 ### Align Illumina reads to the PacBio contig
 
-- Index the contigs file:
+Index the contigs file:
 
 ```text
 bwa index contig1.fasta
 ```
 
-- Align Illumina reads using using bwa mem:
+Align Illumina reads using using bwa mem:
 
 ```text
 bwa mem -t 4 contig1.fasta R1.fq R2.fq | samtools sort > aln.bam
@@ -322,13 +322,13 @@ bwa mem -t 4 contig1.fasta R1.fq R2.fq | samtools sort > aln.bam
 
 ### Extract unmapped Illumina reads
 
-- Index the alignment file:
+Index the alignment file:
 
 ```text
 samtools index aln.bam
 ```
 
-- Extract the fastq files from the bam alignment - those reads that were unmapped to the Pacbio alignment - and save them in various "unmapped" files:
+Extract the fastq files from the bam alignment - those reads that were unmapped to the Pacbio alignment - and save them in various "unmapped" files:
 
 ```text
 samtools fastq -f 4 -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq aln.bam
@@ -345,7 +345,7 @@ We now have three files of the unampped reads: <fn> unmapped.R1.fastq</fn>, <fn>
 
 ### Assemble the unmapped reads
 
-- Assemble with Spades:
+Assemble with Spades:
 
 ```text
 spades.py -1 unmapped.R1.fastq -2 unmapped.R2.fastq -s unmapped.RS.fastq --careful --cov-cutoff auto -o spades_assembly
@@ -421,9 +421,9 @@ Look at the hits (the matches):
 less contig2.bls
 ```
 
-- The first hit is at start, as expected. We can see that "Query 1" is aligned to "Sbject 1", for the first 540 bases.
+- The first hit is at the start, as expected. We can see that "Query 1" (the start of the contig) is aligned to "Sbject 1" (the whole contig), for the first 540 bases.
 - Scroll down with the down arrow. 
-- The second hit shows "Query 1" (the start of the contig) matches to "Sbject 1" (the whole contig) at position 2253, all the way to the end, position 2359. 
+- The second hit shows "Query 1" (the start of the contig) also matches to "Sbject 1" (the whole contig) at position 2253, all the way to the end, position 2359. 
 
 ![blast](images/blasthits.png)
 
@@ -443,8 +443,8 @@ nano contig2.fasta
 - At the first line, delete the text, which will be something like ">NODE_1_length_2359_cov_3.320333"
 - Type in ">contig2" 
 - Don't forget the `>` symbol
-- Type Control-X
-- "Save modified buffer ?" - type Y
+- Press Control-X
+- "Save modified buffer ?" - type `Y`
 - Press the Enter key
 
 Index the file (this will allow samtools to edit the file as it will have an index): 
@@ -596,7 +596,8 @@ less pilon1.changes
 ![pilon](images/pilon.png)
 
 
-We can see lots of cases where a deletion (represented by a dot) has been corrected to a base.  Type `q` to exit. 
+- We can see lots of cases where a deletion (represented by a dot) has been corrected to a base.  
+- Type `q` to exit. 
 
 
 Look at the details of the fasta file: 
