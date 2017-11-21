@@ -848,54 +848,27 @@
 <p>Keywords: de novo assembly, Spades, Galaxy, Microbial Genomics Virtual Lab</p>
 <h2 id="background">Background</h2>
 <p>Spades is one of a number of <em>de novo</em> assemblers that use short read sets as input (e.g. Illumina Reads), and the assembly method is based on de Bruijn graphs. For information about Spades see this <a href="http://bioinf.spbau.ru/spades">link</a>.</p>
-<!---
-A protocol for assembling with Velvet (another *de novo* assembler) is available [here](https://docs.google.com/document/d/1xs-TI5MejQARqo0pcocGlymsXldwJbJII890gnmjI0o/pub).
---->
-
-<p>In this activity, we will perform a <em>de novo</em> assembly of a short read set using the Spades assembler. The output from Spades that we are interested in is a multiFASTA file that contains the draft genome sequence.</p>
-<!--
-We have a closed, annotated genome sequence for a closely related *wildtype* strain.
--->
-
 <h2 id="learning-objectives">Learning objectives</h2>
 <p>At the end of this tutorial you should be able to:</p>
-<!--1. import data into Galaxy  
-2. view the input read files -->
-
 <ol>
 <li>assemble the reads using Spades, and</li>
 <li>examine the output assembly.</li>
 </ol>
-<!-- ## Import data into Galaxy
--  Go to the address of your galaxy server.
-
-- [Remind me how to logon.](https://docs.google.com/document/d/1LAQvhIG8s-vv6T14bb8lGRkmoNha7E3bHf9kAgUwMs0/pub)
-FIXME: note this contains the same galaxy address as above - change?
-
-
-- Click on the <ss>Analyze Data</ss> menu at the top of the page.    
-- Click on the <ss>History options</ss> button the ![history button](images/image02.png) on the top right of the history pane.
-- Click <ss>Import from File</ss> (at the bottom of the list).  
-- A new page will appear with a text box for the URL of the history to import.  
-- Copy the following URL into the text box: <http://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz>  
-- Click <ss>Submit</ss>.  
-- Galaxy will download the data files from the internet and will be available as an additional history (takes about one minute).  
-- To view this new history, click the <ss>View all histories</ss> button![Histories button](images/image01.png) (top right of the history pane).  
-  - If the history has finished downloading it will appear as <fn>imported from archive: Colombia_workshop_start</fn>
-- Click on the ![Switch button](images/image06.png) button above the <fn>imported from archive:Colombia_workshop_start</fn> then the ![Done button](images/image05.png) button.
-- You should now have four files in the history pane as follows:
-
-![Files in history](images/image07.png)
-
---->
-
 <h2 id="import-and-view-data">Import and view data</h2>
 <!-- If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/galaxy/index.md).
 -->
 
-<p>See <a href="../galaxy/">here</a> for information about how to start with Galaxy, and <a href="../data-dna/">here</a> for the link to import the Galaxy history for this tutorial, if you don&rsquo;t already have them in your history.</p>
+<p>If you are using Galaxy-Mel, import the files:</p>
 <ul>
-<li>The read set for today is from an imaginary <em>Staphylococcus aureus</em> bacterium with a miniature genome.</li>
+<li>In your browser, go to <a href="http://galaxy-mel.genome.edu.au/galaxy/">Galaxy-Mel</a> </li>
+<li>In the top Galaxy panel, go to <ss>Shared Data</ss> and click on the drop down arrow</li>
+<li>Click on <ss>Histories</fn></li>
+<li>Click on <fn>Genomics-workshop</fn> and then (over in the top right) <ss>Import history</ss></li>
+<li>The files will now be listed in the right hand panel (your current history).</li>
+</ul>
+<p>(Alternatively, see <a href="../galaxy/">here</a> for information about how to start with Galaxy, and <a href="../data-dna/">here</a> for the link to import the Galaxy history for this tutorial, if you don&rsquo;t already have them in your history.)</p>
+<p>The read set for today is from an imaginary <em>Staphylococcus aureus</em> bacterium with a miniature genome.</p>
+<ul>
 <li>
 <p>The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.</p>
 </li>
@@ -921,7 +894,7 @@ FIXME: note this contains the same galaxy address as above - change?
 - <fn>wildtype.gff</fn>: the reference genome sequence of the wildtype strain in general feature format (a list of features - one feature per line, then the nucleotide sequence of the genome).
 
 - <fn>wildtype.gbk</fn>: the reference genome sequence in genbank format.
---->
+-->
 
 <ul>
 <li>Click on the View Data button (the <img alt="Eye icon" src="./images/image04.png" />) next to one of the FASTQ sequence files.</li>
@@ -970,7 +943,7 @@ Although we have warnings for two outputs (per base sequence content; Kmer conte
 <!---
 - Spades produces both contigs and scaffolds.
 Ask your demonstrator if you would like to know the difference between contigs and scaffolds.
---->
+-->
 
 <ul>
 <li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; spades</ss></li>
@@ -996,7 +969,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
 <ul>
 <li>Galaxy is now running Spades on the reads for you.</li>
 <li>
-<p>When it is finished, you will have five new files in your history.  </p>
+<p>When it is finished, you will have five (or more) new files in your history, including:</p>
 <ul>
 <li>two FASTA files of the resulting contigs and scaffolds</li>
 <li>two files for statistics about these</li>
@@ -1009,7 +982,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
 <li>Click on the View Data button <img alt="Eye icon" src="./images/image04.png" /> on each of the files.</li>
 <li>Note that the short reads have been assembled into much longer contigs.</li>
 <li>(However, in this case, the contigs have not been assembled into larger scaffolds.)</li>
-<li>The stats files will give you the length of each of the contigs.</li>
+<li>The stats files will give you the length of each of the contigs, and the file should look something like this:</li>
 </ul>
 <p><img alt="spades output contigs" src="./images/contig_stats.png" /></p>
 <!-- ## What next?
