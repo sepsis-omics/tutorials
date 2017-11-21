@@ -6,59 +6,33 @@ Keywords: de novo assembly, Spades, Galaxy, Microbial Genomics Virtual Lab
 ## Background
 Spades is one of a number of *de novo* assemblers that use short read sets as input (e.g. Illumina Reads), and the assembly method is based on de Bruijn graphs. For information about Spades see this [link](http://bioinf.spbau.ru/spades).
 
-<!---
-A protocol for assembling with Velvet (another *de novo* assembler) is available [here](https://docs.google.com/document/d/1xs-TI5MejQARqo0pcocGlymsXldwJbJII890gnmjI0o/pub).
---->
-
-In this activity, we will perform a *de novo* assembly of a short read set using the Spades assembler. The output from Spades that we are interested in is a multiFASTA file that contains the draft genome sequence.
-
-
-
-<!--
-We have a closed, annotated genome sequence for a closely related *wildtype* strain.
--->
-
-
 
 ## Learning objectives
 At the end of this tutorial you should be able to:
 
-<!--1. import data into Galaxy  
-2. view the input read files -->
 1. assemble the reads using Spades, and
 2. examine the output assembly.
 
-<!-- ## Import data into Galaxy
--  Go to the address of your galaxy server.
 
-
-- [Remind me how to logon.](https://docs.google.com/document/d/1LAQvhIG8s-vv6T14bb8lGRkmoNha7E3bHf9kAgUwMs0/pub)
-FIXME: note this contains the same galaxy address as above - change?
-
-
-- Click on the <ss>Analyze Data</ss> menu at the top of the page.    
-- Click on the <ss>History options</ss> button the ![history button](images/image02.png) on the top right of the history pane.
-- Click <ss>Import from File</ss> (at the bottom of the list).  
-- A new page will appear with a text box for the URL of the history to import.  
-- Copy the following URL into the text box: <http://43.240.98.1/public/dieter/Galaxy-History-Colombiaworkshopstart.tar.gz>  
-- Click <ss>Submit</ss>.  
-- Galaxy will download the data files from the internet and will be available as an additional history (takes about one minute).  
-- To view this new history, click the <ss>View all histories</ss> button![Histories button](images/image01.png) (top right of the history pane).  
-  - If the history has finished downloading it will appear as <fn>imported from archive: Colombia_workshop_start</fn>
-- Click on the ![Switch button](images/image06.png) button above the <fn>imported from archive:Colombia_workshop_start</fn> then the ![Done button](images/image05.png) button.
-- You should now have four files in the history pane as follows:
-
-![Files in history](images/image07.png)
-
---->
 ## Import and view data
 
 <!-- If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/galaxy/index.md).
 -->
 
-See [here](/modules/galaxy/index.md) for information about how to start with Galaxy, and [here](/modules/data-dna/index.md) for the link to import the Galaxy history for this tutorial, if you don't already have them in your history.
+If you are using Galaxy-Mel, import the files:
 
-- The read set for today is from an imaginary *Staphylococcus aureus* bacterium with a miniature genome.
+- In your browser, go to [Galaxy-Mel](http://galaxy-mel.genome.edu.au/galaxy/) 
+- In the top Galaxy panel, go to <ss>Shared Data</ss> and click on the drop down arrow
+- Click on <ss>Histories</fn>
+- Click on <fn>Genomics-workshop</fn> and then (over in the top right) <ss>Import history</ss>
+- The files will now be listed in the right hand panel (your current history).
+
+
+(Alternatively, see [here](/modules/galaxy/index.md) for information about how to start with Galaxy, and [here](/modules/data-dna/index.md) for the link to import the Galaxy history for this tutorial, if you don't already have them in your history.)
+
+
+The read set for today is from an imaginary *Staphylococcus aureus* bacterium with a miniature genome.
+
 - The whole genome shotgun method used to sequence our mutant strain read set was produced on an Illumina DNA sequencing instrument.
 
 
@@ -76,7 +50,7 @@ See [here](/modules/galaxy/index.md) for information about how to start with Gal
 - <fn>wildtype.gff</fn>: the reference genome sequence of the wildtype strain in general feature format (a list of features - one feature per line, then the nucleotide sequence of the genome).
 
 - <fn>wildtype.gbk</fn>: the reference genome sequence in genbank format.
---->
+-->
 
 - Click on the View Data button (the ![Eye icon](images/image04.png)) next to one of the FASTQ sequence files.
 
@@ -124,7 +98,7 @@ Although we have warnings for two outputs (per base sequence content; Kmer conte
 <!---
 - Spades produces both contigs and scaffolds.
 Ask your demonstrator if you would like to know the difference between contigs and scaffolds.
---->
+-->
 
 - Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; spades</ss>
 - Set the following parameters (leave other settings as they are):
@@ -144,7 +118,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
 ## Examine the output
 
 - Galaxy is now running Spades on the reads for you.
-- When it is finished, you will have five new files in your history.  
+- When it is finished, you will have five (or more) new files in your history, including:
 
     - two FASTA files of the resulting contigs and scaffolds
     - two files for statistics about these
@@ -155,7 +129,7 @@ Ask your demonstrator if you would like to know the difference between contigs a
 - Click on the View Data button ![Eye icon](images/image04.png) on each of the files.
 - Note that the short reads have been assembled into much longer contigs.
 - (However, in this case, the contigs have not been assembled into larger scaffolds.)
-- The stats files will give you the length of each of the contigs.
+- The stats files will give you the length of each of the contigs, and the file should look something like this:
 
 ![spades output contigs](images/contig_stats.png)
 

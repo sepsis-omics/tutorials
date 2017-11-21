@@ -21,7 +21,9 @@ At the end of this tutorial you should be able to:
 
 Prokka requires assembled contigs.
 
-- If you are continuing on from the previous workshop ([Assembly with Spades](/modules/spades/index.md)), this file will be in your current history: <fn>SPAdes_contigs.fasta</fn>.
+- If you are continuing on from the previous workshop ([Assembly with Spades](/modules/spades/index.md)), this file will be in your current history: <fn>SPAdes on data 2 and data1: contigs(fasta)</fn>. 
+
+- Or, if you have uploaded the history of workshop files, there is also a copy in your history called <fn>SPAdes_contigs.fasta</fn>. Either copy is fine to use. 
 
 - Alternatively, get the file called "assembled contigs" from the [Training dataset page.](../data-dna/index.md)
 
