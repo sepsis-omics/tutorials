@@ -885,11 +885,11 @@ Usually differences are limited to single nucleotide polymorphisms (SNPs) and sm
 <!-- We will use the same data that we used in the [Assembly with Spades tutorial.](../spades/index.md) This should still be in your current galaxy history. If not, re-import the data into a new history using the instructions in that tutorial.-->
 
 <p>For variant calling, we need a reference genome that is of the same strain as the input sequence reads.</p>
-<p>For this tutorial, our reference is the <fn>wildtype.gbk</fn> file and our reads are <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.</p>
+<p>For this tutorial, our reference is the <fn>wildtype.gbk</fn> file and our reads are <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>. </p>
 <p>If these files are not presently in your Galaxy history, import them from the <a href="../data-dna/">Training dataset page.</a></p>
 <h2 id="call-variants-with-snippy">Call variants with Snippy</h2>
 <ul>
-<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Variant Analysis &rarr; snippy</ss></li>
+<li>Go to the Galaxy tools panel, and use the search box at the top to search for &ldquo;snippy&rdquo;. </li>
 <li>For <ss>Reference type</ss> select <em>Genbank</em>.</li>
 <li>Then for <ss>Reference Genbank</ss> choose the <fn>wildtype.gbk</fn> file.</li>
 <li>For <ss>Single or Paired-end reads</ss> choose <em>Paired</em>.</li>
@@ -917,7 +917,7 @@ Usually differences are limited to single nucleotide polymorphisms (SNPs) and sm
 <h2 id="view-snippy-output-in-jbrowse">View Snippy output in JBrowse</h2>
 <ul>
 <li>
-<p>Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse genome browser</ss>.</p>
+<p>Go to the Galaxy tools panel, and use the search box at the top to search for &ldquo;JBrowse&rdquo;. </p>
 </li>
 <li>
 <p>Under <ss>Reference genome to display</ss> choose <em>Use a genome from history</em>.</p>
