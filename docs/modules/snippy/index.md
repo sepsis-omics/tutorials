@@ -34,13 +34,13 @@ In this tutorial, we will use the tool "Snippy" (link to Snippy is [here](https:
 
 For variant calling, we need a reference genome that is of the same strain as the input sequence reads.
 
-For this tutorial, our reference is the <fn>wildtype.gbk</fn> file and our reads are <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>.
+For this tutorial, our reference is the <fn>wildtype.gbk</fn> file and our reads are <fn>mutant_R1.fastq</fn> and <fn>mutant_R2.fastq</fn>. 
 
 If these files are not presently in your Galaxy history, import them from the [Training dataset page.](../data-dna/index.md)
 
 ## Call variants with Snippy
 
-- Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Variant Analysis &rarr; snippy</ss>
+- Go to the Galaxy tools panel, and use the search box at the top to search for "snippy". 
 - For <ss>Reference type</ss> select *Genbank*.
 - Then for <ss>Reference Genbank</ss> choose the <fn>wildtype.gbk</fn> file.
 - For <ss>Single or Paired-end reads</ss> choose *Paired*.
@@ -69,7 +69,7 @@ From Snippy, there are 10 output files in various formats.
 
 ## View Snippy output in JBrowse
 
-- Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse genome browser</ss>.
+- Go to the Galaxy tools panel, and use the search box at the top to search for "JBrowse". 
 
 - Under <ss>Reference genome to display</ss> choose *Use a genome from history*.
 

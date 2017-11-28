@@ -19,9 +19,12 @@ At the end of this tutorial you should be able to:
 <!-- If you have completed the previous tutorial on [Quality Control](/modules/fastqc/index.md), you should already have the required files in your current Galaxy history. If not, see how to get them [here](/modules/galaxy/index.md).
 -->
 
-If you are using Galaxy-Mel, import the files:
+### Galaxy
 
-- In your browser, go to [Galaxy-Mel](http://galaxy-mel.genome.edu.au/galaxy/) 
+If you are using Galaxy-Mel or Galaxy-Qld, import the files:
+
+- In your browser, go to [Galaxy-Mel](http://galaxy-mel.genome.edu.au/galaxy/) or [Galaxy-Qld](https://galaxy-qld.genome.edu.au/galaxy) 
+- In the top Galaxy panel, go to <ss>User</ss> and log in (or register, and then log in)
 - In the top Galaxy panel, go to <ss>Shared Data</ss> and click on the drop down arrow
 - Click on <ss>Histories</fn>
 - Click on <fn>Genomics-workshop</fn> and then (over in the top right) <ss>Import history</ss>
@@ -30,6 +33,7 @@ If you are using Galaxy-Mel, import the files:
 
 (Alternatively, see [here](/modules/galaxy/index.md) for information about how to start with Galaxy, and [here](/modules/data-dna/index.md) for the link to import the Galaxy history for this tutorial, if you don't already have them in your history.)
 
+### The data
 
 The read set for today is from an imaginary *Staphylococcus aureus* bacterium with a miniature genome.
 

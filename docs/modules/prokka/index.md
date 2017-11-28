@@ -21,7 +21,7 @@ At the end of this tutorial you should be able to:
 
 Prokka requires assembled contigs.
 
-- If you are continuing on from the previous workshop ([Assembly with Spades](/modules/spades/index.md)), this file will be in your current history: <fn>SPAdes on data 2 and data1: contigs(fasta)</fn>. 
+- If you are continuing on from the previous workshop ([Assembly with Spades](/modules/spades/index.md)), this file will be in your current history named something like <fn>SPAdes contigs(fasta)</fn>. 
 
 - Or, if you have uploaded the history of workshop files, there is also a copy in your history called <fn>SPAdes_contigs.fasta</fn>. Either copy is fine to use. 
 
@@ -77,9 +77,7 @@ Once Prokka has finished, examine each of its output files.
 
 Now that we have annotated the draft genome sequence, we would like to view the sequence in the JBrowse genome viewer.
 
-- Go to <ss>Statistics and Visualisation &rarr; Graph/Display Data &rarr; JBrowse genome browser</ss>.
-
-
+- Go to the Galaxy tool panel, and use the top search box to search for "JBrowse". 
 
 - Under <ss>Reference genome to display</ss> choose *Use a genome from history*.
 
