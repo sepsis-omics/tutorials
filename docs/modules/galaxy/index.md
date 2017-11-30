@@ -74,9 +74,32 @@ For Galaxy-mel/Galaxy-qld users, import the following history:
 
 
 
+## How to use Galaxy
 
 
-## Alternatively: Import a history
+* Available tools are in the left hand panel. Find the tool you want or use the search bar at the top of the tools. 
+
+* Click on the tool you want to use. 
+
+* The tool interface will appear in the centre Galaxy panel. Check the settings. 
+
+* Click <ss>Execute</ss>.
+
+* When the tool has finished, output file(s) will appear at the top of your "Current History" in the right hand panel. 
+
+* Click on the eye icon next to a file to view it. 
+
+* To access older histories, use the button at the top right of the History panel. 
+
+
+
+
+
+
+
+
+
+## Alternative file import information
 
 <!-- - In the menu options across the top, go to <ss>Shared Data</ss>.
 - Click on <ss>Histories</ss>.
