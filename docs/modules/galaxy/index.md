@@ -15,11 +15,11 @@ The Galaxy interface is separated into three parts. The <ss>Tools</ss> list on t
 
 ## Register
 
-Open a new tab or window on your web browser. Use Firefox or Chrome - please don’t use Internet Explorer or Safari.
+* Use Firefox, Chrome or Safari as your browser (not Internet Explorer).
+* Open a new tab. 
+* In the address bar, type in the address of your galaxy server.
+    * e.g. <http://galaxy-mel.genome.edu.au/galaxy> or <https://galaxy-qld.genome.edu.au/galaxy>
 
-In the address bar, type in the address of your galaxy server.
-
-<!--Alternatively, you can access galaxy via the dashboard of your mGVL. -->
 
 ![Galaxy URL](images/image09.png)
 
@@ -33,7 +33,50 @@ Click on <ss>User</ss> button on the right.
 
 - Login, and refresh the page.
 
-## Import a history
+## Import a shared history
+
+For Galaxy-mel/Galaxy-qld users, import the following history: 
+
+* In Galaxy, go to the top menu bar
+* Click on <ss>Shared Data</ss> 
+
+* From the drop down menu, click on <ss>Histories</ss>
+
+
+
+<img src="images/shared_data.png" alt="Drawing" style="width: 500px;"/>
+
+* From the list of Published Histories, click <fn>Genomics-workshop</ss> 
+
+
+![published histories](images/hist.png)
+
+
+
+
+* In the top right, click on <ss>Import history</ss>
+
+
+
+<img src="images/import.png" alt="Drawing" style="width: 400px;"/>
+
+
+
+* This history will now be in your "Current history" - the right hand pane in Galaxy. 
+* There should be six files. (The number in front of the file name is not important.)
+
+
+<img src="images/currenthist.png" alt="Drawing" style="width: 300px;"/>
+
+
+
+* We will use this files for the Genomics Workshop. For additional ways to import histories, see below. 
+
+
+
+
+
+## Alternatively: Import a history
 
 <!-- - In the menu options across the top, go to <ss>Shared Data</ss>.
 - Click on <ss>Histories</ss>.

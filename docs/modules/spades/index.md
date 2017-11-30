@@ -99,11 +99,6 @@ Although we have warnings for two outputs (per base sequence content; Kmer conte
 
 - We will perform a *de novo* assembly of the mutant FASTQ reads into long contiguous sequences (in FASTA format.)
 
-<!---
-- Spades produces both contigs and scaffolds.
-Ask your demonstrator if you would like to know the difference between contigs and scaffolds.
--->
-
 - Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Assembly &rarr; spades</ss>
 - Set the following parameters (leave other settings as they are):
 
