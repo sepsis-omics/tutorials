@@ -70,7 +70,7 @@ For Galaxy-mel/Galaxy-qld users, import the following history:
 
 
 
-* We will use this files for the Genomics Workshop. For additional ways to import histories, see below. 
+* We will use these files for the Genomics Workshop. For additional ways to import histories, see below. 
 
 
 
