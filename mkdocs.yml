@@ -7,6 +7,7 @@ site_url: 'http://sepsis-omics.github.io/tutorials/'
 
 repo_name: 'sepsis-omics/tutorials'
 repo_url: 'https://github.com/sepsis-omics/tutorials'
++google_analytics: ['UA-21794901-5', 'www.melbournebioinformatics.org.au/tutorials/']
 
 copyright: '&copy; The authors; 2016-'
 
