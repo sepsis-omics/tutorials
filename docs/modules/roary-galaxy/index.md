@@ -22,11 +22,9 @@ Input:
 Our data:
 
 - Five strains of *Staphylococcus aureus*, in .gff format.
-- Galaxy or swift location: TBA
+- Galaxy or swift location: ask your demonstrator or load your own data. 
 
 <!-- depends on data release policy-->
-
-![input files](images/input.png)
 
 ## Run
 
@@ -36,10 +34,6 @@ Our data:
 - Set the following parameters (leave everything else unchanged):
     - <ss>Individual gff files or a dataset collection</ss>: *Individual*
     - <ss>select gff inputs to Roary</ss>: *Select all the .gff input files*
-
-Your tool interface should look like this:
-
-![roary interface](images/roary_interface.png)
 
 - Click <ss>Execute</ss>
 
@@ -55,7 +49,10 @@ Your tool interface should look like this:
 
 ## Output
 
-There are three output files. (TBA: should be four, if newick tree available)
+There are three output files. 
+
+<!-- (TBA: should be four, if newick tree available) --> 
+
 
 ### Summary statistics
 
@@ -76,9 +73,7 @@ Click on the disk icon under this file to download it. Open and view in spreadsh
   - Column 3 shows the annotated gene name.
   - Column 4 shows the number of isolates that the gene was found it (in this case, ordered from 5 (all) to 1).
 
-### Newick TBA
-
-- need the accessory_binary_genes.fa.newick (not just .fa) output file
+<!-- ### Newick TBA- need the accessory_binary_genes.fa.newick (not just .fa) output file -->
 
 ## Infer phylogeny using core gene snps
 
