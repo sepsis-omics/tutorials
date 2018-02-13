@@ -631,13 +631,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#newick-tba" title="Newick TBA" class="md-nav__link">
-    Newick TBA
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -910,13 +903,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#newick-tba" title="Newick TBA" class="md-nav__link">
-    Newick TBA
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -975,25 +961,24 @@
 <p>Our data:</p>
 <ul>
 <li>Five strains of <em>Staphylococcus aureus</em>, in .gff format.</li>
-<li>Galaxy or swift location: TBA</li>
+<li>Galaxy or swift location: ask your demonstrator or load your own data. </li>
 </ul>
 <!-- depends on data release policy-->
 
-<p><img alt="input files" src="./images/input.png" /></p>
 <h2 id="run">Run</h2>
 <h3 id="run-roary">Run Roary</h3>
 <ul>
 <li>In Galaxy, go to <ss>Tools &rarr; NGS Analysis &rarr; Pan Genomes &rarr; Roary</ss>  </li>
-<li>Set the following parameters (leave everything else unchanged):<ul>
+<li>
+<p>Set the following parameters (leave everything else unchanged):</p>
+<ul>
 <li><ss>Individual gff files or a dataset collection</ss>: <em>Individual</em></li>
 <li><ss>select gff inputs to Roary</ss>: <em>Select all the .gff input files</em></li>
 </ul>
 </li>
-</ul>
-<p>Your tool interface should look like this:</p>
-<p><img alt="roary interface" src="./images/roary_interface.png" /></p>
-<ul>
-<li>Click <ss>Execute</ss></li>
+<li>
+<p>Click <ss>Execute</ss></p>
+</li>
 </ul>
 <h3 id="what-does-roary-do">What does Roary do</h3>
 <ul>
@@ -1006,7 +991,9 @@
 <li>aligns the core genes (if option used, as above) for downstream analyses</li>
 </ul>
 <h2 id="output">Output</h2>
-<p>There are three output files. (TBA: should be four, if newick tree available)</p>
+<p>There are three output files. </p>
+<!-- (TBA: should be four, if newick tree available) -->
+
 <h3 id="summary-statistics">Summary statistics</h3>
 <p>Click on the eye icon. This shows a table of counts of shared genes (core genome) and total genes (pan genome).</p>
 <p><img alt="summary stats" src="./images/summary_stats.png" /></p>
@@ -1018,10 +1005,8 @@
 <li>Column 3 shows the annotated gene name.</li>
 <li>Column 4 shows the number of isolates that the gene was found it (in this case, ordered from 5 (all) to 1).</li>
 </ul>
-<h3 id="newick-tba">Newick TBA</h3>
-<ul>
-<li>need the accessory_binary_genes.fa.newick (not just .fa) output file</li>
-</ul>
+<!-- ### Newick TBA- need the accessory_binary_genes.fa.newick (not just .fa) output file -->
+
 <h2 id="infer-phylogeny-using-core-gene-snps">Infer phylogeny using core gene snps</h2>
 <!-- [Optional step. Or use .nwk tree from gene p/a] -->
 
