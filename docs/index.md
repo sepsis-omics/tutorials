@@ -1,6 +1,9 @@
 <br>
 # Welcome!
 
+<ss> Update October 2018: These tutorials are being updated for the new Galaxy Australia server: https://usegalaxy.org.au/  Training materials are now hosted at https://galaxy-au-training.github.io/tutorials/ </ss>
+
+
 ## ABRPI training materials
 
 ### Antibiotic Resistant Pathogens Initiative
