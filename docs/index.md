@@ -1,10 +1,12 @@
 <br>
 # Welcome!
 
+<ss> Update October 2018: </ss>
 <br>
-<ss> Update October 2018: These tutorials are being updated for the new Galaxy Australia server: https://usegalaxy.org.au/  Training materials are now hosted at https://galaxy-au-training.github.io/tutorials/ </ss>
-
+<ss>These tutorials are being updated for the new Galaxy Australia server: [https://usegalaxy.org.au/](https://usegalaxy.org.au/) </ss>
 <br>
+<ss>
+Training materials are now hosted at [https://galaxy-au-training.github.io/tutorials/](https://galaxy-au-training.github.io/tutorials/) </ss>
 
 ## ABRPI training materials
 
@@ -14,7 +16,7 @@
 - This site contains tutorials for using the analysis components of the [omics.data.edu.au](omics.data.edu.au) platform to perform various bioinformatics tasks on bacterial “omics” data.
 
 
-- Tools covered by these tutorials include: 
+- Tools covered by these tutorials include:
 
     - those within the [Microbial Genomics Virtual Lab](http://genome.edu.au/) (the mGVL), which can be accessed either through the [hosted ABPRI-Galaxy service](http://abrpi.genome.edu.au/galaxy/), or by setting up your own mGVL instance (see below) and accessing via the Unix command line.
 
@@ -29,7 +31,7 @@ _______
 
     - Note: at the stage where you select options in the GVL Launcher window, go to *Show advanced startup options* and under Flavor select *Microbial GVL with Tutorial Indices*. In this mGVL instance, you can use both Galaxy and command line tools. If you wish to use the command line tools on a different computer (e.g. your local computer), you would need to make sure the required tools are installed (e.g. Canu, Circlator, Pilon, SPAdes, etc.).
 
-- For additional tutorials about how to use the Genomics Virtual Lab and Galaxy, see <https://www.gvl.org.au/learn/> 
+- For additional tutorials about how to use the Genomics Virtual Lab and Galaxy, see <https://www.gvl.org.au/learn/>
 
 
 
