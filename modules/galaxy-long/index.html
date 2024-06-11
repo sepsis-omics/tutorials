@@ -1,0 +1,1560 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Tutorials for analysing bacterial omics data">
+      
+      
+        <meta name="author" content="Anna Syme, Torsten Seemann">
+      
+      
+        <link rel="canonical" href="http://sepsis-omics.github.io/tutorials/modules/galaxy-long/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+    
+    
+      
+        <title>Using Galaxy - ABRPI-Training</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/sepsis.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-galaxy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ABRPI-Training" class="md-header__button md-logo" aria-label="ABRPI-Training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ABRPI-Training
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using Galaxy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sepsis-omics/tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sepsis-omics/tutorials
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ABRPI-Training" class="md-nav__button md-logo" aria-label="ABRPI-Training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ABRPI-Training
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sepsis-omics/tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sepsis-omics/tutorials
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Genomics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Genomics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genomics workshop overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../galaxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Starting with Galaxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-dna/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training dataset
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastqc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quality control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pear/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge reads with Pear
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../velvet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genome assembly with Velvet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genome assembly with Spades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prokka/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genome annotation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snippy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variant finding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Public data &rarr; assembly, annotation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abricate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Finding antibiotic-resistant genes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../viral_genomes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Viral genome sequencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Galaxy workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frogs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metagenomics with FROGS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kraken/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample identification with Kraken
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacbio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PacBio assembly with SMRT portal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmdline_assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PacBio assembly with command line tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spades_cmdline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spades assembly - commandline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mauve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genome alignment with Mauve
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pangenomes with Roary/Phandango - command line
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roary-galaxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pangenomes with Roary/Phandango - Galaxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmdline_assembly_v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Long read assembly workshop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transcriptomics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Transcriptomics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differential gene expression using Galaxy and Degust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kallisto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differential gene expression using Kallisto and Degust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proteomics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Proteomics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xtandem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protein Identification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pathway_tools/annotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pathway annotation and prediction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Metabolomics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Metabolomics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xcms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metabolite identification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#background" class="md-nav__link">
+    <span class="md-ellipsis">
+      Background
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Objectives
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#login-to-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login to Galaxy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#put-data-onto-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Put data onto Galaxy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Put data onto Galaxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#make-a-new-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Make a new history
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datatypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datatypes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-a-file-from-your-own-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload a file from your own computer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Upload a file from your own computer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-download-the-following-file-to-your-computer" class="md-nav__link">
+    <span class="md-ellipsis">
+      First, download the following file to your computer:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-upload-that-file-to-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next, upload that file to Galaxy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-a-file-from-a-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload a file from a URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upload-another-file-from-a-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload another file from a URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      The data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#galaxy-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Galaxy tools
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Galaxy tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rename-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rename files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summarize-assembly-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summarize assembly statistics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summarize assembly statistics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cut-out-and-keep-two-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cut out and keep two columns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-the-header-lines-of-the-new-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove the Header lines of the new file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-a-histogram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Make a histogram
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculate-summary-statistics-for-contig-coverage-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculate summary statistics for contig coverage depth
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-file-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convert file formats
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Find features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-all-of-the-ribosomal-rnas-in-a-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find all of the ribosomal RNAs in a sequence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-the-annotations-to-get-the-23s-rnas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter the annotations to get the 23S RNAs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What next?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="using-galaxy">Using Galaxy</h1>
+<h2 id="background">Background</h2>
+<p>Galaxy is a web-based analysis and workflow platform designed for biologists to analyse their own data. It can be used to run a variety of bioinformatics tools. The selection of bioinformatics tools installed on the Galaxy instance we are using today caters for the analysis of bacterial genomics data sets.</p>
+<p>Bioinformatics tools can be added from the Galaxy ‘tool shed’ or removed as necessary from your Galaxy instance.</p>
+<p>Galaxy is an open, web-based platform. Details about the project can be found <a href="https://galaxyproject.org/">here</a>.</p>
+<p>The Galaxy interface is separated into three parts. The <ss>Tools</ss> list on the left, the <ss>Viewing</ss> panel in the middle and the analysis and data <ss>History</ss> on the right. We will be looking at all three parts in this tutorial.</p>
+<p><img alt="galaxy overview screenshot" src="images/image05.png" /></p>
+<p>This activity will familiarise you with the Galaxy interface. It will cover the following operations:</p>
+<ul>
+<li>Logging in to the server</li>
+<li>Putting data onto Galaxy</li>
+<li>Using some common tools</li>
+</ul>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>At the end of this tutorial you should be able to:</p>
+<ol>
+<li>Register and login to a Galaxy server.</li>
+<li>Upload data to a Galaxy server from:<ul>
+<li>A file on your local computer.</li>
+<li>A file on a remote datastore with an accessible URL.  </li>
+</ul>
+</li>
+<li>Use tools in Galaxy by:<ul>
+<li>Accessing the tool via the tool menu.</li>
+<li>Using the tool interface to run the particular tool.</li>
+<li>Viewing/accessing the tool output.</li>
+</ul>
+</li>
+</ol>
+<h2 id="login-to-galaxy">Login to Galaxy</h2>
+<p>Open a new tab or window on your web browser. Use Firefox or Chrome - please don’t use Internet Explorer or Safari.</p>
+<p>In the address bar, type in the address of your galaxy server. Alternatively, you can access galaxy via the dashboard of your mGVL.</p>
+<p><img alt="Galaxy URL" src="images/image09.png" /></p>
+<p>Click on <ss>User</ss> button on the right and either register or login.</p>
+<p><img alt="Register or Login screenshot" src="images/image04.png" /></p>
+<p>If you haven&rsquo;t yet registered yet:</p>
+<ul>
+<li>Select: <ss>User &rarr; Register</ss></li>
+<li>Enter your email, choose a password, and choose a user name.</li>
+<li>Click <ss>Submit</ss></li>
+</ul>
+<p>If you have already registered:</p>
+<ul>
+<li>Select: <ss>User &rarr; Login</ss></li>
+<li>Enter your username &amp; password.</li>
+<li>Click <ss>Submit</ss></li>
+</ul>
+<h2 id="put-data-onto-galaxy">Put data onto Galaxy</h2>
+<p>There are two main ways to put your data onto Galaxy; this section will run through both ways. First, we need to make a new history.</p>
+<h3 id="make-a-new-history">Make a new history</h3>
+<p>First, make a new folder to store the work we are about to perform.</p>
+<ul>
+<li>Click on the history options button <img alt="history icon" src="images/image02.png" /> at the top of the <ss>History</ss> panel.</li>
+<li>Select <ss>Create New</ss></li>
+<li>Click on <ss>Unnamed history</ss> to rename. Type in a new name.</li>
+</ul>
+<h3 id="datatypes">Datatypes</h3>
+<p>What sort of file is being uploaded?</p>
+<p>We need to tell Galaxy what sort of file is being uploaded. Some common datatypes (file formats) are: text, FASTA, FASTQ, VCF, GFF, GBK, and tabular.</p>
+<h3 id="upload-a-file-from-your-own-computer">Upload a file from your own computer</h3>
+<p>With this method you can get most of the files on your own computer into Galaxy.</p>
+<h4 id="first-download-the-following-file-to-your-computer">First, download the following file to your computer:</h4>
+<ul>
+<li>Copy this URL and paste it into the address bar in your web browser: <a href="https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/galaxy101/Contig_stats.txt.gz">https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/galaxy101/Contig_stats.txt.gz</a><br />
+This is a file stored on the cloud. Press <ss>Enter</ss>, and the file will download. Note the download location.</li>
+</ul>
+<p>&nbsp;</p>
+<p><img alt="Browser address bar" src="images/image06.png" /></p>
+<p>&nbsp;</p>
+<h4 id="next-upload-that-file-to-galaxy">Next, upload that file to Galaxy</h4>
+<ul>
+<li>From the Galaxy tool panel, click on <ss>Get Data &rarr; Upload File</ss>  </li>
+<li>Click the <ss>Choose local file</ss> button  </li>
+<li>Find and select the <fn>Contig_stats.txt.gz</fn> file you downloaded and click <ss>Open</ss>  </li>
+<li>Set the <ss>Type</ss> to <em>tabular</em>  </li>
+<li>Click the <ss>Start</ss> button  </li>
+<li>Once the progress bar reaches 100%, click the <ss>Close</ss> button  </li>
+<li>The file will now upload to your current history.</li>
+</ul>
+<h3 id="upload-a-file-from-a-url">Upload a file from a URL</h3>
+<p>If a file exists on a web resource somewhere and you know its URL (Unique Resource Location - a web address) you can directly load it into Galaxy.</p>
+<ul>
+<li>From the tool panel, click on <ss>Get Data &rarr; Upload File</ss></li>
+<li>Click on the <ss>Paste/Fetch Data</ss> button</li>
+<li>Copy and paste the following web address into the URL/Text box:
+<a href="https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq.gz">https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq.gz</a></li>
+<li>Set the <ss>Type</ss> to <em>fastqsanger</em> (CAREFUL: not fastqCsanger)</li>
+<li>Click <ss>Start</ss></li>
+<li>Once the progress bar has reached 100%, click <ss>Close</ss>.</li>
+<li>Note that Galaxy is smart enough to recognize that this is a compressed file and so it will uncompress it as it loads it.</li>
+</ul>
+<h3 id="upload-another-file-from-a-url">Upload another file from a URL</h3>
+<p>Now we are going to upload another file from the remote data source.</p>
+<ul>
+<li>Repeat the above for: https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna</li>
+<li>Note: this file <ss>Type</ss> is <em>FASTA</em>.</li>
+<li>The DNA sequence of <em>Staphylococcus aureus MRSA252</em> will be loaded into your history as a FASTA file.</li>
+<li>Your <ss>History</ss> should now look like this:</li>
+</ul>
+<p><img alt="History screenshot" src="images/image03.png" /></p>
+<h3 id="the-data">The data</h3>
+<p>A brief description of each of the three files uploaded to Galaxy:  </p>
+<p><fn>Contigs_stats.txt</fn>  </p>
+<ul>
+<li>this file contains a table of summary data from a <em>de novo</em> genome assembly (the process of attempting to recover the full genome of an organism from the short read sequences produced by most DNA sequencing machines).</li>
+<li>The columns contain a lot of information but the ones we will be using indicate the amount of data (or coverage) that went into making up each piece of the final assembly.</li>
+</ul>
+<p><fn>bacterial_std_err_1.fastq.gz</fn>  </p>
+<ul>
+<li>This file contains sequence reads, in the format produced by Illumina sequencing machines. Read more about the
+<a href="https://en.wikipedia.org/wiki/FASTQ_format">FASTQ</a> format at Wikipedia.</li>
+</ul>
+<p><fn>MRSA0252.fna</fn></p>
+<ul>
+<li>This file contains the genome sequence of <em>Staphylococcus aureus MRSA252</em>. Read more about the <a href="https://en.wikipedia.org/wiki/FASTA_format">FASTA</a> format at Wikipedia.</li>
+</ul>
+<h2 id="galaxy-tools">Galaxy tools</h2>
+<p>The purpose of this section is to help you become familiar with the way
+tools are run on Galaxy.</p>
+<p>We will see how to:</p>
+<ul>
+<li>rename files</li>
+<li>summarize assembly statistics</li>
+<li>convert file formats, and</li>
+<li>find features in a DNA sequence.</li>
+</ul>
+<h3 id="rename-files">Rename files</h3>
+<p>Two of the files in the <ss>History</ss> have very long and confusing names. File names can be changed by taking the following steps:</p>
+<ul>
+<li>Click on the edit icon <img alt="edit icon" src="images/image07.png" /> next to the file in the <ss>History</ss> called: <fn>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/COMP90014/Assignment1/bacterial_std_err_1.fastq</fn></li>
+<li>In the <ss>Name</ss> text box, give it a new name. Rename it to: <fn>typical.fastq</fn></li>
+<li>Click the <ss>Save</ss> button.</li>
+</ul>
+<p>Repeat the process with another file:</p>
+<ul>
+<li>Find the file called: <fn>https://swift.rc.nectar.org.au:8888/v1/AUTH_377/public/MRSA0252.fna</fn>  </li>
+<li>Rename it to <fn>MRSA252.fna</fn></li>
+</ul>
+<p>Much better. There is other functionality hidden behind that edit icon <img alt="edit icon" src="images/image07.png" /></p>
+<p>You can change a file’s datatype, convert its format and many other things. Feel free to play around with them at a later date.</p>
+<h3 id="summarize-assembly-statistics">Summarize assembly statistics</h3>
+<p>We are going to produce a histogram of contig read-coverage depths and calculate the summary statistics from the <fn>Contig_stats.txt</fn> file.</p>
+<p>To do this we need to make some changes to the <fn>Contig_stats.txt</fn> file:</p>
+<ul>
+<li>cut out a couple of columns from the file</li>
+<li>remove a line from the file</li>
+<li>produce a histogram</li>
+</ul>
+<h4 id="cut-out-and-keep-two-columns">Cut out and keep two columns</h4>
+<ul>
+<li>Click on the eye icon <img alt="eye icon" src="images/image00.png" /> of the <fn>Contig_stats.txt</fn> file to have a look at it.  </li>
+<li>Note that there are 18 columns in this file. We want column 1 and column 6.</li>
+<li>Go to <ss>Tools &rarr; Text Manipulation &rarr; Cut</ss> and set the following:</li>
+<li>Set <ss>Cut Columns</ss> to: <em>c1,c6</em></li>
+<li><ss>Delimited by</ss>: <em>Tab</em></li>
+<li><ss>From</ss>: <fn>Contig_stats.txt</fn></li>
+<li>Click <ss>Execute</ss></li>
+<li>Examine the new file by clicking on its eye icon <img alt="eye icon" src="images/image00.png" />. We now have 2 columns instead of the 18 in the original file.</li>
+</ul>
+<h4 id="remove-the-header-lines-of-the-new-file">Remove the Header lines of the new file</h4>
+<ul>
+<li>Go to <ss>Tools &rarr; Text Manipulation &rarr; Remove beginning</ss> and set the following:</li>
+<li><ss>Remove First</ss>: <em>1</em></li>
+<li><ss>from</ss>: <fn>Cut on data1</fn></li>
+<li>click <ss>Execute</ss></li>
+<li>Note the the new file is the same as the previous one without the header line.</li>
+</ul>
+<h4 id="make-a-histogram">Make a histogram</h4>
+<ul>
+<li>Go to <ss>Tools &rarr; Graph/Display Data &rarr; Histogram</ss> and set the following:</li>
+<li><ss>Dataset</ss>: <fn>Remove beginning on Data 4</fn></li>
+<li><ss>Numerical column for X axis</ss> Column: 2</li>
+<li><ss>Number of breaks</ss>: <em>25</em></li>
+<li><ss>Plot title</ss>: <em>Histogram of Contig Coverage</em></li>
+<li><ss>Label for X axis</ss>: <em>Coverage depth</em></li>
+<li>Click <ss>Execute</ss></li>
+<li>Click on the eye icon <img alt="eye icon" src="images/image00.png" /> of the histogram to have a look at it. Note there are a few peaks. Maybe these correspond to single, double and triple copy number of these contigs.</li>
+</ul>
+<h4 id="calculate-summary-statistics-for-contig-coverage-depth">Calculate summary statistics for contig coverage depth</h4>
+<ul>
+<li>Go to <ss>Tools &rarr; Statistics and Visualisation &rarr; Statistics &rarr; Summary Statisitics</ss> and set the following:  </li>
+<li><ss>Summary statistics on</ss>: <fn>Remove beginning on Data 4</fn></li>
+<li><ss>Column or expression</ss>: <em>c2</em></li>
+<li>Click <ss>Execute</ss></li>
+<li>You’ll note that the summary statistics tool failed (red background in the <ss>History</ss>). There was an error!</li>
+<li>If you click on the filename, and then the bug symbol <img alt="bug icon" src="images/image08.png" />, it will tell you what went wrong. (There is a missing python library).</li>
+<li>At this point, you would normally contact your Galaxy server administrator.</li>
+</ul>
+<h3 id="convert-file-formats">Convert file formats</h3>
+<p>This shows how to convert a FASTQ file to a FASTA file. The tool creates a new file with the converted data.</p>
+<ul>
+<li>Go to <ss>Tools &rarr; Basic Tools &rarr; Convert Formats &rarr; FASTQ to FASTA</ss> and set the following:</li>
+<li><ss>FASTQ file to convert</ss>: <fn>typical.fastq</fn></li>
+<li>Click <ss>Execute</ss></li>
+<li>The output is a new Fasta file called <fn>FASTQ to FASTA on data 2</fn>.</li>
+</ul>
+<h3 id="find-features">Find features</h3>
+<p>This example shows how to use a tool called “barrnap” to search for rRNAs in a DNA sequence.</p>
+<h4 id="find-all-of-the-ribosomal-rnas-in-a-sequence">Find all of the ribosomal RNAs in a sequence</h4>
+<ul>
+<li>Go to <ss>Tools &rarr; NGS Analysis &rarr; NGS: Annotation &rarr; barrnap</ss> and set the following:</li>
+<li><ss>Fasta file</ss>: <fn>MRSA252.fna</fn></li>
+<li>Click <ss>Execute</ss></li>
+<li>The output is <fn>barrnap on data 3</fn> It is a gff3 format file (general feature format version 3). Each line in the file describes a feature in the DNA sequence.</li>
+</ul>
+<h4 id="filter-the-annotations-to-get-the-23s-rnas">Filter the annotations to get the 23S RNAs</h4>
+<ul>
+<li>Make a file with only the 23S rRNA features</li>
+<li>Go to <ss>Tools &rarr; Basic Tools &rarr; Filter and Sort &rarr; Select</ss> and set the following:</li>
+<li><ss>Select lines from</ss>: (whatever you called the barrnap gff3 output)</li>
+<li><ss>the pattern</ss>: <em>23S</em> (this will look for all the lines in the file that contain “23S”)</li>
+<li>Click <ss>Execute</ss></li>
+<li>Now you have a gff3 file with just the 23S annotations!</li>
+</ul>
+<h2 id="what-next">What next?</h2>
+<ul>
+<li>
+<p>Remember how we started a new <ss>History</ss> at the beginning? If you want to see any of your old histories, click on the History options button <img alt="history button" src="images/image02.png" /> at the top of the <ss>History</ss> panel and then select “Saved Histories.” This will give you a list of all the histories you have worked on in this Galaxy server.</p>
+</li>
+<li>
+<p><a href="/modules/data-dna/index.md">Upload a saved Galaxy history (a set of files) to use in these tutorials</a>.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; The authors; 2016-
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  </body>
+</html>

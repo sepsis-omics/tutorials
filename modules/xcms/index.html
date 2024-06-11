@@ -1,44 +1,28 @@
 
-
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
         <meta name="description" content="Tutorials for analysing bacterial omics data">
-      
-      
-        <link rel="canonical" href="http://sepsis-omics.github.io/tutorials/modules/xcms/">
       
       
         <meta name="author" content="Anna Syme, Torsten Seemann">
       
       
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+        <link rel="canonical" href="http://sepsis-omics.github.io/tutorials/modules/xcms/">
       
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
       
-        <meta name="lang:search.language" content="en">
+        <link rel="prev" href="../pathway_tools/annotation/">
       
-        <meta name="lang:search.pipeline.stopwords" content="True">
       
-        <meta name="lang:search.pipeline.trimmer" content="True">
+        <link rel="next" href="../../about/">
       
-        <meta name="lang:search.result.none" content="No matching documents">
       
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.0">
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
     
     
       
@@ -46,746 +30,1105 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.4f4f49e8.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
       
       
+
+
     
     
-      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
-    
-    
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-      
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
     
       <link rel="stylesheet" href="../../css/sepsis.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
     
     
   </head>
   
+  
     <body dir="ltr">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
-    viewBox="0 0 416 448" id="__github">
-  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
-        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
-        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
-        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
-        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
-        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
-        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
-        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
-        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
-        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
-        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
-        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
-        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
-        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
-        99.5z" />
-</svg>
-        
-      </defs>
-    </svg>
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#metabolomics-with-xcms" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://sepsis-omics.github.io/tutorials/" title="ABRPI-Training" class="md-header-nav__button md-logo">
-          
-            <i class="md-icon"></i>
-          
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#metabolomics-with-xcms" class="md-skip">
+          Skip to content
         </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ABRPI-Training" class="md-header__button md-logo" aria-label="ABRPI-Training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ABRPI-Training
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
-              <span class="md-header-nav__topic">
-                ABRPI-Training
-              </span>
-              <span class="md-header-nav__topic">
-                Metabolite identification
-              </span>
+              Metabolite identification
             
-          
+          </span>
         </div>
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
         
-          
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
-<div class="md-search" data-md-component="search" role="dialog">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
   </div>
 </div>
-          
-        
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-
-  <a href="https://github.com/sepsis-omics/tutorials/" title="Go to repository" class="md-source" data-md-source="github">
     
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sepsis-omics/tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sepsis-omics/tutorials
+  </div>
+</a>
       </div>
     
-    <div class="md-source__repository">
-      sepsis-omics/tutorials
-    </div>
-  </a>
-
-          </div>
-        </div>
-      
-    </div>
   </nav>
+  
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
+      
       
         
+          
+        
       
-      
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ABRPI-Training" class="md-nav__button md-logo" aria-label="ABRPI-Training" data-md-component="logo">
       
-        <i class="md-icon"></i>
-      
-    </span>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
     ABRPI-Training
   </label>
   
     <div class="md-nav__source">
-      
-
-
-  
-
-
-  <a href="https://github.com/sepsis-omics/tutorials/" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sepsis-omics/tutorials" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
     
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      sepsis-omics/tutorials
-    </div>
-  </a>
-
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sepsis-omics/tutorials
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
       
       
-      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
-      Home
-    </a>
-  </li>
+      </a>
+    </li>
+  
 
     
       
       
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
       
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Genomics
+  </span>
+  
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Genomics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genomics workshop overview
+  </span>
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../galaxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Starting with Galaxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-dna/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training dataset
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastqc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quality control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pear/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Merge reads with Pear
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../velvet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genome assembly with Velvet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genome assembly with Spades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prokka/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genome annotation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snippy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variant finding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Public data &rarr; assembly, annotation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../abricate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Finding antibiotic-resistant genes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../viral_genomes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Viral genome sequencing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Galaxy workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frogs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metagenomics with FROGS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kraken/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample identification with Kraken
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pacbio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PacBio assembly with SMRT portal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmdline_assembly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PacBio assembly with command line tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spades_cmdline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spades assembly - commandline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mauve/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genome alignment with Mauve
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pangenomes with Roary/Phandango - command line
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roary-galaxy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pangenomes with Roary/Phandango - Galaxy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmdline_assembly_v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Long read assembly workshop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      
+      
+  
+  
+  
+  
     
-    <label class="md-nav__link" for="nav-2">
-      Genomics
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Transcriptomics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Transcriptomics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differential gene expression using Galaxy and Degust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kallisto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differential gene expression using Kallisto and Degust
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proteomics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Proteomics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xtandem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protein Identification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pathway_tools/annotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pathway annotation and prediction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Metabolomics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Metabolomics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Metabolite identification
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Metabolite identification
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        Genomics
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../workshop_overview/" title="Genomics workshop overview" class="md-nav__link">
-      Genomics workshop overview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../galaxy/" title="Starting with Galaxy" class="md-nav__link">
-      Starting with Galaxy
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../data-dna/" title="Training dataset" class="md-nav__link">
-      Training dataset
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../fastqc/" title="Quality control" class="md-nav__link">
-      Quality control
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../pear/" title="Merge reads with Pear" class="md-nav__link">
-      Merge reads with Pear
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../velvet/" title="Genome assembly with Velvet" class="md-nav__link">
-      Genome assembly with Velvet
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../spades/" title="Genome assembly with Spades" class="md-nav__link">
-      Genome assembly with Spades
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../prokka/" title="Genome annotation" class="md-nav__link">
-      Genome annotation
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../snippy/" title="Variant finding" class="md-nav__link">
-      Variant finding
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../access_data/" title="Public data &rarr; assembly, annotation" class="md-nav__link">
-      Public data &rarr; assembly, annotation
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../abricate/" title="Finding antibiotic-resistant genes" class="md-nav__link">
-      Finding antibiotic-resistant genes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../viral_genomes/" title="Viral genome sequencing" class="md-nav__link">
-      Viral genome sequencing
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../workflows/" title="Galaxy workflows" class="md-nav__link">
-      Galaxy workflows
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../frogs/" title="Metagenomics with FROGS" class="md-nav__link">
-      Metagenomics with FROGS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../kraken/" title="Sample identification with Kraken" class="md-nav__link">
-      Sample identification with Kraken
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../pacbio/" title="PacBio assembly with SMRT portal" class="md-nav__link">
-      PacBio assembly with SMRT portal
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cmdline_assembly/" title="PacBio assembly with command line tools" class="md-nav__link">
-      PacBio assembly with command line tools
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../spades_cmdline/" title="Spades assembly - commandline" class="md-nav__link">
-      Spades assembly - commandline
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../mauve/" title="Genome alignment with Mauve" class="md-nav__link">
-      Genome alignment with Mauve
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../roary/" title="Pangenomes with Roary/Phandango - command line" class="md-nav__link">
-      Pangenomes with Roary/Phandango - command line
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../roary-galaxy/" title="Pangenomes with Roary/Phandango - Galaxy" class="md-nav__link">
-      Pangenomes with Roary/Phandango - Galaxy
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cmdline_assembly_v2/" title="Long read assembly workshop" class="md-nav__link">
-      Long read assembly workshop
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      Transcriptomics
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        Transcriptomics
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../dge/" title="Differential gene expression using Galaxy and Degust" class="md-nav__link">
-      Differential gene expression using Galaxy and Degust
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../kallisto/" title="Differential gene expression using Kallisto and Degust" class="md-nav__link">
-      Differential gene expression using Kallisto and Degust
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      Proteomics
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        Proteomics
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../xtandem/" title="Protein Identification" class="md-nav__link">
-      Protein Identification
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../pathway_tools/annotation/" title="Pathway annotation and prediction" class="md-nav__link">
-      Pathway annotation and prediction
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
-    
-    <label class="md-nav__link" for="nav-5">
-      Metabolomics
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Metabolomics
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Metabolite identification
-      </label>
-    
-    <a href="./" title="Metabolite identification" class="md-nav__link md-nav__link--active">
-      Metabolite identification
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#xcms" title="XCMS" class="md-nav__link">
-    XCMS
+  <a href="#xcms" class="md-nav__link">
+    <span class="md-ellipsis">
+      XCMS
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#get-data" title="Get data" class="md-nav__link">
-    Get data
+  <a href="#get-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get data
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#upload-data" title="Upload data" class="md-nav__link">
-    Upload data
+  <a href="#upload-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload data
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#set-up-job" title="Set up job" class="md-nav__link">
-    Set up job
+  <a href="#set-up-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up job
+    </span>
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Set up job">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#general" title="General" class="md-nav__link">
-    General
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      General
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#feature-detection" title="Feature Detection" class="md-nav__link">
-    Feature Detection
+  <a href="#feature-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature Detection
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#retention-time-correction" title="Retention time correction" class="md-nav__link">
-    Retention time correction
+  <a href="#retention-time-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retention time correction
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#alignment" title="Alignment" class="md-nav__link">
-    Alignment
+  <a href="#alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alignment
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#statistics" title="Statistics" class="md-nav__link">
-    Statistics
+  <a href="#statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statistics
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#annotation" title="Annotation" class="md-nav__link">
-    Annotation
+  <a href="#annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Annotation
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#identification" title="Identification" class="md-nav__link">
-    Identification
+  <a href="#identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identification
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#visualization" title="Visualization" class="md-nav__link">
-    Visualization
+  <a href="#visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualization
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#miscellaneous" title="Miscellaneous" class="md-nav__link">
-    Miscellaneous
+  <a href="#miscellaneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      Miscellaneous
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#next" title="Next" class="md-nav__link">
-    Next
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next
+    </span>
   </a>
   
 </li>
@@ -796,44 +1139,56 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#view-results" title="View results" class="md-nav__link">
-    View results
+  <a href="#view-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      View results
+    </span>
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="View results">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ions-detected" title="Ions detected" class="md-nav__link">
-    Ions detected
+  <a href="#ions-detected" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ions detected
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#sample-information" title="Sample information" class="md-nav__link">
-    Sample information
+  <a href="#sample-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample information
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#results-table" title="Results Table" class="md-nav__link">
-    Results Table
+  <a href="#results-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Results Table
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#cloud-plot" title="Cloud plot" class="md-nav__link">
-    Cloud plot
+  <a href="#cloud-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud plot
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#activity-network" title="Activity network" class="md-nav__link">
-    Activity network
+  <a href="#activity-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activity network
+    </span>
   </a>
   
 </li>
@@ -844,38 +1199,48 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#links" title="Links" class="md-nav__link">
-    Links
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
 </nav>
-    
-  </li>
+      
+    </li>
+  
 
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
         
-      </ul>
-    </nav>
-  </li>
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
 
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../about/" title="About" class="md-nav__link">
-      About
-    </a>
-  </li>
+      </a>
+    </li>
+  
 
     
   </ul>
@@ -885,121 +1250,157 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#xcms" title="XCMS" class="md-nav__link">
-    XCMS
+  <a href="#xcms" class="md-nav__link">
+    <span class="md-ellipsis">
+      XCMS
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#get-data" title="Get data" class="md-nav__link">
-    Get data
+  <a href="#get-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get data
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#upload-data" title="Upload data" class="md-nav__link">
-    Upload data
+  <a href="#upload-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload data
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#set-up-job" title="Set up job" class="md-nav__link">
-    Set up job
+  <a href="#set-up-job" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up job
+    </span>
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Set up job">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#general" title="General" class="md-nav__link">
-    General
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      General
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#feature-detection" title="Feature Detection" class="md-nav__link">
-    Feature Detection
+  <a href="#feature-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feature Detection
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#retention-time-correction" title="Retention time correction" class="md-nav__link">
-    Retention time correction
+  <a href="#retention-time-correction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retention time correction
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#alignment" title="Alignment" class="md-nav__link">
-    Alignment
+  <a href="#alignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alignment
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#statistics" title="Statistics" class="md-nav__link">
-    Statistics
+  <a href="#statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Statistics
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#annotation" title="Annotation" class="md-nav__link">
-    Annotation
+  <a href="#annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Annotation
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#identification" title="Identification" class="md-nav__link">
-    Identification
+  <a href="#identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identification
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#visualization" title="Visualization" class="md-nav__link">
-    Visualization
+  <a href="#visualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualization
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#miscellaneous" title="Miscellaneous" class="md-nav__link">
-    Miscellaneous
+  <a href="#miscellaneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      Miscellaneous
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#next" title="Next" class="md-nav__link">
-    Next
+  <a href="#next" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next
+    </span>
   </a>
   
 </li>
@@ -1010,44 +1411,56 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#view-results" title="View results" class="md-nav__link">
-    View results
+  <a href="#view-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      View results
+    </span>
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="View results">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ions-detected" title="Ions detected" class="md-nav__link">
-    Ions detected
+  <a href="#ions-detected" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ions detected
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#sample-information" title="Sample information" class="md-nav__link">
-    Sample information
+  <a href="#sample-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample information
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#results-table" title="Results Table" class="md-nav__link">
-    Results Table
+  <a href="#results-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Results Table
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#cloud-plot" title="Cloud plot" class="md-nav__link">
-    Cloud plot
+  <a href="#cloud-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud plot
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#activity-network" title="Activity network" class="md-nav__link">
-    Activity network
+  <a href="#activity-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Activity network
+    </span>
   </a>
   
 </li>
@@ -1058,15 +1471,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#links" title="Links" class="md-nav__link">
-    Links
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Links
+    </span>
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -1076,14 +1487,17 @@
               </div>
             
           
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                  <a href="https://github.com/sepsis-omics/tutorials/edit/master/docs/modules/xcms/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
-                
-                
-                <p><br></p>
+                  
+
+  
+  
+
+
+<p><br></p>
 <h1 id="metabolomics-with-xcms">Metabolomics with XCMS</h1>
 <h2 id="overview">Overview</h2>
 <p>Metabolomics is the study of metabolites: small molecules (smaller than proteins) produced by organisms. One technique to identify and quantify metabolites is LC/MS (liquid chromatography-mass spectrometry).</p>
@@ -1099,7 +1513,7 @@
 <li>These are separated based on their mass-to-charge ratio.</li>
 <li>This adds another dimension to the graph: an axis with the mass-to-charge ratio of the metabolites found at that time point, and their intensities.</li>
 </ul>
-<p><img alt="peaks" src="./images/peaks.png" /></p>
+<p><img alt="peaks" src="images/peaks.png" /></p>
 <p><em>image: Daniel Norena-Caro, Wikipedia.</em></p>
 <p>There are multiple mass spectra. Each spectrum is often simplified into a graph of peaks only (local maxima):</p>
 <p><img src="images/centroid.png" width="600" height ="250" /></p>
@@ -1121,7 +1535,7 @@ multiple specta - from the MS
 </ul>
 <h2 id="xcms">XCMS</h2>
 <p>Go to: <a href="https://xcmsonline.scripps.edu">https://xcmsonline.scripps.edu</a> and sign up.</p>
-<p><img alt="startpage" src="./images/start_page.png" /></p>
+<p><img alt="startpage" src="images/start_page.png" /></p>
 <h2 id="get-data">Get data</h2>
 <p>The data we will use today is from two bacterial strains of <em>Klebsiella pneumoniae</em>.</p>
 <ul>
@@ -1152,7 +1566,7 @@ multiple specta - from the MS
 <p>An alternative is the commercially-available Qualitative Analysis Software.</p>
 <h2 id="upload-data">Upload data</h2>
 <p>In the top panel, go to <ss>Stored Datasets</ss>. We will upload some data here.</p>
-<p><img alt="datasets" src="./images/stored_data.png" /></p>
+<p><img alt="datasets" src="images/stored_data.png" /></p>
 <ul>
 <li>
 <p>Drag the <fn>.mzML</fn> files into the <ss>Drop Here</ss> box - 6 replicates for each strain.</p>
@@ -1163,11 +1577,11 @@ multiple specta - from the MS
 <li>Name the datset (e.g. Sample AJ218 or Sample KPC2) and click <ss>Save</ss>.</li>
 <li>Click <ss>Save Dataset &amp; Proceed</ss>.</li>
 </ul>
-<p><img alt="upload" src="./images/file_upload.png" /></p>
+<p><img alt="upload" src="images/file_upload.png" /></p>
 <p>Repeat with the second strain.</p>
 <h2 id="set-up-job">Set up job</h2>
 <p>In the top panel, click on <ss>Create Job</ss> and select <ss>Pairwise Job</ss>.</p>
-<p><img alt="pairwise" src="./images/pairwise.png" /></p>
+<p><img alt="pairwise" src="images/pairwise.png" /></p>
 <p>On the right hand side, under Job Summary, Job Name: click <ss>Edit</ss>, enter job name: e.g. Klebsiella, and then click <ss>Save</ss>.</p>
 <p>Under <ss>Dataset 1</ss> click on <ss>Select Dataset</ss>.</p>
 <ul>
@@ -1192,7 +1606,7 @@ multiple specta - from the MS
 </ul>
 <!---  Note: even if you use an existing setup, some values will need to be re-set - e.g. Statistical test, View pairs (I set up as 1 matches 1 etc?); also biosource will need to be re-set. -->
 
-<p><img alt="parameters" src="./images/params1.png" /></p>
+<p><img alt="parameters" src="images/params1.png" /></p>
 <h3 id="general">General</h3>
 <ul>
 <li>First, click <ss>Create New</ss> in the bottom right hand corner.</li>
@@ -1264,7 +1678,7 @@ multiple specta - from the MS
 <h2 id="view-results">View results</h2>
 <p>Click on <ss>View</ss>.</p>
 <p>There are six graphs, and options for other results in the left hand panel.</p>
-<p><img alt="results" src="./images/graphs.png" /></p>
+<p><img alt="results" src="images/graphs.png" /></p>
 <h3 id="ions-detected">Ions detected</h3>
 <p>Look at the top three graphs.</p>
 <ul>
@@ -1319,12 +1733,12 @@ multiple specta - from the MS
 <ul>
 <li>Click on a row (a feature) to display associated graphs in the right-hand panel.</li>
 </ul>
-<p><img alt="results" src="./images/results.png" /></p>
+<p><img alt="results" src="images/results.png" /></p>
 <ul>
 <li>The <a href="https://metlin.scripps.edu/landing_page.php?pgcontent=mainPage">METLIN database</a> contains data on metabolites, their mass, and their known and predicted fragment masses.</li>
 </ul>
 <p>To filter the table, click on the small magnifying glass:</p>
-<p><img alt="search" src="./images/magnifying.png" /></p>
+<p><img alt="search" src="images/magnifying.png" /></p>
 <ul>
 <li>Filter by p-value or fold change (or both).</li>
 <li>e.g. p-value less or equal to 0.01, fold change greater than 30</li>
@@ -1341,7 +1755,7 @@ multiple specta - from the MS
 <li>Adjust p-value and fold change, and click <ss>Regenerate Cloud Plot</ss>.</li>
 <li>Click on a feature to see its associated graphs in the left hand panel.</li>
 </ul>
-<p><img alt="cloud plot" src="./images/cloud.png" /></p>
+<p><img alt="cloud plot" src="images/cloud.png" /></p>
 <h3 id="activity-network">Activity network</h3>
 <p>This shows the pathways that correspond to the identified metabolites. The table under the image shows the &ldquo;Top pathways&rdquo; - these are ordered by their p-values.</p>
 <!-- Next :More complex analyses: eg compare wildtype with 5 mutants. Metabolites in common to the 5 mutants identified; then investigate biochemical pathway and function.
@@ -1354,6 +1768,7 @@ multiple specta - from the MS
 <p>Smith, R. et al. (2014) Proteomics, lipidomics, metabolomics: a mass spectrometry tutorial from a computer scientist&rsquo;s point of view. <em>BMC Bioinformatics</em>. DOI: 10.1186/1471-2105-15-S7-S9. <em>See Figure 2 for an excellent explanation of the various graphs produced from MS.</em></p>
 <p>Patti, G. J. et al. (2013) A View from Above: Cloud Plots to Visualize Global Metabolomic Data. <em>Analytical Chemistry</em>. DOI: 10.1021/ac3029745</p>
 <!--
+
 
 ## Optional: repeat with different data
 
@@ -1471,100 +1886,60 @@ This will now bring up the "View Results" page.
 - The time taken will depend on server load.
 
 --->
-                
-                  
-                
-              
-              
-                
 
 
-              
-            </article>
-          </div>
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../pathway_tools/annotation/" title="Pathway annotation and prediction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Pathway annotation and prediction
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../../about/" title="About" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                About
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            &copy; The authors; 2016-
-          </div>
-        
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
-      </div>
-      
-        
-  <div class="md-footer-social">
-    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
-    
-      <a href="https://omics.data.edu.au/" class="md-footer-social__link fa fa-coffee"></a>
-    
-      <a href="https://github.com/sepsis-omics/tutorials" class="md-footer-social__link fa fa-github"></a>
-    
-      <a href="https://github.com/sepsis-omics/tutorials/issues" class="md-footer-social__link fa fa-bug"></a>
-    
-  </div>
-
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; The authors; 2016-
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
 </footer>
       
     </div>
-    
-      <script src="../../assets/javascripts/application.a59e2a89.js"></script>
-      
-      <script>app.initialize({version:"0.17.4",url:{base:"../.."}})</script>
-      
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
     
-      
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-21794901-5","www.melbournebioinformatics.org.au/tutorials/"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
     
   </body>
