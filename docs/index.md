@@ -1,12 +1,15 @@
 <br>
 # Welcome!
 
-<ss> Update October 2018: </ss>
+<ss> Update June 2024: </ss>
 <br>
-<ss>These tutorials are being updated for the new Galaxy Australia server: [https://usegalaxy.org.au/](https://usegalaxy.org.au/) </ss>
+<ss>These tutorials were initially developed for the [Antibiotic Resistant Pathogens Initiative](https://bioplatforms.com/projects/sepsis/) </ss>
 <br>
 <ss>
-Training materials are now hosted at [https://galaxy-au-training.github.io/tutorials/](https://galaxy-au-training.github.io/tutorials/) </ss>
+Galaxy-based tutorials have now been merged into the [Galaxy Training Network](https://training.galaxyproject.org/training-material/) </ss>
+<br>
+<ss> Please check there for the most up-to-date material, as this page is no longer maintained </ss>
+
 
 ## ABRPI training materials
 
