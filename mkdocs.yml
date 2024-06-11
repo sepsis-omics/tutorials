@@ -13,16 +13,7 @@ copyright: '&copy; The authors; 2016-'
 
 #theme: yeti
 theme: material
-extra:
-    feature:
-        tabs: true
-    social:
-        - type: 'coffee'
-          link: 'https://omics.data.edu.au/'
-        - type: 'github'
-          link: 'https://github.com/sepsis-omics/tutorials'
-        - type: 'bug'
-          link: 'https://github.com/sepsis-omics/tutorials/issues'
+
 
 
 markdown_extensions:
